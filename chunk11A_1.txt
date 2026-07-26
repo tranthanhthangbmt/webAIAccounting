@@ -1,0 +1,531 @@
+2-0
+C H A PT E R 2
+Foundational Data 
+Analysis Skills
+Chapter Preview
+You will be working with data and data analysis software throughout your career, and one of 
+the most common software tools used in accounting is Microsoft Excel. As you will see in the 
+Professional Insight feature, the ability to use Microsoft Excel to manipulate large data sets is 
+a tremendous asset for newly hired professional accountants. While Microsoft Excel skills are 
+important, the software is not powerful enough to analyze extremely large data sets, so it is 
+not the only tool used to analyze data. This chapter introduces some skills that, regardless of 
+the technology used, are fundamental to performing data analytics. Microsoft Excel is used 
+to demonstrate many of the core data analysis skills, but subsequent chapters also introduce 
+data analysis software such as Power BI and ­Tableau. A combination of a core understanding of 
+data, data visualization, and descriptive analysis skills are the foundation for performing more 
+advanced data analytics.
+Professional Insight: How Can Pivot Tables Help Make Sense of 
+Large Data Sets?
+Josh, a senior accounting student, explains how learning Microsoft Excel helped him in his 
+internship.
+My first assignment was to create an Excel PivotTable to manipulate a 
+huge data file of approximately 450,000 records. I had just obtained my Mic-
+rosoft Office Specialist Basic Excel certification when I began my internship at PwC. It 
+feels great to apply what I learned in the classroom in the business world. This expe-
+rience gave me confidence interacting with my superiors and helped me 
+build a reputation of reliability at my firm. My director on the client was thor-
+oughly impressed with my work, and my senior associate was surprised that I was able 
+to put together such a comprehensive table with so little experience.
+
+Chapter Roadmap
+LEARNING OBJECTIVES
+TOPICS
+APPLY IT
+ LO 2.1   Describe how data is 
+stored in and extracted from 
+relational databases.
+•	 Relational Databases
+•	 Joining Tables
+Identify Primary and Foreign 
+Keys
+(Example: Accounting 
+Information Systems)
+ LO 2.2   Explain how functions 
+help answer data analysis 
+questions.
+•	 Basic Functions for Data Analysis
+•	 Applying Excel Basic Functions
+Analyze Sales Transactions 
+with Excel Functions 
+(Example: Financial and 
+Managerial Accounting)
+ LO 2.3   Illustrate how pivot 
+tables organize and filter data.
+•	 Using Pivot Tables
+•	 Filtering Pivot Tables
+Analyze Sales with Excel 
+PivotTables
+(Example: Financial and 
+Managerial Accounting)
+ LO 2.4   Identify descriptive 
+measures used to perform data 
+analysis.
+•	 Measures of Location
+•	 Measures of Dispersion
+•	 Measures of Shape
+•	 Correlation Analysis
+Use Descriptive Statistics to 
+Audit Warranty Expense
+(Example: Auditing)
+ LO 2.5   Summarize how data 
+visualization explores and 
+explains data.
+•	 Making Sense of Large Data Sets
+•	 Visualizations and When to Use Them
+•	 Microsoft Excel Visualizations
+Analyze Product Costs with 
+Data Visualization
+(Example: Managerial 
+Accounting)
+Data   The Data tag appears in the chapter when the data for an example, illustration, or application are available 
+on Wiley’s online learning platform. 
+Data analytics software is continuously changing, and there may be more recent versions of the software refer-
+enced in this chapter. For more information access the accompanying video on Wiley’s online learning platform.
+2.1  How Does Understanding Data Storage Help Answer Questions? 
+2-1
+2.1  How Does Understanding Data Storage 
+Help Answer Questions?
+LEARNING OBJECTIVE ➊
+Describe how data is stored in and extracted from relational databases.
+Understanding how data are stored is critical for data analysis. This is because the kind of 
+analysis that can be performed depends on the data being used, and identifying and extracting 
+the data we need requires knowing how it is stored. 
+
+2-2 
+CHAPTER 2  Foundational Data Analysis Skills
+ILLUSTRATION 2.2  University 
+Database
+Relational Databases
+Data, regardless of type or format, needs to be stored somewhere. One way to do that is in 
+a relational database, which is a collection of logically related data that can be retrieved, 
+manipulated, and updated to meet users’ needs. Most data you will work with in your account-
+ing career will come from relational databases, where data are stored in individual tables that 
+can be linked together. Once the tables are linked, data from multiple tables can be accessed. 
+A table in a relational database stores valuable data related to an object of interest, such as a 
+business resource, event, or agent. Tables are comprised of rows and columns:
+•	Each row represents one record or instance of the table’s object.
+•	The columns reflect the attributes, which are the data fields that describe different 
+aspects of the records (Illustration 2.1).
+ILLUSTRATION 2.1  Database Elements and Examples of Tables and Attributes
+Database Elements
+Table Examples
+Examples of Attributes
+Resources: Identifiable 
+objects that have economic 
+value to the business entity.
+Inventory items
+•	 Inventory item’s code 
+number
+•	 Description
+•	 Cost
+•	 Quantity on hand
+Events: An organization’s 
+business activities.
+Sales orders
+•	 Sales order number
+•	 The date of a sales order
+•	 Customer ID of the 
+purchaser
+Agents: Represent people or 
+organizations about which 
+data are collected.
+Employees
+•	 Employee number
+•	 Name
+•	 Address
+•	 Phone number
+Illustration 2.2 is the database view of a university’s asset data table that contains data for 
+the inventory of its assets.
+UniversityAssetData
+AssetTagID
+AssetDescription
+Amount
+CategoryID
+AcquisitionDate
+AssetUsefulLife
+CategoryID
+CategoryDescription
+UsefulLife
+Primary Key
+Primary Key
+
+2.1  How Does Understanding Data Storage Help Answer Questions? 
+2-3
+Each row in the table shows a uniquely identifiable asset. Its associated attributes are orga-
+nized in each vertical column listed below the table name:
+•	AssetTagID: Tag identification number
+•	AssetDescription: Description of asset
+•	CategoryID: Category identification number
+•	Amount: Cost of asset
+•	AcquisitionDate: Date asset was acquired
+The AssetUsefulLife table contains information related to the asset categories. Each row is a 
+unique category, and the columns are the attributes of that category:
+•	CategoryID: Identification number for each category of assets
+•	CategoryDescription: Category description
+•	UsefulLife: Useful life in years of assets in each category
+There is a symbol for a key next to the AssetTagID attribute in the first table and the Catego-
+ryID in the second table. This symbol identifies the primary key, which is the column that 
+must have a unique value for each row in the table. In the UniversityAssetData table, every 
+asset is uniquely identified by the primary key column AssetTagID. In the AssetUsefulLife 
+table, the primary key is CategoryID. Each row in the AssetUsefulLife table will have a unique 
+CategoryID number.
+To calculate depreciation on assets, we need cost information, useful life information, and 
+the age of the asset. However, that information appears in two different tables. Linking them 
+requires a common field in both:
+•	The CategoryID field is in both tables.
+•	CategoryID is the primary key column in the AssetUsefulLife table.
+•	In the UniversityAssetData table, CategoryID is a foreign key column. A foreign key col-
+umn contains the same data as a primary key from another table. It has been repeated in 
+the second table so the tables can be linked in relationship to each other. Illustration 2.3 
+shows the relationship linking the two tables using the CategoryID attribute.
+Why does this matter? Linking tables creates a relationship that makes it possible to pull 
+information from both tables and create calculations of depreciation for every asset in the 
+asset data table.
+UniversityAssetData
+AssetTagID
+AssetDescription
+Amount
+CategoryID
+AcquisitionDate
+AssetUsefulLife
+CategoryID
+CategoryDescription
+UsefulLife
+Primary Key
+Primary Key
+Foreign Key
+ILLUSTRATION 2.3  Creating a 
+Relationship Between Tables
+
+2-4 
+CHAPTER 2  Foundational Data Analysis Skills
+Joining Tables
+Once common fields using primary and foreign keys are identified across tables, the next step 
+is to tell the database how to link the tables to extract data:
+•	A query is an action request made to a database. It provides the computer instructions 
+for joining, adding, updating, deleting, retrieving, or manipulating the data in its tables. 
+Queries can be created and used once or stored for later reuse.
+•	The standard query command language used for database management is Structured 
+Query Language (SQL). Writing SQL code is beyond the scope of this chapter, but for-
+tunately, many software programs have built-in applications that automatically create the 
+SQL code needed to query the database.
+Retrieving all the data fields necessary to complete a particular task requires understanding 
+how to join tables based on columns they have in common. Tables are linked by creating a join 
+that combines rows from two or more tables based on a related column between them. Joins 
+are also used in visualization software and other data analysis software when there is more 
+than one table of data being used in an analysis. (We discuss data visualization in more detail 
+both at the end of this chapter and in later chapters.)
+The most common joins are inner, left, right, and full joins. Illustration 2.4 summa-
+rizes the different joins and provides a visual representation. The blue shading represents the 
+results of the join. Note that a null value is not the same as a value of zero. A null value is 
+when a value is unknown or missing.
+ILLUSTRATION 2.4  Types of Joins
+Join 
+Description
+Visual Representation
+Inner
+•	 Selects all rows from both tables with matching 
+values.
+•	 The results will not have null values in any key 
+column.
+Table 1
+Table 2
+Left
+•	 Returns all records from the left table and the 
+matching records from the right table.
+•	 There could be null values if there is no 
+matching value in the right table to a left table 
+record.
+Table 2
+Table 1
+Right
+•	 Returns all records from the right table and the 
+matched records from the left table.
+•	 Could return null values if there is not a 
+matching value in the left table to the record in 
+the right table.
+Table 1
+Table 2
+Full
+•	 Returns all records when there is a match in 
+either the left or right table.
+•	 Nulls could be present in this result if there are 
+no matching records between the tables.
+Table 2
+Table 1
+
+2.1  How Does Understanding Data Storage Help Answer Questions? 
+2-5
+We can illustrate how these joins work with an example. Bikes R Us is a bicycle wholesale 
+dealer. Illustration 2.5 shows two tables from their database:
+•	The left table is the Customer table, and the Order table is on the right.
+•	CustomerID is the primary key in the Customer table.
+•	OrderID is the primary key in the Order table. CustomerID is a foreign key.
+ILLUSTRATION 2.5  Bikes R Us Database Tables
+Customer Table
+1001
+1002
+Cycle Nation
+Spins
+Little Town Bike Stores
+Creebo
+Geck
+Blunsom
+NY
+NC
+TX
+1003
+1004
+Triathletes Store
+Rings
+CA
+CompanyName
+CustomerID
+ContactLastName
+State
+50012
+50013
+2/1/2025
+2/2/2025
+2/3/2025
+$     578.23
+$     982.99
+ $ 1,563.32
+1001
+1002
+1004
+50014
+50015
+2/4/2025
+$    300.12
+1001
+2/5/2025
+$     639.99
+102
+50016
+OrderDate
+OrderID
+Order Table
+Amount
+CustomerID
+An inner join on these two tables will result in a table with all the data from the tables that 
+match on the CustomerID field (Illustration 2.6).
+ILLUSTRATION 2.6  Results from an Inner Join for Bikes R Us
+Inner Join
+1001
+1001
+Cycle Nation
+Cycle Nation
+Spins
+Creebo
+Creebo
+Geck
+NY
+NY
+NC
+1002
+1004
+Triathletes Store
+Rings
+CA
+CompanyName
+CustomerID
+ContactLastName
+State
+50012
+50013
+2/1/2025
+2/2/2025
+2/3/2025
+$     578.23
+$     982.99
+$ 1,563.32
+50014
+50015
+2/4/2025
+$     300.12
+OrderDate
+OrderID
+Amount
+The inner join shows the customer and order information for each customer that has 
+placed an order:
+•	These results reveal that the customer with CustomerID = 1003, Little Town Bike Stores, 
+has not made any purchases.
+•	OrderID 50016 does not have a match in the customer table for CustomerID = 102, so 
+that order is not reflected in the joined tables.
+A left join returns all the rows from the left table and will show any matching data from the 
+right table. If there are no matching rows in the right table, then the fields without matches 
+will be null (Illustration 2.7).
+ILLUSTRATION 2.7  Results from a Left Join for Bikes R Us
+Lef Join
+1001
+1001
+Cycle Nation
+Cycle Nation
+Spins
+Creebo
+Creebo
+Geck
+NY
+NY
+NC
+1002
+1003
+Little Town Bike Stores Blunsom
+TX
+CompanyName
+CustomerID
+ContactLastName
+State
+50012
+50013
+2/1/2025
+2/2/2025
+NULL
+$     578.23
+$     982.99
+NULL
+NULL
+1004
+1001
+1001
+1002
+NULL
+CustomerID
+1004
+Triathletes Store
+Rings
+CA
+2/3/2025
+$ 1,563.32
+50014
+50015
+2/4/2025
+$     300.12
+OrderDate
+OrderID
+Amount
+
+2-6 
+CHAPTER 2  Foundational Data Analysis Skills
+The full join shown in Illustration 2.9 shows all the records from both tables:
+•	Note the null values for the Order table fields for CustomerID = 1003 and the null values 
+for the Customer table fields for OrderID = 50016.
+•	Any unmatched fields will have null values.
+Joins are essential when analyzing data from multiple sources. Illustration 2.10 shows 
+examples of some questions accountants may need to ask of the data and the type of join that 
+will answer them.
+ILLUSTRATION 2.8  Results from a Right Join for Bikes R Us
+Right Join
+1001
+1001
+Cycle Nation
+Cycle Nation
+Spins
+Creebo
+Creebo
+Geck
+NY
+NY
+NC
+1002
+CompanyName
+CustomerID
+ContactLastName
+State
+50012
+50013
+2/1/2025
+2/2/2025
+$     578.23
+$     982.99
+NULL
+1001
+1001
+1002
+CustomerID
+102
+NULL
+NULL
+NULL
+2/5/2025
+$     639.99
+50016
+1004
+1004
+Triathletes Store
+Rings
+CA
+2/3/2025
+$ 1,563.32
+50014
+50015
+2/4/2025
+$     300.12
+OrderDate
+OrderID
+Amount
+The right join in Illustration 2.8 shows all orders from the Order table and any matching 
+customers from the Customer table:
+•	There is not a matching customer record for CustomerID = 102, so the fields from the 
+Customer table will have null values for that record.
+•	If there are no matching rows in the left table, then the fields will have null values.
+A full join will return all the rows from both tables (Illustration 2.9).
+ILLUSTRATION 2.9  Results from a Full Join for Bikes R Us
+Full Join
+1001
+1001
+Cycle Nation
+Cycle Nation
+Spins
+Creebo
+Creebo
+Geck
+NY
+NY
+NC
+1002
+CompanyName
+CustomerID
+ContactLastName
+State
+50012
+50013
+2/1/2025
+2/2/2025
+$     578.23
+$     982.99
+NULL
+1001
+1001
+1002
+CustomerID
+102
+NULL
+NULL
+NULL
+2/5/2025
+$     639.99
+50016
+1004
+1004
+Triathletes Store
+Rings
+CA
+2/3/2025
+$ 1,563.32
+50014
+1003
+NULL
+Little Town Bike Stores Blunsom
+TX
+NULL
+NULL
+NULL
+50015
+2/4/2025
+$     300.12
+OrderDate
+OrderID
+Amount
+The left join in Illustration 2.7 shows all the customers from the Customer table and 

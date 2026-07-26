@@ -1,0 +1,106 @@
+–
+Học tăng cường đã được phổ biến rộng rãi bởi
+sự chú ý của giới truyền thông về cách chơi nhiều trò chơi khác nhau của Deepmind
+các thuật toán bao gồm cả AlphaGo nổi tiếng. Các thuật toán này
+học cách lựa chọn hành động thông qua việc sử dụng phần thưởng được trao
+dựa trên kết quả của những hành động đó trong trò chơi
+môi trường. Nhờ một số kết quả mang tính đột phá như
+AlphaGo, các phương pháp tăng cường đã là một lĩnh vực hoạt động
+của nghiên cứu.
+Mặc dù hai phương pháp cuối cùng sẽ tiếp tục thu hút được nhiều
+tiêu đề, hai tiêu đề đầu tiên có thể áp dụng nhiều hơn cho các ngành có
+đường cong học tập thấp hơn nhiều. Phần còn lại của chương này chủ yếu sẽ
+tập trung vào phân loại và hồi quy. Có nhiều cách để
+triển khai cả hai và mạng lưới thần kinh mà chúng ta đã học được
+trong chương trước, chỉ là một cách tiếp cận. Để đảm bảo rằng
+Bạn đọc có thể theo dõi các ví dụ thực tế sau, chúng tôi sẽ nhanh chóng
+xem lại các mạng thần kinh và nhớ lại cách chúng phù hợp với ML.
+Mạng thần kinh là một loại máy học đặc biệt
+Mạng lưới thần kinh và các thuật toán học tập liên quan có vai trò
+vị trí đặc biệt trong cộng đồng học máy, phần lớn
+do thực tế là thiết kế của họ được lấy cảm hứng từ bộ não. Chúng tôi
+biết rằng tế bào thần kinh được kết nối trong các mạng lưới rộng lớn bên trong chúng ta
+não, và các tín hiệu điện đi từ tế bào thần kinh này đến tế bào thần kinh khác
+tạo ra tất cả những trải nghiệm có ý thức của chúng ta – nhìn, nghe,
+suy nghĩ và nói—liên quan đến tất cả các mạng lưới thần kinh trong
+hành động, theo như khoa học có thể cho chúng ta biết ngày nay.1
+
+--- Trang 377 ---
+
+Hình 12.3: Mạng nơ-ron đơn giản với các kết nối có trọng số giữa
+lớp
+Bên trong mạng lưới thần kinh có gì? Các nơ-ron được tổ chức thành
+đầu vào (phần bên trái trong Hình 12.3), các lớp ẩn (phần
+phần giữa trong Hình 12.3) và đầu ra (phần bên phải trong
+Hình 12.3). Các kết nối giữa các nơ-ron này có trọng số
+và những thành kiến. Bản thân các nơ-ron hoặc các nút có khả năng kích hoạt
+các hàm hoạt động như bộ lọc trên dữ liệu đầu vào. chính
+chức năng của tất cả các yếu tố này là tạo ra sự phức tạp
+hành vi. Nếu không, bạn chỉ có thể thực hiện các chức năng cơ bản
+như cộng các số lại với nhau. Kết hợp các yếu tố này xuyên suốt
+hàng trăm hoặc thậm chí hàng nghìn nơ-ron ở nhiều lớp, chúng
+những hành vi phức tạp thực sự trở nên rất mạnh mẽ. Đây được gọi là
+học sâu.
+
+--- Trang 378 ---
+
+Hình 12.4: Mạng nơ-ron có thêm một vài lớp giới thiệu các
+phức tạp và được gọi là mạng lưới thần kinh sâu
+Các loại mạng thần kinh được sử dụng cho các nhiệm vụ tương đối đơn giản
+như nhận dạng chữ viết tay có thể chứa hàng trăm nút
+trong mỗi lớp, đến mức vẽ hàng nghìn
+kết nối không còn giúp đỡ. Các mạng chuyên dụng này
+xử lý các phần của hình ảnh với tốc độ vài pixel mỗi lần để
+xác định nội dung của nó.
+Hình 12.5: Mạng nơ ron tích chập dùng để nhận dạng hình ảnh
+
+--- Trang 379 ---
+
+Tuy nhiên, ngay cả một mạng lưới thần kinh lớn cũng có thể được biểu diễn trực quan dưới dạng
+những thuật ngữ khá đơn giản, tuy nhiên hành vi bên trong gần như trở thành
+không thể giải mã được. Nó có thể học hầu hết mọi thứ bằng cách học
+quá trình được gọi là "lan truyền ngược", bắt đầu bằng cách so sánh
+dự đoán cách kết quả dự định bao xa. Sau đó nó
+tính toán một loạt các thay đổi nhỏ cho trọng số kết nối
+trên toàn bộ mạng lưới đó để cải thiện dự đoán đó và cố gắng
+dự đoán lại để xem liệu kết quả có trở nên tốt hơn hay không
+tệ hơn. Để đạt được độ chính xác dự đoán mong muốn, quá trình này
+sẽ được lặp lại hàng trăm lần trên các tập dữ liệu lớn của
+hàng triệu đầu vào, tạo ra nhu cầu về tính toán đáng kể
+năng lượng và do đó chi phí tính toán.
+Bạn có thể đạt được gì với khả năng học tập mạnh mẽ này
+tiếp cận? Mạng lưới thần kinh có thể đọc chữ viết tay. Họ có thể
+cũng tạo ra ngôn ngữ. Chúng có thể nhận ra đồ vật trong ảnh,
+hoặc khuôn mặt, và thậm chí chơi cờ—tất cả đều ở cấp độ con người hoặc cao hơn.
+Sự phức tạp của hành vi học tập cũng có nghĩa là nó
+thách thức để giải thích dự đoán hoặc quyết định cho từng trường hợp.
+Bạn có thể thay đổi một đầu vào theo một phân số và toàn bộ đầu ra
+những thay đổi. Tại sao việc học lại có hiệu quả? Khi nào nó hoạt động?
+Làm cách nào để tìm ra cách tốt nhất và nhanh nhất để huấn luyện mạng?
+Trong khi điều này mở rộng một lĩnh vực nghiên cứu tích cực, không có
+câu trả lời dứt khoát ngày hôm nay.
+Chúng ta có nên luôn sử dụng mạng thần kinh không?
+Về lý thuyết, lợi ích của mạng lưới thần kinh là tính linh hoạt của chúng trong việc
+giải quyết nhiều dạng dữ liệu. Trong thực tế, họ thiếu sự rõ ràng
+giải thích và mức độ cấu hình hoặc điều chỉnh cụ thể,
+
+--- Trang 380 ---
+
+có nghĩa là họ khó làm việc cùng hơn. Sau đây
+cuộc biểu tình sẽ minh họa sự khác biệt trong hành vi.
+Hình 12.6: So sánh hành vi của bộ phân loại
+Ở bên trái, bạn thấy ba bộ dữ liệu có nền trắng.
+Đi từ trái sang phải, mỗi cột đại diện cho một loại
+thuật toán học máy cố gắng tách các chấm đen
+từ các chấm trắng chỉ sử dụng một phần của tập dữ liệu được gọi là kiểm tra
+dữ liệu. Hãy nhớ rằng chúng tôi đã thông báo từng thuật toán rồi
+mỗi chấm có màu gì. Thuật toán chỉ đang cố gắng tạo ra một
+quy tắc chung để xác định khu vực xuất hiện các chấm đen,
+và khu vực xuất hiện các chấm trắng. Như hiển nhiên,
+cách tiếp cận và kết quả khá đa dạng.
+Góc dưới bên phải của mỗi ô vuông cho thấy cách
+chính xác thuật toán đã tách hai loại dấu chấm.
+Một lần nữa, điểm số này dựa trên một nhóm dấu chấm khác với nhóm chúng tôi
+được sử dụng để huấn luyện thuật toán. Tại sao chúng ta lại làm điều này? Nếu bạn đã thử nghiệm
+
+

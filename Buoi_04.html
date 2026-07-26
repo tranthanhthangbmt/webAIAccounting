@@ -1,0 +1,1784 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buổi 4: Tài liệu song ngữ - Trí tuệ nhân tạo cho Kế toán</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .tabs {
+            display: flex;
+            cursor: pointer;
+            border-bottom: 1px solid #ccc;
+        }
+        .tab {
+            padding: 10px 20px;
+            background-color: #e0e0e0;
+            border: 1px solid #ccc;
+            border-bottom: none;
+            margin-right: 5px;
+        }
+        .tab.active {
+            background-color: #fff;
+            font-weight: bold;
+        }
+        .tab-content {
+            display: none;
+            padding: 20px 0;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        pre {
+            background-color: #f8f8f8;
+            padding: 10px;
+            border: 1px solid #ddd;
+            overflow-x: auto;
+        }
+        code {
+            font-family: Consolas, monospace;
+        }
+        .image-placeholder {
+            background-color: #eee;
+            border: 1px dashed #999;
+            text-align: center;
+            padding: 20px;
+            margin: 10px 0;
+            color: #666;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Buổi 4: Tài liệu song ngữ - Trí tuệ nhân tạo cho Kế toán</h1>
+        <div class="tabs">
+            <div class="tab active" onclick="openTab(event, 'English')">English</div>
+            <div class="tab" onclick="openTab(event, 'Vietnamese')">Tiếng Việt</div>
+        </div>
+
+        <div id="English" class="tab-content active">
+            <div id="en-markdown"></div>
+        </div>
+
+        <div id="Vietnamese" class="tab-content">
+            <div id="vi-markdown"></div>
+        </div>
+    </div>
+
+    <div id="slide-tab" class="content">
+        <iframe src="TaiLieu/slideAIAcc/Slide_AIAcc_Day04.pdf" width="100%" height="800px" style="border: none;"></iframe>
+    </div>
+
+    <div id="slide-content" class="content">
+        <iframe src="TaiLieu/slideAIAcc/Slide_AIAcc_Day04.pdf" width="100%" height="800px" style="border: none;"></iframe>
+    </div>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.className += " active";
+        }
+
+        // Format placeholders
+        const formatPlaceholders = (text) => {
+            return text.replace(/<!-- IMAGE_PLACEHOLDER: (.*?) -->/g, '<div class="image-placeholder">[Hình ảnh: $1 sẽ được chèn vào đây]</div>');
+        };
+
+        // Render Markdown
+        const enContent = `5 MARKET SEGMENTATION USING
+CLUSTERING ALGORITHMS
+5.1 Segmenting Customers
+5.1.1  Basis of Segmentation
+5.2 Targeting Potential Customers
+5.3 Positioning the Product in Customers’  Minds
+5.4 Data-Driven Segmentation
+5.4.1  Behavioral Segmentation
+5.4.2  Dynamic Segmentation
+5.4.3  Microsegments
+5.5 Clustering Algorithms for Segmentation
+5.5.1  The Relationship Between Distance and Similarity
+5.5.2  The k-Means Algorithm
+5.5.3  The k-Medoid Algorithm
+5.5.4  Using k-Means to Segment Customers
+5.6 Implementation Using R: Segmentation Using k-Means and k-Medoid
+5.7 Understanding the Chapter
+LEARNING OBJECTIVES
+1. Understand the STPs of marketing
+2. Decide how to segment customers
+3. Learn the dif ferent bases of segmentation
+4. Cluster to segment customers with k-means and k-medoid
+5. Use k-means for finding customer segments to target
+6. Interpret the output of clustering analysis
+5.1 SEGMENTING CUSTOMERS
+Vegan-Always is a new restaurant opening in Phoenix. It wants to send out
+coupons to customers who enjoy vegan food. Should it send these coupons to all
+residents of Phoenix? While this can be done, not only would such extensive
+coupon distribution become very expensive, but not everyone would be interested
+in the restaurant’ s offerings. Since not all customers are alike or share the same
+tastes, sending the same marketing message to everyone is not ef ficient or
+profitable. The best strategy for V egan-Always is to divide the entire population of
+Phoenix in such a way that it can send the coupons only to those who are likely to
+visit the restaurant. One way the restaurant can do this is by using
+psychographics or lifestyle factors. People who are more environmentally
+conscious have turned to veganism and might be more interested in such a
+restaurant.
+Similarly , demographics can be another way to find groups of customers who
+would be relevant for the restaurant. Such a process of dividing the market into
+groups of customers with similar characteristics and selecting the most
+appropriate group(s) for the business to target is called market segmentation.
+One way to think of segmentation is as a comprise between mass marketing
+(which assumes that all customers are the same) and individual-level
+customization (which assumes that all customers are unique). Instead of targeting
+each customer , segmentation allows a business to target groups of customers
+who are similar in the way they respond to the product. In today’ s data-driven
+markets, it is now possible to segment at a deeper level; hence, microsegmenting
+is becoming popular . For example, based on past buying behavior and similarity
+to other customers, Amazon has the ability to create microsegments and
+recommend very specific products to each of its customers.
+The first step in market segmentation is to know why customers are buying a
+product. What benefits is the product of fering that a customer may be interested
+in? The business needs to identify all customer needs that a product or service
+can fulfill. For instance, an automobile can be purchased to satisfy transportation
+needs or status needs. Knowing exactly which need is being satisfied for which
+group of customers can help in more accurate messaging and targeting.
+Identifying product-related needs can run the gamut from using traditional
+methods such as focus groups and surveys to the recent natural language
+processing (NLP) methods that can be used to mine customer opinions and
+reviews. Customer needs may not be restricted to just product features but may
+also include the company reputation. In the 1990s, Nike lost sales because of
+news that it was using child labor in its manufacturing units. The company had to
+change its working conditions because customers also wanted Nike to use the
+right practices. Once customers’  needs are identified, customers can be
+categorized into groups with similar needs that form the dif ferent segments  for
+that business. Developing a market with an imaginary buyer whose
+characteristics are inaccurate is a recipe for failure. Many products have failed not
+because they were bad but because they were marketed to the wrong set of
+customers.
+After businesses have grouped customers with similar characteristics in terms of
+how they respond to product benefits, they can then decide which of these
+customer groups are most profitable to target. The process of determining which
+of the segments of fer good market opportunities is called targeting . Finally , when
+businesses have segmented customers and decided which of these segments to
+target, they need to determine how they want to position their products in the
+minds of their customers. Positioning  can be described as instilling a meaning in
+customers’  minds that is unique to that product. W e will first understand
+segmentation in detail before moving on to targeting and positioning.
+Segmentation, targeting, and positioning are generally known as the STPs of
+marketing  since these three steps tend to be conducted together .
+An initial step in segmentation is to group customers by similarities in their
+characteristics. Customers may seek similar benefits from a product because they
+live in the same region. For instance, customers who share geographic similarity
+may face the same weather conditions; people living in colder climes may need
+heavier jackets that can provide warmth compared to those living in warmer
+places where such jackets may not be necessary .
+We next discuss the dif ferent basis on which customers could be grouped
+together in terms of similar characteristics.
+5.5.1 Basis of Segmentation
+Geographic . Customers can be segmented based on where they live. For
+instance, an insurance company might of fer dif ferent types of insurance based on
+whether customers are located in regions prone to tornadoes, floods, or
+earthquakes.
+Demographic.  A very common way to segment customers is by demographic
+features such as age, education, gender , income, and occupation. For example,
+businesses may target millennials dif ferently from baby boomers. Baby boomers
+account for a large share of the market currently because they control a major
+portion of the disposable income in the United States, which makes them a very
+attractive segment of the market. Hence, it is important that a business planning
+to target baby boomers understand the features of this segment. Are they health
+conscious? Are they tech savvy? W ould they be willing to buy online? Are they
+philanthropic compared to other segments? Businesses also need to keep in
+mind that features defining a group change with time. W omen now purchase
+repair tools as often as men.
+Psychological.  Customers can be segmented based on their dif ferent
+psychological factors, such as motivation, personality , and perceptions.
+Customers can purchase a brand to satisfy a prestige motive or for a functional
+motive. Rolex and Timex both manufacture watches, but people might be buying
+them for dif ferent motives. Personality can also be used to segment customers.
+Companies could consider the Big 5 personality traits1 such as whether an
+individual is extroverted, disinhibited, neurotic, conscientious, or open to
+experience. Or a business could focus on personality traits that have been shown
+to affect marketplace decisions, such as impulsivity , loyalty , frugality ,
+innovativeness, variety seeking, and risk aversion. Despite psychological factors
+being very informative of how customers may behave in the marketplace, it is
+difficult to obtain this information. Until recently , one way has been through the
+use of surveys, but this cannot be done for all customers and may be
+inconvenient and expensive. Some work has demonstrated that digital footprints
+of customers can be used to predict their personality . Digital footprints can be in
+the form of text, messages in online forums, number of likes, size of the networks
+frequented, and so on. Knowing the personality of customers allows for deeper
+customization of messages and recommendations targeting these individuals.
+Sociocultural.  This could include stages in the life cycle, such as whether one is
+single, married, or an empty nester , or social class, such as whether one belongs
+to the upper , lower , middle, or working class. It also could include cultural values,
+a very personal way that individuals define their core beliefs. Since cultural
+segmentation maps onto core beliefs and values, it can help the business or
+brand connect with a customer at a more meaningful level. In this age of
+globalization, with products marketed across the world, being able to connect to
+unique cultures is a challenge and yet a big asset if it can be done successfully .
+Psychographic.  The psychographic basis of segmentation includes activities,
+interests, and opinions of customers. Customers who like to vacation in
+Yellowstone are likely to share similar interests and require dif ferent messaging
+tactics than those who prefer a Disneyland vacation. Customers with dif ferent
+political opinions (e.g., conservative versus liberal) may respond to dif ferent
+marketing strategies. Those who are risk averse may not be open to buying a
+product that is positioned as adventurous.
+Benefit Sought.  What kind of benefits are people likely to look for when buying a
+product? Let’ s take the example of running shoes. They could provide more than
+one benefit, such as durability , comfort, speed, and appearance. They could even
+be used for some form of social signaling to inform others that one is a runner .
+Multivitamins are another example of a product that could convey dif ferent
+benefits for dif ferent segments of customers—such as strength, prevention of
+illness, and boosting of immunity .
+Usage V olume.  Customers can be segmented based on how often they buy a
+product and how often they use it (i.e., whether they are heavy , medium, or light
+users). It is possible that heavy users form a smaller percentage of the total users
+of a product but may actually buy a substantial share of the product. Hence, they
+are an important segment to focus on.
+Product Attitude.  Having information about the type of attitude customers hold
+about a brand can help determine how they will react to a new or modified of fering
+by the brand. Some customers may have extremely favorable or extremely
+unfavorable brand attitudes. For example, some PC users would not think of
+using a Mac, and vice versa. Such potentially nonconvertible customer segments
+may not be worth targeting.
+5.2 TARGETING POTENTIAL CUSTOMERS
+Segmentation reveals specific market opportunities. Once customers have been
+segmented based on how they respond to product features, the business needs
+to evaluate the customer segments and decide which to target. It rarely happens
+that a product has mass appeal. Therefore, finding the segments that are likely to
+purchase the product is important. W e can understand the process of selecting
+viable segments to target through the following questions that a business needs
+to ask.
+Are there enough segments in the market worth targeting? Having a product
+that is liked by a very small group of customers indicates that the business
+may have a niche product, which may not be profitable on a broader level.
+Is the segment stable, and will it remain stable for some time? It’ s not ideal if
+the target segments are comprised of people who are interested in fads.
+Growing and stable segments are more attractive and more likely to be
+profitable in the long term.
+Are the segments accessible? For instance, a large segment of customers
+may be interested in the product but may be in a place where it cannot be
+accessed easily .
+How well does this product compare with the competition in the chosen target
+segments? If the product is not the innovator or the first entrant in the market,
+chances are there are one or more businesses already catering to the
+segments that the business finds attractive. The business needs to find out
+how their product compares to existing products. If the business already has
+very strong competitors catering to a segment and the segment is also very
+brand loyal, it may be very hard to break into such a market.
+5.3 POSITIONING THE PRODUCT IN
+CUSTOMERS’ MINDS
+Positioning is defined as an ef fort by a business to identify a unique selling
+proposition that allows its product to occupy a clear , distinctive, and attractive
+position in the minds of target customers relative to competing products in the
+market. Successful positioning includes communicating the benefits of the
+product as well as communicating a unique selling proposition.
+Many examples exist of businesses and their brands occupying a unique position
+in the minds of their customers. Some are so successful that the brands have
+become synonymous with the product category . For instance, one says Kleenex
+to mean facial tissue, FedEx to mean shipping, or Xerox to mean photocopying.
+Oral-B realized that if it wanted customers to change their toothbrushes rather
+than keep using worn-out ones, the company needed to communicate this to the
+customer . The company introduced a patented dye on the brush head that fades
+with usage and indicates that it is time to get a new toothbrush. Lay’ s tries to
+position itself on taste through its slogan of Betcha can’t eat just one , and
+Volkswagen positions itself by focusing on driving pleasure with its tagline Drivers
+wanted .
+A brand can position itself based on a specific product attribute, or it can position
+itself in comparison to a competitor ’s offering. Some automobile brands position
+their vehicles using product attributes; for example, Honda and Toyota focus on
+durability , reliability , and functional benefits while V olvo focuses on safety and
+Volkswagen focuses on drivability . Other automobile brands position themselves
+versus other brands, such as Hyundai against Toyota, to show that they of fer the
+same or greater benefits.
+We next discuss how segmentation has changed in a data-rich marketplace.
+5.4 DATA-DRIVEN SEGMENTATION
+As mentioned earlier , the higher volume of data available to businesses makes
+the following types of segmentation feasible: segmentation based on behavioral
+data, dynamic segmentation, and microsegmentation.
+5.4.1 Behavioral Segmentation
+In the world of Big Data, an abundance of information, including click-through and
+search data, is available about people’ s behavior: which products they are buying,
+where they are buying these products, how much they are paying, whether a
+product is more likely to sell in specific packaging, and so on. Behavioral data can
+be used to extrapolate demographic and psychographic information. Many times
+it is dif ficult to find out the specific personality traits of consumers that result in
+their purchasing a brand (e.g., is a customer more or less frugal?). However ,
+behavioral data, even from social media, can be used to predict the general
+personality of customers. Moreover , with the proliferation of online retailers, it has
+become easy to conduct ongoing studies to figure out customer preferences.
+
+
+Instead of trying to determine the segment of customers that is most likely to
+purchase a brand by a study based on attitudes (e.g., how much do customers
+like this brand?), a product can be introduced via small samples, and actual
+purchase behavior can be monitored. Also, based on sales data, products can be
+modified in real time based on which features customers most prefer . Hence,
+data-driven markets allow a feedback loop by which businesses can observe
+actual customer purchases and fine-tune market segments.
+5.4.2 Dynamic Segmentation
+Another outcome of rich data about customers allows a business to keep
+updating its customer segments. Rather than segmenting all customers once and
+assuming that their tastes are not going to change, dynamic segmentation
+assumes that tastes will change and keeps updating what of fering would be best
+preferred by a specific customer segment. Many aspects in an individual’ s life can
+change. For example, a chocolate manufacturer cannot assume that just because
+a customer has purchased dark chocolate in the past they will continue to do so.
+Their personal, family , or health needs could change, causing them to move to
+buying sugar-free or nut-free chocolates. Dynamic segmentation takes into
+account the possibility that customer tastes change and, hence, that the segment
+they belong to is not static. Again, it is important that businesses hone their ability
+to sift through the wealth of information available to them and use the most recent
+information, whether behavioral or otherwise, to segment customers.
+5.4.3 Microsegments
+As mentioned earlier , it has now become possible to cater to very small segments
+of customers by understanding their preferences in depth and customizing
+products accordingly . This also leads to hyperpersonalization, where each of fering
+uniquely targets a specific customer based on both demographic and behavioral
+data gathered about that customer . For instance, insurance companies can
+augment existing data such as age, gender , and current product portfolio with
+online behavior such as time spent on their website to better segment customers
+and of fer the customer a very customized product.
+As important as data are for segmentation, the algorithm chosen to perform the
+segmentation is equally important. Many times we just have dif ferent types of data
+about customers without information about a business outcome such as sales or
+whether or not such a customer is loyal. That is, the data tend to be unlabeled.
+Because we do not have any outcome labels, we do not have the ability to
+compare model performances. The most common task of unsupervised learning
+is exploratory analysis, which uses visualization methods (the simplest being
+clustering) to examine the data and gather insights.
+Let’s go over what algorithms are commonly used for segmentation.
+5.5 CLUSTERING ALGORITHMS FOR
+SEGMENTATION
+Clustering is frequently used to segment customers into groups with similar need
+sets. For instance, if we want to find out which of our customers are most likely to
+recommend our product or our business, we can cluster them by similarity of
+attributes and try to gather insights from the clusters formed. Clustering is the
+process of grouping together data points that share some similarity , such that data
+points within a cluster are more similar to one another as well as more dissimilar
+to data points in a dif ferent cluster . Hence, clustering does exploratory data
+analysis and is considered an unsupervised algorithm because it explores data
+patterns rather than confirms a specific relationship. Clustering algorithms are
+used when the data lacks labels.
+Several clustering algorithms exist, such as k-means, k-nearest neighbors,
+hierarchical and Gaussian mixture models, and so on; there are several types and
+subtypes of clustering algorithms as depicted in Figure 5.1 . Clustering mainly
+occurs either by partitioning a large set of observations into smaller sets or by
+creating a treelike structure to depict the relationship between observations. In
+clustering, the process of dividing is called partition clustering, and k-means, k-
+nearest neighbors, and mixture models fall into this category . Clustering by
+creating a treelike structure, also called a dendrogram, involves relating each
+observation to another observation. Such hierarchical clustering can build up from
+one observation, find the nearest next observation, and so on to create a tree
+structure (agglomerative clustering), or it can begin by considering all
+observations to be in one cluster and then break down the cluster using the
+distance metric (divisive clustering).
+Description
+Figure 5.1  Clustering Methods
+We will use k-means, as well as a slight improvement— k-medoid—as clustering
+methods for segmentation.
+5.5.1 The Relationship Between Distance and
+Similarity
+The k-means algorithm is based on the intuitive notion that similar observations
+are likely to be clustered together . The distance between observations is a way to
+measure similarity: Less distance between observations implies that the
+observations are likely to be similar , and more distance indicates dissimilar
+observations. Thus, if the distance between two observations is less, it implies
+that the observations are similar and can be clustered together within the same
+cluster . If the distance between two observations is large, it implies that they are
+dissimilar and probably cannot be clustered together .
+We next discuss how distance is used as the metric to measure similarity of the
+observations.
+Let’s understand how distance is calculated between two observations. Assume
+that the two observations are from two customers and that we have information
+about two variables— age and income. W e can use these two variables to assess
+the level of similarity between these two customers. If we call the two customers A
+and B, then the two variables can be depicted as follows for customer A:
+xA1=age,xA2=income
+And for customer B:
+xB1=age,xB2=income
+The distance between two customers ( A→B) is calculated using the following
+formula, which is also called the Euclidean distance formula.
+distanceA→B=√(xA1−xB1)2+(xA2−xB2)2
+We use the two dif ferent attributes x1 and x2 for both A and B to find the distance
+between A and B. If we had information on a third customer , let’s say C, then we
+could determine distance measures between customers A and B, B and C, and A
+and C. Using this distance, we could state whether A was more similar to B or to
+C since less distance indicates more similarity . Clustering algorithms utilize
+distance as a way to group observations together . Observations that are more
+similar are clustered together but separately from observations that are less
+similar . We next discuss the most commonly used clustering algorithm, k-means.
+5.5.2 The k-Means Algorithm
+For any clustering algorithm, the goal is to find groups of similar observations
+among all the observations in the given dataset. To accomplish this goal, the k-
+means algorithm uses Euclidean distance to find out which observations are more
+versus less similar . But this would become a very inef ficient task if we needed to
+find distance estimates between each observation and every other observation.
+Therefore, the first step in a k-means algorithm is to decide how many clusters
+we, the user , want the algorithm to output. This is an issue with many clustering
+algorithms, where the number of clusters has to be provided by the user , and the
+algorithm accordingly clusters observations into the specified number of groups.
+For instance, if we ask the algorithm to cluster 100 observations into 5 groups, it
+will go ahead and do so, and if we ask it to cluster the same 100 observations into
+20 groups, it will do that also. W e will discuss the issue of choosing the
+appropriate number of clusters later .
+We illustrate the steps of the k-means algorithm as follows:
+1. Randomly select k points as initial centroids
+2. repeat
+3. Assign data points to the closest centroid
+4. Recalculate the centroid of each cluster
+5. until  Centroids do not change
+Now let’ s visually understand these steps using a figure. Figure 5.2 (a) shows
+observations, with each point representing a customer ’s age (x-axis) and income
+(y-axis). W e set k=3, which means we want the algorithm to assign
+observations to one of the three clusters. Once we provide the number of
+clusters, the k-means algorithm randomly selects k locations as center points or
+centroids . Figure 5.2 (b) shows these randomly selected centroids. The distance
+from each observation to each of the k centroids is measured, and then each
+observation is assigned to the centroid closest to it. At the end of the first iteration,
+each observation has been assigned to one of the k clusters. The color of the
+points in Figure 5.2 (b) indicates their cluster membership.
+Description
+Figure 5.2  k-Means
+The k-means algorithm next finds the new centroids of the newly formed k
+clusters. Recall that a centroid is nothing but the central point of a cluster . Since
+the initial centroids were randomly chosen, we can see that the location of the
+new centroid changes (see Figure 5.3 (a)). Again, the distance of each
+observation to these new k centroids is calculated, and the observations are
+reassigned to the centroid closest to it.
+Description
+Figure 5.3  k-Means After Iteration
+In this next iteration, k clusters are again formed. In the subsequent iteration,
+centroids are calculated for these k clusters, and the process is repeated till the
+centroids do not change (see Figure 5.3 (b)). The stability of the centroids
+indicates that this is the optimal allocation of observations to k clusters. If we ask
+for a dif ferent number of clusters, then the k-means algorithm will go through the
+same process until it finds the optimal allocation of observations to the number of
+clusters that we have specified.
+5.5.3 The k-Medoid Algorithm
+One of the issues with k-means is that outliers can influence the clusters that are
+generated. An improvement over the k-means algorithm is k-medoid, which
+modifies k-means to take care of this issue. While k-means randomly chooses
+centroids of various clusters, k-medoid first chooses data points as centers of
+clusters. Then instead of using Euclidean distance, it uses Manhattan distance to
+find the closest cluster center to a point. Manhattan distance is calculated by
+measuring the absolute distance between any two points and uses the following
+formula:
+dmanhattan=n
+∑
+i=1|xi−yi|
+By using Manhattan distance to calculate the proximity of a point to a cluster
+center , k-medoid is less influenced by outliers and noise in the data.
+An example of using k-means and k-medoid to segment customers will help us
+understand how the algorithm can be used for segmentation.
+5.5.4 Using k-Means to Segment Customers
+We pick an example with just two variables because it is easy to visualize,
+although k-means can be used for a large number of variables. (The data for this
+example are hypothetical.) A common query of most retail stores is whether they
+should target customers who spend more or customers who have been their
+patrons for longer (i.e., is amount of money spent or duration more important?).
+Therefore, we have two input variables: amount spent  and duration of patronage .
+We first scale the data by subtracting the means and dividing by the standard
+deviation (details of scaling and standardization are provided in the Technical
+Appendix). Scaling the data prevents data distortions that would occur in
+clustering if the input variables are on dif ferent scales; the variable with a bigger
+unit would be overrepresented.
+Then we tell the k-means algorithm how many clusters we want it to output. This
+is an important consideration for most clustering algorithms, which require that the
+user specify the number of clusters into which the observations need to be
+segmented. Here we ask it to output three clusters. Figure 5.4  illustrates the three
+clusters.
+Description
+Figure 5.4  k-Means Segmentation Plot
+Along with the cluster , we can also instruct the algorithm to output the value of the
+cluster center . This information is useful for interpreting the output because it
+provides the average characteristics of a customer in that cluster or segment.
+##length amount_spent
+## 1-1.0092435 1.38324959
+## 2-1.0058705 -1.39737047
+## 30.7424104 0.00520243
+We can then interpret that members of cluster 1 have an average patronage
+duration of −1.009 months and have spent $1.383,2 whereas members of cluster
+2 have a similar patronage length to those in cluster 1 (−1.006 months) but have
+spent substantially more (−$1.397). One insight that the business can derive from
+these two segments is that customers in cluster 2 seem to spend more and might
+be more profitable for the business to target. It would also be important for the
+business to find out what features of customers in cluster 1 make them stay for
+the same duration but not spend as much. W ould some form of incentive such as
+coupons for loyal customers motivate them to spend more?
+An important question (some even call it a challenge) in any clustering analysis is
+knowing the best number of clusters to choose. Since we must specify the
+number of clusters for the algorithm, how do we know whether three or seven will
+be the best number of clusters? Many times it depends on the question we are
+trying to answer . Or we can use past information that shows the number of
+clusters obtained when we used similar data. A silhouette  helps us answer the
+question of choosing the optimal number of clusters. A silhouette analysis is
+based on the simple intuition that if an observation is in a cluster , then that
+observation should be closer to those in the same cluster than to those in other
+clusters. A silhouette coef ficient for each observation is calculated and varies
+between −1 and +1, with +1 indicating the best and −1 being the worst allocation
+to a cluster . The average silhouette coef ficient for all observations is known as the
+average silhouette width . An average silhouette width near 1 indicates a tight
+cluster , with observations in the cluster close together rather than spread all over .
+For instance, if a four-cluster solution gives a silhouette value of 0.7, and a seven-
+cluster solution gives a silhouette value of 0.3, it means that the four-cluster
+solution is better .
+Description
+Figure 5.5  Silhouette Width: k-Means
+In our case, we find that with a three-cluster solution the average silhouette width
+is 0.61, as shown in Figure 5.5 . We can try dif ferent values of k and see how the
+average silhouette width changes. W e can next run the same analysis using k-
+medoid and instruct the algorithm to output three clusters (see Figure 5.6 ).
+Description
+Figure 5.6  k-Medoid Segmentation Plot
+Description
+Figure 5.7  Silhouette Width: k-Medoid
+In this case we see that the average silhouette width using k-medoid is 0.62 (see
+Figure 5.7 ) and not much dif ferent from a k-means solution. This could be
+
+
+because there are not many outliers in the data. If the number of outliers
+increased, the k-medoid would output a better solution.
+Therefore, we can conclude our clustering analysis with the following insights.
+When we want to perform segmentation, we can use a clustering algorithm such
+k-means or k-medoid. W e use clustering because our data are unlabeled (i.e.,
+they do not have an outcome label). In the example, we find that when amount
+spent and patronage duration are used and we ask for three clusters, we can
+obtain the average characteristics of customers in the three clusters. The
+differences between these customers inform us how the business can present
+effective product of ferings to customers in these three segments.
+5.6 IMPLEMENTATION USING R: SEGMENTATION
+USING K-MEANS AND K-MEDOID
+To analyze and plot data, we will use two packages: cluster3 and
+factoextra .4 After importing the data, we center and scale it using the
+scale()  function with center = TRUE  and scale = TRUE  options; center
+= TRUE  subtracts the column means of a variable from their corresponding
+column values, and scale = TRUE  divides the (centered) columns of a variable
+by their standard deviations. This process converts values of each variable into
+their z scores. This is an important step before cluster analysis since each
+variable of a dataset can be measured on dif ferent scales. In our dataset, for
+example, duration of store patronage is measured in months, but amount spent is
+measured in dollars. Scaling the data ensures that there are no distortions due to
+difference in scales used across variables.
+Once we have read and scaled the data (df) , the actual code to run k-means is
+quite simple. In the kmeans()  function, centers specifies the number of clusters (
+k), then nstart = 25  sets 25 initial random centroids and selects the best one.
+A higher value of nstart  gives more stable solutions, but for larger datasets this
+may end up taking more computing time.
+library(cluster)
+library(factoextra)
+ 
+set.seed(12345) #Set seed for reproducibility
+ 
+df <-  read.csv(url(
+"http://data.mishra.us/files/chapter_segmentation/segmentation_kmeans.csv "))
+ 
+df <- scale(df,center = TRUE, scale = TRUE)
+ 
+k_means <- kmeans(df, centers = 3, nstart = 25)
+The following code helps produce Figure 5.4  using fviz_cluster()  function.
+repel = TRUE  prevents datapoints from lumping together and makes them
+readable.
+fviz_cluster(k_means, data = df,
+ repel = TRUE,
+ main = "k-means segmentation plot"
+) 
+We can also print cluster centers for each of the three clusters, as we saw in
+Figure 5.4 . This is very helpful when our data have more than two variables and it
+becomes harder to plot clusters. By using cluster centers, we can assess the
+average characteristics of each cluster . Consistent with the plot, here our output
+shows that members of cluster 1 have an average patronage duration of −1.009
+months and have spent $1.383, whereas members of cluster 2 have a patronage
+length of −1.006 months and have spent −$1.397. Due to centering and scaling,
+amount spent and length have negative values. Cluster numbers might change in
+different runs of the R code (e.g., cluster 1 may be labeled as cluster 2).
+print(k_means$centers)
+ 
+##length amount_spent
+## 1−1.0092435 1.38324959
+## 2−1.0058705 −1.39737047
+## 30.7424104 0.00520243
+Silhouette , a tool to detect the quality of clusters, can help in estimating the right
+value of k. The silhouette coef ficient varies between −1 and +1. An average value
+(also known as average silhouette width) near 1 shows a tight cluster , with
+observations within a cluster close together compared to observations between
+clusters. As the value moves away from +1 to −1, it indicates reduced within-
+cluster cohesion.
+The following code calculates distance and generates silhouette plots, as we saw
+in Figure 5.5 . The dist()  function calculates the Euclidean distance between
+points (method="euclidean") .
+dis=dist(df, method="euclidean")
+sil = silhouette (k_means$cluster, dis)
+plot(sil,main=paste("K-Mean k = ", 3))
+The silhouette plot shows that the average silhouette width is 0.58. W e can try
+different values of k (or centers  in the k-means calculation) to see how the
+average silhouette width changes.
+The following code performs k-medoid clustering on the same data. There are
+only two dif ferences in this code compared to the one that produces k-means.
+First, instead of the k-means()  function, we use pam() , which stands for
+“partitioning around medoids.” Second, for cluster analysis and calculation of
+silhouette width, we use Manhattan distance. This produces the cluster plot and
+silhouette width we saw in Figures 5.6  and 5.7.
+k_medoid <- pam (scale(df), k = 3, metric = "manhattan")
+ 
+fviz_cluster(k_medoid, data = df,
+ repel = TRUE,
+ main = "k-means segmentation plot"
+)
+ 
+dis=dist(df, method="manhattan")
+sil = silhouette (k_medoid$clustering, dis) # for
+silhouette plots
+plot(sil, main=paste("K-Medoid k = ",3))
+Since there are not many outliers, the results of k-means and k-medoid are very
+similar .
+5.7 UNDERSTANDING THE CHAPTER
+Students are encouraged to answer the following questions. They can then review
+the chapter to check their answers.
+1. If a car manufacturer customizes features of the car based on the terrain,
+which type of segmentation is the manufacturer using?
+2. Which of the following characteristics is true about segmentation?
+a. Having a unique selling proposition
+b. Positioning the product in the minds of the customers
+c. Grouping together customers based on similar need sets
+d. Grouping together customers based on opposite need sets
+e. Communicating the benefits of the product through coupons
+3. Can a business having global operations ignore sociocultural aspects while
+advertising the product in dif ferent world regions?
+4. Would it be advisable for a business to target a segment of consumers that
+many of its competitors are also targeting because that set of customers has
+the maximum likelihood of purchasing the product? Discuss pros and cons of
+such a strategy .
+5. How can a business determine the optimal number of segments in which to
+group customers if it is using a k-means algorithm?
+6. How does a k-medoid algorithm improve clustering over the k-means
+algorithm?
+ENDNOTES
+1. Costa, P . T., and R. R. McCrae, “The Revised Neo Personality Inventory (NEO-
+PI-R),” The SAGE Handbook of Personality Theory and Assessment  2, no. 2
+(2008): 179–198.
+2. Due to centering and scaling, amount spent and length have negative values.
+3. Maechler , M., P . Rousseeuw , A. Struyf, M. Hubert, and K. Hornik, “cluster:
+Cluster Analysis Basics and Extensions,” R package version 2.1.2 (2021).
+4. Kassambara, A., and F . Mundt, “factoextra: Extract and V isualize the Results of
+Multivariate Data Analyses,” R package version 1.0.7, April 1, 2020,
+https://CRAN.R-project.org/package=factoextra.
+Descriptions of Images and Figures
+Back to Figure
+The figure is a flow chart consisting of four lines denoted by downward arrows.
+On top is Clustering Methods. In the second line are Hierarchical and Partition-
+Based. In the third line are Agglomerative and divisive under Hierarchical. The
+terms Distribution, Squared Error , Graph-Based and Neighborhood-based are
+under Partition-based. In the fourth row Single-Link Complete-Link under
+Agglomerative, Mixture Models under Distribution, k-Means Kernel x-Means
+under Squared Error , Spectral under Graph-based and k-Nearest Neighbors
+under Neighborhood-based.
+Back to Figure
+The figure has two graphs. The first graph is labeled income on the y-axis and
+age on the x-axis. The graph has five circular nodes scattered on top, four nodes
+on middle left and four nodes on the bottom right. On the right is the same graph
+with a circle and a horizontal and a vertical line intersecting the circle on top left
+connecting five nodes on the top with a straight line. At the middle is a circle
+connecting four nodes on the left and a node at the bottom. At the bottom right is
+a circle connecting three nodes on the top.
+Back to Figure
+The figure has two graphs. The graph has five circular nodes scattered on top,
+five nodes in middle and three nodes at the bottom in the middle. Each group is
+connected to a circle and a horizontal and a vertical line is intersecting the circle.
+On the right is the same graph with five circular nodes connected to a circle with a
+horizontal and a vertical line intersecting the circle on top middle; and four circular
+nodes at the bottom middle connected to a circle with a horizontal and a vertical
+line intersecting the circle.
+Back to Figure
+The figure is a graph with the label amout_spent on the y-axis and label length on
+the x-axis. The term k-means is at the top left. Three groups of clusters are
+present in the graph. On the top left is a cluster with circular nodes; on the middle
+right is a cluster with square nodes and on the bottom left is a cluster with
+rectangular nodes. On the right is the figure legend with three dif ferent clusters
+labeled 1, 2 and 3.
+Back to Figure
+The figure consists of the scale marked 0.0, 0.2, 0.4, 0.6, 0.8, 1.0 from left to right
+and labeled Silhoutte width s1. Above the scale are three area plots from left to
+right. On the top left is the description k-means k = 3 n = 99. On the top right is
+the description 3 clusters Cj j:nj l avei ∈ Cj si. On the right side are the descriptions
+1: 21 | 0.60, 2: 21 | 0.54 and 3: 57 | 0.64 from top to bottom. At the bottom left of
+the figure is the description Average silhouette width : 0.61.
+Back to Figure
+The figure is a graph with the label amout_spent on the y-axis and label length on
+the x-axis. The term k-medoid is at the top left. Three groups of clusters are
+present in the graph. On the top left is a cluster with circular nodes; on the middle
+right is a cluster with square nodes and on the bottom left is a cluster with
+rectangular nodes. On the right is the figure legend with three dif ferent clusters
+labeled 1, 2 and
+Back to Figure
+The figure consists of the scale marked 0.0, 0.2, 0.4, 0.6, 0.8, 1.0 from left to right
+and labeled Silhoutte width s1. Above the scale are three area plots from left to
+right. On the top left is the description k-medoid k = 3 n = 99. On the top right is
+the description 3 clusters Cj j:nj l avei ∈Cj si. On the right side are the descriptions
+1: 20 | 0.57, 2: 21 | 0.61 and 3: 58 | 0.64 from top to bottom. At the bottom left of
+the figure is the description Average silhouette width : 0.62
+OceanofPDF .com
+
+
+
+10 FORECASTING THE FINANCIAL HEALTH OF A
+BUSINESS USING PENALIZED REGRESSION
+10.1 Financial Health of a Business
+10.2 Importance of Forecasting Financial Health of the Business
+10.2.1  The Influence of Borrowing on Financial Health
+10.2.2  Debt Ratio and Borrowing Ability
+10.3 Importance of Knowing Financial Health for Lenders
+10.3.1  Poor Financial Health: Bankruptcy
+10.4 Importance of Knowing a Business’ s Financial Health for Investors
+10.5 Forecasting Financial Health
+10.5.1  Financial Ratios
+10.6 Multicollinearity
+10.6.1  Testing for Multicollinearity
+10.7 Using Penalized Regression for Evaluating Financial Health
+10.7.1  Predicting Financial Health Using LASSO
+10.7.2  Business Insights and Other Applications
+10.8 Implementation Using R: Evaluating the Health of a Business
+10.9 Appendix: Glossary of Financial Terms
+10.10  Understanding the Chapter
+LEARNING OBJECTIVES
+1. Gauge the financial health of a business
+2. Understand the importance of bankruptcy forecasting for investors, lenders, and businesses
+3. Use penalized regression for forecasting financial health
+4. Determine multicollinearity and feature selection with LASSO
+10.1 FINANCIAL HEALTH OF A BUSINESS
+In any firm, the finance department serves the important functions of control, planning, decision-making,
+and ensuring regulatory compliance. The department provides a backward look at how the business
+performed by examining many financial reports, including balance sheets, income statements, and cash
+flow statements that indicate to the business where its strengths and weaknesses lie. It also provides an
+important forward look in the form of many forecasts, including cash flow forecasts, scenario planning,
+and sensitivity analysis. Forecasting (or prediction) models are very commonly used in finance to inform
+lenders, the business itself, and several dif ferent types of investors where they need to invest their
+resources in the coming time periods. These forecasts also consider credit ratings, market conditions,
+and the broader economic outlook. Where should a business invest? Should it increase prices or of fer
+promotions? Can it provide employee raises, or is it time to cut costs? Can it invest in a new location or
+a new product? Financial management provides an overall look at the financial health of a firm, helping
+in strategic decision-making across various departments. Therefore, financial forecasting helps provide
+business leadership with an overall picture to develop strategies that avoid decision-making silos. Such
+forecasting also helps lenders determine whether to of fer a loan and helps business borrowers
+determine how much they should borrow .
+10.2 IMPORTANCE OF FORECASTING FINANCIAL HEALTH OF
+THE BUSINESS
+Different entities in the firm need to determine the financial health of the business since it is a critical
+input in their decisions. Owners and management need to know how the business is performing its main
+functions to determine which areas need further investment versus which areas might need to be
+divested. Incorrect forecasts or erroneously ambitious ventures can result in resources running out and
+ventures having to be terminated midstream at great financial, organizational, and human cost. General
+Electric started more than 100 years ago as an electric and electronic product manufacturing company
+but was able to grow into many dif ferent areas—including GE Capital, a financial services branch.
+However , after the financial crisis of 2008, regulatory pressures, and the unprofitable acquisition of
+French transportation company Alstom’ s power business in 2015, GE had to divest its financial division
+after management determined that further investment in this division would be problematic for GE’ s
+other divisions.
+Employees also need to be aware of their organization’ s financial health for a variety of reasons.
+Knowledge of the company’ s financial standing helps in assessing job security and in making informed
+career planning decisions. Awareness of organizational finances also fosters motivation and can align
+individual objectives with the organization’ s goals. Transparent communication about financial health
+also nurtures an environment of trust, facilitating better understanding of management decisions,
+including those concerning incentives, compensation, and organizational changes.
+10.2.1 The Influence of Borrowing on Financial Health
+Determining financial health is important for a business so that it can understand whether it needs to
+borrow money , how much to borrow , and at what interest rate; it also needs to identify which areas are
+growth areas that merit further investment. Many businesses cannot operate without borrowing.
+Borrowing helps grow the business, but it also adds costs in terms of interest payments. The interest
+payable on debt provides a tax shield on the taxable amount. For instance, if the tax rate is 30% and the
+interest expense is $1,000, then a business receives a tax shield of $300 (interest expense × tax rate).
+In fact, trade-off theory  in finance suggests that there is a trade-of f between the tax shield provided by
+debt and the financial distress of not being able to repay the debt. If we avoid the extremes, trade-of f
+theory will predict that risky businesses focused on intangible assets, such as technology startups, will
+have less debt compared to businesses that own tangible assets such as hotels. Companies want to
+maintain an optimal debt ratio to ensure that lenders and investors don’t lose faith in them. Therefore,
+one way to assess the value of a business is to consider its market value as dependent on its equity and
+debt.
+Market value = Equity + tax shield from debt – cost of financial distress
+The trade-of f theory can be illustrated as shown in Figure 10.1 .
+Description
+Figure 10.1  Tax Shield Provided by Debt V ersus the Financial Distress
+10.2.2 Debt Ratio and Borrowing Ability
+As can be seen from Figure 10.1 , a business that operates just on equity and is not dependent on debt
+is not influenced either by the tax shield or by the chance of financial distress because of debt. It can
+face distress for other reasons but not because of its inability to pay back debt. Let’ s look at the curve
+and the straight line. The curve shows a leveraged business—that is, one that has taken a loan and
+owes a debt to its lenders. W e can see that initially , when the debt amount is low , the business gets a
+tax shield for the debt. Given the low debt, the business may not be facing a huge amount of debt
+servicing (i.e., paying back the principal and interest for each period of the loan). Please refer to Section
+10.9: Glossary of Financial Terms for definitions. If the business goes to the market to borrow , the
+lenders will use the debt ratio of the business to evaluate its financial health. A low debt ratio can help
+the business borrow at a lower rate of interest. This reduced interest can help it grow and do well, which
+in turn can increase its market value. The business can also borrow more. The more its debt increases,
+the more its tax shield will grow initially . Everything is fine as long as the tax shield is able to of fset the
+probability of financial distress because of the firm’ s debt servicing costs. However , the probability of
+financial distress becomes quite high when the debt servicing crosses a threshold where the tax shield
+is not able to match the level of borrowing. Borrowing beyond this point results in greater likelihood not
+only of financial distress but also of bankruptcy .
+Consider Sears, which declared bankruptcy after being in business for 125 years and having at one time
+enjoyed the title of the largest retailer in the United States. Over the years, Sears accumulated
+significant debt, which, coupled with operational inef ficiencies and strategic missteps, led to financial
+distress. While debt can sometimes of fer leverage and tax shields, in Sears’ s case, it became a burden,
+reducing its financial health. Sears tried to raise cash by closing hundreds of its stores as a cost-cutting
+measure. This laid of f thousands of workers and caused distress to its employees. The inability to keep
+up with the technological changes resulted in Sears slowly falling behind. Several post hoc theories
+have been suggested for its demise, including lack of investment to modernize of fline stores and not
+investing in a strong online presence. The demise of this previously formidable retailer shows that
+knowing the financial health of a business and strategically basing its borrowing on its ability to pay of f
+the debt in a timely manner is important for all company stakeholders.
+10.3 IMPORTANCE OF KNOWING FINANCIAL HEALTH FOR
+LENDERS
+Lenders can be banks or any financial institution that lends money to businesses for dif ferent activities.
+Lenders need to evaluate the financial health of a business before they determine whether to lend to a
+business, ensuring that the business will remain solvent and pay of f its debt. Lenders need to
+continuously evaluate the creditworthiness of the borrower over the period of the loan. Usually , a lender
+evaluates the total assets of a business against its total liabilities, as stated in the balance sheet, to
+determine its financial health. As we discuss in detail later , several financial and operating ratios are
+used for this purpose. Businesses with good financial health are considered more creditworthy and are
+likely to qualify for a loan, while businesses with poor financial health may be denied a loan or may
+obtain it only at a significantly higher interest rate. A good credit rating—for example, a triple-A  rating—
+allows a business to borrow from lenders at a lower rate. Conversely , a higher interest rate indicates that
+the lender does not consider the business to be particularly creditworthy and is charging the higher rate
+as insurance against the possibility that the business will default on its loan payment. In extreme cases,
+as we discuss in Section 10.4.1 on private equity , a business in financial distress can borrow only at
+very high interest rates.
+It is not surprising that lenders take these precautions because businesses can start experiencing
+financial dif ficulties through factors unfolding in their macroenvironment (e.g., the financial crisis of 2008)
+or because of their own past decisions (e.g., GE deciding to buy Alstom or Toys “R” Us having
+accumulated significant debt while facing increased competition from online retailers and changing
+consumer preferences). When a business continues to experience financial dif ficulties, bankruptcy
+looms as a possibility .
+10.3.1 Poor Financial Health: Bankruptcy
+If the business continues to experience financial dif ficulties, such as those we can see in Figure 10.1 , it
+will start to default on its loan payments, resulting in increased financial distress. Such distress is a
+cause of concern for lenders, who have to decide whether additional investment is warranted in an
+attempt to reverse the distress or to allow further defaults by the business. In such cases, businesses
+can declare bankruptcy . Bankruptcy is the legal acknowledgment by the business that it is unable to pay
+off its debts. Businesses file for either Chapter 7  or Chapter 11 . In a Chapter 11  filing, a business can be
+restructured in such a way that it gets another chance. If it subsequently does well, it can pay of f its
+debts and work its way out of bankruptcy . For instance, Toys “R” Us filed for Chapter 11  in 2017, hoping
+that it would be able to restructure the company and pay of f its debts. However , it was not able to do so
+and had to file for Chapter 7  in 2018. Chapter 7  filing does not allow the business to continue to operate;
+in such cases the business will cease to exist. One form of Chapter 7  bankruptcy occurs when all assets
+of the business are liquidated so that some of its debts can be paid of f. In situations where the business
+owners cannot pay back their debts, then the lenders step in and take over whatever is left of the
+business.
+There are numerous examples of companies that were successful at one time later experiencing
+financial distress. For example, David’ s Bridal, a large wedding dress retailer with a presence in several
+states, found that changing tastes and focus on nontraditional dresses by millennials resulted in lowered
+profits and an inability to pay their debt. Mattress Firm filed for Chapter 11 , shutting down approximately
+900 stores in 2018. It struggled with adapting to changes introduced in mattress manufacture and
+competition from startups such as Tuft & Needle, Casper , and Purple. Online mattress purchases have
+seen a huge spike, even though mattresses were touted as a product that consumers need to physically
+feel and experience prior to purchase. This resulted in Mattress Firm needing to reconsider how it of fers
+its product to consumers who no longer feel the need to try out a mattress before purchasing it.
+All lenders do not face the same decision of whether to let a business file for bankruptcy . It depends on
+the type of business. For example, consider lenders to two businesses: a restaurant versus a biotech
+startup. Initially , both need the same level of investment from the lenders. If a few years later both
+companies file for bankruptcy , the situation from the point of view of the lender will dif fer. In the case of
+the restaurant, the entire setup is still functional, and an easy option for the lender is to get someone
+else to run the restaurant. However , in the case of the biotech startup, the space or the setting is
+unimportant; the investment is in human capital and what it can produce—the ideas and innovations that
+are generated by the employees. If the biotech does not do well, then what can the lender salvage?
+Unfortunately , not much.
+10.4 IMPORTANCE OF KNOWING A BUSINESS’S FINANCIAL
+HEALTH FOR INVESTORS
+A business can have dif ferent types of investors. For instance, it might have venture capitalists investing
+in it during the initial stage of development. In later stages, several financial institutions, including private
+equity firms, may invest or buy stakes in the business. This allows them to have a say in the working of
+the business—for example, which divisions to identify for growth versus divestment. Finally , if the
+company is traded on the stock market, individual investors also are interested in knowing the financial
+health of a business to determine whether and how much to invest in it. Depending on the level of
+investment—for example, a financial institution investing millions versus an individual investor
+purchasing one share of stock for a few dollars—investors can utilize dif ferent means to understand
+whether and how much to invest. Again, the financial health of a business, assessed by using dif ferent
+types of financial ratios, becomes the means to determine the level of investment. In certain
+circumstances, when investors might assess that a business has potential but is not performing
+
+
+optimally , they might buy a major stake to have a greater say in operations. Private equity is one such
+type of investor . Private equity firms tend to invest in businesses that have unrealized potential but are
+struggling financially , possibly because of high debt; make them grow rapidly; and—if (as predicted) the
+business does have unrealized potential—reap the benefits.
+Hence, it is important for the business, lenders, and investors to accurately identify whether a business
+does have the potential to grow or whether the trajectory of financial distress is likely to continue. An
+entire area in finance is devoted to understanding and predicting what variables can be used to predict
+whether a business is going to experience financial distress or , in extreme cases, go bankrupt.
+10.5 FORECASTING FINANCIAL HEALTH
+Several predictors have been considered that can help predict creditworthiness. Let’ s understand this
+using an example from the perspective of a lender such as a bank. When a business approaches a
+bank asking for a loan, the bank is likely to utilize several criteria to first determine the financial health of
+the business and then decide whether or not to give a loan. Let’ s assume that a bank wants to
+determine variables that can help it assess the financial health of the business. Let’ s also assume that
+the bank is being conservative in its estimate and defines creditworthiness in terms of future financial
+distress or possibility of bankruptcy . It can focus on financial as well as nonfinancial predictors, but many
+times lenders prefer to look at financial predictors to understand the financial health of a business.
+10.5.1 Financial Ratios
+Businesses report several financial ratios that help lenders evaluate their financial health, such as debt ‒
+equity ratio, current ratio, earnings ratio, and operating ratio. These ratios are commonly available on
+the balance sheet of a business’ s financial statements. Please see the detailed definitions of these
+ratios in the glossary provided in Section 10.9  of this chapter .
+For any type of forecasting, businesses tend to use a process of variable selection  to sort the relevant
+from the irrelevant variables. If a business knows which variables are relevant, it can use only those
+variables in its forecasting models. Another reason for variable selection is to improve the accuracy of
+predictions; better predictions result in less costly mistakes. Similarly , when predicting financial health, it
+is important to perform variable selection to find the relevant predictors to use in prediction models.
+Moreover , many financial predictors tend to be correlated, some of them quite highly; this causes some
+predictors to appear significant when they are not—that is, the presence of collinear predictors results in
+incorrect predictions. Let’ s understand what multicollinearity is.
+10.6 MULTICOLLINEARITY
+Collinearity occurs when two predictor variables are highly correlated. Multicollinearity occurs when
+several such variables are present in the dataset. Multicollinearity can occur for a variety of reasons in
+business data, such as when predictors are dependent on the same underlying cause or when data
+collection is observational. In our case, since financial ratios are based on financial indicators, the
+likelihood of multicollinearity is high. Multicollinearity causes the following issues. First, when
+multicollinearity exists in a regression model, it may not be appropriate to use ordinary least squares
+(OLS) regression. This is because OLS assumes that the predictor variables are independent—that is,
+uncorrelated (in fact, predictor variables are called independent variables  for this reason). The presence
+of multicollinearity makes it dif ficult to interpret the coef ficient estimates of individual predictors. Recall
+from Chapter 2  in which we discussed linear regression that we used beta coef ficients to determine
+whether a predictor variable had a significant influence on the outcome variable. If several of the
+predictors are highly correlated, the influence of a specific predictor on the outcome (e.g., significance
+level) will change depending on which predictors are included in the regression model, resulting in
+incorrect assessments from the analysis. Second, one of the assumptions of OLS is that we examine
+the change in the outcome variable for a unit change in the predictor , holding all other predictors
+constant. However , if two predictors are highly correlated, such an assumption would not be fulfilled.
+Moreover , if our aim is to find which predictors are the most versus least influential, multicollinearity will
+make the task dif ficult. Third, as the correlation among predictors increases, standard errors also
+increase because it becomes dif ficult to determine whether the variation in the outcome is caused
+because of predictor 1 or predictor 2. Therefore, the standard error of both predictors increases. High
+incidents of standard error make it dif ficult to reject the null hypothesis even though the null may be
+false. Therefore, the likelihood of Type I error increases (i.e., the inability to reject a false null
+hypothesis). Finally , multicollinearity can result in an overfitted model because of the inclusion of two
+predictors that are very similar in the way they relate to the output. An overfit model would be quite
+inaccurate and poorly generalizable while making predictions on a new dataset. This occurs because
+the model has learned spurious relations given the multicollinearity present in the original dataset that
+may not be present in the new dataset on which the model is asked to predict. A bit needs to said about
+the bias ‒ variance trade-of f to understand the problem caused by overfit models (please refer to the
+Technical Appendix for a detailed discussion of the bias–variance trade-of f). When we have an overfit
+model, the bias of the model is low because it fits the training data really well; however , the variance of
+the model is high because it doesn’t predict well on the new data.
+10.6.1 Testing for Multicollinearity
+Given the possibility of multicollinearity occurring when using financial variables to determine the
+financial health of a business, we need a method that can address multicollinearity as well as help in the
+selection of variables. The first step is to have a method to detect whether a dataset has multicollinear
+predictors. The simplest way to test for multicollinearity is by looking at the scatterplot between dif ferent
+predictor variables. A linear relationship between any two predictors indicates a high degree of
+correlation between them. Similarly , a correlation matrix between all the predictors would quantify the
+level of correlation among the predictors. Large changes in beta coef ficient estimate values depending
+on when one or the other predictor is or is not included in the regression could be another indication of
+multicollinearity . For instance, if earnings ratio had a high coef ficient estimate value when current ratio
+was not included but the coef ficient value was reduced significantly in magnitude when current ratio was
+included in the regression, this would indicate a high correlation between earnings ratio and current
+ratio.
+Finally , the variance inflation factor (VIF)  is used to quantify the level of multicollinearity . VIF is a metric
+that helps in determining inflated variance of the beta coef ficient for a specific predictor variable because
+of multicollinearity with other predictor variables. Stated dif ferently , VIF tells us how much the variance
+(the spread of predictor values) is inflated due to these correlations. Since VIFs capture the relationship
+among predictor variables, the VIF is calculated by regressing each predictor against every other
+predictor . Such a regression will provide an R2 value, which is then put into the following equation for
+the ith predictor:
+1/(1−R2
+i)
+As you may recall, R2 is the coef ficient of determination in an OLS regression model that informs us
+how well the predictor(s) is(are) able to predict the outcome variable. In this case, R2 indicates how well
+other predictors are able to predict the ith predictor .
+Hence, we can calculate the value of VIF for each predictor variable. There are some cutof fs that help
+us evaluate whether the correlation between the predictors is very high. For instance, a VIF of 1.7 for a
+predictor indicates that the variance of that predictor ’s estimate is 1.7 times what it would have been in
+the absence of multicollinearity . A VIF of 3.5 indicates 3.5 times more variation. A simple rule of thumb is
+that VIF values of more than 5 indicate high multicollinearity .
+One way to address multicollinearity is through the use of stepwise regression. However , this can get
+computationally inef ficient. Hence, in this chapter we discuss the use of penalized regression, which
+provides an ef ficient way to handle multicollinearity through variable selection.
+10.7 USING PENALIZED REGRESSION FOR EVALUATING
+FINANCIAL HEALTH
+One type of regression that can address issues of multicollinearity is called penalized regression. It
+introduces a penalty that penalizes the model for having too many predictor variables. Either the
+predictors may be less relevant, or they may be correlated. Penalized models shrink the beta-coef ficient
+estimates of the less relevant predictors so that they can either be removed or have very little impact in
+predicting the outcome variable.
+The functional/mathematical formulation of penalized regression allows it to work dif ferently than OLS
+regression. For example, we use a set of predictor variables in the OLS model to predict an outcome.
+We then compare the predicted value to the actual value (ground truth) to examine the quality of the
+OLS model’ s predictions. If the dif ference is high, the quality is poor; if the dif ference is low , the quality is
+good. Therefore, we try to minimize the dif ference between the actual and predicted values. As
+explained earlier , one issue with multicollinearity is that it results in a model that is overfit; it explains the
+training data well, but its predictions on test (i.e., new) data are quite poor .
+Penalized regression addresses this situation by adding a shrinkage penalty to the beta-coef ficient
+estimates of the predictors. The shrinkage penalty fits a new prediction model that introduces a small
+amount of bias but greatly reduces the variance. With the addition of the shrinkage, the output intuitively
+becomes less sensitive to changes in the value of the predictor; hence, there is less variance when the
+model is used to make predictions on a new dataset. For the purposes of this chapter , we will focus on a
+specific type of penalized regression—LASSO (Least Absolute Shrinkage and Selection Operator)1—
+which not only helps to address multicollinearity but also allows for variable selection. The other form of
+penalized regression is ridge regression, which does not help in variable selection. Specifically , the
+penalty term used in the LASSO helps shrink the coef ficient estimates of the less important predictors to
+zero. When the beta coef ficients of some predictor variables have been shrunk to zero, they are no
+longer included in the prediction model. Hence, this process serves as a variable selection method for
+LASSO.
+Let’s assume that we have i = 1 to n observations and j = 1 to p predictors and their corresponding beta
+coefficients.
+Linear regression minimizes the dif ference between the observed outcome values and predicted
+outcome values as captured in the following equation:
+n
+∑
+i=1(yi−p
+∑
+j=1βjxij)2
+In LASSO, we add the penalty term
+λ|βj|
+to the minimization equation of the linear regression. Hence, in LASSO we minimize:
+n
+∑
+i=1(yi−p
+∑
+j=1βjxij)2
++λp
+∑
+j=1|βj|
+When λ = 0, LASSO converts to OLS. As the value of λ increases, the penalty increases, and the value
+of the coef ficient estimates shrinks to zero. That is, λ controls the value of the penalty that is applied to
+the regression. The value of λ can vary from 0 to positive infinity .
+Another intuitive way to think about the shrinkage penalty is to think of c(β) as the cost applied by
+penalized regression on the size of the β coef ficients. β coef ficients determine how much the estimated
+outcome values deviate from the observed values (i.e., the deviance between the data and the model).
+Adding a penalty on the size of the β coef ficients and forcing them to be near zero improves prediction.
+LASSO is especially useful when a model includes several predictor variables and the business is not
+able to decide which of these are relevant and which are not. Consider a grocery store with outlets
+across several geographic regions. There are many predictors that can af fect the sale of fresh baked
+goods, including the presence of local bakeries, the cost of eggs (which could change by region), the
+cost of milk, the cost of transportation, the nearness of farms, population density around a specific store,
+income level, regionally popular flavors—and the list can keep going. Which of these are the most
+important predictors of sales for a specific store? By using LASSO for variable selection, the grocery
+store can determine which sales predictors are important and can focus its resources on these relevant
+predictors. LASSO can also solve the problem of one form of Big Data—when there are more predictors
+than observations. In such an instance, OLS regression will not converge because it needs at least as
+many observations as predictors. If the data have two predictors, then the OLS needs at least two
+observations or data points to converge (provide a solution). In instances when firms are not sure about
+which predictors are most relevant, they may include tens of predictors and would need at least as many
+observations for the OLS to work.
+Let’s use a specific example to understand how LASSO can help in predicting the financial health of
+businesses from the perspective of a lender .
+10.7.1 Predicting Financial Health Using LASSO
+Let’s consider the example of Altra Bank, a made-up example for the purposes of this chapter that lends
+to several businesses and, hence, needs to know the financial health of each so that it can determine
+whether the business will be able to pay back the debt amount or whether it is likely to default on its
+payments. Having information about the financial health of a business allows Altra Bank to decide
+whether to give a loan and how much interest to charge. During its more than 50 years in this business,
+Altra Bank has determined that the financial health of a business rarely changes overnight and that any
+changes for the worse can be detected through certain predictors. Moreover , Altra Bank has observed
+that the financial ratios of a business, as calculated from the balance sheet, are good predictors of
+financial health.
+In the past, Altra Bank has used these financial ratios to find out which businesses it has lent to need to
+
+
+be monitored more closely . However , recently it has learned that ratios including operating variables
+such as sales are also worth considering when forecasting the financial health of a business. Therefore,
+it obtained data containing 16 dif ferent ratios for 665 businesses that have good versus poor financial
+health. The metric in the data for assessing financial health is whether a business has or has not gone
+bankrupt. The data contain information on several financial ratios such as debt–equity ratio, current
+ratio, and operating ratio for businesses that did or did not go bankrupt. Similar to other lenders, Altra
+Bank also uses data on these ratios to build a model that can help it make predictions about the
+financial health of the businesses it is determining whether to lend to or not. Altra Bank also wants to
+determine whether some ratios are better predictors than others; hence, having data with labels of
+whether a business went bankrupt is very useful in building the model. (The data used in this example
+are hypothetical.)
+The data have the following 16 financial ratios, some of which are operational ratios, marketing ratios, or
+accounting ratios.
+current_ratio_1 = current assets / short-term liabilities
+earning_ratio_1 = EBIT  (earnings before interest and taxes) / total assets
+debt_equity_ratio_1 = book value of equity / total liabilities
+accounting_ratio_1 = total assets / total liabilities
+operating_ratio_1 = (inventory * 365) / sales
+marketing_ratio_1 = net profit / sales
+operating_ratio_2 = profit on operating activities / financial expenses
+marketing_ratio_2 = (total liabilities − cash) / sales
+current_ratio_2 = (current assets − inventories) / long-term liabilities
+current_ratio_3 = (current assets − inventory − receivables) / short-term liabilities
+operating_ratio_3 = profit on operating activities / sales
+current_ratio_4 = (current assets − inventory) / short-term liabilities
+earning_ratio_2 = EBITDA  (earnings before interest, taxes, depreciation, and amortization—i.e.,
+[profit on operating activities − depreciation] / total assets)
+current_ratio_5 = current assets / total liabilities
+debt_equity_ratio_2 = long-term liabilities / equity
+operating_ratio_4 = total costs / total sales
+Using the data, we can begin to do several tests and then build the model. The first test we will conduct
+is to examine whether the data include collinear predictors (i.e., whether a high correlation, either
+positive or negative, exists among some of the 16 predictors). W e obtain a correlation plot as shown in
+Figure 10.2 . As expected of financial ratios, the plot shows that quite a few ratios are correlated more
+than 0.5 with one another . For example, marketing_ratio_1 and earnings_ratio_2 are correlated −0.97
+with each other .
+Figure 10.2  Correlation Plot
+Next we can check for multicollinearity using the VIF for each of the predictors.
+##current_ratio_1 debt_equity_ratio_1 accounting_ratio_1      
+operating_ratio
+##4.565160 614.931070 624.345293      1.969324
+##marketing_ratio_1 operating_ratio_2 marketing_ratio_2      current_ratio_
+##11.756341 1.083820 2.825103      1.338527
+##current_ratio_3 operating_ratio_3 current_ratio_4      earning_ratio_
+##2.346815 27.912590 3.912966      2.240309
+##earning_ratio_2 current_ratio_5 debt_equity_ratio_2      
+operating_ratio
+##24.330196 3.678511 2.641648      1.019840
+The VIF of some of the financial ratios is very high (e.g., debt_equity_ratio_1 = 614.93 and
+accounting_ratio_1 = 624.34).
+Now that we have established that some of the financial ratio predictors that we plan to use in our model
+are highly correlated, we can use penalized regression. W e use LASSO to first perform a variable
+selection as to which are the best predictors of financial health.
+We next define the outcome variable: yes, a business will go bankrupt  versus no, a business will not go
+bankrupt . We use penalized logistic regression  because the dependent variable is binary in nature
+(yes/no).
+Since the outcome is binary , we will use the AUC ROC (area under the curve receiver operating
+characteristics) curve to examine the quality of predictions of the LASSO model. AUC is the ratio
+between a false positive (firms that did not go bankrupt but are identified by the model as having gone
+bankrupt) and a true positive (firms that went bankrupt and are identified by the model as having gone
+bankrupt). Higher values of AUC are better because they indicate whether the model is able to
+distinguish between the yes and no outcomes. AUC = 1 indicates that the model is able to correctly
+classify yes as yes and no as no. AUC = 0.8 means that 80% of the time the model will classify yes and
+no correctly . AUC = 0.5 means that the model cannot distinguish between yes and no and is considered
+random in its predictions. AUC = 0 means that the model is reversing its predictions completely and
+classifying yes as no and no as yes.
+In the training dataset, we can also plot the AUC values for dif ferent values of log( λ). In Figure 10.3 , we
+can see that the best values of AUC are those of log( λ) between −8 and about −9. The values on top of
+the graph indicate the number of dummy-coded predictors being used.
+Figure 10.3  AUC V alues for Dif ferent V alues of Log( λ)
+In order to run a penalized regression prediction model, we split the data into train and test sets. W e
+then run a LASSO on the train set to perform variable selection. W e also standardize the data to ensure
+that they are easy to interpret. It is important to note that if we don’t standardize values, LASSO can
+result in extreme values and dif ficulty in comparing predictors that may be measured on dif ferent units.
+We then run LASSO, which outputs beta coef ficient values for all 16 predictors but shrinks the beta
+coefficients of predictors it considers less relevant to zero.
+From the output, we can see that the LASSO model we ran using 16 predictors has shrunk the beta-
+coefficient values of 4 predictors to zero. In other words, it has selected  12 predictors as being relevant
+for predicting the outcome variable: financial health.
+## [1] 8.837698e-05
+## 17 x 1 sparse Matrix of class "dgCMatrix"
+##                                                            s1
+## (Intercept)                     1.346913e+01
+## current_ratio_1                     9.231917e-02
+## debt_equity_ratio_1                     1.297786e+01
+## accounting_ratio_1 -1.416379e+01
+## operating_ratio_1                    .
+## marketing_ratio_1                     3.031253e+00
+## operating_ratio_2                     3.493792e-03
+## marketing_ratio_2                    .
+## current_ratio_2 -1.985339e-05
+## current_ratio_3                     2.416489e+00
+## operating_ratio_3 -4.810050e+00
+## current_ratio_4 -2.503380e+00
+## earning_ratio_1                     4.965877e-01
+## earning_ratio_2                    .
+## current_ratio_5                     7.127187e-01
+## debt_equity_ratio_2                    .
+## operating_ratio_4                     9.021487e-03
+We have trained our penalized regression model. But the important part is seeing how useful it is for
+prediction. W e next use the model and examine how well it performs on data in a separate test.
+To evaluate the quality of the LASSO model’ s predictions and because the outcome is binary , we
+consider the AUC ROC curve ( Figure 10.4 ). The AUC ROC curve is calculated (and plotted) as the ratio
+between false positives (firms that did not go bankrupt but are identified as having gone bankrupt) on
+the x-axis and true positives (firms that went bankrupt and are identified as having gone bankrupt) on
+the y-axis. If the model predicts poorly , then the value of AUC will be low since AUC increases as the
+predictive ability of the model improves. That is, higher values indicate better prediction.
+Description
+Figure 10.4  AUC ROC Curve
+Now that we have developed a model with the most relevant predictor variables (i.e., ratios), let’ s see
+how Altra Bank can use this model to determine the financial health of a business that has requested a
+loan. If the financial ratio values for the business are as shown in the following table, Altra Bank can use
+the predictive LASSO model to determine whether the business is likely to go bankrupt. Note, since the
+model was trained using a yes/no outcome, it will predict in a similar manner: Given these ratios, it will
+predict that yes, the business will go bankrupt  or no, the business will not go bankrupt .
+##      lambda.min
+##  [1,]  "0"
+current_ratio_1 debt_equity_ratio_1 accounting_ratio_1 operating_ratio_1
+1.65 0.85 1.79 17.31
+marketing_ratio_1 operating_ratio_2 marketing_ratio_2 current_ratio_2
+0.084 22.81 0.269 0.517
+current_ratio_3 operating_ratio_3 current_ratio_4 earning_ratio_1
+0.179 0.205 1.75 0.198
+earning_ratio_2 current_ratio_5 debt_equity_ratio_2 operating_ratio_4
+0.09 1.27 0.75 0.075
+We provide the trained LASSO model with the financial ratios of the new firm and ask the model to
+generate a prediction. The prediction value of 0 means that our model is predicting that this business
+will go bankrupt. Given this prediction, Altra Bank can now decide whether to go ahead with a loan.
+10.7.2 Business Insights and Other Applications
+Therefore, using a penalized regression model, we can build predictive models even if the data are
+collinear—a common problem when using financial ratios as predictors. Note that linear and logistic
+regression’ s estimates are af fected by the presence of multicollinearity—resulting, for example, in the
+model’ s inability to reject a false null hypothesis. However , penalized regression can provide estimates
+even in the presence of multicollinearity . It handles correlation among predictors through the inclusion of
+the shrinkage penalty that helps find the model of best fit even in the presence of multicollinearity . In
+terms of business insights, using LASSO, in this chapter we developed a penalized regression model
+that can help lenders allocate loans and businesses determine their financial health.
+In addition to selecting which variables are the most important to determine the financial health of an
+organization, LASSO can be used in other areas of finance such as assets optimization by selecting the
+critical assets that can result in an optimal asset portfolio. It can also be used for fraud detection in
+financial transactions—by finding the variables that help financial organizations identify which
+transactions do not appear regular and could, hence, be fraudulent. Moving beyond the financial sector ,
+LASSO can be used to identify the most important variables to predict employee satisfaction or for
+optimal inventory management or ef fective campaigns that maximize customer engagement.
+10.8 IMPLEMENTATION USING R: EVALUATING THE HEALTH
+OF A BUSINESS
+The data contain 16 financial ratios, some of which are marketing related and some accounting related
+as mentioned earlier . First we read in the data on the 16 predictor variables and the libraries: ROCR,2
+glmnet ,3 psycho ,4 tidyverse ,5 ggplot2 ,6 and car.7
+library(ROCR)
+library(glmnet)
+ 
+trainData <-
+read.csv(url("http://data.mishra.us/files/train_bankruptcy.csv"))
+testData <-
+read.csv(url("http://data.mishra.us/files/test_bankruptcy.csv"))
+ 
+predictors <- trainData[,c(1:16)]
+bankruptcy <- trainData$class
+We then check for the correlation among the 16 predictor variables. R provides the correlation plot as
+shown in Figure 10.2 . As we can see from the plot, there are quite a few ratios that are correlated more
+than 0.5 with one another .
+library(psycho)
+library(tidyverse)
+library(ggcorrplot)
+ 
+correl <- cor(predictors)
+ggcorrplot(correl,hc.order=FALSE,
+ type="lower",lab=TRUE,lab_size = 5,
+ outline.color = "black",tl.cex = 17,
+ colors = c("white", "white"))+
+ theme(legend.position = "none")
+Next we can check for multicollinearity using VIF for each of the predictors.
+library(ggplot2)
+library(car)
+predictionModel <- glm(as.factor(trainData$class) ~ .,
+ data = trainData,family=binomial(link='logit'))
+vif(predictionModel)
+##current_ratio_1 debt_equity_ratio_1 accounting_ratio_1      
+operating_ratio
+##4.565160 614.931070 624.345293      1.969324
+##marketing_ratio_1 operating_ratio_2 marketing_ratio_2      current_ratio_
+##11.756341 1.083820 2.825103      1.338527
+##current_ratio_3 operating_ratio_3 current_ratio_4      earning_ratio_
+##2.346815 27.912590 3.912966      2.240309
+##earning_ratio_2 current_ratio_5 debt_equity_ratio_2      
+operating_ratio
+##24.330196 3.678511 2.641648      1.019840
+The VIF of some of the financial ratios is very high (e.g., debt_equity_ratio_1 = 614.93 and
+accounting_ratio_1 = 624.34). Because some financial ratios are highly correlated and we are dealing
+with a binary outcome ( yes, a business will go bankrupt  versus no, a business will not go bankrupt ), we
+use penalized logistic regression.
+The model.matrix  function helps to dummy code the categorical (yes/no) variable so that the glmnet
+function can use the values. The function also helps create a matrix of the predictor variables.
+To examine the quality of predictions of the LASSO model, we look at the AUC ROC curve. AUC is the
+ratio between false positive and true positive. Higher values of AUC are better because in our case they
+indicate whether the model is able to distinguish between the yes and no outcomes. In the training
+dataset, we can also plot the AUC values for dif ferent values of log( λ). From the plot in Figure 10.3 , we
+can see that the best values of AUC are those of log( λ) between −12 and about −9. The values on top
+of the graph indicate the number of dummy-coded predictors used.
+predictors <-data.matrix(predictors)
+set.seed(1287994)
+ 
+cv.binomial <- cv.glmnet(x = predictors, y = as.factor(bankruptcy),
+ alpha=1, family="binomial",
+ nfolds=4, standardize = TRUE, type.measure = "auc")
+plot(cv.binomial)
+We then use the glmnet  function to run the penalized regression. Since we are running a penalized
+logistic regression, we specify that it is binomial. The term alpha  helps us specify whether we want to
+run a LASSO or ridge regression: alpha  = 1 will execute a LASSO while alpha  = 0 will run a ridge
+regression. Since in this case we are interested in variable selection, we will run a LASSO. Remember
+that although we do shrink predictor coef ficient estimates to near zero with ridge, it still uses all
+predictors, which makes it dif ficult to choose variables with ridge regression.
+Recall that the shrinkage parameter λ can vary between zero and infinity . To find the optimal value of λ,
+we use cross-validation. Here we conducted a four-fold cross-validation. W e also standardize the data
+to ensure that they are easy to interpret; more important, the developers of LASSO suggest that not
+standardizing can result in extreme values and dif ficulty in comparing predictors that may be measured
+on dif ferent units. Finally , we also ask R to output the optimal value of λ, which is called lambda.min .
+We can then find out which predictors LASSO shrunk to 0 using the lambda.min  parameter . We see
+
+
+that it has shrunk the β parameters of 4 of the predictors to zero and, hence, selected 12 from the initial
+16 predictors.
+(best.lambda <- cv.binomial$lambda.min)
+## [1] 8.837698e-05
+y4<- coef(cv.binomial, s="lambda.min", exact=FALSE)
+print(y4)
+## 17 x 1 sparse Matrix of class "dgCMatrix"
+##                                                            s1
+## (Intercept)                     1.346913e+01
+## current_ratio_1                     9.231917e-02
+## debt_equity_ratio_1                     1.297786e+01
+## accounting_ratio_1 -1.416379e+01
+## operating_ratio_1                    .
+## marketing.ratio_1                     3.031253e+00
+## operating_ratio_2                     3.493792e-03
+## marketing_ratio_2                    .
+## current_ratio_2 -1.985339e-05
+## current_ratio_3                     2.416489e+00
+## operating_ratio_3 -4.810050e+00
+## current_ratio_4 -2.503380e+00
+## earning_ratio_1                     4.965877e-01
+## earning_ratio_2                    .
+## current_ratio_5                     7.127187e-01
+## debt_equity_ratio_2                    .
+## operating_ratio_4                     9.021487e-03
+We have trained our penalized regression model. But the important part is seeing how well it can be
+used in prediction. W e now use the trained model with the optimal value of λ and evaluate how it
+performs on a separate test dataset.
+test_predictors <- testData[,c(1:16)]
+test_predictors <- data.matrix(test_predictors)
+pred = predict(cv.binomial, newx = test_predictors,
+ type = "response",s ="lambda.min")
+pred <- prediction(pred, testData$class)
+ 
+perf <- performance(pred,"tpr","fpr")
+auc_ROCR<- performance(pred,measure ="auc")
+We again use the AUC ROC curve to examine the prediction of the LASSO model on the test dataset.
+This is calculated (and plotted) as the ratio between false positives on the x-axis and true positives on
+the y-axis. Higher AUC values indicate better model prediction. Figure 10.4  plots this curve.
+plot(perf,colorize=FALSE, col="black") # plot ROC curve
+lines(c(0,1),c(0,1),col = "gray", lty = 4 )
+text(1,0.15,labels=paste("AUC = ", round(auc_ROCR@y.values[[1]],
+ digits=2), sep=""),adj=1)
+Using the trained model, we can now use it to predict whether a business will go bankrupt. If we provide
+the values of the 16 financial ratios of a new business to the model, it will provide a prediction of 0 ( will
+go bankrupt ) or 1 ( will not go bankrupt ).
+current_ratio_1 debt_equity_ratio_1 accounting_ratio_1 operating_ratio_1
+1.65 0.85 1.79 17.31
+marketing_ratio_1 operating_ratio_2 marketing_ratio_2 current_ratio_2
+0.084 22.81 0.269 0.517
+current_ratio_3 operating_ratio_3 current_ratio_4 earning_ratio_1
+0.179 0.205 1.75 0.198
+earning_ratio_2 current_ratio_5 debt_equity_ratio_2 operating_ratio_4
+0.09 1.27 0.75 0.075
+We enter these data as new_data . Since for glmnet  the data have to be in the form of a matrix, we
+convert it to a matrix with one row ( nrow = 1 ) and 16 columns ( ncol = 16 ). For the predict
+function, we use type = class  so that the output is in the form of a class ( will face bankruptcy
+= 0 versus will not face bankruptcy = 1) with the highest predicted probability .
+new_data = c(1.65,0.85,  1.79,
+17.31,0.084,22.81,0.269,.517,0.179,0.205,
+ 1.75,0.198,0.09,1.27,0.75,0.075)
+ 
+new_data <- matrix(new_data,  nrow = 1,  ncol = 16,   byrow = TRUE)
+ 
+pred = predict(cv.binomial,  newx = new_data, 
+ type = "class", s ="lambda.min")
+ 
+pred 
+##        lambda.min
+##  [1,]  "0"
+The value 0 means that our model predicts that this business will eventually go bankrupt. Altra Bank can
+use the model’ s predictions to determine whether to of fer the business a loan.
+10.9 APPENDIX: GLOSSARY OF FINANCIAL TERMS
+Balance Sheets:  Financial statements that provide an overview of a company’ s assets, liabilities,
+and shareholders’  equity at a certain point in time.
+Bankruptcy:  A legal process in which a person or business declares the inability to repay
+outstanding debts. It can of fer some protection from creditors and provide a way to reorganize or
+liquidate assets.
+Borrow Money:  To obtain funds from a lender with the promise of repaying it in the future, usually
+with interest. The person borrowing money is also called a debtor .
+Chapter 7:  A type of bankruptcy under U.S. Bankruptcy Code that involves the liquidation or selling
+of a debtor ’s nonexempt assets to pay of f creditors.
+Chapter 11:  A type of bankruptcy under U.S. Bankruptcy Code that allows businesses to continue
+operating while they restructure their debt obligations and business af fairs and plan for the future
+under the guidance of the bankruptcy court.
+Credit Ratings:  A rating given to a business or individual that indicates their creditworthiness or
+ability to repay borrowed funds. One credit rating agency is Standard and Poor ’s (S&P).
+Current Ratio:  This ratio considers the relationship between current assets (the assets that can be
+easily converted into cash, such as inventory) and current liabilities (e.g., short-term debts, dividend
+payments, and taxes). It is a measure of the liquidity  of a business (defined as the ease with which
+an asset can be converted into cash without af fecting its market value). Current ratio helps lenders
+determine how equipped the business is in terms of repaying its debts, especially its short-term
+debt payments. A higher current ratio (current assets to current liabilities) indicates higher liquidity . A
+current ratio of 2 is said to indicate sound financial health, while anything less than 1 can constitute
+a warning sign.
+Debt–Equity Ratio:  This ratio evaluates the relationship between liabilities of the business (what it
+owes; specifically long-term debts, which appear on the right side of the balance sheet) and
+shareholder equity (total assets minus total liabilities). It is one of the most common ratios used to
+evaluate the health of a business. What is considered a good debt–equity ratio depends on the
+industry—values nearer 1 are generally considered better . As the value of the debt–equity ratio
+increases beyond 1, it indicates that the business is more dependent on debt financing than on its
+own equity . Problems arise when the reliance on debt keeps increasing, meaning the likelihood of
+financial distress increases.
+Debt Ratio:  A financial metric that compares a company’ s total debt to its total assets, used to
+evaluate financial risk.
+Debt Servicing:  The process of making principal and interest payments on borrowed funds over
+time.
+Default:  Failure to fulfill the repayment of a loan, including interest or principal, at the agreed-upon
+terms and time.
+Earnings ratio:  This ratio is the current earnings of a firm and captures the financial performance
+of a business before taking into account taxes and other liabilities. It allows investors to look at how
+the business is performing every year because of the operating decisions made for that year; it
+does not take into account financial decisions that carry over from previous years such as interest
+and taxes. Thus, it provides a good picture of a business’ s net income or profit in a given year .
+Economic Outlook:  An analysis or opinion regarding the future state of the economy or economic
+conditions.
+Equity:  The value of ownership interest in a business, calculated by deducting liabilities from
+assets.
+Financial Distress:  A condition in which a company faces dif ficulties in meeting its financial
+obligations, such as paying of f debt.
+Financial Health:  The overall economic status of a business, including its income, expenses,
+debts, and long-term sustainability .
+Financial and Operating Ratios:  Metrics used to evaluate a business’ s financial health and
+operational ef ficiency .
+Growth Areas:  Parts or aspects of a business showing potential for expansion or development.
+Intangible Assets:  Nonphysical assets like patents, copyrights, and brand reputation or image that
+add value to a business.
+Interest Payments:  Money paid to a lender by a borrower as compensation for the use of
+borrowed funds, usually calculated as a percentage of the principal amount.
+Interest Rate:  The percentage charged by a lender to a borrower for using their money . The
+borrower pays this in addition to repaying the borrowed amount (the principal).
+Lenders:  Individuals or institutions that give a temporary loan or credit to borrowers with the
+expectation it will be paid back with interest.
+Leveraged Business:  A company that has used borrowed capital (debt) to increase the potential
+return on equity .
+Leveraged Buyout (LBO):  A financial transaction where a company is purchased using a
+combination of equity and significant amounts of borrowed money , often using the company’ s
+assets as collateral.
+Market V alue:  The estimated amount for which a business or asset could be sold by a willing buyer
+to a willing seller .
+Operating Costs:  Expenses related to the business’ s primary operations, such as the costs of
+materials, labor , and overhead. These costs are deducted from a company’ s revenue to calculate
+its operating profit.
+Operating Efficiency:  The performance of a business in terms of its use of resources to produce
+goods and services. A high operating ef ficiency means that a business utilizes its resources wisely ,
+resulting in higher profits.
+Operating Ratio:  This indicates the operating ef ficiency of a business by considering the
+relationship between operating costs (the costs incurred in the day-to-day operations of the
+business) and sales (the amount earned by selling products and services). In other words, it
+examines whether the business has been able to keep costs low compared to how much it is
+selling. A lower operating ratio is considered better and indicates greater ef ficiency .
+Optimal Debt Ratio:  A balance of debt and equity that maximizes a company’ s value while
+minimizing its cost of capital.
+Regulatory Compliance:  Adhering to laws, regulations, guidelines, and specifications relevant to
+the business’ s processes and operations.
+Scenario Planning:  A strategic planning method used by organizations to make flexible long-term
+plans that can take into account possible future scenarios or events.
+Solvency:  Describes a business’ s ability to meet its long-term financial obligations by having more
+assets than liabilities.
+Tangible Assets:  Physical assets such as machinery , buildings, and land that a business owns and
+uses in its operations.
+Tax Shield:  A reduction in taxable income for an individual or corporation achieved through
+claiming allowable deductions such as interest on debt.
+Trade-Off Theory in Finance:  A theory that suggests companies manage and balance the benefits
+and costs of debt financing, considering aspects such as tax shields and financial distress.
+10.10 UNDERSTANDING THE CHAPTER
+1. Can a business keep taking loans because it provides a tax shield? Is there a problem that may
+arise if the loan amount because too high?
+2. Why should we not use OLS regression when there is multicollinearity in the data?
+3. Penalized regression is used to address which of the following issues?
+a. Autocorrelation
+b. Heteroscedasticity
+c. Homoscedasticity
+d. Multicollinearity
+e. Lagged variables
+4. Which of the following statements regarding multicollinearity among predictors is false ?
+a. Variance inflation factor (VIF) values of more than 5 indicate multicollinearity .
+b. Variance inflation factor (VIF) values of less than 5 indicate multicollinearity .
+c. Bar charts cannot test for multicollinearity .
+d. Variance inflation factor (VIF) can test for multicollinearity .
+e. Scatterplots can indicate multicollinearity .
+5. Which of the following statements is true about filing for Chapter 7  bankruptcy?
+a. The business can be restructured and turned around.
+
+
+
+`;
+        const viContent = `# 5 PHÂN KHÚC THỊ TRƯỜNG BẰNG CÁC THUẬT TOÁN PHÂN CỤM (MARKET SEGMENTATION USING CLUSTERING ALGORITHMS)
+
+5.1 Phân khúc Khách hàng (Segmenting Customers)
+5.1.1 Cơ sở của việc Phân khúc (Basis of Segmentation)
+5.2 Nhắm mục tiêu Khách hàng Tiềm năng (Targeting Potential Customers)
+5.3 Định vị Sản phẩm trong Tâm trí Khách hàng (Positioning the Product in Customers’ Minds)
+5.4 Phân khúc Dựa trên Dữ liệu (Data-Driven Segmentation)
+5.4.1 Phân khúc theo Hành vi (Behavioral Segmentation)
+5.4.2 Phân khúc Động (Dynamic Segmentation)
+5.4.3 Vi phân khúc (Microsegments)
+5.5 Các Thuật toán Phân cụm cho Phân khúc (Clustering Algorithms for Segmentation)
+5.5.1 Mối quan hệ giữa Khoảng cách và Sự Tương đồng (The Relationship Between Distance and Similarity)
+5.5.2 Thuật toán k-Means (The k-Means Algorithm)
+5.5.3 Thuật toán k-Medoid (The k-Medoid Algorithm)
+5.5.4 Sử dụng k-Means để Phân khúc Khách hàng
+5.6 Thực hành bằng R: Phân khúc bằng k-Means và k-Medoid
+5.7 Hiểu rõ Chương học
+
+### MỤC TIÊU HỌC TẬP (LEARNING OBJECTIVES)
+1. Hiểu về các khái niệm STP (Segmentation, Targeting, Positioning) trong tiếp thị.
+2. Quyết định cách thức phân khúc khách hàng.
+3. Tìm hiểu các cơ sở khác nhau của việc phân khúc.
+4. Phân cụm (Cluster) để phân khúc khách hàng bằng thuật toán k-means và k-medoid.
+5. Sử dụng k-means để tìm các phân khúc khách hàng mục tiêu.
+6. Diễn giải kết quả của quá trình phân tích phân cụm.
+
+## 5.1 PHÂN KHÚC KHÁCH HÀNG (SEGMENTING CUSTOMERS)
+
+Vegan-Always là một nhà hàng mới mở ở Phoenix. Họ muốn gửi phiếu giảm giá (coupons) cho những khách hàng yêu thích đồ chay. Họ có nên gửi những phiếu giảm giá này cho tất cả cư dân của Phoenix không? Mặc dù có thể làm được, nhưng việc phân phối phiếu giảm giá rộng rãi như vậy không chỉ trở nên rất tốn kém mà không phải ai cũng sẽ quan tâm đến các món ăn của nhà hàng. Vì không phải tất cả khách hàng đều giống nhau hoặc có cùng sở thích, việc gửi cùng một thông điệp tiếp thị đến tất cả mọi người là không hiệu quả hoặc sinh lời. Chiến lược tốt nhất cho Vegan-Always là chia toàn bộ dân số Phoenix theo cách mà họ chỉ gửi phiếu giảm giá cho những người có khả năng sẽ ghé thăm nhà hàng. Một cách nhà hàng có thể làm điều này là sử dụng các yếu tố tâm lý học (psychographics) hoặc lối sống (lifestyle). Những người quan tâm nhiều hơn đến môi trường đã chuyển sang ăn chay và có thể sẽ quan tâm hơn đến một nhà hàng như vậy.
+
+Tương tự, nhân khẩu học (demographics) có thể là một cách khác để tìm các nhóm khách hàng phù hợp với nhà hàng. Quá trình chia thị trường thành các nhóm khách hàng có các đặc điểm tương đồng và chọn (các) nhóm phù hợp nhất để doanh nghiệp nhắm mục tiêu (target) được gọi là phân khúc thị trường (market segmentation).
+
+Một cách để hình dung về phân khúc là xem nó như một sự thỏa hiệp giữa tiếp thị đại chúng (mass marketing - giả định rằng tất cả khách hàng đều giống nhau) và tùy chỉnh ở cấp độ cá nhân (individual-level customization - giả định rằng tất cả khách hàng đều là duy nhất). Thay vì nhắm mục tiêu vào từng khách hàng, việc phân khúc cho phép doanh nghiệp nhắm mục tiêu vào các nhóm khách hàng tương tự nhau trong cách họ phản hồi với sản phẩm. Trong các thị trường dựa trên dữ liệu (data-driven markets) hiện nay, việc phân khúc ở mức độ sâu hơn đã trở nên khả thi; do đó, vi phân khúc (microsegmenting) đang trở nên phổ biến. Ví dụ, dựa trên hành vi mua hàng trong quá khứ và sự tương đồng với các khách hàng khác, Amazon có khả năng tạo ra các vi phân khúc (microsegments) và đề xuất các sản phẩm rất cụ thể cho từng khách hàng của mình.
+
+Bước đầu tiên trong phân khúc thị trường (market segmentation) là hiểu lý do tại sao khách hàng mua một sản phẩm. Sản phẩm đó mang lại những lợi ích gì mà khách hàng có thể quan tâm? Doanh nghiệp cần xác định tất cả các nhu cầu của khách hàng mà một sản phẩm hoặc dịch vụ có thể đáp ứng.
+
+
+Thay vì cố gắng xác định phân khúc khách hàng có khả năng mua một thương hiệu nhất bằng một nghiên cứu dựa trên thái độ (ví dụ: khách hàng thích thương hiệu này đến mức nào?), một sản phẩm có thể được giới thiệu thông qua các mẫu nhỏ và hành vi mua hàng thực tế có thể được theo dõi. Ngoài ra, dựa trên dữ liệu bán hàng, các sản phẩm có thể được sửa đổi trong thời gian thực (real-time) dựa trên các tính năng mà khách hàng ưa thích nhất. Do đó, các thị trường dựa trên dữ liệu (data-driven markets) cho phép một vòng phản hồi (feedback loop) mà qua đó các doanh nghiệp có thể quan sát hoạt động mua hàng thực tế của khách hàng và tinh chỉnh các phân khúc thị trường (market segments).
+
+### 5.4.2 Phân khúc Động (Dynamic Segmentation)
+Một kết quả khác của dữ liệu phong phú về khách hàng cho phép doanh nghiệp liên tục cập nhật các phân khúc khách hàng của mình. Thay vì phân khúc tất cả khách hàng một lần và cho rằng sở thích của họ sẽ không thay đổi, phân khúc động (dynamic segmentation) giả định rằng sở thích sẽ thay đổi và liên tục cập nhật xem dịch vụ/sản phẩm nào sẽ được một phân khúc khách hàng cụ thể ưa thích nhất. Nhiều khía cạnh trong cuộc sống của một cá nhân có thể thay đổi. Ví dụ, một nhà sản xuất sô cô la không thể cho rằng chỉ vì một khách hàng đã mua sô cô la đen trong quá khứ thì họ sẽ tiếp tục làm như vậy. Nhu cầu cá nhân, gia đình hoặc sức khỏe của họ có thể thay đổi, khiến họ chuyển sang mua sô cô la không đường hoặc không có hạt. Phân khúc động tính đến khả năng sở thích của khách hàng thay đổi và do đó, phân khúc mà họ thuộc về không phải là tĩnh (static). Một lần nữa, điều quan trọng là các doanh nghiệp phải trau dồi khả năng sàng lọc qua lượng thông tin dồi dào có sẵn cho họ và sử dụng thông tin gần đây nhất, cho dù là hành vi hay thông tin khác, để phân khúc khách hàng.
+
+### 5.4.3 Vi phân khúc (Microsegments)
+Như đã đề cập trước đó, hiện nay đã có thể phục vụ các phân khúc khách hàng rất nhỏ bằng cách hiểu sâu sắc sở thích của họ và tùy chỉnh các sản phẩm cho phù hợp. Điều này cũng dẫn đến siêu cá nhân hóa (hyperpersonalization), nơi mỗi dịch vụ/sản phẩm nhắm mục tiêu duy nhất đến một khách hàng cụ thể dựa trên cả dữ liệu nhân khẩu học (demographic data) và dữ liệu hành vi (behavioral data) được thu thập về khách hàng đó. Chẳng hạn, các công ty bảo hiểm có thể bổ sung dữ liệu hiện có như tuổi, giới tính và danh mục sản phẩm hiện tại bằng hành vi trực tuyến như thời gian truy cập trên trang web của họ để phân khúc khách hàng tốt hơn và cung cấp cho khách hàng một sản phẩm được tùy chỉnh cao.
+
+Việc chọn thuật toán để thực hiện phân khúc cũng quan trọng không kém gì dữ liệu dành cho phân khúc. Nhiều lần chúng ta chỉ có các loại dữ liệu khác nhau về khách hàng mà không có thông tin về kết quả kinh doanh như doanh số bán hàng hoặc khách hàng đó có trung thành hay không. Tức là, dữ liệu có xu hướng không được gán nhãn (unlabeled). Bởi vì chúng ta không có bất kỳ nhãn kết quả nào, chúng ta không có khả năng so sánh hiệu suất của mô hình. Nhiệm vụ phổ biến nhất của học không giám sát (unsupervised learning) là phân tích khám phá (exploratory analysis), sử dụng các phương pháp trực quan hóa (đơn giản nhất là phân cụm - clustering) để kiểm tra dữ liệu và thu thập thông tin chi tiết.
+
+Hãy xem qua các thuật toán thường được sử dụng cho phân khúc.
+
+## 5.5 CÁC THUẬT TOÁN PHÂN CỤM CHO PHÂN KHÚC (CLUSTERING ALGORITHMS FOR SEGMENTATION)
+Phân cụm (Clustering) thường được sử dụng để phân khúc khách hàng thành các nhóm có bộ nhu cầu tương tự nhau. Việc hiểu thuật toán k-Means và thuật toán k-Medoid rất hữu ích để hình dung quá trình phân cụm hoạt động như thế nào.
+
+<!-- IMAGE_PLACEHOLDER: Hình ảnh về Phân cụm hoặc Thị trường -->
+
+### 5.5.1 Mối quan hệ giữa Khoảng cách và Sự Tương đồng (The Relationship Between Distance and Similarity)
+Trong phân cụm, các đối tượng (ví dụ: khách hàng) được nhóm lại với nhau dựa trên khoảng cách của chúng trong một không gian đa chiều (multidimensional space). Nguyên tắc cơ bản là nếu hai khách hàng ở gần nhau trong không gian đặc trưng (feature space) của họ, họ sẽ có nhiều điểm tương đồng và do đó nên được nhóm vào cùng một cụm (cluster).
+
+### 5.5.2 Thuật toán k-Means (The k-Means Algorithm)
+Thuật toán k-Means là một trong những thuật toán học không giám sát (unsupervised learning) đơn giản và phổ biến nhất được sử dụng để giải quyết vấn đề phân cụm. Quy trình hoạt động bao gồm:
+1. Xác định số lượng cụm $k$ (number of clusters).
+2. Khởi tạo ngẫu nhiên các trung tâm cụm (centroids).
+3. Gán mỗi điểm dữ liệu cho trung tâm cụm gần nhất.
+4. Tính toán lại trung tâm của từng cụm dựa trên các điểm dữ liệu đã được gán.
+5. Lặp lại bước 3 và 4 cho đến khi các trung tâm không thay đổi đáng kể.
+
+### 5.5.3 Thuật toán k-Medoid (The k-Medoid Algorithm)
+Tương tự như k-Means, nhưng thay vì sử dụng giá trị trung bình (mean) để làm trung tâm cụm, k-Medoid sử dụng một điểm dữ liệu thực tế (gọi là medoid) làm trung tâm. Điều này giúp thuật toán chống nhiễu (outliers) tốt hơn k-Means.
+
+<!-- IMAGE_PLACEHOLDER: Figure 5.4 k-Means Segmentation Plot -->
+<!-- IMAGE_PLACEHOLDER: Figure 5.6 k-Medoid Segmentation Plot -->
+
+
+bởi vì không có nhiều giá trị ngoại lai (outliers) trong dữ liệu. Nếu số lượng các giá trị ngoại lai tăng lên, k-medoid sẽ đưa ra một giải pháp tốt hơn.
+
+Do đó, chúng ta có thể kết luận phân tích phân cụm của mình bằng những hiểu biết sâu sắc sau đây. Khi muốn thực hiện phân khúc (segmentation), chúng ta có thể sử dụng thuật toán phân cụm như k-Means hoặc k-Medoid. Chúng ta sử dụng phân cụm vì dữ liệu của chúng ta không được gán nhãn (unlabeled), tức là chúng không có nhãn kết quả. Trong ví dụ, chúng ta thấy rằng khi số tiền chi tiêu (amount spent) và thời gian mua sắm (patronage duration) được sử dụng và chúng ta yêu cầu ba cụm, chúng ta có thể thu được các đặc điểm trung bình của khách hàng trong ba cụm đó. Sự khác biệt giữa các khách hàng này cho chúng ta biết doanh nghiệp có thể đưa ra các đề xuất sản phẩm hiệu quả như thế nào đối với khách hàng trong ba phân khúc này.
+
+## 5.6 THỰC HÀNH BẰNG R: PHÂN KHÚC BẰNG K-MEANS VÀ K-MEDOID (IMPLEMENTATION USING R: SEGMENTATION USING K-MEANS AND K-MEDOID)
+
+Để phân tích và vẽ biểu đồ dữ liệu, chúng ta sẽ sử dụng hai gói (packages): \`cluster\` và \`factoextra\`. Sau khi nhập dữ liệu, chúng ta căn giữa và chia tỷ lệ nó (center and scale) bằng cách sử dụng hàm \`scale()\` với các tùy chọn \`center = TRUE\` và \`scale = TRUE\`; \`center = TRUE\` trừ giá trị trung bình cột của một biến khỏi các giá trị cột tương ứng của chúng, và \`scale = TRUE\` chia các cột (đã được căn giữa) của một biến cho độ lệch chuẩn (standard deviations) của chúng. Quá trình này chuyển đổi các giá trị của mỗi biến thành điểm $z$ (z scores) của chúng. Đây là một bước quan trọng trước khi phân tích cụm (cluster analysis) vì mỗi biến của một tập dữ liệu có thể được đo trên các thang đo khác nhau. Ví dụ, trong tập dữ liệu của chúng ta, thời gian khách hàng quen của cửa hàng được tính bằng tháng, nhưng số tiền chi tiêu được tính bằng đô la. Việc chia tỷ lệ (scaling) dữ liệu đảm bảo rằng không có sự biến dạng nào do sự khác biệt trong các thang đo được sử dụng giữa các biến.
+
+Khi chúng ta đã đọc và chia tỷ lệ dữ liệu (\`df\`), mã thực tế để chạy k-Means khá đơn giản. Trong hàm \`kmeans()\`, \`centers\` chỉ định số lượng cụm ($k$), sau đó \`nstart = 25\` đặt 25 trung tâm (centroids) ngẫu nhiên ban đầu và chọn trung tâm tốt nhất. Giá trị \`nstart\` cao hơn mang lại giải pháp ổn định hơn, nhưng đối với các tập dữ liệu lớn hơn, điều này có thể tốn nhiều thời gian tính toán hơn.
+
+\`\`\`R
+library(cluster)
+library(factoextra)
+ 
+set.seed(12345) # Thiết lập seed để có thể tái tạo kết quả
+ 
+df <- read.csv(url("http://data.mishra.us/files/chapter_segmentation/segmentation_kmeans.csv"))
+ 
+df <- scale(df, center = TRUE, scale = TRUE)
+ 
+k_means <- kmeans(df, centers = 3, nstart = 25)
+\`\`\`
+
+Đoạn mã sau giúp tạo Hình 5.4 bằng cách sử dụng hàm \`fviz_cluster()\`. Tùy chọn \`repel = TRUE\` ngăn các điểm dữ liệu tụ lại với nhau và giúp chúng dễ đọc hơn.
+
+\`\`\`R
+fviz_cluster(k_means, data = df,
+ repel = TRUE,
+ main = "k-means segmentation plot"
+)
+\`\`\`
+
+Chúng ta cũng có thể in các trung tâm cụm (cluster centers) cho mỗi cụm trong số ba cụm, như chúng ta đã thấy trong Hình 5.4. Điều này rất hữu ích khi dữ liệu của chúng ta có nhiều hơn hai biến và việc vẽ biểu đồ các cụm trở nên khó khăn hơn. Bằng cách sử dụng các trung tâm cụm, chúng ta có thể đánh giá các đặc điểm trung bình của từng cụm. Nhất quán với biểu đồ, ở đây đầu ra của chúng ta cho thấy các thành viên của cụm 1 có thời gian mua sắm trung bình là -1.009 tháng và đã chi $1.383, trong khi các thành viên của cụm 2 có thời gian mua sắm là -1.006 tháng.
+
+## 5.7 HIỂU RÕ CHƯƠNG HỌC (UNDERSTANDING THE CHAPTER)
+- Phân khúc khách hàng là rất quan trọng để xác định chiến lược tiếp thị mục tiêu.
+- Dữ liệu cung cấp cái nhìn sâu sắc về nhu cầu và hành vi.
+- Các kỹ thuật phân cụm như k-Means giúp tự động hóa và định lượng các phân khúc này.
+
+
+# 10 DỰ BÁO SỨC KHỎE TÀI CHÍNH CỦA MỘT DOANH NGHIỆP SỬ DỤNG HỒI QUY CÓ PHẠT (FORECASTING THE FINANCIAL HEALTH OF A BUSINESS USING PENALIZED REGRESSION)
+
+10.1 Sức khỏe Tài chính của một Doanh nghiệp (Financial Health of a Business)
+10.2 Tầm quan trọng của việc Dự báo Sức khỏe Tài chính của Doanh nghiệp
+10.2.1 Ảnh hưởng của Việc vay mượn đối với Sức khỏe Tài chính
+10.2.2 Tỷ lệ Nợ và Khả năng Vay mượn
+10.3 Tầm quan trọng của việc Biết được Sức khỏe Tài chính đối với Người cho vay
+10.3.1 Sức khỏe Tài chính Kém: Phá sản (Bankruptcy)
+10.4 Tầm quan trọng của việc Biết Sức khỏe Tài chính của Doanh nghiệp đối với Nhà đầu tư
+10.5 Dự báo Sức khỏe Tài chính (Forecasting Financial Health)
+10.5.1 Các Chỉ số Tài chính (Financial Ratios)
+10.6 Đa cộng tuyến (Multicollinearity)
+10.6.1 Kiểm tra Đa cộng tuyến
+10.7 Sử dụng Hồi quy có phạt (Penalized Regression) để Đánh giá Sức khỏe Tài chính
+10.7.1 Dự đoán Sức khỏe Tài chính bằng LASSO (Predicting Financial Health Using LASSO)
+10.7.2 Thông tin Kinh doanh và Các Ứng dụng Khác
+10.8 Thực hành bằng R: Đánh giá Sức khỏe của một Doanh nghiệp
+10.9 Phụ lục: Bảng Thuật ngữ Tài chính
+10.10 Hiểu rõ Chương học
+
+### MỤC TIÊU HỌC TẬP (LEARNING OBJECTIVES)
+1. Đánh giá sức khỏe tài chính của một doanh nghiệp.
+2. Hiểu được tầm quan trọng của việc dự báo phá sản (bankruptcy forecasting) đối với các nhà đầu tư, người cho vay và doanh nghiệp.
+3. Sử dụng hồi quy có phạt (penalized regression) để dự báo sức khỏe tài chính.
+4. Xác định đa cộng tuyến và lựa chọn đặc trưng (feature selection) bằng mô hình LASSO.
+
+## 10.1 SỨC KHỎE TÀI CHÍNH CỦA MỘT DOANH NGHIỆP (FINANCIAL HEALTH OF A BUSINESS)
+
+Trong bất kỳ công ty nào, bộ phận tài chính thực hiện các chức năng quan trọng là kiểm soát, lập kế hoạch, ra quyết định và đảm bảo tuân thủ quy định. Bộ phận này cung cấp một cái nhìn hồi tố về cách thức hoạt động của doanh nghiệp bằng cách xem xét nhiều báo cáo tài chính, bao gồm bảng cân đối kế toán, báo cáo kết quả hoạt động kinh doanh và báo cáo lưu chuyển tiền tệ để chỉ ra cho doanh nghiệp biết điểm mạnh và điểm yếu của mình nằm ở đâu. Nó cũng cung cấp một cái nhìn hướng tới tương lai quan trọng dưới dạng nhiều dự báo, bao gồm dự báo lưu chuyển tiền tệ, lập kế hoạch kịch bản (scenario planning) và phân tích độ nhạy (sensitivity analysis). Các mô hình dự báo (Forecasting models) rất thường được sử dụng trong tài chính để thông báo cho những người cho vay (lenders), bản thân doanh nghiệp và một số loại nhà đầu tư khác nhau về nơi họ cần đầu tư nguồn lực trong các khoảng thời gian tới. Những dự báo này cũng xem xét xếp hạng tín dụng, điều kiện thị trường và triển vọng kinh tế vĩ mô rộng lớn hơn. 
+
+Doanh nghiệp nên đầu tư vào đâu? Nên tăng giá hay đưa ra các chương trình khuyến mãi? Liệu công ty có thể tăng lương cho nhân viên hay đã đến lúc cắt giảm chi phí? Liệu công ty có thể đầu tư vào một địa điểm mới hay một sản phẩm mới không? Quản lý tài chính cung cấp một cái nhìn tổng thể về sức khỏe tài chính của một công ty, giúp đưa ra các quyết định chiến lược trên nhiều phòng ban khác nhau. Do đó, dự báo tài chính giúp cung cấp cho ban lãnh đạo doanh nghiệp một bức tranh tổng thể để phát triển các chiến lược tránh tư duy cục bộ trong việc ra quyết định. Việc dự báo như vậy cũng giúp người cho vay xác định xem có nên cho vay hay không và giúp các doanh nghiệp đi vay xác định số tiền họ nên vay.
+
+## 10.2 TẦM QUAN TRỌNG CỦA VIỆC DỰ BÁO SỨC KHỎE TÀI CHÍNH CỦA DOANH NGHIỆP
+
+Các thực thể khác nhau trong công ty cần xác định sức khỏe tài chính của doanh nghiệp vì nó là thông tin đầu vào quan trọng trong các quyết định của họ. Các chủ sở hữu và ban quản lý cần biết doanh nghiệp đang thực hiện các chức năng chính của nó như thế nào để xác định lĩnh vực nào cần đầu tư thêm.
+
+
+các nhà đầu tư, một cách tối ưu, có thể mua một cổ phần lớn để có tiếng nói lớn hơn trong các hoạt động của công ty. Vốn cổ phần tư nhân (Private equity) là một kiểu nhà đầu tư như vậy. Các công ty cổ phần tư nhân thường có xu hướng đầu tư vào các doanh nghiệp có tiềm năng chưa được hiện thực hóa nhưng đang gặp khó khăn về tài chính, có thể là do nợ cao; làm cho chúng phát triển nhanh chóng; và—nếu (như dự đoán) doanh nghiệp thực sự có tiềm năng chưa được hiện thực hóa—gặt hái những lợi ích.
+
+Do đó, điều quan trọng đối với doanh nghiệp, người cho vay và nhà đầu tư là phải xác định chính xác liệu một doanh nghiệp có tiềm năng phát triển hay liệu quỹ đạo khó khăn tài chính có khả năng tiếp tục hay không. Một toàn bộ lĩnh vực trong tài chính được dành riêng cho việc tìm hiểu và dự đoán những biến số nào có thể được sử dụng để dự đoán liệu một doanh nghiệp sẽ gặp khó khăn tài chính hay, trong trường hợp cực đoan, là phá sản.
+
+## 10.5 DỰ BÁO SỨC KHỎE TÀI CHÍNH (FORECASTING FINANCIAL HEALTH)
+
+Một số biến dự báo (predictors) đã được xem xét có thể giúp dự đoán mức độ tín nhiệm. Hãy tìm hiểu điều này bằng cách sử dụng một ví dụ từ góc độ của một người cho vay như ngân hàng. Khi một doanh nghiệp tiếp cận ngân hàng để yêu cầu vay vốn, ngân hàng có khả năng sẽ sử dụng một số tiêu chí để trước tiên xác định sức khỏe tài chính của doanh nghiệp và sau đó quyết định xem có nên cho vay hay không. Giả sử ngân hàng muốn xác định các biến có thể giúp họ đánh giá sức khỏe tài chính của doanh nghiệp. Cũng giả sử rằng ngân hàng đang thận trọng trong ước tính của mình và định nghĩa mức độ tín nhiệm (creditworthiness) dựa trên tình trạng khó khăn tài chính trong tương lai hoặc khả năng phá sản (bankruptcy). Ngân hàng có thể tập trung vào các biến dự báo tài chính cũng như phi tài chính, nhưng nhiều khi những người cho vay thích xem xét các biến dự báo tài chính để hiểu được sức khỏe tài chính của một doanh nghiệp.
+
+### 10.5.1 Các Chỉ số Tài chính (Financial Ratios)
+Các doanh nghiệp báo cáo một số chỉ số tài chính (financial ratios) giúp người cho vay đánh giá sức khỏe tài chính của họ, chẳng hạn như tỷ lệ nợ trên vốn chủ sở hữu (debt-equity ratio), tỷ lệ thanh toán hiện hành (current ratio), tỷ lệ thu nhập (earnings ratio) và tỷ lệ hoạt động (operating ratio). Những tỷ lệ này thường có sẵn trên bảng cân đối kế toán của báo cáo tài chính của một doanh nghiệp. Vui lòng xem định nghĩa chi tiết của những tỷ lệ này trong bảng thuật ngữ được cung cấp trong Phần 10.9 của chương này.
+
+Đối với bất kỳ loại dự báo nào, các doanh nghiệp có xu hướng sử dụng một quy trình lựa chọn biến (variable selection) để phân loại các biến có liên quan khỏi các biến không liên quan. Nếu một doanh nghiệp biết biến nào là có liên quan, họ chỉ có thể sử dụng các biến đó trong các mô hình dự báo của mình. Một lý do khác cho việc lựa chọn biến là để cải thiện độ chính xác của các dự đoán; dự đoán tốt hơn dẫn đến những sai lầm ít tốn kém hơn. Tương tự, khi dự đoán sức khỏe tài chính, điều quan trọng là phải thực hiện lựa chọn biến để tìm ra các biến dự báo (predictors) có liên quan để sử dụng trong các mô hình dự đoán.
+
+Hơn nữa, nhiều biến dự báo tài chính có xu hướng tương quan với nhau (correlated), một số trong đó tương quan khá cao; điều này khiến một số biến dự báo có vẻ quan trọng (significant) khi thực tế không phải vậy—tức là, sự hiện diện của các biến dự báo cộng tuyến (collinear predictors) dẫn đến các dự đoán không chính xác. Hãy tìm hiểu xem đa cộng tuyến (multicollinearity) là gì.
+
+## 10.6 ĐA CỘNG TUYẾN (MULTICOLLINEARITY)
+
+Cộng tuyến (Collinearity) xảy ra khi hai biến dự báo (predictor variables) có tương quan cao. Đa cộng tuyến (Multicollinearity) xảy ra khi có sự tương quan mạnh giữa nhiều biến độc lập. Mặc dù nó không làm giảm khả năng dự đoán của tổng thể mô hình, nhưng nó dẫn đến các ước tính không đáng tin cậy cho các hệ số (coefficients) của các biến dự báo cụ thể. Hồi quy LASSO (LASSO regression) thường được sử dụng để giải quyết vấn đề này vì khả năng lựa chọn đặc trưng (feature selection) của nó, loại bỏ các biến không cần thiết.
+
+
+gần đây ngân hàng cũng nhận ra rằng các chỉ số (ratios) bao gồm các biến hoạt động (operating variables) như doanh số bán hàng (sales) cũng đáng được xem xét khi dự báo sức khỏe tài chính của một doanh nghiệp. Do đó, ngân hàng đã thu thập dữ liệu chứa 16 tỷ lệ khác nhau của 665 doanh nghiệp có sức khỏe tài chính tốt so với kém. Số liệu trong dữ liệu để đánh giá sức khỏe tài chính là liệu một doanh nghiệp có bị phá sản hay không. Dữ liệu chứa thông tin về một số chỉ số tài chính như tỷ lệ nợ trên vốn chủ sở hữu (debt–equity ratio), tỷ lệ thanh toán hiện hành (current ratio) và tỷ lệ hoạt động (operating ratio) đối với các doanh nghiệp đã hoặc chưa phá sản. Tương tự như những người cho vay khác, Ngân hàng Altra cũng sử dụng dữ liệu về các tỷ lệ này để xây dựng một mô hình có thể giúp đưa ra các dự đoán về sức khỏe tài chính của các doanh nghiệp mà ngân hàng đang xem xét có nên cho vay hay không. Ngân hàng Altra cũng muốn xác định liệu một số tỷ lệ có phải là biến dự báo tốt hơn những tỷ lệ khác hay không; do đó, việc có dữ liệu kèm theo nhãn về việc một doanh nghiệp có bị phá sản hay không là rất hữu ích trong việc xây dựng mô hình. (Dữ liệu được sử dụng trong ví dụ này là giả định.)
+
+Dữ liệu có 16 chỉ số tài chính sau đây, một số trong đó là chỉ số hoạt động, chỉ số tiếp thị hoặc chỉ số kế toán:
+
+- current_ratio_1 = tài sản lưu động / nợ ngắn hạn
+- earning_ratio_1 = EBIT (thu nhập trước lãi vay và thuế) / tổng tài sản
+- debt_equity_ratio_1 = giá trị sổ sách của vốn chủ sở hữu / tổng nợ phải trả
+- accounting_ratio_1 = tổng tài sản / tổng nợ phải trả
+- operating_ratio_1 = (hàng tồn kho * 365) / doanh thu
+- marketing_ratio_1 = lợi nhuận ròng / doanh thu
+- operating_ratio_2 = lợi nhuận từ hoạt động kinh doanh / chi phí tài chính
+- marketing_ratio_2 = (tổng nợ phải trả − tiền mặt) / doanh thu
+- current_ratio_2 = (tài sản lưu động − hàng tồn kho) / nợ dài hạn
+- current_ratio_3 = (tài sản lưu động − hàng tồn kho − khoản phải thu) / nợ ngắn hạn
+- operating_ratio_3 = lợi nhuận từ hoạt động kinh doanh / doanh thu
+- current_ratio_4 = (tài sản lưu động − hàng tồn kho) / nợ ngắn hạn
+- earning_ratio_2 = EBITDA (thu nhập trước lãi vay, thuế, khấu hao và khấu hao vô hình—tức là [lợi nhuận từ hoạt động kinh doanh − khấu hao] / tổng tài sản)
+- current_ratio_5 = tài sản lưu động / tổng nợ phải trả
+- debt_equity_ratio_2 = nợ dài hạn / vốn chủ sở hữu
+- operating_ratio_4 = tổng chi phí / tổng doanh thu
+
+Sử dụng dữ liệu này, chúng ta có thể bắt đầu thực hiện một số thử nghiệm và sau đó xây dựng mô hình. Thử nghiệm đầu tiên chúng ta sẽ tiến hành là kiểm tra xem dữ liệu có bao gồm các biến dự báo cộng tuyến hay không (tức là, liệu có tồn tại sự tương quan cao, cả tích cực hoặc tiêu cực, giữa một số trong 16 biến dự báo hay không). Chúng ta thu được một biểu đồ tương quan như thể hiện trong Hình 10.2. Đúng như kỳ vọng đối với các chỉ số tài chính, biểu đồ cho thấy khá nhiều tỷ lệ có tương quan hơn 0.5 với nhau. Ví dụ, \`marketing_ratio_1\` và \`earnings_ratio_2\` có tương quan −0.97 với nhau.
+
+<!-- IMAGE_PLACEHOLDER: Figure 10.2 Correlation Plot -->
+
+Tiếp theo, chúng ta có thể kiểm tra đa cộng tuyến (multicollinearity) bằng cách sử dụng VIF cho từng biến dự báo.
+\`\`\`R
+## current_ratio_1 debt_equity_ratio_1 accounting_ratio_1 operating_ratio
+## 4.565160        614.931070          624.345
+\`\`\`
+
+
+rằng nó đã thu hẹp các tham số $\beta$ của 4 biến dự báo về 0 và do đó, đã chọn 12 từ 16 biến dự báo ban đầu.
+
+\`\`\`R
+(best.lambda <- cv.binomial$lambda.min)
+## [1] 8.837698e-05
+
+y4 <- coef(cv.binomial, s="lambda.min", exact=FALSE)
+print(y4)
+## 17 x 1 sparse Matrix of class "dgCMatrix"
+##                                                            s1
+## (Intercept)                     1.346913e+01
+## current_ratio_1                     9.231917e-02
+## debt_equity_ratio_1                     1.297786e+01
+## accounting_ratio_1 -1.416379e+01
+## operating_ratio_1                    .
+## marketing.ratio_1                     3.031253e+00
+## operating_ratio_2                     3.493792e-03
+## marketing_ratio_2                    .
+## current_ratio_2 -1.985339e-05
+## current_ratio_3                     2.416489e+00
+## operating_ratio_3 -4.810050e+00
+## current_ratio_4 -2.503380e+00
+## earning_ratio_1                     4.965877e-01
+## earning_ratio_2                    .
+## current_ratio_5                     7.127187e-01
+## debt_equity_ratio_2                    .
+## operating_ratio_4                     9.021487e-03
+\`\`\`
+
+Chúng ta đã huấn luyện mô hình hồi quy có phạt (penalized regression model) của mình. Nhưng phần quan trọng là xem nó có thể được sử dụng tốt như thế nào trong dự đoán. Bây giờ chúng ta sử dụng mô hình đã được huấn luyện với giá trị tối ưu của $\lambda$ và đánh giá xem nó hoạt động như thế nào trên một tập dữ liệu kiểm tra riêng biệt (test dataset).
+
+\`\`\`R
+test_predictors <- testData[,c(1:16)]
+test_predictors <- data.matrix(test_predictors)
+pred = predict(cv.binomial, newx = test_predictors,
+ type = "response",s ="lambda.min")
+pred <- prediction(pred, testData$class)
+ 
+perf <- performance(pred,"tpr","fpr")
+auc_ROCR<- performance(pred,measure ="auc")
+\`\`\`
+
+Chúng ta lại sử dụng đường cong AUC ROC để kiểm tra dự đoán của mô hình LASSO trên tập dữ liệu kiểm tra. Điều này được tính toán (và vẽ biểu đồ) dưới dạng tỷ lệ giữa dương tính giả (false positives) trên trục x và dương tính thật (true positives) trên trục y. Các giá trị AUC cao hơn cho thấy dự đoán mô hình tốt hơn. Hình 10.4 vẽ đường cong này.
+
+<!-- IMAGE_PLACEHOLDER: Hình 10.4 Đường cong ROC của mô hình LASSO -->
+
+\`\`\`R
+plot(perf,colorize=FALSE, col="black") # plot ROC curve
+lines(c(0,1),c(0,1),col = "gray", lty = 4 )
+text(1,0.15,labels=paste("AUC = ", round(auc_ROCR@y.values[[1]],
+ digits=2), sep=""),adj=1)
+\`\`\`
+
+Sử dụng mô hình đã được huấn luyện, bây giờ chúng ta có thể sử dụng nó để dự đoán xem một doanh nghiệp có phá sản hay không. Nếu chúng ta cung cấp giá trị của 16 chỉ số tài chính của một doanh nghiệp mới cho mô hình, nó sẽ cung cấp dự đoán là 0 (sẽ phá sản) hoặc 1 (sẽ không phá sản).
+
+Chúng ta nhập dữ liệu này dưới dạng \`new_data\`. Vì đối với \`glmnet\`, dữ liệu phải ở dạng ma trận, chúng ta chuyển đổi nó thành một ma trận có một hàng (\`nrow = 1\`) và 16 cột (\`ncol = 16\`).
+
+## 10.9 Phụ lục: Bảng Thuật ngữ Tài chính
+Bao gồm các định nghĩa về tỷ lệ nợ trên vốn chủ sở hữu, tỷ lệ thanh toán hiện hành, tỷ lệ thu nhập và tỷ lệ hoạt động.
+
+## 10.10 Hiểu rõ Chương học (UNDERSTANDING THE CHAPTER)
+- Sự ảnh hưởng của việc vay mượn đối với sức khỏe tài chính.
+- Việc dự báo phá sản là quan trọng đối với nhà đầu tư và chủ nợ.
+- Đa cộng tuyến làm nhiễu mô hình, có thể được giải quyết thông qua phương pháp LASSO.
+
+
+`;
+
+        document.getElementById('en-markdown').innerHTML = marked.parse(formatPlaceholders(enContent));
+        document.getElementById('vi-markdown').innerHTML = marked.parse(formatPlaceholders(viContent));
+    </script>
+</body>
+</html>

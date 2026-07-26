@@ -1,0 +1,248 @@
+\documentclass[aspectratio=169]{beamer}
+\usetheme{Madrid}
+\usecolortheme{default}
+\usepackage[utf8]{inputenc}
+\usepackage[T5]{fontenc}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{amsmath}
+
+\setbeamertemplate{caption}[numbered]
+\renewcommand{\figurename}{Hình}
+\renewcommand{\thefigure}{12.\arabic{figure}}
+
+\title[Chương 12: Object Detection]{Học Sâu (Deep Learning) \\ \vspace{0.5cm} \Large Chương 12: Phát hiện Vật thể \\ (Object Detection)}
+\author{Đại học Đông Á}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame}{Nội dung chương}
+    \tableofcontents
+\end{frame}
+
+\section{1. Giới thiệu Bài toán Phát hiện Vật thể}
+
+\begin{frame}{Bài toán Phát hiện Vật thể là gì?}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Không chỉ trả lời câu hỏi "Trong ảnh có gì?" (Classification).
+            \item Phải trả lời được "Nó nằm ở đâu?" bằng cách vẽ các \textbf{Hộp giới hạn (Bounding Boxes)}.
+            \item \textbf{Ứng dụng thực tế:}
+            \begin{itemize}
+                \item Xe tự lái: Phát hiện người đi bộ, biển báo.
+                \item Bán lẻ: Đếm số lượng sản phẩm trên kệ.
+                \item Trích xuất: Cắt vùng biển số xe để đưa vào OCR.
+            \end{itemize}
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch12/object-detection.7c5cbfd4.png}
+            \caption{Vẽ hộp giới hạn và gán nhãn}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Bộ dữ liệu COCO (Common Objects in Context)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item MS COCO là tiêu chuẩn vàng (Gold Standard) để đánh giá các mô hình Object Detection hiện đại.
+            \item Hơn 200,000 hình ảnh được gán nhãn thủ công với 80 danh mục vật thể.
+            \item Tính chất đa dạng cao: Nhiều vật thể đan xen, chồng chéo, kích thước từ siêu nhỏ đến khổng lồ trong cùng một khung hình.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch12/coco-example.c43c39d6.png}
+            \caption{Dữ liệu phức tạp trong COCO}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\section{2. Kiến trúc Hai giai đoạn (Two-stage Detectors)}
+
+\begin{frame}{Họ mô hình R-CNN (Region-based CNN)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        Kiến trúc Hai giai đoạn ưu tiên \textbf{Độ chính xác cao}:
+        \begin{enumerate}
+            \item \textbf{Giai đoạn 1 (Đề xuất vùng - Region Proposals):} Quét toàn bộ ảnh để tìm ra vài ngàn Vùng (Regions) "có vẻ chứa vật thể".
+            \item \textbf{Giai đoạn 2 (Phân loại):} Đưa từng vùng đó qua mạng CNN để dự đoán Nhãn (Label) và Tinh chỉnh tọa độ hộp (Box Refinement).
+        \end{enumerate}
+        \textit{Nhược điểm: Rất chậm, không thể chạy Real-time.}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch12/r-cnn-pipeline.8fe83666.png}
+            \caption{Quy trình xử lý của R-CNN}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\section{3. Kiến trúc Một giai đoạn (Single-stage Detectors)}
+
+\begin{frame}{Kiến trúc Single-stage và FPN}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Dự đoán song song Tọa độ hộp và Nhãn ngay trong 1 bước duy nhất (YOLO, RetinaNet, SSD).
+            \item \textbf{Vấn đề:} Vật thể nhỏ dễ bị mất dấu ở các lớp sâu.
+            \item \textbf{Giải pháp FPN (Feature Pyramid Network):} Hợp nhất đặc trưng ở nhiều độ phân giải khác nhau, giúp mạng phát hiện được vật thể ở mọi kích cỡ (Từ nhỏ xíu đến to lớn).
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch12/feature-pyramid-network.83b6f108.png}
+            \caption{Mạng tháp đặc trưng (FPN)}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Kết quả dự đoán của RetinaNet}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item RetinaNet là một trong những Single-stage Detector xuất sắc nhất của Facebook AI.
+            \item Sử dụng hàm \textbf{Focal Loss} để giải quyết bài toán mất cân bằng lớp trầm trọng giữa Tiền cảnh (Chứa vật thể) và Hậu cảnh (Không chứa gì).
+            \item Dự đoán mượt mà, bao quát toàn bộ khung hình một cách chính xác.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch12/retinanet-output.0a67b6e8.png}
+            \caption{Dự đoán của RetinaNet}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\section{4. Thuật toán YOLO (You Only Look Once)}
+
+\begin{frame}{Kỷ nguyên mới mang tên YOLO}
+    \begin{itemize}
+        \item Được giới thiệu năm 2015 bởi Joseph Redmon, YOLO làm rung chuyển giới AI.
+        \item Chuyển bài toán Detection thành \textbf{Regression (Hồi quy) trên lưới (Grid)}.
+        \item Khả năng chạy Real-time lên tới 45-155 FPS trên GPU, vượt xa hoàn toàn R-CNN.
+        \item Nguyên lý: Chia ảnh thành lưới $S \times S$ (VD: $13 \times 13$). Mỗi ô lưới (Cell) chịu trách nhiệm dự đoán các vật thể có tâm (Center) nằm trong ô đó.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Tư duy Chia lưới và Anchor Boxes}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Hình bên trái: Chia ảnh gốc thành Lưới (Grid). Ô màu cam chứa Tâm của 1 con chó. Do đó ô lưới màu cam phải chịu trách nhiệm dự đoán con chó này.
+            \item Hình bên phải: Mô hình sẽ không dự đoán tọa độ ngẫu nhiên. Nó sẽ chỉnh sửa dựa trên các \textbf{Hộp neo (Anchor Boxes)} có sẵn (Tỷ lệ chiều cao / chiều rộng).
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.5\textheight,keepaspectratio]{../../images/ch12/yolo-diagram.b7347ca6.png}
+            \caption{Cơ chế hoạt động của YOLO}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Toán học: Cấu trúc Vector Đầu ra}
+    \begin{columns}
+        \column{0.5\textwidth}
+        Mỗi ô lưới xuất ra một Vector gồm:
+        \begin{enumerate}
+            \item \textbf{$p_c$}: Confidence Score (Xác suất có chứa vật thể).
+            \item \textbf{$b_x, b_y$}: Tọa độ tâm của hộp giới hạn.
+            \item \textbf{$b_w, b_h$}: Chiều rộng, chiều cao của hộp.
+            \item \textbf{$c_1, c_2, ... c_k$}: Xác suất thuộc về class $i$ (Vd: Chó, Mèo, Xe).
+        \end{enumerate}
+        Toàn bộ được huấn luyện song song trong 1 hàm Loss duy nhất.
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch12/yolo-targets.7b3c7aed.png}
+            \caption{Vector mục tiêu huấn luyện}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Kết quả Thô (Raw Predictions)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Trong quá trình dự đoán (Inference), MỖI ô lưới sẽ xuất ra nhiều Bounding Boxes.
+            \item Đối với một ảnh $416 \times 416$, mô hình có thể sinh ra hơn \textbf{10,000 hộp giới hạn} cùng một lúc.
+            \item Hầu hết các hộp này là nhiễu, chồng chéo lên nhau hoặc chỉ là nền (Background).
+            \item Làm sao để dọn dẹp đống hỗn độn này?
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch12/yolo-predictions-all.de18d520.png}
+            \caption{Hàng ngàn hộp dự đoán thô}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Công cụ 1: Intersection over Union (IoU)}
+    \begin{itemize}
+        \item \textbf{IoU} là công thức toán học cốt lõi để tính toán độ trùng khớp giữa 2 Hộp giới hạn.
+        \item IoU = (Diện tích phần Giao nhau) / (Diện tích phần Hợp nhau).
+        $$ IoU = \frac{Area(Box_1 \cap Box_2)}{Area(Box_1 \cup Box_2)} $$
+        \item IoU dao động từ $0$ (Không chạm nhau) đến $1$ (Trùng khớp hoàn toàn).
+        \item Ngưỡng tiêu chuẩn: Thường tính là "Dự đoán đúng" nếu $IoU > 0.5$.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Công cụ 2: Non-Maximum Suppression (NMS)}
+    Thuật toán NMS để lọc nhiễu hộp giới hạn:
+    \begin{enumerate}
+        \item Bỏ tất cả các hộp có Điểm tự tin (Confidence Score) $< 0.5$.
+        \item \textbf{Vòng lặp:} Chọn hộp có Confidence Score \textbf{Cao nhất} làm chuẩn (Vd: Hộp chó $0.98$).
+        \item Tính \textbf{IoU} của hộp chuẩn với tất cả các hộp Chó khác còn lại.
+        \item Xóa toàn bộ các hộp có $IoU > 0.4$ (Vì chúng chắc chắn là bản sao trùng lặp của hộp chuẩn).
+        \item Lặp lại đến khi không còn hộp nào chưa xét.
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}{Kết quả Cuối cùng (Sau khi chạy NMS)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Sau khi trải qua bộ lọc Non-Maximum Suppression, từ hàng vạn hộp nhiễu, ta chỉ còn lại chính xác số lượng vật thể trong hình.
+            \item YOLO vừa nhanh, vừa chính xác, thiết lập tiêu chuẩn công nghiệp (Industry Standard) cho mọi ứng dụng Camera AI, Flycam, và Xe tự lái hiện nay.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch12/yolo-predictions.d621592d.png}
+            \caption{Kết quả sạch sẽ sau NMS}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\section{Tổng kết}
+
+\begin{frame}{Tổng kết Chương 12}
+    \begin{itemize}
+        \item \textbf{Object Detection} phức tạp hơn Classification do phải giải quyết bài toán định vị (Localization).
+        \item \textbf{Two-stage (R-CNN):} Quét vùng trước, Phân loại sau. Chậm nhưng chính xác.
+        \item \textbf{Single-stage (YOLO, RetinaNet):} Gộp chung thành bài toán Hồi quy (Regression) trên lưới tọa độ. Nhanh và hiệu quả.
+        \item Hiểu rõ các nguyên lý Toán học ẩn sau: Hồi quy Box $(x,y,w,h)$, đánh giá độ trùng khớp \textbf{IoU}, và thuật toán lọc nhiễu \textbf{NMS}.
+    \end{itemize}
+\end{frame}
+
+\end{document}

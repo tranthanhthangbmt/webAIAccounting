@@ -1,0 +1,175 @@
+optimally , they might buy a major stake to have a greater say in operations. Private equity is one such
+type of investor . Private equity firms tend to invest in businesses that have unrealized potential but are
+struggling financially , possibly because of high debt; make them grow rapidly; and—if (as predicted) the
+business does have unrealized potential—reap the benefits.
+Hence, it is important for the business, lenders, and investors to accurately identify whether a business
+does have the potential to grow or whether the trajectory of financial distress is likely to continue. An
+entire area in finance is devoted to understanding and predicting what variables can be used to predict
+whether a business is going to experience financial distress or , in extreme cases, go bankrupt.
+10.5 FORECASTING FINANCIAL HEALTH
+Several predictors have been considered that can help predict creditworthiness. Let’ s understand this
+using an example from the perspective of a lender such as a bank. When a business approaches a
+bank asking for a loan, the bank is likely to utilize several criteria to first determine the financial health of
+the business and then decide whether or not to give a loan. Let’ s assume that a bank wants to
+determine variables that can help it assess the financial health of the business. Let’ s also assume that
+the bank is being conservative in its estimate and defines creditworthiness in terms of future financial
+distress or possibility of bankruptcy . It can focus on financial as well as nonfinancial predictors, but many
+times lenders prefer to look at financial predictors to understand the financial health of a business.
+10.5.1 Financial Ratios
+Businesses report several financial ratios that help lenders evaluate their financial health, such as debt ‒
+equity ratio, current ratio, earnings ratio, and operating ratio. These ratios are commonly available on
+the balance sheet of a business’ s financial statements. Please see the detailed definitions of these
+ratios in the glossary provided in Section 10.9  of this chapter .
+For any type of forecasting, businesses tend to use a process of variable selection  to sort the relevant
+from the irrelevant variables. If a business knows which variables are relevant, it can use only those
+variables in its forecasting models. Another reason for variable selection is to improve the accuracy of
+predictions; better predictions result in less costly mistakes. Similarly , when predicting financial health, it
+is important to perform variable selection to find the relevant predictors to use in prediction models.
+Moreover , many financial predictors tend to be correlated, some of them quite highly; this causes some
+predictors to appear significant when they are not—that is, the presence of collinear predictors results in
+incorrect predictions. Let’ s understand what multicollinearity is.
+10.6 MULTICOLLINEARITY
+Collinearity occurs when two predictor variables are highly correlated. Multicollinearity occurs when
+several such variables are present in the dataset. Multicollinearity can occur for a variety of reasons in
+business data, such as when predictors are dependent on the same underlying cause or when data
+collection is observational. In our case, since financial ratios are based on financial indicators, the
+likelihood of multicollinearity is high. Multicollinearity causes the following issues. First, when
+multicollinearity exists in a regression model, it may not be appropriate to use ordinary least squares
+(OLS) regression. This is because OLS assumes that the predictor variables are independent—that is,
+uncorrelated (in fact, predictor variables are called independent variables  for this reason). The presence
+of multicollinearity makes it dif ficult to interpret the coef ficient estimates of individual predictors. Recall
+from Chapter 2  in which we discussed linear regression that we used beta coef ficients to determine
+whether a predictor variable had a significant influence on the outcome variable. If several of the
+predictors are highly correlated, the influence of a specific predictor on the outcome (e.g., significance
+level) will change depending on which predictors are included in the regression model, resulting in
+incorrect assessments from the analysis. Second, one of the assumptions of OLS is that we examine
+the change in the outcome variable for a unit change in the predictor , holding all other predictors
+constant. However , if two predictors are highly correlated, such an assumption would not be fulfilled.
+Moreover , if our aim is to find which predictors are the most versus least influential, multicollinearity will
+make the task dif ficult. Third, as the correlation among predictors increases, standard errors also
+increase because it becomes dif ficult to determine whether the variation in the outcome is caused
+because of predictor 1 or predictor 2. Therefore, the standard error of both predictors increases. High
+incidents of standard error make it dif ficult to reject the null hypothesis even though the null may be
+false. Therefore, the likelihood of Type I error increases (i.e., the inability to reject a false null
+hypothesis). Finally , multicollinearity can result in an overfitted model because of the inclusion of two
+predictors that are very similar in the way they relate to the output. An overfit model would be quite
+inaccurate and poorly generalizable while making predictions on a new dataset. This occurs because
+the model has learned spurious relations given the multicollinearity present in the original dataset that
+may not be present in the new dataset on which the model is asked to predict. A bit needs to said about
+the bias ‒ variance trade-of f to understand the problem caused by overfit models (please refer to the
+Technical Appendix for a detailed discussion of the bias–variance trade-of f). When we have an overfit
+model, the bias of the model is low because it fits the training data really well; however , the variance of
+the model is high because it doesn’t predict well on the new data.
+10.6.1 Testing for Multicollinearity
+Given the possibility of multicollinearity occurring when using financial variables to determine the
+financial health of a business, we need a method that can address multicollinearity as well as help in the
+selection of variables. The first step is to have a method to detect whether a dataset has multicollinear
+predictors. The simplest way to test for multicollinearity is by looking at the scatterplot between dif ferent
+predictor variables. A linear relationship between any two predictors indicates a high degree of
+correlation between them. Similarly , a correlation matrix between all the predictors would quantify the
+level of correlation among the predictors. Large changes in beta coef ficient estimate values depending
+on when one or the other predictor is or is not included in the regression could be another indication of
+multicollinearity . For instance, if earnings ratio had a high coef ficient estimate value when current ratio
+was not included but the coef ficient value was reduced significantly in magnitude when current ratio was
+included in the regression, this would indicate a high correlation between earnings ratio and current
+ratio.
+Finally , the variance inflation factor (VIF)  is used to quantify the level of multicollinearity . VIF is a metric
+that helps in determining inflated variance of the beta coef ficient for a specific predictor variable because
+of multicollinearity with other predictor variables. Stated dif ferently , VIF tells us how much the variance
+(the spread of predictor values) is inflated due to these correlations. Since VIFs capture the relationship
+among predictor variables, the VIF is calculated by regressing each predictor against every other
+predictor . Such a regression will provide an R2 value, which is then put into the following equation for
+the ith predictor:
+1/(1−R2
+i)
+As you may recall, R2 is the coef ficient of determination in an OLS regression model that informs us
+how well the predictor(s) is(are) able to predict the outcome variable. In this case, R2 indicates how well
+other predictors are able to predict the ith predictor .
+Hence, we can calculate the value of VIF for each predictor variable. There are some cutof fs that help
+us evaluate whether the correlation between the predictors is very high. For instance, a VIF of 1.7 for a
+predictor indicates that the variance of that predictor ’s estimate is 1.7 times what it would have been in
+the absence of multicollinearity . A VIF of 3.5 indicates 3.5 times more variation. A simple rule of thumb is
+that VIF values of more than 5 indicate high multicollinearity .
+One way to address multicollinearity is through the use of stepwise regression. However , this can get
+computationally inef ficient. Hence, in this chapter we discuss the use of penalized regression, which
+provides an ef ficient way to handle multicollinearity through variable selection.
+10.7 USING PENALIZED REGRESSION FOR EVALUATING
+FINANCIAL HEALTH
+One type of regression that can address issues of multicollinearity is called penalized regression. It
+introduces a penalty that penalizes the model for having too many predictor variables. Either the
+predictors may be less relevant, or they may be correlated. Penalized models shrink the beta-coef ficient
+estimates of the less relevant predictors so that they can either be removed or have very little impact in
+predicting the outcome variable.
+The functional/mathematical formulation of penalized regression allows it to work dif ferently than OLS
+regression. For example, we use a set of predictor variables in the OLS model to predict an outcome.
+We then compare the predicted value to the actual value (ground truth) to examine the quality of the
+OLS model’ s predictions. If the dif ference is high, the quality is poor; if the dif ference is low , the quality is
+good. Therefore, we try to minimize the dif ference between the actual and predicted values. As
+explained earlier , one issue with multicollinearity is that it results in a model that is overfit; it explains the
+training data well, but its predictions on test (i.e., new) data are quite poor .
+Penalized regression addresses this situation by adding a shrinkage penalty to the beta-coef ficient
+estimates of the predictors. The shrinkage penalty fits a new prediction model that introduces a small
+amount of bias but greatly reduces the variance. With the addition of the shrinkage, the output intuitively
+becomes less sensitive to changes in the value of the predictor; hence, there is less variance when the
+model is used to make predictions on a new dataset. For the purposes of this chapter , we will focus on a
+specific type of penalized regression—LASSO (Least Absolute Shrinkage and Selection Operator)1—
+which not only helps to address multicollinearity but also allows for variable selection. The other form of
+penalized regression is ridge regression, which does not help in variable selection. Specifically , the
+penalty term used in the LASSO helps shrink the coef ficient estimates of the less important predictors to
+zero. When the beta coef ficients of some predictor variables have been shrunk to zero, they are no
+longer included in the prediction model. Hence, this process serves as a variable selection method for
+LASSO.
+Let’s assume that we have i = 1 to n observations and j = 1 to p predictors and their corresponding beta
+coefficients.
+Linear regression minimizes the dif ference between the observed outcome values and predicted
+outcome values as captured in the following equation:
+n
+∑
+i=1(yi−p
+∑
+j=1βjxij)2
+In LASSO, we add the penalty term
+λ|βj|
+to the minimization equation of the linear regression. Hence, in LASSO we minimize:
+n
+∑
+i=1(yi−p
+∑
+j=1βjxij)2
++λp
+∑
+j=1|βj|
+When λ = 0, LASSO converts to OLS. As the value of λ increases, the penalty increases, and the value
+of the coef ficient estimates shrinks to zero. That is, λ controls the value of the penalty that is applied to
+the regression. The value of λ can vary from 0 to positive infinity .
+Another intuitive way to think about the shrinkage penalty is to think of c(β) as the cost applied by
+penalized regression on the size of the β coef ficients. β coef ficients determine how much the estimated
+outcome values deviate from the observed values (i.e., the deviance between the data and the model).
+Adding a penalty on the size of the β coef ficients and forcing them to be near zero improves prediction.
+LASSO is especially useful when a model includes several predictor variables and the business is not
+able to decide which of these are relevant and which are not. Consider a grocery store with outlets
+across several geographic regions. There are many predictors that can af fect the sale of fresh baked
+goods, including the presence of local bakeries, the cost of eggs (which could change by region), the
+cost of milk, the cost of transportation, the nearness of farms, population density around a specific store,
+income level, regionally popular flavors—and the list can keep going. Which of these are the most
+important predictors of sales for a specific store? By using LASSO for variable selection, the grocery
+store can determine which sales predictors are important and can focus its resources on these relevant
+predictors. LASSO can also solve the problem of one form of Big Data—when there are more predictors
+than observations. In such an instance, OLS regression will not converge because it needs at least as
+many observations as predictors. If the data have two predictors, then the OLS needs at least two
+observations or data points to converge (provide a solution). In instances when firms are not sure about
+which predictors are most relevant, they may include tens of predictors and would need at least as many
+observations for the OLS to work.
+Let’s use a specific example to understand how LASSO can help in predicting the financial health of
+businesses from the perspective of a lender .
+10.7.1 Predicting Financial Health Using LASSO
+Let’s consider the example of Altra Bank, a made-up example for the purposes of this chapter that lends
+to several businesses and, hence, needs to know the financial health of each so that it can determine
+whether the business will be able to pay back the debt amount or whether it is likely to default on its
+payments. Having information about the financial health of a business allows Altra Bank to decide
+whether to give a loan and how much interest to charge. During its more than 50 years in this business,
+Altra Bank has determined that the financial health of a business rarely changes overnight and that any
+changes for the worse can be detected through certain predictors. Moreover , Altra Bank has observed
+that the financial ratios of a business, as calculated from the balance sheet, are good predictors of
+financial health.
+In the past, Altra Bank has used these financial ratios to find out which businesses it has lent to need to

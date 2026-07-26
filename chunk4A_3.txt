@@ -1,0 +1,182 @@
+because there are not many outliers in the data. If the number of outliers
+increased, the k-medoid would output a better solution.
+Therefore, we can conclude our clustering analysis with the following insights.
+When we want to perform segmentation, we can use a clustering algorithm such
+k-means or k-medoid. W e use clustering because our data are unlabeled (i.e.,
+they do not have an outcome label). In the example, we find that when amount
+spent and patronage duration are used and we ask for three clusters, we can
+obtain the average characteristics of customers in the three clusters. The
+differences between these customers inform us how the business can present
+effective product of ferings to customers in these three segments.
+5.6 IMPLEMENTATION USING R: SEGMENTATION
+USING K-MEANS AND K-MEDOID
+To analyze and plot data, we will use two packages: cluster3 and
+factoextra .4 After importing the data, we center and scale it using the
+scale()  function with center = TRUE  and scale = TRUE  options; center
+= TRUE  subtracts the column means of a variable from their corresponding
+column values, and scale = TRUE  divides the (centered) columns of a variable
+by their standard deviations. This process converts values of each variable into
+their z scores. This is an important step before cluster analysis since each
+variable of a dataset can be measured on dif ferent scales. In our dataset, for
+example, duration of store patronage is measured in months, but amount spent is
+measured in dollars. Scaling the data ensures that there are no distortions due to
+difference in scales used across variables.
+Once we have read and scaled the data (df) , the actual code to run k-means is
+quite simple. In the kmeans()  function, centers specifies the number of clusters (
+k), then nstart = 25  sets 25 initial random centroids and selects the best one.
+A higher value of nstart  gives more stable solutions, but for larger datasets this
+may end up taking more computing time.
+library(cluster)
+library(factoextra)
+ 
+set.seed(12345) #Set seed for reproducibility
+ 
+df <-  read.csv(url(
+"http://data.mishra.us/files/chapter_segmentation/segmentation_kmeans.csv "))
+ 
+df <- scale(df,center = TRUE, scale = TRUE)
+ 
+k_means <- kmeans(df, centers = 3, nstart = 25)
+The following code helps produce Figure 5.4  using fviz_cluster()  function.
+repel = TRUE  prevents datapoints from lumping together and makes them
+readable.
+fviz_cluster(k_means, data = df,
+ repel = TRUE,
+ main = "k-means segmentation plot"
+) 
+We can also print cluster centers for each of the three clusters, as we saw in
+Figure 5.4 . This is very helpful when our data have more than two variables and it
+becomes harder to plot clusters. By using cluster centers, we can assess the
+average characteristics of each cluster . Consistent with the plot, here our output
+shows that members of cluster 1 have an average patronage duration of −1.009
+months and have spent $1.383, whereas members of cluster 2 have a patronage
+length of −1.006 months and have spent −$1.397. Due to centering and scaling,
+amount spent and length have negative values. Cluster numbers might change in
+different runs of the R code (e.g., cluster 1 may be labeled as cluster 2).
+print(k_means$centers)
+ 
+##length amount_spent
+## 1−1.0092435 1.38324959
+## 2−1.0058705 −1.39737047
+## 30.7424104 0.00520243
+Silhouette , a tool to detect the quality of clusters, can help in estimating the right
+value of k. The silhouette coef ficient varies between −1 and +1. An average value
+(also known as average silhouette width) near 1 shows a tight cluster , with
+observations within a cluster close together compared to observations between
+clusters. As the value moves away from +1 to −1, it indicates reduced within-
+cluster cohesion.
+The following code calculates distance and generates silhouette plots, as we saw
+in Figure 5.5 . The dist()  function calculates the Euclidean distance between
+points (method="euclidean") .
+dis=dist(df, method="euclidean")
+sil = silhouette (k_means$cluster, dis)
+plot(sil,main=paste("K-Mean k = ", 3))
+The silhouette plot shows that the average silhouette width is 0.58. W e can try
+different values of k (or centers  in the k-means calculation) to see how the
+average silhouette width changes.
+The following code performs k-medoid clustering on the same data. There are
+only two dif ferences in this code compared to the one that produces k-means.
+First, instead of the k-means()  function, we use pam() , which stands for
+“partitioning around medoids.” Second, for cluster analysis and calculation of
+silhouette width, we use Manhattan distance. This produces the cluster plot and
+silhouette width we saw in Figures 5.6  and 5.7.
+k_medoid <- pam (scale(df), k = 3, metric = "manhattan")
+ 
+fviz_cluster(k_medoid, data = df,
+ repel = TRUE,
+ main = "k-means segmentation plot"
+)
+ 
+dis=dist(df, method="manhattan")
+sil = silhouette (k_medoid$clustering, dis) # for
+silhouette plots
+plot(sil, main=paste("K-Medoid k = ",3))
+Since there are not many outliers, the results of k-means and k-medoid are very
+similar .
+5.7 UNDERSTANDING THE CHAPTER
+Students are encouraged to answer the following questions. They can then review
+the chapter to check their answers.
+1. If a car manufacturer customizes features of the car based on the terrain,
+which type of segmentation is the manufacturer using?
+2. Which of the following characteristics is true about segmentation?
+a. Having a unique selling proposition
+b. Positioning the product in the minds of the customers
+c. Grouping together customers based on similar need sets
+d. Grouping together customers based on opposite need sets
+e. Communicating the benefits of the product through coupons
+3. Can a business having global operations ignore sociocultural aspects while
+advertising the product in dif ferent world regions?
+4. Would it be advisable for a business to target a segment of consumers that
+many of its competitors are also targeting because that set of customers has
+the maximum likelihood of purchasing the product? Discuss pros and cons of
+such a strategy .
+5. How can a business determine the optimal number of segments in which to
+group customers if it is using a k-means algorithm?
+6. How does a k-medoid algorithm improve clustering over the k-means
+algorithm?
+ENDNOTES
+1. Costa, P . T., and R. R. McCrae, “The Revised Neo Personality Inventory (NEO-
+PI-R),” The SAGE Handbook of Personality Theory and Assessment  2, no. 2
+(2008): 179–198.
+2. Due to centering and scaling, amount spent and length have negative values.
+3. Maechler , M., P . Rousseeuw , A. Struyf, M. Hubert, and K. Hornik, “cluster:
+Cluster Analysis Basics and Extensions,” R package version 2.1.2 (2021).
+4. Kassambara, A., and F . Mundt, “factoextra: Extract and V isualize the Results of
+Multivariate Data Analyses,” R package version 1.0.7, April 1, 2020,
+https://CRAN.R-project.org/package=factoextra.
+Descriptions of Images and Figures
+Back to Figure
+The figure is a flow chart consisting of four lines denoted by downward arrows.
+On top is Clustering Methods. In the second line are Hierarchical and Partition-
+Based. In the third line are Agglomerative and divisive under Hierarchical. The
+terms Distribution, Squared Error , Graph-Based and Neighborhood-based are
+under Partition-based. In the fourth row Single-Link Complete-Link under
+Agglomerative, Mixture Models under Distribution, k-Means Kernel x-Means
+under Squared Error , Spectral under Graph-based and k-Nearest Neighbors
+under Neighborhood-based.
+Back to Figure
+The figure has two graphs. The first graph is labeled income on the y-axis and
+age on the x-axis. The graph has five circular nodes scattered on top, four nodes
+on middle left and four nodes on the bottom right. On the right is the same graph
+with a circle and a horizontal and a vertical line intersecting the circle on top left
+connecting five nodes on the top with a straight line. At the middle is a circle
+connecting four nodes on the left and a node at the bottom. At the bottom right is
+a circle connecting three nodes on the top.
+Back to Figure
+The figure has two graphs. The graph has five circular nodes scattered on top,
+five nodes in middle and three nodes at the bottom in the middle. Each group is
+connected to a circle and a horizontal and a vertical line is intersecting the circle.
+On the right is the same graph with five circular nodes connected to a circle with a
+horizontal and a vertical line intersecting the circle on top middle; and four circular
+nodes at the bottom middle connected to a circle with a horizontal and a vertical
+line intersecting the circle.
+Back to Figure
+The figure is a graph with the label amout_spent on the y-axis and label length on
+the x-axis. The term k-means is at the top left. Three groups of clusters are
+present in the graph. On the top left is a cluster with circular nodes; on the middle
+right is a cluster with square nodes and on the bottom left is a cluster with
+rectangular nodes. On the right is the figure legend with three dif ferent clusters
+labeled 1, 2 and 3.
+Back to Figure
+The figure consists of the scale marked 0.0, 0.2, 0.4, 0.6, 0.8, 1.0 from left to right
+and labeled Silhoutte width s1. Above the scale are three area plots from left to
+right. On the top left is the description k-means k = 3 n = 99. On the top right is
+the description 3 clusters Cj j:nj l avei ∈ Cj si. On the right side are the descriptions
+1: 21 | 0.60, 2: 21 | 0.54 and 3: 57 | 0.64 from top to bottom. At the bottom left of
+the figure is the description Average silhouette width : 0.61.
+Back to Figure
+The figure is a graph with the label amout_spent on the y-axis and label length on
+the x-axis. The term k-medoid is at the top left. Three groups of clusters are
+present in the graph. On the top left is a cluster with circular nodes; on the middle
+right is a cluster with square nodes and on the bottom left is a cluster with
+rectangular nodes. On the right is the figure legend with three dif ferent clusters
+labeled 1, 2 and
+Back to Figure
+The figure consists of the scale marked 0.0, 0.2, 0.4, 0.6, 0.8, 1.0 from left to right
+and labeled Silhoutte width s1. Above the scale are three area plots from left to
+right. On the top left is the description k-medoid k = 3 n = 99. On the top right is
+the description 3 clusters Cj j:nj l avei ∈Cj si. On the right side are the descriptions
+1: 20 | 0.57, 2: 21 | 0.61 and 3: 58 | 0.64 from top to bottom. At the bottom left of
+the figure is the description Average silhouette width : 0.62
+OceanofPDF .com
+

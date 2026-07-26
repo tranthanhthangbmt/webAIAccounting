@@ -1,0 +1,199 @@
+\documentclass[aspectratio=169]{beamer}
+\usetheme{Madrid}
+\usecolortheme{default}
+\usepackage[utf8]{inputenc}
+\usepackage[T5]{fontenc}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{amsmath}
+
+\title[Chương 20: Conclusions]{Học Sâu (Deep Learning) \\ \vspace{0.5cm} \Large Chương 20: Tổng kết Giáo trình (Conclusions)}
+\author{Đại học Đông Á}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame}{Nội dung chương}
+    \tableofcontents
+\end{frame}
+
+\section{1. Bức tranh Toàn cảnh Trí tuệ Nhân tạo}
+
+\begin{frame}{Phân biệt AI, ML, DL và Generative AI}
+    \begin{table}[]
+        \centering
+        \begin{tabular}{@{}lp{10cm}@{}}
+        \toprule
+        \textbf{Lĩnh vực} & \textbf{Định nghĩa cốt lõi} \\ \midrule
+        \textbf{Artificial Intelligence} & Nỗ lực tự động hóa các quy trình nhận thức của con người (bao gồm cả các quy tắc cứng IF-ELSE). \\ \addlinespace
+        \textbf{Machine Learning} & Phát triển các thuật toán có khả năng tự động tạo ra chương trình dựa trên dữ liệu học (Training Data). \\ \addlinespace
+        \textbf{Deep Learning} & Học máy dựa trên chuỗi các phép biến đổi hình học vi phân (Layers \& Weights), tối ưu bằng Gradient Descent. \\ \addlinespace
+        \textbf{Generative AI} & Một nhánh của DL chuyên về mô hình khổng lồ, tạo ra văn bản, hình ảnh, âm thanh mới. \\ \bottomrule
+        \end{tabular}
+    \end{table}
+\end{frame}
+
+\begin{frame}{Điều gì làm nên sức mạnh của Deep Learning?}
+    \begin{itemize}
+        \item \textbf{Phép biến đổi vi phân (Differentiable mapping):} Mọi hoạt động từ xử lý ảnh, dịch máy, đến nhận diện giọng nói đều được chuyển thành các chuỗi phép toán vi phân.
+        \item \textbf{Gradient Descent \& Backpropagation:} Nền tảng cốt lõi giúp điều chỉnh hàng tỷ tham số một cách tự động thông qua việc tính đạo hàm lỗi (Loss function).
+        \item \textbf{Khả năng mở rộng (Scalability):} Khác với các thuật toán ML truyền thống, DL được hưởng lợi tuyến tính từ việc tăng lượng dữ liệu (Big Data) và sức mạnh tính toán (GPU/TPU).
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Mùa hè AI lần thứ 3 (The Third AI Summer)}
+    \begin{itemize}
+        \item Xuyên suốt lịch sử, AI đã trải qua nhiều chu kỳ "Mùa hè" (Hưng thịnh) và "Mùa đông" (Thất vọng do không đạt kỳ vọng).
+        \item \textbf{Lần thứ 3 (Hiện tại):} Được kích hoạt bởi Deep Learning. Điểm khác biệt lớn nhất là nó đã mang lại \textit{giá trị kinh tế khổng lồ} cho thực tiễn (ChatGPT, Midjourney...).
+        \item Sự trỗi dậy của AI không chỉ là cơn sốt nhất thời, mà đang dần trở thành nền tảng hạ tầng công nghệ tương tự như Internet.
+    \end{itemize}
+\end{frame}
+
+\section{2. Hệ thống hóa Quy trình Machine Learning}
+
+\begin{frame}{Bước 1: Định nghĩa Bài toán \& Thước đo}
+    \begin{block}{Xác định mục tiêu}
+        Đầu vào (Input) là gì? Đầu ra (Output) muốn dự đoán là gì? Dữ liệu hiện có sẵn không?
+    \end{block}
+    
+    \begin{block}{Lựa chọn Thước đo (Metrics)}
+        Thước đo đánh giá phải gắn liền với bài toán kinh doanh.
+        \begin{itemize}
+            \item \textbf{Phân loại mất cân bằng:} Sử dụng \textit{Precision, Recall, ROC-AUC}.
+            \item \textbf{Phân loại đa lớp:} \textit{Accuracy, Categorical Crossentropy}.
+            \item \textbf{Hồi quy:} \textit{MAE (Mean Absolute Error), RMSE}.
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Bước 2: Xử lý Dữ liệu \& Giao thức Đánh giá}
+    \begin{itemize}
+        \item \textbf{Chuẩn hóa (Normalization):} Mạng nơ-ron hoạt động tốt nhất khi dữ liệu đầu vào xoay quanh 0 và có phương sai nhỏ (ví dụ, chia điểm ảnh cho 255).
+        \item \textbf{Xử lý giá trị khuyết thiếu (Missing values):} Điền bằng 0 hoặc dùng thuật toán nội suy.
+    \end{itemize}
+    
+    \vspace{0.5cm}
+    \textbf{Chiến lược chia dữ liệu (Evaluation Protocol):}
+    \begin{itemize}
+        \item \textit{Hold-out validation:} Dành cho dữ liệu lớn. Chia Train / Validation / Test.
+        \item \textit{K-fold cross-validation:} Dành cho dữ liệu nhỏ. Đánh giá xoay vòng để tận dụng tối đa dữ liệu.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Bước 3: Thiết lập Baseline \& Statistical Power}
+    \begin{block}{Vượt qua Baseline thô sơ}
+        Khởi đầu bằng một mô hình nhỏ nhất có thể. Nếu mô hình Deep Learning không đánh bại được phán đoán ngẫu nhiên, điều đó nghĩa là: Dữ liệu hiện tại không chứa đủ thông tin để suy ra kết quả.
+    \end{block}
+
+    \begin{block}{Phát triển lên giới hạn Overfitting}
+        Machine Learning là nghệ thuật cân bằng giữa \textbf{Tối ưu hóa (Optimization)} và \textbf{Tổng quát hóa (Generalization)}. Bạn phải đẩy mô hình đến trạng thái Overfitting bằng cách: Thêm layer, tăng số units, huấn luyện nhiều Epochs hơn.
+    \end{block}
+\end{frame}
+
+\begin{frame}{Bước 4: Regularization (Tinh chỉnh mô hình)}
+    Sau khi đã Overfit, nhiệm vụ tiếp theo là áp dụng Regularization để nâng cao Generalization (Khả năng dự đoán trên dữ liệu mới):
+    \begin{itemize}
+        \item \textbf{Early Stopping:} Dừng huấn luyện ngay khi Loss trên Validation bắt đầu tăng.
+        \item \textbf{Dropout:} Bỏ ngẫu nhiên (Zero-out) một số kết nối để chống lại sự "phụ thuộc lẫn nhau" của nơ-ron.
+        \item \textbf{Weight Decay (L1/L2):} Phạt các trọng số quá lớn, ép mô hình phải đơn giản.
+        \item \textbf{Data Augmentation:} Biến đổi ảnh (Xoay, Lật, Phóng to) để tạo dữ liệu phong phú mà không cần thu thập thêm.
+    \end{itemize}
+\end{frame}
+
+\section{3. Không gian Kiến trúc Mạng Nơ-ron}
+
+\begin{frame}{Vector Data \& Dense Layers}
+    \textbf{Đặc điểm:} Dữ liệu phẳng dạng bảng (CSV) hoặc chuỗi số độc lập. Thường không có mối liên kết không gian chặt chẽ. \\
+    
+    \vspace{0.5cm}
+    \textbf{Kiến trúc sử dụng:} Mạng kết nối chằng chịt (Dense Layers). \\
+    \begin{equation*}
+        y = \text{activation}(W \cdot x + b)
+    \end{equation*}
+    
+    \textbf{Hạn chế:} Số lượng tham số (Weights) cực kỳ khổng lồ nếu kích thước đầu vào lớn, dễ dẫn đến Overfitting và không nhận diện được các đặc trưng dịch chuyển (Translation invariance).
+\end{frame}
+
+\begin{frame}{Grid Data \& Convolutional Layers (CNN)}
+    \textbf{Đặc điểm:} Dữ liệu cấu trúc lưới (Ảnh 2D, Video 3D). Các điểm lân cận có mối liên hệ mật thiết với nhau (Ví dụ: Các điểm ảnh tạo thành góc cạnh). \\
+    
+    \vspace{0.5cm}
+    \textbf{Kiến trúc sử dụng:} Mạng Tích chập (CNN). Dùng các bộ lọc (Kernels) trượt trên ảnh. \\
+    
+    \textbf{Ưu điểm vượt trội:}
+    \begin{itemize}
+        \item \textbf{Translation Invariance:} Học được mắt mèo ở góc trái, có thể nhận diện ở góc phải.
+        \item \textbf{Spatial Hierarchies:} Các lớp đầu học chi tiết nhỏ (cạnh, màu sắc), lớp sau ghép thành vật thể phức tạp (tai mèo).
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Sequential Data \& Recurrent Layers (RNN)}
+    \textbf{Đặc điểm:} Dữ liệu chuỗi thời gian (Time-series), hoặc văn bản (chuỗi các từ). Thứ tự của chuỗi cực kỳ quan trọng. \\
+    
+    \vspace{0.5cm}
+    \textbf{Kiến trúc sử dụng:} Mạng Hồi quy (RNN, LSTM, GRU). \\
+    
+    \begin{itemize}
+        \item \textbf{Cơ chế:} Mạng có khả năng "nhớ" thông tin từ các bước trước đó. Đầu vào hiện tại được xử lý cùng với trạng thái của quá khứ.
+        \item \textbf{Công nghệ 1D Conv:} Có thể dùng CNN 1 chiều để xử lý văn bản cực nhanh thay cho RNN trong một số trường hợp.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Đỉnh cao Xử lý Chuỗi: Transformer \& Self-Attention}
+    Hiện nay, Transformer đã vượt qua RNN để thống trị xử lý ngôn ngữ tự nhiên (NLP) nhờ cơ chế \textbf{Self-Attention}.
+    
+    \begin{block}{Cơ chế Tự chú ý (Self-Attention)}
+        Thay vì đọc từng từ một, mô hình nhìn vào toàn bộ câu cùng lúc và tính toán xem từ hiện tại có liên quan thế nào đến các từ khác.
+        \begin{equation*}
+            \text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V
+        \end{equation*}
+        \textit{Trong đó: Q (Query), K (Key), V (Value) là các ma trận biểu diễn đặc trưng của từ.}
+    \end{block}
+\end{frame}
+
+\section{4. Hành trang Kỹ sư Machine Learning}
+
+\begin{frame}{Cọ xát thực chiến: Kaggle}
+    Khóa học chỉ cung cấp nền tảng. Thực hành mới tạo nên Kỹ sư giỏi.
+    \begin{itemize}
+        \item \textbf{Kaggle (kaggle.com):} Sân chơi Machine Learning lớn nhất thế giới. 
+        \item Nơi cung cấp hàng ngàn bộ dữ liệu thực tế (Y tế, Giao thông, Tài chính) và các cuộc thi lớn.
+        \item Lợi ích lớn nhất là \textbf{Cộng đồng (Forums/Notebooks)}, nơi các chuyên gia chia sẻ code và kinh nghiệm. Hãy tham gia để học quy trình làm việc thực tiễn khốc liệt nhất.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Cập nhật kiến thức: arXiv \& Hugging Face}
+    Deep Learning phát triển với tốc độ chóng mặt. Sách giáo khoa thường không bắt kịp.
+    \begin{itemize}
+        \item \textbf{Hugging Face:} Nền tảng chia sẻ Model (Open-source weights), Dataset lớn nhất hiện nay. Nơi tải về các LLM mạnh nhất thế giới (Llama, Mistral) để chạy thử.
+        \item \textbf{arXiv (arxiv.org):} Trang web tiền xuất bản (Preprint) của Đại học Cornell. Nơi các bài báo nghiên cứu AI mới nhất được công bố hoàn toàn miễn phí.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Hội nghị Khoa học \& Networking}
+    Để đi sâu vào nghiên cứu (Research), hãy theo dõi các hội nghị (Conferences) hàng đầu. Đây là cái nôi của các công nghệ đình đám nhất:
+    \begin{itemize}
+        \item \textbf{NeurIPS} (Neural Information Processing Systems).
+        \item \textbf{ICLR} (International Conference on Learning Representations).
+        \item \textbf{ICML} (International Conference on Machine Learning).
+        \item \textbf{CVPR} (Computer Vision and Pattern Recognition) - Chuyên về Thị giác máy tính.
+        \item \textbf{ACL} (Association for Computational Linguistics) - Chuyên về Ngôn ngữ.
+    \end{itemize}
+\end{frame}
+
+\section{5. Tổng kết Hành trình}
+
+\begin{frame}{Lời khuyên cuối khóa}
+    \begin{itemize}
+        \item Khóa học "Học Sâu" đã trang bị cho bạn tư duy toán học, thuật toán và kỹ năng lập trình mã nguồn Keras/TensorFlow.
+        \item AI là một lĩnh vực rộng lớn, không một ai có thể biết tất cả. Đừng quá lo lắng về việc phải theo kịp mọi thứ (FOMO).
+        \item \textbf{Hãy chọn một lĩnh vực ngách} (Computer Vision, NLP, Âm thanh, Generative AI...) và bắt đầu tự xây dựng các Project cá nhân.
+        \item Chúc các bạn ứng dụng thành công Trí tuệ Nhân tạo để mang lại giá trị thực tiễn cho xã hội!
+    \end{itemize}
+\end{frame}
+
+\end{document}

@@ -1,0 +1,17 @@
+\frametitle{Thực hành R: Code k-Means cơ bản}
+\begin{lstlisting}[language=R]
+# Goi cac thu vien can thiet
+library(cluster)
+library(factoextra)
+
+# Chuan hoa du lieu ve don vi Z-score (Quan trong)
+df_scaled <- scale(df, center = TRUE, scale = TRUE)
+
+# Chay thuat toan k-Means voi k = 3
+# nstart = 25 nghia la thu 25 lan dat ban ngau nhien
+# de tim ket qua hoi tu tot nhat
+k_means <- kmeans(df_scaled, centers = 3, nstart = 25)
+
+# In thu ket qua
+print(k_means$centers)
+    \end{lstlisting}

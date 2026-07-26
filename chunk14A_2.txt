@@ -1,0 +1,462 @@
+The ­PivotTable in Illustration 7.5 (A) creates a filter for the Country field, while Illustra-
+tion 7.5 (B) shows how to use this filter by selecting a value for the Country field. In this case, 
+the selected value is USA.
+ILLUSTRATION 7.4  Excel 
+PivotTable Total Units Sold per 
+Model per Country
+TotalUnitsSold
+Odyssey
+CR-V
+Civic
+Ridgeline
+Pilot
+Accord
+2,555,799
+3,074,040
+1,603,686
+898,441
+897,807
+517,964
+9,547,737
+1,180,512
+1,612,421
+604,020
+101,892
+206,935
+236,066
+3,941,846
+1,375,287
+1,461,619
+999,666
+796,549
+690,872
+281,898
+5,605,891
+Total UnitsSold
+Models
+Countries
+Canada
+USA
+TotalUnitsSold
+Creating Relationships, Filtering, and Dragging and Dropping
+The PivotTable definition in Illustration 7.3 (B) brings together some key techniques for data 
+­exploration–creating data relationships, filtering, and dragging and dropping.
+First, data relationships can be created between the variables in the Values, Rows, and 
+Columns areas and explored. Here are two examples of such data relationships:
+•	How can the Values variable number be broken down by the values of the Rows and Col-
+umns variables? For HNA, what is the share of each model (rows) in the total number of 
+units sold (values)?
+•	How can the different models (rows) be ranked based on total units sold (values)? What 
+are HNA’s best-selling models?
+There are some similarities between this discussion and the concept of information modeling, 
+which was covered earlier in this course. The numbers in the Values area can be compared to 
+measures, while the fields in the Rows and Columns areas can be compared to dimensions.
+Next, filtering helps identify what data should be considered for analysis. An example of 
+this is applying a filter that would exclude outliers in an analysis. Finally, the ability to drag 
+ 
+Filters
+Columns
+Country
+Model
+TotalUnitsSold
+Rows
+Values
+∑
+   
+TotalUnitsSold
+Odyssey
+CR-V
+Civic
+Ridgeline
+Pilot
+Accord
+1,375,287
+1,461,619
+999,666
+796,549
+690,872
+281,898
+5,605,891
+Models
+USA
+TotalUnitsSold
+Country
+  (A) Creating a PivotTable Filter	
+ (B) PivotTable with Filter Applied
+ILLUSTRATION 7.5  Excel 
+PivotTable Filters
+
+7.1 What is Data Exploration? 7-7
+and drop fields makes exploring different scenarios effortless. Here are some questions that 
+can be answered by dragging and dropping fields using the HNA data set in a PivotTable:
+•  What is the total number of units sold (values) per country (rows) per model (columns) 
+and how do the numbers compare? 
+•  What is each country’s share (rows) in the total number of units sold (values)? 
+•  How do USA (filter) sales, in terms of total units sold (values), compare across the differ-
+ent models (rows)? 
+ Data Exploration Across Tools
+ Excel is not the only business intelligence software that uses data relationships, filtering, and 
+drag and drop for data exploration.  Illustration 7.6 (A) is a Power BI pivot table that summa-
+rizes HNA’s total units sold per model during the last five years. In Power BI a pivot table is 
+called a matrix. The second part of the illustration (B) shows how it was created. 5
+ ILLUSTRATION 7.6 Creating a Power  BI Matrix 
+Total
+Odyssey
+CR-V
+Civic
+Ridgeline
+Pilot
+Accord
+2,555,799
+3,074,040
+1,603,686
+898,441
+897,807
+517,964
+9,547,737
+Model
+TotalUnitsSold
+   
+Search
+Filters
+Search
+Filters on this visual
+Model
+is (All)
+TotalUnitsSold 
+is (All)
+Add data fields here
+Add data fields here
+Filters on this page
+Filters on all pages
+Visualizations
+Fields
+Rows
+Model
+Columns
+Values
+TotalUnitsSold
+Country
+Model
+Type
+UnitsSold
+Year
+UNITSALES
+R
+Py
+Add data fields here
+R
+Py
+3
+4
+5
+1
+6
+2
+(A) Power  BI Matrix 
+(B) Power  BI Matrix Creation
+ Notice the similarity between creating an Excel PivotTable in Illustration  7.3 (B) and a Power 
+BI matrix in Illustration  7.6 (B):
+ 1.  In Power BI, we can choose between many drag and drop visualizations. In this example, 
+matrix was selected. 
+ 2.  The Fields pane corresponds to the fields list in the PivotTable Fields dialog box. 
+  3.  The Rows slot in the Fields tab of the matrix visualization corresponds with the Rows 
+area in an Excel PivotTable definition. 
+ 4.  The Columns slot in the Fields tab of the matrix visualization corresponds with the 
+ Columns area in an Excel PivotTable definition. 
+5 We used Power BI’s matrix visualization. However, since no columns are defined, we could have used the 
+table visualization.
+
+7-8  CHAPTER 7  Analysis: Data Exploration
+	 5.	 The Values slot in the Fields tab of the matrix visualization corresponds with the Values 
+area in an Excel PivotTable definition.
+	 6.	 The Filters pane is an enhanced version of the Filters area in an Excel PivotTable 
+definition.
+Charts are often more effective than tables for analysis. Power BI charts, which are visu-
+alizations, represent one or more data relationships and have a drop and drag structure. In 
+Excel it is easy to convert PivotTables into charts with the PivotChart tool. PivotCharts graph-
+ically represent the data relationships in PivotTables. Illustration 7.7 is a pie chart for the 
+PivotTable in Illustration 7.3 (A). It highlights each model’s share in the total units sold, a 
+part-to-whole relationship, which is discussed later.
+ILLUSTRATION 7.7  Excel 
+PivotChart
+Breakdown of Total Units Sold by
+Model: 2021–2025
+CR-V
+17%
+Odyssey
+9%
+Ridgeline
+6%
+Civic
+32%
+Pilot
+9%
+Accord
+27%
+Apply It 7.1
+Explore Data with 
+PivotTables
+Data   Managerial Accounting   Happy Colors is a small paint company that prepares paint cans 
+that are sold to retailers. CEO Mika Jacobson supervises three employees, and there are three types 
+of products–low, high, and premium paint. Regardless of the type of paint, it should take about three 
+minutes to prepare a can. The cost of a can depends on the type of product:
+•	 Low: $5
+•	 High: $10
+•	 Premium: $14
+Since defective paint cans cannot be sold, Mika inspects each can herself. Losses resulting from 
+defective cans are an important issue for Happy Colors, so Mika hires your firm to help understand 
+this issue. Here is the data dictionary for this data set.
+Data Dictionary for Happy Colors
+Name
+Description
+ID
+A unique ID for each recording of an employee’s output per 
+month per product type.
+Month
+The name of the month.
+Product
+The name of the product type: low, high, or premium.
+Employee
+The name of the employee.
+NumberOfDefectiveItems
+The number of defective cans by an employee for a product type 
+in a specific month.
+Total
+The total number of cans by an employee for a product type in a 
+specific month.
+Cost
+The total loss (in dollars) resulting from the detective items by 
+an employee for a product in a specific month.
+Next, let’s examine how charts can represent and explore data relationships.
+
+7.1  What is Data Exploration?  7-9
+	 1.	 Create a PivotTable that helps you understand the losses per employee per product type.
+	 2.	 What insights does the PivotTable generate?
+SOLUTION
+1.	 Using Excel, the PivotTable can be created by selecting the product, employee, and cost fields. 
+Drag the Cost field to Values, the Employee field to Rows, and the Product field to Columns.
+PivotTable Fields
+Choose fields to add to report:
+ID
+Month
+Product
+Employee
+NumberOfDefectiveItems
+Total
+Cost
+More Tables..
+Drag fields between areas below:
+Filters
+Columns
+Search
+Rows
+Values
+∑
+Employee
+Cost of Defective Cans
+Product
+	
+After applying some formatting, the resulting PivotTable looks like this:
+Bianca
+Andre
+Camille
+High
+Employee
+Low
+$ 154,002
+Total
+Premium
+50,147
+52,780
+51,075
+$
+$
+$
+$ 3,502
+1,147
+1,530
+825
+$
+$
+$
+24,250
+20,750
+14,750
+$ 59,750
+$
+$
+$
+24,750
+30,500
+35,500
+$ 90,750
+Total
+$
+$
+$
+Cost of Defective Cans Product Type
+2.	 The table shows that the losses resulting from defective items are somewhat similar for the 
+three employees. However, Andre has the highest losses for premium paint cans, Bianca has 
+the highest losses for low paint cans, and Camille has the highest losses for high paint cans.
+
+7-10  CHAPTER 7  Analysis: Data Exploration
+You have learned that a data relationship describes how data elements, or values, relate to each 
+other. Each data analytics project will have a unique set of data relationships. While there is no 
+single, best approach for investigating data relationships, a structured set of data exploration 
+patterns can help answer questions about which data relationships can be explored, how they 
+can be illustrated in visualizations, how to create those visualizations, and what they can tell us.
+There are two types of data exploration patterns. Some patterns explore a foundational data 
+relationship with a single visualization, while others explore data by integrating data relation-
+ships. This section presents eight foundational data exploration patterns. Each pattern identi-
+fies and describes the data relationship and visualizations that could represent it. The pattern 
+also shows how to explore the relationship and the insights that can be collected from doing so.
+APPLYING CRITICAL THINKING 7.2: Use Patterns to 
+Explore Data
+Data exploration patterns are real-world best practices for using data relationships for explora-
+tion. They describe which data relationships exist and how to effectively visualize and explore 
+them (Knowledge):
+•	 Data relationship: Time series data relationships compare observations over time.
+•	 Visualization: Line charts are considered the most effective visualization for exploring time 
+series. Best visualization practices include starting the line chart’s y-axis at zero.
+•	 Exploration: Line charts generate insights by identifying trends, cycles, and irregularities.
+Data Exploration Pattern 1: Nominal Comparison
+A nominal comparison data relationship compares the values of a nominal variable based 
+on the values of a second, numeric variable. Illustration 7.8 shows its exploration struc-
+ture, which is a visual that describes the different elements used in the exploration and how 
+they are related. For nominal comparisons, the exploration structure is a nominal variable, 
+which is what is being compared, and a numeric variable, which is how the values of the 
+nominal variable are compared.
+ILLUSTRATION 7.8    Exploration 
+Structure for a Nominal 
+Comparison Data Relationship
+What is being compared.
+How the values of the
+nominal variable are 
+compared.
+Nominal
+Variable
+Numeric
+Variable
+7.2  How are Data Relationships Visualized 
+for Exploration?
+LEARNING OBJECTIVE ➋
+Explore foundational data relationships through visualizations.
+
+7.2  How are Data Relationships Visualized for Exploration?  7-11
+ILLUSTRATION 7.9    Visualizing 
+a Nominal Comparison Data 
+Relationship with a Column Chart
+Accord
+Civic
+CR-V
+Odyssey
+Pilot
+Ridgeline
+Total Units Sold by Model: 2021–2025
+Total
+Units Sold
+Model
+0
+500,000
+1,000,000
+1,500,000
+2,000,000
+2,500,000
+3,000,000
+3,500,000
+3,074,040
+1,603,686
+517,964
+2,555,799
+898,441
+897,807
+The Excel PivotTable used to create this column chart is shown in Illustration 7.10.
+ILLUSTRATION 7.10    Excel 
+PivotTable Definition
+Filters
+Columns
+Model
+Total UnitsSold
+Rows
+Values
+∑
+3
+What is being
+compared.
+How the values of the
+nominal variable are
+compared.
+Nominal
+Variable
+Numeric
+Variable
+Exploration and Insights
+A nominal comparison can quickly evaluate data and collect initial insights, which is espe-
+cially useful when working with a new data set. It allows us to compare the sizes of each 
+category–which is the biggest, which is the smallest, if one category is twice as big as another, 
+and more. Illustration 7.9 shows which HNA models sold the most and least units in the 
+2021–2025 period. The same chart also indicates if unit sales across models are similar or if 
+there are significant differences.
+You have learned that dragging and dropping different variables in different areas is key 
+to data exploration. Dragging and dropping variables in Illustration 7.10 makes the opportuni-
+ties for nominal comparison endless:
+•	Any nominal variable, or what is being analyzed, can be compared using any numeric 
+variable, or how the nominal variable is being analyzed.
+•	Filters can also be applied to both the nominal variable and the numeric variable.
+What if an accounting firm regularly analyzes the performance of its staff members? How 
+would they do this? First, the staff members (what) are being compared, and they would be 
+Visualizations
+Visualizations for nominal comparisons include bar charts, column charts, dot plots, and 
+­lollipop charts. Let’s go back to the Honda North America example from earlier in the 
+­chapter. Illustration 7.9 is a column chart that compares HNA’s models, which is the nom-
+inal ­variable, using the number of units sold, which is the numeric variable. Each model is 
+presented by a column (x-axis), and the length of the column is determined by the number of 
+units sold for that model (y-axis).
+
+7-12  CHAPTER 7  Analysis: Data Exploration
+selected with a filter. We could use many measures (how) to compare them, including total 
+hours worked, total revenue generated, number of clients, average revenue per client, and 
+average client response time. All these variables can be dragged to the numeric variable slot 
+labeled Values. This is why the information modeling step is important for data exploration–it 
+allows creating additional measures that you can later use in analysis.
+Data Exploration Pattern 2: Distribution
+A distribution data relationship (Illustration 7.11) shows how the values of a numeric 
+variable are distributed, or spread out, by providing the lowest value, the highest value, the 
+median, the interquartile range, and so on.
+ILLUSTRATION 7.11    Exploration Structure for a 
+Distribution Data Relationship
+Compares multiple
+distributions based on
+the values of a
+nominal variable.
+Numeric
+Variable
+The numeric variable
+determines what
+field is being explored.
+Nominal
+Variable
+A common scenario, shown in Illustration 7.11, is to create and compare multiple distribu-
+tions of the same numeric variable based on the different values of a nominal variable. The 
+dotted line indicates that such a variable is valuable for exploration, but optional when defin-
+ing a distribution data relationship.
+Visualizations
+Several visualizations portray distributions, including histograms, violin plots, and box-and-
+whisker charts (or boxplot charts). Box-and-whisker charts are both powerful and detailed, so 
+they are used here to illustrate a visualization for this pattern.
+Let’s go back to the HNA example. Data The company has a spreadsheet from one of 
+its New York dealerships. They want to know how the profits generated by selling cars vary. 
+Illustration 7.12 summarizes the spreadsheet data about the cars sold by the dealership last 
+December.
+ILLUSTRATION 7.12    Data Structure of the Dealership Profit Data
+Field Name
+Description
+ID
+The internal ID that identifies the car.
+Model
+The car’s model.
+Profit
+The profit made when selling the car is selling price minus dealer invoice. 
+This is also known as front-end gross profit.
+

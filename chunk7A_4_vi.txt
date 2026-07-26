@@ -1,0 +1,47 @@
+Ví dụ: TF-IDF là gì? Tần suất Thuật ngữ – Tần suất Tài liệu Nghịch đảo (Term Frequency - Inverse Document Frequency)
+TF-IDF là một phương pháp xử lý ngôn ngữ tự nhiên dựa trên việc tính toán tần suất của các từ ngữ. Nó gồm hai phần, phần TF (Tần suất thuật ngữ) và phần IDF (Tần suất tài liệu nghịch đảo). Trong phần TF, thuật toán tính số lần một thuật ngữ được sử dụng trong một tài liệu. Ví dụ, nếu bạn đang phân tích một tài liệu liên quan đến các chính sách và quy trình, bạn có thể biết được rằng các từ "Sự phân chia" (Separation) và "Nhiệm vụ" (Duties) được sử dụng tương ứng 34 và 28 lần. Nếu tài liệu dài tổng cộng 1000 từ, tần suất từ sẽ được tính bằng 34 chia cho 1000 đối với từ "Sự phân chia" và 28 chia cho 1000 đối với từ "Nhiệm vụ". Điều này mang lại một ước tính về số lần mỗi thuật ngữ được sử dụng trong một tài liệu và có thể cung cấp một cảm nhận về mức độ quan trọng của thuật ngữ đó trong tài liệu. Trong phần IDF, chúng ta tính toán tần suất tài liệu nghịch đảo bằng cách lấy toàn bộ kho ngữ liệu (tất cả các tài liệu) và xác định xem có bao nhiêu tài liệu đã sử dụng thuật ngữ này nói chung. Nó được tính toán bằng cách lấy log cơ số 2 của tổng số lượng tài liệu chia cho số lượng tài liệu trong đó thuật ngữ được sử dụng. Giả sử có 50 tài liệu tạo nên chính sách và quy trình, và các thuật ngữ "Sự phân chia" và "Nhiệm vụ" xuất hiện trong 12 và 32 tài liệu, thì log của 50/12 và 50/32 tương ứng sẽ cho chúng ta tần suất tài liệu nghịch đảo. Sau đó, TF-IDF được tính bằng cách nhân TF với IDF. Bằng cách sử dụng phương pháp này, chúng ta có thể xác định mức độ liên quan của các tài liệu đối với những chủ đề khác nhau. Một khi các giá trị TF-IDF được xác định, chúng ta cũng có thể tính toán những điểm tương đồng giữa các tài liệu. Ví dụ: chúng ta có thể ước tính tài liệu nào tập trung vào Sự phân chia Nhiệm vụ – các biện pháp kiểm soát nội bộ liên quan.
+
+Các Biện pháp Kiểm soát Vật lý và Dữ liệu do Máy tạo ra (Physical Controls and Machine-Generated Data)
+Các biện pháp kiểm soát vật lý là cần thiết để bảo vệ một số loại tài sản nhất định. Trước đây, các biện pháp kiểm soát truy cập vật lý bị giới hạn ở việc lắp đặt camera và ổ khóa. Cùng với những tiến bộ của AI, giờ đây chúng ta có cơ hội tạo ra những cải tiến đáng kể trong các biện pháp kiểm soát vật lý. Cơ hội này nằm ở việc đánh giá tự động đầu vào video để đánh giá xem việc sử dụng tài sản đó có tuân theo mục đích sử dụng dự kiến hay không. Nguồn cấp dữ liệu video (video feed) có thể được phân tích để phát hiện tình trạng sử dụng sai mục đích, trộm cắp và hành vi phá hoại tài sản một cách cố ý. Bên cạnh video, các dữ liệu Internet Vạn vật (IoT) khác cũng có thể được phân tích để xác định các biện pháp kiểm soát đối với sản xuất, hàng tồn kho, nhà kho, v.v. Tương tự, dữ liệu từ xe tải có thể được phân tích về dặm đường (travel miles), bảo trì và mô hình sử dụng đội xe.
+
+GIÁM SÁT TỰ ĐỘNG (AUTOMATED MONITORING)
+Giám sát (Monitoring) đề cập đến việc ban quản lý thực hiện giám sát các hoạt động kiểm soát nội bộ một cách liên tục. Các chuẩn mực yêu cầu đội ngũ quản lý phải:
+- Tiến hành các đánh giá liên tục và/hoặc đánh giá riêng biệt.
+- Đánh giá và truyền đạt các khiếm khuyết (deficiencies): Mục tiêu của việc đánh giá là đảm bảo rằng ban quản lý tích cực lãnh đạo, quản lý và tham gia vào việc lập báo cáo. Trong một hệ thống tự động, chức năng giám sát tự động được nhúng vào bên trong máy móc. Trong các giai đoạn đầu của tự động hóa, người ta kỳ vọng rằng con người và máy móc sẽ chia sẻ trách nhiệm giám sát, nhưng khi công nghệ tiến lên, trách nhiệm này sẽ chuyển sang cho máy móc.
+- Các kiểm soát tự động cung cấp thông tin về máy móc: Kiểm toán viên sẽ muốn xem bằng chứng cho thấy các kiểm soát tự động đang cung cấp bằng chứng về các hoạt động giám sát.
+- Mô phỏng rủi ro (Risk simulation): Các kiểm toán viên có thể mô phỏng rủi ro trong một môi trường và quan sát hiệu suất của các biện pháp kiểm soát.
+- Trình phê bình (Critic): Xác định xem có tồn tại một trình phê bình giúp tự động phê bình hiệu suất của các biện pháp kiểm soát giám sát hay không.
+- Phân tích khoảng cách quy trình kinh doanh (Business process gap analysis): Thực hiện các kiểm tra tự động đối với phân tích khoảng cách của quy trình kinh doanh.
+- Ngân sách, phương sai, và thẻ điểm (Budgets, variance, and scorecards).
+
+THÔNG TIN VÀ TRUYỀN THÔNG (INFORMATION AND COMMUNICATIONS)
+Các nguyên tắc hướng dẫn của COSO về thông tin và truyền thông nhấn mạnh rằng một tổ chức phải:
+- Có được hoặc tạo ra, và sử dụng các thông tin chất lượng có liên quan để hỗ trợ chức năng của kiểm soát nội bộ.
+- Truyền đạt thông tin nội bộ, bao gồm các mục tiêu và trách nhiệm đối với kiểm soát nội bộ, cần thiết để hỗ trợ kiểm soát nội bộ.
+- Giao tiếp với các bên bên ngoài về kiểm soát nội bộ.
+Mục tiêu của hệ thống thông tin và truyền thông kiểm soát nội bộ tự động là liên tục thu thập và tổng hợp các thông tin có thể hành động được (actionable information) về kiểm soát nội bộ, sau đó phổ biến nó cho cả các bên bên trong và bên ngoài.
+
+Các phần trước đã đề cập đến một số artifact có thể được triển khai để tự động hóa kiểm soát nội bộ. Những artifact này sẽ cung cấp thông tin về trạng thái của chính chúng cũng như về các hoạt động của chúng. Ví dụ, tính năng tự quản trị (self-governance) có thể được tích hợp vào artifact và có thể báo cáo về các yếu tố như:
+- Quy trình kinh doanh (Business process)
+- Chi tiết giao dịch (Transaction details)
+- Các sự kiện khác (Other events)
+- Nguồn gốc dữ liệu (Data lineage)
+Các báo cáo được tạo ra từ những yếu tố này có thể được gửi đến tất cả các bên liên quan và một quy trình báo cáo leo thang (escalation workflow) có thể được thiết kế.
+
+RỦI RO KIỂM SOÁT VÀ CÁC BƯỚC TIẾP THEO (CONTROL RISK AND NEXT STEPS)
+Kế hoạch kiểm toán của chúng ta bắt đầu bằng việc sử dụng sâu rộng thông tin về công ty từ các nguồn bên ngoài nhằm phát triển một phân tích rủi ro tốt. Trong một số trường hợp, phân tích bên ngoài (từ ngoài vào trong) sẽ phơi bày những lĩnh vực rủi ro một cách rõ ràng như một chiếc đèn pin rọi sáng vào một điểm đáng quan tâm trong phòng tối. Trong những trường hợp khác, chúng sẽ mài giũa bản năng của chúng ta và khiến chúng ta nhận thức rõ hơn về những gì đang chờ đợi ở phía trước trong một hợp đồng dịch vụ (engagement).
+Từ phương pháp từ ngoài vào trong, chúng ta chuyển sang dữ liệu và hệ thống nội bộ của một công ty. Cách tiếp cận của chúng ta trở nên có tính thâm nhập và sâu sắc hơn. Chúng ta đã xuyên thủng những bức bình phong che khuất và giành được quyền truy cập trực tiếp vào dữ liệu. Chính từ thời điểm đó, chúng ta bắt đầu đạt được sự tự tin vào khả năng giám sát và đánh giá các biện pháp kiểm soát một cách thông minh và liên tục.
+Với sự hiểu biết thấu đáo về các rủi ro tiềm tàng (inherent risks) và rủi ro kiểm soát (control risks), các kiểm toán viên có thể đánh giá trọng tâm và mức độ của các thử nghiệm cơ bản (substantive procedures). Chúng tôi thảo luận về việc thu thập bằng chứng trực tiếp từ các tài khoản và thử nghiệm cơ bản trong chương tiếp theo.
+
+Các Điểm Chính (Key Points)
+- Thử nghiệm kiểm soát nội bộ là một trong những mục tiêu quan trọng nhất của một cuộc kiểm toán. Trong khi rủi ro tiềm tàng (inherent risk) thường là không thể kiểm soát được và là hàm số của mô hình kinh doanh của một công ty cùng nhiều thứ khác, thì rủi ro kiểm soát (control risk) lại có thể và nên được quản lý.
+- Rủi ro kiểm soát bao gồm năm loại hình tự động hóa: môi trường kiểm soát tự động (automated controls environment), đánh giá rủi ro tự động (automated risk assessment), đánh giá hoạt động kiểm soát tự động (automated control activities assessment), đánh giá giám sát tự động (automated monitoring assessment), và đánh giá thông tin và truyền thông tự động (automation information and communications evaluation).
+- Một kế hoạch tự động hóa kiểm toán phải giải quyết được tất cả các lĩnh vực này.
+
+TÀI LIỆU THAM KHẢO (REFERENCES)
+(Nội dung các tài liệu tham khảo được giữ nguyên theo bản gốc)
+COSO (2013) Internal Control – Integrated Framework. [online]. Available from: https://www.coso.org/Documents/990025P-Executive-Summary-final-may20.pdf.
+Curtis, P. and Carey, M. (2012) Risk assessment in practice. COSO. coso.org.
+...
+(Các tài liệu tham khảo khác như Fire và Puzis, Hollnagel, Humpherys, Jans, v.v.)
+OceanofPDF.com

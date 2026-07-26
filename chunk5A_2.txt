@@ -1,0 +1,201 @@
+for the product to arrive from the manufacturer to a retailer can also be low or high. The outcome
+variable is whether the product was backordered ( yes or no). Our goal is to come up with a simple
+prediction model that tells us if a product will be backordered based on its forecasted sales and transit
+time. The data are presented in Table 12.1 .
+Forecasted sales Transit time Backordered
+Low Low No
+High Low Yes
+Low Low No
+High High Yes
+Low Low Yes
+High High No
+High Low Yes
+Low High No
+High High Yes
+The first challenge in building a classification tree is to choose a variable that first splits the root node.
+Let’s consider Figure 12.3 . The dark circles represent when the product was backordered, and the light
+circles represent when it was not backordered. W e see that the variable of forecasted sales performs
+better at classifying whether a product was backordered. In the low-forecast group, three out of the
+four data points are not backordered, and in the high-forecast group, four out of the five data points are
+backordered. In an intuitive way , high- and low-forecast groups are able to segregate backordered and
+not-backordered data points more ef fectively than high- and low-transit-time groups. But this is just a
+visual assessment. How can we quantify which variable is a better classifier? Gini impurity provides us
+with one way to do this. Each predictor variable at each level is 1 – (fraction of backordered = “Y es”
+datapoints)2 − (fraction of backordered = “No”  datapoints)2. Lower values of Gini impurity are preferred
+over higher values. Let’ s understand how to calculate the Gini index for the example we are working
+with.
+Description
+Figure 12.3  Gini Index Calculation
+For forecasted sales as shown in Figure 12.3 , we have five data points with high-forecast sales and
+four data points with low-forecast sales. Among the five data points in the high-forecast group, four are
+for backorders, and one is not. The fraction of items backordered in this group is 4
+5, and the fraction of
+items not backordered is 1
+5. The Gini impurity for this group is 1−(4
+5)2
+−(1
+5)2=0.32. Among
+the four data points in the low-forecast group, one was backordered, and three were not. The fraction
+of items backordered in this group is 1
+4, and the fraction of items not backordered is 3
+4. The Gini
+impurity for this group is 1−(1
+4)2
+−(3
+4)2
+=0.375. Now we can calculate Gini weighted
+impurity for forecasted sales. Since there are nine data points, the weighted Gini impurity for the low-
+forecast group will be 5
+9, and for the high-forecast group it will be 4
+9. The weighted average will be
+(5
+9)0.32+(4
+9)0.375=0.34.
+Similarly , we can calculate weighted Gini impurity for the transit time variable (as depicted in Figure
+12.4).
+Description
+Figure 12.4  Gini Impurity for Forecasted Sales and Transit Time
+We find that Gini impurity is lower with forecasted sales; hence, it becomes the variable to split the root
+node. The resulting decision tree will look like Figure 12.5 , in which it splits further based on the transit
+time.
+Description
+Figure 12.5  Decision Tree Splits
+Since we have only two predictor variables, this will not be split further , and the final nodes will be the
+terminal nodes or leaves. Predictions associated with each leaf will reflect the majority class. As an
+example, if the majority class in the leftmost leaf is no (2) and the minority class is yes (1), then the
+prediction associated with this leaf will be no.
+12.4.3 Advantages, Disadvantages, and Ways to Improve
+Classification Trees
+Classification trees of fer many advantages. First, several types of predictor variables (numeric or
+categorical in nature) can be included in the analysis, and they don’t need to be scaled or
+standardized. Second, outliers don’t influence classification tree predictions; therefore, no outlier
+removal is necessary before analysis. Third, trees are not af fected by the presence of irrelevant
+predictors. If an irrelevant predictor is included in the analysis, the analysis is not af fected even when
+the user is uncertain which predictors have a significant influence. Classification trees can also handle
+the presence of correlated predictors (multicollinearity), which is very common in real-world data since
+many of the predictors that users might identify as being important for the analysis could be correlated
+with one another . Fourth, interactions among predictor variables are automatically incorporated in the
+analysis; therefore, there is no need to prespecify interactions, which is necessary in methods such as
+ordinary least squares (OLS) regression and logistic regression.
+However , there are some disadvantages  of using classification trees. Individual trees do not have as
+much predictive power as many other methods such as logistic regression or neural nets. Trees are
+also very sensitive to variations in the training data. In other words, if we divide the training data
+randomly into two parts and train two dif ferent trees, then there is a high likelihood that both trees will
+fail to make similar predictions.
+One way to improve the predictive power of trees and reduce their sensitivity to variations in the
+training data is to combine the predictions of many trees. The intuition behind combining various trees
+can be understood through the example of measuring temperature. Imagine we have a thermometer
+that has some random error . Every time we measure temperature, it gives slightly dif ferent readings.
+One way to obtain a more stable and reliable estimate of temperature is to take several measurements
+of temperature and then average them. In a similar vein, when we combine predictions of various
+trees, we reduce variation in their predictions and improve their predictive power . The combination of
+several trees is known as an ensemble of trees; since an ensemble of trees is a forest, the method that
+creates this ensemble is called random forest.
+12.5 RANDOM FOREST
+The first step builds multiple distinct trees by using bootstrap samples of training data. Bootstrapping  is
+a process of sampling data points from the original dataset with replacement. Imagine we have 30
+balls in a box and each of them has a distinct number written on it. In sampling with replacement, we
+first randomly pick a ball, write down the number written on the ball, and put it back in the box. W e
+again pick a ball, write down the number , and put it back in the box. W e are allowed to randomly pick
+the same ball more than once. Repeating this process 30 times will give us our first bootstrap sample.
+For a dataset, bootstrap samples are formed by sampling rows with replacement from the original
+dataset. Since we are replacing each row , there is a possibility that some rows will be picked up more
+than once, that our bootstrap sample will have duplicate rows of data, and that some rows from the
+original dataset will be missing in our bootstrap sample. This is exactly what we want because this will
+help us build diverse trees. This process of building trees from several bootstrap samples and
+combining their prediction is called bagging  (short for bootstrap aggregation ).
+In a regular decision tree, all the predictor variables are considered at each split; however , this leads to
+a problem. If there is a predictor variable that is very good at predicting the outcome variable, then
+regardless of how many bootstrap samples we use, there is a very high chance that all the trees will
+look the same and their predictions will be very correlated. In other words, we will fail to build diverse
+trees. The second step of random forest, therefore, goes beyond simple bagging. It combines bagging
+with an idea known as subspace sampling  (also referred to as feature bagging ). At each split, it
+randomly selects a subset of predictor variables that are the only ones considered; then a new subset
+of predictors is considered at the next split from the remaining predictors. So if there are 20 predictor
+variables, then 5 are randomly chosen at each split. Their performance on a criterion like Gini impurity
+is compared, and the best-performing variable splits the data. At the next split, a new random sample
+of 5 predictors from the remaining set of 19 predictors is chosen. This method ensures that if a strong
+predictor exists, then it is not always chosen to split the data. This way , we get diverse trees from
+bootstrap samples.
+In the third step of random forest, each tree makes its prediction, and the final prediction is based on
+the consensus value. The outcome that receives the most votes is the final prediction. As an example,
+if we build 100 trees for a new product where the outcome is unknown, and out of these 100 trees 65
+trees predict that the product will be backordered and 35 predict that the product will not be
+backordered, then the final prediction of the random forest will be yes.
+As can be noticed, we have not discussed any method to find the optimum number of predictor
+variables randomly sampled in the second step. There is no way to estimate the optimum number from
+the dataset. Therefore, this becomes a hyperparameter that needs to be tuned using cross-validation.
+Another hyperparameter is the number of trees we want to grow . This also needs to be tuned using
+cross-validation.
+12.6 BACKORDER PREDICTION USING RANDOM FORESTS
+Let’s assume that a manufacturer of small machines has set up an inventory system to ensure that it
+can keep track of obtaining machined parts from its suppliers so it can build its machines and deliver
+them on time to its customers. However , recently , the manufacturer has noticed some backorder
+issues, leading to dissatisfied customers. To prevent such backorder issues from occurring in the
+future, the manufacturer uses random forests to build a model for predicting (and hence addressing)
+backorders. Let’ s understand the process and perform the analysis ourselves. W e will refer to the
+business as the manufacturer , and the machines it manufactures as products.
+12.6.1 Data Import and Selection
+The variables in our analysis include the following.5 The outcome variable indicated whether a product
+was backordered ( yes vs. no). The random forest was provided with 16 predictor variables such as the
+current level of inventory; usual and current transit time; sales forecasts for the next 3, 6, and 9
+months; sales in the past 3, 6, and 9 months; minimum recommended stock; and machined parts due
+from the manufacturer ’s suppliers.
+We begin our analysis by importing the data and checking the class of nonnumeric variables. W e want
+to ensure that nonnumeric or categorical variables are recognized as factors in the analysis.
+As we discussed earlier , backorder data tend to have a class imbalance, where the number of items
+that were backordered is proportionately less than the number of items that were not backordered.
+Let’s check this in our data through a simple plot ( Figure 12.6 ).
+Figure 12.6  Data Imbalance
+The plot shows that products that were backordered (i.e., when the outcome variable was yes)
+represented approximately 1
+5 of the data. This makes the times the product was not backordered (i.e.,
+when the outcome variable was no) a majority level (also referred to as majority class). Yes becomes a
+minority level. It is necessary to use a sampling method that provides an appropriate representation to
+the minority level. Next we discuss one such sampling method.
+12.6.2 Imbalance in the Data
+To handle the issue of class imbalance, we use a downsampling method that samples rows from the
+training data in such a way that the majority level (when the products were not backordered—i.e.,
+when outcome variable = no) is sampled less. This increases the proportion of the minority level (when
+the products were backordered) in model training. W e set the train data in such a way that the
+backorders are at most 1.5 times as many rows as minority levels. If we compare this situation to our
+base situation when no sampling is applied, we will have majority levels with 4 times as many rows as
+minority levels.
+However , having corrected for the imbalance in the training data so that the model has enough data
+points from which to learn how backorders are af fected by the predictors, we need to ensure that the
+model is tested on a dataset that captures the real world. The real world has a data imbalance, where
+backorders are fewer in number; therefore, we need to have test data that reflect this smaller number
+of backorders compared to all orders so that the ef ficacy of the model in the real world can be tested.
+Thus, in the test data, no undersampling is used, and the imbalance is retained.
+12.6.3 Hyperparameter Tuning
+We formulate the model with backorder as the outcome variable and all other variables as predictors.
+We then specify the random forest algorithm and also the hyperparameters—such as the number of
+predictors randomly sampled at each split when a tree is created, the number of trees contained in a
+random forest, and the minimum number of data points in a node required for the node to be split
+further (please see the Technical Appendix for a detailed description of hyperparameters). Each
+hyperparameter is then tuned through a grid search. Since our outcome variable is categorical ( yes
+and no), we need to ensure that our model type is specified as a classification model.
+We use fivefold cross-validation, indicating that there will be five partitions of the training dataset and
+that the performance of each hyperparameter combination will be assessed using this cross-validation
+procedure. Moreover , we specify 50 dif ferent hyperparameter combinations. For each of the 50
+hyperparameter combinations, a model is fit on the four partitions, and its performance is assessed on
+the fifth partition. The AUC ROC (area under the curve receiver operating characteristics) curve and
+overall accuracy of the model are computed (please refer to Chapter 9  on logistic regression, which
+provides a detailed description of interpreting AUC ROC values for a model).
+We then pick the best hyperparameter combination.
+The analysis reveals that the best hyperparameter combinations are the following: the number of
+predictors randomly sampled at each split when a tree is created = 5, the number of trees contained in
+a random forest = 69, and the minimum number of data points in a node that is required for the node to
+be split further = 31.
+12.6.4 Testing the Performance of Our Random Forest Model
+We fit the model using the best hyperparameter combination on the entire training set and then
+validate its performance on the test data. The accuracy and ROC values ( Table 12.2 ), along with the
+confusion matrix for the test data ( Table 12.3 ), are reported.
+12.6.4.1  Accuracy and ROC V alues
+.metric .estimator .estimate .config
+accuracy binary 0.8223553 Preprocessor1_Model1
+roc_auc binary 0.9076335 Preprocessor1_Model1
+ No Yes
+No 329 16
+Yes73 83
+The results show that the accuracy is 82.2%, and the AUC is 0.908. Given the imbalance in levels of

@@ -1,0 +1,544 @@
+While it is possible to come to the same conclusions using the table, it is not as easy to detect 
+the differences or make comparisons. The ability to quickly see patterns and relationships in 
+large data sets are why data visualizations skills are so important.
+
+2-42 
+CHAPTER 2  Foundational Data Analysis Skills
+Visualizations and When to Use Them
+There are many types of visualizations available. Determining which to use is driven by the 
+type of data available and what you are trying to show in the visualization. Data visualizations 
+are covered in more detail in the analysis, interpretation, and communication chapters, but 
+next is a summary of some common visualizations and how to select them.
+Common Visualizations
+Categorical data are labeled or named data that can be sorted into groups according to spe-
+cific characteristics. The data do not have a quantitative value. Categorical data are used in 
+visualizations to portray groups of data. The visualization in ­Illustration 2.56 is an example 
+using categorical data. The product types are the groups that summarize sales. The same 
+visualization also includes quantitative data in the form of the sales amounts. Putting them 
+together shows the relationship between product categories and sales. Notice the graph also 
+has years. The bars represent the years 2023–2025.
+Always consider whether the data being analyzed can be used in a particular visualiza-
+tion. For example, showing a relationship in the data using a scatterplot requires at least one 
+quantitative measure. Showing trends over time requires a time measure (dates) plus a quan-
+titative measure.
+Illustration 2.57 lists some common data visualizations along with a description, best 
+practices, and the types of data needed to create the visualization.
+ILLUSTRATION 2.57  Common Data Visualizations
+Visualization
+Use
+Best Practices
+Data Required
+Area Chart
+Representing changes in 
+volume over time.
+•	 Do not use if data has more than four categories to 
+avoid confusion and clutter.
+•	 Start the y-axis at zero or above.
+•	 Put highly variable data on the top and data with low 
+variability on the bottom.
+•	 Date field.
+•	 At least one quantitative 
+measure.
+Bar and Column 
+Chart
+Comparing parts to a 
+whole, highlighting 
+categories, or showing 
+changes over time.
+•	 Compare two to seven categories with vertical bars.
+•	 Use horizontal bars if there are more than seven 
+categories or long category labels.
+•	 Use horizontal labels for readability.
+•	 Space bars should be used appropriately and 
+consistently.
+•	 Use color sparingly or as an accent.
+•	 Always have a zero baseline.
+•	 Horizontal bars: (bar 
+chart) zero or more 
+categories, one or more 
+measures.
+•	 Vertical bars: (column 
+chart) one or more 
+categories, one or more 
+quantitative measures.
+Bubble Chart
+Comparing independent 
+values that have distinct 
+gaps or outliers.
+•	 Label bubbles and make sure they are visible.
+•	 Scale bubble size by area and not diameter.
+•	 Do not use bubbles if they are all similar in size.
+•	 One or more categories.
+•	 One or more quantitative 
+measures.
+Histogram Chart
+Showing frequency 
+distributions.
+•	 Use a zero baseline.
+•	 Choose an appropriate number of bins:
+•	 Bins are numbers that represent the intervals into 
+which the data will be grouped. 
+•	 Bins define the groups used for the frequency 
+distribution.
+•	 Use between 5 and 15 bins.
+•	 Numerical data
+(Conitnued)
+
+2.5  How is Visualization Used in Data Analysis? 
+2-43
+Visualization
+Use
+Best Practices
+Data Required
+Line Graph
+Displaying one or more 
+series of data. Allows for 
+the use of multiple data 
+series and data points.
+•	 Time runs from left to right.
+•	 Be consistent plotting time points.
+•	 Use solid lines, not dotted.
+•	 Use a zero baseline.
+•	 Do not plot more than four lines. Use multiple charts 
+instead.
+•	 Continuous lines require 
+one date, zero or more 
+categories, and one 
+or more quantitative 
+measure.
+Pie Chart
+Illustrating simple part-
+to-whole relationships.
+Not suited for making 
+precise comparisons.
+•	 Most impactful with small data sets.
+•	 Best for showing differences within groups based on 
+one variable.
+•	 Make sure the data adds up to 100%.
+•	 Limit to a max of five segments.
+•	 Start first segment at 12 o’clock position.
+•	 One or more categories.
+•	 One or two quantitative 
+measures.
+Stacked Bar Chart
+Comparing multiple part-
+to-whole relationships.
+•	 Can be vertical or horizontal.
+•	 Follow same best practices as bar charts.
+•	 One or more categories.
+•	 One or more quantitative 
+measures.
+Scatterplot 
+(Scatter Chart)
+Highlighting correlation 
+and distribution of large 
+amounts of data.
+•	 Data set should be in pairs with an independent 
+variable (x-axis) and a dependent variable (y-axis).
+•	 Use if order is not relevant – otherwise use a line 
+graph.
+•	 Do not use if there are only a few pieces of data or if 
+there is no correlation.
+•	 Zero or more categories.
+•	 One or more quantitative 
+measures.
+Tree Map
+ 
+Visualizing a part-to-
+whole relationship among 
+many categories.
+•	 Appropriate when precise comparisons are not 
+important.
+•	 Use bright, contrasting colors so each box is easily 
+defined.
+•	 Label boxes with text or numbers.
+•	 One or more categories.
+•	 One or two quantitative 
+measures.
+ILLUSTRATION 2.57  (Continued)
+As you develop your data analysis skills, you will be working with large sets of data and 
+will need to use data visualization to analyze them and communicate findings. This chart can 
+be a useful reference as you explore data and communicate your findings.
+Choosing Visualizations
+How do you know which visualization is best for an analysis? Start by considering the 
+project’s objective. There are some common analysis objectives:
+•	Showing composition
+•	Indicating relationships
+•	Displaying distributions
+•	Finding trends
+•	Making comparisons
+
+2-44 
+CHAPTER 2  Foundational Data Analysis Skills
+Illustration 2.58 breaks down visualization choices if the goal is to show composition, rela-
+tionships, or distributions.
+Illustration 2.59 identifies useful visualizations for showing trends or making 
+comparisons.
+ILLUSTRATION 2.59  
+Guide to Visualizations Showing 
+Trends or Comparisons
+Line chart
+Column chart
+Bar chart
+Column chart
+Line chart
+Column chart
+What is the objective
+of the analysis?
+Indicate trends
+Comparisons
+Items
+Over time
+You can use both visualization guides, along with the descriptions and best practices in 
+Illustration 2.57, to create the best visualization to address the purpose of the analysis.
+Microsoft Excel Visualizations
+Many tools can create visualizations. This course focuses on a trio of software, Tableau, Power 
+BI, and Microsoft Excel, which are the most common (but certainly not only) tools used in 
+business today.
+ILLUSTRATION 2.58  
+Guide to Visualizations that Show 
+Composition, Relationships, and 
+Distributions
+Area chart
+Pie chart
+Stacked bar chart
+Bubble chart
+Scatter chart
+Histogram chart
+Line chart
+Scatter chart
+Show
+composition
+Show
+relationships
+Show
+distributions
+What is the objective
+of the analysis?
+
+2.5  How is Visualization Used in Data Analysis? 
+2-45
+Microsoft Excel can create basic data visualizations. The visualization tools in Microsoft Excel 
+are in the Insert ribbon (Illustration 2.60)
+ILLUSTRATION 2.60  Insert a 
+Visualization in Excel
+Recommended
+Charts
+Charts
+Maps
+PivotChart
+Add-
+ins
+Page Layout
+Formulas
+Data
+Review
+View
+Insert
+Devel
+To use the Charts tool:
+•	Highlight the data to chart.
+•	Choose a specific chart, or click on Recommended Charts to see suggestions.
+A chart can also be created from an Excel PivotTable. Either create the PivotTable first or 
+create the PivotTable and chart at the same time by using PivotChart. Illustration 2.61 shows 
+the dialog box when Create PivotChart is chosen. Notice that it is the same as the ­PivotTable 
+dialog box.
+ILLUSTRATION 2.61  PivotChart 
+Dialog Box
+OK
+Cancel
+Choose Connection...
+Connection name:
+Create PivotChart
+Choose the data that you want to analyze
+Choose where you want the PivotChart to be placed
+Choose whether you want to analyze multiple tables
+Existing Worksheet
+Use this workbook’s Data Model
+New Worksheet
+Location:
+Select a table or range
+Use an external data source
+Table/Range:
+Add this data to the Data Model
+'Sales Transactions'!$A$1:$Z$3646
+?
+Data   This example uses the Super Scooters data file to create a PivotTable and Piv-
+otChart of gross sales by year and model simultaneously (Illustration 2.62). To do this, select: 
+•	The field Model for Legend (Series).
+•	The Year for Axis (Categories).
+•	Sum of Gross Sales for Values.
+Illustration 2.63 shows the resulting PivotTable and PivotChart, which is a bar chart in 
+which the bar colors represent the models.
+
+2-46 
+CHAPTER 2  Foundational Data Analysis Skills
+ILLUSTRATION 2.63  Super Scooters Completed PivotTable and PivotChart
+ILLUSTRATION 2.62  PivotTable and PivotChart Canvas
+fx
+1
+A
+B
+C
+D
+E
+F
+G
+H
+I
+J
+K
+Sheet1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+AutoSave
+Oﬀ
+PivotTable Fields
+Choose fields to add to report:
+Order Number
+Year
+Sales Order Number
+Model
+Sold Date
+Sales Volume
+Color
+Location
+State
+Country
+Days in Inventory
+Unit Sale Price
+Gross Sales
+Variable Marketing
+Search
+PivotTable7
+To build a report, choose fields
+from the PivotTable Field List
+To build a PivotChart, choose fields from the PivotChart
+fx
+1
+A
+B
+C
+D
+E
+F
+G
+Sheet
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+AutoSave
+Oﬀ
+PivotTable Fields
+Choose fields to add to report
+Order Number
+Year
+Sales Order Number
+Model
+Sold Date
+Sales Volume
+Color
+Drag fields between areas below:
+Filters
+Columns
+Model
+Search
+Rows
+Defer Layout Update
+Values
+∑
+Update
+Sum of Gross Sales
+Year
+Sum of Gross Sales
+Row Labels
+Column Labels
+Captain
+Celeritas
+Kicks
+Lazer
+Grand Total
+2023
+2024
+2025
+Grand Total
+$      1,893,384
+$      4,578,593
+$      5,850,804
+$ 12,322,781
+$   1,132,873
+$   2,081,584
+$   1,577,881
+$ 4,792,338
+$       585,415
+$       279,848
+$       242,920
+$ 1,108,183
+$      862,887
+$  3,566,309
+$  4,493,557
+$ 8,922,753
+$      4,474,559
+$   10,506,334
+$   12,165,162
+$ 27,146,055
+Captain
+2023
+$0
+$1,000,000
+$2,000,000
+$3,000,000
+$4,000,000
+$5,000,000
+$6,000,000
+$7,000,000
+2024
+2025
+Celeritas
+Kicks
+Lazer
+Model
+Sum of Gross Sales
+Year
+
+2.5  How is Visualization Used in Data Analysis? 
+2-47
+During your accounting career you will encounter many types of data visualization soft-
+ware programs. However, learning how to use any of these software programs helps prepare 
+you to use and learn new technology.  (  Data   How To 2.2 is a walk-through for how to create 
+a bar chart using Tableau.)
+Apply It 2.5
+Analyze Product 
+Costs with Data 
+Visualization
+Managerial Accounting   The controller at Super Scooters has asked you to prepare an analysis of 
+product costs. Specifically, the controller would like answers to four questions:
+	 1.	 What is the total cost per model each year?
+	 2.	 Which variable costs are the highest?
+	 3.	 Have labor, materials, and overhead costs been increasing or decreasing over time?
+	 4.	 Are total costs related to sales volume?
+For each question:
+•	 Identify an appropriate visualization and explain your reasoning.
+•	 List best practices for the visualization.
+•	 Determine the type of data needed for the visualization.
+SOLUTION
+	 1.	 An area chart is the best choice because it represents changes in volume over time. For this 
+question, it would show changes in total costs over time.
+	
+	 Best Practices:
+•  Do not use for data with more than four categories to avoid confusion and clutter. There 
+are four models, so this requirement is met.
+•  Start the y-axis at zero or above.
+•  Place highly variable data on the top and data with low variability on the bottom.
+	
+	 Data:
+•  Date field (use year)
+•  At least one quantitative measure (use total costs)
+	 2.	 A bar chart is the most appropriate visualization because it compares parts to a whole, high-
+lights categories, or shows changes over time.
+	
+	 Best Practices:
+•  Compare two to seven categories with vertical bars.
+•  Use horizontal bars if there are more than seven categories or long category labels.
+•  Use horizontal labels for better readability.
+•  Space bars appropriately and consistently.
+•  Use color sparingly or as an accent.
+•  Always have a zero baseline.
+	
+	 Data:
+•  One or more categories (labor costs, materials, overhead)
+•  One or more quantitative measures (costs)
+	 3.	 A line chart is appropriate because it displays one or more series of data and allows the use 
+of multiple data series and data points.
+	
+	 Best Practices:
+•  Time runs from left to right.
+•  Be consistent plotting time points.
+•  Use solid lines, not dotted.
+•  Use a zero baseline.
+•  Do not plot more than four lines. Instead, use multiple charts.
+How To
+
+2-48 
+CHAPTER 2  Foundational Data Analysis Skills
+❶  Describe how data is stored in and extracted from 
+relational databases.
+Data used in accounting data analyses is often stored in a relational 
+database. Retrieving data from a database requires understanding 
+how tables in a relational database are structured: 
+•  Data is stored in tables, which are comprised of fields and 
+records. Fields are the columns representing the characteristics 
+about each record stored in the columns of the data set. Records 
+are data in the rows representing instances of the phenomena 
+being captured in the data set.
+•  Tables have a primary key, which is a unique value for each row 
+in the table. Often, a table will have a foreign key. A foreign key 
+is a primary key column repeated from another table. Foreign 
+keys make it possible to join the data stored in different tables.
+•  To analyze data stored in more than one table, join the data from 
+multiple tables. There are inner joins, right joins, left joins, or 
+full joins, each of which retrieves data in different ways. The 
+join selected should be appropriate for the data analysis ques-
+tion being asked.
+❷  Explain how functions help answer data analysis 
+questions
+Data analysis includes performing calculations: 
+•  Functions are predefined formulas that perform frequently used 
+calculations.
+•  The most common functions include AVERAGE, AVERAGEIF, 
+AVERAGEIFS, COUNT, COUNTIF, COUNTIFS, SUM, SUMIF, 
+and SUMIFS.
+❸  Illustrate how pivot tables organize and filter data.
+Data organization is the process of rearranging data to make it easier 
+to understand or to answer a specific question:
+•  Sort, filter, and slice are common tools for reorganizing data in a 
+spreadsheet to answer questions. 
+•  Pivot tables efficiently reorganize data in a spreadsheet to create 
+custom summaries of key information.
+❹  Identify descriptive measures used to perform data 
+analysis
+The core data analysis skills for descriptive analytics are descriptive 
+statistics and correlation analysis:
+•  Measures of location include the mean, median, and mode.
+•  Measures of distribution include variance and standard deviation.

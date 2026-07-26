@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tài liệu Buổi 6 - AI Accounting</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .tab-container {
+            display: flex;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #ccc;
+        }
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-size: 16px;
+            font-weight: bold;
+            color: #555;
+            outline: none;
+        }
+        .tab:hover {
+            color: #000;
+        }
+        .tab.active {
+            color: #007bff;
+            border-bottom: 2px solid #007bff;
+            margin-bottom: -2px;
+        }
+        .content-area {
+            display: none;
+        }
+        .content-area.active {
+            display: block;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 15px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1 style="text-align: center; color: #333;">Tài liệu Buổi 6: AI trong tài chính công và quốc tế</h1>
+    
+    <div class="tab-container">
+        <button class="tab active" onclick="openTab('en-tab', this)">English (Bản gốc)</button>
+        <button class="tab" onclick="openTab('vi-tab', this)">Tiếng Việt (Bản dịch)</button>
+        <button class="tab" onclick="openTab('slide-tab', this)">Slide Bài Giảng</button>
+    </div>
+
+    <div id="en-tab" class="content-area active"></div>
+    <div id="vi-tab" class="content-area"></div>
+      <div id="slide-tab" class="content-area">
+          <iframe src="TaiLieu/slideAIAcc/Slide_AIAcc_Day06.pdf" width="100%" height="800px" style="border: none;"></iframe>
+      </div>
+</div>
+
+<script>
+    // Raw Markdown contents
+    const enMarkdown = `Case study 4 – tackling public sector corruption with
+AI-driven anomaly detection
+In a bid to enhance transparency and accountability, a government body implemented an AI-driven
+anomaly detection system to audit its procurement processes. The system was designed to analyze
+bidding patterns, contract allocations, and pricing data to identify any irregularities or signs of
+corrupt practices.
+The AI tool soon flagged a series of procurement contracts that had several irregularities, including
+recurring patterns of contract awards to a specific set of companies and pricing anomalies compared
+to market standards. On closer examination, these contracts were found to be part of a collusion
+scheme between certain government officials and contractors. The scheme involved inflating contract
+prices and awarding contracts in exchange for kickbacks.
+This case is a prime example of how AI can be instrumental in combating public sector corruption.
+The anomaly detection system’s ability to analyze complex datasets and identify suspicious patterns
+played a key role in uncovering a corruption network, leading to significant procurement reforms and
+legal actions against those involved.
+These detailed case studies highlight the remarkable impact and versatility of AI technologies in
+different sectors for fraud detection and prevention. These examples illustrate AI’s practical
+application and effectiveness in combating various forms of financial fraud and corruption.
+Integrating AI into fraud examination workflows
+
+
+Artificial Intelligence  11
+•	 Investment – Investment analysts and investment bankers 
+can use AI to analyze available investment information of 
+companies and identify companies that need to raise equity 
+or debt. AI can also be used to identify companies that are 
+possible candidates for a merger or acquisition. The insight 
+gained from such AI systems can assist investors in knowing 
+which companies to invest in.
+•	 Financial statement analysis – AI analytics can be used 
+to quickly analyze the financial statements of companies to 
+determine the level of a company’s cash flow, profitability, 
+and efficiency.
+•	 Trading and sentiment analysis – AI can be used to develop 
+an algorithm that tells a trader when to buy, hold, or sell 
+financial assets like stocks, bonds, and cryptocurrencies. AI 
+can also be designed to generate signals through sentiment 
+analysis by analyzing people’s online comments and feelings 
+about specific financial assets and using that information to 
+determine whether to sell, buy, or hold the assets that are 
+being talked about on the Internet.
+•	 Fintech and digital lending – Fintech companies can use 
+AI models to generate unique credit scores and forecast the 
+creditworthiness of online borrowers based on the gener-
+ated credit scores.
+•	 Asset management – AI algorithms can be used to analyze 
+investment data and the insight generated from it can be used 
+to manage assets remotely. This will enable the rise of passive 
+fund managers and the decline of active fund managers.
+•	 Hedge fund – AI tools can be used to usher in the era of 
+quantitative investing rather than the usual traditional fun-
+damentals-driven long or short strategies. Hedge fund man-
+agers can use sophisticated AI tools to analyze large amounts 
+of data to generate short-term winner-takes-all strategies to 
+beat the market within a short time.
+•	 Financial forecasting – AI can be used in conducting 
+high-powered predictive analysis of financial variables. AI 
+algorithms can also be used to predict financial changes in 
+local, regional, and global markets. Companies can use such 
+insights to make better decisions within the company based 
+on the insights generated from AI forecasting and to reduce 
+the company’s exposure to certain markets.
+
+12  Generative Artificial Intelligence in Finance
+•	 Preserving financial stability – Financial institutions regu-
+larly submit regulatory compliance returns to the regulatory 
+authorities. The authorities can use AI analytics to scrutinize 
+the data in the regulatory returns to detect early any sharp 
+drop in bank deposits, a sudden and significant decrease in 
+banking sector liquidity, and excessive debt in the financial 
+system. This insight will enable the authorities to take quick 
+action to prevent a bank run or a liquidity crisis in the finan-
+cial system as well as to prevent a financial crisis.
+•	 Pensions – AI can be used to engage and communicate 
+more actively with pensioners using various channels such 
+as chatbots, robot advisors, and voice assistants. AI can 
+also help pension funds automate pension data collection, 
+reporting, compliance, and auditing processes in order to 
+reduce costs, human errors, and the risks of fraud.
+•	 Insurance – AI can assist insurance companies in analyz-
+ing risk, detecting fraud, and reducing human error in the 
+insurance application process. It can enable the automation 
+of claims payout requests and assist in insurance underwrit-
+ing and risk monitoring.
+1.5	 Artificial Intelligence Applications in Economics
+The major application of AI in the economics discipline is to analyze micro 
+and macro-economic data and use the insights gained to make meaningful 
+economic decisions. Depending on the field of economics, AI tools can be 
+used to make forecasts and price and output optimization decisions. AI 
+tools will be more useful in specific economics disciplines and less useful 
+in other disciplines. Below are some applications of AI in the economics 
+discipline.
+•	 AI can enable price discovery in markets – AI can make 
+it easy to discover the actual price or average price of goods 
+and services in markets where sellers sell at different prices 
+and in markets where there are many transactions in a par-
+ticular good or service. AI systems can also be used to deter-
+mine the exact time of sudden changes in the price of goods 
+and services. Policymakers can use such insights to inter-
+vene in markets.
+
+Artificial Intelligence  13
+•	 AI in behavioral economics – Behavioral economists can 
+use AI tools to analyze large amounts of data obtained from 
+individuals and markets to understand how individuals 
+and markets make decisions. AI can also assist behavioral 
+economists in conducting sentiment analysis to understand 
+the sentiment or feelings of individuals and investors about 
+products, markets, industries, or the economy.
+•	 AI in labor economics – Labor economists and policymak-
+ers can use AI tools to collect data from employers’ recruit-
+ment platforms and from job search websites and agencies. 
+The collected data can be analyzed using AI analytics to 
+determine whether there is a tight labor supply market and 
+to make early interventions to improve labor supply before 
+official labor statistics are published. Recruiters can also use 
+AI-based systems to reduce the lengthy process involved in 
+recruiting. This will save time, reduce the cost of recruiting, 
+and motivate employers to recruit more employees, thereby 
+reducing unemployment to some extent.
+•	 AI in monetary economics – Monetary economists in the 
+central bank can use AI analytics to forecast the appropriate 
+level of money supply that is needed to support economic 
+growth. Central bank economists can also use AI data ana-
+lytics to determine the sectors in the economy where there 
+is too much money supply. Central banks can also use AI 
+analytics to tackle inflation. They can use AI tools to collect 
+data from online consumer market forums to identify the 
+goods and services that consumers feel are unjustly inflated. 
+This insight can assist central banks in understanding the 
+drivers of inflation in consumer markets. It can also assist 
+central banks in knowing the appropriate monetary policy 
+tools to deploy to tackle inflation.
+•	 AI in development economics – AI can assist development 
+economists in combating poverty by analyzing demographic 
+data and identifying the people who need more resources for 
+healthcare, welfare, and education to eradicate poverty. AI 
+data analytics can also be used to assist development econo-
+mists in identifying the most vulnerable people in the pop-
+ulation who need prolonged welfare intervention to enable 
+them to live a good life.
+
+
+`;
+    const viMarkdown = `Case study 4 – tackling public sector corruption with AI-driven anomaly detection
+(Tình huống nghiên cứu 4 - giải quyết nạn tham nhũng trong khu vực công bằng phát hiện bất thường dựa trên AI)
+
+In a bid to enhance transparency and accountability, a government body implemented an AI-driven anomaly detection system to audit its procurement processes. The system was designed to analyze bidding patterns, contract allocations, and pricing data to identify any irregularities or signs of corrupt practices.
+(Trong nỗ lực nâng cao tính minh bạch và trách nhiệm giải trình, một cơ quan chính phủ đã triển khai hệ thống phát hiện bất thường dựa trên AI để kiểm toán các quy trình mua sắm của mình. Hệ thống này được thiết kế để phân tích các mô hình đấu thầu, phân bổ hợp đồng và dữ liệu giá cả nhằm xác định mọi điểm bất thường hoặc dấu hiệu của các hành vi tham nhũng.)
+
+The AI tool soon flagged a series of procurement contracts that had several irregularities, including recurring patterns of contract awards to a specific set of companies and pricing anomalies compared to market standards. On closer examination, these contracts were found to be part of a collusion scheme between certain government officials and contractors. The scheme involved inflating contract prices and awarding contracts in exchange for kickbacks.
+(Công cụ AI đã nhanh chóng gắn cờ một loạt các hợp đồng mua sắm có nhiều điểm bất thường, bao gồm các mô hình trao thầu lặp đi lặp lại cho một nhóm các công ty cụ thể và các điểm bất thường về giá so với tiêu chuẩn thị trường. Khi kiểm tra kỹ hơn, những hợp đồng này được phát hiện là một phần của kế hoạch thông đồng giữa một số quan chức chính phủ và các nhà thầu. Kế hoạch này liên quan đến việc thổi phồng giá trị hợp đồng và trao thầu để đổi lấy tiền hoa hồng (kickbacks).)
+
+This case is a prime example of how AI can be instrumental in combating public sector corruption. The anomaly detection system’s ability to analyze complex datasets and identify suspicious patterns played a key role in uncovering a corruption network, leading to significant procurement reforms and legal actions against those involved.
+(Trường hợp này là một ví dụ điển hình về việc AI có thể trở thành công cụ đắc lực trong công cuộc chống tham nhũng ở khu vực công. Khả năng phân tích các tập dữ liệu phức tạp (complex datasets) và xác định các mô hình đáng ngờ của hệ thống phát hiện bất thường đã đóng vai trò then chốt trong việc vạch trần một mạng lưới tham nhũng, dẫn đến những cải cách đáng kể trong công tác mua sắm và các hành động pháp lý chống lại những cá nhân có liên quan.)
+
+These detailed case studies highlight the remarkable impact and versatility of AI technologies in different sectors for fraud detection and prevention. These examples illustrate AI’s practical application and effectiveness in combating various forms of financial fraud and corruption.
+(Những tình huống nghiên cứu chi tiết này nêu bật tác động to lớn và tính linh hoạt của các công nghệ AI trong những lĩnh vực khác nhau đối với việc phát hiện và phòng chống gian lận. Những ví dụ này minh họa cho tính ứng dụng thực tiễn và tính hiệu quả của AI trong việc chống lại nhiều hình thức gian lận tài chính và tham nhũng khác nhau.)
+
+Integrating AI into fraud examination workflows
+(Tích hợp AI vào các quy trình kiểm tra gian lận)
+
+
+• Preserving financial stability – Financial institutions regularly submit regulatory compliance returns to the regulatory authorities. The authorities can use AI analytics to scrutinize the data in the regulatory returns to detect early any sharp drop in bank deposits, a sudden and significant decrease in banking sector liquidity, and excessive debt in the financial system. This insight will enable the authorities to take quick action to prevent a bank run or a liquidity crisis in the financial system as well as to prevent a financial crisis.
+(• Bảo vệ sự ổn định tài chính (Preserving financial stability) – Các tổ chức tài chính thường xuyên nộp các báo cáo tuân thủ quy định cho các cơ quan quản lý. Các cơ quan này có thể sử dụng phân tích AI để xem xét kỹ lưỡng dữ liệu trong các báo cáo quy định nhằm phát hiện sớm bất kỳ sự sụt giảm mạnh nào về tiền gửi ngân hàng, sự sụt giảm đột ngột và đáng kể về tính thanh khoản của lĩnh vực ngân hàng, cũng như tình trạng nợ quá mức trong hệ thống tài chính. Thông tin chi tiết này sẽ cho phép các cơ quan chức năng hành động nhanh chóng để ngăn chặn tình trạng rút tiền ồ ạt (bank run) hoặc khủng hoảng thanh khoản trong hệ thống tài chính, cũng như để ngăn ngừa một cuộc khủng hoảng tài chính.)
+
+• Pensions – AI can be used to engage and communicate more actively with pensioners using various channels such as chatbots, robot advisors, and voice assistants. AI can also help pension funds automate pension data collection, reporting, compliance, and auditing processes in order to reduce costs, human errors, and the risks of fraud.
+(• Lương hưu (Pensions) – AI có thể được sử dụng để gắn kết và giao tiếp tích cực hơn với những người hưu trí thông qua nhiều kênh khác nhau như chatbot, cố vấn rô bốt (robot advisors) và trợ lý giọng nói. AI cũng có thể giúp các quỹ hưu trí tự động hóa các quy trình thu thập dữ liệu hưu trí, báo cáo, tuân thủ và kiểm toán nhằm giảm thiểu chi phí, lỗi do con người và rủi ro gian lận.)
+
+• Insurance – AI can assist insurance companies in analyzing risk, detecting fraud, and reducing human error in the insurance application process. It can enable the automation of claims payout requests and assist in insurance underwriting and risk monitoring.
+(• Bảo hiểm (Insurance) – AI có thể hỗ trợ các công ty bảo hiểm trong việc phân tích rủi ro, phát hiện gian lận và giảm thiểu lỗi của con người trong quá trình nộp hồ sơ bảo hiểm. Nó có thể cho phép tự động hóa các yêu cầu chi trả bồi thường và hỗ trợ trong việc bảo lãnh phát hành bảo hiểm (insurance underwriting) cũng như giám sát rủi ro.)
+
+1.5 Artificial Intelligence Applications in Economics
+(1.5 Các ứng dụng của Trí tuệ Nhân tạo trong Kinh tế học)
+
+The major application of AI in the economics discipline is to analyze micro and macro-economic data and use the insights gained to make meaningful economic decisions. Depending on the field of economics, AI tools can be used to make forecasts and price and output optimization decisions. AI tools will be more useful in specific economics disciplines and less useful in other disciplines. Below are some applications of AI in the economics discipline.
+(Ứng dụng chính của AI trong chuyên ngành kinh tế học là phân tích dữ liệu kinh tế vĩ mô và vi mô, đồng thời sử dụng những thông tin chi tiết thu được để đưa ra các quyết định kinh tế có ý nghĩa. Tùy thuộc vào lĩnh vực kinh tế, các công cụ AI có thể được sử dụng để đưa ra các dự báo và quyết định tối ưu hóa giá cả và sản lượng. Các công cụ AI sẽ hữu ích hơn trong những chuyên ngành kinh tế cụ thể và ít hữu ích hơn ở các lĩnh vực khác. Dưới đây là một số ứng dụng của AI trong chuyên ngành kinh tế học.)
+
+• AI in monetary economics – Monetary economists in the central bank can use AI analytics to forecast the appropriate level of money supply that is needed to support economic growth. Central bank economists can also use AI data analytics to determine the sectors in the economy where there is too much money supply. Central banks can also use AI analytics to tackle inflation. They can use AI tools to collect data from online consumer market forums to identify the goods and services that consumers feel are unjustly inflated. This insight can assist central banks in understanding the drivers of inflation in consumer markets. It can also assist central banks in knowing the appropriate monetary policy tools to deploy to tackle inflation.
+(• AI trong kinh tế học tiền tệ (monetary economics) – Các nhà kinh tế tiền tệ tại ngân hàng trung ương có thể sử dụng phân tích AI để dự báo mức cung tiền phù hợp cần thiết nhằm hỗ trợ tăng trưởng kinh tế. Các nhà kinh tế của ngân hàng trung ương cũng có thể sử dụng phân tích dữ liệu AI để xác định những lĩnh vực trong nền kinh tế đang có quá nhiều nguồn cung tiền. Các ngân hàng trung ương cũng có thể sử dụng phân tích AI để giải quyết lạm phát. Họ có thể sử dụng các công cụ AI để thu thập dữ liệu từ các diễn đàn thị trường tiêu dùng trực tuyến nhằm xác định những hàng hóa và dịch vụ mà người tiêu dùng cảm thấy bị lạm phát một cách bất hợp lý. Thông tin chi tiết này có thể hỗ trợ các ngân hàng trung ương trong việc hiểu rõ các động lực gây ra lạm phát trên thị trường tiêu dùng. Nó cũng có thể giúp các ngân hàng trung ương biết được những công cụ chính sách tiền tệ phù hợp để triển khai nhằm giải quyết lạm phát.)
+
+• AI in development economics – AI can assist development economists in combating poverty by analyzing demographic data and identifying the people who need more resources for healthcare, welfare, and education to eradicate poverty. AI data analytics can also be used to assist development economists in identifying the most vulnerable people in the population who need prolonged welfare intervention to enable them to live a good life.
+(• AI trong kinh tế học phát triển (development economics) – AI có thể hỗ trợ các nhà kinh tế học phát triển trong việc chống lại tình trạng nghèo đói bằng cách phân tích dữ liệu nhân khẩu học và xác định những người cần thêm nguồn lực cho chăm sóc sức khỏe, phúc lợi và giáo dục để xóa đói giảm nghèo. Phân tích dữ liệu AI cũng có thể được sử dụng để giúp các nhà kinh tế học phát triển nhận diện những người dễ bị tổn thương nhất trong dân số, những đối tượng cần sự can thiệp phúc lợi kéo dài để giúp họ có cuộc sống tốt đẹp hơn.)
+
+
+`;
+
+    // Render Markdown to HTML
+    document.getElementById('en-tab').innerHTML = marked.parse(enMarkdown);
+    document.getElementById('vi-tab').innerHTML = marked.parse(viMarkdown);
+
+    // Tab switching logic
+    function openTab(tabId, element) {
+        const contents = document.querySelectorAll('.content-area');
+        contents.forEach(content => content.classList.remove('active'));
+
+        const tabs = document.querySelectorAll('.tab');
+        tabs.forEach(tab => tab.classList.remove('active'));
+
+        document.getElementById(tabId).classList.add('active');
+        element.classList.add('active');
+    }
+</script>
+
+</body>
+</html>

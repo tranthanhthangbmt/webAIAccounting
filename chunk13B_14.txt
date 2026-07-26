@@ -1,0 +1,327 @@
+data are non-measured raw data that have been formatted as numeric and discrete, mean-
+ing that they are non-continuous and will never have partial unit values. These fields ­cannot 
+be used in analysis for mathematical calculations because they refer to unique identifiers 
+for inventory items and their product category group. The InventoryDescription field’s data 
+source is also a non-measured raw data field formatted as a text field, which cannot be used in 
+numeric calculations during the analysis.
+The sources for data fields like UnitCost and NumberOnHand are different because they 
+are measured raw numeric data, which can be used in mathematical calculations.
+
+4-14  CHAPTER 4  Planning Data and Analysis Strategies
+Finally, UnitCost and NumberOnHand can be multiplied in an expression to calculate 
+a new field within a query called TotalCost. This new field source is calculated data that 
+is also numeric and likely to be used in a variety of different mathematical calculations in 
+accounting.
+A data field’s measurement scale refers to the type of information provided by the data. 
+Data measurement scales should be considered when designing the data strategy, as they 
+impact which analyses can be performed on the data. Data measurement scales are grouped 
+into four categories: categorical, ordinal, interval, or ratio (Illustration 4.11).
+ILLUSTRATION 4.11  Measurement Scale Descriptions and Examples
+Categorical (nominal) data
+Ordinal data
+Labeled or named data that
+can be sorted into groups
+according to specific
+characteristics. The data do
+not have a quantitative value.
+Ordered or ranked categorical
+data. Distance between the
+categories does not need to be
+known or equal.
+Interval data
+Ordinal data that have equal
+and constant diﬀerences
+between observations and an
+arbitrary zero point.
+Ratio data
+Interval data with a natural
+zero point. A natural zero
+point means that it is not
+arbitrary.
+Regions, product type,
+account numbers, account
+category, locations.
+A survey question inquiring
+about customer service may
+ask customers to rate their
+experience from 1 to 10.
+Temperature, time, credit
+scores.
+Economic data, such as
+dollars or euros.
+Description
+Example
+Measurement Scale
+Classification
+Professional Insight 4.2: How Do You Select Financial Data  
+for Analysis?
+Jadon is an accounting and finance major, student athlete, and president of the first-genera-
+tion student organization on campus. During his internship, he realized how much his career 
+would involve data analysis of financial statement information.
+On the first day of my summer internship, I was tasked with calculating 
+ten financial ratios for five companies in the same industry for the most 
+recent three years. I was left to figure out how to get the data and perform the calcu-
+lations on my own. I reached into my sports experience to gather my courage by creating 
+a game plan. First, I had to select and set up my analysis tool.
+I chose Excel with the Analysis ToolPak and made a raw data template based on the totals 
+I would need for the ratios in the first worksheet. I copied it five times for each company’s 
+raw data. I made another worksheet for all the ratio calculations as the rows, and the com-
+panies would be the columns, grouped by each year. I organized the ratios into profitabil-
+ity, liquidity, and solvency groups. I entered ratio formulas that tied back to the raw data 
+worksheet cells and documented my steps on another sheet to remember my choices.
+Next, I had to find out where to get the data. I went to the SEC’s xBRL 
+data and downloaded the financial statement information and entered 
+what I needed into Excel. An unexpected benefit of having my ratios all in one sheet 
+was that it was easy to make visualizations of my results. I was amazed by how clear the 
+best and worst performing companies were from these visualizations. I saved my file and 
+emailed it to my boss.
+We discuss how data measurement scales influence analysis strategy options later in this 
+chapter. Next, let’s examine the risks and controls related to our data strategy.
+
+4.2 What Should We Consider When Selecting Data for Analysis? 4-15
+ ILLUSTRATION 4.13  Representative Sampling Risks
+Entire Population
+Imagine a jar with 100
+marbles: 30 blue marbles
+and 70 white marbles.
+If a sample of ten blue marbles was
+extracted, it would not be
+representative of the population as
+the entire population has twice as
+many white marbles.
+A representative sample of ten
+marbles would have three blue
+marbles and seven white marbles.
+Nonrepresentative Sample
+Representative Sample
+ That is why performing tests on the sample’s representativeness can either verify its validity or 
+detect its significant weakness in representing the underlying marble populations. 
+ The second risk is potentially including unusual data points in an analysis. Outlier data 
+points are unusual data points compared to the rest of the data in either an activity point 
+(x-axis or the independent variable), such as number of units produced, or an unusual level 
+of the economic value (y-axis or the dependent variable), such as total costs or total sales. The 
+best control for identifying outliers is to visualize the data in a graph to check if the measure 
+ Consider Data Strategy Risks and Implement 
+Controls
+ Another benefit of documenting data strategy in a project plan is that examining each choice 
+can help identify three common data risks that might affect an analysis’s validity, accuracy, 
+and reliability ( Illustration 4.12 ). 
+ ILLUSTRATION 4.12  Common Data Risks and Recommended Controls 
+Data
+Risks
+Controls
+Non-representative sample selections
+Outlier data points
+Verify representativeness of sample.
+Perform a histogram or quartile analysis to 
+identify outliers, then explain or justify the rule
+used for outlier adjustment or removal.
+Dirty data
+Verify integrity of data set and clean up
+dirty data issues.
+ The first risk is that a sample extracted from a larger population of data are a poor repre-
+sentation of the underlying population. For example, a random selection of different colored 
+marbles might not be a sample that accurately represents the characteristics of the marble 
+population ( Illustration 4.13 ). 
+
+4-16  CHAPTER 4  Planning Data and Analysis Strategies
+Apply It 4.2
+Identify Data 
+Characteristics
+Accounting Information Systems   Tremendous Toys has recently developed a database to cap-
+ture inventoriable costs from their production each week.
+Data has been extracted from the following data fields: 
+SOLUTION
+Field Name
+Field Type
+Field Measurement Scale
+ProductionRunNumber
+Non-measured raw data
+Categorical (Nominal)
+ProductionRunDate
+Non-measured raw data
+Interval
+NumberOfToysinRun
+Measured raw data
+Ratio
+ToyIDNumber
+Non-measured raw data
+Categorical (Nominal)
+DirectMaterialsUsed
+Measured raw data
+Ratio
+DirectLaborUsed
+Measured raw data
+Ratio
+OverheadCostApplied
+Calculated data
+Ratio
+TotalRunCost
+Calculated data
+Ratio
+TotalUnitCost
+Calculated data
+Ratio
+Complete the three-column table by adding each data field’s type and measurement scale. 
+is very different than the rest of the data. Identified outliers can either be remeasured (if pos-
+sible) or removed with a logical and documented rule.
+The final data risk is that a variety of data errors, or dirty data, are problematic for data 
+analysis. Dirty data include missing, invalid, duplicate, and incorrectly formatted data. For 
+example, the purchase orders, invoices, or checks written by the company should be sequen-
+tially accounted for, with no missing numbers or two with the same identifying number. 
+­Controls should always test for dirty data before the analysis is performed. Data can be com-
+pared to its source documents, or if that is not possible, tested for reasonableness. Testing for 
+reasonableness can include checking for missing sequence numbers, duplicate numbers, or 
+verifying the data have the expected format or acceptable characters.
+Once data have been selected, evaluated, and any risks identified and controlled, the next 
+step is to develop an analysis strategy appropriate for the objective of the project.
+Field Name
+Field Type
+Field Measurement Scale
+ProductionRunNumber
+ProductionRunDate
+NumberOfToysinRun
+ToyIDNumber
+DirectMaterialsUsed
+DirectLaborUsed
+OverheadCostApplied
+TotalRunCost
+TotalUnitCost
+
+4.3  What Should We Consider When Selecting an Analysis?   4-17
+4.3  What Should We Consider When 
+Selecting an Analysis? 
+LEARNING OBJECTIVE ➌
+Explain how an analysis strategy is designed.
+Consider these two questions when designing a data analysis strategy:
+	 1.	 Can the chosen analysis strategy answer the specific objective questions?  
+	 2.	 Is the measurement scale of the data appropriate for the selected analysis strategy?
+Earlier in this course you learned there are four types of data analysis objectives: descriptive, 
+­diagnostic, predictive, and prescriptive. Each asks different questions of the data. We perform 
+analyses to answer those ­questions. The specific analysis that can be performed on the data 
+is influenced by the data’s measurement scales. Next, we summarize what to consider when 
+designing analyses for projects with descriptive and diagnostic objectives.
+Designing Analyses to Describe and Diagnose
+Because understanding the phenomena captured by the data is essential, many data analysis 
+projects begin with descriptive analyses. Diagnostic analytics involve many of the same anal-
+yses as descriptive, but the focus is on explaining why something happened. Because many 
+types of analyses can be both descriptive and diagnostic, it makes sense to discuss these two 
+analysis strategies together.
+The specific type of descriptive and diagnostic analysis used depends on the measure-
+ment scale of the data. For example, calculating the median observation in the data requires 
+using either interval or ratio measures. Illustration 4.14 shows some analysis strategies for 
+descriptive and diagnostic objectives (checkmarks indicate appropriate analyses, and Xs indi-
+cate analyses that are inappropriate for the measurement scale).
+ILLUSTRATION 4.14  Analyses Strategies for Descriptive and Diagnostic Analytics
+Potential Analyses
+Data Measurement Scale
+Categorical
+Ordinal
+Interval
+Ratio
+Central Tendency
+Mode
+Median
+Mean
+Frequency Distributions
+Both counts and %s:
+Group frequency
+Cumulative frequency
+Relative frequency
+(Continued)
+
+4-18  CHAPTER 4  Planning Data and Analysis Strategies
+Potential Analyses
+Data Measurement Scale
+Categorical
+Ordinal
+Interval
+Ratio
+Data Dispersion
+Minimum, maximum, range, quartiles
+Variance and standard deviation
+Normality, skewness, and kurtosis tests
+Visualizations
+Only bar and pie chart
+Many other trends options
+Histograms/box plots
+Correlation
+Scatterplots, Pearson’s R
+Cross tabulation analysis
+Calculations
+Totals and subtotals
+Percent change
+Percent of total
+Regression
+Descriptive Analysis Strategies
+Recall that accounting data are historic economic transaction and valuation data. Accoun-
+tants, business managers, and regulators all want to know more about what happened and 
+whether the data signals good or concerning news, so descriptive analyses are the most com-
+mon analysis strategies using accounting data. It is useful for evaluating strategy performance 
+because it provides more meaning and business intelligence than from just looking, for exam-
+ple, at the totals reported on one year’s financial statements.
+Let’s work through an example using the using the WeMakeIt Inc. accounts receivable data 
+set to illustrate the explanatory power of descriptive analysis even when using categorical data. 
+Recall that the objective for this analysis was to become more confident in the percentages 
+used for estimating bad debts. The initial descriptive analysis results indicated a large increase 
+in the number of customers with open invoices at the 2025 year end compared to the 2024 year 
+end. This analysis had been designed to answer two descriptive questions:
+•	Objective question 1: How many customers had outstanding invoices at the year end 
+of 2024?
+•	Objective question 2: How many customers had outstanding invoices at the end of 2025?
+A data strategy and an analysis strategy were developed:
+•	Data strategy: Use the categorical variable of CustomerNumber to identify customers 
+with outstanding balances.
+•	Analysis strategy: Count and compare the frequency of unique customer numbers with 
+outstanding invoices at the year-end of 2024, and then repeat the analysis for the 2025 
+year-end. Note that both count and frequency are analyses that can be performed on cat-
+egorical data.
+ILLUSTRATION 4.14  (Continued)
+
+4.3  What Should We Consider When Selecting an Analysis?   4-19
+ILLUSTRATION 4.15  
+Outstanding Invoices by Customer 
+Number 
+Number of Customers
+with Outstanding Invoices
+at 2024 and 2025 Year-Ends
+Number of
+Customers
+0
+10
+20
+30
+40
+60
+50
+2024
+2025
+37
+37
+52
+The results indicated that in 2024 there were 37 unique customer numbers with outstanding 
+invoices, and in 2025 there were 52 unique customers numbers with outstanding invoices. 
+Next, we discuss diagnostic analysis strategies.
+APPLYING CRITICAL THINKING 4.5: Be Careful Interpreting 
+Initial Results
+You might initially conclude that accounts receivable in 2025 has the potential for higher col-
+lectability risk simply because there were more customers with outstanding invoices in 2025 
+than in 2024. However, this initial judgment may be affected by internal assumptions and biases 
+(Risks):
+•	 The 2025 increase in the number of customers with outstanding balances may not be a nega-
+tive result, as the company grew and added new customers in 2025.
+•	 These results may motivate you to evaluate alternative explanations and perform new analyses, 
+such as determining if the 2025 customer numbers with outstanding invoices at year end had 
+more invoices owed in 2025 than in 2024, or if the value of their outstanding balances were high-
+er in 2025, possibly signaling a cash liquidity concern This result is more closely relevant to our 
+company’s accounts receivable risks of uncollectability (Alternatives).
+Diagnostic Analysis Strategies
+Diagnostic analysis strategies can be compared to detective work. Accountants can use these 
+analysis strategies to identify and discover the most likely causes of accounting phenomena. 
+While both descriptive and diagnostic analysis strategies are descriptive techniques, diagnos-
+tic analysis strategies also identify what factors have caused the lower sales revenues or the 
+higher costs, for example. Diagnostic strategies always require applying critical thinking skills.
+Stakeholders rely on accountants across accounting practice areas to diagnose what is 
+happening and explain, typically in non-accounting terms, why it is happening. For instance, 
+systems accountants often use error dispersion data to identify system performance issues or 
+unusual activity data that may indicate unauthorized party access.

@@ -1,0 +1,1651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tài liệu Buổi 7 - AI Accounting</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .tab-container {
+            display: flex;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #ccc;
+        }
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-size: 16px;
+            font-weight: bold;
+            color: #555;
+            outline: none;
+        }
+        .tab:hover {
+            color: #000;
+        }
+        .tab.active {
+            color: #007bff;
+            border-bottom: 2px solid #007bff;
+            margin-bottom: -2px;
+        }
+        .content-area {
+            display: none;
+        }
+        .content-area.active {
+            display: block;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 15px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1 style="text-align: center; color: #333;">Tài liệu Buổi 7: AI trong tài chính doanh nghiệp và kiểm toán</h1>
+    
+    <div class="tab-container">
+        <button class="tab active" onclick="openTab('en-tab', this)">English (Bản gốc)</button>
+        <button class="tab" onclick="openTab('vi-tab', this)">Tiếng Việt (Bản dịch)</button>
+        <button class="tab" onclick="openTab('slide-tab', this)">Slide Bài Giảng</button>
+    </div>
+
+    <div id="en-tab" class="content-area active"></div>
+    <div id="vi-tab" class="content-area"></div>
+      <div id="slide-tab" class="content-area">
+          <iframe src="TaiLieu/slideAIAcc/Slide_AIAcc_Day07.pdf" width="100%" height="800px" style="border: none;"></iframe>
+      </div>
+</div>
+
+<script>
+    // Raw Markdown contents
+    const enMarkdown = `CHAPTER 9
+Automating Internal Controls Assessment
+RECENTLY, PRICEWATERHOUSECOOPERS (PWC) settled two major
+high‐profile malpractice lawsuits in the UK. In the two cases (MF Global
+and Taylor Bean & Whitaker), the allegations against PwC indicated that
+the plaintiffs expected the audit firm to go beyond the management
+assertions and include management decision‐making in the scope of the
+audit. Another firm, travel company Thomas Cook, was also audited by
+PwC between 2007 and 2016. Between 2017 and the collapse of Thomas
+Cook in 2019, Ernst & Young (EY) took over as the auditors. Upon
+investigation it was discovered that PwC provided remuneration advice to
+Thomas Cook, and that while both firms, PwC and EY, had information
+about the deep problems facing Thomas Cook, both gave clean audit reports
+to Thomas Cook. Commenting on audit failures, Bob Moritz, global
+chairman of PwC, said, “The expectations of the market is above the
+regulatory requirement. When big failures happen, it is not necessarily an
+audit failure. The controls might be appropriate, but the continuation of the
+business, its financial position and long‐term sustainability can still be in
+question” (Kinder, 2019).
+Would it be possible for PwC and EY to gain deeper insights about
+their clients' material weaknesses in internal controls, even before an
+audit is launched?
+Is it possible for PwC to develop greater insights into the business
+operations of a firm?
+How can management, board, and the audit committee receive
+continuous evaluation of audit controls?
+How can new and emerging risks be identified and mitigated?
+Can audit expand its scope without incurring greater cost?
+Answers to these and many other similar questions greatly depend upon the
+automation strategy of internal controls. In this chapter we develop a
+
+comprehensive strategic approach to automate internal controls assessment
+and audit.
+AUTOMATING INTERNAL CONTROLS
+ASSESSMENT
+Unlike the inherent risk, which is embedded in the strategic choices made
+by the firm due to its business model, industry, etc., the internal controls
+risk is a function of actions of management teams and boards. In 1993, the
+Committee of Sponsoring Organizations of the Treadway Commission
+(COSO) presented a framework, which has become the standard for internal
+controls. COSO defined internal control as (COSO, 2013):
+Internal control is a process, effected by an entity's board of directors,
+management and other personnel, designed to provide reasonable
+assurance regarding the achievement of objectives in the following
+three categories:
+Reliability of financial reporting.
+Effectiveness and efficiency of operations.
+Compliance with applicable laws and regulations.
+The COSO standard is based upon three objectives – effectiveness and
+efficiency of operations, reliable financial reporting, and compliance with
+laws and regulations. This means that the controls exist to achieve the three
+objectives. The first objective of effectiveness and efficiency of operations
+is based upon the corporate objectives as determined by the board and the
+senior leadership teams and constitute the primary goals that the firm must
+achieve to fulfill its strategy. The second objective of reliable financial
+reporting is based upon the assertions made by the firm and the numbers
+and disclosures reported about the financial performance of the firm. The
+third objective aims to ensure that the firm abides by the laws and
+regulations applicable to its business and industry.
+For each objective, internal controls are built with the following five
+components: (1) control environment, (2) risk assessment, (3) control
+activities, (4) monitoring, and (5) information and communication. Each of
+
+the components is supported by principles and, as of 2013, 17 principles are
+part of the framework.
+At this point it is important to note that audit automation can be viewed as a
+combination of tool‐driven (where auditors don't rely upon any human‐
+provided information) and human‐based evidence collection. Auditees
+provide information in the form of data requests, access to systems and
+information, and responses to specific informational requests in the form of
+reports, questions and answers, forms, etc. Automated tools do not rely
+upon human‐provided information and instead they directly access evidence
+from the source such as data, the databases, and the applications. Human‐
+based evidence collection relies upon surveys and questionnaires. Artificial
+intelligence (AI) has a role to play in both areas and while this chapter
+primarily focuses upon the tools, the human‐centric surveys and
+questionnaires automation involves the ability to generate and analyze
+surveys and questionnaires. We will cover human surveys and
+questionnaires in a following chapter.
+Previous studies using AI methods of self‐organizing maps (SOMs) based
+clustering techniques have suggested that internal controls form a complex
+nexus of capabilities where a firm may have one or more strong
+components (e.g., control activities and monitoring) but not all areas.
+Furthermore, firms may have strong components for one objective but not
+all three (Länsiluoto et al., 2016). Recall that there are three objectives:
+effectiveness and efficiency of operations, reliable financial reporting, and
+compliance with laws and regulations. To design an automated system, our
+strategy needs to cover all three COSO objectives and the related five
+components.
+When designing an automated internal control system, our broad strategy is
+as follows:
+Approach the problem as an integrated interaction of various agents
+(both deterministic and stochastic).
+Use a variety of technologies, including process mining, machine
+learning, RPA, and expert systems.
+Check for internal control weaknesses that are embedded in the design
+of the client firm and hence create an environment ripe for errors and
+
+frauds, and to predict if a fraudulent activity is taking place.
+Use integrated internal controls system to perform continuous
+assessment.
+Apply integrated internal controls system to create an exhaustive
+assessment (i.e., the entire population is analyzed vs. a sample).
+Evolve and grow the system with business.
+FIGURE 9.1 Automation of Internal Controls Evaluation
+Automated risk assessment is composed of three areas: audit risk
+evaluation, inherent risk evaluation, and internal controls evaluation. Audit
+risk is a function of inherent risk, controls risk, and detection risk. In the
+previous chapter we covered the inherent risk. Inherent risk is the risk that
+exists in the absence of any internal controls. Internal controls risk happens
+when a firm does not have proper internal controls to manage and control
+the inherent risks. The lack of controls can be due to a firm's practices or
+design. It can happen intentionally or unintentionally. Internal controls can
+be evaded, overridden, or bypassed when management engages in fraud.
+Thus, while inherent risk is embedded in the nature of the business, internal
+controls risk is very much a product of how a firm is managed. When
+auditors observe gaps in internal controls, they are supposed to increase
+their substantive procedures to reduce or minimize the chances of
+misstatement.
+
+As shown in Figure 9.1, to automate the internal controls evaluation, we
+follow the COSO model and break it down into five capability areas of
+automated environment evaluation, automated risk assessment, automated
+control activities assessment, automated monitoring assessment, and
+automated information and communications evaluation. Each of the areas is
+automated with various agents that work in a coordinated and collaborative
+manner to achieve total automation.
+AUTOMATED CONTROL ENVIRONMENT
+The principles of control environment (Figure 9.2) are
+The organization demonstrates a commitment to integrity and ethical
+values.
+FIGURE 9.2 Automated Environment Evaluation
+The board of directors demonstrates independence from management
+and exercises oversight of the development and performance of
+internal control.
+
+Management establishes, with board oversight, structures, reporting
+lines, and appropriate authorities and responsibilities in the pursuit of
+objectives.
+The organization demonstrates a commitment to attract, develop, and
+retain competent individuals in alignment with objectives.
+The organization holds individuals accountable for their internal
+control responsibilities in the pursuit of objectives.
+The assessment of control's environment is an inquiry about the patterns of
+human values and actions. For example, the word “organization” in the first
+principle implies there are one or more humans who demonstrate
+commitment to integrity and ethical values. Commitment is a cognitive
+construct and manifests via human communications and actions. At this
+time, we do not have reliable technology to observe what transpires in
+people's minds, but we can observe patterns about humans and human
+behavior that can provide us information about their mental or cognitive
+constructs. For example, speech, choice of words, gestures, and body
+language (including physiological information) can give us clues about the
+cognitive constructs. These could be general – or specific to a domain. For
+example, a general assessment can reveal the personality of a person and
+can be classified as aggressive versus passive. A specific assessment will
+search for speech (verbal, written) for values.
+Thus, designing a system to assess the controls environment will be
+composed of:
+An agent that gauges the cognitive constructs of management teams
+(values, ethics, personalities, integrity, and others).
+An agent that gauges the cognitive constructs of management teams
+and boards specific to the task structure (e.g., values or personality
+types to function during a specific challenge for a firm or for the
+specific objective of financial reporting).
+An agent that determines if the board has undertaken the responsibility
+of the oversight, structures, responsibilities, and authorities.
+An agent that determines that Board separation with the management
+team, and exercises oversight over the development and performance
+
+of internal controls.
+An agent that measures and provides feedback on the firm's
+commitment to attract, develop, and retain competent individuals.
+An agent that evaluates accountability.
+The above agents, once trained, form the integrated control environment
+system.
+Integrity, Ethics, Personality, and Values
+This system was explained in the audit preplanning chapter. We will
+reexamine it here from an internal (vs. external) system perspective. The
+auditor has access to significantly more documents internally than
+analyzing a company from the outside. In today's world, pictures, voice, and
+video data can also be requested and obtained. The core version of this
+system is natural language processing, which analyzes the written
+communications of the management team and the board members to search
+for words that signify integrity, ethics, values, and personality. As
+previously mentioned, this approach has been deployed to study the fraud
+risk from linguistic and vocal patterns of earnings calls (Throckmorton et
+al., 2015) as well as from documents (Management's Discussion and
+Analysis (MD&A) section of the Form10‐K) (Humpherys et al., 2011). The
+agent is expected to evaluate how much of management and board
+communication is applied to values and ethics. The input documents used
+for these analyses may include reports, messages, board meeting minutes,
+emails, and other communications. Using that as input, a classification
+engine is deployed that, based upon words, evaluates the presence, depth,
+and frequency of ethics and integrity‐related discussions in the normal
+course of business operations.
+Another, more complicated, way is to get data from communications of
+leaders of a firm that engaged in fraud and study the patterns of their
+expression versus the patterns of the firms that provided proper returns and
+met the fiduciary obligations.
+
+Board of Directors
+The board documents and emails, including the minutes from the audit
+committee meetings, are analyzed to determine the presence of discussions,
+guidance, directives, and references to ethics, values, and integrity. The
+same can be done to assess the references to internal controls. This reveals
+the instances where the references to the internal controls were made. The
+email analysis also reveals the communications flow, authority, and the
+nature of relationship in the organization.
+The features used for email can be composed of metadata of emails, number
+of emails, headers, text, attachment or no attachment, signed emails,
+forwarded, replied to, cc'd, blind copied, and other features related to
+frequency of emails.
+Management Philosophy and Operating Style
+We briefly touched upon this area in a previous chapter where our model
+was based upon external data. Here we use the internal data to evaluate
+management philosophy and operating style. Once again natural language
+processing can give us an excellent start to understand the management
+philosophy and operating style.
+Management philosophy and style can be observed by the language used by
+the management team, the social networks within the organization, and the
+company culture. HR files, court documents, and websites such as
+Glassdoor provide excellent data for modeling. Using machine learning,
+your goal is to train your algorithm to classify the culture of a firm in
+various classes. This can be viewed as a problem of classifying the
+management team into various buckets of operating styles, management
+philosophies, and management models. For instance, you can determine if
+the management style is authoritarian or collaborative, closed versus open,
+delegation centric versus empowerment based. Employee behavior in
+organizations can be predicted by deploying machine learning and data
+mining textual information such as emails (Straub et al., 2016).
+Organizational Structure
+The organizational structure assessment comes from multiple angles. The
+analytical capability is systematically built by layering the following
+
+capabilities:
+The analyzer for organizational structure: this utility looks at the
+organizational job descriptions and classifies employees into internal
+controls specific roles. The data mined are the job descriptions,
+departments names, people, titles, etc. A separate analysis of
+organization can also show power flows, influence, and informal social
+links (Fire and Puzis, 2016)
+The analyzer also looks at the chart versus actual authority structure.
+The chart authority structure is as represented in the organizational
+charts and subject to the reporting relationships. The actual authority
+structure is determined based upon analyzing the social networks from
+emails, texts, and other information. The social hierarchy can be
+determined from machine learning by analyzing the emails (Rowe et
+al., 2007).
+Financial Reporting Competencies
+The financial reporting competencies can be obtained by understating the
+educational background, experience, and type of education.
+The training data set for competency includes the typical HR data, as well
+as data from resumes, LinkedIn, and other social media data. It also
+includes data from the number of publications by the person, involvement
+in various professional societies, trainings, and certifications.
+This artifact can be designed two ways. The first approach is to use HR data
+from a larger data set (which might include data from multiple companies)
+and have a human apply labels to the data. The label in this case will be
+applied to learn the competence levels for a position. Factors such as years
+on the job, educational background, experience, etc., will be the input data
+set. Valuable information can be extracted from resumes (Reza and Zaman,
+2017). The ‘y’ or output variable will be competent versus incompetent for
+a given job.
+The second and more interesting artifact uses the data set of input variables
+including experience, years on the job, educational background from an
+actual data set of frauds and failure in that position. While interesting, it
+
+will be hard to reconstruct a data set for training purposes since it will be
+hard to pinpoint the blame for a failure.
+Authority and Responsibility
+Authority and responsibility are assessed by using various intelligent
+automation technologies. We are trying to assess whether management
+assigned the responsibility of internal controls appropriately and the
+employees were given the appropriate controls and authority to ensure that
+internal controls are in place and effective. There are several ways to assess
+that from the machine learning perspective.
+The first is to have an agent that uses the human resources data to
+understand the job responsibilities. The data collection can also extend to
+the annual employee review and evaluation forms that typically contain
+more detailed accounts of actual work undertaken by employees. In
+addition, emails and communications can also be used as the data input. The
+model uses natural language processing to evaluate if, given the role of the
+individual, his or her responsibility structure includes references to
+position‐specific internal controls. Notice that in this assessment, we are
+only evaluating the environment and not the activities. Therefore, our focus
+remains on studying the environment of the organization.
+While responsibility is assessed using the above, analyzing authority is a
+whole different ballgame. Authority manifests in enabling a manager or
+employee to conduct themselves in the proper manner, not enforcing
+improper or unnecessary constraints, assuring employees that there will no
+negative consequences when employees file a complaint or become a
+whistleblower.
+Authority is a function of being able to act upon what a person has been
+made responsible for. In corporate systems, access is provided to
+individuals by a workflow that records the person who authorized the
+access. Logs from that system can show if the authorization is being done at
+the right level and being done by the person who has the authority to do it,
+or by someone higher up in the organization, or by more than one person.
+The culture can provide an indirect proxy for authority assessment. More
+authoritative leaders will be less inclined to allow people to function
+independently, even when it comes to such an important role as internal
+
+controls. Finally, internal emails, meeting notes, and communications
+provide excellent data for assessing the level of authority key employees
+have. In advanced settings both video and speech can be used to study the
+cultural dynamics of a firm. To accomplish that level of automation, process
+mining and machine learning are used, and their applications are explained
+later in this chapter.
+Human Resource Policies and Practices
+Large data sets are available and can be mined in human resources (Jia et
+al., 2018). The objective of control environment assessment with respect to
+HR is to determine whether the department is aware of the underlying
+concepts of separation of duties, internal controls, and hiring the right talent
+to mitigate the risks. The policies and practices of HR can be analyzed
+using natural language processing and the usage of key terms (separation of
+duties, etc.) can be assessed to develop insights into HR capabilities.
+Similar concepts, as discussed above, are applied to determine the
+capability and contribution of the HR department in supporting stronger
+internal controls.
+AUTOMATED RISK ASSESSMENT
+Automated risk assessment was extensively covered in the previous chapter
+from an inherent risk perspective. We recognized that there are at least four
+automated methods to explore risk in an organization. The first method
+focused on the account‐ and assertion‐specific risk identification and
+management. The three remaining methods, shadow/parallel accounting,
+strategic objectives, and deep learning, can be used for any type of risk
+management capability development. In fact, in our case, COSO framework
+requires management to understand risks from the perspective of achieving
+company's objectives. The COSO 2013 framework outlines the four
+principles of risk assessment:
+1. The organization specifies objectives with sufficient clarity to enable
+the identification and assessment of risks relating to objectives.
+2. The organization identifies risks to the achievement of its objectives
+across the entity and analyzes the risks as a basis for determining how
+
+the risks should be managed.
+3. The organization considers the potential for fraud in assessing risks to
+the achievement of objectives.
+4. The organization identifies and assesses changes that could
+significantly impact the system of internal control.
+In this chapter we will expand on the model presented in inherent risk
+evaluation and include risk assessment from an internal control perspective,
+and also introduce the concept of event‐based risk assessment.
+The process is composed of four levels of automation:
+Level 1: Outside‐in – Get a general idea about potential material
+weakness in internal controls (MWIC) by using publicly available
+information. This gives auditors a sense of how risky a client situation
+might turn out to be.
+Level 2: Process centric – Understand the risk relationship between
+processes and controls.
+Level 3: Enterprise – Develop greater insights into the value chain
+and business processes of the organization. This is similar to
+enterprise‐based risk analysis frameworks.
+Level 4: Business decisions – Auditors do not consider this to be part
+of their jobs; however, as the opening case study of PwC settling two
+lawsuits shows, there is a growing movement to place that
+responsibility on auditors. The reasoning behind that is clear. The
+economic consequences of management decisions and objectives flow
+through the financial systems and the stakeholders expect auditors to
+understand and evaluate such realities of business. The consequences
+of management business decisions can also become the motivation
+factors to conduct fraud. In other cases, management decisions impact
+the future cash flows and the cost of capital of a firm and therefore
+impact the valuation of many current assets.
+
+Level 1: Outside‐In Analysis
+A group of researchers wanted to explore if it is possible to identify material
+weaknesses in internal controls from using publicly available external data
+(Simsek et al., 2018). Looking at various companies that announced
+material weakness in internal controls, the group identified financial data
+from historical financial statements one year prior to the disclosure. Using
+that data – data that included financial ratios such as total asset turnover,
+profitability, capital intensity, size, current ratio, and operating performance
+– the research team tried to predict the internal control weaknesses. After
+applying various methods, the team was able to obtain 70 to 80% accuracy
+in results. This means that the team was able to predict, with reasonable
+accuracy, that material weakness exists in internal controls only by using
+the historical financial data. A similar artifact can be deployed to identify
+such weaknesses in companies.
+In fact, given today's technology advances, the predictive power of such an
+artifact can be significantly enhanced by adding features and using a deep
+learning environment.
+Level 2: Process Centric
+As we move beyond our Level 1 analysis, we can go a level deeper to
+determine if the primary processes in a firm carry greater risk. This
+evaluation is a function of feature data obtained from historical records of
+internal control problems. For instance, a data set that contains the
+examples of prior misstatements or disclosures of internal control
+weaknesses can be used to identify the presence of MWIC by industries,
+companies, and process types. At least two types of machine learning
+methods can be deployed to develop insights into process‐centric MWIC.
+The first approach is similar to the one by Simsek et al., discussed in the
+previous section, except that instead of using financial and operational
+performance data as feature inputs, we use industries, company types,
+business model descriptions, and processes to understand the likelihood of
+MWIC.
+The second approach borrows from methods developed in studying human
+errors in accidents. The study of human errors in accidents has significant
+literature. In 1998, Hollnagel authored a book titled Cognitive Reliability
+
+and Error Analysis Method (Hollnagel, 1998). In that book he developed
+three taxonomies. The first was the taxonomy of technology, in which he
+pointed out the problems that can afflict machines (e.g., equipment failure,
+procedure failure, interface failure). The second taxonomy was of “man,”
+implying the cognitive problems that can afflict a human (e.g., planning,
+execution, memory, interpretation, observation). The third taxonomy was of
+the organization, including the failure points in an organization (e.g.,
+training, working conditions). Hollnagel presented a Cognitive Reliability
+and Error Analysis Method (CREAM), which shifted the focus from the
+task characteristics and on a hypothetical inherent human error probability,
+to the principle that context is the driving force behind Human Reliability
+(R. Moura et al., 2015). Moura, Beer, Patelli, Lewis, and Knoll identified
+the importance of the principle and expanded upon that to use a major
+accidents data set, applying a clustering technique (unsupervised) to
+classify the data to discover various causes of accidents. They used self‐
+organizing maps (SOMs) to cluster and classify data (Moura et al., 2015;
+Moura et al., 2017). The SOM technique also enables multidimensional
+data to be viewed in a two-dimensional representation (Kohonen, 2013).
+Similar to what Moura, Beer, Patelli, Lewis, and Knoll (2015) did,
+SOM/Clustering can be applied to understand the drivers of MWIC.
+Level 3: Value Chain and Enterprise Risk Relationships
+We covered a risk management process in Chapter 7. By understanding the
+value chain relationships and enterprise‐centric risk, we develop insights
+into potential problems that may arise in situations where external parties
+are involved (e.g., sales and procurement). Developing those insights helps
+give auditors an idea about potential deterioration in value of assets (e.g.,
+knowledge about a major customer going bankrupt will impact the AR held
+by the client firm).
+The enterprise risk management process is composed of the following
+processes: identify risks, develop assessment criteria, assess risks, assess
+risk interactions, prioritize risks, and respond to risks (Curtis and Carey,
+2012). The use of AI in the risk management process automates the process
+flow of risk management.
+
+Level 4: Business Decisions Analysis
+This area of risk analysis is critical to improve audit quality and to help
+develop a deeper, more insightful perspective for auditors. The automation
+in this case follows the standard approach of understanding the enterprise
+risk. There are established methods and approaches for identifying,
+measuring, and managing enterprise risks.
+Technology Design
+Before presenting the methodology to accomplish that goal, it is important
+to understand the two types of data critical for performing the control
+activity analysis. The first is the transactional data. This is the regular data
+we use to perform analysis and includes data from databases such as sales,
+accounting, and procurement. The second type of data, known as metadata,
+is the data about the data – for example, computer's log data about
+transactions. Metadata captures things like who accessed the system, when
+an entry was made, or what changes took place.
+Control activities review is based upon three types of analysis: data‐centric
+and metadata‐centric and data + metadata‐centric. To appreciate the power
+of automation, it is important to recognize that automated evaluation of
+control activities ties directly to the risk review done in the previous
+section, as well as actual audit procedures. Even though we presented the
+total audit automation model as a linear model, a machine, unlike humans,
+doesn't need the process transition nodes and can instead perform all
+processes simultaneously.
+Metadata‐Centric Analysis
+Process‐specific analysis is a growing area of audit automation. The advent
+of process‐mining technology was a transformational step for conducting
+risk evaluation using event log data. Analytical methods are applied to
+extract insights from the log data to understand audit‐related patterns. The
+data extracted from event logs includes information about which system
+was accessed, when, and by whom. This is known as the activity, routing,
+and resource information. Process mining is rules‐based extraction of data.
+This information is used to capture the audit evidence to determine factors
+such as
+
+Was the system accessed by the people who are authorized to do so?
+Was the system accessed at odd times or near the closing period?
+Was the system accessed with higher frequency at some time intervals?
+Were two or more systems being accessed by a person whose
+responsibilities do not allow him or her to do so due to separation of
+duties?
+Were systems accessed by a group of people whose hours of accessing
+the system matched, however, they typically don't access systems at
+the same time?
+In their impressive work, Jans et al. (2013) made a strong case for using
+process mining in audit and argued the value creation potential of using
+process mining. They presented the following four key attributes of process
+mining:
+1. Process mining analyzes the entire population of data and not just a
+sample.
+2. Critically that data consists of meta‐data – data entered independently
+of the actions of auditee – and not just data entered by the auditee.
+3. Process mining allows the auditor to have a more effective way of
+implementing the audit risk model by providing effective ways of
+conducting the required walk throughs of processes and conducting
+analytic procedures.
+4. Process mining allows the auditor to conduct analyses not possible
+with existing audit tools, such as discovering the ways in which
+business processes are actually being carried out in practice, and to
+identify social relationships between individuals.
+Process mining can be used to identify processes from beginning to end –
+giving a comprehensive view of how a process moves through the
+company's systems and laying out the audit trail. Van der Aalst et al. (2010)
+outline the capabilities of process mining as being able to provide business
+provenance by ensuring traceability, process discovery by identifying
+
+frequent patterns, and being able to compare an a priori model with the
+event logs and vice versa.
+Data‐Centric Analysis
+Data‐centric internal control analysis refers to analyzing the transactional
+data to assess internal controls and to performing actual substantive
+procedures and testing. This data includes that which resides in accounting
+systems and that becomes the source of information used to construct the
+financial statements supplied by the management. These are the general
+analysis, such as budgets, reports, business intelligence, business analytics,
+and other management information reporting. In human‐led control
+structures, these reports are the life‐blood of decision‐making.
+In an automated world, some of that decision‐making will no longer be
+performed by humans. Much of this will be discussed in the next chapter.
+However, for this chapter it is important to consider that a computerized
+financial system is made up of transactional data, the underlying processes
+and structures, and the human who enters data or makes decisions outside
+of the system. These decisions could be about how to treat a transaction, or
+what/how to reconcile, or how to record an entry. But while the human
+decision‐making can be considered as outside the system, since it happens
+in the human mind, those decisions impact what transpires in the
+computerized financial system. We, the humans, are both part of the system
+and exist outside of it. As we move ahead with the AI revolution, we may
+need to think differently about viewing what goes on in the human mind as
+external to the system and instead include those thoughts, decisions, and
+cognitive frameworks as part of the system. This broadening of the system
+concept happens as cognitive frameworks and decision‐making is
+transferred from human mind and embedded in the financial system.
+Data + Metadata
+The addition of machine learning to process mining is a great innovation for
+audit. When combined, both can produce continuous, automated, and
+integrated audit. Six years after proposing the use of process mining, Jans,
+with another author, proposed the use of machine learning with process
+mining (Jans and Hosseinpour, 2019). The idea of machine learning comes
+from the fact the process mining creates an extremely large number of
+
+exceptions. These exceptions are then interpreted by humans and marked as
+“of interest” and “not of interest.” The exceptions provide a huge source of
+learning data, such that the machine can learn how to classify the output of
+process mining data. In fact, human‐classified data provides a perfect set of
+examples needed to teach machines how to identify good versus
+unacceptable patterns. Using the classification algorithms, the machine can
+identify patterns and generalize its learning to recognize previously
+unknown anomalous patterns.
+CONTROL ACTIVITIES
+Unlike the control environment assessment, which focused on the passive
+factors of internal controls, control activities focus on actions and activities
+related to ensuring that internal controls are implemented, and that board
+and management directives are followed about internal controls. The goal
+of evaluation of control activities (McNally, 2013) is to ensure that the
+organization
+Selects and develops control activities
+Selects and develops general controls over technology
+Deploys policies and procedures
+The goal of intelligent automation is to automate the evaluation of the
+achievement of the above three goals automatically.
+Selects and Develops Control Activities
+The selection and development of control activities is a function of the risks
+identified. Every significant risk requires controls so that the overall goal of
+ensuring that risk of material misstatement for all relevant assertions is
+effectively managed. In some ways, controls serve the preventative role.
+Frauds and errors should be detected and corrected before they enter the
+financial system.
+The selection and development of controls can be viewed as establishing a
+link between each significant risk and the preventative process designed to
+block fraud and error entering the financial system. This preventative
+
+process is composed of activities that are embedded in the workflows and
+business processes. For example, hiring the right people, establishing
+separation of duties, developing limits on transaction sizes, implementing
+approvals in the workflow, and limiting access to systems are some of the
+key activities undertaken.
+In the context of modernization of audit, there are two ways to determine
+whether management is actively selecting and developing controls and
+therefore actively engaging in control activities.
+The first is the direct evidence obtained in response to the known risks
+evaluation. This evidence is not based upon questionnaires but is
+acquired directly (as discussed in the previous section) and it shows
+whether the management has done a good job in preparing the
+organization to prevent material errors and fraud finding their way into
+the accounting systems.
+The second is to understand the management's ability and preparation
+for unknown or unanticipated emergent risks that can arise rapidly and
+lead to a material event. Since the auditor's focus is primarily on the
+historical information, one can question the need for including this in
+the assessment. The reason for that is simple. Even if we ignore the
+direct benefits for assessing the potential versus known risk‐centric
+evaluation, the fact that management is engaging in understanding
+potential risks is on its own an indication of management being
+responsible and active in preventative response.
+The model implies establishing a context‐sensitive model that offers a
+relationship between risks and preventative response processes. In many
+cases there will be similarities between various approaches and risks. An
+assertion risk may call for a specific functional separation of duties – for
+instance, in accounts payable, purchasing, and receiving – regardless of the
+company. In other cases, risks may require new, customized, or creative
+preventative responses. Most auditing operates with existing models, what
+van der Aalst et al. calls de jure models that “describe a desired or required
+way of working,” in contrast to de facto models that “aim to describe reality
+with potential violations of the boundaries defined in de jure models” (van
+der Aalst et al., 2011, 2010). Hence, we can assume that the de jure model
+
+results from the knowledge of what works and what doesn't work. In this
+case, they come from auditor's knowledge of a certain preventative control
+being an effective mitigation to a certain specific risk. This implies that an
+ontology of risks and preventative measures can be created, which
+essentially can be transformed into a set of rules that can be invoked or
+checked against for an audit.
+The machine learning – centric automation for control activities automation
+refers to two applications:
+1. The application that studies new risk patterns and suggests mitigation
+strategies. This can be a combination of both unsupervised (clustering)
+and supervised (classification) approaches. The job of this application
+is to update the existing de jure models. Whether that update happens
+via learning or updating existing rules, risk‐response patterns
+recognition is the core capability needed to propose and develop
+effective control activities in response to emerging risk patterns.
+2. The application that incorporates the above learning and compares it to
+de facto situations. This is done from a combination of “metadata +
+data” analysis, as discussed in the previous section. Van der Aalst et al.
+clarified that concept when they said, “It is possible to promote a de
+facto model to a de jure one. A comparison showing that the actual
+process execution is inconsistent with the standard preexisting model
+may motivate an update of the de jure model” (van der Aalst et al.,
+2010). What machine learning does is to explore the inconsistency
+between the de jure model and the de facto model and then if it finds
+the de facto model more effective, it updates the de jure model. The
+learning can happen from at least three sources: (1) historical data
+from previous audits; (2) auditor (human)‐provided knowledge base
+where the auditor provides examples of an effective response; and (3)
+the system is designed with a critic that can simulate the risk scenarios
+and critique the strategies used to prevent and counter the risks in
+terms of a goal structure. This design will generally require the use of
+reinforcement learning.
+
+Selects and Develops Controls Over Technology
+Control activities related to technology were addressed by van der Aalst et
+al. (2011) in which they proposed the concept of an oversight system being
+created to monitor another system. They clarified that a control is “an
+automated task in the information system aimed at the prevention of
+violations of certain business rules. These controls are strongly related to
+the functions of the information system” and then cautioned that “often
+business rules are generic (i.e., not bound to a specific business context).”
+The process of management deploying controls over information
+technology is being achieved by continuous controls monitoring (CCM).
+CCM is a collection of tools that extract data from databases and scans for
+separation of duties, authorizations, breaches, errors, anomalies, size limits
+of transactions, etc. These controls are embedded within the technology.
+Technology access controls are also important considerations. Separation of
+duties can be ascertained from the reports about who logged into systems.
+Ensuring that only those people who are authorized to access the systems
+do so is essential for establishing a better controls environment.
+The advent of AI will have three important impacts on this area. First, two
+types of analysis – predictive and prescriptive – are added to the
+deterministic, rule‐based anomaly detection of CCM. This means that the
+system not only analyzes data from databases, it uses the data to learn about
+breaches and hence predicts them and offers prescriptive remedies to
+counter the threats. The second impact is that significantly larger amounts
+of data can be processed and deployed in deep learning – centric
+architecture. This enables detecting frauds and errors that are not easily
+detectable. Third, AI's introduction will lead to control redesign and
+weakening of existing controls. Intelligent systems are deployed not only by
+those who are trying to protect a firm, but also by those who don't mean
+well. This means that intelligent controls will be needed.
+Consider the fact that our transactional (deterministic) systems have a
+source of concern for us from a controls perspective – imagine the arrival of
+intelligent machines in our organization. How will we manage and control
+them? The advent of AI will further exacerbate the problem of controls.
+This topic is covered in Chapter 18 of this book.
+
+Deploys Policies and Procedures
+The policies and procedures are scanned and using natural language
+processing analyzed to determine if they comply with the risk types
+identified for the client firm. For instance, frequency of key words can
+classify documents into various areas of controls and determine if there was
+proper coverage of each area of controls. For instance, using the Term
+Frequency – Inverse Document Frequency (TF‐IDF) method, documents
+can be analyzed and classified based upon importance and coverage.
+
+example: What Is TF‐IDF? Term Frequency – Inverse
+Document Frequency
+TF‐IDF is a natural language processing method that is based upon
+calculating the frequency of words. It has two parts, the TF part and the
+IDF part. In the TF part, the algorithm calculates the number of times a
+term is used in a document. For example, if you are analyzing a
+document pertaining to policies and procedures, you can learn that the
+words “Separation” and “Duties” were used 34 and 28 times
+respectively. If the document is a total of 1000 words long, the word
+frequency will be calculated as 34 divided by 1000 for Separation and
+28 divided by 1000 for Duties. This gives an estimate of how many
+times each term was used in a document and can provide a sense of
+importance of that term in a document. In the IDF part, we calculate the
+inverse document frequency by taking the whole corpus (all documents)
+and identifying how many documents used the term overall. It is
+calculated by taking a base 2 log of the number of documents divided
+by the number of documents in which the term was used. Let us say that
+there are 50 documents that make up the policy and procedures and the
+terms “Separation” and “Duties” appear in 12 and 32 documents, then
+log of 50/12 and 50/32 respectively will give us the inverse document
+frequency. The TF‐IDF is then calculated by multiplying TF by IDF. By
+using this method, we can determine the relevance of documents to
+various topics. Once TF‐IDF values are determined, we can also
+calculate the similarities among documents. For example, we can
+estimate which documents focus on Separation of Duties – related
+internal controls.
+Physical Controls and Machine‐Generated Data
+Physical controls are necessary to protect certain types of assets. In the past,
+the controls for physical access were limited to installing cameras and
+locks. With the advances in AI we now have the opportunity to make
+significant improvements in the physical controls. The opportunities exist in
+automated evaluation of video input to assess whether that usage of the
+
+asset is in accordance with the expected use. The video feed can be
+analyzed for misuse, theft, and intentional asset destruction. In addition to
+video, other Internet of Things (IoT) data can be analyzed to determine
+controls over production, inventory, warehouses, etc. Similarly, data from
+trucks can be analyzed regarding travel miles, maintenance, and fleet usage
+patterns.
+AUTOMATED MONITORING
+Monitoring refers to the management monitoring the internal control
+activities on an ongoing basis. The standards require the management team
+to
+Conduct ongoing and/or separate evaluations.
+Evaluate and communicate deficiencies: The goal of evaluation is to
+ensure that management actively leads, manages, and participates in
+reporting. In an automated system, the function of automated
+monitoring is embedded within the machines. In the initial stages of
+automation, it is expected that humans and machines will share the
+monitoring responsibility but as technology moves forward, the
+responsibility will shift to the machines.
+Automated controls providing information about machines: The
+auditors would want to see evidence that automated controls are
+providing evidence about monitoring activities.
+Risk simulation: Auditors should be able to simulate risk in an
+environment and observe the performance of controls.
+Critic: Determine if a critic exists that automatically critiques the
+performance of the monitoring controls.
+Business process gap analysis: Automated checks are performed for
+business process gap analysis.
+Budgets, variance, and scorecards.
+
+INFORMATION AND COMMUNICATIONS
+The guiding principles of COSO about information and communications
+emphasize that an organization must
+Obtain or generate and use relevant quality information to support the
+functioning of internal controls.
+Internally communicate information, including objectives and
+responsibilities for internal controls, necessary to support internal
+controls.
+Communicate with external parties regarding internal controls.
+The goal of the automated internal control information and communications
+systems is to constantly collect and compile actionable information about
+internal controls and then disseminate it to both internal and external
+parties.
+The previous sections addressed several artifacts that can be deployed to
+automate internal controls. These artifacts will provide information about
+their own state as well as about their activities. For instance, self‐
+governance can be built into the artifact and can report on factors such as
+Business process
+Transaction details
+Other events
+Data lineage
+Reports generated from these can be sent to all relevant parties and an
+escalation workflow can be designed.
+CONTROL RISK AND NEXT STEPS
+Our audit planning began with using extensive information about the firm
+from external sources to develop a good analysis for risk. In some cases, the
+external (outside‐in) analysis will expose the risk areas as clearly as a
+flashlight exposing a point of interest in a dark room. In other cases, they
+
+will develop our instincts and make us more aware of what lies ahead in an
+engagement.
+From outside‐in we moved to the internal data and systems of a firm. Our
+approach became more invasive and deeper. We penetrated the shields of
+obscurity and gained direct access to data. It was from that point where we
+began gaining confidence in our ability to monitor and assess controls
+intelligently and constantly.
+With a good understanding of inherent risks and control risks, auditors can
+assess the focus and extent of substantive procedures. We discuss direct
+evidence collection from accounts and substantive procedures in the next
+chapter.
+Key Points
+Internal controls testing is one of the most important objectives of
+an audit. While inherent risk is usually unmanageable and is a
+function of a company's business model among other things,
+control risk can and should be managed.
+Control risk is composed of five types of automations including
+automated controls environment, automated risk assessment,
+automated control activities assessment, automated monitoring
+assessment, and automation information and communications
+evaluation.
+An audit automation plan must address all of these areas.
+REFERENCES
+COSO (2013) Internal Control – Integrated Framework. [online]. Available
+from: https://www.coso.org/Documents/990025P-Executive-Summary-
+final-may20.pdf.
+Curtis, P. and Carey, M. (2012) Risk assessment in practice. COSO.
+coso.org.
+
+Fire, M. and Puzis, R. (2016) Organization mining using online social
+networks. Networks and Spatial Economics, 16 (2): 545–578.
+Hollnagel, E. (1998) Cognitive Reliability and Error Analysis Method.
+Oxford: Elsevier Science.
+Humpherys, S. L., Moffitt, K. C., Burns, M. B., Burgoon, J. K., and Felix,
+W. F. (2011) Identification of fraudulent financial statements using
+linguistic credibility analysis. Decision Support Systems, 50 (3): 585–
+594.
+Jans, M., Alles, M., and Vasarhelyi, M. (2013) The case for process mining
+in auditing: Sources of value added and areas of application.
+International Journal of Accounting Information Systems, 14 (1): 1–20.
+Available from: http://dx.doi.org/10.1016/j.accinf.2012.06.015.
+Jans, M. and Hosseinpour, M. (2019) How active learning and process
+mining can act as Continuous Auditing catalyst. International Journal of
+Accounting Information Systems, 32 (November 2018): 44–58. Available
+from: https://doi.org/10.1016/j.accinf.2018.11.002.
+Jia, Q., Guo, Y., Li, R., Li, Y., and Chen, Y. (2018) A conceptual artificial
+intelligence application framework in human resource management.
+Proceedings of the International Conference on Electronic Business
+(ICEB), December, 106–114.
+Kinder, T. (2019) Thomas Cook collapse will intensify UK audit debate,
+PwC says. Financial Times.
+Kohonen, T. (2013) Essentials of the self‐organizing map. Neural Networks,
+37: 52–65. Available from:
+http://dx.doi.org/10.1016/j.neunet.2012.09.018.
+Länsiluoto, A., Jokipii, A., and Eklund, T. (2016) Internal control
+effectiveness – a clustering approach. Managerial Auditing Journal, 31
+(1): 5–34.
+McNally, J. S. (2013) The 2013 COSO Framework & SOX Compliance:
+One approach to an effective transition. Strategic Finance. June (The
+Committee of Sponsoring Organizations of the Treadway Commission
+
+(COSO)). Available from: https://www.coso.org/documents/COSO
+McNallyTransition Article‐Final COSO Version Proof_5‐31‐13.pdf.
+Moura, Raphael, Beer, M., Lewis, J., and Patelli, E. (2015) Learning from
+accidents: Analysis and representation of human errors in multi‐attribute
+events. 12th International Conference on Applications of Statistics and
+Probability in Civil Engineering, ICASP 2015 (July).
+Moura, R., Beer, M., Patelli, E., Lewis, J., and Knoll, F. (2015) Human
+error analysis: Review of past accidents and implications for improving
+robustness of system design. Safety and Reliability: Methodology and
+Applications ‐ Proceedings of the European Safety and Reliability
+Conference, ESREL 2014. [Online] (September), 1037–1046.
+Moura, R., Beer, M., Patelli, E., Lewis, J., and Knoll, F. (2017) Learning
+from accidents: Interactions between human factors, technology and
+organisations as a central element to validate risk studies. Safety Science,
+99: 196–214. Available from:
+http://dx.doi.org/10.1016/j.ssci.2017.05.001.
+Reza, T. and Zaman, S. (2017) Analyzing CV/resume using natural
+language processing and machine learning. BRAC University. Available
+from:
+http://dspace.bracu.ac.bd/xmlui/bitstream/handle/10361/9480/14101061
+%2C14101171_CSE.pdf?sequence=1&isAllowed=y.
+Rowe, R., Creamer, G., Hershkop, S., and Stolfo, S. J. (2007) Automated
+social hierarchy detection through email network analysis. Joint Ninth
+WebKDD and First SNA‐KDD 2007 Workshop on Web Mining and
+Social Network Analysis. [Online] 109–117.
+Simsek, S., Bayraktar, E., Ragothaman, S., and Dag, A. (2018) A Bayesian
+approach to detect the firms with material weakness in internal control.
+IISE Annual Conference and Expo 2018. 971–976.
+Straub, K. M., (2016) Data mining academic emails to model employee
+behaviors and analyze organizational structure. Available from:
+https://vtechworks.lib.vt.edu/bitstream/handle/10919/71320/Straub_KM
+_T_2016.pdf;sequence=1.
+
+Throckmorton, C. S., Mayew, W. J., Venkatachalam, M., and Collins, L. M.
+(2015) Financial fraud detection using vocal, linguistic and financial
+cues. Decision Support Systems, 74: 78–87. Available from:
+http://dx.doi.org/10.1016/j.dss.2015.04.006.
+van der Aalst, W. M. P., Van Hee, K. M., Van Der Werf, J. M., and Verdonk,
+M. (2010) Auditing 2.0: Using process mining to support tomorrow's
+auditor. Computer, 43 (3): 90–93.
+van der Aalst, W., Van Hee, K., Van Der Werf, J. M., Kumar, A., and
+Verdonk, M. (2011) Conceptual model for online auditing. Decision
+Support Systems, 50 (3): 636–647. Available from:
+http://dx.doi.org/10.1016/j.dss.2010.08.014.
+OceanofPDF.com
+
+CHAPTER 12
+Intelligent Automation of Fraud Detection
+WE COVER AUDIT RELATED ERRORS AND FRAUD throughout this
+book; however, this chapter is dedicated to intelligent financial fraud
+detection and investigation (IFFDI) using artificial intelligence (AI). The
+internal controls environment serves as the firewall to protect against fraud.
+Prevention is different than detection and detection is different than
+investigation. Detection implies active search to discover, find, uncover, or
+expose fraud. Investigation begins once a reasonable degree of suspicion
+develops about the likelihood that a fraud is taking place. In this chapter we
+will cover both detection and investigation.
+When deploying your fraud detection capabilities, you will address
+questions such as
+How to allocate capabilities between prevention, detection, and
+investigation? What technologies to deploy for each?
+When and for what to use deterministic versus stochastic technologies?
+What methods, models, or techniques should you use?
+How do you design and architect your IFFDI system?
+How to protect your firm from AI‐centric fraud?
+DETECTING FRAUD
+Fraud happens when material misrepresentations of facts are made
+intentionally and they lead to loss for one or more victims. The Association
+of Certified Fraud Examiners (ACFE) classifies fraud against a firm into
+two types: internal and external (ACFE, n.d.). Internal fraud, also known as
+occupational fraud, is defined by ACFE as “the use of one's occupation for
+personal enrichment through the deliberate misuse or misappropriation of
+the employing organization's resources or assets.” Internal fraud is
+committed by the managers, employees, owners, or board members of a
+
+firm. External fraud, in contrast, is conducted by parties external to the
+firm, for example, customers, suppliers, partners.
+ACFE classifies internal fraud into three areas: corruption, asset
+misappropriation, and financial statement fraud. ACFE has developed a
+powerful and comprehensive representation of internal fraud. Known as the
+Fraud Tree (Figure 12.1), it covers the various subcategories and subclasses
+of internal fraud.
+Fraud can happen at any point in an organization. For example, it can
+happen at the employee level, at the board level, or across the value chain
+via collaboration between partners and even competitors. Detecting fraud is
+one of the most complex undertakings. Protecting a firm from any possible
+fraud can be expensive and therefore costs of IFFDI need to be considered.
+Let's not forget that in many cases savvy managers operate on the
+borderline of law and while technically statements and disclosures may not
+qualify as misrepresentations from a legal perspective, the underlying
+motivation for business decisions could be self‐serving. For instance, the
+management team of a nonprofit deploys a CEO friendly board and with the
+board approval starts making investments in a manner that the CEO intends
+to personally benefit from in the future. Such situations make fraud
+detection extremely hard.
+ELEMENTS OF FRAUD
+In the 1950s, Donald Cressey presented the fraud triangle theory that
+identified the three fraud elements as pressure, opportunity, and
+rationalization (Cressey, 1953). A fourth element of capability was later
+added and the model transformed from a triangle to a diamond (Wolfe and
+Hermanson, 2004; Mansor, 2015). As we think about intelligent
+automation, our design elements must first begin by analyzing the elements
+of fraud and building capabilities around them.
+
+FIGURE 12.1 The Fraud Tree
+Pressure or Motivation
+Preemptive detection of motivation can go a long way to detect and prevent
+fraud. Motivation can be anything from personal to business situations. At
+an individual level it could be when a person is facing financial difficulties
+and hence decides to engage in a fraud. On a management team level, it
+could be pressure to report certain earnings numbers for which guidance has
+been provided. Motivation determination technologies are deployed to
+evaluate the situations that can motivate a person or management team to
+commit a fraud. They typically involve understanding the situational
+dynamics to predict the likelihood of fraud.
+Opportunity
+The opportunity for fraud is based upon the internal controls weaknesses.
+An environment that lacks controls or that has a culture that promotes
+recklessness can be a fertile ground for fraud. The opportunities are
+identified and exploited by individuals and management teams. Fraud
+opportunity assessment technology is deployed to assess the control
+
+weaknesses as well as cultural and behavioral modeling to assess the
+seriousness and desire of the management team and boards to deploy
+internal controls.
+Rationalization
+Rationalization is the justification that a person or team gives to the conduct
+of fraud. This is a self‐deceiving factor where teams and individuals say to
+themselves that it is okay to engage in a fraudulent behavior for such‐and‐
+such reasons. The justification could be that it is a one‐time thing or that
+they are only borrowing money or that they were denied proper
+compensation and therefore it is their right to steal. Rationalization
+detection technology is composed of systems deployed to perform
+behavioral analysis of individuals and teams.
+Capability
+Capability is when a person or team believes that they have the capability to
+get away with doing the fraud, to not get caught, and to pull it off.
+Capability detection technology is also used to assess the materiality of the
+impact a person, machine, or team can have.
+AI has been used to combat fraud by building capabilities in accordance
+with the fraud triangle in practice. For instance, Lin et al. (2015) employed
+Logistic Regression, Decision Trees, Classification and Regression Trees
+(CART), and Artificial Neural Networks (ANNs) to study the three aspects
+of the fraud triangle.
+DOMAIN‐SPECIFIC FRAUD DETECTION
+The FBI classifies financial frauds into various areas such as securities
+fraud, credit card fraud, financial statement fraud, insurance fraud, and
+corporate other fraud. One way to approach your design is to consider each
+specific domain area in which you have material exposure. This means that
+specialized solutions need to be developed in those specific domains.
+Significant research exists in the use of intelligent automation for domain‐
+specific fraud detection (Ngai et al., 2011; West and Bhattacharya, 2016).
+
+STOPSCAM
+The American Institute of Artificial Intelligence has developed a model
+known as STOPSCAM. This model expands upon the domain‐specific
+model and fraud elements to develop broad classification of fraud by
+capability areas or detectors that focus on building and deploying intelligent
+capabilities. STOPSCAM is an acronym for Strategy, Transactions,
+Operations, Processes, Statements, Culture, Attitudes, and Model.
+Strategy
+The strategy tool analyzes a company's strategy to obtain key insights to
+capture signals of significant changes or persistence in a company's
+strategy. A sudden or abrupt change in strategy, a reluctance to change
+strategy when it is evident that the strategy is not working, rise of a new
+competitor, a change in technology, bankruptcy risk, and other strategy
+concepts are captured and analyzed. Strategy changes also include mergers
+and acquisitions and major financing events. Automated strategy analysis is
+performed from analyzing analyst reports, company press releases, and
+other news and opinions about a firm.
+Transactions
+Transaction‐level analysis is achieved by deploying systems that scan
+transaction‐level details. For example, journal entries, G/L, supporting
+documents inspection, and other similar applications of technology in
+automated audit forms the baseline for transaction‐level continuous audit
+with the explicit focus on fraud‐centric anomaly detection. The primary
+goal in transaction analysis is anomaly detection.
+Operations
+Operational‐level fraud assessment is done by assessing the operational
+footprint of a firm and including the value chain of a firm in both directions.
+This means including the suppliers and partners (e.g., channel partners) and
+customers to analyze the potential of fraud. In many cases the interaction or
+structures among partners, subsidiaries, customers, and suppliers shows the
+presence of fraud.
+
+Processes
+Process‐centric evaluation of fraud focuses on understanding anomalous
+process patterns. These patterns could be based upon transaction patterns, or
+people accessing systems abnormally, or awkward timings of accessing
+systems. Process mining technologies, along with machine learning, are
+used to evaluate this.
+Statements
+Statement analysis is performed by external parties where publicly available
+financial statements are analyzed to determine the presence of fraud. This
+can be based upon analyzing the text or other unstructured data from annual
+reports, or financial ratio analyses, or by analyzing other company
+communications, such as earnings call.
+Culture
+Organizational‐level automated analysis focuses on understanding the
+culture, management, reporting relationships, social networks, board, and
+other such factors. Many such factors provide information about potential
+fraud. For instance, a forceful or overly aggressive CEO with a submissive
+board can create an environment ripe for fraud.
+Attitude
+The attitude is the behavioral analysis of the management team and board
+members. This is a critical part of analysis. Using pictures, videos, text, and
+other combinations and available data, intelligent automation is used to
+create a profile of individuals and of social networks. Social networks can
+exist inside or outside the firm. They can exist between management team
+members or board members and certain executives. They are formed by
+shared interests and in terms of structural dynamics, the influence patterns
+could be completely different than that shown on corporate organizational
+charts. Understanding those patterns can shed light on how fraud can take
+shape and who could be involved in that.
+
+Model
+A firm's business model is at the heart of its strategies and processes.
+Changes in the business model can signify several things – including
+opening up of opportunities for fraud. Technologies used to analyze
+business models include business process mapping using machine learning
+(Evermann et al., 2017). The rise of AI in business will also enable
+businesses to launch new business models (Ehret and Wirtz, 2017).
+TECHNOLOGIES AND MODELS
+Ngai et al. (2011) performed literature research and showed that a wide
+variety of approaches are being used in fraud detection. They developed a
+model where they first outlined the broad categories of frauds such as
+insurance fraud, securities and commodities fraud, bank fraud, and other
+financial fraud. Then they further categorized based upon fraudulent
+activities such as money laundering. And from a solution side they divided
+the data mining solutions into classification, clustering, outlier detection,
+prediction, regression, and visualization.
+More recently, another group of researchers also performed an extensive
+survey of fraud detection (West and Bhattacharya, 2016). They, too, first
+categorized by fraud classes (e.g., insurance, financial statements, etc.).
+However, they investigated several methods, including neural network,
+logistic, support‐vector machine, decision trees, genetic algorithms,
+Bayesian belief network, process mining, artificial immune system, and
+hybrid methods. Their extensive survey revealed that a diversity of methods
+are used in intelligent automation.
+A third survey of literature used a similar approach to others; however,
+these researchers divided the machine learning techniques into broad
+groupings of supervised, unsupervised, and semi‐supervised. They also
+provide examples of challenges in implementing some of the solutions and
+techniques of addressing those problems (Abdallah et al., 2016).
+The above research is very helpful to learn about various AI approaches
+being used in different types of business areas. As we have discussed
+throughout this book, a point solution approach is not enough if you want to
+build a modern‐era audit or forensic accounting firm. Tools must work
+
+together to form an ecosystem within which various agents can work
+together to get work accomplished.
+OUR APPROACH
+We have approached fraud detection not only from the angle of problem
+area (i.e., fraud category > fraud activity > solution) but also by introducing
+a class layer for solution deployment in practical business areas (i.e.,
+STOPSCAM agents). The STOPSCAM agents can be deployed in various
+areas for comprehensive fraud detection. Building a comprehensive fraud
+detection system requires blending the four key technologies of process
+mining, robotic process automation, expert systems, and machine learning.
+Within machine learning various types of models exist and some are better
+than others for certain types of models.
+Strategy, organization, culture, attitude, and business model are automated
+by algorithms modeling social, behavioral, game theory – centric processes.
+Transaction and financial statement fraud detection is automated by using
+anomaly detection, behavioral, and process mining.
+Supervised Models in Fraud Detection
+Supervised learning techniques are deployed in anomaly detection, social,
+and behavioral models. Both regression and classification can help in fraud
+detection. Since supervised techniques are based upon known examples,
+they are easier to interpret. The main issue with using supervised learning is
+that we usually (and thankfully) have many more examples of fraud‐free
+transactions than fraudulent transactions. Therefore, teaching the algorithm
+becomes harder when, say, for every thousand examples of clean
+transactions, one example of a fraudulent transaction is provided. There are
+techniques that can be applied to balance out the examples. For example,
+one way is to introduce synthetic (made‐up) examples of anomalous
+behavior. The second limitation is that data requires labeling and unless data
+is being pulled out of systems where both input and target output values are
+present for the specific problem being addressed, we may have to rely upon
+human‐centric labeling of the data. Recall that labeling means providing the
+target output value for each input vector. That can become quite a laborious
+project.
+
+Naïve Bayes, support‐vector machines, k‐nearest neighbors, decision trees,
+logistic regression, deep learning, and artificial neural networks are used to
+create intelligent artifacts for the various fraud detection applications
+outlined in the STOPSCAM model.
+Unsupervised Techniques
+Unsupervised techniques are used in anomaly detection, including in
+transactions, statements, and processes. They include clustering methods
+like k‐means, dimensionality reduction methods, subspace based, and
+classifier based (Goldstein and Uchida, 2016). The goal here is to identify
+patterns that we don't know exist. As data being analyzed clusters in various
+segments, it reveals the presence of different patterns. One example of that
+will be using unsupervised techniques to identify fraud detection in credit
+card frauds.
+Key Points
+Fraud detection and fraud prevention are different.
+Financial fraud detection automation is performed by intelligent
+financial fraud detection and investigation.
+The general approach for designing fraud detection intelligent
+automation includes understanding the broad categories of fraud
+(banking, insurance, healthcare, etc.), identifying the activities
+within the categories, and then deploying machine learning‐based
+solutions that include supervised, unsupervised, semi‐supervised,
+and other methods.
+From a solution category perspective, we propose to develop
+solutions around the STOPSCAM method.
+REFERENCES
+Abdallah, A., Maarof, M. A., and Zainal, A. (2016) Fraud detection system:
+A survey. Journal of Network and Computer Applications, 68 (C): 90–
+
+113.
+ACFE (n.d.) Association of Certified Fraud Examiners. Available from:
+https://www.acfe.com/fraud-101.aspx.
+Cressey, D. R. (1953) Other People's Money: A Study of the Social
+Psychology of Embezzlement. Glencoe, IL: Free press.
+Ehret, M. and Wirtz, J. (2017) Unlocking value from machines: Business
+models and the industrial internet of things. Journal of Marketing
+Management, 33 (1–2): 111–130. Available from:
+http://dx.doi.org/10.1080/0267257X.2016.1248041.
+Evermann, J., Rehse, J. R., and Fettke, P. (2017) Predicting process
+behaviour using deep learning. Decision Support Systems, 100: 129–140.
+Available from: http://dx.doi.org/10.1016/j.dss.2017.04.003.
+Goldstein, M. & Uchida, S. (2016) A comparative evaluation of
+unsupervised anomaly detection algorithms for multivariate data. PLoS
+ONE, 11 (4): 1–31.
+Lin, C., Chiu, A., Yan, S, and Yen, D. C. (2015) Detecting the financial
+statement fraud: The analysis of the differences between data mining
+techniques and experts' judgments. Knowledge‐Based Systems, 89: 459–
+470. Available from: http://dx.doi.org/10.1016/j.knosys.2015.08.011.
+Mansor, R. A. N. (2015) Forensic accounting and fraud risk factors: The
+influence of fraud diamond theory. The American Journal of Innovative
+Research and Applied Sciences, 7 (28), 186–192. Available from:
+http://citeseerx.ist.psu.edu/viewdoc/download?
+doi=10.1.1.695.8486&rep=rep1&type=pdf.
+Ngai, E. W. T., Hu, Y., Wong, Y. H., Chen, Y., and Sun, X. (2011) The
+application of data mining techniques in financial fraud detection: A
+classification framework and an academic review of literature. Decision
+Support Systems, 50 (3): 559–569. Available from:
+http://dx.doi.org/10.1016/j.dss.2010.08.006.
+West, J. and Bhattacharya, M. (2016) Intelligent financial fraud detection: A
+comprehensive review. Computers and Security, 57: 47–66. Available
+
+from: http://dx.doi.org/10.1016/j.cose.2015.09.005.
+Wolfe, D. T. and Hermanson, D. R. (2004) The Fraud diamond:
+Considering the four elements of fraud: Certified public accountant. The
+CPA Journal, 74 (12): 38–42.
+OceanofPDF.com
+
+`;
+    const viMarkdown = `CHƯƠNG 9
+Đánh giá Kiểm soát Nội bộ Tự động (Automating Internal Controls Assessment)
+
+GẦN ĐÂY, PRICEWATERHOUSECOOPERS (PWC) đã dàn xếp hai vụ kiện sơ suất nghề nghiệp lớn thu hút nhiều sự chú ý ở Anh. Trong hai vụ án (MF Global và Taylor Bean & Whitaker), các cáo buộc chống lại PwC chỉ ra rằng các nguyên đơn kỳ vọng công ty kiểm toán sẽ vượt xa những xác nhận của ban quản lý (management assertions) và đưa cả việc ra quyết định của ban quản lý vào phạm vi kiểm toán. Một công ty khác, công ty du lịch Thomas Cook, cũng được PwC kiểm toán từ năm 2007 đến 2016. Từ năm 2017 cho đến khi Thomas Cook sụp đổ vào năm 2019, Ernst & Young (EY) đã tiếp quản với vai trò là công ty kiểm toán. Khi điều tra, người ta phát hiện ra rằng PwC đã cung cấp tư vấn thù lao cho Thomas Cook, và mặc dù cả hai công ty, PwC và EY, đều có thông tin về những vấn đề sâu sắc mà Thomas Cook đang phải đối mặt, cả hai đều đưa ra các báo cáo kiểm toán sạch (clean audit reports) cho Thomas Cook. Bình luận về những thất bại trong kiểm toán, Bob Moritz, chủ tịch toàn cầu của PwC, cho biết: “Kỳ vọng của thị trường cao hơn yêu cầu quy định. Khi những thất bại lớn xảy ra, đó không hẳn là một thất bại của kiểm toán. Các biện pháp kiểm soát có thể là phù hợp, nhưng sự tiếp nối của doanh nghiệp, vị thế tài chính và tính bền vững dài hạn của nó vẫn có thể bị nghi ngờ” (Kinder, 2019).
+
+Liệu PwC và EY có thể đạt được những hiểu biết sâu sắc hơn về những điểm yếu trọng yếu trong kiểm soát nội bộ (material weaknesses in internal controls) của khách hàng, ngay cả trước khi một cuộc kiểm toán được bắt đầu?
+Liệu PwC có thể phát triển những hiểu biết sâu sắc hơn về hoạt động kinh doanh của một công ty?
+Làm thế nào để ban quản lý, hội đồng quản trị và ủy ban kiểm toán có thể nhận được sự đánh giá liên tục về các biện pháp kiểm soát kiểm toán?
+Làm thế nào để nhận diện và giảm thiểu các rủi ro mới và đang nổi lên?
+Kiểm toán có thể mở rộng phạm vi của mình mà không phát sinh thêm chi phí lớn hay không?
+
+Câu trả lời cho những câu hỏi này và nhiều câu hỏi tương tự khác phụ thuộc rất nhiều vào chiến lược tự động hóa các kiểm soát nội bộ (automation strategy of internal controls). Trong chương này, chúng tôi phát triển một cách tiếp cận chiến lược toàn diện để tự động hóa việc đánh giá và kiểm toán các kiểm soát nội bộ.
+
+TỰ ĐỘNG HÓA ĐÁNH GIÁ KIỂM SOÁT NỘI BỘ (AUTOMATING INTERNAL CONTROLS ASSESSMENT)
+
+Khác với rủi ro tiềm tàng (inherent risk), vốn được gắn liền với các lựa chọn chiến lược do công ty thực hiện dựa trên mô hình kinh doanh, ngành nghề,... rủi ro kiểm soát nội bộ (internal controls risk) là một hàm số của các hành động từ các nhóm quản lý và hội đồng quản trị. Năm 1993, Ủy ban của các Tổ chức Bảo trợ thuộc Ủy ban Treadway (Committee of Sponsoring Organizations of the Treadway Commission - COSO) đã trình bày một khuôn khổ, hiện đã trở thành tiêu chuẩn cho kiểm soát nội bộ. COSO định nghĩa kiểm soát nội bộ như sau (COSO, 2013):
+
+Kiểm soát nội bộ là một quy trình, chịu tác động bởi hội đồng quản trị, ban quản lý và các nhân sự khác của một thực thể, được thiết kế để cung cấp sự đảm bảo hợp lý liên quan đến việc đạt được các mục tiêu trong ba hạng mục sau:
+1. Độ tin cậy của việc lập báo cáo tài chính (Reliability of financial reporting).
+2. Tính hiệu quả và hiệu suất của các hoạt động (Effectiveness and efficiency of operations).
+3. Tuân thủ các luật pháp và quy định hiện hành (Compliance with applicable laws and regulations).
+
+Tiêu chuẩn COSO dựa trên ba mục tiêu – tính hiệu quả và hiệu suất của các hoạt động, lập báo cáo tài chính đáng tin cậy, và tuân thủ các luật và quy định. Điều này có nghĩa là các biện pháp kiểm soát tồn tại để đạt được ba mục tiêu này. Mục tiêu đầu tiên về tính hiệu quả và hiệu suất của các hoạt động dựa trên các mục tiêu doanh nghiệp do hội đồng quản trị và các nhóm lãnh đạo cấp cao xác định, và cấu thành các mục tiêu chính mà công ty phải đạt được để thực hiện chiến lược của mình. Mục tiêu thứ hai về báo cáo tài chính đáng tin cậy dựa trên các xác nhận do công ty đưa ra và các số liệu cùng những thông tin công bố về hiệu quả tài chính của công ty. Mục tiêu thứ ba nhằm đảm bảo rằng công ty tuân thủ các luật và quy định áp dụng cho doanh nghiệp và ngành nghề của mình.
+
+Đối với mỗi mục tiêu, các kiểm soát nội bộ được xây dựng với năm thành phần sau: (1) môi trường kiểm soát (control environment), (2) đánh giá rủi ro (risk assessment), (3) hoạt động kiểm soát (control activities), (4) giám sát (monitoring), và (5) thông tin và truyền thông (information and communication). Mỗi thành phần được hỗ trợ bởi các nguyên tắc và, tính đến năm 2013, có 17 nguyên tắc là một phần của khuôn khổ này.
+
+Tại thời điểm này, cần lưu ý rằng tự động hóa kiểm toán có thể được xem như sự kết hợp giữa việc thu thập bằng chứng dựa trên công cụ (tool-driven) (nơi các kiểm toán viên không dựa vào bất kỳ thông tin nào do con người cung cấp) và dựa trên con người (human-based). Các bên được kiểm toán (auditees) cung cấp thông tin dưới dạng các yêu cầu dữ liệu, quyền truy cập vào các hệ thống và thông tin, và các phản hồi cho các yêu cầu thông tin cụ thể dưới dạng báo cáo, hỏi đáp, biểu mẫu,... Các công cụ tự động không dựa vào thông tin do con người cung cấp mà thay vào đó chúng truy cập trực tiếp vào bằng chứng từ nguồn như dữ liệu, cơ sở dữ liệu và các ứng dụng. Việc thu thập bằng chứng dựa trên con người phụ thuộc vào các cuộc khảo sát và bảng câu hỏi. Trí tuệ nhân tạo (AI) có vai trò trong cả hai lĩnh vực và mặc dù chương này chủ yếu tập trung vào các công cụ, việc tự động hóa các khảo sát và bảng câu hỏi tập trung vào con người liên quan đến khả năng tạo ra và phân tích các khảo sát và bảng câu hỏi. Chúng ta sẽ đề cập đến các khảo sát và bảng câu hỏi của con người trong một chương tiếp theo.
+
+Các nghiên cứu trước đây sử dụng các phương pháp AI của kỹ thuật phân cụm dựa trên bản đồ tự tổ chức (self-organizing maps - SOMs) đã gợi ý rằng các kiểm soát nội bộ hình thành nên một mạng lưới các năng lực phức tạp, nơi một công ty có thể có một hoặc nhiều thành phần mạnh (ví dụ: các hoạt động kiểm soát và giám sát) nhưng không phải trong tất cả các lĩnh vực. Hơn nữa, các công ty có thể có các thành phần mạnh cho một mục tiêu nhưng không phải là cho cả ba (Länsiluoto et al., 2016). Nhắc lại rằng có ba mục tiêu: tính hiệu quả và hiệu suất của các hoạt động, báo cáo tài chính đáng tin cậy, và tuân thủ các luật và quy định. Để thiết kế một hệ thống tự động, chiến lược của chúng ta cần bao gồm tất cả ba mục tiêu COSO và năm thành phần liên quan.
+
+Khi thiết kế một hệ thống kiểm soát nội bộ tự động, chiến lược tổng thể của chúng ta như sau:
+- Tiếp cận vấn đề như là sự tương tác tích hợp của nhiều tác nhân khác nhau (cả tất định - deterministic và ngẫu nhiên - stochastic).
+- Sử dụng nhiều công nghệ khác nhau, bao gồm khai thác quy trình (process mining), học máy (machine learning), RPA (Tự động hóa quy trình bằng robot) và hệ chuyên gia (expert systems).
+- Kiểm tra những điểm yếu của kiểm soát nội bộ đã bám rễ vào trong thiết kế của công ty khách hàng, từ đó tạo ra một môi trường chín muồi cho các sai sót và gian lận, và để dự đoán liệu một hoạt động gian lận có đang diễn ra hay không.
+- Sử dụng hệ thống kiểm soát nội bộ tích hợp để thực hiện đánh giá liên tục.
+- Áp dụng hệ thống kiểm soát nội bộ tích hợp để tạo ra một đánh giá toàn diện (tức là phân tích toàn bộ tổng thể thay vì một mẫu).
+- Phát triển và mở rộng hệ thống cùng với doanh nghiệp.
+
+<!-- IMAGE_PLACEHOLDER: FIGURE 9.1 Automation of Internal Controls Evaluation -->
+
+Đánh giá rủi ro tự động (Automated risk assessment) bao gồm ba lĩnh vực: đánh giá rủi ro kiểm toán, đánh giá rủi ro tiềm tàng (inherent risk), và đánh giá kiểm soát nội bộ. Rủi ro kiểm toán là một hàm số của rủi ro tiềm tàng, rủi ro kiểm soát, và rủi ro phát hiện (detection risk). Trong chương trước, chúng ta đã đề cập đến rủi ro tiềm tàng. Rủi ro tiềm tàng là rủi ro tồn tại khi không có bất kỳ kiểm soát nội bộ nào. Rủi ro kiểm soát nội bộ xảy ra khi một công ty không có các kiểm soát nội bộ phù hợp để quản lý và kiểm soát các rủi ro tiềm tàng. Việc thiếu vắng các biện pháp kiểm soát có thể là do các thông lệ (practices) hoặc thiết kế của công ty. Điều đó có thể xảy ra một cách có chủ ý hoặc vô ý. Kiểm soát nội bộ có thể bị lẩn tránh, vô hiệu hóa (overridden) hoặc bỏ qua khi ban quản lý tham gia vào gian lận. Do đó, trong khi rủi ro tiềm tàng đã được gắn liền trong bản chất của kinh doanh, rủi ro kiểm soát nội bộ lại rất nhiều khả năng là sản phẩm của cách thức mà một công ty được quản lý. Khi các kiểm toán viên quan sát thấy các lỗ hổng trong kiểm soát nội bộ, họ được cho là phải tăng cường các thủ tục cơ bản (substantive procedures) để làm giảm hoặc giảm thiểu cơ hội xảy ra sai sót.
+
+Như được minh họa trong Hình 9.1, để tự động hóa việc đánh giá kiểm soát nội bộ, chúng ta tuân theo mô hình COSO và chia nó thành năm lĩnh vực năng lực: đánh giá môi trường tự động (automated environment evaluation), đánh giá rủi ro tự động (automated risk assessment), đánh giá hoạt động kiểm soát tự động (automated control activities assessment), đánh giá giám sát tự động (automated monitoring assessment) và đánh giá thông tin và truyền thông tự động (automated information and communications evaluation). Mỗi một lĩnh vực này được tự động hóa bằng các tác nhân khác nhau, làm việc một cách phối hợp và hợp tác để đạt được sự tự động hóa hoàn toàn.
+
+MÔI TRƯỜNG KIỂM SOÁT TỰ ĐỘNG (AUTOMATED CONTROL ENVIRONMENT)
+
+Các nguyên tắc của môi trường kiểm soát (Hình 9.2) là:
+- Tổ chức thể hiện cam kết đối với sự chính trực và các giá trị đạo đức.
+
+<!-- IMAGE_PLACEHOLDER: FIGURE 9.2 Automated Environment Evaluation -->
+
+- Hội đồng quản trị thể hiện sự độc lập với ban quản lý và thực hiện vai trò giám sát đối với sự phát triển và hoạt động của kiểm soát nội bộ.
+- Ban quản lý thiết lập, với sự giám sát của hội đồng quản trị, các cấu trúc, các tuyến báo cáo (reporting lines) cùng với các quyền hạn và trách nhiệm phù hợp trong việc theo đuổi các mục tiêu.
+- Tổ chức thể hiện cam kết trong việc thu hút, phát triển và giữ chân những cá nhân có năng lực phù hợp với các mục tiêu.
+- Tổ chức quy trách nhiệm (holds accountable) cho các cá nhân về những trách nhiệm kiểm soát nội bộ của họ trong việc theo đuổi các mục tiêu.
+
+Đánh giá môi trường của kiểm soát là một cuộc điều tra về các mô hình giá trị và hành động của con người. Ví dụ, từ "tổ chức" trong nguyên tắc đầu tiên ngụ ý rằng có một hoặc nhiều con người thể hiện cam kết đối với sự chính trực và các giá trị đạo đức. Cam kết là một cấu trúc nhận thức (cognitive construct) và biểu hiện thông qua các giao tiếp và hành động của con người. Vào thời điểm này, chúng ta chưa có công nghệ đáng tin cậy để quan sát những gì diễn ra trong tâm trí của mọi người, nhưng chúng ta có thể quan sát các mô hình về con người và hành vi con người, vốn có thể cung cấp cho chúng ta thông tin về các cấu trúc tinh thần hoặc nhận thức của họ. Chẳng hạn, lời nói, cách chọn từ, cử chỉ và ngôn ngữ cơ thể (bao gồm cả thông tin sinh lý) có thể cung cấp cho chúng ta những manh mối về các cấu trúc nhận thức. Những điều này có thể là chung chung – hoặc cụ thể đối với một miền/lĩnh vực (domain). Ví dụ, một đánh giá chung có thể tiết lộ tính cách của một người và có thể được phân loại là hung hăng (aggressive) so với thụ động (passive). Một đánh giá cụ thể sẽ tìm kiếm trong lời nói (bằng miệng, bằng văn bản) về các giá trị.
+
+Do đó, thiết kế một hệ thống để đánh giá môi trường kiểm soát sẽ bao gồm:
+- Một tác nhân đo lường các cấu trúc nhận thức của các đội ngũ quản lý (giá trị, đạo đức, tính cách, sự chính trực, và những khía cạnh khác).
+- Một tác nhân đo lường các cấu trúc nhận thức của các đội ngũ quản lý và hội đồng quản trị dành riêng cho cấu trúc nhiệm vụ (ví dụ: các giá trị hoặc các loại tính cách để hoạt động trong một thách thức cụ thể đối với một công ty hoặc cho một mục tiêu cụ thể của việc lập báo cáo tài chính).
+- Một tác nhân xác định xem hội đồng quản trị có đảm nhận trách nhiệm giám sát, các cấu trúc, trách nhiệm và quyền hạn hay không.
+- Một tác nhân xác định sự tách biệt của Hội đồng quản trị với đội ngũ quản lý, và thực hiện quyền giám sát đối với sự phát triển và hoạt động của kiểm soát nội bộ.
+- Một tác nhân đo lường và cung cấp phản hồi về cam kết của công ty trong việc thu hút, phát triển và giữ chân các cá nhân có năng lực.
+- Một tác nhân đánh giá trách nhiệm giải trình (accountability).
+
+Các tác nhân trên, một khi được đào tạo, sẽ hình thành nên hệ thống môi trường kiểm soát tích hợp.
+
+Sự Chính trực, Đạo đức, Tính cách, và Các Giá trị (Integrity, Ethics, Personality, and Values)
+Hệ thống này đã được giải thích trong chương tiền lập kế hoạch kiểm toán. Chúng ta sẽ xem xét lại nó ở đây từ góc độ của một hệ thống nội bộ (trái ngược với bên ngoài). Kiểm toán viên có quyền truy cập vào nhiều tài liệu nội bộ hơn đáng kể so với việc phân tích một công ty từ bên ngoài. Trong thế giới ngày nay, hình ảnh, giọng nói, và dữ liệu video cũng có thể được yêu cầu và thu thập. Phiên bản cốt lõi của hệ thống này là xử lý ngôn ngữ tự nhiên, phân tích các giao tiếp bằng văn bản của đội ngũ quản lý và các thành viên hội đồng quản trị để tìm kiếm những từ ngữ biểu thị sự chính trực, đạo đức, giá trị và tính cách. Như đã đề cập trước đó, phương pháp này đã được triển khai để nghiên cứu rủi ro gian lận từ các mô hình ngôn ngữ học và thanh nhạc của các cuộc gọi thu nhập (Throckmorton et al., 2015) cũng như từ các tài liệu (Phần Thảo luận và Phân tích của Ban quản lý (MD&A) của Mẫu 10-K) (Humpherys et al., 2011). Tác nhân này dự kiến sẽ đánh giá lượng thông tin giao tiếp của ban quản lý và hội đồng quản trị được áp dụng cho các giá trị và đạo đức là bao nhiêu. Các tài liệu đầu vào được sử dụng cho các phân tích này có thể bao gồm các báo cáo, tin nhắn, biên bản họp hội đồng quản trị, email và các giao tiếp khác. Bằng cách sử dụng những điều đó làm đầu vào, một công cụ phân loại (classification engine) được triển khai, dựa trên từ ngữ, để đánh giá sự hiện diện, độ sâu và tần suất của các cuộc thảo luận liên quan đến đạo đức và sự chính trực trong quy trình hoạt động kinh doanh thông thường.
+
+Một cách khác phức tạp hơn, là lấy dữ liệu từ các giao tiếp của những nhà lãnh đạo thuộc một công ty đã tham gia vào gian lận và nghiên cứu các mô hình diễn đạt của họ so với các mô hình của những công ty đã cung cấp lợi nhuận thích đáng và đáp ứng được các nghĩa vụ ủy thác (fiduciary obligations).
+
+Hội đồng Quản trị (Board of Directors)
+Các tài liệu và email của hội đồng quản trị, bao gồm các biên bản từ các cuộc họp của ủy ban kiểm toán, được phân tích để xác định sự hiện diện của các cuộc thảo luận, hướng dẫn, chỉ thị và sự tham chiếu tới đạo đức, giá trị và tính chính trực. Điều tương tự có thể được thực hiện để đánh giá các tham chiếu tới các kiểm soát nội bộ. Điều này bộc lộ những trường hợp mà các tham chiếu về kiểm soát nội bộ đã được đưa ra. Phân tích email cũng bộc lộ luồng giao tiếp, quyền hạn và bản chất của mối quan hệ trong tổ chức.
+Các đặc điểm (features) được sử dụng cho email có thể bao gồm siêu dữ liệu (metadata) của email, số lượng email, tiêu đề, văn bản, có hay không có tệp đính kèm, email đã được ký, được chuyển tiếp, được trả lời, cc, blind copy (bcc) và các đặc điểm khác liên quan đến tần suất của các email.
+
+Triết lý Quản lý và Phong cách Điều hành (Management Philosophy and Operating Style)
+Chúng ta đã đề cập ngắn gọn về lĩnh vực này trong một chương trước nơi mô hình của chúng ta dựa trên dữ liệu bên ngoài. Ở đây, chúng ta sử dụng dữ liệu nội bộ để đánh giá triết lý quản lý và phong cách điều hành. Một lần nữa, xử lý ngôn ngữ tự nhiên có thể mang lại cho chúng ta một sự khởi đầu tuyệt vời để hiểu về triết lý quản lý và phong cách điều hành.
+Triết lý và phong cách quản lý có thể được quan sát bởi ngôn ngữ do đội ngũ quản lý sử dụng, các mạng lưới xã hội bên trong tổ chức và văn hóa công ty. Các tệp tin Nhân sự (HR files), tài liệu tòa án và các trang web như Glassdoor cung cấp dữ liệu tuyệt vời cho việc lập mô hình. Sử dụng học máy (machine learning), mục tiêu của bạn là huấn luyện thuật toán của mình để phân loại văn hóa của một công ty thành các lớp khác nhau. Điều này có thể được xem như một bài toán về việc phân loại đội ngũ quản lý vào các nhóm (buckets) khác nhau gồm các phong cách điều hành, triết lý quản lý và mô hình quản lý. Ví dụ: bạn có thể xác định xem phong cách quản lý là độc đoán (authoritarian) hay hợp tác (collaborative), khép kín so với cởi mở, tập trung vào sự ủy quyền (delegation centric) so với dựa trên sự trao quyền (empowerment based). Hành vi của nhân viên trong các tổ chức có thể được dự đoán bằng cách triển khai học máy và khai thác dữ liệu từ các thông tin văn bản như email (Straub et al., 2016).
+
+Cấu trúc Tổ chức (Organizational Structure)
+Sự đánh giá về cấu trúc tổ chức đến từ nhiều góc độ. Khả năng phân tích được xây dựng một cách có hệ thống bằng cách phân lớp những phần sau đây...
+
+
+Các năng lực (capabilities):
+- Trình phân tích cấu trúc tổ chức (The analyzer for organizational structure): tiện ích này xem xét các mô tả công việc của tổ chức và phân loại nhân viên vào các vai trò cụ thể liên quan đến kiểm soát nội bộ. Dữ liệu được khai thác là các mô tả công việc, tên phòng ban, nhân sự, chức danh, v.v. Một phân tích riêng biệt về tổ chức cũng có thể chỉ ra các luồng quyền lực, sức ảnh hưởng và các liên kết xã hội phi chính thức (Fire và Puzis, 2016).
+- Trình phân tích cũng xem xét biểu đồ tổ chức so với cấu trúc quyền hạn thực tế. Cấu trúc quyền hạn theo biểu đồ được thể hiện trên các sơ đồ tổ chức và phụ thuộc vào các mối quan hệ báo cáo. Cấu trúc quyền hạn thực tế được xác định dựa trên việc phân tích các mạng lưới xã hội từ email, tin nhắn văn bản và các thông tin khác. Hệ thống phân cấp xã hội (social hierarchy) có thể được xác định từ học máy bằng cách phân tích các email (Rowe et al., 2007).
+
+Năng lực Lập báo cáo Tài chính (Financial Reporting Competencies)
+Các năng lực lập báo cáo tài chính có thể có được thông qua việc thấu hiểu nền tảng học vấn, kinh nghiệm và loại hình giáo dục.
+Tập dữ liệu huấn luyện (training data set) cho năng lực bao gồm dữ liệu HR (nhân sự) điển hình, cũng như dữ liệu từ sơ yếu lý lịch, LinkedIn và dữ liệu mạng xã hội khác. Nó cũng bao gồm dữ liệu từ số lượng ấn phẩm của người đó, sự tham gia vào các hội nhóm chuyên môn khác nhau, các khóa đào tạo và chứng chỉ.
+Artifact (tạo tác/công cụ) này có thể được thiết kế theo hai cách. Cách tiếp cận đầu tiên là sử dụng dữ liệu HR từ một tập dữ liệu lớn hơn (có thể bao gồm dữ liệu từ nhiều công ty) và để một con người gán nhãn (labels) cho dữ liệu. Nhãn trong trường hợp này sẽ được áp dụng để tìm hiểu các mức độ năng lực cho một vị trí. Các yếu tố như số năm làm việc, nền tảng học vấn, kinh nghiệm, v.v., sẽ là tập dữ liệu đầu vào. Thông tin có giá trị có thể được trích xuất từ sơ yếu lý lịch (Reza và Zaman, 2017). Biến 'y' hoặc biến đầu ra sẽ là có năng lực (competent) so với không có năng lực (incompetent) cho một công việc nhất định.
+Artifact thứ hai và thú vị hơn sử dụng tập dữ liệu của các biến đầu vào bao gồm kinh nghiệm, số năm làm việc, nền tảng giáo dục từ một tập dữ liệu thực tế về các vụ gian lận và thất bại ở vị trí đó. Tuy nhiên, dù rất thú vị, sẽ rất khó để tái tạo lại một tập dữ liệu cho các mục đích huấn luyện vì sẽ rất khó để chỉ ra chính xác trách nhiệm cho một thất bại.
+
+Quyền hạn và Trách nhiệm (Authority and Responsibility)
+Quyền hạn và trách nhiệm được đánh giá bằng cách sử dụng các công nghệ tự động hóa thông minh khác nhau. Chúng ta đang cố gắng đánh giá xem ban quản lý có giao phó trách nhiệm về kiểm soát nội bộ một cách thích hợp hay không và các nhân viên có được trao cho các biện pháp kiểm soát và quyền hạn phù hợp để đảm bảo rằng các kiểm soát nội bộ được thực thi và hoạt động hiệu quả hay không. Có nhiều cách để đánh giá điều đó từ khía cạnh học máy.
+Cách đầu tiên là có một tác nhân sử dụng dữ liệu nguồn nhân lực để hiểu về các trách nhiệm công việc. Việc thu thập dữ liệu cũng có thể mở rộng đến các biểu mẫu đánh giá và xem xét nhân viên hàng năm, thường chứa đựng các tài khoản chi tiết hơn về công việc thực tế mà nhân viên đảm nhận. Ngoài ra, email và các giao tiếp cũng có thể được sử dụng làm dữ liệu đầu vào. Mô hình sử dụng xử lý ngôn ngữ tự nhiên (natural language processing) để đánh giá xem, dựa trên vai trò của cá nhân, cấu trúc trách nhiệm của anh ấy hoặc cô ấy có bao gồm các tham chiếu đến các kiểm soát nội bộ đặc thù của vị trí hay không. Lưu ý rằng trong bài đánh giá này, chúng ta chỉ đang đánh giá môi trường chứ không phải các hoạt động. Do đó, trọng tâm của chúng ta vẫn là nghiên cứu môi trường của tổ chức.
+Trong khi trách nhiệm được đánh giá bằng cách sử dụng phương pháp trên, phân tích quyền hạn lại là một vấn đề hoàn toàn khác. Quyền hạn biểu hiện trong việc cho phép một người quản lý hoặc nhân viên hành xử đúng mực, không áp đặt những ràng buộc không phù hợp hoặc không cần thiết, đảm bảo với nhân viên rằng sẽ không có hậu quả tiêu cực nào khi nhân viên nộp khiếu nại hoặc trở thành người thổi còi (whistleblower - người tố giác).
+Quyền hạn là hàm số của việc có thể hành động theo những gì mà một người đã được giao phó trách nhiệm. Trong các hệ thống doanh nghiệp, quyền truy cập được cung cấp cho các cá nhân bởi một quy trình làm việc (workflow) có ghi lại người đã ủy quyền truy cập. Các nhật ký (logs) từ hệ thống đó có thể cho thấy liệu việc ủy quyền có đang được thực hiện ở cấp độ phù hợp hay không và có được thực hiện bởi người có thẩm quyền thực hiện việc đó, hay bởi một người ở cấp cao hơn trong tổ chức, hay bởi nhiều hơn một người.
+Văn hóa có thể cung cấp một đại diện gián tiếp cho việc đánh giá quyền hạn. Những nhà lãnh đạo độc đoán (authoritative) hơn sẽ ít có xu hướng cho phép mọi người hoạt động độc lập, ngay cả khi nói đến một vai trò quan trọng như kiểm soát nội bộ. Cuối cùng, các email nội bộ, ghi chú cuộc họp và giao tiếp cung cấp dữ liệu tuyệt vời để đánh giá mức độ quyền hạn mà các nhân viên chủ chốt đang có. Trong các thiết lập nâng cao, cả video và lời nói đều có thể được sử dụng để nghiên cứu các động lực văn hóa của một công ty. Để đạt được mức độ tự động hóa đó, khai thác quy trình (process mining) và học máy được sử dụng, và các ứng dụng của chúng sẽ được giải thích ở phần sau trong chương này.
+
+Chính sách và Thực tiễn Nguồn nhân lực (Human Resource Policies and Practices)
+Các tập dữ liệu lớn luôn có sẵn và có thể được khai thác trong lĩnh vực nguồn nhân lực (Jia et al., 2018). Mục tiêu của đánh giá môi trường kiểm soát liên quan đến HR là xác định xem phòng ban này có nhận thức được các khái niệm cơ bản về phân chia nhiệm vụ (separation of duties), các kiểm soát nội bộ và việc tuyển dụng đúng nhân tài để giảm thiểu rủi ro hay không. Các chính sách và thực tiễn của HR có thể được phân tích bằng cách sử dụng xử lý ngôn ngữ tự nhiên và việc sử dụng các thuật ngữ chính (phân chia nhiệm vụ, v.v.) có thể được đánh giá để phát triển sự hiểu biết sâu sắc về các năng lực của HR.
+Các khái niệm tương tự, như đã thảo luận ở trên, được áp dụng để xác định khả năng và đóng góp của bộ phận HR trong việc hỗ trợ các kiểm soát nội bộ mạnh mẽ hơn.
+
+ĐÁNH GIÁ RỦI RO TỰ ĐỘNG (AUTOMATED RISK ASSESSMENT)
+Đánh giá rủi ro tự động đã được đề cập toàn diện trong chương trước từ góc độ rủi ro tiềm tàng (inherent risk). Chúng ta nhận thấy rằng có ít nhất bốn phương pháp tự động để khám phá rủi ro trong một tổ chức. Phương pháp đầu tiên tập trung vào việc xác định và quản lý rủi ro cụ thể theo tài khoản (account) và theo xác nhận (assertion). Ba phương pháp còn lại, kế toán ngầm/song song (shadow/parallel accounting), các mục tiêu chiến lược và học sâu (deep learning), có thể được sử dụng cho bất kỳ loại hình phát triển năng lực quản lý rủi ro nào. Trên thực tế, trong trường hợp của chúng ta, khuôn khổ COSO yêu cầu ban quản lý phải hiểu về các rủi ro từ góc độ đạt được các mục tiêu của công ty. Khuôn khổ COSO 2013 phác thảo bốn nguyên tắc đánh giá rủi ro:
+1. Tổ chức chỉ định các mục tiêu với sự rõ ràng đầy đủ để cho phép việc xác định và đánh giá các rủi ro liên quan đến các mục tiêu đó.
+2. Tổ chức nhận diện rủi ro đối với việc đạt được các mục tiêu của mình trên toàn thực thể và phân tích các rủi ro làm cơ sở để xác định cách thức quản lý những rủi ro đó.
+3. Tổ chức cân nhắc tới khả năng xảy ra gian lận trong việc đánh giá rủi ro đối với quá trình đạt được các mục tiêu.
+4. Tổ chức nhận diện và đánh giá những thay đổi có thể tác động đáng kể đến hệ thống kiểm soát nội bộ.
+
+Trong chương này, chúng tôi sẽ mở rộng mô hình được trình bày trong phần đánh giá rủi ro tiềm tàng và bao gồm cả việc đánh giá rủi ro từ góc nhìn của kiểm soát nội bộ, đồng thời giới thiệu khái niệm đánh giá rủi ro dựa trên sự kiện (event-based risk assessment).
+Quá trình này bao gồm bốn cấp độ tự động hóa:
+Cấp độ 1: Từ ngoài vào trong (Outside-in) – Nắm được ý tưởng chung về những điểm yếu trọng yếu tiềm ẩn trong kiểm soát nội bộ (MWIC) bằng cách sử dụng thông tin công khai có sẵn. Điều này mang lại cho các kiểm toán viên cảm nhận về mức độ rủi ro mà tình huống của khách hàng có thể xảy ra.
+Cấp độ 2: Tập trung vào quy trình (Process centric) – Hiểu về mối quan hệ rủi ro giữa các quy trình và các biện pháp kiểm soát.
+Cấp độ 3: Doanh nghiệp (Enterprise) – Phát triển những hiểu biết sâu sắc hơn vào chuỗi giá trị và quy trình kinh doanh của tổ chức. Điều này tương tự như các khuôn khổ phân tích rủi ro dựa trên doanh nghiệp (enterprise-based risk analysis frameworks).
+Cấp độ 4: Quyết định kinh doanh (Business decisions) – Kiểm toán viên không coi đây là một phần công việc của họ; tuy nhiên, như tình huống nghiên cứu mở đầu về việc PwC dàn xếp hai vụ kiện cho thấy, đang có một phong trào ngày càng tăng nhằm đặt trách nhiệm đó lên vai các kiểm toán viên. Lý do đằng sau điều đó rất rõ ràng. Những hệ quả kinh tế từ các quyết định và mục tiêu của ban quản lý chảy qua các hệ thống tài chính, và các bên liên quan (stakeholders) kỳ vọng kiểm toán viên hiểu và đánh giá được những thực tế kinh doanh đó. Các hậu quả từ những quyết định kinh doanh của ban quản lý cũng có thể trở thành các yếu tố động lực để tiến hành gian lận. Trong những trường hợp khác, các quyết định của ban quản lý tác động đến các dòng tiền trong tương lai và chi phí vốn của công ty, do đó tác động đến việc định giá nhiều tài sản ngắn hạn (current assets).
+
+Cấp độ 1: Phân tích Từ ngoài vào trong (Outside-In Analysis)
+Một nhóm nghiên cứu muốn khám phá xem liệu có thể nhận diện các điểm yếu trọng yếu trong kiểm soát nội bộ từ việc sử dụng các dữ liệu bên ngoài công khai hay không (Simsek et al., 2018). Nhìn vào các công ty khác nhau đã thông báo về sự yếu kém trọng yếu trong các kiểm soát nội bộ, nhóm đã xác định được dữ liệu tài chính từ báo cáo tài chính lịch sử một năm trước khi công bố. Sử dụng dữ liệu đó – dữ liệu bao gồm các tỷ số tài chính như vòng quay tổng tài sản, khả năng sinh lời, cường độ vốn, quy mô, tỷ số thanh toán hiện hành (current ratio) và hiệu quả hoạt động – nhóm nghiên cứu đã cố gắng dự đoán những điểm yếu của kiểm soát nội bộ. Sau khi áp dụng nhiều phương pháp khác nhau, nhóm đã đạt được độ chính xác 70 đến 80% trong các kết quả. Điều này có nghĩa là nhóm đã có thể dự đoán, với độ chính xác hợp lý, rằng các điểm yếu trọng yếu tồn tại trong các kiểm soát nội bộ chỉ bằng cách sử dụng dữ liệu tài chính lịch sử. Một artifact tương tự có thể được triển khai để nhận diện những điểm yếu như vậy trong các công ty.
+Thực tế là, dựa trên các tiến bộ công nghệ ngày nay, sức mạnh dự đoán của một artifact như vậy có thể được tăng cường đáng kể bằng cách bổ sung thêm các đặc điểm và sử dụng môi trường học sâu (deep learning environment).
+
+Cấp độ 2: Tập trung vào Quy trình (Process Centric)
+Khi tiến xa hơn phân tích Cấp độ 1, chúng ta có thể đi sâu hơn một cấp để xác định xem liệu các quy trình cốt lõi trong một công ty có mang rủi ro lớn hơn hay không. Đánh giá này là một hàm số của dữ liệu đặc trưng thu được từ hồ sơ lịch sử của những vấn đề trong kiểm soát nội bộ. Ví dụ, một tập dữ liệu chứa các ví dụ về những sai sót trước đây hoặc sự tiết lộ điểm yếu của kiểm soát nội bộ có thể được sử dụng để xác định sự hiện diện của MWIC phân theo ngành nghề, công ty, và loại hình quy trình. Có ít nhất hai loại phương pháp học máy có thể được triển khai để phát triển các hiểu biết về MWIC tập trung vào quy trình.
+Cách tiếp cận đầu tiên tương tự như của Simsek et al., được thảo luận ở phần trước, ngoại trừ việc thay vì sử dụng dữ liệu hiệu quả hoạt động và tài chính làm đặc trưng đầu vào, chúng ta sử dụng ngành nghề, loại hình công ty, mô tả mô hình kinh doanh và các quy trình để hiểu được khả năng xảy ra của MWIC.
+Cách tiếp cận thứ hai vay mượn từ các phương pháp được phát triển trong việc nghiên cứu lỗi con người ở các vụ tai nạn. Nghiên cứu về lỗi con người trong các tai nạn đã có tài liệu tham khảo đáng kể. Năm 1998, Hollnagel là tác giả của một cuốn sách có tựa đề Phương pháp Phân tích Lỗi và Độ tin cậy Nhận thức (Cognitive Reliability and Error Analysis Method - Hollnagel, 1998). Trong cuốn sách đó, ông đã phát triển ba hệ thống phân loại. Thứ nhất là sự phân loại về công nghệ, trong đó ông chỉ ra những vấn đề có thể gây ảnh hưởng đến máy móc (ví dụ: lỗi thiết bị, lỗi quy trình, lỗi giao diện). Phân loại thứ hai là của "con người", ám chỉ các vấn đề nhận thức có thể gây khó khăn cho con người (ví dụ: lập kế hoạch, thực thi, trí nhớ, diễn giải, quan sát). Hệ thống phân loại thứ ba là của tổ chức, bao gồm các điểm yếu trong một tổ chức (ví dụ: đào tạo, điều kiện làm việc). Hollnagel đã trình bày một Phương pháp Phân tích Lỗi và Độ tin cậy Nhận thức (CREAM), qua đó chuyển sự tập trung từ các đặc điểm của nhiệm vụ và một xác suất có giả thuyết về lỗi nhân tạo sang nguyên tắc rằng bối cảnh chính là động lực thúc đẩy Độ tin cậy Con người (Human Reliability) (R. Moura et al., 2015). Moura, Beer, Patelli, Lewis và Knoll đã xác định được tầm quan trọng của nguyên tắc này và phát triển mở rộng trên đó để sử dụng một tập dữ liệu tai nạn lớn, áp dụng kỹ thuật phân cụm (không giám sát - unsupervised) để phân loại dữ liệu nhằm khám phá ra các nguyên nhân khác nhau gây ra tai nạn. Họ đã sử dụng bản đồ tự tổ chức (self-organizing maps - SOMs) để phân cụm và phân loại dữ liệu (Moura et al., 2015; Moura et al., 2017). Kỹ thuật SOM cũng cho phép xem dữ liệu đa chiều dưới dạng biểu diễn hai chiều (Kohonen, 2013).
+Tương tự như những gì Moura, Beer, Patelli, Lewis, và Knoll (2015) đã làm, SOM/Phân cụm (Clustering) có thể được áp dụng để thấu hiểu các động lực dẫn đến MWIC.
+
+Cấp độ 3: Mối quan hệ Rủi ro Doanh nghiệp và Chuỗi Giá trị (Value Chain and Enterprise Risk Relationships)
+Chúng ta đã đề cập đến quy trình quản lý rủi ro ở Chương 7. Bằng cách hiểu về các mối quan hệ chuỗi giá trị và rủi ro lấy doanh nghiệp làm trung tâm (enterprise-centric risk), chúng ta phát triển được những cái nhìn sâu sắc về những vấn đề tiềm ẩn có thể phát sinh trong những tình huống có sự tham gia của các bên bên ngoài (ví dụ: bán hàng và thu mua). Việc phát triển những hiểu biết đó giúp mang lại cho các kiểm toán viên một ý tưởng về nguy cơ giảm sút giá trị của các tài sản (ví dụ: việc biết được thông tin một khách hàng lớn đang bị phá sản sẽ tác động lên khoản Phải thu khách hàng - AR đang được nắm giữ bởi công ty khách hàng).
+Quy trình quản lý rủi ro doanh nghiệp (enterprise risk management process) bao gồm các quy trình sau: nhận diện rủi ro, phát triển tiêu chí đánh giá, đánh giá rủi ro, đánh giá sự tương tác của các rủi ro, ưu tiên các rủi ro và ứng phó với rủi ro (Curtis và Carey, 2012). Việc sử dụng AI trong quy trình quản lý rủi ro sẽ tự động hóa luồng quy trình làm việc của việc quản lý rủi ro.
+
+Cấp độ 4: Phân tích các Quyết định Kinh doanh (Business Decisions Analysis)
+Lĩnh vực phân tích rủi ro này đóng vai trò sống còn trong việc cải thiện chất lượng kiểm toán và giúp phát triển một góc nhìn sâu sắc hơn, tinh tế hơn cho các kiểm toán viên. Sự tự động hóa trong trường hợp này tuân theo phương pháp tiếp cận tiêu chuẩn trong việc hiểu rõ rủi ro doanh nghiệp. Đã có các phương pháp và cách tiếp cận được thiết lập sẵn cho việc nhận diện, đo lường và quản lý các rủi ro doanh nghiệp.
+
+Thiết kế Công nghệ (Technology Design)
+Trước khi trình bày các phương pháp luận để đạt được mục tiêu đó, điều quan trọng là phải hiểu được hai loại dữ liệu then chốt cho việc thực hiện phân tích hoạt động kiểm soát. Đầu tiên là dữ liệu giao dịch (transactional data). Đây là dạng dữ liệu thông thường chúng ta dùng để tiến hành phân tích và bao gồm dữ liệu từ các cơ sở dữ liệu như bán hàng, kế toán và thu mua. Loại dữ liệu thứ hai, được gọi là siêu dữ liệu (metadata), là dữ liệu nói về dữ liệu – ví dụ như dữ liệu nhật ký máy tính (computer's log) về các giao dịch. Siêu dữ liệu ghi lại những thứ như ai là người truy cập hệ thống, khi nào một bút toán được nhập, hay những thay đổi nào đã diễn ra.
+Việc soát xét các hoạt động kiểm soát dựa trên ba loại hình phân tích: tập trung vào dữ liệu (data-centric), tập trung vào siêu dữ liệu (metadata-centric) và tập trung vào cả dữ liệu cộng siêu dữ liệu. Để đánh giá cao sức mạnh của tự động hóa, điều quan trọng là phải nhận ra rằng việc đánh giá tự động các hoạt động kiểm soát gắn chặt trực tiếp vào việc đánh giá rủi ro đã được thực hiện ở phần trước, cũng như các thủ tục kiểm toán thực tế. Mặc dù chúng ta đã trình bày mô hình tự động hóa kiểm toán tổng thể như một mô hình tuyến tính, nhưng máy móc, không giống như con người, không cần đến các điểm nút chuyển đổi quy trình (process transition nodes) và thay vào đó nó có thể thực hiện đồng thời tất cả các quy trình.
+
+Phân tích tập trung vào Siêu dữ liệu (Metadata-Centric Analysis)
+Phân tích cụ thể theo quy trình đang là một lĩnh vực ngày càng phát triển của tự động hóa kiểm toán. Sự ra đời của công nghệ khai thác quy trình (process-mining technology) là một bước chuyển mình mang tính biến đổi đối với việc thực hiện đánh giá rủi ro bằng cách sử dụng dữ liệu nhật ký sự kiện (event log data). Các phương pháp phân tích được áp dụng để trích xuất những cái nhìn sâu sắc từ dữ liệu nhật ký nhằm hiểu được các mô hình liên quan đến kiểm toán. Dữ liệu trích xuất từ nhật ký sự kiện bao gồm thông tin về hệ thống nào đã được truy cập, khi nào và bởi ai. Điều này được biết đến dưới dạng thông tin về hoạt động, định tuyến (routing) và nguồn lực (resource). Khai thác quy trình là hình thức khai thác dữ liệu dựa trên các quy tắc.
+Thông tin này được dùng để nắm bắt bằng chứng kiểm toán nhằm quyết định các yếu tố như:
+
+
+- Liệu hệ thống có được truy cập bởi những người được ủy quyền làm việc đó hay không?
+- Liệu hệ thống có được truy cập vào những thời điểm bất thường hoặc gần sát kỳ khóa sổ hay không?
+- Liệu hệ thống có được truy cập với tần suất cao hơn vào một số khoảng thời gian nhất định hay không?
+- Có hai hay nhiều hệ thống đang được truy cập bởi một người mà trách nhiệm của người đó không cho phép anh ta/cô ta làm vậy do yêu cầu phân chia nhiệm vụ (separation of duties) hay không?
+- Các hệ thống có được truy cập bởi một nhóm người có số giờ truy cập hệ thống trùng khớp nhau, tuy nhiên, họ thường không truy cập các hệ thống cùng một lúc hay không?
+
+Trong công trình nghiên cứu ấn tượng của mình, Jans et al. (2013) đã đưa ra lập luận mạnh mẽ cho việc sử dụng khai thác quy trình (process mining) trong kiểm toán và biện luận cho tiềm năng tạo ra giá trị của việc sử dụng khai thác quy trình. Họ đã trình bày bốn đặc điểm (attributes) chính sau đây của khai thác quy trình:
+1. Khai thác quy trình phân tích toàn bộ tổng thể dữ liệu chứ không chỉ một mẫu (sample).
+2. Yếu tố cốt lõi là dữ liệu đó bao gồm siêu dữ liệu (meta-data) – dữ liệu được nhập một cách độc lập với các hành động của bên được kiểm toán (auditee) – và không chỉ là dữ liệu do bên được kiểm toán nhập vào.
+3. Khai thác quy trình cho phép kiểm toán viên có một cách thức hiệu quả hơn trong việc triển khai mô hình rủi ro kiểm toán bằng cách cung cấp những phương thức hiệu quả để thực hiện các thử nghiệm walk-through bắt buộc của quy trình và tiến hành các thủ tục phân tích.
+4. Khai thác quy trình cho phép kiểm toán viên tiến hành những phân tích mà không thể thực hiện được bằng các công cụ kiểm toán hiện có, chẳng hạn như khám phá ra các cách thức mà các quy trình kinh doanh thực sự đang được thực hiện trên thực tế, và xác định các mối quan hệ xã hội giữa các cá nhân.
+
+Khai thác quy trình có thể được sử dụng để xác định các quy trình từ đầu đến cuối – mang lại cái nhìn toàn diện về cách thức một quy trình di chuyển qua các hệ thống của công ty và vạch ra dấu vết kiểm toán (audit trail). Van der Aalst et al. (2010) phác thảo các khả năng của khai thác quy trình như là có khả năng cung cấp nguồn gốc kinh doanh (business provenance) bằng cách đảm bảo tính truy xuất nguồn gốc (traceability), phát hiện quy trình thông qua việc xác định các mô hình thường xuyên lặp lại, và có khả năng so sánh một mô hình định sẵn (a priori model) với các nhật ký sự kiện (event logs) và ngược lại.
+
+Phân tích tập trung vào Dữ liệu (Data-Centric Analysis)
+Phân tích kiểm soát nội bộ tập trung vào dữ liệu đề cập đến việc phân tích dữ liệu giao dịch để đánh giá các kiểm soát nội bộ và để thực hiện các thử nghiệm và thủ tục cơ bản thực tế. Dữ liệu này bao gồm những dữ liệu nằm trong các hệ thống kế toán và trở thành nguồn thông tin được sử dụng để xây dựng các báo cáo tài chính do ban quản lý cung cấp. Đây là các phân tích chung, chẳng hạn như ngân sách, báo cáo, kinh doanh thông minh (business intelligence), phân tích kinh doanh (business analytics) và các báo cáo thông tin quản lý khác. Trong các cấu trúc kiểm soát do con người dẫn dắt, các báo cáo này chính là huyết mạch của việc ra quyết định.
+Trong một thế giới tự động, một số quá trình ra quyết định đó sẽ không còn được thực hiện bởi con người. Phần lớn nội dung này sẽ được thảo luận ở chương tiếp theo. Tuy nhiên, đối với chương này, điều quan trọng là phải xem xét rằng một hệ thống tài chính vi tính hóa được tạo thành từ dữ liệu giao dịch, các quy trình và cấu trúc cơ sở, và con người – người nhập dữ liệu hoặc đưa ra quyết định bên ngoài hệ thống. Những quyết định này có thể là về cách thức xử lý một giao dịch, hoặc đối chiếu cái gì/như thế nào, hay ghi nhận một bút toán ra sao. Tuy nhiên, trong khi việc ra quyết định của con người có thể được xem là ở bên ngoài hệ thống, do nó diễn ra trong tâm trí con người, thì những quyết định đó lại tác động đến những gì xảy ra trong hệ thống tài chính vi tính hóa. Chúng ta, những con người, vừa là một phần của hệ thống vừa tồn tại bên ngoài nó. Khi tiến bước cùng cuộc cách mạng AI, chúng ta có thể cần phải suy nghĩ khác đi về việc xem những gì diễn ra trong tâm trí con người là bên ngoài hệ thống và thay vào đó đưa những suy nghĩ, quyết định và khung nhận thức (cognitive frameworks) đó trở thành một phần của hệ thống. Việc mở rộng khái niệm hệ thống này xảy ra khi các khuôn khổ nhận thức và quá trình ra quyết định được chuyển giao từ tâm trí con người và nhúng (embedded) vào hệ thống tài chính.
+
+Dữ liệu + Siêu dữ liệu (Data + Metadata)
+Việc bổ sung học máy (machine learning) vào khai thác quy trình (process mining) là một sự đổi mới to lớn đối với kiểm toán. Khi được kết hợp lại, cả hai có thể tạo ra kiểm toán liên tục, tự động và tích hợp. Sáu năm sau khi đề xuất việc sử dụng khai thác quy trình, Jans cùng một tác giả khác đã đề xuất sử dụng học máy đi kèm với khai thác quy trình (Jans và Hosseinpour, 2019). Ý tưởng về học máy xuất phát từ thực tế là quá trình khai thác quy trình tạo ra một số lượng vô cùng lớn các ngoại lệ (exceptions). Các ngoại lệ này sau đó được con người diễn giải và đánh dấu là "đáng quan tâm" (of interest) và "không đáng quan tâm" (not of interest). Các ngoại lệ cung cấp một nguồn dữ liệu học tập khổng lồ, đến mức máy tính có thể học cách phân loại đầu ra của dữ liệu khai thác quy trình. Trên thực tế, dữ liệu được phân loại bởi con người cung cấp một tập hợp các ví dụ hoàn hảo cần thiết để dạy cho máy móc cách nhận diện các mô hình tốt (good) so với không thể chấp nhận được (unacceptable). Bằng cách sử dụng các thuật toán phân loại, máy tính có thể nhận diện các mô hình và khái quát hóa sự học hỏi của nó để nhận ra các mô hình bất thường vốn chưa từng được biết đến trước đó.
+
+CÁC HOẠT ĐỘNG KIỂM SOÁT (CONTROL ACTIVITIES)
+Không giống như đánh giá môi trường kiểm soát tập trung vào các yếu tố thụ động của kiểm soát nội bộ, hoạt động kiểm soát (control activities) tập trung vào các hành động và hoạt động liên quan đến việc đảm bảo rằng các biện pháp kiểm soát nội bộ được thực thi, và các chỉ thị của hội đồng quản trị và ban quản lý về kiểm soát nội bộ được tuân thủ. Mục tiêu của việc đánh giá các hoạt động kiểm soát (McNally, 2013) là nhằm đảm bảo rằng tổ chức:
+- Lựa chọn và phát triển các hoạt động kiểm soát.
+- Lựa chọn và phát triển các kiểm soát chung đối với công nghệ.
+- Triển khai các chính sách và quy trình.
+
+Mục tiêu của tự động hóa thông minh (intelligent automation) là tự động hóa việc đánh giá mức độ đạt được của ba mục tiêu nêu trên một cách tự động.
+
+Lựa chọn và Phát triển các Hoạt động Kiểm soát (Selects and Develops Control Activities)
+Việc lựa chọn và phát triển các hoạt động kiểm soát là một hàm số của các rủi ro đã được nhận diện. Mỗi rủi ro trọng yếu đều yêu cầu phải có các biện pháp kiểm soát sao cho mục tiêu tổng thể là đảm bảo rủi ro có sai sót trọng yếu đối với tất cả các xác nhận liên quan (relevant assertions) được quản lý hiệu quả. Về một vài phương diện, các kiểm soát đóng vai trò phòng ngừa. Các gian lận và sai sót nên được phát hiện và sửa chữa trước khi chúng xâm nhập vào hệ thống tài chính.
+Việc lựa chọn và phát triển các biện pháp kiểm soát có thể được xem như thiết lập một liên kết giữa mỗi rủi ro trọng yếu và quy trình phòng ngừa được thiết kế để ngăn chặn gian lận và sai sót đi vào hệ thống tài chính. Quy trình phòng ngừa này bao gồm các hoạt động được nhúng (embedded) vào trong các luồng công việc (workflows) và các quy trình kinh doanh. Ví dụ, tuyển dụng đúng người, thiết lập sự phân chia nhiệm vụ, xây dựng các hạn mức về quy mô giao dịch, thực thi việc phê duyệt trong luồng công việc, và giới hạn quyền truy cập vào các hệ thống là một số hoạt động then chốt được thực hiện.
+Trong bối cảnh hiện đại hóa kiểm toán, có hai cách để xác định liệu ban quản lý có đang tích cực lựa chọn, phát triển các biện pháp kiểm soát và do đó tích cực tham gia vào các hoạt động kiểm soát hay không.
+Cách thứ nhất là thông qua bằng chứng trực tiếp thu được để phản hồi lại sự đánh giá về các rủi ro đã biết (known risks). Bằng chứng này không dựa trên các bảng câu hỏi mà được thu thập trực tiếp (như đã thảo luận ở phần trước) và nó cho thấy liệu ban quản lý đã làm tốt việc chuẩn bị cho tổ chức ngăn chặn những sai sót trọng yếu và gian lận không thể lọt vào hệ thống kế toán hay chưa.
+Cách thứ hai là tìm hiểu về năng lực và sự chuẩn bị của ban quản lý đối với các rủi ro mới nổi (emergent risks) chưa biết hoặc chưa được lường trước, vốn có thể phát sinh nhanh chóng và dẫn đến một sự kiện trọng yếu. Vì trọng tâm của kiểm toán viên chủ yếu nằm ở thông tin lịch sử, người ta có thể đặt câu hỏi về sự cần thiết của việc đưa điều này vào đánh giá. Lý do cho điều đó rất đơn giản. Thậm chí nếu chúng ta bỏ qua các lợi ích trực tiếp cho việc đánh giá tiềm năng (potential) so với đánh giá tập trung vào rủi ro đã biết, thì thực tế là việc ban quản lý tham gia vào tìm hiểu các rủi ro tiềm tàng tự bản thân nó đã là một dấu hiệu cho thấy ban quản lý đang hành xử có trách nhiệm và chủ động trong phản ứng phòng ngừa.
+Mô hình này ngụ ý thiết lập một mô hình nhạy cảm với ngữ cảnh (context-sensitive model) cung cấp mối quan hệ giữa các rủi ro và các quy trình phản ứng phòng ngừa. Trong nhiều trường hợp, sẽ có những điểm tương đồng giữa các cách tiếp cận và rủi ro khác nhau. Rủi ro về xác nhận (assertion risk) có thể kêu gọi một sự phân chia nhiệm vụ chức năng cụ thể – chẳng hạn, trong các khoản phải trả (accounts payable), mua sắm và nhận hàng – bất kể đó là công ty nào. Trong các trường hợp khác, các rủi ro có thể đòi hỏi các phản ứng phòng ngừa mới, tùy chỉnh hoặc sáng tạo. Hầu hết hoạt động kiểm toán vận hành với các mô hình hiện có, cái mà van der Aalst et al. gọi là các mô hình theo quy chuẩn (de jure models), vốn "mô tả một cách thức làm việc mong muốn hoặc bắt buộc", ngược lại với các mô hình thực tế (de facto models) "nhằm mục đích mô tả thực tế với những vi phạm tiềm ẩn về các ranh giới được định nghĩa trong các mô hình de jure" (van der Aalst et al., 2011, 2010). Do đó, chúng ta có thể giả định rằng mô hình de jure là kết quả từ việc nhận thức được điều gì hiệu quả và điều gì không hiệu quả. Trong trường hợp này, chúng xuất phát từ kiến thức của kiểm toán viên về một biện pháp kiểm soát phòng ngừa nhất định là một sự giảm thiểu hiệu quả đối với một rủi ro cụ thể nhất định. Điều này ngụ ý rằng một bản thể luận (ontology) về rủi ro và các biện pháp phòng ngừa có thể được tạo ra, điều vốn về cơ bản có thể được chuyển hóa thành một tập hợp các quy tắc có thể được gọi ra hoặc dùng để kiểm tra đối chiếu cho một cuộc kiểm toán.
+
+Tự động hóa lấy học máy làm trung tâm cho việc tự động hóa các hoạt động kiểm soát đề cập đến hai ứng dụng:
+1. Ứng dụng nghiên cứu các mô hình rủi ro mới và đề xuất các chiến lược giảm thiểu rủi ro. Đây có thể là sự kết hợp của cả các cách tiếp cận không giám sát (phân cụm - clustering) và có giám sát (phân loại - classification). Nhiệm vụ của ứng dụng này là cập nhật các mô hình de jure hiện có. Cho dù việc cập nhật đó diễn ra thông qua học tập hay cập nhật các quy tắc hiện có, thì việc nhận dạng mô hình phản ứng-rủi ro (risk-response patterns recognition) vẫn là năng lực cốt lõi cần thiết để đề xuất và phát triển các hoạt động kiểm soát hiệu quả nhằm đối phó với các mô hình rủi ro mới nổi.
+2. Ứng dụng tích hợp sự học hỏi ở trên và so sánh nó với các tình huống de facto (thực tế). Điều này được thực hiện từ sự kết hợp của phân tích “siêu dữ liệu + dữ liệu”, như đã thảo luận ở phần trước. Van der Aalst et al. đã làm rõ khái niệm đó khi họ nói: “Có khả năng thúc đẩy một mô hình de facto lên thành một mô hình de jure. Một sự so sánh cho thấy quá trình thực thi quy trình thực tế không nhất quán với mô hình tiền tồn tại (preexisting model) tiêu chuẩn có thể thúc đẩy việc cập nhật mô hình de jure” (van der Aalst et al., 2010). Những gì học máy làm là khám phá sự mâu thuẫn giữa mô hình de jure và mô hình de facto và sau đó nếu nó thấy mô hình de facto hiệu quả hơn, nó sẽ cập nhật mô hình de jure. Sự học hỏi có thể diễn ra từ ít nhất ba nguồn: (1) dữ liệu lịch sử từ các cuộc kiểm toán trước đây; (2) cơ sở kiến thức do kiểm toán viên (con người) cung cấp, nơi kiểm toán viên đưa ra các ví dụ về một phản ứng hiệu quả; và (3) hệ thống được thiết kế với một trình phê bình (critic) có thể mô phỏng các kịch bản rủi ro và phê bình các chiến lược được sử dụng để ngăn ngừa, chống lại các rủi ro dưới góc độ một cấu trúc mục tiêu. Thiết kế này nhìn chung sẽ yêu cầu việc sử dụng học tăng cường (reinforcement learning).
+
+Lựa chọn và Phát triển Các Biện pháp Kiểm soát đối với Công nghệ (Selects and Develops Controls Over Technology)
+Các hoạt động kiểm soát liên quan đến công nghệ đã được đề cập bởi van der Aalst et al. (2011), trong đó họ đề xuất khái niệm về một hệ thống giám sát (oversight system) được tạo ra để giám sát một hệ thống khác. Họ đã làm rõ rằng một biện pháp kiểm soát là “một tác vụ tự động trong hệ thống thông tin nhằm mục đích ngăn chặn sự vi phạm các quy tắc kinh doanh nhất định. Các biện pháp kiểm soát này liên quan chặt chẽ đến chức năng của hệ thống thông tin” và sau đó cảnh báo rằng “thường thì các quy tắc kinh doanh mang tính chung chung (tức là không bị ràng buộc vào một bối cảnh kinh doanh cụ thể)”.
+Quá trình ban quản lý triển khai các biện pháp kiểm soát đối với công nghệ thông tin đang đạt được nhờ việc giám sát kiểm soát liên tục (continuous controls monitoring - CCM). CCM là một tập hợp các công cụ chuyên trích xuất dữ liệu từ cơ sở dữ liệu và quét tìm sự phân chia nhiệm vụ, các quyền hạn (authorizations), các sự vi phạm, lỗi, điểm bất thường, hạn mức về quy mô của giao dịch, v.v. Các biện pháp kiểm soát này được nhúng bên trong công nghệ.
+Các kiểm soát truy cập công nghệ cũng là những cân nhắc quan trọng. Sự phân chia nhiệm vụ có thể được xác định chắc chắn từ các báo cáo về việc ai đã đăng nhập vào hệ thống. Việc đảm bảo rằng chỉ những người được ủy quyền truy cập hệ thống mới có thể truy cập được là điều thiết yếu để thiết lập một môi trường kiểm soát tốt hơn.
+Sự xuất hiện của AI sẽ có ba tác động quan trọng đến lĩnh vực này. Thứ nhất, hai loại phân tích – dự đoán (predictive) và đề xuất (prescriptive) – được bổ sung vào bộ phát hiện điểm bất thường dựa trên quy tắc có tính tất định (deterministic) của CCM. Điều này có nghĩa là hệ thống không chỉ phân tích dữ liệu từ cơ sở dữ liệu, mà nó còn sử dụng dữ liệu để tìm hiểu về các sự vi phạm và do đó dự đoán chúng cũng như đưa ra các giải pháp khắc phục (prescriptive remedies) để chống lại các mối đe dọa. Tác động thứ hai là những lượng dữ liệu lớn hơn đáng kể có thể được xử lý và triển khai trong kiến trúc lấy học sâu (deep learning) làm trung tâm. Điều này cho phép phát hiện các gian lận và sai sót vốn không dễ bị phát hiện. Thứ ba, sự ra đời của AI sẽ dẫn đến việc thiết kế lại hoạt động kiểm soát và làm suy yếu các kiểm soát hiện có. Các hệ thống thông minh được triển khai không chỉ bởi những người đang cố gắng bảo vệ một công ty, mà còn bởi những kẻ không có ý định tốt đẹp. Điều này có nghĩa là các biện pháp kiểm soát thông minh sẽ trở nên cần thiết.
+Hãy xem xét thực tế rằng các hệ thống giao dịch (có tính tất định) của chúng ta đang là một nguồn đáng lo ngại đối với chúng ta từ góc độ kiểm soát – hãy tưởng tượng đến sự xuất hiện của các cỗ máy thông minh trong tổ chức của chúng ta. Làm thế nào để chúng ta có thể quản lý và kiểm soát chúng? Sự ra đời của AI sẽ còn làm trầm trọng thêm vấn đề về kiểm soát. Chủ đề này được đề cập trong Chương 18 của cuốn sách này.
+
+Triển khai các Chính sách và Quy trình (Deploys Policies and Procedures)
+Các chính sách và quy trình được quét và sử dụng xử lý ngôn ngữ tự nhiên để phân tích nhằm xác định xem chúng có tuân thủ các loại rủi ro được xác định cho công ty khách hàng hay không. Chẳng hạn, tần suất của các từ khóa có thể phân loại tài liệu vào các lĩnh vực kiểm soát khác nhau và xác định xem liệu có sự bao phủ (coverage) thích hợp cho từng lĩnh vực kiểm soát hay không. Ví dụ: bằng cách sử dụng phương pháp Tần suất Thuật ngữ – Tần suất Tài liệu Nghịch đảo (Term Frequency - Inverse Document Frequency - TF-IDF), các tài liệu có thể được phân tích và phân loại dựa trên mức độ quan trọng và mức độ bao phủ.
+
+
+Ví dụ: TF-IDF là gì? Tần suất Thuật ngữ – Tần suất Tài liệu Nghịch đảo (Term Frequency - Inverse Document Frequency)
+TF-IDF là một phương pháp xử lý ngôn ngữ tự nhiên dựa trên việc tính toán tần suất của các từ ngữ. Nó gồm hai phần, phần TF (Tần suất thuật ngữ) và phần IDF (Tần suất tài liệu nghịch đảo). Trong phần TF, thuật toán tính số lần một thuật ngữ được sử dụng trong một tài liệu. Ví dụ, nếu bạn đang phân tích một tài liệu liên quan đến các chính sách và quy trình, bạn có thể biết được rằng các từ "Sự phân chia" (Separation) và "Nhiệm vụ" (Duties) được sử dụng tương ứng 34 và 28 lần. Nếu tài liệu dài tổng cộng 1000 từ, tần suất từ sẽ được tính bằng 34 chia cho 1000 đối với từ "Sự phân chia" và 28 chia cho 1000 đối với từ "Nhiệm vụ". Điều này mang lại một ước tính về số lần mỗi thuật ngữ được sử dụng trong một tài liệu và có thể cung cấp một cảm nhận về mức độ quan trọng của thuật ngữ đó trong tài liệu. Trong phần IDF, chúng ta tính toán tần suất tài liệu nghịch đảo bằng cách lấy toàn bộ kho ngữ liệu (tất cả các tài liệu) và xác định xem có bao nhiêu tài liệu đã sử dụng thuật ngữ này nói chung. Nó được tính toán bằng cách lấy log cơ số 2 của tổng số lượng tài liệu chia cho số lượng tài liệu trong đó thuật ngữ được sử dụng. Giả sử có 50 tài liệu tạo nên chính sách và quy trình, và các thuật ngữ "Sự phân chia" và "Nhiệm vụ" xuất hiện trong 12 và 32 tài liệu, thì log của 50/12 và 50/32 tương ứng sẽ cho chúng ta tần suất tài liệu nghịch đảo. Sau đó, TF-IDF được tính bằng cách nhân TF với IDF. Bằng cách sử dụng phương pháp này, chúng ta có thể xác định mức độ liên quan của các tài liệu đối với những chủ đề khác nhau. Một khi các giá trị TF-IDF được xác định, chúng ta cũng có thể tính toán những điểm tương đồng giữa các tài liệu. Ví dụ: chúng ta có thể ước tính tài liệu nào tập trung vào Sự phân chia Nhiệm vụ – các biện pháp kiểm soát nội bộ liên quan.
+
+Các Biện pháp Kiểm soát Vật lý và Dữ liệu do Máy tạo ra (Physical Controls and Machine-Generated Data)
+Các biện pháp kiểm soát vật lý là cần thiết để bảo vệ một số loại tài sản nhất định. Trước đây, các biện pháp kiểm soát truy cập vật lý bị giới hạn ở việc lắp đặt camera và ổ khóa. Cùng với những tiến bộ của AI, giờ đây chúng ta có cơ hội tạo ra những cải tiến đáng kể trong các biện pháp kiểm soát vật lý. Cơ hội này nằm ở việc đánh giá tự động đầu vào video để đánh giá xem việc sử dụng tài sản đó có tuân theo mục đích sử dụng dự kiến hay không. Nguồn cấp dữ liệu video (video feed) có thể được phân tích để phát hiện tình trạng sử dụng sai mục đích, trộm cắp và hành vi phá hoại tài sản một cách cố ý. Bên cạnh video, các dữ liệu Internet Vạn vật (IoT) khác cũng có thể được phân tích để xác định các biện pháp kiểm soát đối với sản xuất, hàng tồn kho, nhà kho, v.v. Tương tự, dữ liệu từ xe tải có thể được phân tích về dặm đường (travel miles), bảo trì và mô hình sử dụng đội xe.
+
+GIÁM SÁT TỰ ĐỘNG (AUTOMATED MONITORING)
+Giám sát (Monitoring) đề cập đến việc ban quản lý thực hiện giám sát các hoạt động kiểm soát nội bộ một cách liên tục. Các chuẩn mực yêu cầu đội ngũ quản lý phải:
+- Tiến hành các đánh giá liên tục và/hoặc đánh giá riêng biệt.
+- Đánh giá và truyền đạt các khiếm khuyết (deficiencies): Mục tiêu của việc đánh giá là đảm bảo rằng ban quản lý tích cực lãnh đạo, quản lý và tham gia vào việc lập báo cáo. Trong một hệ thống tự động, chức năng giám sát tự động được nhúng vào bên trong máy móc. Trong các giai đoạn đầu của tự động hóa, người ta kỳ vọng rằng con người và máy móc sẽ chia sẻ trách nhiệm giám sát, nhưng khi công nghệ tiến lên, trách nhiệm này sẽ chuyển sang cho máy móc.
+- Các kiểm soát tự động cung cấp thông tin về máy móc: Kiểm toán viên sẽ muốn xem bằng chứng cho thấy các kiểm soát tự động đang cung cấp bằng chứng về các hoạt động giám sát.
+- Mô phỏng rủi ro (Risk simulation): Các kiểm toán viên có thể mô phỏng rủi ro trong một môi trường và quan sát hiệu suất của các biện pháp kiểm soát.
+- Trình phê bình (Critic): Xác định xem có tồn tại một trình phê bình giúp tự động phê bình hiệu suất của các biện pháp kiểm soát giám sát hay không.
+- Phân tích khoảng cách quy trình kinh doanh (Business process gap analysis): Thực hiện các kiểm tra tự động đối với phân tích khoảng cách của quy trình kinh doanh.
+- Ngân sách, phương sai, và thẻ điểm (Budgets, variance, and scorecards).
+
+THÔNG TIN VÀ TRUYỀN THÔNG (INFORMATION AND COMMUNICATIONS)
+Các nguyên tắc hướng dẫn của COSO về thông tin và truyền thông nhấn mạnh rằng một tổ chức phải:
+- Có được hoặc tạo ra, và sử dụng các thông tin chất lượng có liên quan để hỗ trợ chức năng của kiểm soát nội bộ.
+- Truyền đạt thông tin nội bộ, bao gồm các mục tiêu và trách nhiệm đối với kiểm soát nội bộ, cần thiết để hỗ trợ kiểm soát nội bộ.
+- Giao tiếp với các bên bên ngoài về kiểm soát nội bộ.
+Mục tiêu của hệ thống thông tin và truyền thông kiểm soát nội bộ tự động là liên tục thu thập và tổng hợp các thông tin có thể hành động được (actionable information) về kiểm soát nội bộ, sau đó phổ biến nó cho cả các bên bên trong và bên ngoài.
+
+Các phần trước đã đề cập đến một số artifact có thể được triển khai để tự động hóa kiểm soát nội bộ. Những artifact này sẽ cung cấp thông tin về trạng thái của chính chúng cũng như về các hoạt động của chúng. Ví dụ, tính năng tự quản trị (self-governance) có thể được tích hợp vào artifact và có thể báo cáo về các yếu tố như:
+- Quy trình kinh doanh (Business process)
+- Chi tiết giao dịch (Transaction details)
+- Các sự kiện khác (Other events)
+- Nguồn gốc dữ liệu (Data lineage)
+Các báo cáo được tạo ra từ những yếu tố này có thể được gửi đến tất cả các bên liên quan và một quy trình báo cáo leo thang (escalation workflow) có thể được thiết kế.
+
+RỦI RO KIỂM SOÁT VÀ CÁC BƯỚC TIẾP THEO (CONTROL RISK AND NEXT STEPS)
+Kế hoạch kiểm toán của chúng ta bắt đầu bằng việc sử dụng sâu rộng thông tin về công ty từ các nguồn bên ngoài nhằm phát triển một phân tích rủi ro tốt. Trong một số trường hợp, phân tích bên ngoài (từ ngoài vào trong) sẽ phơi bày những lĩnh vực rủi ro một cách rõ ràng như một chiếc đèn pin rọi sáng vào một điểm đáng quan tâm trong phòng tối. Trong những trường hợp khác, chúng sẽ mài giũa bản năng của chúng ta và khiến chúng ta nhận thức rõ hơn về những gì đang chờ đợi ở phía trước trong một hợp đồng dịch vụ (engagement).
+Từ phương pháp từ ngoài vào trong, chúng ta chuyển sang dữ liệu và hệ thống nội bộ của một công ty. Cách tiếp cận của chúng ta trở nên có tính thâm nhập và sâu sắc hơn. Chúng ta đã xuyên thủng những bức bình phong che khuất và giành được quyền truy cập trực tiếp vào dữ liệu. Chính từ thời điểm đó, chúng ta bắt đầu đạt được sự tự tin vào khả năng giám sát và đánh giá các biện pháp kiểm soát một cách thông minh và liên tục.
+Với sự hiểu biết thấu đáo về các rủi ro tiềm tàng (inherent risks) và rủi ro kiểm soát (control risks), các kiểm toán viên có thể đánh giá trọng tâm và mức độ của các thử nghiệm cơ bản (substantive procedures). Chúng tôi thảo luận về việc thu thập bằng chứng trực tiếp từ các tài khoản và thử nghiệm cơ bản trong chương tiếp theo.
+
+Các Điểm Chính (Key Points)
+- Thử nghiệm kiểm soát nội bộ là một trong những mục tiêu quan trọng nhất của một cuộc kiểm toán. Trong khi rủi ro tiềm tàng (inherent risk) thường là không thể kiểm soát được và là hàm số của mô hình kinh doanh của một công ty cùng nhiều thứ khác, thì rủi ro kiểm soát (control risk) lại có thể và nên được quản lý.
+- Rủi ro kiểm soát bao gồm năm loại hình tự động hóa: môi trường kiểm soát tự động (automated controls environment), đánh giá rủi ro tự động (automated risk assessment), đánh giá hoạt động kiểm soát tự động (automated control activities assessment), đánh giá giám sát tự động (automated monitoring assessment), và đánh giá thông tin và truyền thông tự động (automation information and communications evaluation).
+- Một kế hoạch tự động hóa kiểm toán phải giải quyết được tất cả các lĩnh vực này.
+
+TÀI LIỆU THAM KHẢO (REFERENCES)
+(Nội dung các tài liệu tham khảo được giữ nguyên theo bản gốc)
+COSO (2013) Internal Control – Integrated Framework. [online]. Available from: https://www.coso.org/Documents/990025P-Executive-Summary-final-may20.pdf.
+Curtis, P. and Carey, M. (2012) Risk assessment in practice. COSO. coso.org.
+...
+(Các tài liệu tham khảo khác như Fire và Puzis, Hollnagel, Humpherys, Jans, v.v.)
+OceanofPDF.com
+
+
+CHƯƠNG 12
+Tự động hóa Thông minh trong Phát hiện Gian lận (Intelligent Automation of Fraud Detection)
+
+CHÚNG TA ĐỀ CẬP ĐẾN CÁC SAI SÓT VÀ GIAN LẬN LIÊN QUAN ĐẾN KIỂM TOÁN xuyên suốt cuốn sách này; tuy nhiên, chương này dành riêng cho việc điều tra và phát hiện gian lận tài chính thông minh (intelligent financial fraud detection and investigation - IFFDI) sử dụng trí tuệ nhân tạo (AI). Môi trường kiểm soát nội bộ đóng vai trò như một bức tường lửa (firewall) để bảo vệ chống lại gian lận. Việc phòng ngừa khác với phát hiện và việc phát hiện thì khác với điều tra. Phát hiện ngụ ý việc chủ động tìm kiếm để khám phá, tìm ra, vạch trần hoặc phơi bày gian lận. Việc điều tra bắt đầu một khi có một mức độ nghi ngờ hợp lý phát triển về khả năng một vụ gian lận đang diễn ra. Trong chương này, chúng ta sẽ đề cập đến cả phát hiện và điều tra.
+Khi triển khai các khả năng phát hiện gian lận của mình, bạn sẽ giải quyết các câu hỏi như:
+- Làm thế nào để phân bổ các năng lực giữa việc phòng ngừa, phát hiện và điều tra? Những công nghệ nào cần triển khai cho mỗi lĩnh vực?
+- Khi nào và sử dụng các công nghệ tất định (deterministic) so với ngẫu nhiên (stochastic) cho mục đích gì?
+- Những phương pháp, mô hình, hay kỹ thuật nào bạn nên sử dụng?
+- Làm thế nào để bạn thiết kế và cấu trúc hệ thống IFFDI của mình?
+- Làm thế nào để bảo vệ công ty của bạn khỏi gian lận lấy AI làm trung tâm (AI-centric fraud)?
+
+PHÁT HIỆN GIAN LẬN (DETECTING FRAUD)
+Gian lận xảy ra khi những sự trình bày sai lệch (misrepresentations) trọng yếu về các dữ kiện được thực hiện một cách có chủ ý và chúng dẫn đến tổn thất cho một hoặc nhiều nạn nhân. Hiệp hội các Giám định viên Gian lận Công chứng (Association of Certified Fraud Examiners - ACFE) phân loại gian lận chống lại một công ty thành hai loại: nội bộ và bên ngoài (ACFE, n.d.). Gian lận nội bộ (Internal fraud), còn được gọi là gian lận nghề nghiệp (occupational fraud), được ACFE định nghĩa là "việc sử dụng nghề nghiệp của một người để làm giàu cá nhân thông qua việc cố ý lạm dụng hoặc biển thủ các nguồn lực hoặc tài sản của tổ chức tuyển dụng". Gian lận nội bộ được thực hiện bởi các nhà quản lý, nhân viên, chủ sở hữu, hoặc các thành viên hội đồng quản trị của một công ty. Ngược lại, gian lận bên ngoài (External fraud) được thực hiện bởi các bên bên ngoài công ty, ví dụ như khách hàng, nhà cung cấp, đối tác.
+ACFE phân loại gian lận nội bộ thành ba lĩnh vực: tham nhũng (corruption), biển thủ tài sản (asset misappropriation) và gian lận báo cáo tài chính (financial statement fraud). ACFE đã phát triển một sự thể hiện mạnh mẽ và toàn diện về gian lận nội bộ. Được biết đến với tên gọi Cây Gian lận (Fraud Tree) (Hình 12.1), nó bao hàm các danh mục con và các phân lớp khác nhau của gian lận nội bộ.
+Gian lận có thể xảy ra ở bất kỳ điểm nào trong một tổ chức. Ví dụ, nó có thể xảy ra ở cấp độ nhân viên, ở cấp độ hội đồng quản trị, hoặc trên toàn bộ chuỗi giá trị thông qua sự hợp tác giữa các đối tác và thậm chí cả các đối thủ cạnh tranh. Việc phát hiện gian lận là một trong những công việc phức tạp nhất. Việc bảo vệ một công ty khỏi bất kỳ sự gian lận tiềm ẩn nào có thể rất tốn kém và do đó các chi phí của IFFDI cần phải được xem xét.
+Đừng quên rằng trong nhiều trường hợp, các nhà quản lý sành sỏi thường hoạt động trên ranh giới của luật pháp và mặc dù về mặt kỹ thuật, các báo cáo và tiết lộ (disclosures) có thể không bị đánh giá là những sự trình bày sai lệch dưới góc độ pháp lý, nhưng động cơ cơ bản cho các quyết định kinh doanh có thể là vì tư lợi. Chẳng hạn, ban quản lý của một tổ chức phi lợi nhuận triển khai một hội đồng quản trị thân thiện với CEO và với sự chấp thuận của hội đồng quản trị, họ bắt đầu thực hiện các khoản đầu tư theo cách thức mà CEO có ý định hưởng lợi cá nhân trong tương lai. Những tình huống như vậy khiến việc phát hiện gian lận trở nên cực kỳ khó khăn.
+
+CÁC YẾU TỐ CỦA GIAN LẬN (ELEMENTS OF FRAUD)
+Vào những năm 1950, Donald Cressey đã trình bày lý thuyết tam giác gian lận (fraud triangle theory), trong đó xác định ba yếu tố của gian lận là áp lực (pressure), cơ hội (opportunity) và sự biện minh (rationalization) (Cressey, 1953). Một yếu tố thứ tư là khả năng (capability) sau đó đã được thêm vào và mô hình đã chuyển từ một hình tam giác sang một hình thoi (diamond) (Wolfe và Hermanson, 2004; Mansor, 2015). Khi chúng ta nghĩ về tự động hóa thông minh, các yếu tố thiết kế của chúng ta trước hết phải bắt đầu bằng việc phân tích các yếu tố của gian lận và xây dựng các năng lực xoay quanh chúng.
+
+<!-- IMAGE_PLACEHOLDER: FIGURE 12.1 The Fraud Tree -->
+
+Áp lực hoặc Động lực (Pressure or Motivation)
+Việc phát hiện từ sớm (preemptive detection) về động lực có thể tiến một bước dài trong việc phát hiện và ngăn ngừa gian lận. Động lực có thể là bất cứ thứ gì từ các tình huống cá nhân cho đến công việc. Ở cấp độ cá nhân, đó có thể là khi một người đang đối mặt với những khó khăn tài chính và do đó quyết định tham gia vào một vụ gian lận. Ở cấp độ ban quản lý, đó có thể là áp lực phải báo cáo những con số thu nhập nhất định (earnings numbers) theo như định hướng đã được đưa ra. Các công nghệ xác định động lực được triển khai để đánh giá các tình huống có thể thúc đẩy một người hoặc một đội ngũ quản lý phạm tội gian lận. Chúng thường liên quan đến việc hiểu các động lực học tình huống (situational dynamics) để dự đoán khả năng xảy ra gian lận.
+
+Cơ hội (Opportunity)
+Cơ hội cho gian lận được dựa trên những điểm yếu của kiểm soát nội bộ. Một môi trường thiếu các biện pháp kiểm soát hoặc có một nền văn hóa thúc đẩy sự cẩu thả có thể là một mảnh đất màu mỡ cho gian lận. Các cơ hội được nhận diện và khai thác bởi các cá nhân và các nhóm quản lý. Công nghệ đánh giá cơ hội gian lận được triển khai để đánh giá những điểm yếu trong kiểm soát cũng như việc xây dựng mô hình văn hóa và hành vi nhằm đánh giá mức độ nghiêm túc và mong muốn của ban quản lý và hội đồng quản trị trong việc triển khai các kiểm soát nội bộ.
+
+Sự biện minh (Rationalization)
+Sự biện minh là sự bào chữa mà một cá nhân hoặc một nhóm đưa ra cho hành vi gian lận. Đây là một yếu tố tự lừa dối bản thân, nơi các nhóm và cá nhân tự nhủ rằng việc tham gia vào hành vi gian lận là có thể chấp nhận được vì những lý do này nọ. Lời bào chữa có thể là đây chỉ là việc làm một lần, hoặc rằng họ chỉ đang mượn tiền, hoặc rằng họ đã bị từ chối sự đền bù xứng đáng và do đó việc ăn cắp là quyền của họ. Công nghệ phát hiện sự biện minh bao gồm các hệ thống được triển khai để thực hiện phân tích hành vi của các cá nhân và các nhóm.
+
+Khả năng (Capability)
+Khả năng là khi một người hoặc một nhóm tin rằng họ có năng lực (capability) để thoát khỏi việc thực hiện vụ gian lận, không bị bắt và thực hiện trót lọt nó. Công nghệ phát hiện khả năng cũng được sử dụng để đánh giá mức độ trọng yếu (materiality) của tác động mà một người, cỗ máy hoặc đội nhóm có thể gây ra.
+AI đã được sử dụng để chống lại gian lận bằng cách xây dựng các năng lực phù hợp với tam giác gian lận trong thực tế. Ví dụ, Lin et al. (2015) đã sử dụng Hồi quy Logistic (Logistic Regression), Cây Quyết định (Decision Trees), Cây Phân loại và Hồi quy (Classification and Regression Trees - CART), và Mạng Nơ-ron Nhân tạo (Artificial Neural Networks - ANNs) để nghiên cứu ba khía cạnh của tam giác gian lận.
+
+PHÁT HIỆN GIAN LẬN ĐẶC THÙ THEO LĨNH VỰC (DOMAIN-SPECIFIC FRAUD DETECTION)
+FBI phân loại các hành vi gian lận tài chính vào các lĩnh vực khác nhau như gian lận chứng khoán, gian lận thẻ tín dụng, gian lận báo cáo tài chính, gian lận bảo hiểm và các gian lận doanh nghiệp khác. Một cách để tiếp cận thiết kế của bạn là xem xét từng miền lĩnh vực cụ thể (domain area) mà bạn phải đối mặt với mức độ phơi nhiễm trọng yếu (material exposure). Điều này có nghĩa là các giải pháp chuyên biệt cần được phát triển trong những lĩnh vực cụ thể đó.
+Có nhiều nghiên cứu đáng kể về việc sử dụng tự động hóa thông minh cho phát hiện gian lận đặc thù theo lĩnh vực (Ngai et al., 2011; West and Bhattacharya, 2016).
+
+STOPSCAM
+Viện Trí tuệ Nhân tạo Hoa Kỳ (American Institute of Artificial Intelligence) đã phát triển một mô hình được gọi là STOPSCAM. Mô hình này mở rộng dựa trên mô hình đặc thù theo lĩnh vực và các yếu tố gian lận để phát triển sự phân loại mở rộng về gian lận theo các lĩnh vực năng lực hoặc các bộ phát hiện (detectors) tập trung vào việc xây dựng và triển khai các năng lực thông minh. STOPSCAM là từ viết tắt của Strategy (Chiến lược), Transactions (Giao dịch), Operations (Hoạt động), Processes (Quy trình), Statements (Báo cáo/Tuyên bố), Culture (Văn hóa), Attitudes (Thái độ), và Model (Mô hình).
+
+Chiến lược (Strategy)
+Công cụ chiến lược phân tích chiến lược của một công ty để thu thập những hiểu biết sâu sắc (key insights) nhằm nắm bắt các tín hiệu về những thay đổi đáng kể hoặc sự dai dẳng trong chiến lược của một công ty. Sự thay đổi đột ngột hoặc bất ngờ trong chiến lược, sự miễn cưỡng thay đổi chiến lược khi hiển nhiên là chiến lược đó không hiệu quả, sự nổi lên của một đối thủ cạnh tranh mới, sự thay đổi về công nghệ, rủi ro phá sản, và các khái niệm chiến lược khác đều được ghi nhận và phân tích. Các thay đổi về chiến lược cũng bao gồm các thương vụ sáp nhập, mua lại và các sự kiện tài trợ (financing events) lớn. Phân tích chiến lược tự động được thực hiện thông qua việc phân tích các báo cáo của chuyên gia phân tích, các thông cáo báo chí của công ty, cũng như các tin tức và ý kiến khác về một công ty.
+
+Các giao dịch (Transactions)
+Phân tích ở cấp độ giao dịch đạt được bằng cách triển khai các hệ thống quét các chi tiết ở mức độ giao dịch. Ví dụ, các bút toán nhật ký, Sổ cái (G/L), kiểm tra các tài liệu hỗ trợ, và các ứng dụng tương tự khác của công nghệ trong kiểm toán tự động tạo thành đường cơ sở (baseline) cho kiểm toán liên tục ở cấp độ giao dịch với sự tập trung rõ ràng vào việc phát hiện điểm bất thường tập trung vào gian lận. Mục tiêu chính trong phân tích giao dịch là phát hiện bất thường (anomaly detection).
+
+Các hoạt động (Operations)
+Đánh giá gian lận ở cấp độ hoạt động (Operational-level) được thực hiện bằng cách đánh giá dấu chân hoạt động (operational footprint) của một công ty và bao gồm cả chuỗi giá trị của công ty theo cả hai hướng. Điều này có nghĩa là bao gồm các nhà cung cấp và đối tác (ví dụ: các đối tác kênh) và khách hàng để phân tích tiềm năng xảy ra gian lận. Trong nhiều trường hợp, sự tương tác hoặc các cấu trúc giữa các đối tác, công ty con, khách hàng và nhà cung cấp cho thấy sự hiện diện của gian lận.
+
+Các quy trình (Processes)
+Đánh giá gian lận tập trung vào quy trình tập trung vào việc hiểu các mô hình quy trình có tính bất thường. Các mô hình này có thể dựa trên các mô hình giao dịch, hoặc việc những người truy cập hệ thống một cách bất thường, hoặc các thời điểm truy cập hệ thống không hợp lý. Các công nghệ khai thác quy trình, cùng với học máy, được sử dụng để đánh giá điều này.
+
+Báo cáo/Tuyên bố (Statements)
+Phân tích báo cáo (Statement analysis) được thực hiện bởi các bên bên ngoài, nơi các báo cáo tài chính được công bố công khai được phân tích để xác định sự tồn tại của gian lận. Điều này có thể dựa trên việc phân tích văn bản hoặc dữ liệu phi cấu trúc khác từ các báo cáo thường niên, hoặc các phân tích tỷ số tài chính, hoặc bằng cách phân tích các giao tiếp khác của công ty, chẳng hạn như cuộc gọi thu nhập (earnings call).
+
+Văn hóa (Culture)
+Phân tích tự động ở cấp độ tổ chức tập trung vào việc thấu hiểu văn hóa, ban quản lý, các mối quan hệ báo cáo, các mạng lưới xã hội, hội đồng quản trị và các yếu tố tương tự khác. Nhiều yếu tố như vậy cung cấp thông tin về gian lận tiềm ẩn. Chẳng hạn, một CEO độc đoán hoặc quá hung hăng cùng với một hội đồng quản trị phục tùng có thể tạo ra một môi trường chín muồi cho gian lận.
+
+Thái độ (Attitude)
+Thái độ là sự phân tích hành vi của đội ngũ quản lý và các thành viên hội đồng quản trị. Đây là một phần quan trọng của quá trình phân tích. Bằng cách sử dụng hình ảnh, video, văn bản, và các sự kết hợp khác cùng dữ liệu sẵn có, tự động hóa thông minh được sử dụng để tạo ra hồ sơ (profile) của các cá nhân và các mạng lưới xã hội. Các mạng lưới xã hội có thể tồn tại bên trong hoặc bên ngoài công ty. Chúng có thể tồn tại giữa các thành viên ban quản lý hoặc thành viên hội đồng quản trị và các giám đốc điều hành nhất định. Chúng được hình thành từ những mối quan tâm chung và dưới khía cạnh động lực học cấu trúc (structural dynamics), các mô hình ảnh hưởng có thể hoàn toàn khác với những gì được thể hiện trên các sơ đồ tổ chức của doanh nghiệp. Việc hiểu được những mô hình đó có thể làm sáng tỏ về cách thức gian lận có thể hình thành và ai có thể liên quan đến nó.
+
+Mô hình (Model)
+Mô hình kinh doanh của một công ty là trung tâm của các chiến lược và quy trình của nó. Những thay đổi trong mô hình kinh doanh có thể biểu thị một số điều – bao gồm việc mở ra những cơ hội cho gian lận. Các công nghệ được sử dụng để phân tích các mô hình kinh doanh bao gồm việc lập bản đồ quy trình kinh doanh (business process mapping) bằng cách sử dụng học máy (Evermann et al., 2017). Sự trỗi dậy của AI trong kinh doanh cũng sẽ cho phép các doanh nghiệp triển khai các mô hình kinh doanh mới (Ehret và Wirtz, 2017).
+
+CÁC CÔNG NGHỆ VÀ MÔ HÌNH (TECHNOLOGIES AND MODELS)
+Ngai et al. (2011) đã thực hiện nghiên cứu tài liệu và chỉ ra rằng một loạt các phương pháp đang được sử dụng trong việc phát hiện gian lận. Họ đã phát triển một mô hình trong đó đầu tiên họ vạch ra các hạng mục gian lận rộng lớn như gian lận bảo hiểm, gian lận chứng khoán và hàng hóa, gian lận ngân hàng, và gian lận tài chính khác. Sau đó, họ tiếp tục phân loại dựa trên các hoạt động gian lận như rửa tiền (money laundering). Và từ khía cạnh giải pháp, họ chia các giải pháp khai thác dữ liệu thành phân loại (classification), phân cụm (clustering), phát hiện điểm ngoại lệ (outlier detection), dự đoán (prediction), hồi quy (regression) và trực quan hóa (visualization).
+Gần đây hơn, một nhóm các nhà nghiên cứu khác cũng đã thực hiện một cuộc khảo sát sâu rộng về phát hiện gian lận (West và Bhattacharya, 2016). Họ cũng vậy, trước tiên họ tiến hành phân loại theo các lớp gian lận (ví dụ: bảo hiểm, báo cáo tài chính, v.v.). Tuy nhiên, họ đã điều tra một số phương pháp, bao gồm mạng nơ-ron, logistic, máy véc-tơ hỗ trợ (support-vector machine), cây quyết định, thuật toán di truyền (genetic algorithms), mạng niềm tin Bayesian (Bayesian belief network), khai thác quy trình, hệ miễn dịch nhân tạo (artificial immune system) và các phương pháp lai (hybrid methods). Cuộc khảo sát sâu rộng của họ tiết lộ rằng một sự đa dạng của các phương pháp đang được sử dụng trong tự động hóa thông minh.
+Một cuộc khảo sát tài liệu thứ ba đã sử dụng một cách tiếp cận tương tự như những người khác; tuy nhiên, các nhà nghiên cứu này chia các kỹ thuật học máy thành các nhóm lớn gồm có giám sát (supervised), không giám sát (unsupervised) và bán giám sát (semi-supervised). Họ cũng đưa ra các ví dụ về những thách thức trong việc triển khai một số giải pháp và kỹ thuật giải quyết những vấn đề đó (Abdallah et al., 2016).
+Nghiên cứu trên rất hữu ích để tìm hiểu về các phương pháp AI khác nhau đang được sử dụng trong nhiều loại lĩnh vực kinh doanh. Như chúng tôi đã thảo luận xuyên suốt cuốn sách này, cách tiếp cận điểm giải pháp (point solution approach) là không đủ nếu bạn muốn xây dựng một công ty kế toán pháp y hoặc kiểm toán kỷ nguyên hiện đại. Các công cụ phải làm việc cùng nhau để tạo thành một hệ sinh thái, trong đó các tác nhân (agents) khác nhau có thể làm việc cùng nhau để hoàn thành công việc.
+
+CÁCH TIẾP CẬN CỦA CHÚNG TÔI (OUR APPROACH)
+Chúng tôi đã tiếp cận việc phát hiện gian lận không chỉ từ góc độ của lĩnh vực vấn đề (nghĩa là hạng mục gian lận > hoạt động gian lận > giải pháp) mà còn bằng cách đưa vào một lớp phân loại (class layer) cho việc triển khai giải pháp trong các lĩnh vực kinh doanh thực tiễn (tức là các tác nhân STOPSCAM). Các tác nhân STOPSCAM có thể được triển khai trong nhiều lĩnh vực khác nhau để phát hiện gian lận một cách toàn diện. Việc xây dựng một hệ thống phát hiện gian lận toàn diện đòi hỏi phải pha trộn bốn công nghệ chính là khai thác quy trình, tự động hóa quy trình bằng robot (robotic process automation), hệ chuyên gia (expert systems) và học máy (machine learning). Bên trong học máy tồn tại nhiều loại mô hình khác nhau và một số mô hình tốt hơn những mô hình khác đối với một số loại mô hình nhất định.
+Chiến lược, tổ chức, văn hóa, thái độ và mô hình kinh doanh được tự động hóa bằng các thuật toán lập mô hình xã hội, hành vi, các quy trình lấy lý thuyết trò chơi làm trung tâm. Việc phát hiện gian lận giao dịch và báo cáo tài chính được tự động hóa bằng cách sử dụng phát hiện điểm bất thường, khai thác quy trình và hành vi.
+
+Các Mô hình Có Giám sát trong Phát hiện Gian lận (Supervised Models in Fraud Detection)
+Các kỹ thuật học có giám sát được triển khai trong phát hiện bất thường, các mô hình xã hội và hành vi. Cả hồi quy và phân loại đều có thể hỗ trợ trong việc phát hiện gian lận. Vì các kỹ thuật có giám sát dựa trên các ví dụ đã biết nên chúng dễ diễn giải hơn. Vấn đề chính của việc sử dụng học có giám sát là chúng ta thường (và may mắn thay) có nhiều ví dụ về các giao dịch không có gian lận hơn là các giao dịch gian lận. Do đó, việc dạy cho thuật toán trở nên khó khăn hơn khi, giả sử, đối với mỗi một ngàn ví dụ về giao dịch sạch (clean), thì mới cung cấp một ví dụ về một giao dịch gian lận. Có những kỹ thuật có thể được áp dụng để cân bằng các ví dụ. Chẳng hạn, một cách là đưa vào các ví dụ tổng hợp (synthetic - nhân tạo) về hành vi bất thường. Hạn chế thứ hai là dữ liệu cần được gán nhãn (labeling) và trừ khi dữ liệu đang được lấy ra từ các hệ thống nơi cả giá trị đầu vào và giá trị mục tiêu đầu ra đều có sẵn cho bài toán cụ thể đang được giải quyết, nếu không chúng ta có thể phải dựa vào việc gán nhãn dữ liệu tập trung vào con người (human-centric). Hãy nhớ lại rằng gán nhãn có nghĩa là cung cấp giá trị đầu ra mục tiêu cho mỗi véc-tơ đầu vào. Đó có thể trở thành một dự án khá tốn công sức.
+
+
+Naïve Bayes, máy véc-tơ hỗ trợ (support-vector machines), k-láng giềng gần nhất (k-nearest neighbors), cây quyết định (decision trees), hồi quy logistic (logistic regression), học sâu (deep learning) và mạng nơ-ron nhân tạo (artificial neural networks) được sử dụng để tạo ra các artifact thông minh cho nhiều ứng dụng phát hiện gian lận khác nhau đã được vạch ra trong mô hình STOPSCAM.
+
+Các Kỹ thuật Không Giám sát (Unsupervised Techniques)
+Các kỹ thuật không giám sát được sử dụng trong việc phát hiện điểm bất thường, bao gồm trong các giao dịch, báo cáo và các quy trình. Chúng bao gồm các phương pháp phân cụm như k-means, các phương pháp giảm chiều dữ liệu (dimensionality reduction methods), dựa trên không gian con (subspace based) và dựa trên phân loại (classifier based) (Goldstein và Uchida, 2016). Mục tiêu ở đây là nhận diện các mô hình mà chúng ta không biết là chúng có tồn tại. Khi dữ liệu đang được phân tích phân cụm trong nhiều phân khúc khác nhau, nó tiết lộ sự hiện diện của các mô hình khác nhau. Một ví dụ về điều đó sẽ là sử dụng các kỹ thuật không giám sát để nhận diện phát hiện gian lận trong các vụ gian lận thẻ tín dụng.
+
+Các Điểm Chính (Key Points)
+- Phát hiện gian lận (Fraud detection) và phòng ngừa gian lận (fraud prevention) là khác nhau.
+- Tự động hóa phát hiện gian lận tài chính được thực hiện thông qua việc điều tra và phát hiện gian lận tài chính thông minh (intelligent financial fraud detection and investigation).
+- Phương pháp tiếp cận chung cho việc thiết kế tự động hóa thông minh phát hiện gian lận bao gồm việc thấu hiểu các hạng mục gian lận rộng lớn (ngân hàng, bảo hiểm, chăm sóc sức khỏe, v.v.), xác định các hoạt động bên trong những hạng mục đó, và sau đó triển khai các giải pháp dựa trên học máy bao gồm các phương pháp có giám sát, không giám sát, bán giám sát và các phương pháp khác.
+- Từ góc độ phân loại giải pháp, chúng tôi đề xuất phát triển các giải pháp xoay quanh phương pháp STOPSCAM.
+
+TÀI LIỆU THAM KHẢO (REFERENCES)
+(Nội dung các tài liệu tham khảo được giữ nguyên theo bản gốc)
+Abdallah, A., Maarof, M. A., and Zainal, A. (2016) Fraud detection system: A survey. Journal of Network and Computer Applications, 68 (C): 90–113.
+ACFE (n.d.) Association of Certified Fraud Examiners. Available from: https://www.acfe.com/fraud-101.aspx.
+Cressey, D. R. (1953) Other People's Money: A Study of the Social Psychology of Embezzlement. Glencoe, IL: Free press.
+Ehret, M. and Wirtz, J. (2017) Unlocking value from machines: Business models and the industrial internet of things. Journal of Marketing Management, 33 (1–2): 111–130.
+Evermann, J., Rehse, J. R., and Fettke, P. (2017) Predicting process behaviour using deep learning. Decision Support Systems, 100: 129–140.
+Goldstein, M. & Uchida, S. (2016) A comparative evaluation of unsupervised anomaly detection algorithms for multivariate data. PLoS ONE, 11 (4): 1–31.
+Lin, C., Chiu, A., Yan, S, and Yen, D. C. (2015) Detecting the financial statement fraud: The analysis of the differences between data mining techniques and experts' judgments. Knowledge-Based Systems, 89: 459–470.
+Mansor, R. A. N. (2015) Forensic accounting and fraud risk factors: The influence of fraud diamond theory. The American Journal of Innovative Research and Applied Sciences, 7 (28), 186–192.
+Ngai, E. W. T., Hu, Y., Wong, Y. H., Chen, Y., and Sun, X. (2011) The application of data mining techniques in financial fraud detection: A classification framework and an academic review of literature. Decision Support Systems, 50 (3): 559–569.
+West, J. and Bhattacharya, M. (2016) Intelligent financial fraud detection: A comprehensive review. Computers and Security, 57: 47–66.
+Wolfe, D. T. and Hermanson, D. R. (2004) The Fraud diamond: Considering the four elements of fraud: Certified public accountant. The CPA Journal, 74 (12): 38–42.
+OceanofPDF.com
+
+
+`;
+
+    // Render Markdown to HTML
+    document.getElementById('en-tab').innerHTML = marked.parse(enMarkdown);
+    document.getElementById('vi-tab').innerHTML = marked.parse(viMarkdown);
+
+    // Tab switching logic
+    function openTab(tabId, element) {
+        const contents = document.querySelectorAll('.content-area');
+        contents.forEach(content => content.classList.remove('active'));
+
+        const tabs = document.querySelectorAll('.tab');
+        tabs.forEach(tab => tab.classList.remove('active'));
+
+        document.getElementById(tabId).classList.add('active');
+        element.classList.add('active');
+    }
+</script>
+
+</body>
+</html>

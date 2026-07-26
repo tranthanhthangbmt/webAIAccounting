@@ -1,0 +1,219 @@
+be monitored more closely . However , recently it has learned that ratios including operating variables
+such as sales are also worth considering when forecasting the financial health of a business. Therefore,
+it obtained data containing 16 dif ferent ratios for 665 businesses that have good versus poor financial
+health. The metric in the data for assessing financial health is whether a business has or has not gone
+bankrupt. The data contain information on several financial ratios such as debt–equity ratio, current
+ratio, and operating ratio for businesses that did or did not go bankrupt. Similar to other lenders, Altra
+Bank also uses data on these ratios to build a model that can help it make predictions about the
+financial health of the businesses it is determining whether to lend to or not. Altra Bank also wants to
+determine whether some ratios are better predictors than others; hence, having data with labels of
+whether a business went bankrupt is very useful in building the model. (The data used in this example
+are hypothetical.)
+The data have the following 16 financial ratios, some of which are operational ratios, marketing ratios, or
+accounting ratios.
+current_ratio_1 = current assets / short-term liabilities
+earning_ratio_1 = EBIT  (earnings before interest and taxes) / total assets
+debt_equity_ratio_1 = book value of equity / total liabilities
+accounting_ratio_1 = total assets / total liabilities
+operating_ratio_1 = (inventory * 365) / sales
+marketing_ratio_1 = net profit / sales
+operating_ratio_2 = profit on operating activities / financial expenses
+marketing_ratio_2 = (total liabilities − cash) / sales
+current_ratio_2 = (current assets − inventories) / long-term liabilities
+current_ratio_3 = (current assets − inventory − receivables) / short-term liabilities
+operating_ratio_3 = profit on operating activities / sales
+current_ratio_4 = (current assets − inventory) / short-term liabilities
+earning_ratio_2 = EBITDA  (earnings before interest, taxes, depreciation, and amortization—i.e.,
+[profit on operating activities − depreciation] / total assets)
+current_ratio_5 = current assets / total liabilities
+debt_equity_ratio_2 = long-term liabilities / equity
+operating_ratio_4 = total costs / total sales
+Using the data, we can begin to do several tests and then build the model. The first test we will conduct
+is to examine whether the data include collinear predictors (i.e., whether a high correlation, either
+positive or negative, exists among some of the 16 predictors). W e obtain a correlation plot as shown in
+Figure 10.2 . As expected of financial ratios, the plot shows that quite a few ratios are correlated more
+than 0.5 with one another . For example, marketing_ratio_1 and earnings_ratio_2 are correlated −0.97
+with each other .
+Figure 10.2  Correlation Plot
+Next we can check for multicollinearity using the VIF for each of the predictors.
+##current_ratio_1 debt_equity_ratio_1 accounting_ratio_1      
+operating_ratio
+##4.565160 614.931070 624.345293      1.969324
+##marketing_ratio_1 operating_ratio_2 marketing_ratio_2      current_ratio_
+##11.756341 1.083820 2.825103      1.338527
+##current_ratio_3 operating_ratio_3 current_ratio_4      earning_ratio_
+##2.346815 27.912590 3.912966      2.240309
+##earning_ratio_2 current_ratio_5 debt_equity_ratio_2      
+operating_ratio
+##24.330196 3.678511 2.641648      1.019840
+The VIF of some of the financial ratios is very high (e.g., debt_equity_ratio_1 = 614.93 and
+accounting_ratio_1 = 624.34).
+Now that we have established that some of the financial ratio predictors that we plan to use in our model
+are highly correlated, we can use penalized regression. W e use LASSO to first perform a variable
+selection as to which are the best predictors of financial health.
+We next define the outcome variable: yes, a business will go bankrupt  versus no, a business will not go
+bankrupt . We use penalized logistic regression  because the dependent variable is binary in nature
+(yes/no).
+Since the outcome is binary , we will use the AUC ROC (area under the curve receiver operating
+characteristics) curve to examine the quality of predictions of the LASSO model. AUC is the ratio
+between a false positive (firms that did not go bankrupt but are identified by the model as having gone
+bankrupt) and a true positive (firms that went bankrupt and are identified by the model as having gone
+bankrupt). Higher values of AUC are better because they indicate whether the model is able to
+distinguish between the yes and no outcomes. AUC = 1 indicates that the model is able to correctly
+classify yes as yes and no as no. AUC = 0.8 means that 80% of the time the model will classify yes and
+no correctly . AUC = 0.5 means that the model cannot distinguish between yes and no and is considered
+random in its predictions. AUC = 0 means that the model is reversing its predictions completely and
+classifying yes as no and no as yes.
+In the training dataset, we can also plot the AUC values for dif ferent values of log( λ). In Figure 10.3 , we
+can see that the best values of AUC are those of log( λ) between −8 and about −9. The values on top of
+the graph indicate the number of dummy-coded predictors being used.
+Figure 10.3  AUC V alues for Dif ferent V alues of Log( λ)
+In order to run a penalized regression prediction model, we split the data into train and test sets. W e
+then run a LASSO on the train set to perform variable selection. W e also standardize the data to ensure
+that they are easy to interpret. It is important to note that if we don’t standardize values, LASSO can
+result in extreme values and dif ficulty in comparing predictors that may be measured on dif ferent units.
+We then run LASSO, which outputs beta coef ficient values for all 16 predictors but shrinks the beta
+coefficients of predictors it considers less relevant to zero.
+From the output, we can see that the LASSO model we ran using 16 predictors has shrunk the beta-
+coefficient values of 4 predictors to zero. In other words, it has selected  12 predictors as being relevant
+for predicting the outcome variable: financial health.
+## [1] 8.837698e-05
+## 17 x 1 sparse Matrix of class "dgCMatrix"
+##                                                            s1
+## (Intercept)                     1.346913e+01
+## current_ratio_1                     9.231917e-02
+## debt_equity_ratio_1                     1.297786e+01
+## accounting_ratio_1 -1.416379e+01
+## operating_ratio_1                    .
+## marketing_ratio_1                     3.031253e+00
+## operating_ratio_2                     3.493792e-03
+## marketing_ratio_2                    .
+## current_ratio_2 -1.985339e-05
+## current_ratio_3                     2.416489e+00
+## operating_ratio_3 -4.810050e+00
+## current_ratio_4 -2.503380e+00
+## earning_ratio_1                     4.965877e-01
+## earning_ratio_2                    .
+## current_ratio_5                     7.127187e-01
+## debt_equity_ratio_2                    .
+## operating_ratio_4                     9.021487e-03
+We have trained our penalized regression model. But the important part is seeing how useful it is for
+prediction. W e next use the model and examine how well it performs on data in a separate test.
+To evaluate the quality of the LASSO model’ s predictions and because the outcome is binary , we
+consider the AUC ROC curve ( Figure 10.4 ). The AUC ROC curve is calculated (and plotted) as the ratio
+between false positives (firms that did not go bankrupt but are identified as having gone bankrupt) on
+the x-axis and true positives (firms that went bankrupt and are identified as having gone bankrupt) on
+the y-axis. If the model predicts poorly , then the value of AUC will be low since AUC increases as the
+predictive ability of the model improves. That is, higher values indicate better prediction.
+Description
+Figure 10.4  AUC ROC Curve
+Now that we have developed a model with the most relevant predictor variables (i.e., ratios), let’ s see
+how Altra Bank can use this model to determine the financial health of a business that has requested a
+loan. If the financial ratio values for the business are as shown in the following table, Altra Bank can use
+the predictive LASSO model to determine whether the business is likely to go bankrupt. Note, since the
+model was trained using a yes/no outcome, it will predict in a similar manner: Given these ratios, it will
+predict that yes, the business will go bankrupt  or no, the business will not go bankrupt .
+##      lambda.min
+##  [1,]  "0"
+current_ratio_1 debt_equity_ratio_1 accounting_ratio_1 operating_ratio_1
+1.65 0.85 1.79 17.31
+marketing_ratio_1 operating_ratio_2 marketing_ratio_2 current_ratio_2
+0.084 22.81 0.269 0.517
+current_ratio_3 operating_ratio_3 current_ratio_4 earning_ratio_1
+0.179 0.205 1.75 0.198
+earning_ratio_2 current_ratio_5 debt_equity_ratio_2 operating_ratio_4
+0.09 1.27 0.75 0.075
+We provide the trained LASSO model with the financial ratios of the new firm and ask the model to
+generate a prediction. The prediction value of 0 means that our model is predicting that this business
+will go bankrupt. Given this prediction, Altra Bank can now decide whether to go ahead with a loan.
+10.7.2 Business Insights and Other Applications
+Therefore, using a penalized regression model, we can build predictive models even if the data are
+collinear—a common problem when using financial ratios as predictors. Note that linear and logistic
+regression’ s estimates are af fected by the presence of multicollinearity—resulting, for example, in the
+model’ s inability to reject a false null hypothesis. However , penalized regression can provide estimates
+even in the presence of multicollinearity . It handles correlation among predictors through the inclusion of
+the shrinkage penalty that helps find the model of best fit even in the presence of multicollinearity . In
+terms of business insights, using LASSO, in this chapter we developed a penalized regression model
+that can help lenders allocate loans and businesses determine their financial health.
+In addition to selecting which variables are the most important to determine the financial health of an
+organization, LASSO can be used in other areas of finance such as assets optimization by selecting the
+critical assets that can result in an optimal asset portfolio. It can also be used for fraud detection in
+financial transactions—by finding the variables that help financial organizations identify which
+transactions do not appear regular and could, hence, be fraudulent. Moving beyond the financial sector ,
+LASSO can be used to identify the most important variables to predict employee satisfaction or for
+optimal inventory management or ef fective campaigns that maximize customer engagement.
+10.8 IMPLEMENTATION USING R: EVALUATING THE HEALTH
+OF A BUSINESS
+The data contain 16 financial ratios, some of which are marketing related and some accounting related
+as mentioned earlier . First we read in the data on the 16 predictor variables and the libraries: ROCR,2
+glmnet ,3 psycho ,4 tidyverse ,5 ggplot2 ,6 and car.7
+library(ROCR)
+library(glmnet)
+ 
+trainData <-
+read.csv(url("http://data.mishra.us/files/train_bankruptcy.csv"))
+testData <-
+read.csv(url("http://data.mishra.us/files/test_bankruptcy.csv"))
+ 
+predictors <- trainData[,c(1:16)]
+bankruptcy <- trainData$class
+We then check for the correlation among the 16 predictor variables. R provides the correlation plot as
+shown in Figure 10.2 . As we can see from the plot, there are quite a few ratios that are correlated more
+than 0.5 with one another .
+library(psycho)
+library(tidyverse)
+library(ggcorrplot)
+ 
+correl <- cor(predictors)
+ggcorrplot(correl,hc.order=FALSE,
+ type="lower",lab=TRUE,lab_size = 5,
+ outline.color = "black",tl.cex = 17,
+ colors = c("white", "white"))+
+ theme(legend.position = "none")
+Next we can check for multicollinearity using VIF for each of the predictors.
+library(ggplot2)
+library(car)
+predictionModel <- glm(as.factor(trainData$class) ~ .,
+ data = trainData,family=binomial(link='logit'))
+vif(predictionModel)
+##current_ratio_1 debt_equity_ratio_1 accounting_ratio_1      
+operating_ratio
+##4.565160 614.931070 624.345293      1.969324
+##marketing_ratio_1 operating_ratio_2 marketing_ratio_2      current_ratio_
+##11.756341 1.083820 2.825103      1.338527
+##current_ratio_3 operating_ratio_3 current_ratio_4      earning_ratio_
+##2.346815 27.912590 3.912966      2.240309
+##earning_ratio_2 current_ratio_5 debt_equity_ratio_2      
+operating_ratio
+##24.330196 3.678511 2.641648      1.019840
+The VIF of some of the financial ratios is very high (e.g., debt_equity_ratio_1 = 614.93 and
+accounting_ratio_1 = 624.34). Because some financial ratios are highly correlated and we are dealing
+with a binary outcome ( yes, a business will go bankrupt  versus no, a business will not go bankrupt ), we
+use penalized logistic regression.
+The model.matrix  function helps to dummy code the categorical (yes/no) variable so that the glmnet
+function can use the values. The function also helps create a matrix of the predictor variables.
+To examine the quality of predictions of the LASSO model, we look at the AUC ROC curve. AUC is the
+ratio between false positive and true positive. Higher values of AUC are better because in our case they
+indicate whether the model is able to distinguish between the yes and no outcomes. In the training
+dataset, we can also plot the AUC values for dif ferent values of log( λ). From the plot in Figure 10.3 , we
+can see that the best values of AUC are those of log( λ) between −12 and about −9. The values on top
+of the graph indicate the number of dummy-coded predictors used.
+predictors <-data.matrix(predictors)
+set.seed(1287994)
+ 
+cv.binomial <- cv.glmnet(x = predictors, y = as.factor(bankruptcy),
+ alpha=1, family="binomial",
+ nfolds=4, standardize = TRUE, type.measure = "auc")
+plot(cv.binomial)
+We then use the glmnet  function to run the penalized regression. Since we are running a penalized
+logistic regression, we specify that it is binomial. The term alpha  helps us specify whether we want to
+run a LASSO or ridge regression: alpha  = 1 will execute a LASSO while alpha  = 0 will run a ridge
+regression. Since in this case we are interested in variable selection, we will run a LASSO. Remember
+that although we do shrink predictor coef ficient estimates to near zero with ridge, it still uses all
+predictors, which makes it dif ficult to choose variables with ridge regression.
+Recall that the shrinkage parameter λ can vary between zero and infinity . To find the optimal value of λ,
+we use cross-validation. Here we conducted a four-fold cross-validation. W e also standardize the data
+to ensure that they are easy to interpret; more important, the developers of LASSO suggest that not
+standardizing can result in extreme values and dif ficulty in comparing predictors that may be measured
+on dif ferent units. Finally , we also ask R to output the optimal value of λ, which is called lambda.min .
+We can then find out which predictors LASSO shrunk to 0 using the lambda.min  parameter . We see

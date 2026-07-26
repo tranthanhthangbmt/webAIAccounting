@@ -1,0 +1,653 @@
+pared to average for all products.
+3.	 Descriptive analysis: Analysis showing sales by month or quarter for each year for the 
+top five customers. A bar chart or a line chart could be used. 
+
+3.3  What are Diagnostic Objectives?  3-13
+3.3  What are Diagnostic Objectives?
+LEARNING OBJECTIVE ➌
+Demonstrate how to develop diagnostic questions.
+Once we know what has happened, the next step is to determine why. Diagnostic questions 
+build on descriptive analyses and further explore the data to find the outcome’s cause. Diag-
+nostic analytics do this by looking for anomalies, correlations, patterns, or trends.
+Develop Diagnostic Questions
+Diagnostic questions identify a problem or issue to understand why an outcome occurred. 
+Illustration 3.11 shows diagnostic questions based on the results of the descriptive analysis 
+of Super Scooters’ sales in the previous section.
+ILLUSTRATION 3.11  Diagnostic Questions About Super Scooters’ Sales Decline
+Objective
+Initial Question
+Sub-questions
+Possible Measures
+Determine 
+why sales are 
+decreasing for 
+the Celeritas 
+and Kicks 
+models.
+What is driving 
+the sales volume 
+decrease?
+1.	Are there anomalies 
+in sales volume for the 
+Celeritas model?
+2.	Are there anomalies 
+in sales volume for the 
+Kicks model?
+3.	Are there identifiable 
+patterns in sales volume 
+for the Celeritas model?
+4.	Are there identifiable 
+patterns in sales volume 
+for the Kicks model?
+Sales volume
+Understand 
+the large 
+decrease 
+in sales at 
+the Seattle 
+location.
+What factors 
+are driving the 
+decrease in sales 
+at the Seattle 
+locations?
+1.	Are there unusual  
+patterns in the Seattle 
+location sales of 
+Celeritas models?
+2.	Are there unusual 
+patterns in the Seattle 
+location sales of the  
+Kicks model?
+Gross sales dollars
+Average gross sales 
+dollars
+Sales volume
+Why are sales decreasing, and specifically, why did the Seattle location have the largest 
+decrease? The questions and sub-questions dive deeper into the sales decrease by asking about 
+anomalies and unusual patterns. Now, identify the data and analyses that will answer these 
+questions.
+
+3-14  CHAPTER 3  Motivations and Objectives for Data Analysis
+Diagnostic Analyses Examples
+There are four common types of diagnostic analyses: anomaly detection, correlation, pattern 
+detection, and trend analysis.
+Using the Super Scooters questions in Illustration 3.11, let’s examine these sub-questions:
+	 1.	 Are there identifiable patterns in sales volume for the Celeritas model?
+	 2.	 Are there unusual patterns in the Seattle location’s Celeritas model sales? 
+Line charts can identify patterns by revealing repeating patterns in the data. Illustration 
+3.12 shows Celeritas sales by month for each year.
+ILLUSTRATION 3.12  Celeritas Sales Volume Patterns
+2,000
+1,800
+1,600
+1,400
+1,200
+1,000
+800
+600
+400
+200
+0
+Q1
+Q2
+Sales
+Volume
+Celeritas Sales Volume Pattern: 2023–2025
+Quarters of Sales Data
+Q3
+Q4 Q1
+Q2
+Q3
+Q4 Q1
+Q2
+Q3
+Q4
+2023
+2024
+2025
+The line charts in Illustration 3.12 do not appear to show a pattern in sales volume 
+for the Celeritas model. However, the line chart shows all locations, and previous analyses 
+revealed the Seattle location had a drop in Celeritas sales.
+The sales pattern in years 2023 and 2025 indicate that sales generally increase from the 
+first quarter to the third quarter:
+•	In 2023 there is a drop in sales in the fourth quarter, but 2024 and 2025 saw an increase 
+in fourth quarter sales.
+•	However, 2025 sales are below 2024 sales, and there was a large drop in the third quarter.
+To understand why sales are lower in 2025 and why there was a drop in the the third quarter 
+of 2025, we must further analyze sales volume by location.
+Illustration 3.13 shows an analysis examining monthly sales of the Celeritas at the Seat-
+tle location.
+
+3.3  What are Diagnostic Objectives?  3-15
+ILLUSTRATION 3.13  Seattle 
+Location’s Monthly Celeritas  
+Sales – 2025
+Sales
+Volume
+115
+Celeritas 2025 Monthly Sales Volume: Seattle
+105
+95
+85
+75
+65
+55
+45
+35
+25
+15
+Jan.
+Feb.
+2025 (Months)
+Mar.
+Apr.
+May
+Jun.
+Jul.
+Aug.
+Sep.
+Nov.
+Oct.
+Dec.
+5
+The column chart of Celeritas sales over 2025 shows one thing and suggests another:
+•	In 2025 there are several months with no sales.
+•	This could be a contributing factor to the decline in overall Celeritas sales in 2025.
+The next step would be asking management what happened in March 2025 that led to six 
+months without any sales of the Celeritas model. This also raises additional questions to 
+investigate:
+•	Did sales drop at the Seattle location only?
+•	Was the Celeritas model the only product with declining sales?
+This investigative process is called exploratory data analysis, which you learn about later in 
+this course.
+Apply It 3.3
+Determine the  
+Risk of Material 
+Misstatement of Sales
+Data   Auditing   During the Best Bakes Bakery financial statement audit, you have been asked to 
+determine if there are unusual changes in sales from prior years that might affect risks of material 
+misstatement. You have been given an excerpt of the transactions in an Excel file so that you know 
+the data available.
+101
+101
+101
+521121 Bluebird Cafe
+Bluebird Cafe
+Bluebird Cafe
+Bluebird Cafe
+Bluebird Cafe
+Bluebird Cafe
+Walrus Ice Cream
+521121
+101
+521121
+521121
+101
+521121
+101
+521121
+(720) 296–2323
+(720) 296–2323
+(720) 296–2323
+(720) 296–2323
+(720) 296–2323
+(720) 296–2323
+102
+521425
+(303) 674–0930
+SalesOrder
+Number
+Customer
+Number
+80521
+80521
+80521
+80521
+80521
+80521
+80521
+Customer
+ZipCode
+CO
+CO
+CO
+CO
+CO
+CO
+CO
+Customer
+State
+Customer
+Phone
+Customer
+Name
+524 W Laurel St
+524 W Laurel St
+524 W Laurel St
+524 W Laurel St
+524 W Laurel St
+524 W Laurel St
+125 W Mountain Ave
+Fort Collins
+Fort Collins
+Fort Collins
+Fort Collins
+Fort Collins
+Fort Collins
+Fort Collins
+Customer
+Address
+Customer
+City
+853200
+853300
+853600
+Caramel Apple
+2/19/2022
+2/19/2022
+2/19/2022
+2/19/2022
+2/19/2022
+2/19/2022
+3/10/2022
+Poppyseed Bagel
+853500
+Cheesecake Bite
+Chocolate Chip Cookie
+853800
+Blueberry Scone
+853900
+Raspberry Scone
+$ 57.60
+$ 68.40
+$ 45.00
+$ 34.50
+$ 63.60
+$    6.50
+853100
+Cinnamon Bun
+$ 34.80
+0.160193
+0.333333
+Inventory
+Code
+Inventory
+Description
+Profit
+SalesOrder
+Date
+36
+24
+25
+30
+24
+10
+24
+$ 3.45
+$ 4.85
+$ 3.40
+$ 3.20
+$ 4.10
+$ 4.05
+$ 4.35
+SalesOrder
+Quantity
+Inventory
+Price
+$ 124.20
+$ 116.40
+$   85.00
+$   96.00
+$   98.40
+$   40.50
+$ 104.40
+Gross
+Sales
+$ 1.85
+$ 2.00
+$ 1.60
+$ 2.05
+$ 1.45
+$ 3.40
+$ 2.90
+Inventory
+Cost
+$ 66.60
+$ 48.00
+$ 40.00
+$ 61.50
+$ 34.80
+$ 34.00
+$ 69.60
+$ 66.60
+$ 48.00
+$ 40.00
+$ 61.50
+$ 34.80
+$ 34.00
+$ 69.60
+0.463768
+0.587629
+0.529412
+0.359375
+0.646341
+Profit
+Margin
+Costof
+GoodsSold
+
+3-16  CHAPTER 3  Motivations and Objectives for Data Analysis
+1.	 What is the objective of the analysis?
+2.	 Develop three questions relevant to the objective, and state the measures necessary to answer 
+them.
+3.	 What analyses will you use to answer these three questions?
+SOLUTION
+1.	 The objective is to analyze the transactions from 2022 to 2025 for unusual changes. The anal-
+ysis will provide the auditor with information to determine the nature, timing, and extent of 
+audit procedures.
+2.
+Questions
+Measures
+	 1.	Are there any unusual changes in total 
+revenue over the years 2022–2025?
+Quarterly gross sales
+	 2.	Are there any unusual changes in total 
+revenue over the years by location?
+Quarterly gross sales
+	 3.	Are there any unusual changes in revenue 
+by product over the years?
+Sales volume by product
+3.	 Anomaly, pattern, and trend analyses can be prepared to answer the questions.
+3.4  What are Predictive Objectives?
+LEARNING OBJECTIVE ➍
+Demonstrate how to develop predictive questions.
+So far, you have learned how to develop descriptive questions to find out what happened in the 
+past and diagnostic questions to understand why. What if you want to know what may happen 
+in the future? In this case, you would ask predictive questions.
+Develop Predictive Questions
+When making loan decisions, banks use historical information about whether a potential 
+borrower pays bills consistently and on time to predict if they will continue to do so. In the 
+same way, predictive analytics use past and present data to create models so businesses can 
+make predictions.
+The use of predictive analytics is not new in the accounting profession, but as the avail-
+ability of data and software tools to perform predictive analytics has increased, so has per-
+forming these analytics in all areas of accounting:
+•	Financial accountants can identify trends in sales or expenses.
+•	Cost accountants can predict costs, create forecasts, and evaluate cost drivers.
+•	Auditors identify potential material misstatements using predictive analytics.
+•	Tax accountants may use predictive analytics for tax planning.
+
+3.4  What are Predictive Objectives?  3-17
+Suppose Super Scooters is preparing their budget for the next year:
+•	They want to predict revenue for 2026 assuming a 10% increase in sales volume.
+•	They also believe there will be a 10% increase in warranty costs.
+•	Finally, they are considering discontinuing the Celeritas model and want to know if that 
+will change predicted revenue.
+What is the overall objective of the data analysis? What questions should Super Scooters 
+ask to meet that objective?
+When determining predictive questions, it is helpful to ask, “What do I want to do with 
+the answer?” Illustration 3.14 shows the overall objective of predicting revenue for 2026, the 
+initial question, plus specific sub-questions.
+ILLUSTRATION 3.14  Predictive 
+Questions to Forecast Super 
+Scooters’ Revenue
+Objective
+Initial Question
+Sub-questions
+Predict revenue for 2026.
+How much will revenue 
+change with a 10% increase in 
+sales volume?
+How much will revenue change for 
+each model?
+How much will revenue change at 
+each location?
+How will revenue be affected 
+with a 10% increase in 
+warranty costs?
+What factors influence warranty 
+expense?
+How will revenue be affected 
+by discontinuing the Celeritas 
+and/or the Kicks model?
+How much will revenue at each 
+location be affected by discontinuing 
+the Celeritas and/or the Kicks 
+model? 
+Like all questions, predictive questions should be related to the objective, specific, mea-
+surable, and the appropriate data and analytics should be used to answer them.
+Predictive Analyses Examples
+Two common analyses that answer predictive questions are trendlines and regression 
+analysis.2
+Trendlines
+Trendlines show the underlying functional relationship of data:
+•	A functional relationship is the effect of an independent variable on a dependent 
+variable.
+•	A linear function shows steady increases or decreases over the range of the independent 
+variable.
+The Excel Trendline tool can help determine if the data follow a linear function. Remem-
+ber that Super Scooters believes warranty costs will rise by 10%. Further, warranty costs are 
+believed to be driven by sales.
+2There are many other predictive analytical methods, such as artificial intelligence, which are beyond the 
+scope of this chapter.
+
+3-18
+CHAPTER 3 Motivations and Objectives for Data Analysis
+$0
+$0
+5,000
+10,000
+15,000
+Gross Sales
+20,000
+25,000
+35,000
+30,000
+$200
+$400
+$600
+$800
+$1,000
+$1,200
+$1,400
+$1,600
+Gross Sales and Warranty Expense
+Warranty
+Expense
+Trendline
+y = 0.0431x + 18.632
+R2 = 0.9064
+ ILLUSTRATION 3.15  Trendline 
+Using Sales and Warranty Expense 
+ The trendline supports a linear relationship:
+•  As gross sale amounts increase, warranty expense also increases. 
+•  The equation for the trendline is shown in the chart. (y = 0.0431x + 18.632, R² = 0.9064). 
+That equation can be used to predict future warranty expense based on expected sales 
+where y is the amount of warranty expense and x is the amount of the gross sale. For example, 
+if a gross sale was $2,000, then the expected warranty expense would be:
+ ( 0.0431 ×  2 , 000 ) + 18.632 =  $ 104.83 
+If warranty costs increase by 10% as Super Scooters expects, the prediction model can be 
+adjusted by increasing 0.0431 by 10%. Find the trendline tool Chart Elements in Excel by 
+clicking on the graph and then the plus sign ( Illustration 3.16 ). 
+fx
+1
+E
+B
+C
+D
+A
+F
+G
+H
+I
+J
+Sheet1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+AutoSave
+Oﬀ
+$0
+$0
+5,000
+10,000
+15,000
+Gross Sales
+20,000
+25,000
+35,000
+30,000
+$200
+$400
+$600
+$800
+$1,000
+$1,200
+$1,400
+$1,600
+Gross Sales and Warranty Expense
+Warranty
+Expense
+Trendline
+y = 0.0431x + 18.632
+R2 = 0.9064
+Chart Elements
+Axes
+Axis Titles
+Chart Title
+Data Labels
+Error Bars
+Gridlines
+Legend
+Trendline
+ ILLUSTRATION 3.16  Trendline Choice in Chart Elements 
+Illustration 3.15 shows a trendline created in Excel to determine if there is a linear rela-
+tionship between sales and warranty expense for Super Scooters.
+
+3.4  What are Predictive Objectives?  3-19
+Note that clicking on the plus sign at the top left of the chart includes the option to select 
+Trendline, and then More Options. (Illustration 3.17).
+ILLUSTRATION 3.17  Trendline Options in Microsoft Excel
+fx
+1
+A
+B
+C
+D
+E
+Sheet1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+AutoSave
+Oﬀ
+Axes
+Axis Titles
+Chart Title
+Gridlines
+Trendline
+Legend
+Data Labels
+Error Bars
+Linear
+Exponential
+Linear Forecast
+Two Period Moving Average
+More Options...
+Chart Elements
+Exponential
+Linear
+Logarithmic
+Polynomial Order
+Power
+Moving
+Average
+Period
+Automatic
+Trendline Name
+Custom
+Forecast
+Forward
+Backward
+Set Intercept
+periods
+periods
+Linear (Total
+Warranty)
+Display Equation on chart
+Display R-squared value on chart
+0.0
+0.0
+0.0
+Trendline Options
+Format Trendline
+Trendline Options
+2
+2
+The Format Trendline box that opens lets the user choose other functions (exponen-
+tial, logarithmic, polynomial, power, and moving average). This can be useful if the pattern 
+of the data does not appear linear. Also, click on the boxes to display the equation and the 
+R-square on the chart. The R-square is a measure of how well the line fits the data. The closer 
+to 1, the better the fit. The trendline in Illustration 3.16 has a very strong R-square of 0.9064. 
+We will discuss R-square in more detail in the next section.
+Linear Regression
+While you may not prepare a predictive model during your career, you will likely use 
+predictive models or need to interpret their output. Linear regression is a tool for building 
+mathematical and statistical models to explain the relationship between a dependent variable 
+and one or more independent variables.
+Predictive analytics build models to predict or better understand a phenomenon. To find 
+out what factors influence warranty expense, we would build a model that predicts warranty 
+expense.
+
+3-20  CHAPTER 3  Motivations and Objectives for Data Analysis
+Building a model requires identifying the variables that will be included in it:
+•	A variable is a data field used for analysis.
+•	A dependent variable is the outcome measure (warranty expense).
+•	Independent variables are the variables that influence the dependent variable (specific 
+variables that we believe influence warranty expense, such as sales or number of war-
+ranty claims).

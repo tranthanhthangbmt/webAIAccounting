@@ -1,0 +1,257 @@
+\documentclass[aspectratio=169]{beamer}
+\usetheme{Madrid}
+\usecolortheme{default}
+\usepackage[utf8]{inputenc}
+\usepackage[T5]{fontenc}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{booktabs}
+
+\setbeamertemplate{caption}[numbered]
+\renewcommand{\figurename}{Hình}
+\renewcommand{\thefigure}{1.\arabic{figure}}
+
+\title[Chương 1: Khái niệm Học sâu]{Học Sâu (Deep Learning) \\ \vspace{0.5cm} \Large Chương 1: Khái niệm Học sâu}
+\author{Đại học Đông Á}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame}{Nội dung chương}
+    \tableofcontents
+\end{frame}
+
+\section{1. Trí tuệ nhân tạo, Máy học và Học sâu}
+
+\begin{frame}{Trí tuệ nhân tạo, Máy học và Học sâu}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item \textbf{Trí tuệ nhân tạo (AI):} Ra đời vào những năm 1950, nỗ lực tự động hóa các công việc trí tuệ của con người.
+            \item \textbf{Học máy (Machine Learning - ML):} Một hệ thống học tập từ dữ liệu thay vì được lập trình rõ ràng các quy tắc.
+            \item \textbf{Học sâu (Deep Learning - DL):} Một nhánh của Học máy, tập trung vào việc học các "biểu diễn" dữ liệu thông qua các mô hình gồm nhiều lớp (layers) liên tiếp.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{../../images/ch01/ai-ml-dl.07201556.png}
+            \caption{Mối quan hệ giữa AI, ML và DL}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Trí tuệ nhân tạo (AI) Cổ điển}
+    \begin{itemize}
+        \item \textbf{Symbolic AI (AI Biểu tượng):} Phổ biến từ 1950 - 1980. Con người cố gắng tạo ra AI bằng cách viết ra vô số quy tắc logic (If-Then-Else).
+        \item Kỷ nguyên này rất thành công ở các bài toán logic rõ ràng hoặc chơi cờ (như cờ vua). Hệ thống được gọi là \textbf{Hệ chuyên gia (Expert Systems)}.
+        \item \textbf{Tuy nhiên, điểm yếu là:} Gần như không thể giải quyết các bài toán mơ hồ, mang tính tri giác cao như: Nhận dạng hình ảnh, Dịch thuật ngôn ngữ tự nhiên, hoặc Nhận diện giọng nói.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Sự ra đời của Học máy (Machine Learning)}
+    \begin{itemize}
+        \item Khi Symbolic AI gặp giới hạn, Học máy (Machine Learning) xuất hiện như một hướng tiếp cận đột phá.
+        \item Triết lý cốt lõi: Thay vì con người phải vất vả viết từng quy tắc, tại sao không để máy tính \textbf{tự tìm ra quy tắc} thông qua việc phân tích dữ liệu thống kê?
+        \item Những thuật toán kinh điển ra đời: Cây quyết định (Decision Trees), Máy vectơ hỗ trợ (SVM), Rừng ngẫu nhiên (Random Forest).
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Sự trỗi dậy của Học sâu (Deep Learning)}
+    Tại sao Học sâu (Deep Learning) lại bùng nổ mạnh mẽ vào thập niên 2010?
+    \begin{enumerate}
+        \item \textbf{Phần cứng (Hardware):} Sự phát triển thần tốc của GPU (NVIDIA), và sau này là TPU (Google), cung cấp sức mạnh tính toán song song khổng lồ.
+        \item \textbf{Dữ liệu (Data):} Sự bùng nổ của kỷ nguyên Internet đã tạo ra các bộ dữ liệu khổng lồ (ví dụ: ImageNet với hàng triệu ảnh gán nhãn).
+        \item \textbf{Thuật toán (Algorithms):} Những cải tiến về hàm kích hoạt (như ReLU) và phương pháp tối ưu hóa giúp huấn luyện mạng nơ-ron sâu (hàng chục, hàng trăm lớp) mà không bị lỗi "Triệt tiêu đạo hàm" (Vanishing Gradient).
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}{Những thành tựu vượt bậc của Học sâu}
+    Ngày nay, Học sâu đã thay đổi hoàn toàn cục diện công nghệ toàn cầu:
+    \begin{itemize}
+        \item \textbf{Thị giác máy tính (Computer Vision):} Phân loại ảnh, phát hiện vật thể, nhận dạng khuôn mặt, chẩn đoán y khoa tự động qua ảnh X-quang/MRI.
+        \item \textbf{Xử lý ngôn ngữ tự nhiên (NLP):} Dịch máy thời gian thực (Google Translate), phân tích cảm xúc, và sự bùng nổ của các Mô hình Ngôn ngữ Lớn (như ChatGPT, Gemini).
+        \item \textbf{AI tạo sinh (Generative AI):} Sinh ảnh sắc nét từ văn bản (Midjourney, DALL-E), tạo âm thanh, và sáng tác nghệ thuật.
+    \end{itemize}
+\end{frame}
+
+\section{2. Mô hình lập trình mới}
+
+\begin{frame}{Mô hình Lập trình Mới}
+    \begin{columns}
+        \column{0.45\textwidth}
+        \textbf{Lập trình Cổ điển:}
+        \begin{itemize}
+            \item Input: Quy tắc (Rules) + Dữ liệu (Data).
+            \item Output: Câu trả lời (Answers).
+        \end{itemize}
+        \vspace{0.5cm}
+        \textbf{Học máy (Machine Learning):}
+        \begin{itemize}
+            \item Input: Dữ liệu (Data) + Câu trả lời (Answers).
+            \item Output: Quy tắc (Rules).
+        \end{itemize}
+        
+        \column{0.55\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{../../images/ch01/a-new-programming-paradigm.e8d1a1c2.png}
+            \caption{Mô hình lập trình cổ điển vs. Học máy}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\section{3. Học biểu diễn dữ liệu}
+
+\begin{frame}{Học biểu diễn từ dữ liệu}
+    \begin{columns}
+        \column{0.4\textwidth}
+        Định nghĩa về Học máy: Tìm ra một \textbf{biểu diễn (representation)} có ý nghĩa cho dữ liệu đầu vào.
+        
+        \vspace{0.3cm}
+        Yêu cầu để học máy hoạt động:
+        \begin{itemize}
+            \item Dữ liệu đầu vào (Input data)
+            \item Ví dụ về đầu ra mong đợi
+            \item Phương pháp đo lường hiệu suất (Feedback)
+        \end{itemize}
+        
+        \column{0.6\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{../../images/ch01/learning_representations.97fa3c4b.png}
+            \caption{Cách học máy chuyển đổi biểu diễn dữ liệu}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Ví dụ về Biểu diễn Không gian}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Xét các điểm dữ liệu (trắng và đen) trên mặt phẳng 2D.
+            \item Chúng ta cần tìm quy tắc tách biệt hai nhóm điểm màu này.
+            \item \textbf{Giải pháp:} Tìm một hệ trục tọa độ mới hoặc một phép biến đổi toán học sao cho các điểm dữ liệu được tách biệt rõ ràng (tuyến tính).
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{../../images/ch01/example_data_points.28a84f5a.png}
+            \caption{Các điểm dữ liệu cần phân loại}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Biểu diễn đa lớp trong Học Sâu}
+    \begin{columns}
+        \column{0.5\textwidth}
+        Học sâu (Deep Learning) không chỉ tìm 1 phép biến đổi, mà là hàng chục, hàng trăm phép biến đổi liên tiếp thông qua các \textbf{lớp (layers)}.
+        \begin{itemize}
+            \item Input đi qua Layer 1, Layer 2...
+            \item Mỗi layer trích xuất những đặc trưng phức tạp dần (từ đường nét $\rightarrow$ hình khối $\rightarrow$ khái niệm).
+            \item Ví dụ: Phân loại chữ số viết tay (MNIST).
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{../../images/ch01/mnist_representations.fdb30a2d.png}
+            \caption{Biểu diễn số học qua các layers}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\section{4. Cơ chế hoạt động của mạng nơ-ron}
+
+\begin{frame}{Mạng Nơ-ron (Neural Network) là gì?}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Các lớp (layers) được xếp chồng lên nhau thành một chuỗi.
+            \item Được tham số hóa bởi các \textbf{trọng số (weights)}.
+            \item Mục tiêu: Tìm bộ trọng số lý tưởng để mạng có thể ánh xạ chính xác Input $\rightarrow$ Output.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{../../images/ch01/a_deep_network.32f0eedf.png}
+            \caption{Cấu trúc một mạng học sâu}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Cơ chế hoạt động (1): Hàm mất mát (Loss Function)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        Làm sao để biết mạng đang dự đoán sai bao nhiêu?
+        \begin{itemize}
+            \item \textbf{Hàm mất mát (Loss function):} Đo lường khoảng cách giữa Dự đoán (Prediction) và Mục tiêu thực tế (True Target).
+            \item Là "điểm số" đánh giá hiệu suất của mô hình. Khoảng cách càng nhỏ, mô hình càng tốt.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{../../images/ch01/deep-learning-in-3-figures-1.55e5a910.png}
+            \caption{Đánh giá kết quả bằng Loss Function}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Cơ chế hoạt động (2): Bộ tối ưu hóa (Optimizer)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        Làm sao để mô hình tốt hơn?
+        \begin{itemize}
+            \item Sử dụng điểm số từ Loss function làm tín hiệu phản hồi.
+            \item \textbf{Bộ tối ưu hóa (Optimizer):} Triển khai thuật toán Lan truyền ngược (Backpropagation) để điều chỉnh dần các \textbf{Trọng số (Weights)}.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{../../images/ch01/deep-learning-in-3-figures-2.bb3cebc2.png}
+            \caption{Cập nhật trọng số thông qua Optimizer}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Cơ chế hoạt động (3): Vòng lặp huấn luyện}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \textbf{Training loop (Vòng lặp huấn luyện):}
+        \begin{enumerate}
+            \item Nhận một lô dữ liệu (Batch of inputs).
+            \item Dự đoán kết quả (Forward pass).
+            \item Tính hàm mất mát (Loss).
+            \item Cập nhật trọng số (Backward pass).
+        \end{enumerate}
+        Lặp lại quá trình này hàng ngàn lần cho đến khi mạng "hội tụ".
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{../../images/ch01/deep-learning-in-3-figures-3.de178fa4.png}
+            \caption{Hoàn chỉnh vòng lặp huấn luyện}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\section{Tổng kết}
+
+\begin{frame}{Tổng kết Chương 1}
+    \begin{itemize}
+        \item \textbf{AI, ML, DL:} Là 3 khái niệm bao hàm nhau. Học sâu (DL) là một nhánh mạnh mẽ của Học máy (ML).
+        \item \textbf{Bản chất Học máy:} Không lập trình thuật toán giải quyết trực tiếp, mà lập trình cơ chế để máy tính tự động tìm ra "Biểu diễn dữ liệu" và quy tắc từ dữ liệu có sẵn.
+        \item \textbf{Mạng nơ-ron sâu:} Sử dụng hàng loạt "lớp" (layers) liên tiếp để gỡ rối các biểu diễn dữ liệu phức tạp.
+        \item \textbf{Cơ chế then chốt:} Dữ liệu đầu vào, Trọng số (Weights), Hàm mất mát (Loss function) và Bộ tối ưu hóa (Optimizer) tạo nên linh hồn của Học Sâu.
+    \end{itemize}
+\end{frame}
+
+\end{document}

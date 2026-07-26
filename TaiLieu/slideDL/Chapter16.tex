@@ -1,0 +1,228 @@
+\documentclass[aspectratio=169]{beamer}
+\usetheme{Madrid}
+\usecolortheme{default}
+\usepackage[utf8]{inputenc}
+\usepackage[T5]{fontenc}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{amsmath}
+
+\setbeamertemplate{caption}[numbered]
+\renewcommand{\figurename}{Hình}
+\renewcommand{\thefigure}{16.\arabic{figure}}
+
+\title[Chương 16: AI Tạo sinh \& LLMs]{Học Sâu (Deep Learning) \\ \vspace{0.5cm} \Large Chương 16: Sinh văn bản \& Kỷ nguyên AI Tạo sinh}
+\author{Đại học Đông Á}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame}{Nội dung chương}
+    \tableofcontents
+\end{frame}
+
+\section{1. Kỷ nguyên AI Tạo sinh (Generative AI)}
+
+\begin{frame}{Trí tuệ Nhân tạo Tạo sinh là gì?}
+    \begin{itemize}
+        \item Khác biệt với AI Phân loại (Classification) dùng để nhận diện dữ liệu, \textbf{Generative AI} được thiết kế để \textbf{tạo ra nội dung hoàn toàn mới} (Văn bản, Hình ảnh, Âm thanh, Code).
+        \item AI tạo sinh hoạt động bằng cách học các mẫu (patterns) và cấu trúc thống kê ẩn (Latent space) từ lượng dữ liệu khổng lồ của con người.
+        \item Sau đó, nó thực hiện một phép "lấy mẫu" (Sampling) từ không gian tiềm ẩn đó để tạo ra sản phẩm.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Sự kết hợp giữa AI và Nghệ thuật}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item AI không hề "cướp" đi sự sáng tạo, mà nó đóng vai trò như một chiếc bút vẽ vô hạn quyền năng (Augmented Intelligence).
+            \item Midjourney, DALL-E, hay Stable Diffusion cho phép những người không có kỹ năng vẽ tay vẫn có thể tạo ra các tác phẩm nghệ thuật phức tạp chỉ bằng ngôn ngữ (Prompt engineering).
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch16/keras-midjourney-image.edfbf674.png}
+            \caption{Hình ảnh tạo ra từ Midjourney bằng văn bản}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\section{2. Mô hình Ngôn ngữ Lớn (LLMs) \& Chiến lược lấy mẫu}
+
+\begin{frame}{Sự bùng nổ của Large Language Models (LLMs)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Nhờ kiến trúc Transformer (Chương 15), khả năng mở rộng (Scale-up) của mô hình ngôn ngữ bùng nổ dữ dội.
+            \item LLM sử dụng kiến trúc \textbf{Decoder-only} (Dự đoán từ tiếp theo tự hồi quy).
+            \item Số lượng tham số (Parameters) tăng từ vài trăm triệu (ELMo, GPT-1) lên tới hàng trăm tỷ, nghìn tỷ (GPT-4, PaLM, LLaMA).
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch16/llm-sizes.34d71a34.png}
+            \caption{Sự gia tăng kích thước của LLM theo thời gian}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Làm sao AI có tính "Sáng tạo"?}
+    \begin{itemize}
+        \item Bản chất của LLM là xuất ra một mảng Xác suất (Probability Distribution) cho hàng chục nghìn từ ngữ tiếp theo.
+        \item Nếu ta luôn chọn từ có xác suất cao nhất (Greedy Search), câu văn sẽ vô cùng rập khuôn, lặp đi lặp lại và nhàm chán (Giống như Autocomplete trên điện thoại).
+        \item \textbf{Giải pháp:} Đưa sự \textbf{Ngẫu nhiên (Stochasticity)} vào việc chọn từ bằng các chiến lược Lấy mẫu (Sampling Strategies).
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Kỹ thuật Nhiệt độ (Temperature Sampling)}
+    \begin{itemize}
+        \item Nhiệt độ $T$ là một siêu tham số (Hyperparameter) điều khiển mức độ "Sáng tạo" (Ngẫu nhiên) của văn bản sinh ra.
+        \item Công thức Softmax điều chỉnh với $T$:
+        $$ p_i = \frac{\exp(\text{logit}_i / T)}{\sum_j \exp(\text{logit}_j / T)} $$
+        \item \textbf{Khi $T < 1$ (VD: $0.1$):} Các từ có xác suất cao sẽ được phóng to (Trở nên bảo thủ, phù hợp cho viết Code, Toán).
+        \item \textbf{Khi $T > 1$ (VD: $1.5$):} Các xác suất bị san bằng, mô hình dám chọn những từ "lạ" (Trở nên sáng tạo, phù hợp cho viết Thơ, Truyện).
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Kỹ thuật Top-K và Top-p (Nucleus Sampling)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        Dù có Nhiệt độ, AI đôi lúc vẫn chọn phải những từ vô nghĩa nếu xác suất ban đầu quá thấp.
+        \begin{itemize}
+            \item \textbf{Top-K:} Lọc ra $K$ từ có xác suất cao nhất (VD: 50 từ). Sau đó chỉ lấy mẫu ngẫu nhiên trong nhóm này.
+            \item \textbf{Top-p (Nucleus):} Lọc ra một nhóm từ sao cho Tổng xác suất cộng dồn của chúng vừa chạm ngưỡng $p$ (VD: $0.9$). Cách này rất linh hoạt, số lượng từ được chọn sẽ tự động co giãn tùy ngữ cảnh.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch16/sampling-strategies.0545bedf.png}
+            \caption{Cơ chế chặn lọc của Top-K và Top-p}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\section{3. Tinh chỉnh Mô hình Tỷ tham số với LoRA}
+
+\begin{frame}{Vấn đề của Fine-Tuning LLM}
+    \begin{itemize}
+        \item Huấn luyện lại (Fine-tune) toàn bộ một mô hình LLM 7 tỷ tham số (VD: LLaMA-7B) đòi hỏi lượng RAM GPU khổng lồ (vượt quá 100GB).
+        \item Điều này là bất khả thi đối với các nhà nghiên cứu độc lập và sinh viên, những người chỉ có card đồ họa máy tính cá nhân (16GB - 24GB).
+        \item \textbf{LoRA (Low-Rank Adaptation)} được Microsoft giới thiệu năm 2021 để giải quyết bài toán này.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Giải pháp Đại số Tuyến tính: LoRA (Low-Rank Adaptation)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Đóng băng toàn bộ trọng số gốc $W_0$ của mô hình.
+            \item Chỉ cập nhật một ma trận thay đổi nhỏ $\Delta W$.
+            \item \textbf{Mấu chốt Toán học:} Phân rã ma trận khổng lồ $\Delta W$ ($d \times k$) thành tích của hai ma trận cực kỳ nhỏ $A$ ($d \times r$) và $B$ ($r \times k$).
+            \item Số chiều Rank $r$ thường rất nhỏ (VD: 4, 8, 16).
+            $$ W_{\text{mới}} = W_0 + (A \times B) $$
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.5\textheight,keepaspectratio]{../../images/ch16/lora-layer.b3119596.png}
+            \caption{Cơ cấu ma trận A và B của Lớp LoRA}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Sự hiệu quả đáng kinh ngạc của LoRA}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Số lượng tham số cần Train giảm xuống cực kỳ khủng khiếp.
+            \item VD: Ma trận gốc $10000 \times 10000 = 100,000,000$ tham số.
+            \item Nếu dùng LoRA Rank $r=8$: Ma trận A ($10000 \times 8$) và B ($8 \times 10000$) $\rightarrow$ Tổng cộng chỉ có $160,000$ tham số (Giảm hơn 600 lần).
+            \item Hiệu năng (Độ thông minh) của mô hình gần như không thua kém việc Fine-tune toàn bộ trọng số.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch16/lora-memory.c02fdac4.png}
+            \caption{LoRA tiết kiệm tối đa VRAM GPU}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\section{4. Đa phương thức (Multimodal) \& Kỹ thuật Huấn luyện}
+
+\begin{frame}{Kỹ thuật huấn luyện Transformer: Learning Rate Warmup}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Khác với mạng CNN hay LSTM, mạng Transformer cực kỳ nhạy cảm ở giai đoạn đầu lúc khởi tạo ngẫu nhiên.
+            \item Nếu dùng Tốc độ học (Learning Rate) quá lớn ngay từ đầu, gradient sẽ phát nổ.
+            \item \textbf{Warmup:} Learning Rate bắt đầu ở $0$, tăng tuyến tính dần dần trong vài nghìn bước đầu tiên (Warmup phase), sau đó mới giảm dần theo hàm Cosine.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch16/learning-rate-warmup.e99ec2a4.png}
+            \caption{Đồ thị Learning Rate Warmup Decay}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Tiến hóa thành Mô hình Đa phương thức (Multimodal Transformer)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Khả năng của LLM không chỉ giới hạn ở Văn bản (Text).
+            \item Bằng cách kết hợp một Bộ nén hình ảnh (Vision Encoder - như ViT) nối vào mô hình Ngôn ngữ, ta có \textbf{Vision-Language Model (VLM)}.
+            \item AI giờ đây không chỉ biết đọc chữ, mà còn biết "Nhìn" và thảo luận về bức ảnh bạn gửi.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch16/multimodal-transformer.974dc2ec.png}
+            \caption{Kiến trúc Vision-Language Model}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Thực nghiệm với Mô hình Đa phương thức (Gemma/PaliGemma)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Truyền một bức ảnh vào mô hình VLM (như PaliGemma).
+            \item Đưa ra Prompt: "Hãy miêu tả chi tiết những gì bạn thấy trong bức ảnh này".
+            \item Mô hình sử dụng Attention để ánh xạ sự chú ý từ các vùng trong ảnh sang các từ ngữ tương ứng, đưa ra một đoạn miêu tả cực kỳ chuẩn xác và giống con người.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch16/gemma-test-image.ddb3b630.png}
+            \caption{AI tự động miêu tả hình ảnh bằng văn bản}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\section{Tổng kết}
+
+\begin{frame}{Tổng kết Chương 16}
+    \begin{itemize}
+        \item \textbf{Large Language Models (LLMs):} Sự trỗi dậy của mô hình siêu khổng lồ nhờ kiến trúc Transformer Decoder.
+        \item \textbf{Chiến lược Lấy mẫu (Sampling):} Sử dụng Nhiệt độ (Temperature), Top-K, Top-p để cân bằng giữa sự logic và tính sáng tạo của AI.
+        \item \textbf{LoRA (Low-Rank Adaptation):} Kỹ thuật phân rã ma trận thần thánh giúp Fine-tune mô hình tỷ tham số trên máy tính cá nhân.
+        \item \textbf{Multimodal (Đa phương thức):} Bước tiến tiếp theo của AI, kết hợp Viễn cảnh (Vision) và Ngôn ngữ (Language) vào chung một không gian biểu diễn.
+    \end{itemize}
+\end{frame}
+
+\end{document}

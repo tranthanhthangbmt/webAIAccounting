@@ -1,0 +1,653 @@
+3. Cuối cùng, sử dụng tùy chọn bộ lọc Excel trong tệp dữ liệu để lọc mức lương từ cao nhất đến 
+thấp nhất.
+Hình minh họa 2.37 cho thấy 5 mức lương cao nhất và 5 mức lương thấp nhất.
+MINH HỌA 2.36  Đại học 
+Dữ liệu tiền lương
+MINH HỌA 2.37  Đại học 
+Mức lương cao nhất đến thấp nhất
+ngoại hối
+1
+A
+B
+Trang 1
+2
+3
+4
+6
+1853
+2227
+7814
+6166
+giáo sư
+giáo sư
+5
+9964
+giáo sư
+giáo sư
+$ 426.091,00
+$ 425.000,00
+$ 406.909,00
+$ 397.118,00
+giáo sư
+$468,675.00
+Mã Số Nhân Viên
+Bộ lọc hàng đầu: Năm mức lương đại học hàng đầu
+Bộ lọc dưới cùng: Năm mức lương đại học dưới cùng
+Tiêu đề
+C
+Lương hàng năm
+Tự động Lưu
+Oﬀ
+ngoại hối
+1
+A
+B
+Trang 1
+2
+3
+4
+6
+1674
+3031
+5008
+6845
+Trợ lý nghiên cứu sau đại học
+Trợ lý tốt nghiệp
+5
+4766
+Trợ lý tốt nghiệp
+giáo sư
+$159,00
+$152,00
+$123,00
+Nghệ sĩ đồ họa xuất bản
+$172,00
+Mã Số Nhân Viên
+Tiêu đề
+C
+Lương hàng năm
+Tự động Lưu
+Oﬀ
+$78,00
+C2
+C6
+$ 468.675,00
+Có sự khác biệt lớn
+giữa mức lương cao nhất
+nhân viên và thấp nhất
+nhân viên được trả lương
+$78,00
+
+2-28 
+CHƯƠNG 2  Kỹ năng phân tích dữ liệu cơ bản
+Do mức lương trung bình cao hơn bao nhiêu so với mức lương trung vị, nên có khả năng 
+mức lương thấp hơn so với mức lương cao hơn. Chúng ta có thể hiểu rõ hơn sự khác biệt
+sự khác biệt giữa số tiền lương trung bình và trung vị bằng cách xem xét mức độ biến động trong 
+dữ liệu.
+Các biện pháp phân tán
+Trong ví dụ về tiền lương, có sự khác biệt lớn giữa mức trung bình và mức trung bình hàng năm. 
+số tiền lương. Các phép đo độ phân tán, mô tả mức độ biến đổi trong 
+dữ liệu, có thể giúp tìm ra nguyên nhân của sự chênh lệch này. Dữ liệu có được trải rộng ra hay chúng nhỏ gọn? trong 
+nói cách khác, tất cả các quan sát hoặc điểm dữ liệu cách nhau bao xa so với giá trị trung bình?
+Phương sai và độ lệch chuẩn
+Có hai biện pháp phân tán được sử dụng rộng rãi:
+• Phương sai là khoảng cách bình phương trung bình giữa các điểm dữ liệu trong tập dữ liệu và giá trị trung bình.
+• Độ lệch chuẩn là căn bậc hai của phương sai.
+Mặc dù phương sai là cần thiết để tính độ lệch chuẩn nhưng thông thường chỉ có độ lệch chuẩn được sử dụng.
+được báo cáo đồng minh vì nó dễ diễn giải hơn phương sai. Nó dễ hiểu hơn vì nó 
+có cùng đơn vị với giá trị trung bình. Trong ví dụ về bảng lương của trường đại học, độ lệch chuẩn sẽ 
+bằng đô la tiền lương hàng năm.
+Tính toán độ phân tán
+Dữ liệu   Các phép đo độ phân tán có thể được tính toán bằng Microsoft Excel (Minh họa 2.38).
+MINH HỌA 2.38  Đại học 
+Dữ liệu tiền lương
+ngoại hối
+1
+B
+C
+Trang 1
+2
+3
+4
+6
+10790
+10791
+10792
+10793
+Điều phối viên chương trình
+học giả nổi tiếng
+học giả nổi tiếng
+Quản trị mạng
+giáo sư
+10789
+Phó giáo sư
+$ 94.626,00
+$141,939.00
+5
+Trợ lý giáo sư
+$87,454.00
+$48,874.00
+$ 23,998,00
+$ 59.196,00
+Độ lệch chuẩn 
+Phương sai
+=VAR(C2:C10790)
+=STDEV(C2:C10790)
+$ 57.633,00
+Tiêu đề
+Lương hàng năm
+Tự động Lưu
+Oﬀ
+Dữ liệu bảng lương của trường đại học
+Một lần nữa, hãy tính toán các số đo này bằng cách thực hiện các phép tính trong Excel:
+	 1. Tính phương sai bằng hàm VAR trong Excel. Công thức là =VAR(C2:C10790). 
+Kết quả là $1.939.797.496,92
+	 2. Tiếp theo, tính độ lệch chuẩn bằng hàm STDEV trong Excel. Công thức là 
+=STDEV(C2:C10790). Kết quả là $44,043.13
+Mặc dù không có cách giải thích thực tế về số phương sai, nhưng có tiêu chuẩn 
+độ lệch:
+• Độ lệch chuẩn thấp cho thấy các quan sát trong tập dữ liệu có xu hướng gần với 
+trung bình của tập dữ liệu.
+• Độ lệch chuẩn cao cho thấy các giá trị được trải rộng trên một phạm vi rộng hơn.
+
+2.4  Biện pháp mô tả nào giúp chúng tôi hiểu dữ liệu? 
+2-29
+Trong ví dụ này, độ lệch chuẩn là 44.043,14 USD chỉ ra rằng một quan sát, trong trường hợp này 
+Mức lương hàng năm của một nhân viên trong tập dữ liệu có thể thay đổi 44.043,14 USD so với mức trung bình. thu hồi 
+rằng giá trị trung bình là 40.068,88 USD, vì vậy 44.043,14 USD sẽ được coi là độ lệch chuẩn cao.
+Một cách khác để đánh giá độ phân tán là sử dụng biểu đồ phân tán (còn gọi là biểu đồ phân tán) để 
+trực quan hóa dữ liệu (Minh họa 2.39).
+MINH HỌA 2.39  Đại học 
+Biểu đồ phân tán bảng lương
+$0
+50.000 USD
+0
+2.000
+4.000
+6.000
+Mã số nhân viên
+8.000
+10.000
+12.000
+100.000 USD
+150.000 USD
+200.000 USD
+250.000 USD
+300.000 USD
+350.000 USD
+400.000 USD
+450.000 USD
+500.000 USD
+Lương hàng năm
+Bảng lương đại học
+Mức lương được phân bổ rộng rãi trong khoảng từ 0 USD đến hơn 450.000 USD một chút. Sự hình dung này của 
+dữ liệu trùng khớp với độ lệch chuẩn lớn là 44.043,14 USD
+Số đo hình dạng
+Bên cạnh việc hiểu sự phân tán của dữ liệu, điều quan trọng là phải hiểu sự phân tán của nó.
+sự vận động hoặc hình dạng. Các thước đo hình dạng mô tả sự phân bố của dữ liệu trong tập dữ liệu. Làm thế nào 
+một tập dữ liệu được định hình có thể tiết lộ thước đo tốt nhất về xu hướng sử dụng trung tâm hoặc nó có thể hiển thị 
+các mẫu trong dữ liệu.
+Độ lệch và Kurtosis
+Các tập dữ liệu có hình dạng đối xứng hoặc không đối xứng. Trong phân bố đối xứng, 
+giá trị trung bình, trung vị và mốt bằng nhau và phân bổ dữ liệu ở bên phải của gương trung bình 
+dữ liệu ở bên trái của giá trị trung bình. Một phân bố đối xứng sẽ trông giống như một đường cong hình chuông 
+đồ thị (Minh họa 2.40).
+MINH HỌA 2.40  
+Phân phối đối xứng
+Trung bình/Trung bình/Chế độ
+Hình dạng của phân bố có thể được xác định bằng cách vẽ đồ thị dữ liệu hoặc bằng cách sử dụng hai
+biện pháp thực tế. Thông thường, cả hai đều phù hợp. Hai thước đo hình dạng là độ lệch và 
+độ nhọn.
+Skewness mô tả sự thiếu tính đối xứng của dữ liệu:
+• Phân phối ở bên phải giá trị trung bình được coi là có độ lệch dương.
+• Phân phối ở bên trái giá trị trung bình bị lệch âm.
+
+2-30 
+CHƯƠNG 2  Kỹ năng phân tích dữ liệu cơ bản
+Hệ số độ lệch (CS) đo độ lệch của phân phối. Nếu CS là 
+âm thì dữ liệu sẽ bị lệch sang bên trái (đuôi về bên trái). Nếu CS dương, dữ liệu là 
+lệch phải (đuôi lệch sang phải). Mức độ sai lệch có thể được giải thích bằng giá trị tuyệt đối 
+giá trị của CS:
+• |CS| > 1, độ lệch cao
+• 0,5 ≤ |CS| ≥ 1, độ lệch vừa phải
+• |CS| < 0,5, tính đối xứng tương đối
+Tính hệ số độ lệch bằng hàm Excel =SKEW(phạm vi dữ liệu). dữ liệu   
+Hình minh họa 2.42 thể hiện hàm và kết quả Excel sử dụng file dữ liệu bảng lương của trường đại học. 
+CS là dương 2,3, cho thấy dữ liệu có mức độ sai lệch cao và sai lệch so với 
+đúng.
+MINH HỌA 2.41  Độ lệch 
+Ví dụ
+Độ lệch dương
+đối xứng
+Phân phối
+Độ lệch âm
+Chế độ
+trung vị
+Nghĩa là
+Trung bình/Trung bình/Chế độ
+Chế độ
+trung vị
+Nghĩa là
+MINH HỌA 2.42  Độ lệch và 
+Kurtosis của dữ liệu bảng lương đại học
+chức năng
+Đo lường
+=SKEW(C2:C10790)
+=KURT(C2:C10790)
+kết quả
+CS
+CK
+2.3
+8.2
+Kurtosis đề cập đến mức độ đỉnh hoặc phẳng của biểu đồ dữ liệu. Hệ số Kur-
+tosis (CK) đo mức độ nhọn của phân phối:
+• Nếu CK lớn hơn 3 thì dữ liệu có phần đạt đỉnh với độ phân tán ít hơn.
+• Nếu CK nhỏ hơn 3, dữ liệu có phần ổn định với mức độ phân tán rộng.
+Hệ số nhọn có thể được tính trong Excel bằng hàm =KURT(phạm vi dữ liệu). 
+Hình minh họa 2.42 cho thấy CK của dữ liệu tiền lương của trường đại học là 8,2. Điều này cho thấy dữ liệu được 
+đạt cực đại với độ phân tán ít hơn.
+Phân phối tần số và biểu đồ
+Cùng với các thước đo CS và CK, hình dạng của phân phối có thể được hình dung bằng hai 
+các biện pháp khác:
+• Phân bố tần số là sự biểu diễn dữ liệu tóm tắt số 
+của các quan sát trong một khoảng thời gian nhất định. Ví dụ: số lượng nhân viên theo mức lương 
+các nhóm đô la.
+• Biểu đồ là biểu đồ thanh phân bố tần số trong đó chiều cao của thanh 
+phản ánh tần số trong khoảng. Ví dụ: chúng ta có thể muốn nhóm tiền lương theo 
+số tiền đô la là 10.000 đô la, 20.000 đô la và 30.000 đô la và sau đó đếm xem có bao nhiêu nhân viên 
+nằm trong mỗi loại.
+Các biện pháp này có thể được tạo trong phần mềm trực quan hóa dữ liệu như Power BI, Tableau và 
+trong Microsoft Excel bằng cách sử dụng Analysis Toolpak. Analysis Toolpak là một tiện ích bổ sung miễn phí dành cho Excel. 
+Sau khi thêm, nó sẽ nằm trong tab Dữ liệu. Hình minh họa 2.43 cho thấy nơi tìm Dữ liệu 
+Công cụ phân tích và hộp tương ứng sẽ mở ra sau khi nhấp vào Phân tích dữ liệu.
+Hình minh họa 2.41 cho thấy sự phân bố lệch dương, đối xứng và lệch âm.
+
+2.4 Biện pháp mô tả nào giúp chúng tôi hiểu dữ liệu? 
+2-31
+ MINH HỌA 2.43 Công cụ phân tích dữ liệu Excel 
+Xem lại
+Xem
+Nhà phát triển
+Trợ giúp
+Power Pivot
+Tab mới
+Chia sẻ
+Chia sẻ
+ngoại hối
+1
+A
+B
+Trang 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+Tự động Lưu
+Oﬀ
+được rồi
+Hủy bỏ
+Trợ giúp
+Phân tích dữ liệu
+Công cụ phân tích
+?
+Anova: Hai yếu tố với sự nhân rộng
+Anova: Hai yếu tố không cần nhân rộng
+Tương quan
+Hiệp phương sai
+Thống kê mô tả
+Làm mịn theo cấp số nhân
+F-Test Hai mẫu cho phương sai
+Phân tích Fourier
+biểu đồ
+Đường trung bình động
+Phân tích
+Phân tích
+Truy vấn &
+Kết nối
+Truy vấn &
+Kết nối
+Chỉnh sửa liên kết
+Thuộc tính
+Làm mới
+Tất cả
+Nhắn tin tới
+Cột
+Công cụ dữ liệu
+Địa lý chứng khoán
+Kiểu dữ liệu
+Tab mới
+Sắp xếp
+Lọc
+Xóa
+Đăng ký lại
+Nâng cao
+Sắp xếp & Lọc
+dữ liệu
+dữ liệu
+Phân tích
+Bộ giải
+1
+Phân tích
+Phân tích
+Phân tích
+Truy vấn &
+Kết nối
+Truy vấn &
+Kết nối
+Chỉnh sửa liên kết
+Thuộc tính
+Làm mới
+Tất cả
+Nhắn tin tới
+Cột
+Công cụ dữ liệu
+Địa lý chứng khoán
+Kiểu dữ liệu
+Tab mới
+Sắp xếp
+Lọc
+Xóa
+Đăng ký lại
+Nâng cao
+bụng
+Quảng cáo
+bụng
+Sắp xếp & Lọc
+Bộ giải
+  1. Để chuẩn bị biểu đồ và phân bổ tần số, hãy chọn Biểu đồ và nhấp vào OK . 
+  2. Một hộp thoại mở ra ( Minh họa 2.44 ). 
+  3. Có hai ô nhập liệu:
+• Phạm vi đầu vào là dữ liệu sẽ được hiển thị. Sẽ rất hữu ích khi chọn cột 
+tiêu đề và chọn hộp Nhãn để biểu đồ được gắn nhãn với tiêu đề của dữ liệu 
+được hình dung (Minh họa 2.44 ). 
+• Ô nhập tiếp theo là Bin Range , xác định các nhóm được sử dụng cho tần số 
+thanh phân phối và biểu đồ. Những điều này phải được thiết lập trước khi mở hộp thoại 
+hộp. Tạo Phạm vi Bin bằng cách thiết lập một cột chứa các giá trị trong đó dữ liệu 
+nên được nhóm lại. Nói chung, các giá trị phải có mức tăng bằng nhau và số-
+số lượng nhóm nên từ năm đến mười lăm. 
+  4. Cuối cùng, chọn nơi xuất dữ liệu. Hãy chắc chắn kiểm tra hộp Đầu ra biểu đồ 
+trước khi nhấn OK. 
+ MINH HỌA 2.44 Biểu đồ 
+Hộp thoại 
+được rồi
+Hủy bỏ
+Trợ giúp
+biểu đồ
+đầu vào
+Phạm vi đầu vào:
+Phạm vi thùng:
+Tùy chọn đầu ra
+Phạm vi đầu ra:
+Sổ làm việc mới
+Lớp bảng tính mới:
+Pareto (biểu đồ được sắp xếp)
+Phần trăm tích lũy
+Đầu ra biểu đồ
+?
+Nhãn
+2
+3
+4
+
+2-32 
+CHƯƠNG 2  Kỹ năng phân tích dữ liệu cơ bản
+Làm thế nào để bạn biết có bao nhiêu nhóm để tạo? Cách tốt nhất là thử nghiệm với 
+dữ liệu để tìm số sẽ tạo ra một hình ảnh trực quan hữu ích. Ví dụ: sử dụng ít nhóm hơn 
+có nghĩa là độ rộng của nhóm sẽ rộng hơn và hình ảnh trực quan có thể cung cấp cái nhìn sâu sắc ít chi tiết hơn. 
+Việc chia phạm vi (quan sát tối đa - quan sát tối thiểu) thường hữu ích cho 
+số nhóm bạn muốn hiển thị làm điểm bắt đầu.
+Dữ liệu   Bạn có thể sử dụng các bước này để tạo biểu đồ với tệp dữ liệu bảng lương của trường đại học:
+	 1. Mở bảng tính và tạo cột cho các thùng.
+	 2. Đầu tiên, hãy xác định phạm vi dữ liệu. Mức lương tối thiểu là $78,00 và mức lương tối đa 
+mức lương là $468.675,00, cho thấy có rất nhiều dữ liệu. Tạo 12 thùng, bắt đầu bằng 
+8.000 USD với số gia tăng 20.000 USD (Minh họa 2.45).
+MINH HỌA 2.45  Dữ liệu tiền lương, 
+Hộp thoại Thùng và Biểu đồ
+ngoại hối
+1
+B
+C
+Trang 1
+2
+3
+4
+6
+10789
+10790
+Điều phối viên chương trình
+học giả nổi tiếng
+học giả nổi tiếng
+Quản trị mạng
+giáo sư
+Phó giáo sư
+$ 94.626,00
+$141,939.00
+5
+Trợ lý giáo sư
+$87,454.00
+$48,874.00
+7
+Điều phối viên chương trình sinh viên
+$ 42.630,00
+8
+giáo sư
+$113,736.00
+9
+giáo sư
+$ 2.170,00
+10
+giáo sư
+ $ 115.228,00
+11
+Trợ lý nghiên cứu
+$ 6.700,00
+12
+Trợ lý nghiên cứu
+$ 6.700,00
+13
+Trợ lý nghiên cứu
+$ 20.100,00
+28.000
+48.000
+68.000
+88.000
+108.000
+128.000
+148.000
+168.000
+188.000
+208.000
+228.000
+14
+giáo sư
+$ 119.900,00
+$ 23,998,00
+$ 59.196,00
+$ 57.633,00
+8.000
+Tiêu đề
+Lương hàng năm
+E
+D
+Thùng
+Tự động Lưu
+Oﬀ
+Hộp thoại Dữ liệu Bảng lương, Thùng và Biểu đồ
+được rồi
+Hủy bỏ
+Trợ giúp
+biểu đồ
+đầu vào
+Phạm vi đầu vào:
+Phạm vi thùng:
+Tùy chọn đầu ra
+Phạm vi đầu ra:
+Sổ làm việc mới
+Lớp bảng tính mới:
+Pareto (biểu đồ được sắp xếp)
+Phần trăm tích lũy
+Đầu ra biểu đồ
+?
+Nhãn
+$C$1:$C$10790
+$E$4:$E$15
+Kết quả từ hộp thoại biểu đồ được trình bày trong Hình minh họa 2.46.
+
+2.4  Biện pháp mô tả nào giúp chúng tôi hiểu dữ liệu? 
+2-33
+MINH HỌA 2.46  Biểu đồ dữ liệu bảng lương của trường đại học và phân bổ tần suất
+2,873
+biểu đồ
+Thùng lương (tính bằng nghìn)
+Tần số
+2.169
+1.241
+753
+466
+265
+162
+102
+72
+83
+40
+59
+2,504
+$8K
+0
+500
+1.000
+1.500
+2.000
+2.500
+3.000
+3.500
+28K
+48K
+68K
+88K
+108K 128K 148K
+168K 188K 208K 228K
+Thêm
+8.000
+28.000
+48.000
+68.000
+88.000
+108.000
+128.000
+148.000
+168.000
+188.000
+208.000
+228.000
+Thêm
+2,504
+2,873
+2.169
+1.241
+753
+466
+265
+162
+102
+72
+83
+40
+59
+23,21%
+26,63%
+20,10%
+11,50%
+6,98%
+4,32%
+2,46%
+1,50%
+0,95%
+0,67%
+0,77%
+0,37%
+0,55%
+Thùng
+Tần số
+% tần số
+Biểu đồ hiển thị một số thông tin về hình dạng của tập dữ liệu, bao gồm cả thông tin đó 
+hầu hết dữ liệu được nhóm trong khoảng từ 8.000 đến 48.000 USD:
+• Dữ liệu sau đó sẽ di chuyển sang bên phải. Điều này hỗ trợ kết quả của các phép đo vị trí 
+và hình dạng. Hãy nhớ lại giá trị trung bình của dữ liệu là $28.276,00 và giá trị trung bình là $40.065,88. các 
+dữ liệu đạt đỉnh ở chế độ này.
+• Sau đó, dữ liệu sẽ chuyển sang bên phải, hỗ trợ cho kết quả về hệ số lệch
+tính tích cực 2.3.
+• Cuối cùng, dữ liệu đạt đỉnh cao. Phần lớn (69%) nằm trong ba thanh đầu tiên trên 
+biểu đồ. Điều này hỗ trợ kết quả cho hệ số nhọn là 8,2 cho thấy 
+dữ liệu đạt đỉnh cao với độ phân tán ít hơn.
+Công cụ thống kê mô tả
+Bây giờ bạn đã học cách tính các số đo vị trí, độ phân tán và hình dạng bằng cách sử dụng sin-
+gle các hàm Excel. Có một công cụ Excel khác, Thống kê mô tả, tính toán tất cả những điều này. 
+biện pháp ngay lập tức (Minh họa 2.47):
+	 1. Chọn Thống kê mô tả từ danh sách Công cụ phân tích.
+	 2. Sử dụng hộp thoại Thống kê mô tả để nhập phạm vi dữ liệu cần phân tích.
+	 3. Sau khi nhập phạm vi dữ liệu, hãy chọn nhãn (nếu bạn chọn hàng có tiêu đề cột), 
+chọn nơi đầu ra sẽ đi, chọn Thống kê tóm tắt và nhấp vào OK.
+MINH HỌA 2.47  Mô tả 
+Công cụ và hộp thoại thống kê Excel 
+hộp
+được rồi
+Hủy bỏ
+Trợ giúp
+Phân tích dữ liệu
+Công cụ phân tích
+?
+Anova: Yếu tố đơn lẻ
+Anova: Hai yếu tố với sự nhân rộng
+Anova: Hai yếu tố không cần nhân rộng
+Tương quan
+hiệp phương sai
+Thống kê mô tả
+Làm mịn theo cấp số nhân
+F-Test Hai mẫu cho phương sai
+Phân tích Fourier
+biểu đồ
+1
+Lưu ý rằng Thùng và Tần số được tạo bởi Excel khi biểu đồ được tạo. Cột cho % Tần suất là  
+được tính bằng cách chia Tần suất cho mỗi thùng cho tổng số quan sát (10.789).
+
+2-34 
+CHƯƠNG 2  Kỹ năng phân tích dữ liệu cơ bản
+được rồi
+Hủy bỏ
+Trợ giúp
+Thống kê mô tả
+đầu vào
+Cột
+Hàng
+Phạm vi đầu vào:
+Được nhóm theo:
+Tùy chọn đầu ra
+Phạm vi đầu ra:
+Sổ làm việc mới
+Lớp bảng tính mới:
+Thống kê tóm tắt
+Mức độ tin cậy cho giá trị trung bình:
+Kth nhỏ nhất:
+Lớn thứ K:
+$C$1:$C$10790
+1
+95
+%
+1
+?
+Nhãn ở hàng đầu tiên
+2
+3
+MINH HỌA 2.47  (Tiếp theo)
+Sau đó, Excel sẽ tính toán số liệu thống kê mô tả và in kết quả trên một công việc mới-
+tờ (Minh họa 2.48).

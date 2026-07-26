@@ -1,0 +1,555 @@
+Total Machine Hours
+CM per Unit
+Machine Hours Per Unit
+Machine Hours
+Demand
+Number Produced
+Captain
+ $ 371.78
+18,000
+The objective function is the
+formula for total contribution
+margin. Contribution margin
+is sales minus variable expenses.
+The model shows the constraints of predicted
+demand for each scooter and the total machine
+hours available for the year.
+10,000
+7,000
+24,000
+1,000,000
+20
+20
+25
+25
+10
+10
+18
+18
+73
+$ 371.78
+1
+1
+1
+1
+$ 201.87
+$ 201.87
+$ 104.27
+$ 162.18
+$ 162.18
+$ 104.27
+Celeritas
+Kicks
+Lazer
+Total
+ $ 840.10
+The number of
+units produced are
+the decision variables.
+The model also shows
+how many machine hours are
+required to produce each unit.
+The linear optimization program will use this data to solve for the optimal number of 
+each model that should be produced where contribution margin (objective function) is maxi-
+mized subject to the constraints. Note that we started with an arbitrary number of one in the 
+number of units produced cells. This could also be zero to start; however, using the number 
+one makes it possible to confirm the formulas. The linear optimization available in Microsoft 
+
+3-26
+CHAPTER 3 Motivations and Objectives for Data Analysis
+ ILLUSTRATION 3.25  Accessing Microsoft Excel Solver 
+Review
+View
+Developer
+Help
+Acrobat
+Power Pivot
+New Tab
+Search
+Share
+Share
+AutoSave
+Oﬀ
+Help
+Power Pivot
+New Tab
+Queries &
+Connections
+Stocks Geography
+Sort
+Filter
+Clear
+Reapply
+Advanced
+Text to
+Columns
+What-If
+Analysis
+Sort & Filter
+Data Tools
+Forecast
+Sheet
+Group
+Data
+Analysis
+Solver
+Analyze
+Ungroup
++
+–
+Subtotal
+Forecast
+Outline
+Data Types
+Queries &
+Connections
+Edit Links
+Properties
+Refresh
+All
+Data
+ Clicking on Solver opens a dialog box to input the objective function cell, decision vari-
+able cell, and create any relevant constraints.  Illustration 3.26 is the Solver dialog box used to 
+create the optimization program for Super Scooters. 
+ ILLUSTRATION 3.26  Solver Dialog Box Inputs for Super Scooters Contribution Margin Optimization 
+Make Unconstrained Variables Non-Negative
+Solving Method
+Select the GRG Nonlinear engine for Solver Problems that are smooth nonlinear. Select the LP Simplex engine for
+linear Solver Problems, and select the Evolutionary engine for Solver problems that are non-smooth.
+Max
+To:
+Min
+Value Of:
+Options
+Load/Save
+Reset All
+Delete
+Change
+Add
+Solver Parameters
+Set Objective:
+By Changing Variable Cells:
+Subject to the Constraints:
+$ I$4:$L$4
+$M$6
+0
+Close
+Solve
+Help
+Simplex LP
+Select a Solving
+Method:
+$ I$4 < = 18000
+$ J$4 < = 10000
+$ K$4 < = 7000
+$ L$4 < = 24000
+$ M$9 < = 1000000
+Constraints for demand and
+machine hours
+Total CM
+Cell range for Number
+Produced
+ Once all the constraints are input, check the box to ensure the Solver results are not neg-
+ative (we cannot “unproduce” a product) and select the Solving Method Simplex LP, since 
+this is a linear optimization. Clicking Solve produces the box in Illustration  3.27 . 
+Excel Solver can illustrate how optimization models work. The Solver program is accessed via 
+the Data tab in the toolbar ribbon ( Illustration 3.25 ). 
+
+3.5  What are Prescriptive Objectives?  3-27
+ILLUSTRATION 3.27  Solver Results Choice Box
+OK
+Cancel
+Save Scenario...
+Solver found a solution. All Constraints and optimality
+conditions are satisfied.
+Reports
+Return to Solver Parameters Dialog
+Outline Reports
+Solver Results
+Keep Solver Solution
+Restore Original Values
+Answer
+Sensitivity
+Limits
+Solver found a solution. All Constraints and optimality conditions are satisfied.
+When the GRG engine is used, Solver has found at least a local optimal solution. When Simplex LP is used,
+this means Solver has found a global optimal solution.
+This shows that Solver found an optimal solution that satisfied the constraints. The default 
+is to Keep Solver Solution. If this radio button is checked, the spreadsheet will reflect the 
+new decision variable amounts and the optimal contribution margin amount (Illustration 
+3.28). There is also the choice to create three reports. Choose the Answer report and click OK.
+ILLUSTRATION 3.28  Optimization Model after Running Solver
+Total CM
+Constraints:
+Total Machine Hours
+CM per Unit
+Machine Hours Per Unit
+Machine Hours
+Demand
+Number Produced
+Captain
+$ 6,692,106.26
+18,000
+10,000
+7,000
+24,000
+1,000,000
+20
+360,000
+25
+138,000
+10
+70,000
+18
+432,000
+1,000,000
+371.78
+18,000
+5,520
+7,000
+24,000
+$
+201.87
+$ 1,114,328.39
+$
+104.27
+$
+162.18
+$
+$ 3,892,219.65
+$ 729,872.21
+Celeritas
+Kicks
+Lazer
+Total
+$ 12,428,526.51
+The model shows the constraints of predicted
+demand for each scooter and the total machine
+hours available for the year.
+The model also shows
+how many machine hours are
+required to produce each unit.
+The number of
+units produced are
+the decision variables.
+The objective function is the
+formula for total contribution
+margin. Contribution margin
+is sales minus variable expenses.
+Illustration 3.29 is the answer report. The first section of the report shows the objective 
+function’s original value and then the final value when the optimal solution is reached. In this 
+case, the optimal production will be 18,000 Captain, 5,520 Celeritas, 7,000 Kicks, and 24,000 
+Lazer scooters.
+
+3-28  CHAPTER 3  Motivations and Objectives for Data Analysis
+$M$6
+$ 840.10
+$ 12,428,526.51
+Objective Cell (Max)
+Cell
+Original Value
+Final Value
+Name
+Total CM Total
+$I$4
+1
+18,000
+Variable Cells
+Cell
+Original Value Final Value
+Contin
+Integer
+Name
+Number produced Captain
+$J$4
+1
+5,520
+Contin
+Number produced Celeritas
+$K$4
+1
+7,000
+Contin
+Number produced Kicks
+$L$4
+1
+24,000
+Contin
+Number produced Lazer
+$M$9
+1,000,000
+$M$9<=$M$12
+Constraints
+Cell
+Cell Value
+Formula
+Binding
+Status
+Slack
+Name
+Total Machine Hours Total
+$I$4
+18,000
+$I$4<=$I$13
+Binding
+Number produced Captain
+$J$4
+5,520
+$J$4<=$J$13
+Not Binding
+Number produced Celeritas
+$K$4
+7,000
+$K$4<=$K$13
+Binding
+Number produced Kicks
+$L$4
+24,000
+0
+0
+4,480
+0
+0
+$L$4<=$L$13
+Binding
+Number produced Lazer
+ILLUSTRATION 3.29  Solver 
+Results Output
+ILLUSTRATION 3.30  Solver 
+Results Output – Variable Cells 
+Report
+$I$4
+1
+18,000
+Variable Cells
+Cell
+Original Value Final Value
+Contin
+Integer
+Name
+Number produced Captain
+$J$4
+1
+5,520
+Contin
+Number produced Celeritas
+$K$4
+1
+7,000
+Contin
+Number produced Kicks
+$L$4
+1
+24,000
+Contin
+Number produced Lazer
+ILLUSTRATION 3.31  Solver 
+Results Output – Constraints 
+Report
+1,000,000
+$M$9<=$M$12
+Constraints
+Cell Value
+Formula
+Binding
+Status
+Slack
+Name
+Total Machine Hours Total
+18,000
+$I$4<=$I$13
+Binding
+Number produced Captain
+5,520
+$J$4<=$J$13
+Not Binding
+Number produced Celeritas
+7,000
+$K$4<=$K$13
+Binding
+Number produced Kicks
+24,000
+0
+0
+4,480
+0
+0
+$L$4<=$L$13
+Binding
+Number produced Lazer
+The middle section of the report (Variable Cells) shows the final value for the decision 
+variables (Illustration 3.30). It shows the number of each model scooter that Super Scooters 
+should sell to achieve maximum contribution margin.
+Finally, the last section of the report shows how much of the constraints were used in 
+the optimal solution (Illustration 3.31). The Status column indicates whether the ­constraint 
+is binding or not binding. In other words, additional production is not possible without an 
+increase in the constraint. The amount shown in the Slack column represents the amount of 
+the constraint that is remaining after the optimal solution. 
+Since machine hours are limited, the optimal model prescribes the best use of those hours 
+to maximize contribution margin is to produce all Super Scooters can sell of the Captain, 
+Kicks, and Lazer models and 4,480 less than demand of the Celeritas model. Any other mix 
+will result in less contribution margin than the optimal model.
+What-if Analyses
+A spreadsheet model that evaluates changes and specific combinations of model inputs and 
+assumptions is called a what-if analysis. A what-if analysis is an easy way to change values 
+in a spreadsheet and recalculate the outputs. Microsoft Excel has three tools built into the 
+Data tab under What-if Analyses. Two of these tools – Scenario Manager and Goal Seek – are 
+
+3.6  What are Data Analytics Motivations and Objectives in Professional Practice?  3-29
+useful tools to facilitate what-if analyses. We will discuss each tool in a later chapter, but here 
+is a short explanation:
+•	Scenario Manager in Excel allows changing or substituting input values for multiple cells 
+(maximum 32). Therefore, the results of different input values or scenarios can be viewed 
+at the same time.
+•	Goal Seek is used when the desired result is already known but the input value to achieve 
+that result is not. Goal Seek is limited because it can only use one input variable. If the 
+analysis being performed requires more than one variable to change, then an optimiza-
+tion model using Excel Solver is necessary. For example, the Super Scooters optimization 
+model had more than one variable because it was necessary to consider the demand and 
+machine hours constraints.
+Apply It 3.5
+Prescribe Optimal 
+Sales Mix
+Data   Managerial Accounting   You are a managerial accountant for Best Bakes Bakery asked to 
+prepare an analysis to determine the optimal mix of products to maximize profit. You have been given 
+sales transactions for the years 2022–2025. Besides prior sales data, you know there are some resource 
+constraints (such as supplies, or labor hours) that should be included in the analysis.
+1.	 What is the objective of the analysis?
+2.	 Develop three questions that will be relevant to the objective.
+3.	 What analyses will you use to answer these three questions?
+SOLUTION
+1.	 The objective is to determine the optimal sales mix of products given the resources available.
+2.	 Three questions:
+•	 What resource constraints should be included in the decision?
+•	 What are the resource requirements for each product?
+•	 What is the expected profit per product?
+3.	 Linear optimization can be used to determine the best mix of products for maximum profit.
+3.6  What are Data Analytics Motivations 
+and Objectives in Professional Practice?
+LEARNING OBJECTIVE ❻
+Describe motivations and objectives for data analytics in professional practice.
+While the methods of analysis – descriptive, diagnostic, predictive, and prescriptive – are the 
+same across accounting areas, project objectives and what motivates them can be different 
+given the variety of purposes and stakeholders. In auditing, stakeholders are largely external 
+(e.g. shareholders, regulatory agencies), whereas stakeholders in managerial accounting are 
+primarily internal (e.g. management, employees). Their perspectives help identify the objec-
+tive and develop good questions.
+
+3-30  CHAPTER 3  Motivations and Objectives for Data Analysis
+Auditing
+Auditors perform data analyses to verify financial statement information is not materially 
+misstated. Their purpose is providing a professional opinion about whether the financial 
+statements provide reliable, accurate information for the client’s primary stakeholders, which 
+include company owners and investors and creditors in the capital markets and financial 
+institutions. 
+Accounting Information Systems
+Motivations for data analyses in AIS can range widely in scope. Illustration 3.32 provides a 
+summary of typical AIS data analysis motivations, objectives, and questions.
+ILLUSTRATION 3.32  Motivations, Objectives, and Questions for AIS Data Analytics
+Motivation
+Objective
+Question
+Investing in new technologies.
+Determine the technology 
+with the highest return on 
+investment.
+What are the labor cost savings 
+if we adopt a new technology?
+Increasing security of AIS 
+assets, including data.
+Determine how many security 
+breaches or attempted 
+breaches have occurred.
+What is the total number of 
+attempted security breaches 
+per day?
+Innovations in operational 
+processes, either human 
+or computer, to improve 
+processes.
+Identify inefficient processes.
+Which processes take the 
+longest?
+Improving system 
+performance, such as 
+processing time, reliability, 
+and availability.
+Evaluate processing time for 
+monthly financial statement 
+reporting.
+How many hours does it take 
+to process financial statements 
+each month?
+Improvements in AIS system 
+maintenance.
+Evaluate how long it takes to 
+address system maintenance 
+issues.
+How long does it take to 
+resolve maintenance requests?
+Improvements in data 
+integrity.
+Determine how often data 
+must be corrected.
+How many corrections were 
+made to data in the last month?
+Although the list of questions in Illustration 3.32 is not exhaustive, the questions are a 
+starting point for conducting analyses to address them.
+APPLYING CRITICAL THINKING 3.1: Understand AIS 
+Stakeholders
+Understanding the stakeholders’ motivations helps accurately identify the objectives of anal-
+yses. Stakeholders in AIS data analysis projects can be internal or external to the organization 
+(Stakeholders):
+•	 Internal stakeholders include the chief financial officer, internal auditors, managers, chief in-
+formation officer, and employees. They want to understand and improve processes, so objec-
+tives focus on specific aspects of internal processes and how to improve them.
+•	 External stakeholders may include investors, external auditors, customers, and vendors. 
+These stakeholders are motivated by increased return on investment, so the projects with the 
+greatest potential to offer a return on any investment are usually prioritized. 
+
+3.6  What are Data Analytics Motivations and Objectives in Professional Practice?  3-31
+Illustration 3.33 includes examples of motivations, objectives, and questions in auditing 
+data analytics.
+ILLUSTRATION 3.33  Motivations, Objectives, and Questions for Auditing Data Analytics
+Motivation
+Objective
+Question
+Evaluate the risk of 
+material misstatement of 
+revenue.
+Determine if there are any 
+unusual changes in revenue 
+compared to prior years.
+Are there any unusual trends 
+or changes in sales from prior 
+years?
+Evaluate the risk of 
+material misstatement 
+in the company’s general 
+ledger accounts.
+Analyze balances in the 
+company’s general ledger to 
+identify unusual changes from 
+prior year.
+Are any changes in general 
+ledger balances higher 
+than our specified material 
+amount?
+Evaluate the risk of 
+fraudulent payments.
+Verify employees are not receiving 
+unauthorized payments.
+Are there any vendors in the 
+vendor file with the same 
+address as an employee?
+Verify physical inventory 
+and fixed asset counts.
+Test for existence of assets.
+Do inventory counts match 
+amounts on the balance sheet?
+Note that the motivation identifies a specific aspect of the audit. The objective states the 
+goal of the analysis. The third column in the illustration provides an example of a specific 
+question the auditor can address with the analysis. Audit analytics are used to perform risk 
+assessment, substantive analytical procedures, and to perform tests of detail.
+APPLYING CRITICAL THINKING 3.2: Acquire Auditing 
+Knowledge and Avoid Biases

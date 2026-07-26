@@ -1,0 +1,353 @@
+\documentclass[aspectratio=169]{beamer}
+\usetheme{Madrid}
+\usecolortheme{default}
+\usepackage[utf8]{inputenc}
+\usepackage[T5]{fontenc}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{amsmath}
+
+\setbeamertemplate{caption}[numbered]
+\renewcommand{\figurename}{Hình}
+\renewcommand{\thefigure}{17.\arabic{figure}}
+
+\title[Chương 17: Image Generation]{Học Sâu (Deep Learning) \\ \vspace{0.5cm} \Large Chương 17: Trí tuệ Nhân tạo Sinh ảnh (Image Generation)}
+\author{Đại học Đông Á}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame}{Nội dung chương}
+    \tableofcontents
+\end{frame}
+
+\section{1. Không gian tiềm ẩn \& Text-to-Image}
+
+\begin{frame}{Khái quát về Sinh ảnh (Image Generation)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Ý tưởng cốt lõi của việc sinh ảnh là phát triển một \textbf{Không gian tiềm ẩn (Latent Space)} với số chiều thấp.
+            \item Bất kỳ điểm nào trong không gian này đều có thể được một bộ \textbf{Generator/Decoder} ánh xạ thành một bức ảnh hợp lệ.
+            \item AI không hề sao chép, nó Lấy mẫu (Sample) một tọa độ mới hoàn toàn và sinh ra bức ảnh chưa từng tồn tại.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch17/image_gen.d02c5d8f.png}
+            \caption{Sử dụng Không gian tiềm ẩn để lấy mẫu ảnh mới}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Mô hình Text-to-Image (Văn bản thành Hình ảnh)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Bằng cách ánh xạ không gian văn bản (Text embedding) vào cùng không gian tiềm ẩn của hình ảnh (Image Latent Space).
+            \item Ta có thể sinh ảnh dựa trên sự điều hướng của ngôn ngữ tự nhiên. VD: \textit{"Một con ngựa đạp xe trên mặt trăng"}.
+            \item Dù AI chưa từng thấy bức ảnh nào như vậy, nó vẫn nội suy được từ các khái niệm rời rạc.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch17/text-to-image.d51ae48c.png}
+            \caption{Sinh ảnh bằng điều hướng Ngôn ngữ}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Bộ dữ liệu kinh điển: Oxford Flowers}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Trong chương này, chúng ta sẽ thực hành huấn luyện AI sinh ảnh trên bộ dữ liệu \textbf{Oxford Flowers 102}.
+            \item Nó bao gồm hàng ngàn bức ảnh hoa với đủ màu sắc, hình dáng, là "chuột bạch" lý tưởng cho các mô hình sinh ảnh như VAE hay Diffusion.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch17/oxford_flower.215934bb.png}
+            \caption{Một số mẫu từ bộ dữ liệu Oxford Flower}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\section{2. Mạng Variational Autoencoders (VAEs)}
+
+\begin{frame}{Giới hạn của Autoencoder truyền thống}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Mạng Autoencoder gồm 2 phần: Encoder nén ảnh thành mã (code) và Decoder giải nén mã về lại ảnh ban đầu.
+            \item Tuy nhiên, Không gian tiềm ẩn (Latent space) của nó bị \textbf{đứt gãy}. Nếu lấy một điểm ngẫu nhiên ở giữa không gian, Decoder sẽ nhả ra một bức ảnh rác vô nghĩa.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch17/autoencoder.71a857ef.png}
+            \caption{Autoencoder truyền thống}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Sự đột phá của Variational Autoencoder (VAE)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item VAE (2013) không nén ảnh thành 1 điểm cứng nhắc. Nó nén ảnh thành một \textbf{Phân phối xác suất} (Phân phối chuẩn hình chuông).
+            \item Thay vì xuất ra tọa độ $z$, Encoder xuất ra \textbf{Trung bình (Mean)} và \textbf{Phương sai (Variance)}.
+            \item Không gian tiềm ẩn giờ đây liên tục và trơn tru. Bất kỳ điểm nào lấy mẫu (Sample) cũng sinh ra ảnh hợp lệ.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch17/vae.df3af572.png}
+            \caption{Cơ chế học Phân phối chuẩn của VAE}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Toán học của VAE: KL Divergence Loss}
+    \begin{itemize}
+        \item Hàm mất mát của VAE gồm 2 phần: Loss tái tạo (Reconstruction Loss) + KL Divergence Loss.
+        \item \textbf{Kullback-Leibler (KL) Divergence:} Là thước đo Toán học ép Phân phối do Encoder sinh ra phải bám sát với Phân phối chuẩn $N(0, 1)$.
+        \item Nhờ KL Loss, các không gian khái niệm không bị co cụm rải rác mà được gom lại thành một khối tụ quy tâm, giúp việc chuyển đổi diễn ra mượt mà.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Kết quả sinh ảnh từ VAE}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Khi ta di chuyển tuần tự qua các tọa độ 2D của Không gian VAE, hình ảnh sẽ biến đổi (Morphing) rất trơn tru.
+            \item \textbf{Nhược điểm:} Ảnh sinh ra bởi VAE thường hay bị mờ (Blurry) do đặc tính của hàm MSE Loss lấy trung bình điểm ảnh.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch17/vae_grid.6152810c.png}
+            \caption{Không gian nội suy ảnh của VAE}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\section{3. Kỷ nguyên Diffusion Models}
+
+\begin{frame}{Mô hình Khuếch tán (Diffusion Models)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Từ năm 2020, VAE và GAN đã bị lật đổ bởi \textbf{Diffusion}.
+            \item \textbf{Forward:} Phá hủy ảnh bằng cách thêm nhiễu (Noise) dần dần cho đến khi chỉ còn nhiễu tĩnh.
+            \item \textbf{Backward:} Huấn luyện mạng Nơ-ron (U-Net) học cách gỡ bỏ nhiễu từng bước một để khôi phục ảnh.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch17/diffusion.184e1d12.png}
+            \caption{Tiến trình Forward và Backward của Diffusion}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Lịch trình thêm nhiễu (Noise Schedule)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Lượng nhiễu thêm vào ở mỗi bước $t$ không được ngẫu nhiên mà tuân theo một Toán đồ học \textbf{Noise Schedule} (Linear, Cosine,...).
+            \item Việc này giúp mô hình kiểm soát được "Mức độ tàn phá" của ảnh gốc để có thể đảo ngược chính xác.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch17/diffusion_schedule.52ecea17.png}
+            \caption{Các phương pháp Lịch trình Nhạy nhiễu}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Mạng U-Net trong Diffusion}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Mô hình đóng vai trò khử nhiễu (Denoising) chính là \textbf{Mạng U-Net}.
+            \item Ban đầu là mạng chuyên dùng cho y tế, U-Net (Với các kết nối chéo Skip-Connections) cực kỳ xuất sắc trong việc phục hồi chi tiết ảnh đồng kích thước với đầu vào.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch17/unet.20eacd7d.png}
+            \caption{Sơ đồ kiến trúc U-Net kinh điển}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Kết quả sinh ảnh hoa từ Diffusion}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item So với VAE, Diffusion mất rất nhiều bước tính toán (Sampling steps) để tạo ra ảnh, khiến nó chạy chậm hơn.
+            \item \textbf{Đổi lại:} Chất lượng hình ảnh cực kỳ sắc nét, giữ được chi tiết siêu nhỏ, khắc phục hoàn toàn điểm yếu hình ảnh bị mờ của VAE.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch17/generated_flowers.614c95f0.png}
+            \caption{Hình ảnh hoa sắc nét sinh từ Diffusion}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Ứng dụng: Nâng cao độ phân giải (Super Resolution)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Thuật toán Diffusion cực kỳ giỏi trong việc điền vào các điểm ảnh bị khuyết.
+            \item Ta có thể đưa cho nó một bức ảnh siêu mờ (Low-res), và yêu cầu nó khử nhiễu (Denoise) để tạo ra bản rõ nét gấp 4 lần (Super Resolution).
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch17/superresolution.0d8b50ab.png}
+            \caption{Phục hồi ảnh bằng Siêu phân giải}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\section{4. Stable Diffusion \& Kỹ thuật nâng cao}
+
+\begin{frame}{Stable Diffusion (Latent Diffusion)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Khử nhiễu trên không gian Pixel khổng lồ (Ví dụ ảnh $1024 \times 1024$) là rất nặng và lâu.
+            \item \textbf{Stable Diffusion (SD):} Chạy Diffusion trên Không gian tiềm ẩn (Ví dụ $64 \times 64$) của VAE! 
+            \item Giúp SD sinh ảnh siêu đẹp mà chỉ tốn vài giây trên máy tính cá nhân.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch17/sd3-output.6c189acc.png}
+            \caption{Bức ảnh sinh ra từ Stable Diffusion 3}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Tác động của Số bước Khử nhiễu (Denoising Steps)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Diffusion không sinh ảnh 1 lần, nó sinh qua $N$ bước lặp.
+            \item Nếu $N$ quá nhỏ (VD: 5 bước), ảnh còn đọng lại nhiễu hạt (Noise).
+            \item Tăng $N$ lên (20 - 50 bước) sẽ giúp các chi tiết hiện rõ và hoàn thiện bức ảnh, tuy nhiên đánh đổi bằng thời gian.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch17/sd3-output-steps.c490d938.png}
+            \caption{Sự thay đổi chi tiết theo số bước lặp}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Sức mạnh của Negative Prompt (Lời nhắc tiêu cực)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item \textbf{Negative Prompt:} Kỹ thuật ép AI "tránh xa" những đặc điểm ta không mong muốn (Xấu, mờ, biến dạng, nhiều ngón tay...).
+            \item Về Toán học, điều này đẩy Vector tiềm ẩn ra xa khỏi hướng của các Vector khái niệm xấu trong Latent Space, giúp ảnh ra hoàn hảo hơn.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch17/sd3-output-negative.32fbdbe2.png}
+            \caption{So sánh khi có và không có Negative Prompt}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Nội suy hình học trong Không gian tiềm ẩn}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Bằng cách tạo ra điểm đầu $A$ và điểm cuối $B$ trong Không gian tiềm ẩn, ta có thể tính toán các điểm nằm giữa chúng.
+            \item Khi đưa các điểm nằm giữa này qua mô hình để sinh ảnh, ta được hiệu ứng \textbf{Morphing} (Biến hình) trơn tru từ cảnh A sang cảnh B.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch17/sd3-morph.40f60bd8.png}
+            \caption{Hiệu ứng chuyển cảnh trong Latent Space}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Toán học Nội suy cầu (SLERP)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Trong không gian nhiều chiều ($D \approx 4096$), nội suy tuyến tính đường thẳng (Linear) bị sai lệch hình học.
+            \item Giải pháp Toán học là \textbf{Spherical Linear Interpolation (SLERP)}: Đi đường cong theo bề mặt hình cầu đa chiều.
+            $$ SLERP(p_0, p_1, t) = \frac{\sin((1-t)\Omega)}{\sin(\Omega)}p_0 + \frac{\sin(t\Omega)}{\sin(\Omega)}p_1 $$
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch17/slerp.eea42213.png}
+            \caption{Minh họa đường đi SLERP cong bám cầu}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Góc độ Hình học của Cosine}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Tham số $\Omega$ trong công thức SLERP chính là góc giữa hai Vector $p_0$ và $p_1$.
+            \item Nó được tính qua \textbf{Cosine Similarity}: $\cos(\Omega) = \frac{p_0 \cdot p_1}{\|p_0\| \|p_1\|}$.
+            \item SLERP đảm bảo quá trình chuyển hóa tốc độ góc ổn định, giúp ảnh không bị vỡ vụn ở khúc giữa như thuật toán Tuyến tính thường làm.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch17/cosine_relationship.c5f419f0.png}
+            \caption{Mối quan hệ hình học Cosine}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\section{Tổng kết}
+
+\begin{frame}{Tổng kết Chương 17}
+    \begin{itemize}
+        \item \textbf{VAE:} Cơ chế học phân phối xác suất hình chuông để tạo ra một không gian sinh ảnh liên tục nhờ hàm mất mát KL Divergence.
+        \item \textbf{Diffusion Models:} Thay đổi cuộc chơi bằng quá trình Thêm nhiễu và dùng mạng U-Net Khử nhiễu, khắc phục hoàn toàn bệnh mờ ảnh của VAE.
+        \item \textbf{Stable Diffusion:} Tối ưu hóa Diffusion bằng cách chạy trên Không gian tiềm ẩn thay vì Pixel thô, mở ra kỷ nguyên AI nghệ thuật trên PC.
+        \item \textbf{Toán học không gian đa chiều:} Sự cần thiết của thuật toán Nội suy cầu SLERP và Cosine Similarity khi muốn điều hướng các vector khổng lồ.
+    \end{itemize}
+\end{frame}
+
+\end{document}

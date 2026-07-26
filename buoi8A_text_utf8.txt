@@ -1,0 +1,1015 @@
+
+
+--- Page 124 ---
+
+101
+Pethuru Raj Chelliah, Pushan Kumar Dutta, Abhishek Kumar, Ernesto D.R. Santibanez Gonzalez, 
+Mohit Mittal and Sachin Gupta (eds.) Generative Artificial Intelligence in Finance: Large Language 
+Models, Interfaces, and Industry Use Cases to Transform Accounting and Finance Processes, 
+(101–124) © 2025 Scrivener Publishing LLC
+6
+Deep Diving into Financial Frauds via 
+Ad Click, Credit Card Management 
+and Document Dispensation in 
+E-Commerce Transactions
+Bhupinder Singh1*, Pushan Kumar Dutta2 and Christian Kaunert3
+1Sharda University, Greater Noida, India
+2Electronics and Communication Engineering Department at ASETK, 
+Amity University Kolkata, West Bengal, Kolkata, India
+3Dublin City University, Dublin, Ireland
+Abstract
+Financial fraud presents a significant peril to the banking and financial sector, 
+adversely impacting individuals, businesses, and entire economies. In recent 
+years, the integration of artificial intelligence (AI) and machine learning (ML) 
+techniques has emerged as a potent weapon against diverse forms of financial 
+fraud. The banking and financial sector as a cornerstone of modern economies 
+is undergoing a profound transformation due to the ascendancy of digital trans­
+actions. This shift has led to a surge in financial frauds, compelling a paradigm 
+shift in security protocols. The integration of advanced analytics, including anom­
+aly detection and pattern recognition, is scrutinized to unveil a robust defense 
+mechanism against the ever-evolving tactics employed by fraudulent actors in 
+the ad-click domain. Credit card management, being a perennial target for mali­
+cious activities, demands a sophisticated approach to fraud detection. This chapter 
+explores the AI-based document verification systems which emphasize their piv­
+otal role in securing transactions that hinge on authenticating documents such as 
+*Corresponding author: bhupindersinghlaw19@gmail.com; 
+ORCID: https://orcid.org/0009-0006-4779-2553
+Pushan Kumar Dutta: ORCID: https://orcid.org/0000-0002-4765-3864
+Christian Kaunert: Orcid ID: https://orcid.org/0000-0002-4493-2235
+
+
+--- Page 125 ---
+
+102  Generative Artificial Intelligence in Finance
+forged documentation, which is addressed through innovative solutions includ­
+ing the integration of blockchain technology with AI which not only enhances 
+security but also establishes an immutable ledger of transactions, mitigating risks 
+associated with document-based frauds.
+Keywords:  Ad clicks, artificial intelligence, credit card management, document 
+dispensation, financial frauds, e-commerce transactions
+6.1	 Introduction and Background
+The contemporary landscape of the banking and financial industry is 
+marked by an amalgamation of cutting-edge technologies and ever-­
+evolving complexities, underscoring the pressing need for innovative 
+solutions to combat a surge in sophisticated fraudulent activities [1]. This 
+chapter embarks on an ambitious exploration into the realms of artifi­
+cial intelligence (AI) and machine learning (ML) probing their intricate 
+interfaces to delineate strategies for capturing and vanquishing frauds [2]. 
+The focus is particularly sharpened on three pivotal dimensions: ad-click 
+fraud, credit card management fraud, and Document Dispensation Fraud 
+within the expansive domain of e-commerce transactions [3]. The trajec­
+tory of this research is firmly anchored in the historical evolution of finan­
+cial frauds which unravels the intricate narrative of how these activities 
+have evolved alongside technological advancements [4]. A robust literature 
+review will serve as a compass, guiding the exploration through the cur­
+rents of historical precedents and contemporary challenges [5].
+The journey then dives into the specific dimensions of ad-click fraud, 
+credit card management fraud, and document dispensation fraud. Each 
+section dissects the unique challenges posed by these frauds and scruti­
+nizes the role that AI and ML play in mitigating these challenges [6]. It 
+scrutinizes anomaly detection techniques powered by machine learning, 
+which prove instrumental in identifying subtle deviations from established 
+spending patterns [7]. This chapter is not merely a theoretical exercise but a 
+profound inquiry into the practical applications of advanced technologies 
+to safeguard the financial integrity of the digital age [8]. The subsequent 
+sections of this comprehensive chapter unfold a narrative that transcends 
+mere theoretical postulations, aiming to present a pragmatic blueprint for 
+the deployment of AI and ML as sentinels guarding the gateways of the 
+banking and financial industry against the insidious infiltration of fraudu­
+lent activities [9].
+
+
+--- Page 126 ---
+
+Deep Diving into Financial Frauds  103
+6.1.1	 Objectives of the Chapter
+This framework is for a comprehensive analysis of the interplay between 
+financial frauds and AI/ML solutions [10]. The study aims to contribute 
+to the body of knowledge in the field of financial security by providing 
+actionable insights and innovative strategies for enhancing fraud detection 
+and prevention in the banking and financial industry to:
+--
+comprehensively scrutinize the different types and methods 
+of financial fraud, with a specific focus on ad-click fraud, 
+credit card management fraud, and document dispensation 
+fraud within e-commerce transactions.
+--
+better understanding of the dynamics of financial fraud, the 
+chapter aims to identify and analyze the vulnerabilities in 
+the banking and financial sector that fraudsters exploit.
+--
+evaluate the current landscape of AI and ML applications in 
+the banking and financial industry, particularly in the con­
+text of fraud detection and prevention.
+--
+insights gained from the investigation, the research aims to 
+propose advanced AI and ML models that are specifically 
+tailored to combat financial fraud.
+6.1.2	 Significance of the Chapter
+This chapter holds paramount significance against the backdrop of a rap­
+idly digitizing financial ecosystem [11]. The banking and financial indus­
+try stands at the nexus of technological innovation and emerging threats, 
+and the study’s findings are poised to significantly contribute to the forti­
+fication of this sector against evolving fraudulent activities [12, 13]. The 
+specific focus on ad-click fraud, credit card management fraud, and docu­
+ment dispensation fraud not only reflects the relevance of these issues but 
+also underscores the imperative for targeted solutions [14, 15]. The signif­
+icance of this chapter falls in its potential to inform policy frameworks, 
+guide industry practices, and inspire further advancements in AI and ML 
+applications for financial security [16]. As the financial systems become 
+increasingly interconnected globally, the outcomes of this study could have 
+far-reaching implications for safeguarding economic interests and main­
+taining the trust and integrity of digital financial transactions [17].
+
+
+--- Page 127 ---
+
+104  Generative Artificial Intelligence in Finance
+6.2	 Ad-Click Fraud Detection in the Banking 
+and Financial Sectors
+Ad-click fraud detection is a critical aspect of safeguarding the integrity 
+and efficiency of online advertising ecosystems. Advertisers invest sub­
+stantial resources in digital campaigns to reach their target audience, mak­
+ing them susceptible to fraudulent activities that compromise the return 
+on investment. Ad-click fraud entails the deceptive manipulation of clicks 
+on online advertisements, often orchestrated by automated bots or indi­
+viduals aiming to exploit the pay-per-click (PPC) model. In order to coun­
+teract this threat, advanced AI solutions are essential [18]. ML algorithms 
+meticulously analyze extensive datasets, examining user behavior patterns, 
+click-through rates, and engagement metrics to pinpoint anomalies indic­
+ative of fraudulent activities. AI models employ real-time monitoring to 
+identify abrupt spikes in click volume or unusual geographic patterns. The 
+ongoing evolution of these detection mechanisms ensures the dynamic 
+and adaptive nature of ad-click fraud prevention, providing advertisers 
+with a robust defense against deceptive practices and fostering a more 
+trustworthy digital advertising environment [19].
+6.2.1	 Definition and Types of Ad-Click Fraud
+Ad-click fraud is the dishonest activity of creating fake clicks on inter­
+net ads with the intention of manipulating advertising analytics or taking 
+advantage of the PPC income model. Executed by either automated bots 
+or individuals, this fraudulent activity endeavors to artificially inflate click 
+counts, exhaust advertiser budgets, and undermine the effectiveness of 
+digital advertising campaigns [20]. This form of fraud presents a substan­
+tial challenge to the online advertising ecosystem, affecting advertisers, 
+publishers, and ad networks alike.
+Varieties of Ad-Click Fraud:
+Automated Bots:
+Definition: Automated bots, or scripts, are programmed to sim­
+ulate human behavior by interacting with ads. Deployed in 
+significant numbers, these bots generate a considerable vol­
+ume of deceptive clicks.
+
+
+--- Page 128 ---
+
+Deep Diving into Financial Frauds  105
+Challenges in Detection: Bots are evolving in sophistication, 
+posing difficulties in distinguishing between legitimate and 
+automated clicks.
+Click Farms:
+Definition: Click farms employ groups of individuals, often 
+in regions with lower labor costs, to manually click on ads. 
+These operations can be structured to produce large quanti­
+ties of fraudulent clicks.
+Challenges in Detection: Identifying click farms involves ana­
+lyzing click behavior patterns and IP addresses, with the 
+additional complexity that these operations often go to great 
+lengths to appear authentic.
+Competitor Clicks:
+Definition: Competitors may engage in click fraud to exhaust a 
+rival’s advertising budget, diminish campaign effectiveness, 
+or gain a competitive advantage.
+Challenges in Detection: Distinguishing between genuine user 
+interest and competitive interference is intricate, requiring 
+advanced analytics.
+Fraudulent Publishers:
+Definition: Unscrupulous publishers may click on ads on their 
+own websites to falsely boost revenue.
+Challenges in Detection: Identifying collusion between pub­
+lishers and fraudulent clicks involves scrutinizing traffic pat­
+terns and engagement metrics.
+Ad Stacking:
+Definition: Ad stacking happens when multiple ads are layered 
+in a single ad placement. While users may only see the top 
+ad, all ads in the stack register as clicks.
+Challenges in Detection: Detecting ad stacking necessitates ana­
+lyzing click-through rates and user engagement to uncover 
+discrepancies.
+
+
+--- Page 129 ---
+
+106  Generative Artificial Intelligence in Finance
+Mobile Ad Fraud:
+Definition: Fraudulent clicks on mobile ads can occur through 
+various means, including click injection, click spamming, or 
+the use of malicious apps.
+Challenges in Detection: Detecting mobile ad fraud requires 
+monitoring app behavior and analyzing click patterns spe­
+cific to mobile devices.
+Effectively addressing ad-click fraud involves a continuous refinement 
+of detection mechanisms, utilizing AI and ML to identify patterns, anom­
+alies, and other indicators of deceptive activity. This proactive approach is 
+indispensable for upholding the integrity of digital advertising ecosystems 
+and ensuring the fairness and efficacy of online marketing campaigns [21].
+6.2.2	 Data Sources and Features
+Data sources and features are fundamental elements in data-driven analy­
+sis and ML. Data sources refer to the origins of data, which can encompass 
+a wide range of repositories such as databases, web scraping, sensors, or 
+user-generated content [22]. These sources provide the raw material for 
+analysis and model development. These features are the specific attributes 
+or variables extracted from the data sources. They encapsulate the informa­
+tion used by ML algorithms to make predictions or classifications. Careful 
+selection and engineering of features are crucial as they directly impact the 
+model’s performance, emphasizing the importance of both data sources 
+and feature engineering in the data science workflow [23].
+6.2.3	 AI and ML Algorithms for Ad-Click Fraud Detection
+AI and ML algorithms have revolutionized ad-click fraud detection 
+by offering powerful tools to combat this pervasive issue in the digital 
+advertising landscape. These algorithms analyze massive datasets in real 
+time, identifying intricate patterns and anomalies in user behavior, click-
+through rates, and engagement metrics [24]. ML models, such as decision 
+trees, random forests, and deep neural networks, play a pivotal role in 
+learning from historical click data and adapting to evolving fraud tech­
+niques. Anomalous activity, like unusual spikes in click volume or patterns 
+that deviate from established norms, can be swiftly detected, raising red 
+flags for further investigation. AI-driven algorithms are instrumental in 
+differentiating genuine user interactions from fraudulent ones, thereby 
+
+
+--- Page 130 ---
+
+Deep Diving into Financial Frauds  107
+protecting advertisers from budget depletion and preserving the integrity 
+of online advertising [25].
+6.3	 Credit Card Management Fraud Detection
+Detecting credit card management fraud is a crucial aspect of ensuring 
+financial security in today’s digital age. The increasing prevalence of online 
+transactions and the continuous expansion of the e-commerce landscape 
+have substantially heightened the risk of credit card fraud. The sophistica­
+tion of credit card management fraud detection has advanced significantly, 
+relying heavily on cutting-edge technologies, particularly AI and ML algo­
+rithms. These algorithms are carefully crafted to examine huge amounts 
+of transaction data, actively looking for trends, oddities, and deviations 
+that might point to fraudulent behavior [26]. AI and ML models excel in 
+real-time monitoring of credit card transactions, swiftly identifying sus­
+picious behavior, such as large and out-of-character purchases, transac­
+tions in geographically unusual locations, or an unusually high volume 
+of transactions in a short timeframe. These models exhibit adaptability to 
+evolving fraud tactics, crucial in an environment where fraudsters contin­
+ually devise new schemes. A notable advantage of AI and ML in credit card 
+management fraud detection is their capacity to analyze historical data to 
+establish a baseline for normal cardholder behavior. This baseline serves as 
+a reference point to flag any deviations, whether it involves a sudden surge 
+in transaction frequency or a shift in spending habits [27].
+Beyond merely identifying potential fraud, credit card management 
+fraud detection also prioritizes minimizing false positives. AI and ML 
+algorithms are consistently improving in this aspect, empowering finan­
+cial institutions to reduce the number of legitimate transactions mistak­
+enly flagged as fraudulent. This not only enhances the user experience for 
+cardholders but also maintains a robust defense against fraud [28]. In the 
+modern financial landscape, credit card management fraud detection pow­
+ered by AI and ML proves indispensable. It offers a proactive and adapt­
+able approach to safeguarding credit cardholders from fraudulent activity 
+while minimizing disruptions to their legitimate transactions. As tech­
+nology continues to advance and fraudsters grow more sophisticated, the 
+role of AI and ML in credit card management fraud detection will remain 
+pivotal in protecting both consumers and financial institutions from the 
+ever-present threat of fraud [29].
+
+
+--- Page 131 ---
+
+108  Generative Artificial Intelligence in Finance
+6.3.1	 Data Sources and Features Concerning Credit Card 
+Management Fraud Detection
+Data sources are the streams of transaction data generated by credit card 
+usage in the context of credit card management fraud detection. These 
+sources include real-time transaction records, customer profiles, and his­
+torical data. Feature refers to the specific attributes extracted from this 
+data, such as transaction amounts, locations, time stamps, and cardholder 
+behavior. Efficient feature selection and engineering play a crucial role in 
+constructing precise fraud detection models. Through the analysis of these 
+features, ML algorithms can unveil patterns, anomalies, and deviations, 
+aiding in the identification of potentially fraudulent transactions and safe­
+guarding cardholders from financial loss [30].
+6.3.2	 AI and ML Algorithms for Credit Card Fraud Detection
+ML models, encompassing neural networks, decision trees, and ensem­
+ble methods, excel in learning from historical data to recognize typical 
+spending patterns and detect anomalies indicative of potential fraud [31]. 
+Through real-time monitoring, these models swiftly identify suspicious 
+transactions, such as unexpected large purchases, transactions in unusual 
+locations, or sudden shifts in spending habits. AI and ML algorithms play 
+a pivotal role in transforming credit card fraud detection, employing a 
+sophisticated and proactive approach to securing financial transactions. 
+These algorithms leverage extensive datasets of credit card transactions, 
+analyzing intricate patterns and real-time anomalies [32].
+The integration of AI and ML into credit card fraud detection not only 
+enhances the efficiency of identifying potential fraud but also reduces false 
+positives, ensuring a smoother experience for legitimate cardholders and 
+fortifying the security of financial transactions. As technology progresses 
+and fraud techniques become more advanced, the significance of AI and 
+ML algorithms in credit card fraud detection remains crucial for staying 
+ahead of potential threats and preserving the integrity of financial systems. 
+The adaptive nature of AI and ML is particularly beneficial, as these algo­
+rithms continually evolve to counter emerging fraud tactics. Moreover, 
+their capacity to consider multiple variables, such as transaction frequency, 
+location, and cardholder behavior, amplifies the accuracy of fraud deter­
+minations [33].
+
+
+--- Page 132 ---
+
+Deep Diving into Financial Frauds  109
+6.4	 Document Dispensation Fraud Detection 
+in E-Commerce Transactions
+Fraud through document manipulation in e-commerce transactions poses 
+a multifaceted challenge, carrying potential financial and legal ramifica­
+tions. This deceptive practice involves altering or fabricating documents 
+such as invoices, receipts, shipping orders, or other transaction-related 
+paperwork to deceive e-commerce platforms, retailers, or financial insti­
+tutions. Effectively identifying document dispensation fraud demands the 
+integration of advanced technological solutions and human oversight [34]. 
+Natural language processing (NLP) techniques are essential for examin­
+ing the textual content of documents in addition to AI and ML. They can 
+reveal linguistic inconsistencies or abnormalities that might point to fraud. 
+For instance, NLP approaches might reveal errors in product descriptions 
+or in the wording or layout of invoices. Despite the use of technology in 
+detecting document dispensation fraud, human interaction is still essential 
+[35].
+Human reviewers give the required context and judgment to make 
+decisions about document authenticity, assisted by insights from AI and 
+ML technologies. When abnormalities are found, they can also carry out 
+in-depth investigations, looking at transaction histories and related data to 
+help them decide whether the document is legitimate [36]. Detecting doc­
+ument dispensation fraud in e-commerce transactions is a complex and 
+interdisciplinary process. It requires the synergy of AI and ML algorithms 
+for image and text analysis, combined with human expertise to make 
+nuanced decisions based on context and experience. This collaborative 
+approach ensures a robust defense against fraudulent document manipu­
+lation, preserving the integrity of e-commerce transactions and upholding 
+the trust and security of online retail ecosystems [37].
+6.4.1	 AI and ML Algorithms for Document Dispensation 
+Fraud Detection
+Playing a pivotal role in the intricate task of detecting document dispensa­
+tion fraud in e-commerce, AI and ML algorithms contribute significantly 
+to pinpointing deceptive practices involving invoices, receipts, shipping 
+orders, and other transaction-related documents. These algorithms excel 
+in analyzing document images and meticulously scrutinizing the content 
+and structure for anomalies and inconsistencies indicative of fraudulent 
+manipulation [38]. AI-powered optical character recognition (OCR) 
+
+
+--- Page 133 ---
+
+110  Generative Artificial Intelligence in Finance
+systems extract and analyze text from document images, enabling cross-­
+referencing with transaction records. Inconsistencies in product descrip­
+tions, quantities, or prices, as well as other inconsistencies between 
+document information and real transaction data, are easily detected by ML 
+algorithms. AI algorithms can also find evidence of tampering like altered 
+document images or fake signatures [39].
+NLP algorithms are also essential in this situation. They examine the text 
+of documents to look for grammatical errors, linguistic trends, or other 
+textual irregularities that might indicate fraud. NLP algorithms reveal 
+inconsistencies or variances in language and structure by analyzing the text 
+and formatting of invoices, purchase receipts, or other documents [40]. 
+When working with enormous amounts of documents, the usefulness of 
+AI and ML technologies becomes very clear. They can automatically high­
+light documents that need more in-depth examination by human review­
+ers during the initial screening process. Armed with knowledge from the 
+algorithms, these reviewers weigh context, transaction history, and their 
+own experience when making judgments on the legitimacy of documents. 
+The security and trust of e-commerce ecosystems are maintained by this 
+cooperative effort between technology and human skill which guarantees a 
+strong defense against fraudulent document modification [41].
+6.5	 Cross-Domain Analysis: Frauds in Banking 
+and Financial Industry
+In fraud detection within the banking and financial industry, cross-domain 
+analysis involves amalgamating and scrutinizing data from diverse sources 
+to enhance the identification and prevention of fraudulent activities [42]. 
+The financial sector grapples with various forms of fraud, ranging from 
+credit card fraud and insider trading to identity theft. Adopting a cross-­
+domain analysis approach entails the fusion of data from different realms, 
+including transaction records, customer profiles, market data, and external 
+elements like economic indicators. Through the integration of these varied 
+datasets, financial institutions can attain a more comprehensive under­
+standing of fraudulent patterns, potentially uncovering early warning signs 
+that may not be apparent when examining each domain in isolation [43].
+The holistic strategy may involve dissecting transaction data alongside 
+customer behavior, blending insights from market fluctuations, and even 
+considering macroeconomic factors [44]. This comprehensive approach 
+
+
+--- Page 134 ---
+
+Deep Diving into Financial Frauds  111
+empowers banks and financial organizations to develop more sophisticated 
+fraud detection models. These models could uncover correlations between 
+external market conditions and spikes in certain types of fraudulent activi­
+ties or track patterns in customer behavior that could indicate identity theft 
+or account compromise. The fraudsters continually adapt their tactics, and 
+cross-domain analysis can be instrumental in creating more robust and 
+adaptive defenses in a rapidly evolving financial landscape. This approach 
+can lead to more proactive and effective strategies for mitigating fraud, 
+safeguarding financial institutions and their customers, and maintaining 
+the integrity of the broader financial ecosystem [45].
+6.5.1	 Commonalities and Differences in Fraud 
+Detection Techniques
+Commonalities and differences exist among various fraud detection 
+techniques. A commonality is their reliance on data analysis, where they 
+scrutinize patterns, anomalies, and deviations. ML and AI are frequently 
+employed in these techniques to enhance their accuracy. However, dif­
+ferences emerge in the data sources they utilize; for instance, credit card 
+fraud detection focuses on transaction data, whereas document dispensa­
+tion fraud detection centers on document content and images. The types 
+of fraud they target also vary and the algorithms and models used may be 
+tailored to specific fraud categories [46].
+6.5.2	 Transfer Learning and Knowledge Sharing 
+in Fraud Detection
+In the context of detecting fraud, transfer learning and information shar­
+ing are powerful concepts. The process of applying knowledge from one 
+domain or dataset to improve a model’s performance in another is known 
+as transfer learning [47]. This pertains to using insights and patterns dis­
+covered by detecting one type of fraud to enhance the detection of other 
+types in the field of fraud detection. The idea of information sharing broad­
+ens this strategy by enabling different models or systems to cooperate and 
+share their ideas, strengthening the group’s capacity to identify fraud more 
+successfully. Through the seamless adaptation and improvement of fraud 
+detection algorithms made possible by these methodologies, financial 
+institutions are better able to react quickly to new threats, thus improving 
+the security of financial transactions [48].
+
+
+--- Page 135 ---
+
+112  Generative Artificial Intelligence in Finance
+6.5.3	 Building a Unified Fraud Detection Model
+To create a comprehensive and adaptable system, an integrated fraud detec­
+tion model must be built by combining various data sources and fraud 
+detection techniques. This approach makes use of ML algorithms that can 
+spot trends in various forms of fraud, such as document manipulation, 
+identity theft, and credit card fraud [49]. Financial institutions obtain a 
+thorough understanding of potential dangers through the integration of 
+these models, enabling more accurate and effective fraud detection. This 
+integrated model has the capacity to learn from fresh data continuously, 
+responding to changing fraud strategies and offering a strong defense 
+against a wide range of fraudulent acts in the complex world of financial 
+transactions [50].
+6.6	 Ethical and Privacy Considerations: Frauds 
+in Banking and Financial Industry
+The banking and financial sector uses AI and ML to detect fraud, which is 
+definitely effective, but it also raises important ethical and privacy issues. 
+These technologies involve the analysis of extensive data, encompassing 
+sensitive customer information, transaction records, and behavioral pat­
+terns. Ensuring the ethical deployment of AI and ML in this context is par­
+amount. A primary concern is the potential for misuse and intrusion into 
+individual privacy [51]. While the effective detection of financial fraud 
+necessitates the analysis of personal data by AI and ML algorithms, there 
+exists a delicate balance between utilizing data for security and infringing 
+upon privacy. Achieving this equilibrium is challenging, as excessive data 
+collection and storage can encroach upon individual rights. It is crucial to 
+recognize that AI and ML algorithms are not immune to biases present in 
+their training data. This can lead to unintentional discrimination or unfair 
+profiling of certain groups or individuals. It is crucial to continuously mon­
+itor and rectify these biases to maintain fairness in fraud detection [52].
+Transparency and explainability emerge as ethical imperatives. It is cru­
+cial to comprehend how AI and ML models arrive at decisions, particularly 
+when such decisions carry substantial financial and legal implications [53]. 
+The ability to audit these technologies and elucidate their decision-making 
+processes is indispensable for establishing trust. In tackling these ethical 
+and privacy concerns, it becomes imperative to implement robust regula­
+tory frameworks, stringent data protection policies, and responsible prac­
+tices in the development of AI. Striking a balance between security and 
+
+
+--- Page 136 ---
+
+Deep Diving into Financial Frauds  113
+individual rights is the key to fostering trust in the use of AI and ML for 
+fraud detection within the banking and financial sector while upholding 
+privacy and ethical standards [54].
+6.6.1	 Data Privacy and Security
+Data privacy and security are paramount in the realm of financial trans­
+actions and fraud detection. Ensuring the confidentiality and integrity of 
+sensitive data, such as customer information and transaction records, is not 
+only a legal requirement but a fundamental aspect of trust in the financial 
+industry. To protect this data from unauthorized access or breaches, it is 
+imperative to implement rigorous security measures, encryption protocols, 
+and access controls [55]. Equally crucial is the establishment of a robust 
+privacy policy that apprises customers about the handling of their data, fos­
+tering transparency and trust. In the realm of AI and ML responsible data 
+management is vital to achieving a delicate equilibrium between security 
+and the ethical deployment of technology. Financial institutions must con­
+sistently update and modify their privacy and security protocols to effec­
+tively address emerging threats and adhere to evolving regulations [56].
+6.6.2	 Bias and Fairness in AI/ML Models
+Issues of bias and fairness hold significant importance in AI/ML models, 
+particularly in applications such as fraud detection within the banking and 
+financial industry. Bias can inadvertently seep into models through skewed 
+training data, leading to unfair outcomes that disproportionately impact 
+certain groups or individuals [57]. Fairness in AI entails ensuring that 
+the predictions made by the model are unbiased and do not discriminate 
+based on demographic, ethnic, or socioeconomic factors. Tackling these 
+challenges requires rigorous testing, validation, and continuous monitor­
+ing to detect and mitigate bias. Prioritizing fairness enables financial insti­
+tutions to construct more equitable and reliable AI/ML models that make 
+impartial decisions within the intricate realm of fraud detection [58].
+6.6.3	 Regulatory Compliance
+The financial sector operates under strict regulations, encompassing anti-
+money laundering (AML), know-your-customer (KYC) rules, the Payment 
+Card Industry Data Security Standard (PCI DSS), and more. These regu­
+lations are crafted to guarantee the security of financial transactions, safe­
+guard consumers, and uphold the integrity of the financial system. For 
+
+
+--- Page 137 ---
+
+114  Generative Artificial Intelligence in Finance
+financial institutions employing AI and ML models in fraud detection, 
+navigating the nuances of regulatory compliance is imperative. They must 
+demonstrate that their systems align with these regulatory requirements, 
+particularly concerning the handling of sensitive customer data [59]. 
+Transparency, accuracy, and auditability of AI/ML models become piv­
+otal, as regulatory bodies demand insight into decision-making processes. 
+Compliance extends to ethical considerations, with regulators increas­
+ingly expecting financial institutions to address the ethical implications of 
+deploying AI in fraud detection. This involves ensuring fairness, transpar­
+ency, and accountability in the model’s operations, addressing issues such 
+as bias, discrimination, and the responsible use of AI [60].
+In this regulatory landscape, financial organizations must invest in robust 
+governance, risk management, and compliance (GRC) programs. These 
+programs aid in developing AI and ML models that not only excel in fraud 
+detection but also align with the ever-evolving legal and ethical require­
+ments, ensuring the security of financial transactions and the protection of 
+individual rights. Failure to do so can result in substantial penalties and rep­
+utational damage, making regulatory compliance a top priority in the imple­
+mentation of AI and ML for fraud detection in the financial sector.
+6.7	 Advancements in AI/ML Techniques
+Advancements in AI and ML techniques have significantly transformed 
+the landscape of fraud detection in the banking and financial industry. 
+These technologies have evolved rapidly, offering enhanced capabilities 
+that empower financial institutions to stay ahead of increasingly sophis­
+ticated fraudsters. The advancement is the transition from rule-based 
+systems to ML algorithms [61]. Traditional rule-based approaches were 
+limited in their ability to adapt to new fraud patterns. In contrast, ML 
+models are dynamic and can continuously learn from data, recognizing 
+both known and emerging fraud tactics. The adoption of deep learning 
+techniques, like neural networks, has further improved the accuracy and 
+complexity of fraud detection models, enabling them to identify intricate 
+patterns and anomalies [62].
+AI and ML advancements have ushered in the era of predictive analytics 
+because these models can now forecast potential fraud patterns based on 
+historical data, allowing financial institutions to proactively prevent fraud­
+ulent activities. Predictive models can identify outliers, detect anomalies, 
+and trigger alerts for further investigation, reducing false positives and 
+enhancing the overall efficiency of fraud detection [63].
+
+
+--- Page 138 ---
+
+Deep Diving into Financial Frauds  115
+The introduction of explainable AI and transparent decision-making 
+is another noteworthy development. As AI and ML models have become 
+more complex, the need for clear explanations for their decisions has 
+grown. Interpretability in AI models is vital not only for building trust 
+but also for compliance with regulatory and ethical standards [64]. As a 
+result, models are now designed to provide comprehensible explanations 
+for their fraud detection decisions, allowing financial institutions to under­
+stand and audit their operations more effectively. The ongoing refinement 
+of algorithms, the incorporation of big data and cloud computing, and the 
+integration of behavioral analytics and biometrics will continue to drive 
+innovation in the industry [65].
+6.7.1	 Blockchain and Distributed Ledger Technology
+Blockchain and distributed ledger technology (DLT) are assuming an 
+increasingly pivotal role in fraud detection within the banking and finan­
+cial industry. These technologies present an immutable, transparent, and 
+decentralized approach to record-keeping, making it exceptionally ardu­
+ous for fraudsters to manipulate transaction data. By furnishing a secure 
+and tamper-resistant ledger, blockchain and DLT significantly augment 
+the integrity of financial transactions [66]. The incorporation of smart 
+contracts, a feature of blockchain, allows for the automation of fraud 
+prevention measures and an enhancement of transaction security. While 
+blockchain and DLT do not serve as standalone solutions, they comple­
+ment AI and ML techniques by furnishing a robust and trustworthy foun­
+dation for fraud detection and prevention in the financial sector [67].
+6.7.2	 Explainable AI for Fraud Detection
+Explainable AI is gaining traction in the realm of fraud detection within 
+the banking and financial industry. As AI and ML models become more 
+intricate, there is an escalating demand to comprehend and interpret the 
+underlying logic behind their decisions [68]. Explainable AI delivers trans­
+parent and understandable explanations for these decisions, empowering 
+financial institutions to not only identify fraud but also comprehend the 
+reasons why specific transactions are identified as fraudulent. This transpar­
+ency plays a crucial role in fostering trust, ensuring regulatory compliance, 
+and addressing concerns related to bias and discrimination. Explainable 
+AI enhances the efficacy of fraud detection by facilitating human oversight 
+and enabling more informed decision-making [69].
+
+
+--- Page 139 ---
+
+116  Generative Artificial Intelligence in Finance
+6.8	 Challenges and Risks
+Implementing AI and ML for fraud detection in the banking and financial 
+industry presents several challenges and risks. One major challenge is the 
+constantly evolving nature of fraud tactics. Fraudsters continuously adapt 
+and develop new techniques, making it necessary for AI and ML models to 
+keep pace [70]. Staying ahead of emerging threats requires ongoing model 
+refinement and the ability to detect novel fraud patterns. AI and ML mod­
+els, while highly accurate, are not infallible, and misclassifying legitimate 
+transactions as fraudulent or failing to identify actual fraud can lead to 
+financial losses and customer dissatisfaction [71].
+Biasness in AI model biased training data can result in discriminatory 
+or unfair outcomes, disproportionately affecting certain groups. Ensuring 
+fairness in AI is essential, and addressing bias through data preprocess­
+ing and model calibration is crucial. Data privacy is an ongoing concern 
+[72]. Handling sensitive customer information and transaction data neces­
+sitates robust privacy and security measures to protect against breaches 
+or unauthorized access. Ensuring that data are used in a compliant and 
+ethical manner is a priority. Explainability and transparency are crucial. 
+Understanding how AI and ML models arrive at their decisions is essential 
+for building trust. The “black-box” nature of some models can be a barrier, 
+and financial institutions must invest in techniques that allow for model 
+interpretability and auditability [73].
+6.8.1	 Model Robustness and Adversarial Attacks
+The banking industry must ensure the resilience of AI and ML models 
+for fraud detection, and potential adversarial assaults must be given top 
+priority. Adversarial attacks intentionally alter data or input to deceive the 
+model, resulting in incorrect classifications and possible security breaches 
+[74]. Continuous testing and validation are necessary to identify weak­
+nesses and reinforce AI models against such attacks. This entails creating 
+systems that can survive malicious input while also continuously improv­
+ing fraud detection algorithms to fend off new dangers. The cornerstone of 
+protecting the financial sector from fraud is model robustness, which also 
+supports the dependability and credibility of AI and ML systems [75].
+6.8.2	 Scalability and Computational Resources
+The potential of AI and ML models to detect fraud on a large scale offers 
+both benefits and challenges. To support real-time fraud detection, there 
+
+
+--- Page 140 ---
+
+Deep Diving into Financial Frauds  117
+is an increasing requirement for computational resources and processing 
+power as transaction volumes rise. Making significant infrastructure and 
+computational resource investments is necessary to solve this scaling prob­
+lem [76]. It is essential to speed up and optimize models for efficiency in 
+order to handle the growing data flow. The scalability of AI and ML systems 
+is another important opportunity. Scaling makes it possible to accommo­
+date more information and complexity, which can improve the precision 
+and potency of fraud detection. This potential for scaling results in the 
+creation of more reliable and adaptable models that can address new fraud 
+trends in the ever-changing financial industry [77].
+6.8.3	 Evolving Nature of Fraud
+Systems for detecting fraud have a perpetual challenge since the fraud 
+landscape is constantly changing [78]. Fraudsters continuously refine their 
+tactics, employing increasingly sophisticated methods to exploit vulnera­
+bilities in the financial system [79, 80]. Ranging from conventional credit 
+card fraud to more intricate forms such as identity theft and document 
+manipulation, fraud manifests in diverse guises. The advent of digital plat­
+forms and e-commerce has furnished fraudsters with new avenues for 
+deception [81]. To counteract this, AI and ML models must maintain a 
+dynamic nature, adapting to identify emerging fraud patterns and remain­
+ing proactive in staying ahead of evolving threats within the perpetually 
+changing landscape of financial fraud [82].
+6.9	 Conclusion and Future Scope
+The application of AI and ML in fraud detection within the banking and 
+financial industry represents a significant advancement in bolstering secu­
+rity and operational efficiency. These technologies have proven invaluable 
+for identifying and mitigating fraudulent activities, allowing financial insti­
+tutions to respond promptly to emerging threats in real time. Nonetheless, 
+this progress comes with its set of challenges. Adapting continuously to 
+evolving fraud tactics, mitigating potential risks such as bias and adversar­
+ial attacks, and strictly adhering to a dynamic legal and regulatory land­
+scape are imperative for the responsible and effective use of AI and ML in 
+this domain. AI and ML models are poised for a promising future in the 
+field of fraud detection. The rapid evolution of technology is likely to result 
+in more advanced and adaptive systems capable of not only identifying 
+known fraud patterns but also proactively anticipating emerging threats. 
+
+
+--- Page 141 ---
+
+118  Generative Artificial Intelligence in Finance
+These systems will harness the power of predictive analytics and anom­
+aly detection to continuously enhance their capabilities. The future also 
+holds potential for closer collaboration between financial institutions and 
+regulatory bodies. A collaborative effort to establish best practices, share 
+knowledge, and implement robust governance measures can elevate the 
+overall effectiveness and trustworthiness of AI and ML in fraud detection. 
+As technology continues to advance, the financial industry can leverage AI 
+and ML to stay ahead of the ever-evolving landscape of fraudulent activi­
+ties while maintaining the integrity of financial transactions.
+References
+	 1.	 Adewumi, A.O. and Akinyelu, A.A., A survey of machine-learning and 
+nature-inspired based credit card fraud detection techniques. Int. J. Syst. 
+Assur. Eng. Manage., 8, 937–953, 2017.
+	 2.	 Ahmed, S., Alshater, M.M., El Ammari, A., Hammami, H., Artificial intelli­
+gence and machine learning in finance: A bibliometric review. Res. Int. Bus. 
+Finance, 61, 101646, 2022.
+	 3.	 Alghofaili, Y., Albattah, A., Rassam, M.A., A financial fraud detection model 
+based on LSTM deep learning technique. J. Appl. Secur. Res., 15, 4, 498–516, 
+2020.
+	 4.	 Ali, A., Abd Razak, S., Othman, S.H., Eisa, T.A.E., Al-Dhaqm, A., Nasser, M., 
+Saif, A., Financial fraud detection based on machine learning: a systematic 
+literature review. Appl. Sci., 12, 19, 9637, 2022.
+	 5.	 Ashfaq, T., Khalid, R., Yahaya, A.S., Aslam, S., Azar, A.T., Alsafari, S., 
+Hameed, I.A., A machine learning and blockchain based efficient fraud 
+detection mechanism. Sensors, 22, 19, 7162, 2022.
+	 6.	 Awotunde, J.B., Misra, S., Ayeni, F., Maskeliūnas, R., Damasevičius, R., 
+Artificial intelligence based system for bank loan fraud prediction, in: 
+International Conference on Hybrid Intelligent Systems, pp. 463–472, Springer, 
+Cham, December 2021.
+	 7.	 Aziz, S. and Dowling, M.M., AI and machine learning for risk management, 
+in: Disrupting Finance: FinTech and Strategy in the 21st Century, T. Lynn, 
+G. Mooney, P. Rosati, M. Cummins (Eds.), pp. 33–50, Palgrave, UK, 2018.
+	 8.	 Bhasin, M.L., Menace of frauds in the Indian banking industry: an empirical 
+study. Aust. J. Bus. Manage. Res., 4, 12, 45, 2015.
+	 9.	 Bhatore, S., Mohan, L., Reddy, Y.R., Machine learning techniques for credit 
+risk evaluation: a systematic literature review. J. Bank. Financ. Technol., 4, 
+111–138, 2020.
+	 10.	 Biswas, A., Deol, R.S., Jha, B.K., Jakka, G., Suguna, M.R., Thomson, B.I., 
+Automated Banking Fraud Detection for Identification and Restriction 
+of Unauthorised Access in Financial Sector, in: 2022 3rd International 
+
+
+--- Page 142 ---
+
+Deep Diving into Financial Frauds  119
+Conference on Smart Electronics and Communication (ICOSEC), IEEE, 
+pp. 809–814, October 2022.
+	 11.	 Błaszczyński, J., de Almeida Filho, A.T., Matuszyk, A., Szeląg, M., Słowiński, 
+R., Auto loan fraud detection using dominance-based rough set approach 
+versus machine learning methods. Expert Syst. Appl., 163, 113740, 2021.
+	 12.	 Bose, I. and Mahapatra, R.K., Business data mining—a machine learning 
+perspective. Inf. Manage., 39, 3, 211–225, 2001.
+	 13.	 Dalal, S., Seth, B., Radulescu, M., Secara, C., Tolea, C., Predicting fraud 
+in financial payment services through optimized hyper-parameter-tuned 
+XGBoost model. Mathematics, 10, 24, 4679, 2022.
+	 14.	 Goodell, J.W., Kumar, S., Lim, W.M., Pattnaik, D., Artificial intelligence and 
+machine learning in finance: Identifying foundations, themes, and research 
+clusters from bibliometric analysis. J. Behav. Exp. Finance, 32, 100577, 2021.
+	 15.	 Hajek, P. and Henriques, R., Mining corporate annual reports for intelli­
+gent detection of financial statement fraud–A comparative study of machine 
+learning methods. Knowl.-Based Syst., 128, 139–152, 2017.
+	 16.	 Hasan, I. and Rizvi, S.A.M., AI-driven fraud detection and mitigation in 
+e-commerce transactions, in: Proceedings of Data Analytics and Management: 
+ICDAM 2021, Volume 1, Springer, Singapore, pp. 403–414, 2022.
+	 17.	 Kaur, D.N., Sahdev, S.L., Sharma, D.M., Siddiqui, L., Banking 4.0: ‘the influ­
+ence of artificial intelligence on the banking industry & how ai is changing 
+the face of modern day banks’. Int. J. Manage., 11, 6, 11–15, 2020.
+	 18.	 Kurshan, E., Shen, H., Yu, H., Financial crime & fraud detection using graph 
+computing: Application considerations & outlook, in: 2020 Second Inter­
+national Conference on Transdisciplinary AI (TransAI), IEEE, pp. 125–130, 
+September 2020.
+	 19.	 Kute, D.V., Pradhan, B., Shukla, N., Alamri, A., Deep learning and explain­
+able artificial intelligence techniques applied for detecting money launder­
+ing–a critical review. IEEE Access, 9, 82300–82317, 2021.
+	 20.	 Lei, X., Mohamad, U.H., Sarlan, A., Shutaywi, M., Daradkeh, Y.I., Mohammed, 
+H.O., Development of an intelligent information system for financial analysis 
+depend on supervised machine learning algorithms. Inf. Process. Manage., 
+59, 5, 103036, 2022.
+	 21.	 Leo, M., Sharma, S., Maddulety, K., Machine learning in banking risk man­
+agement: A literature review. Risks, 7, 1, 29, 2019.
+	 22.	 Lokanan, M., Tran, V., Vuong, N.H., Detecting anomalies in financial state­
+ments using machine learning algorithm: The case of Vietnamese listed 
+firms. Asian J. Account. Res., 4, 2, 181–201, 2019.
+	 23.	 Mahalakshmi, V., Kulkarni, N., Kumar, K.P., Kumar, K.S., Sree, D.N., Durga, 
+S., The Role of implementing Artificial Intelligence and Machine Learning 
+Technologies in the financial services Industry for creating Competitive 
+Intelligence. Mater. Today Proc., 56, 2252–2255, 2022.
+	 24.	 Meghani, K., Use of artificial intelligence and Blockchain in banking sector: A 
+study of scheduled commercial banks in India. Indian J. Appl. Res., 10, 45–55, 
+2020.
+
+
+--- Page 143 ---
+
+120  Generative Artificial Intelligence in Finance
+	 25.	 Mirza, N., Elhoseny, M., Umar, M., Metawa, N., Safeguarding FinTech 
+innovations with Machine Learning: Comparative Assessment of Various 
+Approaches. Res. Int. Bus. Finance, 1, 102009, 2023.
+	 26.	 Nazeer, I., Prasad, K.D.V., Bahadur, P., Bapat, V., MJ, K., Synchronization of 
+AI and Deep Learning for Credit Card Fraud Detection. Int. J. Intell. Syst. 
+Appl. Eng., 11, 5s, 52–59, 2023.
+	 27.	 Nguyen, T.T., Tahir, H., Abdelrazek, M., Babar, A., Deep learning methods 
+for credit card fraud detection, 2020, arXiv preprint arXiv:2012.03754.
+	 28.	 Paruchuri, H., Credit Card Fraud Detection using Machine Learning: A 
+Systematic Literature Review. ABC J. Adv. Res., 6, 2, 113–120, 2017.
+	 29.	 Roy, A., Sun, J., Mahoney, R., Alonzi, L., Adams, S., Beling, P., Deep learning 
+detecting fraud in credit card transactions, in: 2018 Systems and Information 
+Engineering Design Symposium (SIEDS), IEEE, pp. 129–134, April 2018.
+	 30.	 Ryman-Tubb, N.F., Krause, P., Garn, W., How Artificial Intelligence and 
+machine learning research impacts payment card fraud detection: A survey 
+and industry benchmark. Eng. Appl. Artif. Intell., 76, 130–157, 2018.
+	 31.	 Sadgali, I., Sael, N., Benabbou, F., Performance of machine learning tech­
+niques in the detection of financial frauds. Procedia Comput. Sci., 148, 45–54, 
+2019.
+	 32.	 Sen, J., Sen, R., Dutta, A., Introductory Chapter: Machine Learning in 
+Finance-Emerging Trends and Challenges, in: Algorithms, Models and 
+Applications, p. 1, 2021.
+	 33.	 Sharma, A. and Singh, B., Measuring Impact of E-commerce on Small Scale 
+Business: A Systematic Review. JCGIBL, 5, 1, 75, 2022.
+	 34.	 Singh, B., Understanding Legal Frameworks Concerning Transgender 
+Healthcare in the Age of Dynamism. Electron. J. Soc. Strateg. Stud., 3, 56–65, 
+2022.
+	 35.	 Singh, B., Blockchain Technology in Renovating Healthcare: Legal and Future 
+Perspectives, in: Revolutionizing Healthcare Through Artificial Intelligence 
+and Internet of Things Applications, pp. 177–186, IGI Global, USA, 2023.
+	 36.	 Singh, B., Federated Learning for Envision Future Trajectory Smart Transport 
+System for Climate Preservation and Smart Green Planet: Insights into 
+Global Governance and SDG-9 (Industry, Innovation and Infrastructure). 
+Natl. J. Environ. Law, 6, 2, 6–17, 2023.
+	 37.	 Singh, C., Pattanayak, D., Dixit, D., Antony, K., Agarwala, M., Kant, R., 
+Mathur, V., Frauds in the Indian banking industry. IIM Bangalore Research 
+Paper, (505), 2016.
+	 38.	 Singla, A. and Jangir, H., A comparative approach to predictive analytics 
+with machine learning for fraud detection of realtime financial data, in: 2020 
+International Conference on Emerging Trends in Communication, Control and 
+Computing (ICONC3), IEEE, pp. 1–4, February 2020.
+	 39.	 Sood, P. and Bhushan, P., A structured review and theme analysis of financial 
+frauds in the banking industry. Asian J. Bus. Ethics, 9, 305–321, 2020.
+
+
+--- Page 144 ---
+
+Deep Diving into Financial Frauds  121
+	 40.	 Stojanovic, B., Božić, J., Hofer-Schmitz, K., Nahrgang, K., Weber, A., Badii, 
+A., Runevic, J., Follow the trail: Machine learning for fraud detection in 
+Fintech applications. Sensors, 21, 5, 1594, 2021.
+	 41.	 Taiwo, J.N., Babajide, A., Isibor, A.A., Growth of bank frauds and the impact 
+on the Nigerian banking industry. J. Bus. Manage. Econ., 4, 12, 2016.
+	 42.	 Thekkethil, M.S., Shukla, V.K., Beena, F., Chopra, A., Robotic process auto­
+mation in banking and finance sector for loan processing and fraud detec­
+tion, in: 2021 9th International Conference on Reliability, Infocom Technologies 
+and Optimization (Trends and Future Directions)(ICRITO), IEEE, pp. 1–6, 
+September 2021.
+	 43.	 Thennakoon, A., Bhagyani, C., Premadasa, S., Mihiranga, S., Kuruwitaarachchi, 
+N., Real-time credit card fraud detection using machine learning, in: 2019 9th 
+International Conference on Cloud Computing, Data Science & Engineering 
+(Confluence), IEEE, pp. 488–493, January 2019.
+	 44.	 Verma, J., Application of Machine Learning for Fraud Detection–A Decision 
+Support System in the Insurance Sector, in: Big Data Analytics in the Insurance 
+Market, Emerald Publishing Limited, pp. 251–262, 2022.
+	 45.	 Mamela, T.L., Assessment of the impact of artificial intelligence on the perfor­
+mance of the workforce at a South African banking institution, University of 
+Johannesburg, South Africa, 2021.
+	 46.	 Ullah, K., Rashid, I., Afzal, H., Iqbal, M.M.W., Bangash, Y.A., Abbas, H., SS7 
+vulnerabilities—a survey and implementation of machine learning vs rule 
+based filtering for detection of SS7 network attacks. IEEE Commun. Surv. 
+Tutorials, 22, 2, 1337–1371, 2020.
+	 47.	 Rodgers, W., Artificial intelligence in a throughput model: Some major algo­
+rithms, CRC Press, US, 2020.
+	 48.	 Sarveshwaran, V., Chen, J.I.Z., Pelusi, D. (Eds.), Artificial Intelligence and 
+Cyber Security in Industry 4.0, Springer Nature, Singapore, 2023.
+	 49.	 Mandal, J.K., Misra, S., Banerjee, J.S., Nayak, S. (Eds.), Applications of Machine 
+Intelligence in Engineering: Proceedings of 2nd Global Conference on Artificial 
+Intelligence and Applications (GCAIA, 2021), Jaipur, India, September 8-10, 
+2021, CRC Press, US, 2022.
+	 50.	 Lee, K.F. and Qiufan, C., AI 2041: Ten visions for our future, Currency, US, 2021.
+	 51.	 Leach, N., Architecture in the age of artificial intelligence, Bloomsbury 
+Publishing, US, 2021.
+	 52.	 Chamola, V., Hassija, V., Gupta, V., Guizani, M., A comprehensive review of 
+the COVID-19 pandemic and the role of IoT, drones, AI, blockchain, and 5G 
+in managing its impact. IEEE Access, 8, 90225–90265, 2020.
+	 53.	 Sarkar, A. and Singh, B.K., A review on performance, security and various 
+biometric template protection schemes for biometric authentication systems. 
+Multimed. Tools Appl., 79, 27721–27776, 2020.
+	 54.	 Paget-Wilkes, M., Things Fall Apart?: The Mission of God and the Third 
+Decade, Wipf and Stock Publishers, US, 2020.
+
+
+--- Page 145 ---
+
+122  Generative Artificial Intelligence in Finance
+	 55.	 Komporozos-Athanasiou, A., Speculative communities: Living with uncer­
+tainty in a financialized world, University of Chicago Press, US, 2022.
+	 56.	 Suarez-Villa, L., Technology and Oligopoly Capitalism, Taylor & Francis, US, 
+2023.
+	 57.	 Crary, J., Scorched earth: Beyond the digital age to a post-capitalist world, 
+Verso Books, US, 2022.
+	 58.	 Bhatore, S., Mohan, L., Reddy, Y.R., Machine learning techniques for credit 
+risk evaluation: A systematic literature review. J. Bank. Financ. Technol., 4, 
+111–138, 2020.
+	 59.	 Almazroi, A.A. and Ayub, N., Online Payment Fraud Detection Model Using 
+Machine Learning Techniques. IEEE Access, 11, 137188–137203, 2023.
+	 60.	 Gill, M.A., Quresh, M., Rasool, A., Hassan, M.M., Detection of credit card 
+fraud through machine learning in banking industry. J. Comput. Biomed. 
+Inf., 5, 01, 273–282, 2023.
+	 61.	 Lacruz, F. and Saniie, J., Applications of machine learning in fintech credit 
+card fraud detection, in: 2021 IEEE International Conference on Electro 
+Information Technology (EIT), IEEE, pp. 1–6, May 2021.
+	 62.	 Khan, H.U., Malik, M.Z., Alomari, M.K.B., Khan, S., Al-Maadid, A.A.S., 
+Hassan, M.K., Khan, K., Transforming the Capabilities of Artificial 
+Intelligence in GCC Financial Sector: A Systematic Literature Review. Wirel. 
+Commun. Mobile Comput., 2022, 2022.
+	 63.	 Saeed, A. and Ebrahim, H., The Intersection of Machine Learning, Artificial 
+Intelligence, and Big Data, in: Big Data Computing, pp. 111–131, CRC Press, 
+US, 2024.
+	 64.	 Bahoo, S., Cucculelli, M., Goga, X., Mondolo, J., Artificial intelligence in 
+Finance: a comprehensive review through bibliometric and content analysis. 
+SN Bus. Econ., 4, 2, 23, 2024.
+	 65.	 Hassan, M.A.M., Sardar, T.H., Fahim, M.F.H., Mohamed, M.S., Suleyman, 
+R.M., Usman, M.M., Artificial Intelligence and Deep Learning Applications 
+on Big Data Computing Frameworks, in: Big Data Computing, pp. 196–211, 
+CRC Press, 2024.
+	 66.	 Spreitzenbarth, J.M., Bode, C., Stuckenschmidt, H., Artificial intelligence and 
+machine learning in purchasing and supply management: A mixed-meth­
+ods review of the state-of-the-art in literature and practice. J. Purch. Supply 
+Manage., 100896, 2024.
+	 67.	 Gera, R., Chadha, P., Saxena, A., Dixit, S., A Scientometric and Bibliometric 
+Review of Impacts and Application of Artificial Intelligence and Fintech for 
+Financial Inclusion, in: Artificial Intelligence, Fintech, and Financial Inclusion, 
+pp. 82–111, CRC Press, US, 2024.
+	 68.	 Pahsa, A., Financial technology decision support systems. J. Electr. Syst. Inf. 
+Technol., 11, 1, 5, 2024.
+	 69.	 Hashid, A. and Almaqtari, F.A., The Impact of Artificial Intelligence and 
+Industry 4.0 on Transforming Accounting and Auditing Practices. J. Open 
+Innov. Technol. Mark. Complex., 100218, 2024.
+
+
+--- Page 146 ---
+
+Deep Diving into Financial Frauds  123
+	 70.	 Rawat, R., Chakrawarti, R.K., Sarangi, S.K., Vyas, P., Alamanda, M.S., 
+Srividya, K., Sankaran, K.S. (Eds.), Conversational Artificial Intelligence, John 
+Wiley & Sons, US, 2024.
+	 71.	 Zhu, H., Vigren, O., Söderberg, I.L., Implementing artificial intelligence 
+empowered financial advisory services: A literature review and critical 
+research agenda. J. Bus. Res., 174, 114494, 2024.
+	 72.	 Buttar, A.M., Shahzad, F., Jamil, U., Conversational AI: Security Features, 
+Applications, and Future Scope at Cloud Platform, in: Conversational 
+Artificial Intelligence, pp. 31–58, 2024.
+	 73.	 Hassija, V., Chamola, V., Mahapatra, A., Singal, A., Goel, D., Huang, K., 
+Scardapane, S., Spinelli, I., Mahmud, M., Hussain, A., Interpreting black-box 
+models: a review on explainable artificial intelligence. Cognit. Comput., 16, 1, 
+45–74, 2024.
+	 74.	 Ahmad, A.Y.B., Tiwari, A., Nayeem, M.A., Biswal, B.K., Satapathy, D.P., 
+Kulshreshtha, K., Bordoloi, D., Artificial Intelligence Perspective Framework 
+of the Smart Finance and Accounting Management Model. Int. J. Intell. Syst. 
+Appl. Eng., 12, 4s, 586–594, 2024.
+	 75.	 Chadha, P., Gera, R., Khera, G.S., Sharma, M., Challenges of Artificial 
+Intelligence Adoption for Financial Inclusion, in: Artificial Intelligence, 
+Fintech, and Financial Inclusion, pp. 135–160, CRC Press, 2024.
+	 76.	 Anwar, T., Khan, G.A., Ashraf, Z., Ansari, Z.A., Ahmed, R., Azrour, M., The 
+Combination of Blockchain and the Internet of Things (IoT): Applications, 
+Opportunities, and Challenges for Industry, in: Blockchain and Machine 
+Learning for IoT Security, pp. 56–76, 2024.
+	 77.	 Musa, A., The role of artificial intelligence in achieving auditing quality for 
+small and medium enterprises in the Kingdom of Saudi Arabia. Int. J. Data 
+Netw. Sci., 8, 2, 835–844, 2024.
+	 78.	 Blanuša, J., Baraja, M.C., Anghel, A., von Niederhäusern, L., Altman, E., 
+Pozidis, H., Atasu, K., Graph Feature Preprocessor: Real-time Extraction 
+of Subgraph-based Features from Transaction Graphs, 2024, arXiv preprint 
+arXiv:2402.08593.
+	 79.	 Broby, D. and Murphy, C., A Curriculum for the Body of Knowledge in Open 
+Finance, 2024.
+	 80.	 Renda, A., Governance, government records, and the policymaking process 
+aided by AI, in: Handbook of Artificial Intelligence at Work, pp. 291–313, 
+Edward Elgar Publishing, US, 2024.
+	 81.	 Wilkinson, D., Christie, A., Tarr, A.A., Tarr, J.A., Big Data, Artificial 
+Intelligence and Insurance, in: The Global Insurance Market and Change, 
+pp. 22–46, Informa Law from Routledge, US, 2024.
+	 82.	 Nallakaruppan, M.K., Balusamy, B., Shri, M.L., Malathi, V., Bhattacharyya, 
+S., An Explainable AI framework for credit evaluation and analysis. Appl. 
+Soft Comput., 111307, 2024.
+
+
+--- Page 147 ---
+
+125
+Pethuru Raj Chelliah, Pushan Kumar Dutta, Abhishek Kumar, Ernesto D.R. Santibanez Gonzalez, 
+Mohit Mittal and Sachin Gupta (eds.) Generative Artificial Intelligence in Finance: Large Language 
+Models, Interfaces, and Industry Use Cases to Transform Accounting and Finance Processes, 
+(125–148) © 2025 Scrivener Publishing LLC
+7
+Generative AI: A Transformative Tool for 
+Mitigating Risks for Financial Frauds
+Rahul Joshi1*, Krishna Pandey1 and Suman Kumari2
+1Department of Journalism & Mass Communication, School of Media Studies 
+& Humanities, Manav Rachna International Institute of Research & Studies, 
+Faridabad, Haryana, India
+2Independent Researcher, Haryana, India
+Abstract
+Financial fraud has a profound and far-reaching effect on the people. Financial 
+institutions have the technical capacity to identify fraud using clever artificial intel­
+ligence systems. Nevertheless, the duration needed to gather a significant amount 
+of deceptive data to train their fraud detection algorithms poses an expensive haz­
+ard. The industry faces security challenges such as infringements on intellectual 
+property rights, harmful or discriminatory content creation, and data breaches. 
+Financial institutions should use generative artificial intelligence systems inside 
+secure and isolated networks to mitigate these possible risks. Furthermore, it is 
+crucial to guarantee the utilization of specific training data, implement thorough 
+security protocols, provide staff training initiatives, and actively supervise the 
+produced output. Establishing governance structures, using anomaly detection 
+technologies, incorporating external data sources, and validating the generated 
+information are highly encouraged. Hence, it is recommended to form alliances 
+with trustworthy suppliers and actively participate in cooperative initiatives 
+with regulatory bodies and industry associations to enhance security protocols. 
+Furthermore, mitigating the possible financial fraud and manipulation hazards is 
+crucial by implementing robust governance frameworks, utilizing advanced algo­
+rithms, acquiring expert validation, enforcing strong cybersecurity measures, and 
+*Corresponding author: rahuljoshi.785@gmail.com; ORCID: https://orcid.org/0000-0002-5467-5105
+Krishna Pandey: ORCID: https://orcid.org/0000-0001-8290-3681
+Suman Kumari: ORCID: https://orcid.org/0000-0002-4691-4065

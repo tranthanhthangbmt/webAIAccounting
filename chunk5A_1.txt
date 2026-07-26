@@ -1,0 +1,181 @@
+12 MANAGING DECISION UNCERTAINTY USING
+RANDOM FORESTS
+12.1 Decision-Making Under Uncertainty
+12.2 Features of Decision Uncertainty
+12.3 Backorder and Its Implications
+12.4 Machine-Learning Options to Aid in Decision-Making Under Uncertainty
+12.4.1  Components of a Decision Tree Model
+12.4.2  Classification Trees
+12.4.3  Advantages, Disadvantages, and W ays to Improve Classification Trees
+12.5 Random Forest
+12.6 Backorder Prediction Using Random Forests
+12.6.1  Data Import and Selection
+12.6.2  Imbalance in the Data
+12.6.3  Hyperparameter Tuning
+12.6.4  Testing the Performance of Our Random Forest Model
+12.6.4.1  Accuracy and ROC V alues
+12.6.4.2  Confusion Matrix, Sensitivity , and Specificity
+12.6.4.3  Role of Downsampling
+12.7 Business Insights and Summary
+12.8 Implementation Using R: Backorder Prediction
+12.9 Understanding the Chapter
+LEARNING OBJECTIVES
+1. Understand the importance of ef ficient business decisions, anticipating demand
+2. Learn decision-making under uncertainty
+3. Apply decision tree models to predict uncertain decisions
+4. Review the advantages and limitations of tree models
+5. Employ boosted decision trees to predict stocking decisions
+12.1 DECISION-MAKING UNDER UNCERTAINTY
+Decision-making under uncertainty has been studied as a continuum of decisions that are made when
+information is missing or is available only in probabilistic form (e.g., the likelihood of success is 80%).1
+Consider the following two scenarios that highlight the inherent uncertainty in business decision-
+making.
+In the first scenario, a major airline, considered a dominant player at one of its hub airports, is faced
+with a new challenge: the entry of a low-cost, no-frills competitor . It has to decide whether to react to
+the new entrant (action) or not do anything (inaction). Both decisions carry inherent uncertainties. If it
+decides to take an action and reduce price, there are several uncertain outcomes. First, will a price
+reduction deter customers from flocking to the new entrant? Second, will it actually increase market
+share, or will it erode profits? Third, will the price drop strengthen its brand image, or will it be seen as
+a sign of weakness? Fourth, actions like price reductions can sometimes lead to price wars, which
+might hurt the industry as a whole. Alternatively , the airline can maintain the status quo, but this
+inaction has its own uncertainties. First, how many existing customers might be persuaded away by
+the competitor ’s lower prices or novel of ferings. Second, staying the course might be perceived by
+stockholders as either a confident move, showcasing the brand’ s strength, or indicating an
+unwillingness to adapt to changing market dynamics. Third, by not adjusting to the changing market
+dynamics, there’ s a potential loss of opportunities that the new entrant might exploit. Fourth, will the
+business be able to recover its position if it realizes too late that a response was necessary?
+In the second scenario, an electronics retailer is preparing to stock a new smartphone. Due to supply
+chain issues from the manufacturer , the retailer learns that they will receive only half of the originally
+ordered units triggering the following decision dilemma: Should the retailer accept backorders, allowing
+customers to reserve now and receive the product later when more stock arrives, or should they sell
+only the available stock and potentially lose sales to competitors? Both decisions have their inherent
+uncertainties.
+First, it is unclear how many customers will prefer immediate purchase compared to those willing to
+wait for a backordered item. Second, of fering backorders might be seen as a service, but extended
+wait times can negatively af fect customer satisfaction, leading to refunds and poor customer reviews.
+Third, if the timeline for additional shipments from the manufacturer is not clear , it adds to the
+uncertainty . A short delay may be acceptable to customers, but longer ones can af fect sales and
+customer trust. Fourth, information (or lack of information) about the stock availability at competitor
+outlets can add to the uncertainty . If competitors also do not have suf ficient stock, not of fering
+backorders might result in lost sales.
+These scenarios highlight business decisions with inherent uncertainty . Other decisions fraught with
+uncertainty include, for instance, (1) deciding between of fering price discounts to encourage growth or
+increasing prices to increase profitability , (2) decisions about allocating resources to retain current
+customers versus recruit new ones, (3) whether to invest in an immediate profitable venture or focus
+on long-term projects that might yield larger returns later , or (4) projecting the impact of weather and
+other natural events on the supply chain that can disrupt transportation, delay deliveries, and af fect
+raw material availability .
+12.2 FEATURES OF DECISION UNCERTAINTY
+Uncertain decisions have several important features that need to be considered.2 First, what is the
+value in taking a decision under uncertainty versus gathering more information before proceeding?
+Let’s take the example of a pharmaceutical company that is performing drug trials for a new cancer
+treatment. It will use randomized controlled trials (RCT s) to control for all factors and find the influence
+of the focal drug on cancer treatment; this is generally referred to as internal validity . However , the
+uncertainty that the company has to face is how the drug will fare when patients with dif ferent
+comorbidities, of dif ferent races, or with any other characteristics that makes them respond to the drug
+differently , actually take the drug after it has been introduced in the market; this is generally referred to
+as external validity . Therefore, the company has to weigh the value of introducing a beneficial drug
+against the risk associated with such an introduction.
+A second feature of uncertain decisions is to determine when and how to respond. Consider the earlier
+example of a major airline when a low-cost competitor enters the scene. The airline must decide when
+and by how much to modify its fares and whether to introduce new of fers. The decision resembles a
+balancing act between ensuring profitability and incurring costs from strategy changes. To determine
+the best course of action, companies often conduct sensitivity analyses. This involves tweaking
+different decision variables and observing the potential impact on outcomes at dif ferent points in time.
+By doing so, the airline can gauge which factors, when and to what degree, might necessitate a
+change in their initial decision.
+A third feature of uncertain decisions is to determine which options to follow: Should the business stick
+to conventional options or explore new ones? For instance, in our earlier example when an electronics
+retailer is confronted with a backorder situation for a popular new smartphone, the conventional
+approaches are to either sell the available stock or continue accepting backorders. However , given the
+uncertainties and potential customer dissatisfaction, they might consider a new strategy: of fering
+discounts to those customers willing to backorder and wait for delivery . While this strategy might entail
+a short-term reduction in profit, it has the potential to increase long-term customer loyalty and mitigate
+dissatisfaction from extended wait times.
+To reduce decision uncertainty , prediction models are used that simulate dif ferent potential situations
+and how these situations will impact dif ferent aspects of the business. In this chapter , we will examine
+how machine-learning algorithms can be used to solve problems in supply chain management,
+especially when decisions need to be made with uncertain information. One such decision-making
+under uncertainty is identifying products that will be backordered.
+12.3 BACKORDER AND ITS IMPLICATIONS
+Beginning in 2020, the microchip industry faced supply chain issues because of the pandemic, labor
+shortages, and geopolitical unrest. This resulted in many technological products going out of stock.
+Consumers who placed orders were left waiting, sometimes indefinitely , because the firms were not
+sure when they would receive the chips to fulfill these orders. The Defense Logistics Agency of the
+U.S. Department of Defense, which manages the global defense supply chain, faces similar
+challenges. It routinely takes steps to maximize combat readiness by minimizing backorders.3
+Backorder  can be defined as an order of a product that a firm cannot fill due to the product’ s
+unavailability but expects to fill at a future date. Backorders result in disappointed consumers and
+reduced profitability for firms as backorders can deter consumers from purchasing the product. Recent
+research has demonstrated that consumers whose products were backordered are far less likely to
+purchase the product in the future compared to consumers whose products were not backordered.4
+The longer the backorder lasts, the greater the drop in future purchases. Hence, businesses try their
+level best to avoid the situation of backorders piling up because of its long-term impact on customer
+satisfaction, ability to retain customers, and firm profitability . One commonly recommended way to
+avoid backorders is to accurately forecast demand. However , that is easier said than done because
+several factors outside the influence of the business introduce uncertainties in forecasting, such as
+changing customer tastes that make demand uncertain, economic upturns and downturns, gross
+domestic product (GDP), geopolitical conflicts, unrest, or a pandemic. Firms do not want to lose
+customers or lose their trust by not being able to fulfill an order on time. However , the enormous
+pressure that firms face to ensure timely delivery of products, especially when the firm itself is reliant
+on other suppliers for parts, is not trivial. This pressure can result in increased labor and production
+costs, overstocking to prevent shortages, and high shipment expenses.
+Backorders also cause the bullwhip  effect, which occurs when a small change in demand is
+overestimated and communicated through the supply chain to retailers, wholesalers, distributors, and
+eventually manufacturers. However , if the demand is temporary , it dies out, causing an oversupply of
+some products. W e witnessed this during the pandemic when people staying home started remodeling
+and a huge demand for furniture ensued, resulting in furniture being severely backordered. To make up
+for the increased demand, firms manufactured more furniture. However , with the easing of the
+pandemic restrictions, the demand for furniture went down, resulting in an oversupply of furniture. This
+is a classic example of the bullwhip ef fect depicted in Figure 12.1 .
+Description
+Figure 12.1  Bullwhip Ef fect
+However , we need to keep in mind one important factor when considering backorders. Although
+estimating which products are likely to be backordered may be one of the most uncertain situations to
+predict and can cause a high level of disruption for the business and its customers, it is not an issue
+that businesses face routinely or at predictable intervals. It is possible that a business may not have
+faced a backorder issue for several years. Hence, the data the business needs to predict backorders
+may be imbalanced. That is, businesses may not have a very good method to predict why and when
+they might face a backorder issue. W e know that the predictive model is only as good as the data it is
+trained on. Hence, having imbalanced data can af fect the quality of predictions. Machine-learning
+methods are now routinely used to tackle the problem of backorder forecasting, given their ability to
+analyze large structured and unstructured datasets that are unbalanced.
+We next present a tree-based machine-learning method that has been used to estimate backorders so
+that strategies can be devised to address this supply chain issue.
+12.4 MACHINE-LEARNING OPTIONS TO AID IN DECISION-
+MAKING UNDER UNCERTAINTY
+Machine learning, especially tree-based models, of fer businesses a structured way to make decisions
+under uncertainty . These models segment data based on dif ferent conditions, providing insight into
+complex scenarios. For instance, the airline faced with competition from a low-cost carrier could use
+decision trees to analyze historical data on passenger preferences, price sensitivities, and other
+factors to predict potential outcomes. Similarly , the electronics retailer uncertain about how to manage
+stock for a new smartphone could deploy tree-based models to evaluate previous product launches
+and understand customer behavior patterns in the face of backorders. Through these models,
+businesses can simulate various decision pathways, assess probable outcomes, and make more
+informed choices even in the presence of uncertainty .
+12.4.1 Components of a Decision Tree Model
+Decision trees are supervised algorithms  that require labeled data (i.e., data where the relationship
+between the predictor and the outcome variable is available). Decision trees can be used for both
+regression tasks and classification depending on whether the outcome variable is continuous or
+categorical. The term classification and regression tree  (CAR T) captures this ability of tree models (we
+will use the terms decision tree  and tree model  interchangeably , but they mean the same thing). For
+backorder predictions, we will focus on classification trees.
+Before we discuss how classification trees make predictions, let’ s understand the dif ferent components
+of a decision tree as depicted in Figure 12.2 .
+Figure 12.2  Components of a Decision Tree
+The root node  is the first node in a decision tree. This also represents the predictor variable or
+feature that is split first to divide the entire data into two sets.
+The terminal node  or leaf is the final node of a decision tree that cannot be divided further . These
+terminal nodes contain the mean value of the outcome variable (if the outcome is a continuous
+variable) or the majority class (if the outcome is a classification task).
+The internal/decision node  is a subnode of the tree between the root node and the terminal node.
+At an internal or decision node, the data are further divided into new internal nodes or into leaf
+nodes.
+A branch  represents the connection or relationship between a root node and an internal node,
+between internal nodes, or between an internal node and a leaf node.
+The depth  of a tree is the longest distance between the root node and any terminal node (leaf).
+The tree in Figure 12.2  has a depth of 2.
+12.4.2 Classification Trees
+Consider a simple illustration of backorder prediction. Assume our dataset has two predictor variables:
+forecasted sales  and transit time for the product to arrive . Both are categorical variables with two
+levels: low and high. That is, the forecasted sales for a product can be low or high, and the transit time

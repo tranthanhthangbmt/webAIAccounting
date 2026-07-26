@@ -1,0 +1,36 @@
+# 12 QUẢN LÝ SỰ KHÔNG CHẮC CHẮN TRONG RA QUYẾT ĐỊNH BẰNG RANDOM FORESTS (MANAGING DECISION UNCERTAINTY USING RANDOM FORESTS)
+
+12.1 Ra quyết định Dưới sự Không chắc chắn (Decision-Making Under Uncertainty)
+12.2 Các đặc điểm của Sự không chắc chắn trong Ra quyết định
+12.3 Tình trạng Chậm giao hàng (Backorder) và Hệ quả của nó
+12.4 Các Tùy chọn Học máy Hỗ trợ Ra quyết định Dưới sự Không chắc chắn
+12.4.1 Các thành phần của Mô hình Cây Quyết định (Decision Tree Model)
+12.4.2 Cây Phân loại (Classification Trees)
+12.4.3 Ưu điểm, Nhược điểm và Cách Cải thiện Cây Phân loại
+12.5 Rừng ngẫu nhiên (Random Forest)
+12.6 Dự đoán Tình trạng Chậm giao hàng Bằng Random Forests (Backorder Prediction Using Random Forests)
+12.6.1 Nhập và Chọn Dữ liệu
+12.6.2 Sự mất cân bằng trong Dữ liệu
+12.6.3 Tinh chỉnh Siêu tham số (Hyperparameter Tuning)
+12.6.4 Kiểm tra Hiệu suất của Mô hình Random Forest
+12.6.4.1 Giá trị Độ chính xác và ROC
+12.6.4.2 Ma trận Nhầm lẫn (Confusion Matrix), Độ nhạy (Sensitivity) và Độ đặc hiệu (Specificity)
+12.6.4.3 Vai trò của Việc Giảm mẫu (Downsampling)
+12.7 Thông tin Kinh doanh và Tóm tắt
+12.8 Thực hành bằng R: Dự đoán Tình trạng Chậm giao hàng
+12.9 Hiểu rõ Chương học
+
+### MỤC TIÊU HỌC TẬP (LEARNING OBJECTIVES)
+1. Hiểu tầm quan trọng của các quyết định kinh doanh hiệu quả, dự báo nhu cầu.
+2. Tìm hiểu việc ra quyết định dưới sự không chắc chắn.
+3. Áp dụng mô hình cây quyết định để dự đoán các quyết định không chắc chắn.
+4. Đánh giá các ưu điểm và hạn chế của mô hình cây.
+5. Sử dụng cây quyết định tăng cường (boosted decision trees) để dự đoán quyết định lưu kho.
+
+## 12.1 RA QUYẾT ĐỊNH DƯỚI SỰ KHÔNG CHẮC CHẮN (DECISION-MAKING UNDER UNCERTAINTY)
+
+Ra quyết định dưới sự không chắc chắn đã được nghiên cứu như một chuỗi liên tục các quyết định được đưa ra khi thiếu thông tin hoặc thông tin chỉ có sẵn ở dạng xác suất (ví dụ: khả năng thành công là 80%). Hãy xem xét hai kịch bản sau đây để làm nổi bật sự không chắc chắn vốn có trong việc ra quyết định kinh doanh.
+
+Trong kịch bản đầu tiên, một hãng hàng không lớn, được coi là công ty thống trị tại một trong những sân bay trung tâm của mình, đang phải đối mặt với một thách thức mới: sự gia nhập của một đối thủ cạnh tranh giá rẻ, không rườm rà. Họ phải quyết định xem có nên phản ứng với người mới tham gia (hành động) hay không làm gì cả (không hành động). Cả hai quyết định đều mang những sự không chắc chắn vốn có. Nếu họ quyết định thực hiện một hành động và giảm giá, sẽ có một số kết quả không chắc chắn. Thứ nhất, việc giảm giá có ngăn cản khách hàng đổ xô đến người mới tham gia hay không? Thứ hai, liệu nó thực sự làm tăng thị phần, hay sẽ làm xói mòn lợi nhuận? Thứ ba, liệu việc giảm giá có củng cố hình ảnh thương hiệu của hãng, hay sẽ bị coi là dấu hiệu của sự yếu kém? Thứ tư, các hành động như giảm giá đôi khi có thể dẫn đến cuộc chiến giá cả, điều này có thể gây tổn hại cho toàn bộ ngành. Thay vào đó, hãng hàng không có thể duy trì hiện trạng, nhưng sự không hành động này lại có những điều không chắc chắn riêng. Thứ nhất, có bao nhiêu khách hàng hiện tại có thể bị thuyết phục bởi mức giá thấp hơn hoặc các dịch vụ mới lạ của đối thủ cạnh tranh. Thứ hai, việc giữ nguyên hướng đi có thể được các cổ đông coi là một bước đi tự tin, thể hiện sức mạnh của thương hiệu, hoặc chỉ ra sự không sẵn lòng thích ứng với động lực thị trường đang thay đổi. Thứ ba, bằng cách không điều chỉnh theo động lực thị trường đang thay đổi, có khả năng mất đi các cơ hội mà người mới tham gia có thể khai thác. Thứ tư, liệu doanh nghiệp có thể phục hồi vị thế của mình nếu họ nhận ra quá muộn rằng cần phải có một phản ứng?
+
+Trong kịch bản thứ hai, một nhà bán lẻ hàng điện tử...

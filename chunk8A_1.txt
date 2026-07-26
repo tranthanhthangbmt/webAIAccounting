@@ -1,0 +1,241 @@
+
+
+--- Page 124 ---
+
+101
+Pethuru Raj Chelliah, Pushan Kumar Dutta, Abhishek Kumar, Ernesto D.R. Santibanez Gonzalez, 
+Mohit Mittal and Sachin Gupta (eds.) Generative Artificial Intelligence in Finance: Large Language 
+Models, Interfaces, and Industry Use Cases to Transform Accounting and Finance Processes, 
+(101–124) © 2025 Scrivener Publishing LLC
+6
+Deep Diving into Financial Frauds via 
+Ad Click, Credit Card Management 
+and Document Dispensation in 
+E-Commerce Transactions
+Bhupinder Singh1*, Pushan Kumar Dutta2 and Christian Kaunert3
+1Sharda University, Greater Noida, India
+2Electronics and Communication Engineering Department at ASETK, 
+Amity University Kolkata, West Bengal, Kolkata, India
+3Dublin City University, Dublin, Ireland
+Abstract
+Financial fraud presents a significant peril to the banking and financial sector, 
+adversely impacting individuals, businesses, and entire economies. In recent 
+years, the integration of artificial intelligence (AI) and machine learning (ML) 
+techniques has emerged as a potent weapon against diverse forms of financial 
+fraud. The banking and financial sector as a cornerstone of modern economies 
+is undergoing a profound transformation due to the ascendancy of digital trans­
+actions. This shift has led to a surge in financial frauds, compelling a paradigm 
+shift in security protocols. The integration of advanced analytics, including anom­
+aly detection and pattern recognition, is scrutinized to unveil a robust defense 
+mechanism against the ever-evolving tactics employed by fraudulent actors in 
+the ad-click domain. Credit card management, being a perennial target for mali­
+cious activities, demands a sophisticated approach to fraud detection. This chapter 
+explores the AI-based document verification systems which emphasize their piv­
+otal role in securing transactions that hinge on authenticating documents such as 
+*Corresponding author: bhupindersinghlaw19@gmail.com; 
+ORCID: https://orcid.org/0009-0006-4779-2553
+Pushan Kumar Dutta: ORCID: https://orcid.org/0000-0002-4765-3864
+Christian Kaunert: Orcid ID: https://orcid.org/0000-0002-4493-2235
+
+
+--- Page 125 ---
+
+102  Generative Artificial Intelligence in Finance
+forged documentation, which is addressed through innovative solutions includ­
+ing the integration of blockchain technology with AI which not only enhances 
+security but also establishes an immutable ledger of transactions, mitigating risks 
+associated with document-based frauds.
+Keywords:  Ad clicks, artificial intelligence, credit card management, document 
+dispensation, financial frauds, e-commerce transactions
+6.1	 Introduction and Background
+The contemporary landscape of the banking and financial industry is 
+marked by an amalgamation of cutting-edge technologies and ever-­
+evolving complexities, underscoring the pressing need for innovative 
+solutions to combat a surge in sophisticated fraudulent activities [1]. This 
+chapter embarks on an ambitious exploration into the realms of artifi­
+cial intelligence (AI) and machine learning (ML) probing their intricate 
+interfaces to delineate strategies for capturing and vanquishing frauds [2]. 
+The focus is particularly sharpened on three pivotal dimensions: ad-click 
+fraud, credit card management fraud, and Document Dispensation Fraud 
+within the expansive domain of e-commerce transactions [3]. The trajec­
+tory of this research is firmly anchored in the historical evolution of finan­
+cial frauds which unravels the intricate narrative of how these activities 
+have evolved alongside technological advancements [4]. A robust literature 
+review will serve as a compass, guiding the exploration through the cur­
+rents of historical precedents and contemporary challenges [5].
+The journey then dives into the specific dimensions of ad-click fraud, 
+credit card management fraud, and document dispensation fraud. Each 
+section dissects the unique challenges posed by these frauds and scruti­
+nizes the role that AI and ML play in mitigating these challenges [6]. It 
+scrutinizes anomaly detection techniques powered by machine learning, 
+which prove instrumental in identifying subtle deviations from established 
+spending patterns [7]. This chapter is not merely a theoretical exercise but a 
+profound inquiry into the practical applications of advanced technologies 
+to safeguard the financial integrity of the digital age [8]. The subsequent 
+sections of this comprehensive chapter unfold a narrative that transcends 
+mere theoretical postulations, aiming to present a pragmatic blueprint for 
+the deployment of AI and ML as sentinels guarding the gateways of the 
+banking and financial industry against the insidious infiltration of fraudu­
+lent activities [9].
+
+
+--- Page 126 ---
+
+Deep Diving into Financial Frauds  103
+6.1.1	 Objectives of the Chapter
+This framework is for a comprehensive analysis of the interplay between 
+financial frauds and AI/ML solutions [10]. The study aims to contribute 
+to the body of knowledge in the field of financial security by providing 
+actionable insights and innovative strategies for enhancing fraud detection 
+and prevention in the banking and financial industry to:
+--
+comprehensively scrutinize the different types and methods 
+of financial fraud, with a specific focus on ad-click fraud, 
+credit card management fraud, and document dispensation 
+fraud within e-commerce transactions.
+--
+better understanding of the dynamics of financial fraud, the 
+chapter aims to identify and analyze the vulnerabilities in 
+the banking and financial sector that fraudsters exploit.
+--
+evaluate the current landscape of AI and ML applications in 
+the banking and financial industry, particularly in the con­
+text of fraud detection and prevention.
+--
+insights gained from the investigation, the research aims to 
+propose advanced AI and ML models that are specifically 
+tailored to combat financial fraud.
+6.1.2	 Significance of the Chapter
+This chapter holds paramount significance against the backdrop of a rap­
+idly digitizing financial ecosystem [11]. The banking and financial indus­
+try stands at the nexus of technological innovation and emerging threats, 
+and the study’s findings are poised to significantly contribute to the forti­
+fication of this sector against evolving fraudulent activities [12, 13]. The 
+specific focus on ad-click fraud, credit card management fraud, and docu­
+ment dispensation fraud not only reflects the relevance of these issues but 
+also underscores the imperative for targeted solutions [14, 15]. The signif­
+icance of this chapter falls in its potential to inform policy frameworks, 
+guide industry practices, and inspire further advancements in AI and ML 
+applications for financial security [16]. As the financial systems become 
+increasingly interconnected globally, the outcomes of this study could have 
+far-reaching implications for safeguarding economic interests and main­
+taining the trust and integrity of digital financial transactions [17].
+
+
+--- Page 127 ---
+
+104  Generative Artificial Intelligence in Finance
+6.2	 Ad-Click Fraud Detection in the Banking 
+and Financial Sectors
+Ad-click fraud detection is a critical aspect of safeguarding the integrity 
+and efficiency of online advertising ecosystems. Advertisers invest sub­
+stantial resources in digital campaigns to reach their target audience, mak­
+ing them susceptible to fraudulent activities that compromise the return 
+on investment. Ad-click fraud entails the deceptive manipulation of clicks 
+on online advertisements, often orchestrated by automated bots or indi­
+viduals aiming to exploit the pay-per-click (PPC) model. In order to coun­
+teract this threat, advanced AI solutions are essential [18]. ML algorithms 
+meticulously analyze extensive datasets, examining user behavior patterns, 
+click-through rates, and engagement metrics to pinpoint anomalies indic­
+ative of fraudulent activities. AI models employ real-time monitoring to 
+identify abrupt spikes in click volume or unusual geographic patterns. The 
+ongoing evolution of these detection mechanisms ensures the dynamic 
+and adaptive nature of ad-click fraud prevention, providing advertisers 
+with a robust defense against deceptive practices and fostering a more 
+trustworthy digital advertising environment [19].
+6.2.1	 Definition and Types of Ad-Click Fraud
+Ad-click fraud is the dishonest activity of creating fake clicks on inter­
+net ads with the intention of manipulating advertising analytics or taking 
+advantage of the PPC income model. Executed by either automated bots 
+or individuals, this fraudulent activity endeavors to artificially inflate click 
+counts, exhaust advertiser budgets, and undermine the effectiveness of 
+digital advertising campaigns [20]. This form of fraud presents a substan­
+tial challenge to the online advertising ecosystem, affecting advertisers, 
+publishers, and ad networks alike.
+Varieties of Ad-Click Fraud:
+Automated Bots:
+Definition: Automated bots, or scripts, are programmed to sim­
+ulate human behavior by interacting with ads. Deployed in 
+significant numbers, these bots generate a considerable vol­
+ume of deceptive clicks.
+
+
+--- Page 128 ---
+
+Deep Diving into Financial Frauds  105
+Challenges in Detection: Bots are evolving in sophistication, 
+posing difficulties in distinguishing between legitimate and 
+automated clicks.
+Click Farms:
+Definition: Click farms employ groups of individuals, often 
+in regions with lower labor costs, to manually click on ads. 
+These operations can be structured to produce large quanti­
+ties of fraudulent clicks.
+Challenges in Detection: Identifying click farms involves ana­
+lyzing click behavior patterns and IP addresses, with the 
+additional complexity that these operations often go to great 
+lengths to appear authentic.
+Competitor Clicks:
+Definition: Competitors may engage in click fraud to exhaust a 
+rival’s advertising budget, diminish campaign effectiveness, 
+or gain a competitive advantage.
+Challenges in Detection: Distinguishing between genuine user 
+interest and competitive interference is intricate, requiring 
+advanced analytics.
+Fraudulent Publishers:
+Definition: Unscrupulous publishers may click on ads on their 
+own websites to falsely boost revenue.
+Challenges in Detection: Identifying collusion between pub­
+lishers and fraudulent clicks involves scrutinizing traffic pat­
+terns and engagement metrics.
+Ad Stacking:
+Definition: Ad stacking happens when multiple ads are layered 
+in a single ad placement. While users may only see the top 
+ad, all ads in the stack register as clicks.
+Challenges in Detection: Detecting ad stacking necessitates ana­
+lyzing click-through rates and user engagement to uncover 
+discrepancies.
+
+
+--- Page 129 ---
+
+106  Generative Artificial Intelligence in Finance
+Mobile Ad Fraud:
+Definition: Fraudulent clicks on mobile ads can occur through 
+various means, including click injection, click spamming, or 
+the use of malicious apps.
+Challenges in Detection: Detecting mobile ad fraud requires 
+monitoring app behavior and analyzing click patterns spe­
+cific to mobile devices.
+Effectively addressing ad-click fraud involves a continuous refinement 
+of detection mechanisms, utilizing AI and ML to identify patterns, anom­
+alies, and other indicators of deceptive activity. This proactive approach is 
+indispensable for upholding the integrity of digital advertising ecosystems 
+and ensuring the fairness and efficacy of online marketing campaigns [21].
+6.2.2	 Data Sources and Features
+Data sources and features are fundamental elements in data-driven analy­
+sis and ML. Data sources refer to the origins of data, which can encompass 
+a wide range of repositories such as databases, web scraping, sensors, or 
+user-generated content [22]. These sources provide the raw material for 
+analysis and model development. These features are the specific attributes 
+or variables extracted from the data sources. They encapsulate the informa­
+tion used by ML algorithms to make predictions or classifications. Careful 
+selection and engineering of features are crucial as they directly impact the 
+model’s performance, emphasizing the importance of both data sources 
+and feature engineering in the data science workflow [23].
+6.2.3	 AI and ML Algorithms for Ad-Click Fraud Detection
+AI and ML algorithms have revolutionized ad-click fraud detection 
+by offering powerful tools to combat this pervasive issue in the digital 
+advertising landscape. These algorithms analyze massive datasets in real 
+time, identifying intricate patterns and anomalies in user behavior, click-
+through rates, and engagement metrics [24]. ML models, such as decision 
+trees, random forests, and deep neural networks, play a pivotal role in 
+learning from historical click data and adapting to evolving fraud tech­
+niques. Anomalous activity, like unusual spikes in click volume or patterns 
+that deviate from established norms, can be swiftly detected, raising red 
+flags for further investigation. AI-driven algorithms are instrumental in 
+differentiating genuine user interactions from fraudulent ones, thereby 
+
+
+--- Page 130 ---
+

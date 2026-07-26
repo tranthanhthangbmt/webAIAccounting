@@ -1,0 +1,242 @@
+the outcome variable and the fact that the minority level (when the products were backordered) is more
+important for the prediction task, we need to estimate the sensitivity as well as the specificity of this
+prediction.
+12.6.4.2  Confusion Matrix, Sensitivity , and Specificity
+A quick recap from Chapter 9  on logistic regression explains the confusion matrix. Let’ s work with the
+following example to understand the process of calculating sensitivity and specificity .
+ Truth
+Prediction NoYes
+No iiii
+Yes iiiv
+Given the confusion matrix in Table 12.4 , sensitivity and specificity are as follows:
+Sensitivity=iv
+iii+ivandSpecificity=i
+i+ii
+Intuitively , sensitivity is the true positive rate and represents the ability of our model to correctly classify
+products that were backordered. Specificity is the true negative rate and represents the ability of our
+model to correctly classify products that were not backordered. If sensitivity of our model is low , then
+we will not be able to identify ahead of time products that are likely to be backordered. On the other
+hand, if specificity is low , then we will end up overordering products that are less likely to be
+backordered. For our model, sensitivity is 83
+83+16=0.838, and specificity is 329
+329+73=0.818.
+12.6.4.3  Role of Downsampling
+In the preceding analysis, we used downsampling  to handle the issue of class imbalance. This
+downsampling method sampled rows from training data in such a way that the majority level (i.e., when
+the products were not backordered) is sampled less. But let’ s check how the results would change if
+we didn’t downsample. The results when downsampling is not used are represented in Table 12.5 ,
+along with the confusion matrix in Table 12.6 .
+.metric .estimator .estimate .config
+accuracy binary 0.8602794 Preprocessor1_Model1
+roc_auc binary 0.9038896 Preprocessor1_Model1
+ No Yes
+No 393 61
+Yes9 38
+We notice that both accuracy and AUC values are high and comparable to the earlier analysis when
+we did downsampling. However , when we estimate sensitivity and specificity , we observe a very
+different picture. Without downsampling, sensitivity is 38
+38+61=0.384, and specificity is
+393
+393+9=0.978. There is a big drop in sensitivity from 0.838 to 0.384 and an increase in specificity
+from 0.818 to 0.978. This shows that in the absence of downsampling, our model is not able to
+identify products that will eventually be backordered. Downsampling addresses this weakness, and the
+cost we pay is a drop in specificity . Downsampling ensures that without compromising on AUC and
+accuracy values, we can make sensitivity and specificity very comparable. Note that downsampling is
+one of the many subsampling methods that are available in analysis packages (see
+www .tidymodels.org/learn/models/sub-sampling/ for other subsampling methods that can be used).
+12.7 BUSINESS INSIGHTS AND SUMMARY
+In this chapter , we examined backorders, a major supply chain topic that can cause multiple issues
+such as dissatisfaction, reduced purchase probability , and reduced profitability . In order to predict
+potential backorder issues, we used random forests to build a predictive model. Random forests
+belong to the larger set of decision tree models that are sometimes preferred over opaque predictive
+models because they allow some transparency about model working. They also are preferred since
+they have the ability to work well with dif ferent types of categorical and continuous predictor variables,
+multicollinear data, and outliers.
+The random forest model includes 16 predictor variables to predict whether or not a product is likely to
+be backordered. Since we relied on a categorical variable ( yes vs. no) as the outcome variable, we use
+a confusion matrix to examine the accuracy , specificity , and sensitivity of the random forest model. W e
+also learned that products that are likely to be backordered form a smaller proportion of the dataset
+than those that will not be backordered. W e then understood how the downsampling method can be
+used to address the issue of imbalanced data. In addition, we discussed how we can check for
+whether the accuracy of the model is changed because of downsampling.
+12.8 IMPLEMENTATION USING R: BACKORDER PREDICTION
+The outcome variable was whether the product went on backorder or not. The random forest was
+provided with 16 predictor variables such as the following:
+went_on_backorder = the outcome variable of whether a product was backordered or not and
+could take the value of yes or no
+national_inv = indicates the current level of inventory
+lead_time = measures the transit time for the product
+in_transit_qty = indicates how much of the product is currently in transit
+forecast_3_month, forecast_6_month, forecast_9_month = three dif ferent predictors capturing the
+sales forecast for the coming 3, 6, and 9 months
+sales_1_month, sales_3_month, sales_6_month, sales_9_month = four variables indicating sales
+of the product in the last 1, 3, 6, and 9 months
+min_bank = the minimum amount of product that is recommended to keep in stock
+pieces_past_due = captures whether any parts are overdue from the supplier
+perf_6_month_avg, perf_12_month_avg = two variables representing the product performance in
+the past 6 and 12 months
+local_bo_qty = captures the amount of orders overdue
+deck_risk, ppap_risk = two dif ferent types of risk in delivery represented in a binary form of yes
+and no
+We first read in the data and the libraries such as readxl ,6 tidymodels ,7 dplyr ,8 ranger ,9 and
+themis .10
+After loading the required packages, we import the data and check the class of nonnumeric variables.
+We want to ensure that nonnumeric variables such as deck_risk , ppap_risk , and
+went_on_backorder  are categorical variables and will be recognized as factor  by R.
+set.seed(12345)
+library(readxl)
+library(tidymodels)
+library(dplyr)
+library(ranger)
+library(themis)
+library(ggplot2)
+library(doParallel)
+ 
+back_order_data <-read.csv(url
+("http://data.mishra.us/files/chapter_decision_uncertainty/backorder.csv"))
+ 
+sapply(back_order_data,class)
+##national_inv                           
+lead_timein_transit_qty forecast_3_month
+##                    "integer"                     "integer"                     "integer"                     "integer"
+##forecast_6_month forecast_9_month sales_1_month sales_3_month
+##                    "integer"                     "integer"                     "integer"                     "integer"
+##sales_6_month sales_9_month min_bank pieces_past_due
+##                    "integer"                     "integer"                     "integer"                     "integer"
+##perf_6_month_avg perf_12_month_avg local_bo_qty deck_risk
+##                    "numeric"                     "numeric"                     "integer"                     "character"
+##                         ppap_risk went_on_backorder
+##                    "character"                     "character"
+Since these categorical variables are appearing as characters, we convert them into factors and check
+again their class assignment.
+back_order_data <- as.data.frame(unclass(back_order_data),
+                                                                        stringsAsFactors = TRUE)
+sapply(back_order_data,class)
+##national_inv lead_time in_transit_qty forecast_3_month
+##                    "integer"                     "integer"                     "integer"                     "integer"
+##forecast_6_month forecast_9_month sales_1_month sales_3_month
+##                    "integer"                     "integer"                     "integer"                     "integer"
+##sales_6_month sales_9_month min_bank pieces_past_due
+##                    "integer"                     "integer"                     "integer"                     "integer"
+##perf_6_month_avg perf_12_month_avg local_bo_qty deck_risk
+##                    "numeric"                     "numeric"                     "integer"                     "factor"
+##ppap_risk went_on_backorder
+##                    "factor"                     "factor"
+As we discussed earlier , backorder data tend to have a class imbalance, where the number of items
+that were backordered is proportionately less than the number of items that were not backordered.
+Let’s check this in our data through a simple plot, shown in Figure 12.6 .
+ggplot(back_order_data, aes(went_on_backorder))+
+   xlab("Backorder")+ylab("Number of data points")+
+   geom_bar()+
+   theme_minimal()
+The plot shows that items that were backordered (i.e., when the outcome variable
+went_on_backorder = yes) represented approximately 1
+5 of the data. This makes
+went_on_backorder = no the majority level (also referred to as majority class) and
+went_on_backorder = yes a minority level. It is necessary to use a sampling method that provides
+appropriate representation to minority level.
+As the first step to build a model to predict backorder , we split the data into train and test groups. Let’ s
+use 75% data for training and 25% for testing the model.
+backorder_split <- initial_split(back_order_data, strata =
+went_on_backorder,
+ prop = 0.75)
+backorder_train <- training(backorder_split)
+backorder_test <- testing(backorder_split)
+Next we define the model formulation in recipe  and indicate that went_on_backorder  is the
+outcome variable and all other variables are predictors.
+To handle the issue of class imbalance, we use step_downsample() . This function samples rows
+from training data in such a way that the majority level (i.e., went_on_backorder = no) is sampled
+less. This increases the proportion of the minority level (i.e., went_on_backorder = yes) in model
+training. However , it is important to note that such undersampling does not occur in the test data,
+which ensures that model performance is tested in data that closely represent the real world (i.e.,
+where one class is overrepresented). under_ratio = 1.5  implies that majority levels will have at
+most 1.5 times more rows than minority levels. If we compare this situation to our base situation when
+no sampling is applied, we will have majority level with 4 times as many rows as minority levels.
+backorder_recipe <- recipe(went_on_backorder ~ ., data =
+backorder_train)%>%
+    step_downsample(went_on_backorder,under_ratio = 1.5)
+Using rand_forest(),  we specify the random forest algorithm and also the hyperparameters such
+as mtry  (the number of predictors randomly sampled at each split when a tree is created), trees  (the
+number of trees contained in a random forest), and min_n  (the minimum number of data points in a
+node that is required for the node to be split further). tune()  specifies that each hyperparameter
+needs to be tuned though grid search. set_engine("ranger")  specifies that our computational
+engine is ranger , a fast implementation of random forests. Since our outcome variable is categorical
+(yes vs. no), set_mode("classification")  specifies that our model type is a classification
+model.
+model_backorder <- rand_forest(
+     mtry = tune(),
+     trees = tune(),
+     min_n = tune()) %>%
+     set_mode("classification") %>%
+      set_engine("ranger")
+ 
+backorder_folds <- vfold_cv(backorder_train, v = 5)
+Next, we aggregate the recipe and model using workflow(). add_model  adds the
+model_backorder  specified in the last step with backorder_recipe , which contains information
+about predictor and outcome variables and dummy coding.
+backorder_wf <- workflow() %>%
+    add_model(model_backorder) %>%
+    add_recipe(backorder_recipe)
+We next specify the cross-validation process using vfold_cv(). V = 5  specifies that there will be
+five partitions of the training dataset and that each hyperparameter combination’ s performance will be
+assessed using this cross-validation procedure. doParallel:: registerDoParallel(cores =
+10) registers that 10 cores will be used for parallel execution of the model. W e can change the values
+of the cores depending on the computational resources available.
+grid = 50  in tune_grid()  specifies that 50 dif ferent hyperparameter combinations should be
+created. resamples = backorder_folds  uses cross-validation specified in vfold_cv()  and
+helps to avoid overfitting the training data. For each of the 50 combinations of hyperparameters, a
+model will be fit on the four partitions, and its performance will be assessed on the fifth partition.
+backorder_folds <- vfold_cv(backorder_train, v = 5)
+doParallel::registerDoParallel(cores = 10)
+backorder_tune <-
+     backorder_wf %>%
+     tune_grid(
+            resamples = backorder_folds,
+            grid = 50
+     )
+We use select_best("roc_auc")  to pick the best hyperparameter combination.
+best_model <- backorder_tune %>%
+                    select_best("roc_auc")
+ 
+best_model
+## # A tibble: 1 × 4
+##                     mtrytrees min_n                    .config
+##<int> <int> <int>                    <chr>
+## 1                                  5                             69                             31Preprocessor1_Model20
+The analysis reveals that the best hyperparameter combination is mtry  = 5, tree  = 69, and min_n  =
+31. Now we will use these hyperparameter values to update the workflow using
+finalize_workflow . finalize_workflow  adds the best model to the workflow backorder_wf
+created earlier . This gives us the final_workflow  that captures all the information about the model,
+hyperparameters, outcome variable, and predictors.
+final_workflow <-
+   backorder_wf %>%
+   finalize_workflow(best_model)
+We fit the model using the best hyperparameter combination on the entire training set and then
+validate its performance on the test data. last_fit  helps us accomplish this. split =
+backorder_split  specifies that backorder_split  contains information about the test and train
+split performed earlier . Using collect_metrics , we report the accuracy and ROC AUC values.
+Finally using conf_mat(),  we produce a confusion matrix.
+final_fit <-
+    final_workflow %>%
+    last_fit(split = backorder_split)
+ 
+final_fit %>%
+    collect_metrics()
+## # A tibble: 2 × 4
+##.metric .estimator .estimate .config
+##<chr> <chr>                                 <dbl><chr>
+## 1accuracy binary                                 0.822Preprocessor1_Model1
+## 2roc_auc binary                                 0.908Preprocessor1_Model1
+final_fit %>%
+    collect_predictions()%>%
+    conf_mat(truth = went_on_backorder, estimate = .pred_class)
+##                          Truth
+##Prediction                    NoYes
+##No 329 16
+##Yes                     7383
+The results show that the accuracy is 82.2% and AUC is 0.908. Given the imbalance in levels of the
+outcome variable and the fact that the minority level (i.e., went_on_backorder = yes) is more
+important for the prediction task, we estimate sensitivity as well as specificity of this prediction. W e use
+Table 12.4  and the formula for sensitivity and specificity defined earlier for our calculations.
+For our model, sensitivity is 83
+83+16=0.838, and specificity is 329

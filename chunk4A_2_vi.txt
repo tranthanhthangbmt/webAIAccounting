@@ -1,0 +1,33 @@
+Thay vì cố gắng xác định phân khúc khách hàng có khả năng mua một thương hiệu nhất bằng một nghiên cứu dựa trên thái độ (ví dụ: khách hàng thích thương hiệu này đến mức nào?), một sản phẩm có thể được giới thiệu thông qua các mẫu nhỏ và hành vi mua hàng thực tế có thể được theo dõi. Ngoài ra, dựa trên dữ liệu bán hàng, các sản phẩm có thể được sửa đổi trong thời gian thực (real-time) dựa trên các tính năng mà khách hàng ưa thích nhất. Do đó, các thị trường dựa trên dữ liệu (data-driven markets) cho phép một vòng phản hồi (feedback loop) mà qua đó các doanh nghiệp có thể quan sát hoạt động mua hàng thực tế của khách hàng và tinh chỉnh các phân khúc thị trường (market segments).
+
+### 5.4.2 Phân khúc Động (Dynamic Segmentation)
+Một kết quả khác của dữ liệu phong phú về khách hàng cho phép doanh nghiệp liên tục cập nhật các phân khúc khách hàng của mình. Thay vì phân khúc tất cả khách hàng một lần và cho rằng sở thích của họ sẽ không thay đổi, phân khúc động (dynamic segmentation) giả định rằng sở thích sẽ thay đổi và liên tục cập nhật xem dịch vụ/sản phẩm nào sẽ được một phân khúc khách hàng cụ thể ưa thích nhất. Nhiều khía cạnh trong cuộc sống của một cá nhân có thể thay đổi. Ví dụ, một nhà sản xuất sô cô la không thể cho rằng chỉ vì một khách hàng đã mua sô cô la đen trong quá khứ thì họ sẽ tiếp tục làm như vậy. Nhu cầu cá nhân, gia đình hoặc sức khỏe của họ có thể thay đổi, khiến họ chuyển sang mua sô cô la không đường hoặc không có hạt. Phân khúc động tính đến khả năng sở thích của khách hàng thay đổi và do đó, phân khúc mà họ thuộc về không phải là tĩnh (static). Một lần nữa, điều quan trọng là các doanh nghiệp phải trau dồi khả năng sàng lọc qua lượng thông tin dồi dào có sẵn cho họ và sử dụng thông tin gần đây nhất, cho dù là hành vi hay thông tin khác, để phân khúc khách hàng.
+
+### 5.4.3 Vi phân khúc (Microsegments)
+Như đã đề cập trước đó, hiện nay đã có thể phục vụ các phân khúc khách hàng rất nhỏ bằng cách hiểu sâu sắc sở thích của họ và tùy chỉnh các sản phẩm cho phù hợp. Điều này cũng dẫn đến siêu cá nhân hóa (hyperpersonalization), nơi mỗi dịch vụ/sản phẩm nhắm mục tiêu duy nhất đến một khách hàng cụ thể dựa trên cả dữ liệu nhân khẩu học (demographic data) và dữ liệu hành vi (behavioral data) được thu thập về khách hàng đó. Chẳng hạn, các công ty bảo hiểm có thể bổ sung dữ liệu hiện có như tuổi, giới tính và danh mục sản phẩm hiện tại bằng hành vi trực tuyến như thời gian truy cập trên trang web của họ để phân khúc khách hàng tốt hơn và cung cấp cho khách hàng một sản phẩm được tùy chỉnh cao.
+
+Việc chọn thuật toán để thực hiện phân khúc cũng quan trọng không kém gì dữ liệu dành cho phân khúc. Nhiều lần chúng ta chỉ có các loại dữ liệu khác nhau về khách hàng mà không có thông tin về kết quả kinh doanh như doanh số bán hàng hoặc khách hàng đó có trung thành hay không. Tức là, dữ liệu có xu hướng không được gán nhãn (unlabeled). Bởi vì chúng ta không có bất kỳ nhãn kết quả nào, chúng ta không có khả năng so sánh hiệu suất của mô hình. Nhiệm vụ phổ biến nhất của học không giám sát (unsupervised learning) là phân tích khám phá (exploratory analysis), sử dụng các phương pháp trực quan hóa (đơn giản nhất là phân cụm - clustering) để kiểm tra dữ liệu và thu thập thông tin chi tiết.
+
+Hãy xem qua các thuật toán thường được sử dụng cho phân khúc.
+
+## 5.5 CÁC THUẬT TOÁN PHÂN CỤM CHO PHÂN KHÚC (CLUSTERING ALGORITHMS FOR SEGMENTATION)
+Phân cụm (Clustering) thường được sử dụng để phân khúc khách hàng thành các nhóm có bộ nhu cầu tương tự nhau. Việc hiểu thuật toán k-Means và thuật toán k-Medoid rất hữu ích để hình dung quá trình phân cụm hoạt động như thế nào.
+
+<!-- IMAGE_PLACEHOLDER: Hình ảnh về Phân cụm hoặc Thị trường -->
+
+### 5.5.1 Mối quan hệ giữa Khoảng cách và Sự Tương đồng (The Relationship Between Distance and Similarity)
+Trong phân cụm, các đối tượng (ví dụ: khách hàng) được nhóm lại với nhau dựa trên khoảng cách của chúng trong một không gian đa chiều (multidimensional space). Nguyên tắc cơ bản là nếu hai khách hàng ở gần nhau trong không gian đặc trưng (feature space) của họ, họ sẽ có nhiều điểm tương đồng và do đó nên được nhóm vào cùng một cụm (cluster).
+
+### 5.5.2 Thuật toán k-Means (The k-Means Algorithm)
+Thuật toán k-Means là một trong những thuật toán học không giám sát (unsupervised learning) đơn giản và phổ biến nhất được sử dụng để giải quyết vấn đề phân cụm. Quy trình hoạt động bao gồm:
+1. Xác định số lượng cụm $k$ (number of clusters).
+2. Khởi tạo ngẫu nhiên các trung tâm cụm (centroids).
+3. Gán mỗi điểm dữ liệu cho trung tâm cụm gần nhất.
+4. Tính toán lại trung tâm của từng cụm dựa trên các điểm dữ liệu đã được gán.
+5. Lặp lại bước 3 và 4 cho đến khi các trung tâm không thay đổi đáng kể.
+
+### 5.5.3 Thuật toán k-Medoid (The k-Medoid Algorithm)
+Tương tự như k-Means, nhưng thay vì sử dụng giá trị trung bình (mean) để làm trung tâm cụm, k-Medoid sử dụng một điểm dữ liệu thực tế (gọi là medoid) làm trung tâm. Điều này giúp thuật toán chống nhiễu (outliers) tốt hơn k-Means.
+
+<!-- IMAGE_PLACEHOLDER: Figure 5.4 k-Means Segmentation Plot -->
+<!-- IMAGE_PLACEHOLDER: Figure 5.6 k-Medoid Segmentation Plot -->

@@ -1,0 +1,327 @@
+\documentclass[aspectratio=169]{beamer}
+\usetheme{Madrid}
+\usecolortheme{default}
+\usepackage[utf8]{inputenc}
+\usepackage[T5]{fontenc}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{amsmath}
+
+\setbeamertemplate{caption}[numbered]
+\renewcommand{\figurename}{Hình}
+\renewcommand{\thefigure}{19.\arabic{figure}}
+
+\title[Chương 19: The Future of AI]{Học Sâu (Deep Learning) \\ \vspace{0.5cm} \Large Chương 19: Tương lai của Trí tuệ Nhân tạo (The Future of AI)}
+\author{Đại học Đông Á}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame}{Nội dung chương}
+    \tableofcontents
+\end{frame}
+
+\section{1. Giới hạn của Deep Learning}
+
+\begin{frame}{Bản chất thực sự của Deep Learning}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Mạng nơ-ron học sâu thực chất là những đường cong tham số khổng lồ (Parametric curves) được khớp (fit) với một lượng dữ liệu cực lớn.
+            \item Mô hình không "suy nghĩ". Nó chỉ là một cơ sở dữ liệu \textbf{Nội suy tĩnh (Static Interpolative Database)}.
+            \item Ở giai đoạn Inference, nó chỉ thực hiện truy xuất thông tin (Information retrieval) đã học.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch19/ml_model.02e47549.png}
+            \caption{Mô hình ML như một cơ sở dữ liệu nội suy}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Sự mù lòa trước cái mới (Novelty)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Điểm yếu cốt tử của LLMs: Rất giỏi làm những thứ từng xuất hiện trên mạng, nhưng bất lực trước một bài toán \textbf{Mới hoàn toàn}, dù rất đơn giản.
+            \item Hình bên là một bài kiểm tra logic rất dễ với con người. Nhưng do không có trong dữ liệu huấn luyện, LLM không thể giải quyết được.
+            \item "Năng lực" của LLM phụ thuộc vào \textit{Sự quen thuộc} chứ không phải \textit{Trí thông minh}.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch19/arc_example_2.7d4f0c33.png}
+            \caption{Một câu đố logic đơn giản nhưng hoàn toàn mới}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Vấn đề "Học vẹt" ở Large Language Models}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Thử nghiệm với bài toán Monty Hall (Biến thể).
+            \item Nếu bạn đổi một số chi tiết trong bài toán gốc (Ví dụ: Cửa trong suốt), LLM vẫn nhả ra câu trả lời kinh điển mà nó đã học vẹt.
+            \item Điều này chứng tỏ mô hình không mô phỏng lại hoàn cảnh vật lý, nó chỉ \textbf{dự đoán token tiếp theo} khớp với dữ liệu phân bố của nó.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch19/monty_hall.86dba4ca.png}
+            \caption{Biến thể bài toán Monty Hall}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Gót chân Achilles: Mẫu đối kháng (Adversarial Examples)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Deep Learning rất dễ bị đánh lừa bởi \textbf{Adversarial Examples}.
+            \item Thêm một lớp nhiễu rất nhỏ (Mắt người không nhận ra) vào hình ảnh con heo, AI sẽ tự tin 99\% đây là một chiếc máy bay.
+            \item Nguyên nhân: AI không học cấu trúc vật lý của con heo, nó học các phân bố điểm ảnh cục bộ.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch19/adversarial_example.8f3cfeb2.png}
+            \caption{Đánh lừa AI bằng nhiễu ngẫu nhiên}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\section{2. Bản chất Trí tuệ \& Thước đo ARC}
+
+\begin{frame}{Trí tuệ là gì? (Skill vs Information)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Việc nhớ toàn bộ Bách khoa toàn thư Wikipedia không làm bạn trở nên thông minh (Đó là \textbf{Information}).
+            \item Trí tuệ thực sự là \textbf{Kỹ năng (Skill)} xử lý và thích nghi với các tình huống chưa từng gặp bao giờ.
+            \item LLM hiện tại thiên về Information (Memorization) chứ chưa chạm đến Skill.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch19/skill_vs_information.2468629a.png}
+            \caption{Kỹ năng giải quyết vấn đề so với Khối lượng thông tin}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Tổng quát hóa: Local vs Extreme Generalization}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Khả năng dự đoán các tình huống tương tự những gì đã học gọi là \textbf{Local Generalization} (Machine Learning hiện tại).
+            \item Khả năng đối mặt với các tình huống không có tiền lệ (Ví dụ: hạ cánh khẩn cấp máy bay) gọi là \textbf{Extreme Generalization}.
+            \item AGI (Artificial General Intelligence) đòi hỏi sự Tổng quát hóa cực hạn.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch19/local_vs_extreme_generalization.4b71aa83.png}
+            \caption{Mức độ Tổng quát hóa của AI so với Con người}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Thước đo Trí tuệ: ARC Benchmark}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Francois Chollet đã tạo ra \textbf{Abstraction and Reasoning Corpus (ARC)} để đo lường khả năng Extreme Generalization của AI.
+            \item ARC yêu cầu AI nhìn vào vài ví dụ (Input-Output) có tính logic trừu tượng, và suy ra lưới ảnh Output cuối cùng.
+            \item Không thể giải bằng cách nhồi thêm dữ liệu (Scale up).
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch19/arc_example.2b17dc06.png}
+            \caption{Một thử thách trong ARC Benchmark}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{AI SOTA vẫn thất bại trước ARC}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Ngay cả những mô hình mạnh nhất (OpenAI o3, Claude 3.5) cũng có tỷ lệ giải đúng ARC rất thấp so với con người.
+            \item Điều này khẳng định triết lý: Việc mở rộng Tham số (Scaling Parameters) đang tiến tới mức bão hòa và không dẫn đến Trí tuệ thực thụ.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch19/arc_task_not_solved_by_o3.03d72f08.png}
+            \caption{Bài toán ARC mà các siêu AI vẫn đầu hàng}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Sự phân cực trong ARC}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Có những bài toán con người mất 1 giây để giải, nhưng AI mất hàng triệu phép tính vẫn sai.
+            \item Điều này cho thấy Kiến trúc tư duy của Deep Learning hoàn toàn khác biệt với Cognitive Architecture (Kiến trúc nhận thức) của con người.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch19/arc_1_vs_arc_2.1201d48e.png}
+            \caption{Sự sai biệt tư duy giữa AI và Não người}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\section{3. Những Nền tảng còn thiếu của AI}
+
+\begin{frame}{Bài học từ sinh học: Giun C. elegans}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Loài giun \textbf{C. elegans} chỉ có 302 tế bào thần kinh, nhưng nó có thể bò, tìm thức ăn, trốn kẻ thù và sinh sản.
+            \item Trong khi mô hình AI có hàng trăm tỷ nơ-ron (Tham số) lại không thể tự điều khiển cơ thể linh hoạt trong thế giới thực.
+            \item Sự sống là những hệ thống tự tổ chức (Self-organizing).
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch19/c_elegans.ca0de605.png}
+            \caption{Sơ đồ Nơ-ron của giun C. elegans}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Bùng nổ tổ hợp (Combinatorial Explosion)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Thế giới thực không hữu hạn như bàn cờ vua.
+            \item Giống như kính vạn hoa (Kaleidoscope), một vài mảnh kính nhỏ có thể tạo ra vô hạn các tổ hợp hình ảnh phức tạp.
+            \item AI không thể đối phó với thế giới bằng cách "Học thuộc lòng" mọi tình huống.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch19/kaleidoscope.fec15d2f.png}
+            \caption{Sự đa dạng tổ hợp vô hạn}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Value-Centric Abstraction (Khái niệm trung tâm)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Deep Learning hiện tại hoạt động theo nguyên lý \textbf{Value-centric abstraction}.
+            \item Trọng số (Weights) được tối ưu để tính ra một Giá trị (Value) làm đầu ra liên tục dựa trên các so sánh vector tĩnh.
+            \item Nó không có khả năng thực thi các vòng lặp logic (While/For loops) vô định.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch19/value_centric_abstraction.ea920558.png}
+            \caption{Trừu tượng hóa theo Giá trị}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Program-Centric Abstraction}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Con người suy luận bằng cách tạo ra các quy tắc logic (Algorithms).
+            \item Tương lai của AI là \textbf{Program-centric abstraction}: Mô hình không xuất ra một Giá trị (Value), mà nó xuất ra một \textbf{Chương trình máy tính (Program)}.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch19/program_centric_abstraction.028e5301.png}
+            \caption{Trừu tượng hóa theo Chương trình}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\section{4. Tương lai của AI: Meta-learning}
+
+\begin{frame}{Tổng hợp Chương trình (Program Synthesis)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Dò tìm trong một không gian các khối mã (Code blocks) để ghép lại thành một thuật toán.
+            \item Đây là bước tiến tiềm năng để giải quyết ARC Benchmark, vì thuật toán là sự tổng quát hóa tối thượng (Extreme Generalization).
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch19/program_synthesis.8af8560a.png}
+            \caption{AI tự tổng hợp chương trình để giải toán}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Khái niệm Meta-learning (Học cách học)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Trí tuệ con người không sinh ra đã biết làm toán. Con người có "Trí tuệ học tập".
+            \item \textbf{Meta-learning} trong AI là việc huấn luyện một mô hình sao cho nó có khả năng \textit{tự cập nhật và tự học hỏi} thật nhanh trên môi trường mới chỉ với 1-2 ví dụ.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch19/metalearning1.63aa6580.png}
+            \caption{Nguyên lý của Meta-learning}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Thuật toán Meta-learning (Inner \& Outer Loop)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item \textbf{Inner Loop:} Mô hình học cách giải quyết một tác vụ cụ thể nhanh nhất có thể.
+            \item \textbf{Outer Loop:} Đạo hàm ngược qua cả quá trình học của Inner Loop để điều chỉnh siêu trọng số (Meta-weights), giúp hệ thống thích nghi nhanh hơn.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch19/metalearning2.f5a5efde.png}
+            \caption{Cơ chế Vòng lặp Học lồng nhau}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{AGI và Đích đến cuối cùng}
+    \begin{itemize}
+        \item \textbf{Artificial General Intelligence (AGI)} không phải là một LLM ghi nhớ mọi thứ trên Internet.
+        \item AGI là một hệ thống có khả năng tự động tạo ra chương trình (Program Synthesis), áp dụng Meta-learning để thích nghi theo thời gian thực (Extreme Generalization), mà không phụ thuộc vào dữ liệu do con người mớm sẵn.
+        \item Cuộc đua Trí tuệ Nhân tạo mới chỉ ở vạch xuất phát. Sinh viên hôm nay chính là những Kiến trúc sư của AGI ngày mai!
+    \end{itemize}
+\end{frame}
+
+\end{document}

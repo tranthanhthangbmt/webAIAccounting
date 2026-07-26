@@ -1,0 +1,52 @@
+## Chương 6: Khoa học Dữ liệu và Dữ liệu lớn (Data Science and Big Data)
+
+Trong thập kỷ qua, đã có rất nhiều sự thổi phồng (hype) về khoa học dữ liệu (data science) và dữ liệu lớn (big data). Sự thổi phồng này đã dẫn đến nhiều sự phấn khích và khuyến khích nhiều sinh viên, nhà nghiên cứu, học giả và các tổ chức quan tâm đến chủ đề này.
+
+Các tổ chức đã trở nên quan tâm đến việc sử dụng khoa học dữ liệu để giảm thiểu sự kém hiệu quả và tạo ra sự tăng trưởng. Sinh viên, nhà nghiên cứu và các chuyên gia đã trở nên quan tâm đến việc học khoa học dữ liệu do công việc thú vị trong lĩnh vực này. Cleveland từ Bell Labs đã đề xuất mở rộng lĩnh vực thống kê sang phân tích dữ liệu bằng cách nhấn mạnh tầm quan trọng của việc chuẩn bị, tính toán và trình bày dữ liệu thay vì mô hình hóa thống kê (statistical modeling).7 Tuy nhiên, thuật ngữ "khoa học dữ liệu" (data science) mới trở nên phổ biến rộng rãi gần đây hơn vào năm 2012 thông qua một bài báo trên Tạp chí Kinh doanh Harvard (Harvard Business Review) có tựa đề "Nhà khoa học dữ liệu: Nghề nghiệp hấp dẫn nhất của thế kỷ 21" (Data Scientist: The Sexiest Job of the 21st Century).8 Trong giới học thuật hay ngành công nghiệp, không có một định nghĩa duy nhất nào được phê chuẩn về khoa học dữ liệu vì đây là một thuật ngữ rộng bao hàm nhiều lĩnh vực, dẫn đến các quan điểm khác nhau và sự mơ hồ.
+
+Tuy nhiên, nói một cách đơn giản, người ta có thể hiểu khoa học dữ liệu như một lĩnh vực liên ngành (interdisciplinary field) sử dụng các khái niệm của thống kê (statistics), toán học (mathematics), khoa học máy tính (computer science) và chuyên môn trong một lĩnh vực cụ thể (domain expertise) để trích xuất những hiểu biết sâu sắc có ý nghĩa (meaningful insights) từ dữ liệu nhằm tạo ra một số giá trị kinh doanh. Một nhà khoa học dữ liệu (data scientist) là một người chuyên gia trong ba lĩnh vực này và trích xuất ý nghĩa từ dữ liệu bằng cách thực hiện phân tích dữ liệu và phân tích thống kê; xây dựng và áp dụng các mô hình và thuật toán học máy (machine learning models and algorithms); đồng thời trực quan hóa (visualizing), tóm tắt và truyền đạt kết quả. Hình 6.2 mô tả một nhà khoa học dữ liệu với các kỹ năng từ ba lĩnh vực này.
+
+Trên thực tế, rất khó để tìm được một người là nhà khoa học dữ liệu hoàn hảo — có kỹ năng cao trong cả ba lĩnh vực. Do đó, các tổ chức thường xây dựng các nhóm khoa học dữ liệu (data science teams) với những người có các bộ kỹ năng bổ sung cho nhau.
+
+Các thuật ngữ "phân tích kinh doanh" (business analytics) và "phân tích dữ liệu" (data analytics) đã được sử dụng phổ biến trong những năm qua và thường bị nhầm lẫn với khoa học dữ liệu. Nhìn chung, có một ranh giới khác biệt khá mờ nhạt giữa phân tích (analytics) và khoa học dữ liệu, và do đó, những thuật ngữ này đôi khi được sử dụng thay thế cho nhau. Cách chúng tôi diễn giải sự khác biệt mờ nhạt này là vai trò của một nhà phân tích kinh doanh/dữ liệu bao gồm việc sử dụng nhiều chuyên môn ngành (domain expertise) và phân tích dữ liệu để tạo ra những hiểu biết sâu sắc (insights) từ dữ liệu, trong khi vai trò của một nhà khoa học dữ liệu thì rộng hơn một chút và bao gồm cả lập trình và mô hình hóa học máy (machine learning modeling). Trong nhiều trường hợp, trách nhiệm của một nhà khoa học dữ liệu cũng bao gồm phân tích dữ liệu, xây dựng các mô hình và phát triển các mô hình đó thành các sản phẩm hoặc dịch vụ.
+
+<!-- IMAGE_PLACEHOLDER: Figure 6.2: Data scientist Venn diagram -->
+
+## Học máy so với Trí tuệ nhân tạo (Machine Learning vs. Artificial Intelligence)
+Trí tuệ nhân tạo (AI) là một lĩnh vực của khoa học máy tính tập trung vào việc làm cho máy tính trở nên thông minh hơn để chúng có thể bắt chước (imitate) hành vi thông minh của con người. AI là một phương tiện cho phép máy tính học hỏi và tham gia vào các quá trình suy nghĩ giống như con người, chẳng hạn như học hỏi, lập luận và tự sửa lỗi (self-correction). Theo truyền thống, điều này bao gồm việc mã hóa cứng (hard-coding) kiến thức về thế giới dưới dạng các chương trình máy tính, nhưng sự thành công bị hạn chế vì phần lớn kiến thức của con người phát triển cùng với các trải nghiệm và mang tính chủ quan, trực giác và đầy thách thức để có thể diễn đạt bằng một tập hợp các quy tắc. Sự ra đời của học máy (machine learning) đã cho phép máy tính học hỏi kiến thức về thế giới thực bằng cách xác định các mô hình (patterns) từ dữ liệu, tự sửa lỗi từ quá trình học hỏi này để cho phép ra quyết định [9]. Tuy nhiên, các thuật toán học máy cũng gặp phải sự đánh đổi (trade-off) do hiệu suất của chúng phụ thuộc vào cách thức dữ liệu được trình bày (presented) cho chúng. Các thuật toán học sâu (deep learning algorithms) đã giải quyết vấn đề này bằng cách tự mình trích xuất thông tin. Học sâu là một loại học máy đặc biệt giúp cho việc học của máy tính trở nên mạnh mẽ, linh hoạt và trừu tượng hơn. Biểu đồ Venn trong Hình 6.3 minh họa cách các khái niệm này có mối liên hệ với nhau.
+
+<!-- IMAGE_PLACEHOLDER: Figure 6.3: AI, machine learning, and deep learning Venn diagram -->
+
+## Những gì không phải là Khoa học Dữ liệu (What Data Science Is Not)
+AI, học máy và học sâu không cấu thành nên một nhánh của khoa học dữ liệu. Thay vào đó, khoa học dữ liệu sử dụng chúng để giải quyết các vấn đề. Hãy coi học máy như một bộ công cụ thống kê (statistical toolkit) giúp máy móc học hỏi dựa trên dữ liệu lịch sử và đưa ra các dự đoán về dữ liệu mới. Mặt khác, khoa học dữ liệu là một thuật ngữ rộng hơn bao gồm quy trình (process) xây dựng mô hình học máy này, bao gồm thu thập dữ liệu (data collection), xử lý dữ liệu (data processing), phân tích dữ liệu (data analysis), trực quan hóa dữ liệu (data visualization), mô hình hóa (modeling), đưa ra các dự đoán, v.v.
+
+Dữ liệu lớn (Big data) cũng không phải là một nhánh của khoa học dữ liệu. Khoa học dữ liệu có thể được sử dụng để giải quyết các vấn đề bằng cách sử dụng các loại và kích cỡ tập dữ liệu (datasets) khác nhau.
+
+## Dữ liệu lớn là gì? (What Is Big Data?)
+Nguồn gốc của thuật ngữ "dữ liệu lớn" (big data) vẫn còn mơ hồ, nhưng một trong những định nghĩa sớm và phổ biến đó là dữ liệu lớn là lượng dữ liệu mà các công cụ phần mềm cơ sở dữ liệu truyền thống không thể quản lý và phân tích do sự phức tạp và kích thước của nó.9 Nói một cách đơn giản, dữ liệu lớn nghĩa là dữ liệu lớn, trong đó từ "lớn" phụ thuộc vào ngữ cảnh và sức mạnh xử lý tính toán (computational processing power). Theo một báo cáo của IBM năm 2013, khoảng 2,5 tạ (quintillion) byte dữ liệu được tạo ra mỗi ngày trên thế giới.10 Tốc độ tạo ra này chỉ đang tăng tốc cùng với sự phát triển của truy cập internet, sự gia tăng sử dụng thiết bị di động, và các thiết bị IoT (internet vạn vật) trên khắp thế giới. Các điểm dữ liệu (Data points) được tạo ra trong các hoạt động hàng ngày của chúng ta, chẳng hạn như:
+– Hoạt động trên mạng xã hội (các dòng tweet và tin nhắn trên Twitter; lượt thích, chia sẻ và tin nhắn trên Facebook)
+– Hoạt động trên công cụ tìm kiếm (tìm kiếm trên Google, tạo các trang web)
+– Phát trực tuyến video (video streaming) (xem hoặc tải video lên YouTube hoặc Netflix)
+– Thanh toán (sử dụng thẻ tín dụng, ngân hàng điện tử)
+
+Để tận dụng tối đa dữ liệu này, nó cần được thu thập. Trước đây, lưu trữ dữ liệu (data storage) khá tốn kém và kém hiệu quả, vì vậy việc lưu trữ các tập dữ liệu lớn là một thách thức. Hiện nay, có các giải pháp lưu trữ dữ liệu tốt hơn và tiết kiệm hơn giúp việc lưu trữ và xử lý dữ liệu trở nên dễ dàng hơn.
+
+IBM đã định nghĩa dữ liệu lớn gắn liền với 4 chữ V (four Vs): khối lượng (volume - kích thước của dữ liệu), vận tốc (velocity - tốc độ mà dữ liệu được tạo ra, lưu trữ, phân tích và trực quan hóa), sự đa dạng (variety - các nguồn dữ liệu khác nhau cho dữ liệu có cấu trúc và phi cấu trúc), và tính xác thực (veracity - mức độ đáng tin cậy của dữ liệu đối với bất kỳ sự phân tích nào xét về độ chính xác và tính mơ hồ, chẳng hạn).11 Các nhà nghiên cứu khác đã định nghĩa dữ liệu lớn theo ba chữ V, sáu chữ V, v.v. Mặc dù có một vài sự chỉ trích đối với mô hình các chữ V, nhưng có một điều rõ ràng: có rất nhiều dữ liệu sẵn có có thể được sử dụng để giải quyết vô số vấn đề kinh doanh thông qua khoa học dữ liệu.
+
+## Khoa học Dữ liệu và Dữ liệu lớn trong Thực tiễn Công nghiệp (Data Science and Big Data in Industry Practice)
+Các bước chính cần thiết trong bất kỳ dự án khoa học dữ liệu nào được thể hiện trong Hình 6.4. Bất kể vấn đề là gì, bất kỳ dự án khoa học dữ liệu nào cũng có thể được triển khai bằng cách tuân theo các bước này. Vòng đời (lifecycle) gồm nhiều bước, từ việc định nghĩa vấn đề đến quá trình thử nghiệm, được giải thích trong phần này. Ngăn xếp công nghệ dữ liệu lớn (big data technology stack) được sử dụng trong quy trình này, cũng được thể hiện trong Hình 6.4, được giải thích trong phần “Ngăn xếp Công nghệ Dữ liệu lớn”.
+
+<!-- IMAGE_PLACEHOLDER: Figure 6.4: Data science project lifecycle -->
+
+## Bước 1—Định nghĩa Vấn đề (Step 1—Defining the Problem)
+Trước khi bắt đầu thực hiện một tác vụ khoa học dữ liệu, bước đầu tiên là phải xác định rõ mục tiêu của vấn đề kinh doanh. Quá trình này bao gồm việc trả lời các câu hỏi về những khía cạnh khác nhau của vấn đề, chẳng hạn như
+– Vấn đề kinh doanh là gì và làm thế nào để dịch nó thành một vấn đề khoa học dữ liệu?
+– Dữ liệu nào được yêu cầu cho vấn đề và làm thế nào để thu thập và chuẩn bị dữ liệu đó?
+– Những hiểu biết sâu sắc (insights) nào có thể được tạo ra từ dữ liệu và những mô hình học máy/học sâu (machine learning/deep learning models) nào có thể hữu ích cho vấn đề?
+– Làm thế nào để xây dựng và đánh giá mô hình, định nghĩa sự thành công (các chỉ số KPI, các thước đo, v.v.) cho giải pháp của vấn đề?
+– Làm thế nào để đo lường tác động của một mô hình học máy trong thế giới thực?
+
+Trong thực tế, điều cốt yếu là phải đơn giản hóa và cấu trúc hóa vấn đề ở giai đoạn này và trả lời chính xác những câu hỏi này. Tùy thuộc vào cách vấn đề được cấu trúc ở bước này, các bước tiếp theo gồm thu thập dữ liệu (data collection), mô hình hóa việc chuẩn bị dữ liệu (data preparation modeling), đánh giá mô hình (model evaluation) và thử nghiệm (experimentation) có thể khác nhau. Điều này được minh họa qua ví dụ sau đây xuyên suốt chương:
+
+### Bài toán nợ quá hạn của khoản vay (Loan Delinquency Problem)
+Một ngân hàng đã giải ngân các khoản vay cá nhân cho 800.000 khách hàng sử dụng thẻ tín dụng/tiết kiệm hiện tại trong 5 năm qua (2013–2018). Đề án cho vay này được kỳ vọng sẽ giúp đỡ khách hàng và...

@@ -1,0 +1,327 @@
+dữ liệu là dữ liệu thô không được đo lường đã được định dạng dưới dạng số và rời rạc, có giá trị trung bình
+rằng chúng không liên tục và sẽ không bao giờ có một phần giá trị đơn vị. Những trường này không thể 
+được sử dụng trong phân tích cho các phép tính toán học vì chúng đề cập đến các mã định danh duy nhất 
+cho các mặt hàng tồn kho và nhóm danh mục sản phẩm của chúng. Dữ liệu của trường InventoryDescription 
+nguồn cũng là trường dữ liệu thô không đo lường được định dạng dưới dạng trường văn bản, không thể sử dụng trong 
+tính toán số trong quá trình phân tích.
+Nguồn cho các trường dữ liệu như UnitCost và NumberOnHand khác nhau vì chúng 
+là dữ liệu số thô được đo, có thể được sử dụng trong các phép tính toán học.
+
+4-14  CHƯƠNG 4  Lập kế hoạch chiến lược phân tích và dữ liệu
+Cuối cùng, UnitCost và NumberOnHand có thể được nhân trong một biểu thức để tính toán 
+một trường mới trong truy vấn có tên TotalCost. Nguồn trường mới này là dữ liệu được tính toán 
+cũng là số và có khả năng được sử dụng trong nhiều phép tính toán học khác nhau trong 
+kế toán.
+Thang đo lường của trường dữ liệu đề cập đến loại thông tin được cung cấp bởi dữ liệu. 
+Thang đo lường dữ liệu nên được xem xét khi thiết kế chiến lược dữ liệu, vì chúng 
+tác động mà các phân tích có thể được thực hiện trên dữ liệu. Thang đo dữ liệu được nhóm lại 
+thành bốn loại: phân loại, thứ tự, khoảng hoặc tỷ lệ (Minh họa 4.11).
+MINH HỌA 4.11  Mô tả và ví dụ về thang đo
+Dữ liệu phân loại (danh nghĩa)
+Dữ liệu thứ tự
+Dữ liệu được dán nhãn hoặc đặt tên
+có thể được sắp xếp thành các nhóm
+theo cụ thể
+đặc điểm. Dữ liệu làm
+không có giá trị định lượng.
+Sắp xếp hoặc xếp hạng phân loại
+dữ liệu. Khoảng cách giữa
+các danh mục không cần phải có
+đã biết hoặc bằng nhau.
+Dữ liệu khoảng thời gian
+Dữ liệu thứ tự có bằng nhau
+và sự khác biệt không đổi
+giữa các quan sát và
+điểm 0 tùy ý.
+Dữ liệu tỷ lệ
+Dữ liệu khoảng thời gian với một cách tự nhiên
+điểm không. Số không tự nhiên
+điểm có nghĩa là nó không phải
+tùy ý.
+Khu vực, loại sản phẩm,
+số tài khoản, tài khoản
+thể loại, địa điểm.
+Một câu hỏi khảo sát
+về dịch vụ khách hàng có thể
+yêu cầu khách hàng đánh giá
+kinh nghiệm từ 1 đến 10.
+Nhiệt độ, thời gian, tín dụng
+điểm số.
+Dữ liệu kinh tế, chẳng hạn như
+đô la hoặc euro.
+Mô tả
+Ví dụ
+Thang đo
+Phân loại
+Professional Insight 4.2: Bạn chọn dữ liệu tài chính như thế nào  
+để phân tích?
+Jadon là sinh viên chuyên ngành tài chính kế toán, sinh viên thể thao và chủ tịch của thế hệ đầu tiên.
+tổ chức sinh viên trong khuôn viên trường. Trong thời gian thực tập, anh nhận ra rằng sự nghiệp của mình 
+sẽ liên quan đến việc phân tích dữ liệu về thông tin báo cáo tài chính.
+Vào ngày đầu tiên của kỳ thực tập hè, tôi được giao nhiệm vụ tính toán 
+10 tỷ số tài chính của 5 công ty trong cùng ngành có hiệu quả cao nhất 
+ba năm gần đây. Tôi còn lại để tìm ra cách lấy dữ liệu và thực hiện phép tính.
+quan hệ của riêng tôi. Tôi đã sử dụng kinh nghiệm thể thao của mình để thu thập can đảm bằng cách tạo ra 
+một kế hoạch trò chơi Đầu tiên, tôi phải chọn và thiết lập công cụ phân tích của mình.
+Tôi đã chọn Excel bằng Analysis ToolPak và tạo mẫu dữ liệu thô dựa trên tổng số 
+Tôi sẽ cần các tỷ lệ trong bảng tính đầu tiên. Tôi đã sao chép nó năm lần cho mỗi công ty 
+dữ liệu thô. Tôi đã tạo một bảng tính khác cho tất cả các phép tính tỷ lệ dưới dạng các hàng và phần com-
+panies sẽ là các cột, được nhóm theo từng năm. Tôi sắp xếp các tỷ lệ thành lợi nhuận-
+nhóm khả năng thanh toán, thanh khoản và khả năng thanh toán. Tôi đã nhập các công thức tỷ lệ gắn liền với dữ liệu thô 
+các ô trong bảng tính và ghi lại các bước của tôi trên một trang tính khác để ghi nhớ các lựa chọn của tôi.
+Tiếp theo, tôi phải tìm ra nơi để lấy dữ liệu. Tôi đã truy cập xBRL của SEC 
+dữ liệu và tải xuống thông tin báo cáo tài chính và nhập 
+những gì tôi cần vào Excel. Một lợi ích bất ngờ khi có tất cả các tỷ lệ của tôi trong một trang tính 
+là thật dễ dàng để hình dung các kết quả của tôi. Tôi ngạc nhiên trước sự rõ ràng của 
+những công ty hoạt động tốt nhất và tệ nhất đều đến từ những hình dung này. Tôi đã lưu tập tin của mình và 
+đã gửi nó qua email cho sếp của tôi.
+Chúng ta sẽ thảo luận về cách thang đo lường dữ liệu ảnh hưởng đến các lựa chọn chiến lược phân tích ở phần sau của phần này. 
+chương. Tiếp theo, hãy xem xét các rủi ro và biện pháp kiểm soát liên quan đến chiến lược dữ liệu của chúng tôi.
+
+4.2 Chúng ta nên cân nhắc điều gì khi chọn dữ liệu để phân tích? 4-15
+ MINH HỌA 4.13 Rủi ro lấy mẫu đại diện
+Toàn bộ dân số
+Hãy tưởng tượng một cái lọ có 100
+viên bi: 30 viên bi màu xanh
+và 70 viên bi trắng.
+Nếu lấy một mẫu gồm mười viên bi màu xanh
+được trích xuất, nó sẽ không được
+đại diện cho dân chúng như
+toàn bộ dân số có gấp đôi
+nhiều viên bi trắng.
+Một mẫu đại diện gồm 10
+viên bi sẽ có ba màu xanh
+viên bi và bảy viên bi trắng.
+Mẫu không đại diện
+Mẫu đại diện
+ Đó là lý do tại sao việc thực hiện kiểm tra tính đại diện của mẫu có thể xác minh tính hợp lệ của nó hoặc 
+phát hiện điểm yếu đáng kể của nó trong việc thể hiện quần thể đá cẩm thạch bên dưới. 
+ Rủi ro thứ hai có thể bao gồm các điểm dữ liệu bất thường trong phân tích. Dữ liệu ngoại lệ 
+điểm là các điểm dữ liệu bất thường so với phần còn lại của dữ liệu trong một điểm hoạt động 
+(trục x hoặc biến độc lập), chẳng hạn như số lượng đơn vị được sản xuất hoặc mức độ bất thường 
+của giá trị kinh tế (trục y hoặc biến phụ thuộc), chẳng hạn như tổng chi phí hoặc tổng doanh thu. các 
+kiểm soát tốt nhất để xác định các ngoại lệ là trực quan hóa dữ liệu trong biểu đồ để kiểm tra xem thước đo 
+ Xem xét rủi ro chiến lược dữ liệu và thực hiện 
+Điều khiển
+ Một lợi ích khác của việc ghi lại chiến lược dữ liệu trong kế hoạch dự án là việc kiểm tra từng lựa chọn 
+có thể giúp xác định ba rủi ro dữ liệu phổ biến có thể ảnh hưởng đến tính hợp lệ, độ chính xác, 
+và độ tin cậy ( Minh họa 4.12 ). 
+ MINH HỌA 4.12 Rủi ro dữ liệu thường gặp và các biện pháp kiểm soát được khuyến nghị 
+dữ liệu
+Rủi ro
+Điều khiển
+Lựa chọn mẫu không mang tính đại diện
+Điểm dữ liệu ngoại lệ
+Kiểm tra tính đại diện của mẫu
+Thực hiện phân tích biểu đồ hoặc tứ phân vị để 
+xác định các ngoại lệ, sau đó giải thích hoặc biện minh cho quy tắc
+được sử dụng để điều chỉnh hoặc loại bỏ ngoại lệ.
+Dữ liệu bẩn
+Xác minh tính toàn vẹn của tập dữ liệu và dọn dẹp
+vấn đề dữ liệu bẩn.
+ Rủi ro đầu tiên là mẫu được trích xuất từ một tập hợp dữ liệu lớn hơn sẽ mang lại kết quả kém.
+sự gửi đi của dân số cơ bản. Ví dụ: lựa chọn ngẫu nhiên các màu khác nhau 
+viên bi có thể không phải là mẫu thể hiện chính xác các đặc tính của viên bi 
+dân số ( Minh họa 4.13 ).
+
+4-16  CHƯƠNG 4  Lập kế hoạch chiến lược phân tích và dữ liệu
+Áp dụng nó 4.2
+Xác định dữ liệu 
+Đặc điểm
+Hệ thống thông tin kế toán   Tremendous Toys gần đây đã phát triển một cơ sở dữ liệu để giới hạn
+tính chi phí tồn kho từ quá trình sản xuất của họ mỗi tuần.
+Dữ liệu đã được trích xuất từ các trường dữ liệu sau: 
+GIẢI PHÁP
+Tên trường
+Loại trường
+Thang đo hiện trường
+Sản XuấtChạySố
+Dữ liệu thô không được đo lường
+Phân loại (danh nghĩa)
+Sản xuấtChạyNgày
+Dữ liệu thô không được đo lường
+Khoảng thời gian
+SốĐồ ChơiChạy
+Dữ liệu thô được đo
+Tỷ lệ
+Số ID đồ chơi
+Dữ liệu thô không được đo lường
+Phân loại (danh nghĩa)
+Vật liệu trực tiếp được sử dụng
+Dữ liệu thô được đo
+Tỷ lệ
+Lao động trực tiếpĐược sử dụng
+Dữ liệu thô được đo
+Tỷ lệ
+Chi phí chung được áp dụng
+Dữ liệu được tính toán
+Tỷ lệ
+Tổng chi phí chạy
+Dữ liệu được tính toán
+Tỷ lệ
+Tổng đơn vịChi phí
+Dữ liệu được tính toán
+Tỷ lệ
+Hoàn thành bảng ba cột bằng cách thêm loại và thang đo lường của từng trường dữ liệu. 
+rất khác so với phần còn lại của dữ liệu. Các ngoại lệ được xác định có thể được đo lại (nếu có thể)
+sible) hoặc bị loại bỏ bằng một quy tắc hợp lý và được ghi lại.
+Rủi ro dữ liệu cuối cùng là nhiều loại lỗi dữ liệu hoặc dữ liệu bẩn gây khó khăn cho dữ liệu. 
+phân tích. Dữ liệu bẩn bao gồm dữ liệu bị thiếu, không hợp lệ, trùng lặp và được định dạng không chính xác. cho 
+Ví dụ: các đơn đặt hàng, hoá đơn hoặc séc do công ty viết phải được thực hiện theo trình tự
+được tính toán kỹ lưỡng, không thiếu số hoặc hai số có cùng số nhận dạng. 
+Các biện pháp kiểm soát phải luôn kiểm tra dữ liệu bẩn trước khi thực hiện phân tích. Dữ liệu có thể được giao tiếp
+so sánh với các tài liệu nguồn của nó, hoặc nếu điều đó là không thể, hãy kiểm tra tính hợp lý. Kiểm tra cho 
+tính hợp lý có thể bao gồm việc kiểm tra số thứ tự bị thiếu, số trùng lặp hoặc 
+xác minh dữ liệu có định dạng mong đợi hoặc các ký tự được chấp nhận.
+Khi dữ liệu đã được lựa chọn, đánh giá và mọi rủi ro đã được xác định và kiểm soát, bước tiếp theo là 
+Bước này là phát triển một chiến lược phân tích phù hợp với mục tiêu của dự án.
+Tên trường
+Loại trường
+Thang đo hiện trường
+Sản XuấtChạySố
+Sản xuấtChạyNgày
+SốĐồ ChơiChạy
+Số ID đồ chơi
+Vật liệu trực tiếp được sử dụng
+Lao động trực tiếpĐược sử dụng
+Chi phí chung được áp dụng
+Tổng chi phí chạy
+Tổng đơn vịChi phí
+
+4.3  Chúng ta nên cân nhắc điều gì khi lựa chọn một phân tích?   4-17
+4.3  Chúng ta nên cân nhắc điều gì khi 
+Chọn một phân tích? 
+MỤC TIÊU HỌC TẬP ➌
+Giải thích cách thiết kế một chiến lược phân tích.
+Hãy xem xét hai câu hỏi sau khi thiết kế chiến lược phân tích dữ liệu:
+	 1. Chiến lược phân tích đã chọn có thể trả lời các câu hỏi khách quan cụ thể không?  
+	 2. Thang đo của dữ liệu có phù hợp với chiến lược phân tích đã chọn không?
+Trước đó trong khóa học này, bạn đã biết có bốn loại mục tiêu phân tích dữ liệu: mô tả, 
+chẩn đoán, dự đoán và kê đơn. Mỗi người hỏi những câu hỏi khác nhau về dữ liệu. Chúng tôi biểu diễn 
+phân tích để trả lời các câu hỏi đó. Phân tích cụ thể có thể được thực hiện trên dữ liệu 
+bị ảnh hưởng bởi thang đo của dữ liệu. Tiếp theo, chúng tôi tóm tắt những điều cần cân nhắc khi 
+thiết kế phân tích cho các dự án với mục tiêu mô tả và chẩn đoán.
+Thiết kế phân tích để mô tả và chẩn đoán
+Bởi vì việc hiểu các hiện tượng được dữ liệu ghi lại là điều cần thiết nên nhiều nhà phân tích dữ liệu 
+dự án bắt đầu bằng các phân tích mô tả. Phân tích chẩn đoán liên quan đến nhiều hoạt động phân tích giống nhau
+vâng mang tính mô tả nhưng trọng tâm là giải thích lý do tại sao điều gì đó lại xảy ra. Bởi vì nhiều 
+các loại phân tích có thể mang tính chất mô tả và chẩn đoán, nên thảo luận về hai loại phân tích này là điều hợp lý. 
+chiến lược phân tích với nhau.
+Loại phân tích mô tả và chẩn đoán cụ thể được sử dụng phụ thuộc vào thước đo
+quy mô tinh thần của dữ liệu. Ví dụ: tính toán quan sát trung bình trong dữ liệu yêu cầu 
+bằng cách sử dụng các thước đo khoảng hoặc tỉ lệ. Hình minh họa 4.14 cho thấy một số chiến lược phân tích cho 
+mục tiêu mô tả và chẩn đoán (dấu kiểm cho biết các phân tích thích hợp và chỉ số X
+đưa ra những phân tích không phù hợp với thang đo).
+MINH HỌA 4.14  Phân tích các chiến lược cho phân tích mô tả và chẩn đoán
+Phân tích tiềm năng
+Thang đo dữ liệu
+Phân loại
+thứ tự
+Khoảng thời gian
+Tỷ lệ
+Xu hướng trung tâm
+Chế độ
+trung vị
+Nghĩa là
+Phân phối tần số
+Cả số lượng và %s:
+Tần số nhóm
+Tần số tích lũy
+Tần số tương đối
+(Tiếp theo)
+
+4-18  CHƯƠNG 4  Lập kế hoạch chiến lược phân tích và dữ liệu
+Phân tích tiềm năng
+Thang đo dữ liệu
+Phân loại
+thứ tự
+Khoảng thời gian
+Tỷ lệ
+Phân tán dữ liệu
+Tối thiểu, tối đa, phạm vi, tứ phân vị
+Phương sai và độ lệch chuẩn
+Kiểm tra tính chuẩn, độ lệch và độ nhọn
+Trực quan hóa
+Chỉ có biểu đồ thanh và hình tròn
+Nhiều lựa chọn xu hướng khác
+Biểu đồ/biểu đồ hộp
+Tương quan
+Biểu đồ phân tán, Pearson's R
+Phân tích bảng chéo
+Tính toán
+Tổng và tổng phụ
+Phần trăm thay đổi
+Phần trăm của tổng số
+Hồi quy
+Chiến lược phân tích mô tả
+Hãy nhớ lại rằng dữ liệu kế toán là dữ liệu định giá và giao dịch kinh tế lịch sử. tài khoản-
+các nhà quản lý doanh nghiệp và nhà quản lý đều muốn biết thêm về những gì đã xảy ra và 
+dù dữ liệu báo hiệu tin tức tốt hay đáng lo ngại, vì vậy các phân tích mang tính mô tả là phổ biến nhất.
+chiến lược phân tích mon sử dụng dữ liệu kế toán. Nó rất hữu ích để đánh giá hiệu suất chiến lược 
+bởi vì nó mang lại nhiều ý nghĩa và thông tin kinh doanh hơn là chỉ nhìn, làm bài kiểm tra-
+ví dụ, với tổng số được báo cáo trên báo cáo tài chính của một năm.
+Hãy xem xét một ví dụ bằng cách sử dụng dữ liệu phải thu của tài khoản WeMakeIt Inc. 
+được thiết lập để minh họa khả năng giải thích của phân tích mô tả ngay cả khi sử dụng dữ liệu phân loại. 
+Hãy nhớ lại rằng mục tiêu của phân tích này là để trở nên tự tin hơn về tỷ lệ phần trăm 
+được sử dụng để ước tính các khoản nợ khó đòi. Kết quả phân tích mô tả ban đầu cho thấy sự gia tăng lớn 
+về số lượng khách hàng có hóa đơn mở cuối năm 2025 so với năm 2024 
+kết thúc. Phân tích này được thiết kế để trả lời hai câu hỏi mô tả:
+• Câu hỏi khách quan 1: Cuối năm có bao nhiêu khách hàng còn tồn đọng hóa đơn 
+của năm 2024?
+• Câu hỏi khách quan 2: Cuối năm 2025 có bao nhiêu khách hàng còn tồn đọng hóa đơn?
+Một chiến lược dữ liệu và chiến lược phân tích đã được phát triển:
+• Chiến lược dữ liệu: Sử dụng biến phân loại CustomerNumber để xác định khách hàng 
+với số dư chưa thanh toán.
+• Chiến lược phân tích: Đếm và so sánh tần suất số lượng khách hàng duy nhất với 
+hóa đơn còn tồn đọng vào cuối năm 2024, sau đó lặp lại phân tích cho năm 2025 
+cuối năm. Lưu ý rằng cả số lượng và tần số đều là những phân tích có thể được thực hiện trên cat-
+dữ liệu logic.
+MINH HỌA 4.14  (Tiếp theo)
+
+4.3  Chúng ta nên cân nhắc điều gì khi lựa chọn một phân tích?   4-19
+MINH HỌA 4.15  
+Hóa đơn chưa thanh toán của khách hàng 
+Số 
+Số lượng khách hàng
+với hóa đơn chưa thanh toán
+vào cuối năm 2024 và 2025
+Số lượng
+Khách hàng
+0
+10
+20
+30
+40
+60
+50
+2024
+2025
+37
+37
+52
+Kết quả chỉ ra rằng vào năm 2024 có 37 số lượng khách hàng duy nhất có dư nợ 
+hóa đơn, đến năm 2025 có 52 số lượng khách hàng duy nhất có hóa đơn chưa thanh toán. 
+Tiếp theo, chúng tôi thảo luận về các chiến lược phân tích chẩn đoán.
+ÁP DỤNG TƯ DUY PHIẾU 4.5: Diễn giải cẩn thận 
+Kết quả ban đầu
+Ban đầu bạn có thể kết luận rằng các khoản phải thu vào năm 2025 có khả năng thu được lợi nhuận cao hơn.
+rủi ro về khả năng đọc được đơn giản vì có nhiều khách hàng có hóa đơn chưa thanh toán hơn vào năm 2025 
+hơn vào năm 2024. Tuy nhiên, nhận định ban đầu này có thể bị ảnh hưởng bởi các giả định và thành kiến nội bộ 
+(Rủi ro):
+• Việc tăng số lượng khách hàng có dư nợ vào năm 2025 có thể không phải là điều tiêu cực.
+kết quả tích cực khi công ty phát triển và có thêm khách hàng mới vào năm 2025.
+• Những kết quả này có thể thúc đẩy bạn đánh giá các giải thích thay thế và thực hiện các phân tích mới, 
+chẳng hạn như xác định xem số lượng khách hàng năm 2025 có hóa đơn chưa thanh toán vào cuối năm có 
+nhiều hóa đơn còn nợ vào năm 2025 hơn so với năm 2024 hoặc nếu giá trị số dư chưa thanh toán của chúng cao
+vào năm 2025, có thể báo hiệu mối lo ngại về thanh khoản tiền mặt. Kết quả này phù hợp hơn với 
+các khoản phải thu của công ty có rủi ro không thể thu hồi được (Các lựa chọn thay thế).
+Chiến lược phân tích chẩn đoán
+Chiến lược phân tích chẩn đoán có thể được so sánh với công việc thám tử. Kế toán viên có thể sử dụng 
+chiến lược phân tích để xác định và khám phá những nguyên nhân có thể xảy ra nhất của hiện tượng kế toán. 
+Mặc dù cả chiến lược phân tích mô tả và chẩn đoán đều là các kỹ thuật mô tả,
+chiến lược phân tích tic cũng xác định những yếu tố nào đã gây ra doanh thu bán hàng thấp hơn hoặc 
+chi phí cao hơn chẳng hạn. Các chiến lược chẩn đoán luôn đòi hỏi phải áp dụng các kỹ năng tư duy phản biện.
+Các bên liên quan dựa vào kế toán viên trong các lĩnh vực hành nghề kế toán để chẩn đoán những gì đang xảy ra 
+xảy ra và giải thích, thường bằng các thuật ngữ phi kế toán, tại sao nó lại xảy ra. Ví dụ, 
+kế toán hệ thống thường sử dụng dữ liệu phân tán lỗi để xác định các vấn đề về hiệu suất hệ thống hoặc 
+dữ liệu hoạt động bất thường có thể cho thấy sự truy cập trái phép của bên nào đó.

@@ -1,0 +1,27 @@
+thời gian sản phẩm vận chuyển từ nhà sản xuất đến nhà bán lẻ cũng có thể thấp hoặc cao. Biến kết quả là liệu sản phẩm có bị chậm giao hàng (backordered) hay không (có hoặc không). Mục tiêu của chúng ta là đưa ra một mô hình dự đoán đơn giản cho biết liệu một sản phẩm có bị chậm giao hay không dựa trên doanh số dự báo và thời gian vận chuyển. Dữ liệu được trình bày trong Bảng 12.1.
+
+| Doanh số dự báo (Forecasted sales) | Thời gian vận chuyển (Transit time) | Bị chậm giao (Backordered) |
+|---|---|---|
+| Thấp (Low) | Thấp (Low) | Không (No) |
+| Cao (High) | Thấp (Low) | Có (Yes) |
+| Thấp (Low) | Thấp (Low) | Không (No) |
+| Cao (High) | Cao (High) | Có (Yes) |
+| Thấp (Low) | Thấp (Low) | Có (Yes) |
+| Cao (High) | Cao (High) | Không (No) |
+| Cao (High) | Thấp (Low) | Có (Yes) |
+| Thấp (Low) | Cao (High) | Không (No) |
+| Cao (High) | Cao (High) | Có (Yes) |
+
+Thách thức đầu tiên trong việc xây dựng cây phân loại (classification tree) là chọn một biến để phân chia nút gốc (root node) đầu tiên. Hãy xem xét Hình 12.3. Các vòng tròn tối đại diện cho khi sản phẩm bị chậm giao và các vòng tròn sáng đại diện cho khi nó không bị chậm giao. Chúng ta thấy rằng biến doanh số dự báo thực hiện phân loại liệu một sản phẩm có bị chậm giao hàng hay không tốt hơn. Trong nhóm dự báo thấp, ba trong số bốn điểm dữ liệu không bị chậm giao và trong nhóm dự báo cao, bốn trong số năm điểm dữ liệu bị chậm giao. Bằng trực giác, các nhóm dự báo cao và thấp có thể tách biệt các điểm dữ liệu bị chậm giao và không bị chậm giao hiệu quả hơn so với các nhóm thời gian vận chuyển cao và thấp. Nhưng đây chỉ là đánh giá trực quan. Làm thế nào chúng ta có thể định lượng xem biến nào là công cụ phân loại (classifier) tốt hơn? 
+
+Độ vẩn đục Gini (Gini impurity) cung cấp cho chúng ta một cách để làm điều này. Mỗi biến dự báo ở mỗi cấp độ là $1 - \text{(tỷ lệ điểm dữ liệu bị chậm giao = "Có")}^2 - \text{(tỷ lệ điểm dữ liệu bị chậm giao = "Không")}^2$. Các giá trị Gini impurity thấp hơn được ưu tiên so với các giá trị cao hơn. Hãy tìm hiểu cách tính chỉ số Gini (Gini index) cho ví dụ mà chúng ta đang làm việc.
+
+<!-- IMAGE_PLACEHOLDER: Figure 12.3 Tính toán Chỉ số Gini -->
+
+Đối với doanh số dự báo như thể hiện trong Hình 12.3, chúng ta có năm điểm dữ liệu có dự báo doanh số cao và bốn điểm dữ liệu có dự báo doanh số thấp. Trong số năm điểm dữ liệu thuộc nhóm dự báo cao, có bốn điểm bị chậm giao và một điểm thì không. Tỷ lệ các mặt hàng bị chậm giao trong nhóm này là $4/5$ và tỷ lệ các mặt hàng không bị chậm giao là $1/5$. Gini impurity cho nhóm này là $1 - (4/5)^2 - (1/5)^2 = 0.32$. Trong số bốn điểm dữ liệu thuộc nhóm dự báo thấp, một mặt hàng bị chậm giao và ba mặt hàng thì không. Tỷ lệ các mặt hàng bị chậm giao trong nhóm này là $1/4$ và tỷ lệ các mặt hàng không bị chậm giao là $3/4$. Gini impurity cho nhóm này là $1 - (1/4)^2 - (3/4)^2 = 0.375$. Bây giờ chúng ta có thể tính toán Gini impurity có trọng số (weighted Gini impurity) cho doanh số dự báo. Vì có chín điểm dữ liệu, Gini impurity có trọng số cho nhóm dự báo cao sẽ là $5/9$, và đối với nhóm dự báo thấp, nó sẽ là $4/9$. Trung bình có trọng số sẽ là $(5/9)0.32 + (4/9)0.375 = 0.34$.
+
+Tương tự, chúng ta có thể tính toán Gini impurity có trọng số cho biến thời gian vận chuyển (được mô tả trong Hình 12.4).
+
+<!-- IMAGE_PLACEHOLDER: Figure 12.4 Gini Impurity cho Doanh số dự báo và Thời gian vận chuyển -->
+
+Chúng ta thấy rằng Gini impurity thấp hơn khi sử dụng doanh số dự báo; do đó, nó trở thành biến dùng để chia nút gốc (root node). Cây quyết định kết quả sẽ giống như Hình 12.5.

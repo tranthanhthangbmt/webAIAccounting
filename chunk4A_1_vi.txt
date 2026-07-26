@@ -1,0 +1,35 @@
+# 5 PHÂN KHÚC THỊ TRƯỜNG BẰNG CÁC THUẬT TOÁN PHÂN CỤM (MARKET SEGMENTATION USING CLUSTERING ALGORITHMS)
+
+5.1 Phân khúc Khách hàng (Segmenting Customers)
+5.1.1 Cơ sở của việc Phân khúc (Basis of Segmentation)
+5.2 Nhắm mục tiêu Khách hàng Tiềm năng (Targeting Potential Customers)
+5.3 Định vị Sản phẩm trong Tâm trí Khách hàng (Positioning the Product in Customers’ Minds)
+5.4 Phân khúc Dựa trên Dữ liệu (Data-Driven Segmentation)
+5.4.1 Phân khúc theo Hành vi (Behavioral Segmentation)
+5.4.2 Phân khúc Động (Dynamic Segmentation)
+5.4.3 Vi phân khúc (Microsegments)
+5.5 Các Thuật toán Phân cụm cho Phân khúc (Clustering Algorithms for Segmentation)
+5.5.1 Mối quan hệ giữa Khoảng cách và Sự Tương đồng (The Relationship Between Distance and Similarity)
+5.5.2 Thuật toán k-Means (The k-Means Algorithm)
+5.5.3 Thuật toán k-Medoid (The k-Medoid Algorithm)
+5.5.4 Sử dụng k-Means để Phân khúc Khách hàng
+5.6 Thực hành bằng R: Phân khúc bằng k-Means và k-Medoid
+5.7 Hiểu rõ Chương học
+
+### MỤC TIÊU HỌC TẬP (LEARNING OBJECTIVES)
+1. Hiểu về các khái niệm STP (Segmentation, Targeting, Positioning) trong tiếp thị.
+2. Quyết định cách thức phân khúc khách hàng.
+3. Tìm hiểu các cơ sở khác nhau của việc phân khúc.
+4. Phân cụm (Cluster) để phân khúc khách hàng bằng thuật toán k-means và k-medoid.
+5. Sử dụng k-means để tìm các phân khúc khách hàng mục tiêu.
+6. Diễn giải kết quả của quá trình phân tích phân cụm.
+
+## 5.1 PHÂN KHÚC KHÁCH HÀNG (SEGMENTING CUSTOMERS)
+
+Vegan-Always là một nhà hàng mới mở ở Phoenix. Họ muốn gửi phiếu giảm giá (coupons) cho những khách hàng yêu thích đồ chay. Họ có nên gửi những phiếu giảm giá này cho tất cả cư dân của Phoenix không? Mặc dù có thể làm được, nhưng việc phân phối phiếu giảm giá rộng rãi như vậy không chỉ trở nên rất tốn kém mà không phải ai cũng sẽ quan tâm đến các món ăn của nhà hàng. Vì không phải tất cả khách hàng đều giống nhau hoặc có cùng sở thích, việc gửi cùng một thông điệp tiếp thị đến tất cả mọi người là không hiệu quả hoặc sinh lời. Chiến lược tốt nhất cho Vegan-Always là chia toàn bộ dân số Phoenix theo cách mà họ chỉ gửi phiếu giảm giá cho những người có khả năng sẽ ghé thăm nhà hàng. Một cách nhà hàng có thể làm điều này là sử dụng các yếu tố tâm lý học (psychographics) hoặc lối sống (lifestyle). Những người quan tâm nhiều hơn đến môi trường đã chuyển sang ăn chay và có thể sẽ quan tâm hơn đến một nhà hàng như vậy.
+
+Tương tự, nhân khẩu học (demographics) có thể là một cách khác để tìm các nhóm khách hàng phù hợp với nhà hàng. Quá trình chia thị trường thành các nhóm khách hàng có các đặc điểm tương đồng và chọn (các) nhóm phù hợp nhất để doanh nghiệp nhắm mục tiêu (target) được gọi là phân khúc thị trường (market segmentation).
+
+Một cách để hình dung về phân khúc là xem nó như một sự thỏa hiệp giữa tiếp thị đại chúng (mass marketing - giả định rằng tất cả khách hàng đều giống nhau) và tùy chỉnh ở cấp độ cá nhân (individual-level customization - giả định rằng tất cả khách hàng đều là duy nhất). Thay vì nhắm mục tiêu vào từng khách hàng, việc phân khúc cho phép doanh nghiệp nhắm mục tiêu vào các nhóm khách hàng tương tự nhau trong cách họ phản hồi với sản phẩm. Trong các thị trường dựa trên dữ liệu (data-driven markets) hiện nay, việc phân khúc ở mức độ sâu hơn đã trở nên khả thi; do đó, vi phân khúc (microsegmenting) đang trở nên phổ biến. Ví dụ, dựa trên hành vi mua hàng trong quá khứ và sự tương đồng với các khách hàng khác, Amazon có khả năng tạo ra các vi phân khúc (microsegments) và đề xuất các sản phẩm rất cụ thể cho từng khách hàng của mình.
+
+Bước đầu tiên trong phân khúc thị trường (market segmentation) là hiểu lý do tại sao khách hàng mua một sản phẩm. Sản phẩm đó mang lại những lợi ích gì mà khách hàng có thể quan tâm? Doanh nghiệp cần xác định tất cả các nhu cầu của khách hàng mà một sản phẩm hoặc dịch vụ có thể đáp ứng.

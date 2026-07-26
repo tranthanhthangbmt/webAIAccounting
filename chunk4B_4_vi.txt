@@ -1,0 +1,64 @@
+rằng nó đã thu hẹp các tham số $\beta$ của 4 biến dự báo về 0 và do đó, đã chọn 12 từ 16 biến dự báo ban đầu.
+
+```R
+(best.lambda <- cv.binomial$lambda.min)
+## [1] 8.837698e-05
+
+y4 <- coef(cv.binomial, s="lambda.min", exact=FALSE)
+print(y4)
+## 17 x 1 sparse Matrix of class "dgCMatrix"
+##                                                            s1
+## (Intercept)                     1.346913e+01
+## current_ratio_1                     9.231917e-02
+## debt_equity_ratio_1                     1.297786e+01
+## accounting_ratio_1 -1.416379e+01
+## operating_ratio_1                    .
+## marketing.ratio_1                     3.031253e+00
+## operating_ratio_2                     3.493792e-03
+## marketing_ratio_2                    .
+## current_ratio_2 -1.985339e-05
+## current_ratio_3                     2.416489e+00
+## operating_ratio_3 -4.810050e+00
+## current_ratio_4 -2.503380e+00
+## earning_ratio_1                     4.965877e-01
+## earning_ratio_2                    .
+## current_ratio_5                     7.127187e-01
+## debt_equity_ratio_2                    .
+## operating_ratio_4                     9.021487e-03
+```
+
+Chúng ta đã huấn luyện mô hình hồi quy có phạt (penalized regression model) của mình. Nhưng phần quan trọng là xem nó có thể được sử dụng tốt như thế nào trong dự đoán. Bây giờ chúng ta sử dụng mô hình đã được huấn luyện với giá trị tối ưu của $\lambda$ và đánh giá xem nó hoạt động như thế nào trên một tập dữ liệu kiểm tra riêng biệt (test dataset).
+
+```R
+test_predictors <- testData[,c(1:16)]
+test_predictors <- data.matrix(test_predictors)
+pred = predict(cv.binomial, newx = test_predictors,
+ type = "response",s ="lambda.min")
+pred <- prediction(pred, testData$class)
+ 
+perf <- performance(pred,"tpr","fpr")
+auc_ROCR<- performance(pred,measure ="auc")
+```
+
+Chúng ta lại sử dụng đường cong AUC ROC để kiểm tra dự đoán của mô hình LASSO trên tập dữ liệu kiểm tra. Điều này được tính toán (và vẽ biểu đồ) dưới dạng tỷ lệ giữa dương tính giả (false positives) trên trục x và dương tính thật (true positives) trên trục y. Các giá trị AUC cao hơn cho thấy dự đoán mô hình tốt hơn. Hình 10.4 vẽ đường cong này.
+
+<!-- IMAGE_PLACEHOLDER: Hình 10.4 Đường cong ROC của mô hình LASSO -->
+
+```R
+plot(perf,colorize=FALSE, col="black") # plot ROC curve
+lines(c(0,1),c(0,1),col = "gray", lty = 4 )
+text(1,0.15,labels=paste("AUC = ", round(auc_ROCR@y.values[[1]],
+ digits=2), sep=""),adj=1)
+```
+
+Sử dụng mô hình đã được huấn luyện, bây giờ chúng ta có thể sử dụng nó để dự đoán xem một doanh nghiệp có phá sản hay không. Nếu chúng ta cung cấp giá trị của 16 chỉ số tài chính của một doanh nghiệp mới cho mô hình, nó sẽ cung cấp dự đoán là 0 (sẽ phá sản) hoặc 1 (sẽ không phá sản).
+
+Chúng ta nhập dữ liệu này dưới dạng `new_data`. Vì đối với `glmnet`, dữ liệu phải ở dạng ma trận, chúng ta chuyển đổi nó thành một ma trận có một hàng (`nrow = 1`) và 16 cột (`ncol = 16`).
+
+## 10.9 Phụ lục: Bảng Thuật ngữ Tài chính
+Bao gồm các định nghĩa về tỷ lệ nợ trên vốn chủ sở hữu, tỷ lệ thanh toán hiện hành, tỷ lệ thu nhập và tỷ lệ hoạt động.
+
+## 10.10 Hiểu rõ Chương học (UNDERSTANDING THE CHAPTER)
+- Sự ảnh hưởng của việc vay mượn đối với sức khỏe tài chính.
+- Việc dự báo phá sản là quan trọng đối với nhà đầu tư và chủ nợ.
+- Đa cộng tuyến làm nhiễu mô hình, có thể được giải quyết thông qua phương pháp LASSO.

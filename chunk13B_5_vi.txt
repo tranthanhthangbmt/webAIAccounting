@@ -1,0 +1,555 @@
+Tổng số giờ máy
+CM trên mỗi đơn vị
+Số giờ máy trên mỗi đơn vị
+Giờ máy
+Nhu cầu
+Số lượng sản xuất
+thuyền trưởng
+ $371,78
+18.000
+Hàm mục tiêu là
+công thức tính tổng đóng góp
+lề. Tỷ lệ đóng góp
+là doanh thu trừ chi phí biến đổi.
+Mô hình cho thấy các hạn chế của dự đoán
+nhu cầu về từng chiếc xe tay ga và tổng số máy
+số giờ có sẵn trong năm.
+10.000
+7.000
+24.000
+1.000.000
+20
+20
+25
+25
+10
+10
+18
+18
+73
+$371,78
+1
+1
+1
+1
+$ 201,87
+$ 201,87
+$104,27
+$162,18
+$162,18
+$104,27
+Celeritas
+cú đá
+Lazer
+Tổng cộng
+ $840,10
+Số lượng
+đơn vị sản xuất là
+các biến quyết định.
+Mô hình cũng cho thấy
+bao nhiêu giờ máy
+cần thiết để sản xuất mỗi đơn vị.
+Chương trình tối ưu hóa tuyến tính sẽ sử dụng dữ liệu này để giải quyết số lượng tối ưu 
+mỗi mô hình nên được tạo ra trong đó biên độ đóng góp (hàm mục tiêu) là tối đa
+bị hạn chế bởi những hạn chế. Lưu ý rằng chúng tôi bắt đầu với số 1 tùy ý trong 
+số lượng đơn vị tế bào được sản xuất. Điều này cũng có thể bằng 0 khi bắt đầu; tuy nhiên, sử dụng số 
+người ta có thể xác nhận các công thức. Tối ưu hóa tuyến tính có sẵn trong Microsoft
+
+3-26
+CHƯƠNG 3 Động lực và mục tiêu phân tích dữ liệu
+ MINH HỌA 3.25 Truy cập Microsoft Excel Solver 
+Xem lại
+Xem
+Nhà phát triển
+Trợ giúp
+nhào lộn
+Power Pivot
+Tab mới
+Tìm kiếm
+Chia sẻ
+Chia sẻ
+Tự động Lưu
+Oﬀ
+Trợ giúp
+Power Pivot
+Tab mới
+Truy vấn &
+Kết nối
+Địa lý chứng khoán
+Sắp xếp
+Lọc
+Xóa
+Đăng ký lại
+Nâng cao
+Nhắn tin tới
+Cột
+Chuyện gì xảy ra nếu
+Phân tích
+Sắp xếp & Lọc
+Công cụ dữ liệu
+Dự báo
+tờ
+Nhóm
+dữ liệu
+Phân tích
+Bộ giải
+Phân tích
+Tách nhóm
++
+–
+Tổng phụ
+Dự báo
+phác thảo
+Kiểu dữ liệu
+Truy vấn &
+Kết nối
+Chỉnh sửa liên kết
+Thuộc tính
+Làm mới
+Tất cả
+dữ liệu
+ Nhấp vào Bộ giải sẽ mở hộp thoại để nhập ô hàm mục tiêu, biến quyết định.
+ô có thể và tạo bất kỳ ràng buộc có liên quan nào.  Hình minh họa 3.26 là hộp thoại Solver dùng để 
+tạo chương trình tối ưu hóa cho Super Scooters. 
+ MINH HỌA 3.26 Đầu vào hộp thoại Bộ giải để tối ưu hóa biên đóng góp cho xe tay ga siêu tốc 
+Làm cho các biến không bị ràng buộc không âm
+Phương pháp giải
+Chọn công cụ phi tuyến GRG cho các bài toán có bộ giải phi tuyến trơn tru. Chọn công cụ LP Simplex cho
+các bài toán Bộ giải tuyến tính và chọn công cụ Tiến hóa cho các bài toán Bộ giải không trơn tru.
+Tối đa
+Tới:
+tối thiểu
+Giá trị của:
+Tùy chọn
+Tải/Lưu
+Đặt lại tất cả
+Xóa
+Thay đổi
+Thêm
+Tham số bộ giải
+Đặt mục tiêu:
+Bằng cách thay đổi các ô biến:
+Tuân theo các ràng buộc:
+$ I$4:$L$4
+$M$6
+0
+Đóng
+Giải quyết
+Trợ giúp
+LP đơn giản
+Chọn một cách giải
+phương pháp:
+$ I$4 < = 18000
+$J$4 < = 10000
+$K$4 < = 7000
+$ L$4 < = 24000
+$ M$9 < = 1000000
+Những hạn chế về nhu cầu và
+giờ máy
+Tổng CM
+Phạm vi ô cho Số
+sản xuất
+ Sau khi đã nhập tất cả các ràng buộc, hãy chọn hộp này để đảm bảo kết quả của Bộ giải không âm
+(chúng ta không thể “không sản xuất” một sản phẩm) và chọn Phương pháp giải Simplex LP, vì 
+đây là một tối ưu hóa tuyến tính. Nhấp vào Giải quyết sẽ tạo ra hộp trong Hình minh họa 3.27. 
+Excel Solver có thể minh họa cách hoạt động của các mô hình tối ưu hóa. Chương trình Solver được truy cập thông qua 
+tab Dữ liệu trên ribbon thanh công cụ (Hình minh họa 3.25).
+
+3.5  Mục tiêu quy định là gì?  3-27
+MINH HỌA 3.27  Hộp Lựa chọn Kết quả Bộ giải
+được rồi
+Hủy bỏ
+Lưu kịch bản...
+Người giải quyết tìm thấy một giải pháp. Tất cả các ràng buộc và sự tối ưu
+điều kiện được thỏa mãn.
+Báo cáo
+Quay lại hộp thoại tham số bộ giải
+Báo cáo phác thảo
+Kết quả giải
+Giữ giải pháp Solver
+Khôi phục giá trị ban đầu
+Trả lời
+Độ nhạy
+Giới hạn
+Người giải quyết tìm thấy một giải pháp. Tất cả các ràng buộc và điều kiện tối ưu đều được thỏa mãn.
+Khi sử dụng công cụ GRG, Solver đã tìm được ít nhất một giải pháp tối ưu cục bộ. Khi sử dụng Simplex LP,
+điều này có nghĩa là Solver đã tìm ra giải pháp tối ưu toàn cục.
+Điều này cho thấy Solver đã tìm được lời giải tối ưu thỏa mãn các ràng buộc. Mặc định 
+là Giữ Giải pháp Solver. Nếu nút radio này được chọn, bảng tính sẽ phản ánh 
+số lượng biến quyết định mới và số tiền ký quỹ đóng góp tối ưu (Minh họa 
+3.28). Ngoài ra còn có sự lựa chọn để tạo ba báo cáo. Chọn báo cáo Trả lời và nhấp vào OK.
+MINH HỌA 3.28  Mô hình tối ưu hóa sau khi chạy Solver
+Tổng CM
+Hạn chế:
+Tổng số giờ máy
+CM trên mỗi đơn vị
+Số giờ máy trên mỗi đơn vị
+Giờ máy
+Nhu cầu
+Số lượng sản xuất
+thuyền trưởng
+6.692.106,26 USD
+18.000
+10.000
+7.000
+24.000
+1.000.000
+20
+360.000
+25
+138.000
+10
+70.000
+18
+432.000
+1.000.000
+371,78
+18.000
+5.520
+7.000
+24.000
+$
+201,87
+1.114.328,39 USD
+$
+104,27
+$
+162,18
+$
+$ 3,892,219,65
+729.872,21 USD
+Celeritas
+cú đá
+Lazer
+Tổng cộng
+12.428.526,51 USD
+Mô hình cho thấy các hạn chế của dự đoán
+nhu cầu về từng chiếc xe tay ga và tổng số máy
+số giờ có sẵn trong năm.
+Mô hình cũng cho thấy
+bao nhiêu giờ máy
+cần thiết để sản xuất mỗi đơn vị.
+Số lượng
+đơn vị sản xuất là
+các biến quyết định.
+Hàm mục tiêu là
+công thức tính tổng đóng góp
+lề. Tỷ lệ đóng góp
+là doanh thu trừ chi phí biến đổi.
+Hình minh họa 3.29 là báo cáo trả lời. Phần đầu tiên của báo cáo trình bày mục tiêu 
+giá trị ban đầu của hàm và sau đó là giá trị cuối cùng khi đạt được giải pháp tối ưu. Trong này 
+trong trường hợp này, sản lượng tối ưu sẽ là 18.000 Captain, 5.520 Celeritas, 7.000 Kicks và 24.000 
+Xe tay ga Lazer.
+
+3-28  CHƯƠNG 3  Động cơ và Mục tiêu Phân tích Dữ liệu
+$M$6
+$840,10
+12.428.526,51 USD
+Ô mục tiêu (Tối đa)
+Tế bào
+Giá trị gốc
+Giá trị cuối cùng
+Tên
+Tổng CM Tổng
+$I$4
+1
+18.000
+Các ô biến đổi
+Tế bào
+Giá trị ban đầu Giá trị cuối cùng
+tiếp tục
+số nguyên
+Tên
+Số thuyền trưởng được sản xuất
+$J$4
+1
+5.520
+tiếp tục
+Số lượng Celeritas sản xuất
+$K$4
+1
+7.000
+tiếp tục
+Số cú đá được tạo ra
+$L$4
+1
+24.000
+tiếp tục
+Số lượng sản xuất Lazer
+$M$9
+1.000.000
+$M$9<=$M$12
+Ràng buộc
+Tế bào
+Giá trị ô
+Công thức
+Ràng buộc
+Trạng thái
+chùng xuống
+Tên
+Tổng số giờ máy Tổng cộng
+$I$4
+18.000
+$I$4<=$I$13
+Ràng buộc
+Số thuyền trưởng được sản xuất
+$J$4
+5.520
+$J$4<=$J$13
+Không ràng buộc
+Số lượng Celeritas sản xuất
+$K$4
+7.000
+$K$4<=$K$13
+Ràng buộc
+Số cú đá được tạo ra
+$L$4
+24.000
+0
+0
+4.480
+0
+0
+$L$4<=$L$13
+Ràng buộc
+Số lượng sản xuất Lazer
+MINH HỌA 3.29  Bộ giải 
+Kết quả đầu ra
+MINH HỌA 3.30  Bộ giải 
+Kết quả đầu ra – Ô biến 
+Báo cáo
+$I$4
+1
+18.000
+Các ô biến đổi
+Tế bào
+Giá trị ban đầu Giá trị cuối cùng
+tiếp tục
+số nguyên
+Tên
+Số thuyền trưởng được sản xuất
+$J$4
+1
+5.520
+tiếp tục
+Số lượng Celeritas sản xuất
+$K$4
+1
+7.000
+tiếp tục
+Số cú đá được tạo ra
+$L$4
+1
+24.000
+tiếp tục
+Số lượng sản xuất Lazer
+MINH HỌA 3.31  Bộ giải 
+Kết quả đầu ra – Các ràng buộc 
+Báo cáo
+1.000.000
+$M$9<=$M$12
+Ràng buộc
+Giá trị ô
+Công thức
+Ràng buộc
+Trạng thái
+chùng xuống
+Tên
+Tổng số giờ máy Tổng cộng
+18.000
+$I$4<=$I$13
+Ràng buộc
+Số thuyền trưởng được sản xuất
+5.520
+$J$4<=$J$13
+Không ràng buộc
+Số lượng Celeritas sản xuất
+7.000
+$K$4<=$K$13
+Ràng buộc
+Số cú đá được tạo ra
+24.000
+0
+0
+4.480
+0
+0
+$L$4<=$L$13
+Ràng buộc
+Số lượng sản xuất Lazer
+Phần giữa của báo cáo (Variable Cells) hiển thị giá trị cuối cùng cho quyết định 
+biến (Minh họa 3.30). Nó hiển thị số lượng từng mẫu xe tay ga mà Super Scooters 
+nên bán để đạt được mức đóng góp tối đa.
+Cuối cùng, phần cuối cùng của báo cáo cho thấy mức độ ràng buộc đã được sử dụng trong 
+giải pháp tối ưu (Minh họa 3.31). Cột Trạng thái cho biết ràng buộc có 
+có ràng buộc hay không ràng buộc. Nói cách khác, không thể sản xuất thêm nếu không có 
+sự gia tăng hạn chế. Số lượng hiển thị trong cột Slack thể hiện số lượng 
+ràng buộc còn lại sau lời giải tối ưu. 
+Vì số giờ máy có hạn nên mô hình tối ưu quy định cách sử dụng tốt nhất số giờ đó. 
+để tối đa hóa tỷ lệ đóng góp là sản xuất tất cả các loại Siêu xe tay ga mà Thuyền trưởng có thể bán, 
+Các mẫu Kicks, và Lazer và ít hơn 4.480 chiếc so với nhu cầu của mẫu Celeritas. Bất kỳ hỗn hợp nào khác 
+sẽ dẫn đến tỷ lệ đóng góp ít hơn so với mô hình tối ưu.
+Phân tích điều gì xảy ra nếu
+Một mô hình bảng tính đánh giá các thay đổi và sự kết hợp cụ thể của đầu vào mô hình và 
+giả định được gọi là phân tích what-if. Phân tích giả định là một cách dễ dàng để thay đổi giá trị 
+trong một bảng tính và tính toán lại kết quả đầu ra. Microsoft Excel có ba công cụ được tích hợp sẵn trong 
+Tab dữ liệu trong Phân tích What-if. Hai trong số các công cụ này – Trình quản lý kịch bản và Tìm kiếm mục tiêu – là
+
+3.6  Động lực và mục tiêu phân tích dữ liệu trong thực hành nghề nghiệp là gì?  3-29
+các công cụ hữu ích để tạo điều kiện thuận lợi cho việc phân tích điều gì xảy ra nếu. Chúng ta sẽ thảo luận về từng công cụ trong chương sau, nhưng ở đây 
+là một lời giải thích ngắn gọn:
+• Scenario Manager trong Excel cho phép thay đổi hoặc thay thế giá trị đầu vào cho nhiều ô 
+(tối đa 32). Do đó, có thể xem kết quả của các giá trị hoặc kịch bản đầu vào khác nhau 
+cùng một lúc.
+• Tìm kiếm mục tiêu được sử dụng khi đã biết kết quả mong muốn nhưng giá trị đầu vào cần đạt được 
+kết quả đó là không. Mục tiêu Tìm kiếm bị hạn chế vì nó chỉ có thể sử dụng một biến đầu vào. Nếu 
+phân tích đang được thực hiện đòi hỏi nhiều hơn một biến để thay đổi, sau đó tối ưu hóa
+mô hình sử dụng Excel Solver là cần thiết. Ví dụ: tối ưu hóa Super Scooters 
+mô hình có nhiều hơn một biến vì cần phải xem xét nhu cầu và 
+hạn chế về giờ máy.
+Áp dụng nó 3.5
+Kê đơn tối ưu 
+Kết hợp bán hàng
+Dữ liệu   Kế toán quản trị   Bạn là kế toán quản lý của Best Bakes Bakery được yêu cầu 
+chuẩn bị một phân tích để xác định sự kết hợp tối ưu của các sản phẩm để tối đa hóa lợi nhuận. Bạn đã được trao 
+giao dịch bán hàng trong giai đoạn 2022–2025. Bên cạnh dữ liệu bán hàng trước đây, bạn biết có một số tài nguyên 
+những hạn chế (chẳng hạn như nguồn cung cấp hoặc giờ lao động) cần được đưa vào phân tích.
+1. Mục tiêu của việc phân tích là gì?
+2. Xây dựng ba câu hỏi phù hợp với mục tiêu.
+3. Bạn sẽ sử dụng những phân tích nào để trả lời ba câu hỏi này?
+GIẢI PHÁP
+1. Mục tiêu là xác định cơ cấu bán hàng tối ưu của các sản phẩm dựa trên các nguồn lực sẵn có.
+2. Ba câu hỏi:
+• Những hạn chế về nguồn lực nào nên được đưa vào quyết định?
+• Yêu cầu về nguồn lực cho từng sản phẩm là gì?
+• Lợi nhuận kỳ vọng trên mỗi sản phẩm là bao nhiêu?
+3. Tối ưu hóa tuyến tính có thể được sử dụng để xác định sự kết hợp tốt nhất của các sản phẩm nhằm mang lại lợi nhuận tối đa.
+3.6  Động lực phân tích dữ liệu là gì 
+và Mục tiêu trong Thực hành Chuyên môn?
+MỤC TIÊU HỌC TẬP ❻
+Mô tả động lực và mục tiêu của việc phân tích dữ liệu trong thực hành chuyên môn.
+Trong khi các phương pháp phân tích – mô tả, chẩn đoán, dự đoán và quy định – là những 
+giống nhau giữa các lĩnh vực kế toán, mục tiêu dự án và động cơ thúc đẩy chúng có thể khác nhau 
+với sự đa dạng của các mục đích và các bên liên quan. Trong kiểm toán, các bên liên quan chủ yếu là bên ngoài 
+(ví dụ: các cổ đông, cơ quan quản lý), trong khi các bên liên quan trong kế toán quản trị là 
+chủ yếu là nội bộ (ví dụ: quản lý, nhân viên). Quan điểm của họ giúp xác định đối tượng
+tích cực và phát triển các câu hỏi hay.
+
+3-30  CHƯƠNG 3  Động cơ và Mục tiêu Phân tích Dữ liệu
+Kiểm toán
+Kiểm toán viên thực hiện phân tích dữ liệu để xác minh thông tin báo cáo tài chính không mang tính trọng yếu 
+sai sót. Mục đích của họ là cung cấp ý kiến chuyên môn về việc liệu báo cáo tài chính có 
+báo cáo cung cấp thông tin chính xác, đáng tin cậy cho các bên liên quan chính của khách hàng, 
+bao gồm chủ sở hữu công ty, nhà đầu tư và chủ nợ trên thị trường vốn và tài chính 
+các cơ quan. 
+Hệ thống thông tin kế toán
+Động lực phân tích dữ liệu trong AIS có thể có phạm vi rộng. Hình minh họa 3.32 cung cấp một 
+tóm tắt các động lực, mục tiêu và câu hỏi phân tích dữ liệu AIS điển hình.
+MINH HỌA 3.32  Động lực, Mục tiêu và Câu hỏi cho Phân tích Dữ liệu AIS
+Động lực
+Mục tiêu
+Câu hỏi
+Đầu tư vào công nghệ mới.
+Xác định công nghệ 
+với lợi nhuận cao nhất trên 
+đầu tư.
+Tiết kiệm chi phí lao động là gì 
+nếu chúng ta áp dụng một công nghệ mới?
+Tăng cường an ninh của AIS 
+tài sản, bao gồm cả dữ liệu.
+Xác định có bao nhiêu bảo mật 
+vi phạm hoặc cố gắng 
+đã xảy ra những vi phạm.
+Tổng số là bao nhiêu 
+cố gắng vi phạm an ninh 
+mỗi ngày?
+Những đổi mới trong hoạt động 
+các quá trình, hoặc con người 
+hoặc máy tính, để cải thiện 
+quá trình.
+Xác định các quy trình không hiệu quả.
+Những quá trình nào chiếm 
+dài nhất?
+Cải thiện hệ thống 
+hiệu suất, chẳng hạn như 
+thời gian xử lý, độ tin cậy, 
+và sự sẵn có.
+Đánh giá thời gian xử lý 
+báo cáo tài chính hàng tháng 
+báo cáo.
+Mất bao nhiêu giờ 
+xử lý báo cáo tài chính 
+mỗi tháng?
+Những cải tiến trong hệ thống AIS 
+bảo trì.
+Đánh giá mất bao lâu để 
+bảo trì hệ thống địa chỉ 
+vấn đề.
+Mất bao lâu để 
+giải quyết các yêu cầu bảo trì?
+Những cải tiến về dữ liệu 
+tính chính trực.
+Xác định tần suất dữ liệu 
+phải được sửa chữa.
+Có bao nhiêu sự điều chỉnh 
+được thực hiện vào dữ liệu trong tháng trước?
+Mặc dù danh sách các câu hỏi trong Hình minh họa 3.32 chưa đầy đủ nhưng các câu hỏi này là một 
+điểm khởi đầu để tiến hành phân tích nhằm giải quyết chúng.
+ÁP DỤNG TƯ duy phê phán 3.1: Hiểu AIS 
+Các bên liên quan
+Hiểu được động cơ của các bên liên quan giúp xác định chính xác mục tiêu của việc phân tích
+vâng. Các bên liên quan trong các dự án phân tích dữ liệu AIS có thể là nội bộ hoặc bên ngoài tổ chức 
+(Các bên liên quan):
+• Các bên liên quan nội bộ bao gồm giám đốc tài chính, kiểm toán viên nội bộ, nhà quản lý, giám đốc
+cán bộ đào tạo và nhân viên. Họ muốn hiểu và cải tiến các quy trình, vì vậy mục tiêu
+các vấn đề tập trung vào các khía cạnh cụ thể của quy trình nội bộ và cách cải thiện chúng.
+• Các bên liên quan bên ngoài có thể bao gồm nhà đầu tư, kiểm toán viên bên ngoài, khách hàng và nhà cung cấp. 
+Các bên liên quan này được thúc đẩy bởi lợi tức đầu tư tăng lên, vì vậy các dự án có 
+tiềm năng lớn nhất để mang lại lợi tức cho bất kỳ khoản đầu tư nào thường được ưu tiên.
+
+3.6  Động lực và mục tiêu phân tích dữ liệu trong thực hành nghề nghiệp là gì?  3-31
+Hình minh họa 3.33 bao gồm các ví dụ về động cơ, mục tiêu và câu hỏi trong kiểm toán 
+phân tích dữ liệu.
+MINH HỌA 3.33  Động cơ, mục tiêu và câu hỏi khi kiểm tra phân tích dữ liệu
+Động lực
+Mục tiêu
+Câu hỏi
+Đánh giá rủi ro của 
+sai sót trọng yếu của 
+doanh thu.
+Xác định xem có 
+doanh thu thay đổi bất thường 
+so với những năm trước.
+Có xu hướng bất thường nào không 
+hoặc những thay đổi về doanh số bán hàng so với trước đó 
+năm?
+Đánh giá rủi ro của 
+sai sót trọng yếu 
+trong công ty nói chung 
+các tài khoản sổ cái.
+Phân tích số dư trong 
+sổ cái chung của công ty để 
+xác định những thay đổi bất thường từ 
+năm trước.
+Nhìn chung có thay đổi gì không 
+số dư sổ cái cao hơn 
+hơn tài liệu được chỉ định của chúng tôi 
+số tiền?
+Đánh giá rủi ro của 
+thanh toán gian lận.
+Xác minh nhân viên không nhận được 
+thanh toán trái phép.
+Có nhà cung cấp nào ở 
+tập tin nhà cung cấp tương tự 
+Địa chỉ là nhân viên?
+Xác minh hàng tồn kho thực tế 
+và số lượng tài sản cố định.
+Kiểm tra sự tồn tại của tài sản.
+Số lượng hàng tồn kho có khớp không 
+số tiền trên bảng cân đối kế toán?
+Lưu ý rằng động lực xác định một khía cạnh cụ thể của cuộc kiểm toán. Mục tiêu nêu rõ 
+mục tiêu của việc phân tích. Cột thứ ba trong hình minh họa cung cấp một ví dụ về một trường hợp cụ thể 
+câu hỏi mà kiểm toán viên có thể giải quyết thông qua phân tích. Phân tích kiểm toán được sử dụng để thực hiện rủi ro 
+giá, các thủ tục phân tích cơ bản và thực hiện các thử nghiệm chi tiết.
+ÁP DỤNG TƯ DUY PHIẾU 3.2: Tiếp thu Kiểm toán 
+Kiến thức và Tránh thành kiến

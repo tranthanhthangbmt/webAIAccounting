@@ -1,0 +1,110 @@
+–
+Reinforcement learning has been widely popularized by
+the media attention on Deepmind’s various game playing
+algorithms including the famed AlphaGo. These algorithms
+learn to choose actions through the use of rewards given
+based on the results of those actions in the game
+environment. Due to several breakthrough results such as
+AlphaGo, reinforcement methods have been an active area
+of research.
+While the last two methods will continue to garner many
+headlines, the first two are more applicable to industries with a
+much lower learning curve. The rest of this chapter will mainly
+focus on classification and regression. There are many ways to
+implement both, and a neural network, which we have learned
+in the previous chapter, is just one approach. To ensure that the
+reader can follow the practical examples later, we will quickly
+revisit neural networks and recall how these fit under ML.
+Neural Networks Are a Special Type of Machine Learning
+Neural networks and the associated learning algorithms hold a
+special place within the machine learning community, largely
+due to the fact that their design is inspired by the brain. We
+know that neurons are connected in vast networks inside our
+brain, and that electrical signals go from neuron to neuron to
+produce all of our conscious experiences—seeing, hearing,
+thinking, and speaking—which involve all neural networks in
+action, as far as science can tell us today.1
+
+
+--- Page 377 ---
+
+Figure 12.3: Simple neural network with weighted connections between
+layers
+What is inside a neural network? Neurons organized into
+inputs (the left portion in Figure 12.3), hidden layers (the
+middle portion in Figure 12.3), and outputs (the right portion in
+Figure 12.3). Connections between these neurons have weights
+and biases. The neurons, or nodes, themselves have activation
+functions, which act as filters on the input data. The primary
+function of all these elements is to introduce complex
+behaviors. Otherwise, you could only perform basic functions
+like adding numbers together. Combining these elements across
+hundreds or even thousands of neurons in several layers, these
+complex behaviors become very powerful indeed. This is called
+deep learning.
+
+
+--- Page 378 ---
+
+Figure 12.4: A neural network with a few more layers introduces increased
+complexity and is called a deep neural network
+The types of neural networks used for relatively simple tasks
+like recognition of handwriting can contain hundreds of nodes
+in each layer, to a point where drawing the thousands of
+connections no longer helps. These specialized networks
+process parts of an image at the rate of a few pixels at a time to
+determine its contents.
+Figure 12.5: Convolutional neural network used for image recognition
+
+
+--- Page 379 ---
+
+Still, even a large neural network can be represented visually in
+rather simple terms, yet the inner behavior becomes almost
+indecipherable. It can learn almost anything with a learning
+process called “backpropagation,” which starts by comparing
+how far the prediction is from the intended outcome. Then it
+calculates a series of minute changes for the connection weights
+across that whole network to improve that prediction, and tries
+the prediction again to see if the result becomes better or
+worse. To achieve the desired prediction accuracy, this process
+will be repeated hundreds of times across large datasets of
+millions of inputs, creating the need for significant computing
+power and therefore computing costs.
+What can you achieve with this powerful learning
+approach? Neural networks can read handwriting. They can
+generate language, too. They can recognize objects in pictures,
+or faces, and even play chess—all at human level or beyond.
+The complexity of the learning behavior also means that it is
+challenging to explain predictions or decisions for each case.
+You can change one input by a fraction, and the whole output
+changes. Why does the learning work? When does it work?
+How do we find the best and fastest way to train the network?
+While this spans an active area of research, there is no
+definitive answer today.
+Should We Always Use Neural Networks?
+In theory, the benefit of neural networks is their flexibility to
+tackle many forms of data. In practice, their lack of clear
+explanation and degree of specific configuration, or tuning,
+
+
+--- Page 380 ---
+
+means that they are harder to work with. The following
+demonstration will illustrate the differences in behavior.
+Figure 12.6: Comparing classifier behavior
+On the left, you see three datasets with a white background.
+Going from left to right, each column represents a type of
+machine learning algorithm trying to separate the black dots
+from the white dots using only a part of the dataset called test
+data. Remember, we have informed each algorithm already
+which color each dot is. The algorithm is just trying to create a
+general rule to identify the area in which black dots appear,
+and the area where white dots appear. As evident, the
+approaches and results are quite diverse.
+The bottom right corner of each square shows how
+accurately the algorithm has separated the two types of dots.
+Again, this score is based on a different group of dots than we
+used to train the algorithm. Why would we do this? If you tested
+
+

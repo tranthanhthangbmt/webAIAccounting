@@ -1,0 +1,262 @@
+\documentclass[aspectratio=169]{beamer}
+\usetheme{Madrid}
+\usecolortheme{default}
+\usepackage[utf8]{inputenc}
+\usepackage[T5]{fontenc}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{amsmath}
+
+\setbeamertemplate{caption}[numbered]
+\renewcommand{\figurename}{Hình}
+\renewcommand{\thefigure}{9.\arabic{figure}}
+
+\title[Chương 9: Kiến trúc ConvNet]{Học Sâu (Deep Learning) \\ \vspace{0.5cm} \Large Chương 9: Các Mẫu Kiến trúc Mạng Tích chập \\ (ConvNet Architecture Patterns)}
+\author{Đại học Đông Á}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame}{Nội dung chương}
+    \tableofcontents
+\end{frame}
+
+\section{1. Nguyên lý Thiết kế Kiến trúc}
+
+\begin{frame}{Không gian Giả thuyết (Hypothesis Space)}
+    \begin{itemize}
+        \item \textbf{Kiến trúc Mô hình (Model Architecture)} là nghệ thuật lắp ráp các tầng mạng (Layers).
+        \item Cấu trúc này định nghĩa \textbf{Không gian Giả thuyết} (Hypothesis Space). Thuật toán Gradient Descent sẽ tìm kiếm bộ tham số (Weights) tối ưu bên trong không gian này.
+        \item Một kiến trúc tốt giống như một bản thiết kế thông minh, giúp đóng gói \textbf{Tri thức tiên nghiệm (Prior Knowledge)} của kỹ sư vào mô hình, làm thu hẹp không gian tìm kiếm và tăng tốc độ hội tụ.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Công thức MHR: Modularity, Hierarchy, Reuse}
+    \begin{columns}
+        \column{0.5\textwidth}
+        Để quản lý một hệ thống phức tạp, ta dùng nguyên lý \textbf{MHR}:
+        \begin{itemize}
+            \item \textbf{Modularity (Mô-đun hóa):} Đóng gói các lớp thành các khối (Blocks).
+            \item \textbf{Hierarchy (Phân cấp):} Xếp chồng các khối thành tháp (Pyramid).
+            \item \textbf{Reuse (Tái sử dụng):} Tái sử dụng cùng một cấu trúc khối nhiều lần.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch09/complex_systems.e89aaf78.png}
+            \caption{Hệ thống phức tạp sinh học tuân theo nguyên lý MHR}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Tháp Đặc trưng trong Mô hình Xception}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Các mạng CNN hiện đại (như Xception, ResNet) tuân thủ chặt chẽ nguyên lý MHR.
+            \item Cấu trúc Lặp lại: \texttt{SeparableConv} $\rightarrow$ \texttt{SeparableConv} $\rightarrow$ \texttt{MaxPooling}.
+            \item \textbf{Tháp không gian:} Kích thước bản đồ (Feature Maps) giảm dần ($299 \times 299 \rightarrow 19 \times 19$).
+            \item \textbf{Tháp chiều sâu:} Số lượng bộ lọc (Filters) tăng dần ($32 \rightarrow 728$).
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.7\textheight,keepaspectratio]{../../images/ch09/xception_entry_flow_pyramid.4701a5de.png}
+            \caption{Sự phân cấp của Khối đầu vào Xception}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\section{2. Batch Normalization (Chuẩn hóa Hàng loạt)}
+
+\begin{frame}{Vấn đề: Internal Covariate Shift}
+    \begin{itemize}
+        \item Trong một mạng nhiều tầng, giá trị kích hoạt (Activations) ở một tầng phụ thuộc vào tầng trước nó.
+        \item Khi trọng số của tầng đầu thay đổi trong quá trình huấn luyện (Gradient Descent), \textbf{phân phối dữ liệu} ở tầng sau cũng bị xô lệch theo.
+        \item Hiện tượng này gọi là \textbf{Internal Covariate Shift}, làm giảm tốc độ hội tụ và khiến mạng sâu rất khó huấn luyện.
+        \item Giải pháp: Chuẩn hóa dữ liệu ngay trong quá trình luân chuyển giữa các tầng.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Toán học của Batch Normalization}
+    Lớp \texttt{BatchNormalization} chuẩn hóa từng Batch dữ liệu trong lúc huấn luyện:
+    \begin{enumerate}
+        \item Tính Kỳ vọng ($\mu$) của Batch: $\mu = \frac{1}{m} \sum_{i=1}^m x_i$
+        \item Tính Phương sai ($\sigma^2$) của Batch: $\sigma^2 = \frac{1}{m} \sum_{i=1}^m (x_i - \mu)^2$
+        \item Chuẩn hóa: $\hat{x}_i = \frac{x_i - \mu}{\sqrt{\sigma^2 + \epsilon}}$
+        \item Chuyển tỷ lệ và dịch chuyển (Scale \& Shift): $y_i = \gamma \hat{x}_i + \beta$
+    \end{enumerate}
+    Trong đó $\gamma$ và $\beta$ là hai tham số học được trong quá trình huấn luyện, đảm bảo mô hình có thể khôi phục lại bất kỳ phân phối nào nếu cần thiết.
+\end{frame}
+
+\begin{frame}{Ứng dụng Batch Normalization trong Keras}
+    \begin{itemize}
+        \item Vị trí lý tưởng: Thông thường đặt ngay sau tầng \texttt{Conv2D} hoặc \texttt{Dense} và trước khi qua Hàm kích hoạt (Activation).
+        \item \textbf{Cơ chế hoạt động kép:}
+        \begin{itemize}
+            \item Khi Huấn luyện (\texttt{training=True}): Dùng $\mu$ và $\sigma^2$ của Batch hiện tại. Đồng thời cập nhật trung bình động trượt (Moving Average) cho toàn bộ tập dữ liệu.
+            \item Khi Suy luận (\texttt{training=False}): Dùng giá trị trung bình động (Moving Average) đã tích lũy thay vì tính toán lại, để bảo đảm tính ổn định tuyệt đối cho đầu ra.
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\section{3. Kết nối Thặng dư (Residual Connections)}
+
+\begin{frame}{Vấn đề: Suy biến Đạo hàm (Gradient Vanishing)}
+    \begin{itemize}
+        \item Nếu bạn liên tục thêm hàng chục tầng Convolutional vào một mô hình (Deep Network), Độ chính xác huấn luyện không tăng mà lại \textbf{giảm xuống}.
+        \item Lý do: Thuật toán Backpropagation truyền đạo hàm ngược từ Hàm Loss về lại các tầng đầu tiên thông qua Quy tắc Chuỗi (Chain Rule).
+        \item Phép nhân liên tiếp nhiều số nhỏ hơn 1 khiến đạo hàm giảm mạnh dần về số 0. Mạng bị "bất động", không thể học được.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Giải pháp Kết nối Thặng dư (Residual Connections)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Phát minh của Kaiming He (2015 - Đạt giải CVPR Best Paper).
+            \item Cung cấp một \textbf{đường tắt (Shortcut)} cho thông tin nhảy vọt qua một (hoặc nhiều) lớp không cần tính toán.
+            \item Đạo hàm lúc này sẽ chảy mượt mà qua các đường tắt này về tận đầu mạng mà không bị hao hụt.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.7\textheight,keepaspectratio]{../../images/ch09/residual_connection.0524fdc4.png}
+            \caption{Cơ chế hoạt động của Khối Residual}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Toán học của Khối Residual (ResNet)}
+    Giả sử $x$ là đầu vào của khối, và $F(x)$ là kết quả tính toán qua 2 lớp Convolution.
+    \begin{itemize}
+        \item Mạng truyền thống (Plain Network): Đầu ra là $y = F(x)$
+        \item Mạng Thặng dư (Residual Network): Đầu ra là $y = F(x) + x$
+    \end{itemize}
+    Thay vì học ánh xạ tổng $y$, khối Convolution $F(x)$ lúc này chỉ cần học phần \textbf{sai khác (thặng dư - Residual)} giữa đầu ra và đầu vào. 
+    Việc học "sự thay đổi nhỏ" luôn dễ dàng hơn học "mọi thứ từ đầu".
+\end{frame}
+
+\begin{frame}{Giải quyết Bất đồng bộ Kích thước}
+    Khi áp dụng \texttt{MaxPooling} hoặc thay đổi Số lượng Bộ lọc, kích thước của $F(x)$ và $x$ sẽ khác nhau, không thể áp dụng phép cộng trực tiếp.
+    \begin{itemize}
+        \item Giải pháp: Sử dụng \textbf{Linear Projection} (Tích chập $1 \times 1$) không kích hoạt (No Activation).
+        \item $y = F(x) + W_s \cdot x$
+        \item Keras: \texttt{layers.Conv2D(filters, kernel\_size=1, strides=2, padding="same")(x)}
+    \end{itemize}
+\end{frame}
+
+\section{4. Tích chập Tách rời (Separable Convolution)}
+
+\begin{frame}{Vấn đề của Tích chập Truyền thống (Conv2D)}
+    \begin{itemize}
+        \item Tích chập chuẩn thực hiện đồng thời 2 việc trong cùng 1 bước:
+        \begin{enumerate}
+            \item Học mẫu không gian (Spatial Pattern) trên mặt phẳng 2D.
+            \item Tổ hợp thông tin từ nhiều Kênh khác nhau (Cross-channel).
+        \end{enumerate}
+        \item Sự gắn kết này dẫn đến chi phí tính toán cực kỳ lớn, với số lượng tham số là: $K^2 \times C_{in} \times C_{out}$.
+        \item Liệu Không gian 2D (Spatial) và Chiều sâu Kênh (Channel) có thực sự phụ thuộc chặt chẽ như vậy?
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Khái niệm Separable Convolution}
+    \begin{columns}
+        \column{0.5\textwidth}
+        Tách rời phép tính thành 2 pha độc lập:
+        \begin{enumerate}
+            \item \textbf{Depthwise Convolution:} Quét từng Kênh một cách riêng biệt (Không giao thoa Kênh).
+            \item \textbf{Pointwise Convolution:} Dùng bộ lọc $1 \times 1$ để nhào trộn và tổng hợp các kênh.
+        \end{enumerate}
+        Giả định: Đặc trưng Không gian (Mắt, Mũi) và Đặc trưng Kênh (Đỏ, Xanh) có tính độc lập cao.
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.7\textheight,keepaspectratio]{../../images/ch09/depthwise_separable_conv.5d1929bd.png}
+            \caption{Tích chập Tách rời chiều sâu}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Ưu điểm vượt trội về Toán học và Tốc độ}
+    \begin{itemize}
+        \item Bằng cách chia rẽ quá trình tính toán, số lượng Tham số (Parameters) được thu gọn:
+        \item Tích chập chuẩn: $K^2 \times C_{in} \times C_{out}$
+        \item Tích chập Tách rời: $K^2 \times C_{in} + C_{in} \times C_{out}$
+        \item \textbf{Ví dụ:} Kernel $3 \times 3$, $C_{in}=64$, $C_{out}=64$.
+        \begin{itemize}
+            \item Lớp \texttt{Conv2D} cần: $3^2 \times 64 \times 64 = 36,864$ tham số.
+            \item Lớp \texttt{SeparableConv2D} chỉ cần: $(3^2 \times 64) + (64 \times 64) = 576 + 4,096 = 4,672$ tham số.
+        \end{itemize}
+        \item $\rightarrow$ Tiết kiệm gần 90\% năng lực tính toán nhưng vẫn duy trì độ chính xác.
+    \end{itemize}
+\end{frame}
+
+\section{5. Thực hành: Xây dựng Mini-Xception}
+
+\begin{frame}{Mô hình Mini-Xception cho Chó \& Mèo}
+    Lắp ráp 3 bảo bối của Học sâu vào chung một mạng (Mini-Xception):
+    \begin{itemize}
+        \item \textbf{Lõi xử lý:} Thay vì dùng \texttt{Conv2D}, ta sử dụng toàn bộ \texttt{SeparableConv2D} để giảm chi phí tính toán.
+        \item \textbf{Bình ổn hóa:} Mỗi bước tích chập đều kèm theo \texttt{BatchNormalization} để ổn định tốc độ học.
+        \item \textbf{Thông suốt Đạo hàm:} Mỗi Khối (Block) được bắc cầu bởi một \textbf{Residual Connection} sử dụng Projection $1 \times 1$.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Đánh giá Độ chính xác (Accuracy)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Nhờ cấu trúc siêu ưu việt của \texttt{SeparableConv} và Residual, mô hình tự thiết kế của chúng ta đạt \textbf{Accuracy lên đến 90\%} (Chỉ huấn luyện lại từ đầu với Data Augmentation, KHÔNG DÙNG Transfer Learning).
+            \item Con số này đánh bại hoàn toàn mô hình Basic CNN (82\%) ở Chương 8.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.5\textheight,keepaspectratio]{../../images/ch09/training-and-validation-xception-acc.967bf65c.png}
+            \caption{Accuracy của Mini-Xception}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Đánh giá Mất mát (Loss)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Biểu đồ Loss cho thấy đường Validation Loss đi xuống ổn định trong suốt quá trình.
+            \item \texttt{BatchNormalization} giúp thuật toán hội tụ cực nhanh.
+            \item Thiết kế này là tiêu chuẩn công nghiệp (Industry Standard) hiện nay trên Keras cho hầu hết mọi tác vụ Thị giác máy tính.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.5\textheight,keepaspectratio]{../../images/ch09/training-and-validation-xception-loss.bc0f5982.png}
+            \caption{Loss của Mini-Xception}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\section{Tổng kết}
+
+\begin{frame}{Tổng kết Chương 9}
+    Để xây dựng một mô hình CNN xuất sắc từ con số 0, hãy tuân theo các nguyên tắc sau:
+    \begin{itemize}
+        \item Tổ chức Mô hình theo dạng Tháp Đặc trưng (Feature Pyramid). Lặp lại Khối (Blocks) thay vì tự nối từng Layer ngẫu nhiên (Quy tắc MHR).
+        \item Sử dụng \textbf{Separable Convolution} thay cho Convolution tiêu chuẩn (Tính toán cực nhẹ).
+        \item Kết hợp \textbf{Batch Normalization} để hệ thống hội tụ mượt mà không vấp ngã.
+        \item Tạo các \textbf{Kết nối Thặng dư (Residual Connections)} để dòng chảy Gradient truyền xa xuyên suốt mạng sâu 100 tầng.
+    \end{itemize}
+\end{frame}
+
+\end{document}

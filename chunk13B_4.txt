@@ -1,0 +1,543 @@
+Simple linear regression involves a single independent variable, while multiple regres-
+sion involves two or more independent variables. The goal of a regression model is finding 
+the equation of the line that best fits the data.
+Let’s examine the output of a regression model to understand how they help answer ques-
+tions. As an accountant at Super Scooters, you are trying to estimate next year’s maintenance 
+expense for the machinery equipment. You believe the cost drivers for maintenance expense 
+are the number of hours the equipment is used and the number of repair requests. The regres-
+sion model variables would be:
+•	Dependent variable: Maintenance expense
+•	Independent variables: Machine hours and repair requests
+Historical data from the previous 36 months will be used to create a regression model. The 
+output from the model is shown in Illustration 3.18.
+ILLUSTRATION 3.18  Regression Model Output
+Multiple R
+R Square
+Adjusted R Square
+Standard Error
+Observations
+ANOVA
+0.97868787
+0.95782995
+0.95527419
+1283.82134
+36
+df
+SS
+MS
+F
+1235399491
+54390508.88
+Regression
+Residual
+Total
+2
+33
+35
+1289790000
+6.18E+08
+1648197
+374.773
+2.05385E-23
+897.8427419
+0.43769194
+Intercept
+Machine Hours
+Repair Requests
+5252.85845
+3.56920298
+759.836675
+168.7763028
+4.502034
+5.850533
+8.154601
+7.94E-05
+2.05E-09
+1.5E-06
+Significance F
+Coeﬀicients Standard Error
+t Stat
+P-value
+SUMMARY OUTPUT
+Regression Statistics
+The regression in Illustration 3.18 was performed using Microsoft Excel. The summary 
+output is split into three sections.
+Regression Statistics 
+First are the regression statistics, or the statistical measures 
+used to evaluate the model. Illustration 3.19 shows the regression statistics from Illustration 
+3.18, along with the definition of the statistic and an interpretation for the Super Scooters 
+regression model.
+
+3.4  What are Predictive Objectives?  3-21
+ILLUSTRATION 3.19  Regression Statistics
+Regression 
+Statistics
+Definition
+Output
+Interpretation
+Multiple R
+•	 Also called the correlation  
+coefficient, it measures the strength 
+of the relationship between the depen-
+dent and independent variables.
+•	 It is a measure from –1 to 1. A positive 
+number equals a positive correlation, 
+so the variables move in the same 
+direction. A negative number equals 
+a negative correlation, where the vari-
+ables move in opposite directions.
+0.97868787
+•	 Multiple R is 0.978. This is a positive 
+correlation between total expenses 
+and the independent variables in 
+the model (machine hours, repair 
+requests).
+•	 As the variables in the model 
+increase, total maintenance expenses 
+will also increase.
+R Square (R2)
+•	 Also called the coefficient of deter-
+mination, it is a measure of how well 
+the regression line fits the data.
+•	 R2 gives the proportion of the varia-
+tion in the dependent variable that is 
+explained by the independent variables.
+•	 The closer the R2 is to 1, the better the 
+regression line fits to the data.
+0.95782995
+This shows that 95.8% (0.9578) of the 
+change in total maintenance expense 
+is explained by how many hours the 
+equipment is used (machine hours) 
+and how many repair requests are 
+made.
+Adjusted R2
+•	 Explains how well the regression line 
+fits the data.
+•	 Modifies the value of R2 by incorporat-
+ing the sample size and the number of 
+independent variables.
+•	 Generally used to evaluate a multiple 
+regression model.
+•	 The closer the adjusted R2 is to 1, the 
+better the fit of the regression line to 
+the data.
+0.95527419
+Adjusted R2 is interpreted in the same 
+way as R2.
+This shows that 95.5% of total expenses 
+can be explained by how many hours 
+the equipment is used and the number 
+of repair requests made.
+Standard  
+Error
+•	 Represents the variability of the 
+observed dependent variable values 
+from the values predicted by the model.
+•	 If the data are clustered close to the 
+regression line, then the standard error 
+is small (optimal).
+•	 If the data are more scattered, then it is 
+larger.
+1,283.82134
+•	 The standard error is $1,283.82.
+•	 To determine if standard error is large 
+or small, compare it to the standard 
+deviation of the dependent variable.
+•	 In this example, compare the standard 
+error to the standard deviation of 
+total expenses. If the standard error is 
+smaller than the standard deviation, 
+the standard error is acceptable.
+•	 The mean and standard deviation for 
+total expenses is:
+•	 Mean: $27,450
+•	 Standard deviation: $6,070
+Observations
+•	 The number of observations included 
+in the data set.
+36
+In the Super Scooters example, it is 36 
+months of data.
+Analysis of Variance (ANOVA) 
+The next section of the regression output is the ANOVA 
+(analysis of variance). ­Illustration 3.20 is the ANOVA section from the regression model.
+In a multiple linear regression such as this, significance is a hypothesis test of whether the 
+regression model is better than a model with no independent variables. In other words, is the 
+model better than no model at all?
+ILLUSTRATION 3.20  ANOVA Regression Statistics
+ANOVA
+df
+SS
+MS
+F
+1235399491
+54390508.88
+Regression
+Residual
+Total
+2
+33
+35
+1289790000
+6.18E+08
+1648197
+374.773
+2.05385E-23
+Significance F
+
+3-22
+CHAPTER 3 Motivations and Objectives for Data Analysis
+ Generally, a model is considered significant if the F statistic ( Significance F in  Illustration 
+3.20 ) is less than 0.05:
+•  If  F is significant, then the model can explain some of the variation of the dependent 
+variable. In other words, it is better than no model at all. 
+•  The ANOVA in  Illustration 3.20 has a significance F of 2.05385E-23. The notation “E-23” 
+after 2.05385 represents scientific notation, also known as exponential notation. 2.05385E-23 
+is the same as 0.0000000000000000000000205385. It is clearly a number well below 0.05, 
+so the model is significant. 
+ In other words, the independent variables can explain some of the variation of total expenses, 
+so the model is better than no model at all. 
+ Regression Equation 
+ The last section of the regression summary output provides the 
+information to create the equation to predict the dependent variable:
+•  The intercept and coefficients of the model represent the equation of the line that best fits 
+the data. 
+•  The key statistic to analyze in this section is the  p-value for each of the independent vari-
+ables. Like the F statistic, the  p-value provides a test of significance. In the case of  p-value , 
+it is a test as to whether the independent variable improves the ability of the model to 
+better predict the dependent variable. A p-value of 0.05 or less is generally considered 
+significant. 
+ Let’s use the output in  Illustration 3.21 to identify the prediction model for machine 
+maintenance costs and interpret the coefficients. 
+ ILLUSTRATION 3.21   Regression Model 
+897.8427419
+0.43769194
+Intercept
+Machine Hours
+Repair Requests
+5252.85845
+3.56920298
+759.836675
+168.7763028
+4.502034
+5.850533
+8.154601
+7.94E-05
+2.05E-09
+1.5E-06
+Coeﬀicients Standard Error
+t Stat
+P-value
+ Notice that the p-values for the independent variables meet the test of being less than 
+0.05 and are therefore significant.  The prediction model will be equal to the intercept plus 
+(or minus if the number is negative) the coefficients of the independent variables times the 
+predicted values for those variables. Based on the regression model in  Illustration 3.21 , the 
+equation to predict total purchasing department costs is:
+ $5,252.86 + $3.57 (number of Machine Hours) + $759.84 (number of repair requests) 
+ The calculation of predicted total expenses if there are 2,250 machine hours in one month 
+and 8 repair requests is shown in  Illustration 3.22 . Start with the intercept and add the prod-
+uct of each independent variable coefficient and variable predicted value for a prediction of 
+$19,364.08 of total maintenance costs for the year. 
+Machine Hours
+Intercept
+Repair Requests
+Model
+Coeﬀicient
+3.57
+$ 5,252.86
+$
+$
+759.84
+Variable
+Values
+2250
+1
+8
+$ 19,364.08
+Prediction
+8,032.50
+5,252.86
+$
+$
+$
+6,078.72
+ ILLUSTRATION 3.22  Prediction 
+Model Example 
+
+3.4  What are Predictive Objectives?  3-23
+The model could be interpreted as follows:
+•	Intercept: The intercept does not always have a practical interpretation. It is a result of 
+the model that represents the mean for the response when all the independent variables 
+are zero. It is where the equation function crosses the y-axis. However, here the intercept 
+represents the amount of fixed costs that exist regardless of machine hours and repair 
+requests
+•	Machine hours: Each hour machine equipment is used adds $3.57 to total costs.
+•	Repair requests: Each request adds $759.84 to total costs.
+Using a model like the one in Illustration 3.22 helps businesses predict future outcomes. 
+( Data   See How To 3.2 to learn how to perform this regression in in Microsoft Excel.)
+How To
+Apply It 3.4 
+Plan a Sales Trend 
+Analysis
+Data   Managerial Accounting   As a managerial accountant for Best Bakes Bakery, you are pre-
+paring an analysis of sales trends to help create the 2026 operating budget. You have been given 
+sales transactions for the years 2022–2025. Following is an excerpt from the file.
+101
+101
+101
+521121 Bluebird Cafe
+Bluebird Cafe
+Bluebird Cafe
+Bluebird Cafe
+Bluebird Cafe
+Bluebird Cafe
+Walrus Ice Cream
+521121
+101
+521121
+521121
+101
+521121
+101
+521121
+(720) 296–2323
+(720) 296–2323
+(720) 296–2323
+(720) 296–2323
+(720) 296–2323
+(720) 296–2323
+102
+521425
+(303) 674–0930
+SalesOrder
+Number
+Customer
+Number
+80521
+80521
+80521
+80521
+80521
+80521
+80521
+Customer
+ZipCode
+CO
+CO
+CO
+CO
+CO
+CO
+CO
+Customer
+State
+Customer
+Phone
+Customer
+Name
+524 W Laurel St
+524 W Laurel St
+524 W Laurel St
+524 W Laurel St
+524 W Laurel St
+524 W Laurel St
+125 W Mountain Ave
+Fort Collins
+Fort Collins
+Fort Collins
+Fort Collins
+Fort Collins
+Fort Collins
+Fort Collins
+Customer
+Address
+Customer
+City
+SOLUTION
+1.	 The objective of the analysis is to predict sales for the next year’s operating budget.
+2.
+Questions
+Measures
+How are sales trending from 2022 to 2025?
+Sales volume, average sales price
+How are sales trending by product from 2022 to 2025?
+Sales volume, average sales price
+How are sales trending by location from 2022 to 2025?
+Sales volume, average sales price
+3.	 Trendline analysis will provide an estimate of sales trends that can then be applied to the bud-
+get for 2026.
+853200
+853300
+853600
+Caramel Apple
+2/19/2022
+2/19/2022
+2/19/2022
+2/19/2022
+2/19/2022
+2/19/2022
+3/10/2022
+Poppyseed Bagel
+853500
+Cheesecake Bite
+Chocolate Chip Cookie
+853800
+Blueberry Scone
+853900
+Raspberry Scone
+$ 57.60
+$ 68.40
+$ 45.00
+$ 34.50
+$ 63.60
+$    6.50
+853100
+Cinnamon Bun
+$ 34.80
+0.160193
+0.333333
+Inventory
+Code
+Inventory
+Description
+Profit
+SalesOrder
+Date
+36
+24
+25
+30
+24
+10
+24
+$ 3.45
+$ 4.85
+$ 3.40
+$ 3.20
+$ 4.10
+$ 4.05
+$ 4.35
+SalesOrder
+Quantity
+Inventory
+Price
+$ 124.20
+$ 116.40
+$   85.00
+$   96.00
+$   98.40
+$   40.50
+$ 104.40
+Gross
+Sales
+$ 1.85
+$ 2.00
+$ 1.60
+$ 2.05
+$ 1.45
+$ 3.40
+$ 2.90
+Inventory
+Cost
+$ 66.60
+$ 48.00
+$ 40.00
+$ 61.50
+$ 34.80
+$ 34.00
+$ 69.60
+$ 66.60
+$ 48.00
+$ 40.00
+$ 61.50
+$ 34.80
+$ 34.00
+$ 69.60
+0.463768
+0.587629
+0.529412
+0.359375
+0.646341
+Profit
+Margin
+Costof
+GoodsSold
+1.	 What is the objective of the analysis?
+2.	 Develop three questions relevant to the objective, and state the measures necessary to answer 
+them. 
+3.	 What analyses will you use to answer these three questions?
+
+3-24  CHAPTER 3  Motivations and Objectives for Data Analysis
+3.5  What are Prescriptive Objectives?
+LEARNING OBJECTIVE ➎
+Demonstrate how to develop prescriptive questions.
+You have learned about questions that help describe what happened, investigate why, and 
+forecast what will happen next. Next, let’s examine the questions we ask when we want to 
+know what should happen.
+Develop Prescriptive Questions
+Prescriptive objectives build on descriptions of the present and predictions about the future 
+to determine the best action. Prescriptive questions investigate how to take advantage of 
+future opportunities or mitigate a future risk outcome. The analyses specify the actions neces-
+sary to achieve the desired outcomes.
+In the Super Scooters example, we answered the previous predictive question regard-
+ing warranty expenses for 2026. Now, we can address the third analysis requested by Super 
+Scooters–deciding how many units of each model should be produced to meet the 2026 reve-
+nue goal. The first step is to clearly articulate the questions.
+Illustration 3.23 starts with the objective of determining the most profitable product 
+mix:
+•	The initial question is more specific. How many scooters should be produced and sold to 
+maximize contribution margin?
+•	Next, dig deeper by asking about potential constraints that should be considered and how 
+many units of each model should be produced.
+ILLUSTRATION 3.23   
+Prescriptive Question to 
+Determine Super Scooters’ 
+Product Mix
+Objective
+Initial Question
+Sub-questions
+Identify the most  
+profitable product 
+mix.
+How many scooters 
+should we produce 
+and sell to maximize 
+contribution margin?
+Are there constraints that should be included 
+in the optimization model?
+How many units of each model scooter 
+should be produced to maximize contribution 
+margin and satisfy any constraints?
+Prescriptive analyses are performed with specific analysis methods and data.
+Prescriptive Analyses Examples
+The two most common methods of analysis used to answer prescriptive questions are optimi-
+zation models and what-if analyses.
+Linear Optimization
+Optimization is the process of selecting values of variables that minimize or maximize 
+some quantity of interest. Optimization modeling helps managers allocate resources more 
+
+3.5  What are Prescriptive Objectives?  3-25
+efficiently and make cost/profit decisions. The most common optimization model used in 
+accounting is linear optimization. In linear optimization, the model is comprised of:
+•	Decision variables: The unknown values the model seeks to determine.
+•	Objective function: The mathematical equation that describes the output target to min-
+imize or maximize.
+•	Constraints: The limitations, requirements, or other restrictions that must be imposed 
+on any solution, such as demand, material, or labor constraints.
+The output from a linear optimization model will show the optimal solution.
+Super Scooters’ management has decided to continue producing both the Celeritas and 
+the Kicks models for at least one more year. They want to know how many of each model 
+should be produced to maximize contribution margin. They have forecasted demand for each 
+model:
+•	Captain: 18,000 units.
+•	Celeritas: 10,000 units.
+•	Kicks: 7,000 units.
+•	Lazer: 24,000 units.
+Because they want to avoid excess inventory, they do not want to produce more than they 
+expect to sell. There is also a limit to the number of machine hours available for the year.
+Illustration 3.24 shows information needed to create an optimization model for Super 
+Scooters.
+ILLUSTRATION 3.24  Contribution Margin and Resource Requirements
+Total CM
+Constraints:

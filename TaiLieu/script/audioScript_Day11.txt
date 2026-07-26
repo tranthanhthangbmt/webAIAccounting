@@ -1,0 +1,105 @@
+Chào mừng các bạn sinh viên kế toán. Hôm nay chúng ta quay lại với buổi 11. Nội dung kỹ năng phân tích dữ liệu nền tảng Foundational Data Analysis Skills, tài liệu: Chương 2 File, buổi 11.
+Rất vui được đồng hành cùng các bạn trong buổi phân tích chuyên sâu hôm nay.
+Ừ, để bắt đầu thì mình muốn tạm gác lại những cái lý thuyết khô khan một chút. Các bạn thử hình dung à một tình huống kiểm toán từ một công ty sản xuất xe scooter đi.
+Nghe có vẻ một ví dụ rất thực tế đấy.
+Đúng rồi. Kiểu nhìn lướt qua bảng báo cáo thì chi phí b bảo hành trung bình cho mỗi chiếc xe là 600 đô la. Mọi thứ có vẻ ừ hoàn toàn bình thường đúng không? Nằm gọn trong vùng an toàn của ngân sách luôn.
+Nhưng mà trong ngành của chúng ta thì cái chữ trung bình nó hay che giấu nhiều thứ lắm nhỉ.
+Chính xác. Ẩn dưới con số êm đẹp đó lại là một lỗ hồng khổng lồ. Có một dòng xe cụ thể đang liên tục ngốn tận 1200 đô la chi phí sửa chữa mỗi ngày.
+Wow. Gấp đôi mức trung bình luôn.
+Chuẩn. Cái lỗ hổng này đang kiểu như âm thầm bào mòn lợi nhuận mà hệ thống báo cáo thông thường không hề hay biết nên nhiệm vụ của buổi phân tích hôm nay chính là trang bị những kỹ năng để tóm gọn những kẻ cắp tàng hình. Như vậy,
+hành trình này ừ sẽ đi theo đúng vòng đời thực tế của dữ liệu luôn. Khởi đầu từ việc tìm hiểu xem dữ liệu thô nó được tổ chức như thế nào dưới tầng sâu hệ thống.
+Kế tiếp là cách chúng ta à chế ngựa khối thông tin khổng lồ đó bằng các công cụ tính toán đúng không?
+Đúng vậy. Và điểm đến cuối cùng là đưa những con số đó qua một lăng kính thống kê, buộc chúng phải bộc lộ những rủi ro đang bị che giấu.
+Vậy thì hãy bắt đầu với. Ừ. Gốc rễ của mọi dữ liệu doanh nghiệp hiện đại. Cơ sở dữ liệu quan hệ relational databases.
+Theo tài liệu chương 2 thì nó chứa các bảng tức là tables.
+À mỗi bảng thì có các hàng đại diện cho một sự kiện. Ví dụ như là một giao dịch bán hàng này và các cột chứa thuộc tính của giao dịch đó. Kiểu như là ngày tháng hay số tiền.
+Nghe qua thì có vẻ giống một trang tính bình thường nhỉ.
+Ừ. Nhưng mà sức mạnh thực sự cái làm nên chữ quan hệ ở đây nó nằm ở cơ chế các bảng nói chuyện với nhau thông qua hệ thống khóa. Tức là keys.
+Khái niệm khóa này là xương sống luôn đấy. Chúng ta có khóa chính Primary Key và khóa ngoại Foreign Key.
+Khóa chính mang tính định danh độc nhất cho một hàng. Không bao giờ có chuyện hai hàng tồn tại chung một khóa chính được.
+Thế còn khóa ngoại thì sao? Nó đóng vai trò như một chiếc mỏ neo vậy. Nó vốn là khóa chính của một bảng khác được thả vào bảng hiện tại để tạo đường dẫn liên kết.
+Để dễ hình dung nha. Mọi người cứ nghĩ khóa chính giống như số căn cước công dân của mình ấ độc nhất vô nhị.
+Đúng rồi.
+Khi mình điền cái số căn cước đó vào tờ khai mở thẻ tín dụng thì trên tờ khai đó số căn cước hoạt động như một khóa ngoại.
+À hiểu rồi. Lúc đó ngân hàng không cần bắt mình điền lại toàn bộ ngày sinh hay quê quán nữa.
+Chính xác. Họ chỉ cần dùng cái khóa ngoại đó để truy xuất ngược về kho dữ liệu dân cư khổng lồ và lấy ra mọ thông tin thôi.
+Trở lại với tại chính, cái việc phân tách dữ liệu ra nhiều bảng này giải quyết được bài toán giữ thừa thông tin rất tốt.
+Bạn có thể lấy ví dụ cụ thể trong tài liệu không?
+Ừm, để xem nào. Ví dụ như tính khấu hao tài sản tại một trường đại học đi. Dữ liệu như mã máy tính, ngày mua sẽ nằm ở bảng tài sản.
+Nhưng thông tin về tuổi thọ hữu ích hay tỉ lệ khấu hao thì lại không nằm ở đó đúng không?
+Chuẩn. Vì nếu máy tính nào cũng ghi lại tỉ lệ khấu hao thì dữ liệu sẽ lặp lại hàng ngàn lần. Nó nằm ở bảng danh mục tài sản.
+Vậy nên phần mềm kế toán muốn tính ra chi phí thì người làm dữ liệu phải biết dùng khóa ngoại để join, tức là kết nối hai bảng này lại.
+Đúng vậy. Không hiểu cơ chế này thì quá trình trích suất dữ liệu sẽ hoàn toàn bế tắc.
+Nói đến join thì đây thực sự là một giảo cản lớn với người mới tiếp cận SQL. Tài liệu đưa ra bốn phương pháp kết nối cốt lõi: Inner joy, left joy, right joy và full joy.
+Về lý thuyết thì inner lấy phần giao, left hay right ưu tiên một bên, full thì lấy tất cả. Nhưng trong kiểm toán thực tế thì sao? Chúng hoạt động thế nào để phát hiện vấn đề?
+Hãy đặt vào tình huống kiểm tra gian lận chi tiêu nhé. Bảng A chứa toàn bộ hóa đơn thanh toán. Bảng B chứa danh sách nhà cung cấp đã được phê duyệt.
+Nếu dùng inner joy, hệ thống sẽ chỉ trả về những hóa đơn khớp với nhạc cung cấp hợp lý thôi.
+Đúng rồi. Kết quả trông sẽ rất sạch sẽ, hoàn hảo. Nhưng à kiểm toán Hiên thì không tìm kiếm sự hoàn hảo. Họ sẽ dùng left choice.
+Tức là hệ thống sẽ giữ lại toàn bộ bảng A cái bảng hóa đơn ấy và cố gắng tìm kiếm thông tin nhà công tương ứng ở bảng B.
+Và điều gì xảy ra nếu có một hóa đơn cho một nhà cung cấp ma không hề tồn tại trong danh sách phê duyệt?
+À thì bảng B sẽ không có dữ liệu để đáp vào bảng A được.
+Chính xác. Khi đó hệ thống sẽ sinh ra một thứ gọi là null value, tức là giá trị rỗng.
+Cái này cần đặc biệt chú ý nha mọi người. Nun không phải là số 0 đâu. Số không mang giá trị định lượng, còn nun là khoảng trống không xác định.
+Khi kiểm toán viên thấy một loạt giá trị NU xuất hiện ở cột thông tin nhà cung cấp, họ biết ngay tiền đang bị chuyển ra ngoài hệ thống kiểm soát.
+Chà, nắm vững các loại join không chỉ để lấy dữ liệu mà còn để thiết kế các bài test kiểm soát nội bộ nữa, rất thú vị.
+Khi đã trích xuất xong, thành quả thu được thường là một phai Excel khổng lồ, hàng trăm ngàn dòng.
+Lúc này lô chích của cơ sở dữ liệu hết tác dụng rồi. Tài liệu giới thiệu việc dùng các hàm có điều kiện như some if, cif hay some if s.
+Ừ. đến giai đoạn nhào nặn dữ liệu rồi đấy.
+Nhưng mà mình có câu hỏi này, nếu mục tiêu chỉ là xem tổng chi phí, tại sao không dùng hàm sâm bình thường cho nhanh? Viết công thức dài dòng như sâm ifs giải quyết được gì?
+Thực tế thì ban lãnh đạo hiếm khi hỏi những câu đơn giản kiểu tổng tài sản là bao nhiêu đâu.
+Ừ, họ hay đòi hỏi chi tiết hơn nhỉ?
+Đúng, họ sẽ hỏi kiểu a tổng giá trị tài sản nhưng chỉ tính danh mục thiết bị y tế và chỉ những thiết bị mua sau năm 2022 tại chi nhánh phía Nam.
+Wow, một hàm sâm thông thường chắc chắn bó tay. phải lọc thủ công tùng cột rồi copy ra chỗ khác cộng lại rất dễ sai sót.
+Đó là lý do hàm Sâm ifs ra đời. Nó cho phép xử lý ngay lập tức các câu hỏi có nhiều điều kiện ràng buộc.
+Hiểu rồi. Cơ chế của nó giống như việc cắt cử một người bảo vệ đứng ở cửa kho dữ liệu vậy. Tay cầm danh rách tiêu chí khắt khe.
+Hình ảnh so sánh hay đấy. Người bảo vệ đó sẽ làm gì tiếp theo?
+Sẽ đi dọc qua hàng trăm ngàn dòng soi từng giao dịch. Giao dịch nào thỏa mãn đồng thời tất cả điều kiện thì mới được cho qua. để cộng gồ vào tổng
+chuẩn luôn. Nhưng cơ chế đó chỉ hiệu quả khi chúng ta đã biết chính xác câu hỏi mình muốn đặt ra thôi.
+Thế nếu sếp chỉ bảo à hãy cho tôi xem bức tranh tổng quan phân bổ chi phí thì sao? Đâu có điều kiện cụ thể để đưa vào hám.
+Đây chính là lúc private tables trở thành vũ khí tối thượng. Không cần viết một dòng công thức nào cả.
+Nó thay đổi hình dạng dữ liệu thông qua giao diện kéo thả đúng không? Với năm vùng cốt lõi: FS, columns, rows, values và filters.
+Ví dụ xử lý bảng tính 450.000 trong tài liệu thực sự cho thấy sức mạnh của nó.
+Thay vì cuộn chốt mỏi mắt, chỉ gần kéo trường danh mục tài sản thả vào vùng Rose, ngay lập tức nó quét qua nửa triệu dòng, gom nhóm lại, hiển thị ra vỏn vẹn 5 10 dòng đại diện
+rồi kéo tiếp trường chi phí vào vùng values nó tự động tính tổng luôn. Toàn bộ quá trình từ đống hỗn độn thành báo quá gọn gàng, mất chưa tới 10 giây.
+Không chỉ tóm tắt đâu, nó còn có khả năng phân tích sâu drill down thông qua các bộ lọc slicers nữa.
+Tức là mình click vào một năm cụ thể Toàn bộ bảng tóm tắt tự động thay đổi theo thời gian thực luôn. Báo cáo giờ là một bảng điều khiển tương tác rồi,
+rất tiện lợi. Nhưng mà những báo cáo bằng pivot table này đưa ra các con số tổng rất đẹp và sạch sẽ. Đôi khi sự sạch sẽ đó lại là một cái bẫy.
+Đúng rồi. Những con số tóm tắt có xu hướng san bằng mọi thứ, che giấu đi sự thật gai góc bên trong.
+Đó là lý do chúng ta cần. Bước cuối cùng, đưa dữ liệu lên bản mổ của thống kê mô tả và trực quan hóa.
+Thống kê mô tả Descriptive statistics cung cấp các lăng kính khác nhau. Bình thường mọi người Hãy nhìn vào min tức là
+số trung bình
+nhưng số trung bình rất dễ bị bóp méo nên thống kê cung cấp thêm thước đo phân tán như variance phương sai và standardion đồ lịch chuẩn.
+Các thước đo này giúp trả lời câu hỏi các giao dịch đang bám sát số trung bình hay đang văng ra xa một cách hỗn loạn đúng không?
+Chính xác. Nhớ lại câu chuyện công ty Super Scooters đầu buổi chứ. Chi phí trung bình là 600 đô la.
+Nếu chỉ dùng pivot table báo cao số trung bình đó hồ sơ kiểm toán trang bị đóng lại ngay lấp tực.
+Nhưng phân tích sâu hơn, chi phí thực tế trải rộng từ 200 đến tận 1200. Tại liệu có nhắc đến hai khái niệm hàn lâm là skillness độ lệch và ctosis độ nhọn.
+Chúng hoạt động thế nào để vạch trần câu chuyện này vậy? Hãy hình dung sợ phân bổ dữ liệu như một ngọn núi đi. Cosis đo xem ngọn núi đó nhọn hoắt vươn lên cao hay thấp tè trải dài ra.
+À nếu hầu hết sửa chữa tốn đúng 600 ngọn núi sẽ rất cao và nhọn ở giữa thể hiện sự ổn định.
+Nhưng dữ liệu của công ty này lại phân tán ra hai phía 200 và 1200. Đồ thị của nó không có một đỉnh mà lại có nhiều đỉnh bị model.
+Tức là thay vì ngọn núi nó giống như lưng một con lạc đà có hai bướu.
+Hình dung rất chuẩn. Một bướu ở mức thấp, một bướu ở mức 1200.
+Việc xuất hiện kia bướm thứ hai chính là manh mối. Nó chỉ ra đang có một dòng xe hoặc linh kiện bị lỗi hệ thống khiến chi phí luôn chốt ở mức 1200.
+Bạn thấy đấy, con số trung bình 600 thực chất chỉ là một ảo ảnh toán học, nằm giữa hai cái bướu, không phản ánh một giao dịch thực tế nào cả.
+Ảnh chú bình này thực sự nguy hiểm nên việc dùng độ lịch chuẩn là bắt buộc để xác định ránh giới của sự bình thường.
+Nó giống như một hệ thống Raidar vậy đó.
+Ừ. Kiểu như 99% giao dịch nằm trong không phật an toàn thì Raidar lọc bỏ hết.
+Nhưng ngay khi có một giao dịch vượt ra khỏi ranh giới độ lịch chuẩn trở thành ngoại lệ Outliner thì Radar nhấp nháy đỏ báo động liền.
+Ẩn dụ Radar này dẫn thẳng đến mảnh ghép cuối cùng. Trực quan hóa dữ liệu the visualization. Não người đâu có thiết kế để đọc nửa triệu dòng văn bản.
+Cố tìm ra Gan lận bằng cách cuộn Excel thì mù nhỏi nhận thức luôn.
+Nhưng nếu biến dữ liệu thành một biểu đồ phân tán Scatter plot, mỗi giao dịch là một dấu chấm thì sao?
+Mắt người ngay lập tức phát hiện ra một dấu chấm đơn độc nằm tách biệt so với đám đông chỉ trong tích tắc. Trực quan hóa chuyển gánh nặng, xử lý sang vỏ não thể giác.
+Tài liệu phân định rõ hai giai đoạn: trực quan hóa khám phá exploratory và giải thích explanatory.
+Khám phá giống như bảng điều tra của thám tử, lộn xộn, thử nghiệm liên tục để tự tìm ra xu hướng hay ngoại lệ.
+Còn giải thích thì như một bản trừng chiếu sắc nét trước ban giám đốc để kể lại câu chuyện đã được làm sáng tỏ.
+Sự so sánh rất hay và trong giai đoạn giải thích chọn đúng loại biểu đồ là yếu tố quyết định.
+Ví dụ như biểu đồ cột thì xuất sắc so sánh doanh thu các khu vực. Còn biểu đồ tần suất histogram thì hiển thị hình dáng phân bổ dữ liệu rất tốt.
+Nhờ histogram mà chúng ta thấy rõ cái hình ảnh lưng lạc đà của chi phí bảo hành đó. Chọn sai biểu đồ là bóp méo thông điệp ngay.
+Nhìn lại toàn bộ hành trình, chúng ta đã bắt đầu với tự duy kiến trúc sư hệ thống. Nắm bắt cơ chế khóa và hàm Rồi
+sau đó làm người điều phối dữ liệu với somees và pivot tables để nhào nặn thông tin thành tóng tắt đa chiều.
+Và cuối cùng khoách áo thám tử kiểm toán, dùng thống kê mô tả và trực quan hóa để soi rọi góc tối kinh doanh.
+Những gì chương 2 trình bày không chỉ là công cụ phần mềm, nó là một hệ tư duy mới đấy.
+Một hệ tư duy buộc người làm nghề bước ra khỏi vùng an toàn của việc chỉ cân đối sổ cái. Nếu sinh viên ngày nay không chỉ rành báo cáo mà còn biết truy vấn SQL kể chuyện bằng đồ thị
+thì ranh giới giữa kiểm toán viên xuất sắc và chuyên gia khoa học dữ liệu đang dần biến mất rồi.
+Hoàn toàn đồng ý thành thạo những kỹ năng này là chìa khóa quyết định bạn chỉ ghi chép lịch sử hay dùng dữ liệu định hướng tương lai doanh nghiệp.
+Một góc nhìn rất đáng để mọi người tự ngẫm nghĩ sau buổi hôm nay.
+Cảm ơn sự đồng hành của mọi người trong buổi phân tích chuyên sâu này. Hẹn gặp lại trong những cuộc hành trình khám phá tri thức tiếp theo.

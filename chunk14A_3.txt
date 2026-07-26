@@ -1,0 +1,532 @@
+7.2  How are Data Relationships Visualized for Exploration?  7-13
+Illustration 7.13 shows the first ten rows of the data set.
+ILLUSTRATION 7.13    First Ten 
+Rows of the Dealership Profits 
+Data Set. 
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+$ 2,125
+$ 2,798
+$ 2,144
+$ 2,749
+$ 1,810
+$ 1,844
+$ 4,446
+$ 3,107
+$ 1,912
+$ 2,101
+ID
+Profit
+Civic
+CR-V
+Odyssey
+Accord
+Accord
+Accord
+Odyssey
+Pilot
+Civic
+Civic
+Model
+ILLUSTRATION 7.14  Visualizing 
+a Distribution Data Relationship 
+with a Box-And-Whisker Chart
+$7,000
+$6,000
+$5,000
+$4,000
+$3,000
+$2,000
+$1,000
+$8,000
+$0
+Profit
+Distribution of Profits
+Model
+Median Type
+Whisker Type
+Mean
+Quartile 1
+Quartile 3
+Maximum
+Minimum
+IQR
+Upper Whisker
+Lower Whisker
+Median
+Inclusive
+Min/Max
+2728
+1963
+2979
+6960
+340
+1016
+6960
+340
+2374
+Illustration 7.15 shows how this chart would be created in Power BI. Power BI requires drag-
+ging a field into the Axis slot. The values for this field represent the data points. Dragging a 
+primary key into this slot is good practice because all data points and their unique values are 
+then represented. A similar box-and-whisker chart can also be created in Excel. ( Data See 
+How To 7.1. at the end of the chapter to learn how to do this.)
+How To
+As mentioned earlier, creating and comparing multiple distributions of the same numeric 
+variable based on the different values of a nominal variable is common in this kind of analysis. 
+Illustration 7.16 shows how to make a chart with this comparison using Power BI:
+•	Drag Model to the Axis category I slot.
+•	A separate distribution is then created for each model.
+Illustration 7.14 shows a box-and-whisker chart for the Profit field. The red circle rep-
+resents the average. The bottom of the green box is the first quartile, and the top of the orange 
+box is the third quartile. The median is the intersection between the green and orange boxes, 
+and the length of the green and orange boxes combined is the interquartile range. Finally, the 
+lower fence portrays the minimum value, while the upper fence portrays the maximum value. 
+Axis
+ID
+Axis category I
+Add data fields here
+Axis category II
+Add data fields here
+Value
+Profit
+Unique
+Identifier
+The data points
+represented in the
+distribution.
+Numeric
+Variable
+The numeric variable
+determines what field
+is being explored.
+ILLUSTRATION 7.15  Creating a 
+Box-and-Whisker Chart in Power BI
+
+7-14  CHAPTER 7  Analysis: Data Exploration
+Illustration 7.17 is the resulting chart.
+Exploration and Insights
+Dragging and dropping variables also supports data exploration using this pattern. Using the 
+exploration structure for a distribution data relationship, we can quickly examine the distri-
+bution of any numeric field in a data set and use any nominal field in the data set to compare 
+data distributions.
+Illustration 7.14 showed the distribution information provided by Power BI, including the 
+median, the mean, the interquartile range (IQR), the lowest value, and the highest value. This 
+makes it possible to investigate outliers, skewness, and more. The chart in Illustration 7.17 
+allows even more comparison across distributions:
+•	The profits for the Ridgeline model are higher than for the other models.
+•	The profits for the CR-V and Pilot models are consistent, which means there is little 
+variation.
+•	The profits for the Odyssey and especially the Civic models are more spread out.
+Axis
+ID
+Model
+Axis category I
+Axis category II
+Add data fields here
+Value
+Profit
+Unique
+Identifier
+The data points
+represented in the
+distribution.
+Nominal
+Variable
+The values of the
+nominal variable are
+used to create multiple
+distributions.
+Numeric
+Variable
+The numeric variable
+determines what field
+is being explored.
+ILLUSTRATION 7.16  Creating 
+a Box-and-Whisker Chart with 
+Multiple Distributions
+Accord
+Civic
+CR-V
+Odyssey
+Pilot
+Ridgeline
+$0
+$1,000
+$2,000
+$3,000
+$4,000
+$5,000
+$6,000
+$7,000
+$8,000
+Profit
+Model
+Distribution of Profits by Model
+ILLUSTRATION 7.17  Parallel 
+Profit Distributions for HNA Car 
+Models
+
+7.2  How are Data Relationships Visualized for Exploration?  7-15
+It might be necessary to explore the data more to better understand the source of the variation. 
+The source could be a result of the higher price for a specific model, the number of options 
+available for a specific model, the negotiation skills of the salespeople, or sales promotions, 
+for example.
+Distribution analysis has many applications, including analyzing employee compensa-
+tion. To understand how salaries are distributed, distribution analysis could be used to answer 
+the following questions:
+•	Are salaries right-skewed? Are the higher salaries more spread out?
+•	How do salaries compare across departments?
+•	How does an organization’s compensation distribution compare to the distribution for 
+other organizations?
+Data Exploration Pattern 3: Deviation
+A deviation data relationship shows how a set of actual values deviate from their ref-
+erence values, which are budgeted or forecasted values. Deviation relationships are every-
+where in accounting. Variance analysis is a good example, such as the difference between 
+actual and standard costs. The exploration structure for deviation relationships shown in 
+­Illustration 7.18 contains the variable being compared and the variables being used for com-
+parison purposes–actual, target, and deviation.
+ILLUSTRATION 7.18  Exploration 
+Structure for a Deviation Data 
+Relationship
+Nominal
+Variable
+Numeric
+Variable:
+Deviation
+How the
+comparison is
+being done.
+What is being
+compared.
+Numeric
+Variable:
+Target
+Numeric
+Variable:
+Actual
+Visualizations
+Clustered bar and column charts (used in the following example), gauges, bullet charts, 
+and more can be used for deviation analysis. Imagine that HNA would like to explore 
+whether each vehicle model met its sales expectations. Data The company has another 
+
+7-16  CHAPTER 7  Analysis: Data Exploration
+ILLUSTRATION 7.19  HNA Budgeted Unit Sales-2025
+US
+US
+US
+USA
+USA
+USA
+Canada
+Canada
+Canada
+Canada
+Sedan
+Sedan
+SUV
+SUV
+Minivan
+Truck
+Sedan
+SUV
+Sedan
+SUV
+Country
+Type
+Civic
+Accord
+CR-V
+Pilot
+Odyssey
+Ridgeline
+Civic
+CR-V
+Accord
+Pilot
+Canada
+Canada
+Truck
+Minivan
+255423
+344771
+252019
+125090
+139009
+54891
+480871
+98077
+319755
+47329
+88081
+19822
+300000
+350000
+25000
+160000
+145000
+55000
+425000
+110000
+275000
+45000
+65000
+30000
+Ridgeline
+Odyssey
+Model
+BudgetedUnits
+ActualUnits
+This data set was used to create the clustered column chart in Illustration 7.20 with Power BI.
+ILLUSTRATION 7.21  Creating 
+a Clustered Column Chart in 
+Power BI
+Axis
+Model
+Legend
+Add data fields here
+Values
+TotalActualUnits
+TotalBudgetedUnits
+How the comparison
+is being done.
+Nominal
+Variable
+What is being
+compared.
+Numeric
+Variable:
+Target
+Numeric
+Variable:
+Actual
+664,526
+625,000
+736,294
+725,000
+350,096
+135,000
+172,419
+205,000
+158,831
+175,000
+142,972
+120,000
+Total Actual Units
+Total Budgeted Units
+100,000
+0
+200,000 300,000 400,000 500,000 600,000 700,000
+Accord
+Civic
+CR-V
+Pilot
+Odyssey
+Ridgeline
+Model
+Variance Analysis: Actual vs. Budgeted Unit Sales
+ILLUSTRATION 7.20  Visualizing 
+a Deviation Data Relationship with 
+a Clustered Column Chart
+Illustration 7.21 shows how the chart was created.
+data set that includes both the actual and the budgeted unit sales for the 2025 period 
+(Illustration 7.19).
+
+7.2  How are Data Relationships Visualized for Exploration?  7-17
+Unlike a column chart, a clustered column chart uses multiple variables for comparison pur-
+poses. While the clustered column chart can make comparisons across models, it also provides 
+a comparison within a model. For example, the comparison in Illustration 7.20 is between 
+the actual number of units sold and the budgeted number of units sold, which are the two 
+variables in the Values area:
+•	TotalActualUnits represents the sum of all values in the ActualUnits field.
+•	TotalBudgetedUnits represents the sum of all values in the BudgetedUnits field.
+Exploration and Insights
+Additional variables can be dragged into the Values slot in Illustration 7.21. For example, 
+variance, a variable that is calculated as the difference between the actual and the budgeted 
+units, could be added. There are also three nominal variables in this data set to choose from: 
+country, type, or model.
+Different types of insights can be collected from deviation analysis, including when 
+results are higher or more favorable than expected, lower or less favorable than expected, and 
+if targets are unreasonable. Once we identify these insights, the next step might be explor-
+ing possible causes, such as how to reverse unfavorable deviations. This is particularly useful 
+when the variances are significant.
+Variances have historically been valuable tools for accountants to indicate issues that 
+should be addressed:
+•	Inefficiencies such as inexperience in negotiating prices, ill-qualified employees, employ-
+ees assigned the wrong task, use of low-quality resources, or inadequate training.
+•	Unexpected changes such as changes in prices, or a decrease in demand.
+•	Poor budgeting.
+A possible insight that can be collected from Illustration 7.20 is that most models have a favor-
+able variance, but some (Pilot and Odyssey) have an unfavorable variance. Another is that, 
+except for the CR-V model, most variances are insignificant.
+Data Exploration Pattern 4: Ranking
+A ranking data relationship (Illustration 7.22) orders the values of a variable sequentially 
+based on the values of a second variable. Ranks are determined by some quality, such as high-
+est, lowest, fastest, slowest, as defined by the second variable. The ranking can be displayed in 
+ascending or descending order. It is also possible to calculate a rank explicitly.
+ILLUSTRATION 7.22  Exploration 
+Structure for a Ranking Data 
+Relationship
+What to rank.
+The variable used
+to rank.
+Variable
+Variable
+Visualizations
+There are no specific ranking visualizations, but many integrate ranking information, 
+including tables, bar charts, and column charts. Illustration 7.23 (B) shows a column chart 
+that ranks HNA’s models (what to rank) based on the units sold in the 2021–2025 period 
+
+7-18  CHAPTER 7  Analysis: Data Exploration
+Exploration and Insights
+Different ranking relationships can be explored by dragging and dropping. Customers can 
+be ranked based on their sales amount or their age; employees can be ranked based on their 
+salaries or their seniority. Measures, such as total outstanding debt of at least 60 days, can 
+also be used to rank customers. Ranking can determine, for example, the top 25 or bottom 
+25 customers based on revenue. The column chart in Illustration 7.23 indicates a model’s rank 
+based on units sold during the 2021–2025 period. The Civic is the best-selling model, followed 
+by the Accord.
+Data Exploration Pattern 5: Part-to-Whole
+A part–to-whole data relationship (Illustration 7.24) compares parts to wholes and looks 
+at how the different parts compare to each other. For example, an organization might gen-
+erate $100,000 in sales, which is the whole. The home, office, and garden product categories 
+generate $30,000 (30 %), $50,000 (50%), and $20,000 (20%), respectively. These three product 
+categories represent the parts.
+ILLUSTRATION 7.24  Exploration 
+Structure for a Part-To-Whole Data 
+Relationship
+The variable that
+determines how the 
+whole is broken down
+in parts.
+The whole, or the
+number to be broken
+down.
+Numeric
+Variable
+Nominal
+Variable
+A part-to-whole visualization should define the number that is the whole and how the whole 
+should be broken down into parts. 
+(how to rank). Illustration 7.23 (A) shows this ranking relationship created for a PivotTable 
+in Excel.
+  ILLUSTRATION 7.23    Integrating a Ranking Data Relationship into a Column Chart
+The variable used
+for ranking.
+What to rank.
+Variable
+Variable
+Civic
+Accord
+CR-V
+Odyssey
+Pilot
+Ridgeline
+3,074,040
+2,555,799
+1,603,686
+898,441
+897,807
+517,964
+Model
+Total UnitsSold
+Civic
+Accord
+CR-V
+Odyssey
+Pilot
+Ridgeline
+Models Ranked by Total Units Sold
+(A) Creating a Ranking Relationship for a PivotTable
+(B) Integrating a Ranking Relationship with a Column Chart
+500,000
+0
+1,000,000
+1,500,000
+2,000,000
+2,500,000
+3,000,000
+3,500,000
+2,555,799
+1,603,686
+517,964
+3,074,040
+898,441
+897,807
+Sort Largest to Smallest
+ZA
+AZ
+Sort Smallest to Largest
+
+7.2  How are Data Relationships Visualized for Exploration?  7-19
+Visualizations
+Multiple visualizations can model part-to-whole relationships, including pie charts, donut 
+charts, stacked bar charts, stacked column charts, and treemaps. While treemaps are consid-
+ered superior for portraying part-to-whole relationships, here the more commonly used pie 
+chart is shown. The pie chart in Illustration 7.25 shows the relative importance of each of 
+HNA’s models, which are the parts, in terms of the whole, which is the units sold during the 
+2021–­2025 period. The relative importance is expressed as a percentage, or share.
+ILLUSTRATION 7.25  Visualizing 
+a Part-To-Whole Data Relationship 
+With a Pie Chart
+Breakdown of Units Sold by Model: 2021–2025
+Civic
+32.2%
+Pilot
+9.4%
+Ridgeline
+5.42%
+Accord
+26.77%
+CR-V
+16.8%
+Odyssey
+9.41%
+Illustration 7.26 shows how this pie chart is created using Power BI:
+•	The Values slot defines the what: This refers to the number that is broken down. Here, it 
+is the TotalUnitsSold measure.
+•	The Legend slot defines the how: This refers to how to break down the whole. Here, this is 
+done by model. For each value of model the number of units sold is calculated, determin-
+ing the size of its share of the pie. This visual shows the size of its share as a percentage.
+Exploration and Insights
+Any measure can be dragged to the Values (whole) slot in Illustration 7.26. Measures tailored 
+to specific needs can also be created, such as July sales to non-U.S. customers. Any nominal 
+variable can be dragged to the Legend slot (parts).
+ILLUSTRATION 7.26  Creating a 
+Pie Chart in Power BI
+Legend
+Model
+Details
+Add data fields here
+Values
+TotalUnitsSold
+Nominal
+Variable
+The variable that
+determines how the 
+whole is broken down
+in parts.
+The whole, or the
+number to be broken
+down.
+Numeric
+Variable
+
+7-20  CHAPTER 7  Analysis: Data Exploration
+Part-to-whole relationships are often used in accounting. Examples include the break-
+down of expenses in multiple categories such as administrative expenses, depreciation, mar-
+keting expenses, and the breakdown of costs in terms of materials, labor, and overhead.
+The pie chart in Illustration 7.25 shows how each model contributes, in relative terms, to 
+the total units sold in the 2021–2025 period. It further shows that the Accord and Civic models 
+combined count for more than 50% of the unit sales. The share of other models, such as the 
+Ridgeline, is relatively small.
+Data Exploration Pattern 6: Correlation
+A correlation data relationship indicates the degree to which two variables move in the 
+same or the opposite direction. For example, if the marketing expenses for a product increase, 

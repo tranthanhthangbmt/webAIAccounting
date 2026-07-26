@@ -1,0 +1,35 @@
+# 10 DỰ BÁO SỨC KHỎE TÀI CHÍNH CỦA MỘT DOANH NGHIỆP SỬ DỤNG HỒI QUY CÓ PHẠT (FORECASTING THE FINANCIAL HEALTH OF A BUSINESS USING PENALIZED REGRESSION)
+
+10.1 Sức khỏe Tài chính của một Doanh nghiệp (Financial Health of a Business)
+10.2 Tầm quan trọng của việc Dự báo Sức khỏe Tài chính của Doanh nghiệp
+10.2.1 Ảnh hưởng của Việc vay mượn đối với Sức khỏe Tài chính
+10.2.2 Tỷ lệ Nợ và Khả năng Vay mượn
+10.3 Tầm quan trọng của việc Biết được Sức khỏe Tài chính đối với Người cho vay
+10.3.1 Sức khỏe Tài chính Kém: Phá sản (Bankruptcy)
+10.4 Tầm quan trọng của việc Biết Sức khỏe Tài chính của Doanh nghiệp đối với Nhà đầu tư
+10.5 Dự báo Sức khỏe Tài chính (Forecasting Financial Health)
+10.5.1 Các Chỉ số Tài chính (Financial Ratios)
+10.6 Đa cộng tuyến (Multicollinearity)
+10.6.1 Kiểm tra Đa cộng tuyến
+10.7 Sử dụng Hồi quy có phạt (Penalized Regression) để Đánh giá Sức khỏe Tài chính
+10.7.1 Dự đoán Sức khỏe Tài chính bằng LASSO (Predicting Financial Health Using LASSO)
+10.7.2 Thông tin Kinh doanh và Các Ứng dụng Khác
+10.8 Thực hành bằng R: Đánh giá Sức khỏe của một Doanh nghiệp
+10.9 Phụ lục: Bảng Thuật ngữ Tài chính
+10.10 Hiểu rõ Chương học
+
+### MỤC TIÊU HỌC TẬP (LEARNING OBJECTIVES)
+1. Đánh giá sức khỏe tài chính của một doanh nghiệp.
+2. Hiểu được tầm quan trọng của việc dự báo phá sản (bankruptcy forecasting) đối với các nhà đầu tư, người cho vay và doanh nghiệp.
+3. Sử dụng hồi quy có phạt (penalized regression) để dự báo sức khỏe tài chính.
+4. Xác định đa cộng tuyến và lựa chọn đặc trưng (feature selection) bằng mô hình LASSO.
+
+## 10.1 SỨC KHỎE TÀI CHÍNH CỦA MỘT DOANH NGHIỆP (FINANCIAL HEALTH OF A BUSINESS)
+
+Trong bất kỳ công ty nào, bộ phận tài chính thực hiện các chức năng quan trọng là kiểm soát, lập kế hoạch, ra quyết định và đảm bảo tuân thủ quy định. Bộ phận này cung cấp một cái nhìn hồi tố về cách thức hoạt động của doanh nghiệp bằng cách xem xét nhiều báo cáo tài chính, bao gồm bảng cân đối kế toán, báo cáo kết quả hoạt động kinh doanh và báo cáo lưu chuyển tiền tệ để chỉ ra cho doanh nghiệp biết điểm mạnh và điểm yếu của mình nằm ở đâu. Nó cũng cung cấp một cái nhìn hướng tới tương lai quan trọng dưới dạng nhiều dự báo, bao gồm dự báo lưu chuyển tiền tệ, lập kế hoạch kịch bản (scenario planning) và phân tích độ nhạy (sensitivity analysis). Các mô hình dự báo (Forecasting models) rất thường được sử dụng trong tài chính để thông báo cho những người cho vay (lenders), bản thân doanh nghiệp và một số loại nhà đầu tư khác nhau về nơi họ cần đầu tư nguồn lực trong các khoảng thời gian tới. Những dự báo này cũng xem xét xếp hạng tín dụng, điều kiện thị trường và triển vọng kinh tế vĩ mô rộng lớn hơn. 
+
+Doanh nghiệp nên đầu tư vào đâu? Nên tăng giá hay đưa ra các chương trình khuyến mãi? Liệu công ty có thể tăng lương cho nhân viên hay đã đến lúc cắt giảm chi phí? Liệu công ty có thể đầu tư vào một địa điểm mới hay một sản phẩm mới không? Quản lý tài chính cung cấp một cái nhìn tổng thể về sức khỏe tài chính của một công ty, giúp đưa ra các quyết định chiến lược trên nhiều phòng ban khác nhau. Do đó, dự báo tài chính giúp cung cấp cho ban lãnh đạo doanh nghiệp một bức tranh tổng thể để phát triển các chiến lược tránh tư duy cục bộ trong việc ra quyết định. Việc dự báo như vậy cũng giúp người cho vay xác định xem có nên cho vay hay không và giúp các doanh nghiệp đi vay xác định số tiền họ nên vay.
+
+## 10.2 TẦM QUAN TRỌNG CỦA VIỆC DỰ BÁO SỨC KHỎE TÀI CHÍNH CỦA DOANH NGHIỆP
+
+Các thực thể khác nhau trong công ty cần xác định sức khỏe tài chính của doanh nghiệp vì nó là thông tin đầu vào quan trọng trong các quyết định của họ. Các chủ sở hữu và ban quản lý cần biết doanh nghiệp đang thực hiện các chức năng chính của nó như thế nào để xác định lĩnh vực nào cần đầu tư thêm.

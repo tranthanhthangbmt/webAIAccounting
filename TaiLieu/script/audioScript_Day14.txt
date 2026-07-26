@@ -1,0 +1,79 @@
+Chào mừng các bạn đến với buổi 14 cũng là buổi học lý thuyết cuối cùng của môn học. Nội dung hôm nay khám phá dữ liệu và nghệ thuật kể chuyện bằng dữ liệu Communicating Resource. Tài liệu chương 7 và chương 9. Fi và buổi 14B.
+Ờ nghe tiêu đề thì có vẻ khá là kỹ thuật nhỉ?
+Chắc chắn rồi. Nhưng mà ờ Được rồi, chúng ta cùng bóc tách vấn đề này nhé. Hôm nay chúng ta sẽ bàn về một sự thật khá sốc. Kiểu như tại sao một biểu đồ hình tròn cái phá rất quen thuộc ấy. Nếu bị vẽ sai lại có thể khiến một công ty đưa ra quyết định sai lầm trị giá hàng tỷ đồng.
+Một cái giá quá đắt cho một cái biểu đồ.
+Đúng thế. Thường thì khi nghĩ đến dữ liệu kế toán, chúng ta hay hình dung ra những bản tính Excel dài lê thê. Ờ những con số khô khan nằm im lìm nhưng thực chất thì toàn bộ khối dữ liệu đó không hề tĩnh lặng chút nào. Bên dưới những con số nợ có đó là những bí mật kinh doanh hay thậm chí là dấu hiệu sinh tử của một doanh nghiệp.
+Thực ra thì trong thỉ nguyên hiện tại các doanh nghiệp đang bị ngập. Ý tôi là họ bị nhấn chị tìm trong big data dữ liệu lớn đấy. Họ thô thập mọi thứ từng cú click chuột đến từng dây máy móc vận hành.
+Kiểu có quá nhiều dữ liệu nhưng lại không biết dùng để làm gì.
+Chuẩn luôn. Dữ liệu thô tự nó bị câm. Nếu người làm kế toán không biết cách biến cái mớ bòng bong đó thành một thông điệp rõ ràng thì dữ liệu không những vô dụng mà còn gây nhiễu loạn toàn bộ quyết định của ban lãnh đạo.
+Và để xua tan cái đám sương mù đó, chúng ta cần một công cụ. Ở đây khái niệm khám phá dữ liệu hay data exploration xuất hiện. Nhưng trước khi đi sâu vào Tôi thấy có một sự nhầm lẫn rất phổ biến, đó là sự khác biệt giữa báo cáo tức là reporting và khám phá.
+Ồ, cái này cực kỳ hay bị nhầm luôn. Rất nhiều người đi làm nhiều năm vẫn nhầm.
+Đúng rồi. Nhiều nhân viên cứ ôm một sấp báo cáo dày cộp lên nộp xếp và nghĩ mình đang phân tích dữ liệu. Nhưng thực ra họ chỉ đang làm thống kê thuần túy thôi.
+Khoảng cách giữa hai khái niệm này thực sự rất xa. Báo cáo đơn thuần là việc thu thập và trình bày lại những gì đã xảy ra. Nó chỉ trả lời cho câu hỏi cái gì. Ví dụ nhá. Tính tổng số tiền quyên góp của một tổ chức phi lợi nhuận năm nay. Xong đưa con số đó lên giấy. Thế là sang báo cáo.
+Còn khám phá thì sao?
+Khám phá đòi hỏi một tư duy khác hẳn. Nó bắt buộc bạn phải trả lời câu hỏi tại sao và như thế nào. Bạn không dừng ở con số tổng mà đào sâu để thấy a xu hướng quyên góp đang giảm dần. Nhưng lạ cái là nhóm người trẻ lại đang quyên góp nhiều hơn qua ví điện tử.
+Nghĩa là nhóm lớn tuổi truyền thống thì đang rời đi đúng không?
+Chính xác. Đó mới là khám phá. Những cái insight hay sự thấu hiểu đó. mới là thứ ảnh hưởng đến quyết định.
+À, tôi có một sự so sánh thế này. Báo cáo giống như việc bạn cầm hóa đơn đi siêu thị và đọc lướt xem hôm nay tiêu hết bao nhiêu tiền, nó tĩnh. Còn khám phá là khi bạn gom hàng chục tờ hóa đơn lại rồi đột nhiên nghiện ra mình luôn mua nhiều kem hơn vào những ngày nhiệt độ trên 30° C.
+Một ví dụ rất dễ hình.
+Sự tương quan hay correlation chính là chìa khóa ở đây. Báo cáo không cho bạn thấy nhiệt độ liên quan gì đến lượng kem mua vào.
+Điều thú vị ở đây là bộ não Con người vốn không được thiết kế để tự động nhìn thấy sự tương quan đó từ một bảng tính 10.000 dòng. Các quyết định kinh doanh phải dựa trên insight sinh ra từ quá trình khám phá và nó có một quy trình bốn bước rất rõ ràng.
+À bốn bước đó là gì nhỉ? Đầu tiên là phải có câu hỏi đúng không?
+Đúng rồi. Bước một là xác định câu hỏi. Bước hai xác định mối quan hệ của dữ liệu. Bước ba thực sự bắt tay vào khám phá mối quan hệ đó. Và bước bốn là tạo ra insight.
+Nghe thì có vẻ cần những siêu máy tính hay AI khủng hắm để làm được mấy bước này.
+Thực ra thì không hề. Ngay trong Excel Thôi, công cụ Pvet Table đã là một vũ khí cực kỳ quyền năng rồi. Chỉ bằng cách kéo và thả, chuyển dòng thành cột, nhóm các trường lại, bạn có thể khám phá tám mô hình quan hệ cơ bản.
+Ví dụ như Time Series để xem biến động theo thời gian hay là part to hold, kiểu mối quan hệ tổng thể và thành phần để xem mặt hàng nào đang gánh doanh thu cho cả công ty.
+Chuẩn luôn. Cái hành động kéo thả đó không chỉ là thao tác phần mềm đâu, nó cho phép mình xoay khối dữ liệu nhiều chiều để tìm ra các góc khuất. Khi đổi góc nhìn, đột nhiên một điểm bất thường sẽ hiện ra. Kiểu như một khoản chi phí tự nhiên tăng vọt vào tháng tư mà không có lý do. Nắm được nó là có như nắm được viên ngọc thô inside rồi. Nhưng mà thực tế trốn công sở phũ phàng lắm. Tìm ra inside xong nhiều người ném nguyên cái bảng Excel chi chí số lên máy chiếu
+và kết quả là cả phòng ngáp dài.
+Đúng. CEO thì buồn ngủ, giám đốc các phòng ban thì nhíu mày, chẳng có hành động nào được đưa ra cả. Rõ ràng có inside mới chỉ là nửa chặng đường, mình phải bán được cái inside đó nữa.
+Và đó là lước chúng ta bước sang Data Storyting. Nghệ thuật kể chuyện bằng dữ liệu. Dữ liệu tự nó không biết nói, nó cần một người đại diện. Theo thống kê, có tới 63% nhân viên ngày nay phải dùng dữ liệu để ra quyết định hàng tuần.
+Một con số rất lớn. Điều đó đòi hỏi kỹ năng data literacy, tức là sự hiểu biết về dữ liệu phải rất vựng.
+Chính xác. Và để kể một câu chuyện dữ liệu thuyết phục, chị cần ba yếu tố. Dữ liệu là để giải thích sự thật, cốt truyện hay narrative là để làm sáng tỏ bối cảnh và cuối cùng là hình ảnh hay visuals.
+Ờ, tôi hiểu dữ liệu và cốt truyện nhưng tại sao phải là hình ảnh? Cứ tóm tắt bạn chữ không được. À
+thực ra là vì sinh học tiến hóa của chúng ta con người xử lý hình ảnh nhanh hơn văn bản tới 60.000 lần. 60.000 lần đấy. Hơn nữa, thông tin sẽ dễ nhớ hơn 22% khi nó được kể như một câu chuyện hình ảnh.
+Chà, 60.000 lần. Thảo nào nhìn hình là thấy ngay vấn đề. Nhưng nhắc đến kể chuyện, tôi đọc tài liệu thấy có đề cập đến kim tự tháp Fag gì đó. Cấu trúc kịch năm hồi của Shakespeare đúng không?
+Đúng vậy. Freax Pyramid gồm mở đầu, thắt nút Cao chào, mở nút và giải quyết.
+Khoan đã, ngành kế toán của mình vốn rất khô khan và cần tính khách quan cao. Tự nhiên mượn cấu trúc kịch của Shakespeare để báo cáo tài chính, có sợ bị xếp mắng là làm màu hay thiếu chuyên nghiệp không?
+Nếu chúng ta liên kết điều này với bức tranh toàn cảnh thì câu chuyện ở đây không hề làm mất đi tính chuyên nghiệp. Nó chỉ là cách dẫn dắt tâm trí người nghe thôi. Sếp của chúng ta rất bận, nếu anh đập ngay một con số báo động lên bàn, họ sẽ bị sốc hoặc không hiểu ngữ cảnh.
+À, ý chị là nó giúp trình bày sự thật. theo cách não bộ dễ tiếp nhận nhất.
+Đúng thế. Lấy ví dụ trong tài liệu về gian lận đền hoa hồng kickback fraw ở phòng mua hành. Ở phần mờ đầu, anh trình bày bức tranh chung. Chi phí vật tư tự nhiên tăng 15% dù quy mô không đổi.
+Ờ thế là thu hút được sự chú ý của mọi người rồi. Vậy phần thất nút thì sao?
+Thất nút là lúc anh tung manh mối. Anh chỉ ra rằng chi phí tăng này chỉ tập trung vào một nhóm nhà cung cấp cụ thể. Sự căng thẳng bắt đầu tăng lên.
+Và rồi bum. Cao chào. Tôi đoán đây là lúc trình bày băng chứng quyết định.
+Chính xác. Cao trào là khi anh chiếu một biểu đồ đối chiếu thời gian, nhân viên phê duyệt hóa đơn trùng khấp từng phút với giao dịch chuyển khoản cá nhân của họ. Không thể chối cãi,
+quá thuyết phục. Sau đó mở nút là giải thích quá trình điều tra và giải quyết là đưa ra quy trình kiểm soát mới. Công nhận nghe như vậy thì một đống số liệu khô khan bỗng trở thành một hành trình logic cực kỳ cuốn hút.
+Đó chính là sức mạnh của cốt chuyện. Nhưng để cái cao trào đó chạm đến nhận thức người xem ngay lập tức, hình ảnh phải cực kỳ xuất sắc.
+Đúng rồi. chọn sai biểu đồ lúc đó thì chẳng khác gì đang kể chuyện ma mà bật nhạc tấu hài cả. Vậy làm sao để chọn đúng hình ảnh?
+Chúng ta có một cây quyết định decision tree. Nếu anh muốn xem xu hướng hãy dùng line chart tức biểu đồ đường hoặc bar chart biểu đồ thanh. Mắt người rất nhạy trong việc so sánh độ dài.
+Còn nếu muốn xem cấu trúc thành phần kiểu thị phần hay tỉ trọng chi phí thì sao?
+Lúc đó thì dùng P chart biểu đồ tròn hoặc stacked bar biểu đồ xếp tròng. Còn một trường hợp nữa khi anh có hàng ngàn điểm dữ liệu và muốn tìm sự phân bổ thì dùng Scatter Plot biểu đồ phân tán.
+Ờ tôi thấy cái Scatterplot rất thú vị khi kết hợp với tâm lý học thị giác, đặc biệt là các quy luật gestor, chẳng hạn như quy luật proximity, sự gần gũi khi nhìn vào biểu đồ phân tán, những điểm nằm gần nhau tự động bị não gộp thành một nhóm.
+Đúng vậy, không cần vẽ vòng tròn hay dán nhãn gì cả, não bộ tự động xử lý. Và còn một quy luật gestore cực kỳ quan trọng nữa. Focal point hay điểm nhấn?
+Điểm nhấn này hoạt động như thế nào trong thực tế vậy chị?
+Ví dụ nhá. Anh có biểu đồ doanh số của các nước Nam Mỹ. Thay vì tô mỗi nước một màu cầu vồng sặc sỡ gây rối mắt, anh chỉ để màu xám nhọt cho tất cả và tô màu đỏ đập duy nhất cho Venezuela vì nước đó đang lỗ nặng.
+À thế là mọi sự chú ý sẽ dồn hết vào cái cột màu đỏ đó. Cái này làm tôi liên tưởng ngay đến việc thiết kế dashboard. Nó giống hệt như bảng điều khiển trên xe hơi ấy.
+Một sự so sánh rất chuẩn.
+Khi lái xe. Mình đâu muốn mọi đèn báo đều chớp nháy loạn xạ. Sự lộn xộn hay clutter chỉ là mình phân tâm.
+Mình chỉ cần duy nhất cái đèn check Engine sáng lên màu đỏ khi có sự cố.
+Chính xác đó là những thuộc tính tiền chú ý preattentive attributes như là kích thước và màu sắc. Kích thước thể hiện tầm quan trọng còn màu sắc có một lưu ý rất nhân văn là hạn chế dùng màu đỏ và xanh lá cây cùng lúc.
+Ơ vì trứng mù màu đúng không? Tôi nhớ có đọc là khoảng 8% nam giới mắc phải hội chứng này.
+Đúng rồi. Họ sẽ không phân biệt được đâu là lợi nhuận, đâu là thua lỗ nếu ta dùng cặp màu đó. Thêm vào đó, chúng ta phải thiết kế theo thói quen đọc của con người. Mắt luôn bắt đầu từ góc trên cùng bên bên trái và quét theo hình rí lên góc trên bên trái của dashboard. Tuyệt vời. Nhưng mà ừ tâm lý học thị giác mạnh mẽ như vậy nếu dùng đúng thì làm sáng tỏ vấn đề. Nhỡ có ai đó dùng sai hoặc cố tình dùng sai để lấp liếm báo cáo tài chính thì sao?
+Lúc đó nó sẽ trở thành những cú lửa thị giác ngoạn mục. Đấy, có bốn cách phổ biến để tạo ra biểu đồ gây hiểu lầm. Đầu tiên là omiting the baseline, bỏ qua đường cơ sợ không.
+Cái này tôi gặp rồi. Họ cắt trục Y không bắt đầu từ số 0 mà bắt đầu từ 9. chẳng hạn. Thế là một sự sụt giảm rất nhỏ từ 95 xuống 91 trông như một cú lao dốc thảm khốc.
+Chính xác. Nó bóp méo hoàn toàn cảm nhận về tỉ lệ. Cách thứ hai là going against conventions, đi ngược lại quy uốc. Thông thường màu đậm là giá trị cao, đi lên là tăng. Đảo ngược cái này là người xem hiểu sai ngay.
+Kiểu vẽ biểu đồ chi phí nhưng cột càng dài lại có nghĩa là chi phí càng thấp á. Thế thì đánh lừa não bộ quá.
+Chà. Chiếc suất dữ liệu có chọn lọc.
+À cái này là kiểu chỉ sâu ra doanh. Số tổng của 2 năm thế đang tăng đều nhưng cố tình giấu đi dữ liệu từng tháng để người ta không thấy được sự chồi sụt cực kỳ rủi ro ở giữa phải không?
+Chuẩn luôn. Họ chỉ cho anh thấy phần đẹp nhất của bức tranh thôi. Và cách cuối cùng, using the wrong graph, dùng sai biểu đồ. Dùng biểu đồ tròn để so sánh sự thay đổi qua các năm là một lỗi cực kỳ kinh điển.
+Vì sao nhỉ? Biểu đồ tròn nhìn cũng trực quan mà.
+Trực quan cho tỉ trọng hiện tại thôi. Nhưng mắt người rất kém trong việc đánh giá sự thay đổi của các gốc hay diện tích qua nhiều năm. Bchart mới là chân ái trong trường hợp này.
+Vậy tất Cả những điều này có ý nghĩa gì? Ý tôi là liệu những biểu đồ sai lệch này là do các công ty cố tình làm để tháo túng nhà đầu tư hay đôi khi chỉ do phần mềm tự động cắt trục y và do kế toán viên thiếu kỹ năng?
+Điều này đặt ra một câu hỏi quan trọng. Ranh giới giữa thiếu kỹ năng và vi phạm đạo đúc nghề nghiệp thực sự rất mong manh. Đôi khi là vô tình nhưng hậu quả của việc truyền đạt sai dữ liệu tài chính luôn là sự mất niềm tin. Mà trong tài chính mất niềm tin là mất tất cả.
+Đúng thế. Chốt lại thì hôm nay chúng ta có ba thông điệp chính. Một là phải khám phá để tìm size chứ đừng chỉ báo cáo. Hai là dùng cấu trúc kể chuyện như kim tự tháp phá để truyền đạt và ba là vận dụng quy luật thị giác để làm rõ vấn đề, đồng thời bảo vệ bản thân khỏi những cái bẫy biểu đồ.
+Hoàn toàn đồng ý. Nắm được ba điều này, dữ liệu sẽ thực sự trở thành tài sản.
+Rất tuyệt. Nhưng trước khi chia tay, tôi có một suy ngẫm cuối cùng liên quan đến các công cụ AI như CNOS hay tablo mà tài liệu có nhắc đến.
+Ờ ý anh là generative AI.
+Chúng ta ngày càng giao phó việc tạo dashboard. và vẽ biểu đồ cho trí tuệ nhân tạo. Liệu có khi nào AI sẽ tự động tạo ra những cái bẫy thị giác không? Kiểu như nó tự cắt trục Y chỉ vì nó thấy biểu đồ như thế trông đẹp hơn và kịch tính hơn.
+Chà, một góc nhìn rất cay góc. Ai tối ưu hóa cho cái đẹp chứ chưa chắc đã hiểu ngữ cảnh đạo đức kinh doanh.
+Chính xác. Vậy nên kế toán viên của tương lai không chỉ là người vẽ biểu đồ nữa. Các bạn phải là người kiểm duyệt tư duy của máy móc. Đừng để phần mềm quyết định thay tính khách quan của dữ liệu.
+Chắc chắn rồi. Sự nhạy bến của con người là không thể thay thế. Vâng, rất cảm ơn mọi người đã lắng nghe và đồng hành. Hãy tự tin áp dụng nghệ thuật dữ liệu và công việc của mình nhé. Chào tạm biệt và kết thúc buổi học lý thuyết số 14 tại đây.

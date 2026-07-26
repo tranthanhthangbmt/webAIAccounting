@@ -1,0 +1,302 @@
+le 6.3 suggests that customers with lower month-end ledger
+balances are more likely to miss on payments than other
+customers as delinquency rate increases with the decrease in
+balance. On the other hand, diﬀerent age buckets do not
+indicate any signiﬁcant diﬀerence in delinquency rates.
+Table 6.3: Exploratory Data Analysis Using Tables
+Month-end Ledger Balance ($) Delinquency Rate
+Less than 2500 15%
+2500–5000 8%
+5000–7500 9%
+7500–10000 7%
+Greater than 10000 5%
+Age Buckets (Years) Delinquency Rate
+Under 25 10%
+25–50 9.5%
+50–75 9%
+Over 75 11%
+There are several approaches to performing an exploratory
+data analysis:
+–Tables: Summarize the data in the form of tables (as in Table
+6.3) and generate insights.
+–Visualization: Visualize these variables (as in Figure 6.6) in
+graphical representations like histograms, pie-charts, or bar
+charts.
+–Correlations: Find correlations of these variables with each
+other and with the target variable (in this case it’s
+delinquent, Yes or No).
+Figure 6.6: Exploratory data analysis
+Feature Engineering
+After completing an EDA, the next step is to represent raw data
+in a format that captures these insights in the form that can be
+fed to a machine learning model. Such
+transformation/engineering of variables into the formats
+suitable for the machine learning model is called feature
+engineering, and transformed variables are called features.
+Machine learning models take these features as input and learn
+from them to predict the output. Feature engineering is one of
+the crucial steps to build any machine learning model because
+good features improve model performance by producing high-
+quality output. In fact, a simple model with good features may
+outperform a complex model with bad features. The idea of
+feature engineering is to create more features using the data
+and present them in a simpler way, which can inﬂuence the
+output of your model. Often, feature engineering becomes a
+necessity as a machine learning model needs data to be
+presented in a certain way that it understands. Some models
+are more appropriate for the certain type of features; therefore,
+feature engineering involves creating the most appropriate
+features given the data, model, and problem.
+In the loan delinquency problem, if the selected model only
+accepts numerical values, then any feature that is not numeric
+would need to be either dropped or transformed into a
+numeric. For example, in Table 6.4, a categorical feature
+“highest education level” with four categories—Ph.D.,
+Bachelors, Masters, and High School—would need to be either
+dropped or transformed to a numeric ﬁeld that captures the
+essence of these four categories. At the end, when all features
+are combined, the resulting feature table would be like Table 6.
+4.
+Table 6.4: Feature Table
+There is no right or wrong way to perform feature engineering,
+but Table 6.5 shows some basic techniques which can be used
+for structured data (example—tabular data) and unstructured
+data (example—text data). Note feature engineering for other
+unstructured data such as audios, videos and images are
+beyond the scope of this discussion:
+Table 6.5: Feature Engineering Techniques
+Type of Data Technique Description and Examples*
+Quantization/
+binningContinuous numerical variables can be quantized
+into fixed categories (binary or multiple groups).
+For example, “age” can be quantized,
+corresponding to different life stages, into 0-25
+years, 25-50 years, 50-75 years, and 75 years or
+older.
+Structured data
+(for example,
+tabular data)Normalization/
+scalingFeatures with drastically different scales can be
+appropriately scaled before modeling. For
+example, if income ranges from $2,000 to $50,000
+and age ranges from 15 years to 100 years, then
+income should be appropriately scaled to a
+hundredth scale as age or vice versa.
+New features New features can be created from existing features
+to extract more information. This step should be
+done by using inputs of business stakeholders. For
+example, monthly income and expenses can be
+used to create a new feature “monthly savings” to
+identify customers who are not saving enough and
+may need a personal loan.
+Cleaning text Preprocessing and filtering can eliminate useless
+data that adds noise. For example,
+–Remove web page tags and attributes and
+special characters such as punctuations,
+alphanumeric characters, and symbols.
+Unstructured
+data (for
+example,–Convert words to a single case (lower or upper),
+remove stop words, frequent words and rare
+words, and remove prefixes and suffixes.
+text data) Feature
+extractionNumerical features are extracted from clean,
+processed/ text by using words as keys or features
+and different word frequencies as values. Popular
+feature extraction techniques include bag-of-words
+(BoW) and term frequency-inverse document
+frequency (TF-IDF).
+*Note: Zheng, A. and Casari, A. (2018) Feature Engineering for Machine Learning,
+California: O’Reilly.
+Feature Matrix
+After creating the features, the next step is to combine all the
+engineered features from structured and unstructured data and
+target column(s) into one table/matrix called feature matrix. A
+feature table from Table 6.4 would transform into a feature
+matrix as in Table 6.6 after feature engineering. Observe that a
+variable such as gender is converted into columns
+“Gender_Male” and “Gender_Female” with binary values (1 or
+0); education” is converted as into 4 education level columns;
+unstructured text such as “car” is used to create Bag-of-words
+features like “BOW_car” and TF-IDF feature like “TF-IDF_car,”
+etc. Now, this feature matrix can be easily fed into a machine
+learning model.
+Table 6.6: Feature Matrix
+Note that this is just one illustration. Feature engineering steps
+largely depend on the type of problem, data and machine
+learning model one intends to use. For example, unsupervised
+learning problems do not have a target variable; therefore, the
+feature matrix would not have a target column. This is further
+described in the next section. Also, not all features in the
+feature matrix will be used in the model. Some categorical
+features, such as gender and education, which have already
+been converted into columns, can be dropped. Depending on
+preference, one can choose to merge features diﬀerently, but
+creating such a matrix makes it more eﬃcient to experiment
+with feature selection in modeling.
+Step 4—Modeling
+After data collection and data preparation, the next step is to
+build the right model for the problem. This section provides a
+broad introduction to diﬀerent machine learning algorithms
+with emphasis on how to build a model with the problem in
+mind. Broadly, machine learning models can be classiﬁed into
+two categories, supervised and unsupervised learning:
+–Supervised learning involves building models to predict a
+target using diﬀerent features. Often supervised machine
+learning tasks include building models to estimate future
+predictions using historical data, often called predictive
+models. Typical predictive model problems include
+classiﬁcation and regression:
+Classification is a problem in which the target variable
+is qualitative (two or more categories). The loan
+delinquency problem is an example of the binary
+classification problem where two prediction classes
+are “Delinquent” and “Non-delinquent.” Other
+examples include predicting whether an email is spam
+and handwritten character recognition.
+Regression is a problem in which the target variable is
+a quantitative value (numeric), such as predicting loan
+default amount for each customer. Typical examples
+include sales forecasting, price prediction, and loan
+default amount prediction.
+–Unsupervised learning involves learning from the input data
+without any target. In this case, the algorithm tries to use an
+underlying structure of the data to ﬁnd useful associations
+and patterns. Most of the raw data in the world does not
+have a well-deﬁned target variable; therefore, unsupervised
+learning techniques are applicable to a lot of problems.
+Typical problems include clustering and association:
+Clustering is a problem of dividing the data into
+similar homogenous groups. Typical examples of
+clustering include identifying similar customers based
+on purchase behavior (customer segmentation),
+similar documents, and clustering similar news
+articles.
+Association is a problem of finding associations
+between different variables that can describe
+characteristics of the data. Popular examples include
+market basket analysis to find bundled products as
+they are mostly bought together—mobile phones
+with covers, milk and butter, beer and diaper.
+Choice of Models
+Several machine learning models have been developed that
+cater to diﬀerent realworld problems. To apply a machine
+learning model, it is essential to identify the type of task:
+supervised learning (classiﬁcation, regression) and
+unsupervised learning (clustering, association). Table 6.7
+summarizes a few modeling algorithms.
+Table 6.7: Supervised and Unsupervised Learning Models
+Type of Learning Models
+Supervised learning Naive Bayes
+Linear models, such as linear or logistic regression
+Decision tree
+K-nearest neighbors (k-NN)
+Bagging, such as random forest
+Boosting, such as generalized boosting machine
+Support vector machines (SVMs)
+Neural networks
+Unsupervised learning Clustering, such as k-means, hierarchical, or DBScan
+Associations, such as a priori
+Each of these models has their uses, advantages, and
+disadvantages. One of the popular algorithms is linear
+regression or logistic regression when there is a linear
+association of features with the target, that is, target linearly
+increases or decreases with a change in features. In many
+industrial applications, linear models are adopted as they are
+simple and quite interpretable. However, these models can
+have limitations in terms of predictive power as real-world
+associations between features and target may be nonlinear. In
+such cases, nonlinear models, such as decision trees, bagging,
+boosting, neural networks, and support vector machines,
+should be used.
+Model Building
+A model is just a mathematical function that can be used to
+represent the relation between features in the data. Practically,
+there is no perfect model. One can only attempt to create good
+models that can meet business needs. Building a model can be
+an iterative process: one may try several models, a diﬀerent
+combination of features, and diﬀerent modeling techniques
+before ﬁnding one that satisﬁes the requirement.
+There are several ways to build a supervised machine learning
+model, but typically, models include training, validation, and
+testing, as reﬂected in the following standard steps:
+1. Split the data randomly into two sets, namely training data
+and validation data. A good starting point is a ratio of 80/20
+(80 percent training data and 20 percent validation data).
+2. Training data is used to train or teach the model to predict
+the target using the features. At this step, an appropriate
+model should be chosen based on the learning task.
+3. Validation data is used to evaluate the performance of the
+model. At this step, errors in the model should be analyzed
+and used to make some adjustments to the models, such as
+tuning the model, selecting features, and making other
+decisions regarding the learning algorithm.
+4. Lastly, the final model obtained after training and validation
+is applied to an entirely new dataset called the test dataset to
+which the model has not previously been exposed. The
+performance on the test set indicates the actual
+performance of the final model, or what performance to
+expect when using the model in the real world.
+Please note that the preceding steps are not ﬁxed and can vary
+depending on the problem, data, and approach. There are many
+diﬀerent ways to split the data into training and validation data,
+create test sets, and perform additional steps to ensure model
+stability. Figure 6.7 summarizes the dataset splitting and
+modeling approach.
+Figure 6.7: The modeling process
+Building an unsupervised learning model is often more
+challenging than supervised learning model. Unsupervised
+learning models do not have a target; therefore, there is no way
+to check whether the model is performing well or poorly
+because there is no clear right answer. Often performance
+needs to be evaluated using past experience and domain
+knowledge. This makes model building quite a subjective
+process.
+Model Evaluation
+As described above, there is no perfect model. Every model
+suﬀers from some errors. The process to evaluate the prediction
+errors of a machine learning model is called error analysis.
+Ideally, each prediction output of a model should be checked to
+examine the error and understand its underlying cause.
+However, manually doing these checks is time-consuming,
+especially with large datasets. Therefore, evaluation metrics are
+needed to gauge the overall prediction performance of the
+model.
+Machine learning oﬀers a large choice of evaluation metrics
+depending on the task involved. For classiﬁcation tasks,
+comparisons can be made between correct and wrong
+predictions of the true target by using a commonly used error
+matrix called a confusion matrix. For regression tasks, errors
+can be measured between the predicted target and true target.
+Table 6.8 shows some of the commonly used evaluation metrics
+for classiﬁcation and regression tasks.
+Table 6.8: Evaluation Metrics for Different Tasks
+Task Evaluation Metrics
+Classification Accuracy, recall, precision, F-measure, AUC ROC
+Regression Root mean squared error (RMSE), adjusted R-squared
+Error Analysis
+To evaluate the performance of any machine learning model,
+errors need to be measured and analyzed. There are primarily
+three sources of errors in any machine learning model,
+irreducible errors, bias, and variance.
+An irreducible error (Bayes error or unavoidable bias) is an
+error that cannot be reduced regardless of the modeling
+algorithm. This type of error can be introduced by problem
+objective, noise and errors in the data capture; unknown
+variables that can inﬂuence each other and the target; and
+other factor. No model is perfect, so an expectation of 100-
+percent accuracy is simply unrealistic. Therefore, the objective
+of modeling is to create a model that comes as close as possible
+to the desired performance.13
+Bias is another error which is introduced due to erroneous
+assumptions in the model while variance is an error due to
+variability in the model predictions. In simple terms, this
+concept is explained in the bulls-eye diagram in Figure 6.8.14
+The center of the concentric circle represents a perfect model
+which predicts all targets correctly, and each dot represents one
+model. Sometimes the model prediction is close to the ideal
+model prediction while sometimes it is far oﬀ.
+Source: Fortmann-Roe, Scott, Understanding the Bias-Variance Tradeoff, htt
+p://scott.fortmann-roe.com/docs/BiasVariance.html
+Figure 6.8: Understanding bias and variance
+Whereas bias measures how far oﬀ these model predictions are

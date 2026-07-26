@@ -1,0 +1,3033 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tài liệu Buổi 8 - AI Accounting</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .tab-container {
+            display: flex;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #ccc;
+        }
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-size: 16px;
+            font-weight: bold;
+            color: #555;
+            outline: none;
+        }
+        .tab:hover {
+            color: #000;
+        }
+        .tab.active {
+            color: #007bff;
+            border-bottom: 2px solid #007bff;
+            margin-bottom: -2px;
+        }
+        .content-area {
+            display: none;
+        }
+        .content-area.active {
+            display: block;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 15px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1 style="text-align: center; color: #333;">Tài liệu Buổi 8: Credit Scoring & AI Algorithmic Trading</h1>
+    
+    <div class="tab-container">
+        <button class="tab active" onclick="openTab('en-tab', this)">English (Bản gốc)</button>
+        <button class="tab" onclick="openTab('vi-tab', this)">Tiếng Việt (Bản dịch)</button>
+        <button class="tab" onclick="openTab('slide-tab', this)">Slide Bài Giảng</button>
+    </div>
+
+    <div id="en-tab" class="content-area active"></div>
+    <div id="vi-tab" class="content-area"></div>
+      <div id="slide-tab" class="content-area">
+          <iframe src="TaiLieu/slideAIAcc/Slide_AIAcc_Day08.pdf" width="100%" height="800px" style="border: none;"></iframe>
+      </div>
+</div>
+
+<script>
+    // Raw Markdown contents
+    const enMarkdown = `
+
+--- Page 124 ---
+
+101
+Pethuru Raj Chelliah, Pushan Kumar Dutta, Abhishek Kumar, Ernesto D.R. Santibanez Gonzalez, 
+Mohit Mittal and Sachin Gupta (eds.) Generative Artificial Intelligence in Finance: Large Language 
+Models, Interfaces, and Industry Use Cases to Transform Accounting and Finance Processes, 
+(101–124) © 2025 Scrivener Publishing LLC
+6
+Deep Diving into Financial Frauds via 
+Ad Click, Credit Card Management 
+and Document Dispensation in 
+E-Commerce Transactions
+Bhupinder Singh1*, Pushan Kumar Dutta2 and Christian Kaunert3
+1Sharda University, Greater Noida, India
+2Electronics and Communication Engineering Department at ASETK, 
+Amity University Kolkata, West Bengal, Kolkata, India
+3Dublin City University, Dublin, Ireland
+Abstract
+Financial fraud presents a significant peril to the banking and financial sector, 
+adversely impacting individuals, businesses, and entire economies. In recent 
+years, the integration of artificial intelligence (AI) and machine learning (ML) 
+techniques has emerged as a potent weapon against diverse forms of financial 
+fraud. The banking and financial sector as a cornerstone of modern economies 
+is undergoing a profound transformation due to the ascendancy of digital trans­
+actions. This shift has led to a surge in financial frauds, compelling a paradigm 
+shift in security protocols. The integration of advanced analytics, including anom­
+aly detection and pattern recognition, is scrutinized to unveil a robust defense 
+mechanism against the ever-evolving tactics employed by fraudulent actors in 
+the ad-click domain. Credit card management, being a perennial target for mali­
+cious activities, demands a sophisticated approach to fraud detection. This chapter 
+explores the AI-based document verification systems which emphasize their piv­
+otal role in securing transactions that hinge on authenticating documents such as 
+*Corresponding author: bhupindersinghlaw19@gmail.com; 
+ORCID: https://orcid.org/0009-0006-4779-2553
+Pushan Kumar Dutta: ORCID: https://orcid.org/0000-0002-4765-3864
+Christian Kaunert: Orcid ID: https://orcid.org/0000-0002-4493-2235
+
+
+--- Page 125 ---
+
+102  Generative Artificial Intelligence in Finance
+forged documentation, which is addressed through innovative solutions includ­
+ing the integration of blockchain technology with AI which not only enhances 
+security but also establishes an immutable ledger of transactions, mitigating risks 
+associated with document-based frauds.
+Keywords:  Ad clicks, artificial intelligence, credit card management, document 
+dispensation, financial frauds, e-commerce transactions
+6.1	 Introduction and Background
+The contemporary landscape of the banking and financial industry is 
+marked by an amalgamation of cutting-edge technologies and ever-­
+evolving complexities, underscoring the pressing need for innovative 
+solutions to combat a surge in sophisticated fraudulent activities [1]. This 
+chapter embarks on an ambitious exploration into the realms of artifi­
+cial intelligence (AI) and machine learning (ML) probing their intricate 
+interfaces to delineate strategies for capturing and vanquishing frauds [2]. 
+The focus is particularly sharpened on three pivotal dimensions: ad-click 
+fraud, credit card management fraud, and Document Dispensation Fraud 
+within the expansive domain of e-commerce transactions [3]. The trajec­
+tory of this research is firmly anchored in the historical evolution of finan­
+cial frauds which unravels the intricate narrative of how these activities 
+have evolved alongside technological advancements [4]. A robust literature 
+review will serve as a compass, guiding the exploration through the cur­
+rents of historical precedents and contemporary challenges [5].
+The journey then dives into the specific dimensions of ad-click fraud, 
+credit card management fraud, and document dispensation fraud. Each 
+section dissects the unique challenges posed by these frauds and scruti­
+nizes the role that AI and ML play in mitigating these challenges [6]. It 
+scrutinizes anomaly detection techniques powered by machine learning, 
+which prove instrumental in identifying subtle deviations from established 
+spending patterns [7]. This chapter is not merely a theoretical exercise but a 
+profound inquiry into the practical applications of advanced technologies 
+to safeguard the financial integrity of the digital age [8]. The subsequent 
+sections of this comprehensive chapter unfold a narrative that transcends 
+mere theoretical postulations, aiming to present a pragmatic blueprint for 
+the deployment of AI and ML as sentinels guarding the gateways of the 
+banking and financial industry against the insidious infiltration of fraudu­
+lent activities [9].
+
+
+--- Page 126 ---
+
+Deep Diving into Financial Frauds  103
+6.1.1	 Objectives of the Chapter
+This framework is for a comprehensive analysis of the interplay between 
+financial frauds and AI/ML solutions [10]. The study aims to contribute 
+to the body of knowledge in the field of financial security by providing 
+actionable insights and innovative strategies for enhancing fraud detection 
+and prevention in the banking and financial industry to:
+--
+comprehensively scrutinize the different types and methods 
+of financial fraud, with a specific focus on ad-click fraud, 
+credit card management fraud, and document dispensation 
+fraud within e-commerce transactions.
+--
+better understanding of the dynamics of financial fraud, the 
+chapter aims to identify and analyze the vulnerabilities in 
+the banking and financial sector that fraudsters exploit.
+--
+evaluate the current landscape of AI and ML applications in 
+the banking and financial industry, particularly in the con­
+text of fraud detection and prevention.
+--
+insights gained from the investigation, the research aims to 
+propose advanced AI and ML models that are specifically 
+tailored to combat financial fraud.
+6.1.2	 Significance of the Chapter
+This chapter holds paramount significance against the backdrop of a rap­
+idly digitizing financial ecosystem [11]. The banking and financial indus­
+try stands at the nexus of technological innovation and emerging threats, 
+and the study’s findings are poised to significantly contribute to the forti­
+fication of this sector against evolving fraudulent activities [12, 13]. The 
+specific focus on ad-click fraud, credit card management fraud, and docu­
+ment dispensation fraud not only reflects the relevance of these issues but 
+also underscores the imperative for targeted solutions [14, 15]. The signif­
+icance of this chapter falls in its potential to inform policy frameworks, 
+guide industry practices, and inspire further advancements in AI and ML 
+applications for financial security [16]. As the financial systems become 
+increasingly interconnected globally, the outcomes of this study could have 
+far-reaching implications for safeguarding economic interests and main­
+taining the trust and integrity of digital financial transactions [17].
+
+
+--- Page 127 ---
+
+104  Generative Artificial Intelligence in Finance
+6.2	 Ad-Click Fraud Detection in the Banking 
+and Financial Sectors
+Ad-click fraud detection is a critical aspect of safeguarding the integrity 
+and efficiency of online advertising ecosystems. Advertisers invest sub­
+stantial resources in digital campaigns to reach their target audience, mak­
+ing them susceptible to fraudulent activities that compromise the return 
+on investment. Ad-click fraud entails the deceptive manipulation of clicks 
+on online advertisements, often orchestrated by automated bots or indi­
+viduals aiming to exploit the pay-per-click (PPC) model. In order to coun­
+teract this threat, advanced AI solutions are essential [18]. ML algorithms 
+meticulously analyze extensive datasets, examining user behavior patterns, 
+click-through rates, and engagement metrics to pinpoint anomalies indic­
+ative of fraudulent activities. AI models employ real-time monitoring to 
+identify abrupt spikes in click volume or unusual geographic patterns. The 
+ongoing evolution of these detection mechanisms ensures the dynamic 
+and adaptive nature of ad-click fraud prevention, providing advertisers 
+with a robust defense against deceptive practices and fostering a more 
+trustworthy digital advertising environment [19].
+6.2.1	 Definition and Types of Ad-Click Fraud
+Ad-click fraud is the dishonest activity of creating fake clicks on inter­
+net ads with the intention of manipulating advertising analytics or taking 
+advantage of the PPC income model. Executed by either automated bots 
+or individuals, this fraudulent activity endeavors to artificially inflate click 
+counts, exhaust advertiser budgets, and undermine the effectiveness of 
+digital advertising campaigns [20]. This form of fraud presents a substan­
+tial challenge to the online advertising ecosystem, affecting advertisers, 
+publishers, and ad networks alike.
+Varieties of Ad-Click Fraud:
+Automated Bots:
+Definition: Automated bots, or scripts, are programmed to sim­
+ulate human behavior by interacting with ads. Deployed in 
+significant numbers, these bots generate a considerable vol­
+ume of deceptive clicks.
+
+
+--- Page 128 ---
+
+Deep Diving into Financial Frauds  105
+Challenges in Detection: Bots are evolving in sophistication, 
+posing difficulties in distinguishing between legitimate and 
+automated clicks.
+Click Farms:
+Definition: Click farms employ groups of individuals, often 
+in regions with lower labor costs, to manually click on ads. 
+These operations can be structured to produce large quanti­
+ties of fraudulent clicks.
+Challenges in Detection: Identifying click farms involves ana­
+lyzing click behavior patterns and IP addresses, with the 
+additional complexity that these operations often go to great 
+lengths to appear authentic.
+Competitor Clicks:
+Definition: Competitors may engage in click fraud to exhaust a 
+rival’s advertising budget, diminish campaign effectiveness, 
+or gain a competitive advantage.
+Challenges in Detection: Distinguishing between genuine user 
+interest and competitive interference is intricate, requiring 
+advanced analytics.
+Fraudulent Publishers:
+Definition: Unscrupulous publishers may click on ads on their 
+own websites to falsely boost revenue.
+Challenges in Detection: Identifying collusion between pub­
+lishers and fraudulent clicks involves scrutinizing traffic pat­
+terns and engagement metrics.
+Ad Stacking:
+Definition: Ad stacking happens when multiple ads are layered 
+in a single ad placement. While users may only see the top 
+ad, all ads in the stack register as clicks.
+Challenges in Detection: Detecting ad stacking necessitates ana­
+lyzing click-through rates and user engagement to uncover 
+discrepancies.
+
+
+--- Page 129 ---
+
+106  Generative Artificial Intelligence in Finance
+Mobile Ad Fraud:
+Definition: Fraudulent clicks on mobile ads can occur through 
+various means, including click injection, click spamming, or 
+the use of malicious apps.
+Challenges in Detection: Detecting mobile ad fraud requires 
+monitoring app behavior and analyzing click patterns spe­
+cific to mobile devices.
+Effectively addressing ad-click fraud involves a continuous refinement 
+of detection mechanisms, utilizing AI and ML to identify patterns, anom­
+alies, and other indicators of deceptive activity. This proactive approach is 
+indispensable for upholding the integrity of digital advertising ecosystems 
+and ensuring the fairness and efficacy of online marketing campaigns [21].
+6.2.2	 Data Sources and Features
+Data sources and features are fundamental elements in data-driven analy­
+sis and ML. Data sources refer to the origins of data, which can encompass 
+a wide range of repositories such as databases, web scraping, sensors, or 
+user-generated content [22]. These sources provide the raw material for 
+analysis and model development. These features are the specific attributes 
+or variables extracted from the data sources. They encapsulate the informa­
+tion used by ML algorithms to make predictions or classifications. Careful 
+selection and engineering of features are crucial as they directly impact the 
+model’s performance, emphasizing the importance of both data sources 
+and feature engineering in the data science workflow [23].
+6.2.3	 AI and ML Algorithms for Ad-Click Fraud Detection
+AI and ML algorithms have revolutionized ad-click fraud detection 
+by offering powerful tools to combat this pervasive issue in the digital 
+advertising landscape. These algorithms analyze massive datasets in real 
+time, identifying intricate patterns and anomalies in user behavior, click-
+through rates, and engagement metrics [24]. ML models, such as decision 
+trees, random forests, and deep neural networks, play a pivotal role in 
+learning from historical click data and adapting to evolving fraud tech­
+niques. Anomalous activity, like unusual spikes in click volume or patterns 
+that deviate from established norms, can be swiftly detected, raising red 
+flags for further investigation. AI-driven algorithms are instrumental in 
+differentiating genuine user interactions from fraudulent ones, thereby 
+
+
+--- Page 130 ---
+
+
+
+Deep Diving into Financial Frauds  107
+protecting advertisers from budget depletion and preserving the integrity 
+of online advertising [25].
+6.3	 Credit Card Management Fraud Detection
+Detecting credit card management fraud is a crucial aspect of ensuring 
+financial security in today’s digital age. The increasing prevalence of online 
+transactions and the continuous expansion of the e-commerce landscape 
+have substantially heightened the risk of credit card fraud. The sophistica­
+tion of credit card management fraud detection has advanced significantly, 
+relying heavily on cutting-edge technologies, particularly AI and ML algo­
+rithms. These algorithms are carefully crafted to examine huge amounts 
+of transaction data, actively looking for trends, oddities, and deviations 
+that might point to fraudulent behavior [26]. AI and ML models excel in 
+real-time monitoring of credit card transactions, swiftly identifying sus­
+picious behavior, such as large and out-of-character purchases, transac­
+tions in geographically unusual locations, or an unusually high volume 
+of transactions in a short timeframe. These models exhibit adaptability to 
+evolving fraud tactics, crucial in an environment where fraudsters contin­
+ually devise new schemes. A notable advantage of AI and ML in credit card 
+management fraud detection is their capacity to analyze historical data to 
+establish a baseline for normal cardholder behavior. This baseline serves as 
+a reference point to flag any deviations, whether it involves a sudden surge 
+in transaction frequency or a shift in spending habits [27].
+Beyond merely identifying potential fraud, credit card management 
+fraud detection also prioritizes minimizing false positives. AI and ML 
+algorithms are consistently improving in this aspect, empowering finan­
+cial institutions to reduce the number of legitimate transactions mistak­
+enly flagged as fraudulent. This not only enhances the user experience for 
+cardholders but also maintains a robust defense against fraud [28]. In the 
+modern financial landscape, credit card management fraud detection pow­
+ered by AI and ML proves indispensable. It offers a proactive and adapt­
+able approach to safeguarding credit cardholders from fraudulent activity 
+while minimizing disruptions to their legitimate transactions. As tech­
+nology continues to advance and fraudsters grow more sophisticated, the 
+role of AI and ML in credit card management fraud detection will remain 
+pivotal in protecting both consumers and financial institutions from the 
+ever-present threat of fraud [29].
+
+
+--- Page 131 ---
+
+108  Generative Artificial Intelligence in Finance
+6.3.1	 Data Sources and Features Concerning Credit Card 
+Management Fraud Detection
+Data sources are the streams of transaction data generated by credit card 
+usage in the context of credit card management fraud detection. These 
+sources include real-time transaction records, customer profiles, and his­
+torical data. Feature refers to the specific attributes extracted from this 
+data, such as transaction amounts, locations, time stamps, and cardholder 
+behavior. Efficient feature selection and engineering play a crucial role in 
+constructing precise fraud detection models. Through the analysis of these 
+features, ML algorithms can unveil patterns, anomalies, and deviations, 
+aiding in the identification of potentially fraudulent transactions and safe­
+guarding cardholders from financial loss [30].
+6.3.2	 AI and ML Algorithms for Credit Card Fraud Detection
+ML models, encompassing neural networks, decision trees, and ensem­
+ble methods, excel in learning from historical data to recognize typical 
+spending patterns and detect anomalies indicative of potential fraud [31]. 
+Through real-time monitoring, these models swiftly identify suspicious 
+transactions, such as unexpected large purchases, transactions in unusual 
+locations, or sudden shifts in spending habits. AI and ML algorithms play 
+a pivotal role in transforming credit card fraud detection, employing a 
+sophisticated and proactive approach to securing financial transactions. 
+These algorithms leverage extensive datasets of credit card transactions, 
+analyzing intricate patterns and real-time anomalies [32].
+The integration of AI and ML into credit card fraud detection not only 
+enhances the efficiency of identifying potential fraud but also reduces false 
+positives, ensuring a smoother experience for legitimate cardholders and 
+fortifying the security of financial transactions. As technology progresses 
+and fraud techniques become more advanced, the significance of AI and 
+ML algorithms in credit card fraud detection remains crucial for staying 
+ahead of potential threats and preserving the integrity of financial systems. 
+The adaptive nature of AI and ML is particularly beneficial, as these algo­
+rithms continually evolve to counter emerging fraud tactics. Moreover, 
+their capacity to consider multiple variables, such as transaction frequency, 
+location, and cardholder behavior, amplifies the accuracy of fraud deter­
+minations [33].
+
+
+--- Page 132 ---
+
+Deep Diving into Financial Frauds  109
+6.4	 Document Dispensation Fraud Detection 
+in E-Commerce Transactions
+Fraud through document manipulation in e-commerce transactions poses 
+a multifaceted challenge, carrying potential financial and legal ramifica­
+tions. This deceptive practice involves altering or fabricating documents 
+such as invoices, receipts, shipping orders, or other transaction-related 
+paperwork to deceive e-commerce platforms, retailers, or financial insti­
+tutions. Effectively identifying document dispensation fraud demands the 
+integration of advanced technological solutions and human oversight [34]. 
+Natural language processing (NLP) techniques are essential for examin­
+ing the textual content of documents in addition to AI and ML. They can 
+reveal linguistic inconsistencies or abnormalities that might point to fraud. 
+For instance, NLP approaches might reveal errors in product descriptions 
+or in the wording or layout of invoices. Despite the use of technology in 
+detecting document dispensation fraud, human interaction is still essential 
+[35].
+Human reviewers give the required context and judgment to make 
+decisions about document authenticity, assisted by insights from AI and 
+ML technologies. When abnormalities are found, they can also carry out 
+in-depth investigations, looking at transaction histories and related data to 
+help them decide whether the document is legitimate [36]. Detecting doc­
+ument dispensation fraud in e-commerce transactions is a complex and 
+interdisciplinary process. It requires the synergy of AI and ML algorithms 
+for image and text analysis, combined with human expertise to make 
+nuanced decisions based on context and experience. This collaborative 
+approach ensures a robust defense against fraudulent document manipu­
+lation, preserving the integrity of e-commerce transactions and upholding 
+the trust and security of online retail ecosystems [37].
+6.4.1	 AI and ML Algorithms for Document Dispensation 
+Fraud Detection
+Playing a pivotal role in the intricate task of detecting document dispensa­
+tion fraud in e-commerce, AI and ML algorithms contribute significantly 
+to pinpointing deceptive practices involving invoices, receipts, shipping 
+orders, and other transaction-related documents. These algorithms excel 
+in analyzing document images and meticulously scrutinizing the content 
+and structure for anomalies and inconsistencies indicative of fraudulent 
+manipulation [38]. AI-powered optical character recognition (OCR) 
+
+
+--- Page 133 ---
+
+110  Generative Artificial Intelligence in Finance
+systems extract and analyze text from document images, enabling cross-­
+referencing with transaction records. Inconsistencies in product descrip­
+tions, quantities, or prices, as well as other inconsistencies between 
+document information and real transaction data, are easily detected by ML 
+algorithms. AI algorithms can also find evidence of tampering like altered 
+document images or fake signatures [39].
+NLP algorithms are also essential in this situation. They examine the text 
+of documents to look for grammatical errors, linguistic trends, or other 
+textual irregularities that might indicate fraud. NLP algorithms reveal 
+inconsistencies or variances in language and structure by analyzing the text 
+and formatting of invoices, purchase receipts, or other documents [40]. 
+When working with enormous amounts of documents, the usefulness of 
+AI and ML technologies becomes very clear. They can automatically high­
+light documents that need more in-depth examination by human review­
+ers during the initial screening process. Armed with knowledge from the 
+algorithms, these reviewers weigh context, transaction history, and their 
+own experience when making judgments on the legitimacy of documents. 
+The security and trust of e-commerce ecosystems are maintained by this 
+cooperative effort between technology and human skill which guarantees a 
+strong defense against fraudulent document modification [41].
+6.5	 Cross-Domain Analysis: Frauds in Banking 
+and Financial Industry
+In fraud detection within the banking and financial industry, cross-domain 
+analysis involves amalgamating and scrutinizing data from diverse sources 
+to enhance the identification and prevention of fraudulent activities [42]. 
+The financial sector grapples with various forms of fraud, ranging from 
+credit card fraud and insider trading to identity theft. Adopting a cross-­
+domain analysis approach entails the fusion of data from different realms, 
+including transaction records, customer profiles, market data, and external 
+elements like economic indicators. Through the integration of these varied 
+datasets, financial institutions can attain a more comprehensive under­
+standing of fraudulent patterns, potentially uncovering early warning signs 
+that may not be apparent when examining each domain in isolation [43].
+The holistic strategy may involve dissecting transaction data alongside 
+customer behavior, blending insights from market fluctuations, and even 
+considering macroeconomic factors [44]. This comprehensive approach 
+
+
+--- Page 134 ---
+
+Deep Diving into Financial Frauds  111
+empowers banks and financial organizations to develop more sophisticated 
+fraud detection models. These models could uncover correlations between 
+external market conditions and spikes in certain types of fraudulent activi­
+ties or track patterns in customer behavior that could indicate identity theft 
+or account compromise. The fraudsters continually adapt their tactics, and 
+cross-domain analysis can be instrumental in creating more robust and 
+adaptive defenses in a rapidly evolving financial landscape. This approach 
+can lead to more proactive and effective strategies for mitigating fraud, 
+safeguarding financial institutions and their customers, and maintaining 
+the integrity of the broader financial ecosystem [45].
+6.5.1	 Commonalities and Differences in Fraud 
+Detection Techniques
+Commonalities and differences exist among various fraud detection 
+techniques. A commonality is their reliance on data analysis, where they 
+scrutinize patterns, anomalies, and deviations. ML and AI are frequently 
+employed in these techniques to enhance their accuracy. However, dif­
+ferences emerge in the data sources they utilize; for instance, credit card 
+fraud detection focuses on transaction data, whereas document dispensa­
+tion fraud detection centers on document content and images. The types 
+of fraud they target also vary and the algorithms and models used may be 
+tailored to specific fraud categories [46].
+6.5.2	 Transfer Learning and Knowledge Sharing 
+in Fraud Detection
+In the context of detecting fraud, transfer learning and information shar­
+ing are powerful concepts. The process of applying knowledge from one 
+domain or dataset to improve a model’s performance in another is known 
+as transfer learning [47]. This pertains to using insights and patterns dis­
+covered by detecting one type of fraud to enhance the detection of other 
+types in the field of fraud detection. The idea of information sharing broad­
+ens this strategy by enabling different models or systems to cooperate and 
+share their ideas, strengthening the group’s capacity to identify fraud more 
+successfully. Through the seamless adaptation and improvement of fraud 
+detection algorithms made possible by these methodologies, financial 
+institutions are better able to react quickly to new threats, thus improving 
+the security of financial transactions [48].
+
+
+--- Page 135 ---
+
+
+
+112  Generative Artificial Intelligence in Finance
+6.5.3	 Building a Unified Fraud Detection Model
+To create a comprehensive and adaptable system, an integrated fraud detec­
+tion model must be built by combining various data sources and fraud 
+detection techniques. This approach makes use of ML algorithms that can 
+spot trends in various forms of fraud, such as document manipulation, 
+identity theft, and credit card fraud [49]. Financial institutions obtain a 
+thorough understanding of potential dangers through the integration of 
+these models, enabling more accurate and effective fraud detection. This 
+integrated model has the capacity to learn from fresh data continuously, 
+responding to changing fraud strategies and offering a strong defense 
+against a wide range of fraudulent acts in the complex world of financial 
+transactions [50].
+6.6	 Ethical and Privacy Considerations: Frauds 
+in Banking and Financial Industry
+The banking and financial sector uses AI and ML to detect fraud, which is 
+definitely effective, but it also raises important ethical and privacy issues. 
+These technologies involve the analysis of extensive data, encompassing 
+sensitive customer information, transaction records, and behavioral pat­
+terns. Ensuring the ethical deployment of AI and ML in this context is par­
+amount. A primary concern is the potential for misuse and intrusion into 
+individual privacy [51]. While the effective detection of financial fraud 
+necessitates the analysis of personal data by AI and ML algorithms, there 
+exists a delicate balance between utilizing data for security and infringing 
+upon privacy. Achieving this equilibrium is challenging, as excessive data 
+collection and storage can encroach upon individual rights. It is crucial to 
+recognize that AI and ML algorithms are not immune to biases present in 
+their training data. This can lead to unintentional discrimination or unfair 
+profiling of certain groups or individuals. It is crucial to continuously mon­
+itor and rectify these biases to maintain fairness in fraud detection [52].
+Transparency and explainability emerge as ethical imperatives. It is cru­
+cial to comprehend how AI and ML models arrive at decisions, particularly 
+when such decisions carry substantial financial and legal implications [53]. 
+The ability to audit these technologies and elucidate their decision-making 
+processes is indispensable for establishing trust. In tackling these ethical 
+and privacy concerns, it becomes imperative to implement robust regula­
+tory frameworks, stringent data protection policies, and responsible prac­
+tices in the development of AI. Striking a balance between security and 
+
+
+--- Page 136 ---
+
+Deep Diving into Financial Frauds  113
+individual rights is the key to fostering trust in the use of AI and ML for 
+fraud detection within the banking and financial sector while upholding 
+privacy and ethical standards [54].
+6.6.1	 Data Privacy and Security
+Data privacy and security are paramount in the realm of financial trans­
+actions and fraud detection. Ensuring the confidentiality and integrity of 
+sensitive data, such as customer information and transaction records, is not 
+only a legal requirement but a fundamental aspect of trust in the financial 
+industry. To protect this data from unauthorized access or breaches, it is 
+imperative to implement rigorous security measures, encryption protocols, 
+and access controls [55]. Equally crucial is the establishment of a robust 
+privacy policy that apprises customers about the handling of their data, fos­
+tering transparency and trust. In the realm of AI and ML responsible data 
+management is vital to achieving a delicate equilibrium between security 
+and the ethical deployment of technology. Financial institutions must con­
+sistently update and modify their privacy and security protocols to effec­
+tively address emerging threats and adhere to evolving regulations [56].
+6.6.2	 Bias and Fairness in AI/ML Models
+Issues of bias and fairness hold significant importance in AI/ML models, 
+particularly in applications such as fraud detection within the banking and 
+financial industry. Bias can inadvertently seep into models through skewed 
+training data, leading to unfair outcomes that disproportionately impact 
+certain groups or individuals [57]. Fairness in AI entails ensuring that 
+the predictions made by the model are unbiased and do not discriminate 
+based on demographic, ethnic, or socioeconomic factors. Tackling these 
+challenges requires rigorous testing, validation, and continuous monitor­
+ing to detect and mitigate bias. Prioritizing fairness enables financial insti­
+tutions to construct more equitable and reliable AI/ML models that make 
+impartial decisions within the intricate realm of fraud detection [58].
+6.6.3	 Regulatory Compliance
+The financial sector operates under strict regulations, encompassing anti-
+money laundering (AML), know-your-customer (KYC) rules, the Payment 
+Card Industry Data Security Standard (PCI DSS), and more. These regu­
+lations are crafted to guarantee the security of financial transactions, safe­
+guard consumers, and uphold the integrity of the financial system. For 
+
+
+--- Page 137 ---
+
+114  Generative Artificial Intelligence in Finance
+financial institutions employing AI and ML models in fraud detection, 
+navigating the nuances of regulatory compliance is imperative. They must 
+demonstrate that their systems align with these regulatory requirements, 
+particularly concerning the handling of sensitive customer data [59]. 
+Transparency, accuracy, and auditability of AI/ML models become piv­
+otal, as regulatory bodies demand insight into decision-making processes. 
+Compliance extends to ethical considerations, with regulators increas­
+ingly expecting financial institutions to address the ethical implications of 
+deploying AI in fraud detection. This involves ensuring fairness, transpar­
+ency, and accountability in the model’s operations, addressing issues such 
+as bias, discrimination, and the responsible use of AI [60].
+In this regulatory landscape, financial organizations must invest in robust 
+governance, risk management, and compliance (GRC) programs. These 
+programs aid in developing AI and ML models that not only excel in fraud 
+detection but also align with the ever-evolving legal and ethical require­
+ments, ensuring the security of financial transactions and the protection of 
+individual rights. Failure to do so can result in substantial penalties and rep­
+utational damage, making regulatory compliance a top priority in the imple­
+mentation of AI and ML for fraud detection in the financial sector.
+6.7	 Advancements in AI/ML Techniques
+Advancements in AI and ML techniques have significantly transformed 
+the landscape of fraud detection in the banking and financial industry. 
+These technologies have evolved rapidly, offering enhanced capabilities 
+that empower financial institutions to stay ahead of increasingly sophis­
+ticated fraudsters. The advancement is the transition from rule-based 
+systems to ML algorithms [61]. Traditional rule-based approaches were 
+limited in their ability to adapt to new fraud patterns. In contrast, ML 
+models are dynamic and can continuously learn from data, recognizing 
+both known and emerging fraud tactics. The adoption of deep learning 
+techniques, like neural networks, has further improved the accuracy and 
+complexity of fraud detection models, enabling them to identify intricate 
+patterns and anomalies [62].
+AI and ML advancements have ushered in the era of predictive analytics 
+because these models can now forecast potential fraud patterns based on 
+historical data, allowing financial institutions to proactively prevent fraud­
+ulent activities. Predictive models can identify outliers, detect anomalies, 
+and trigger alerts for further investigation, reducing false positives and 
+enhancing the overall efficiency of fraud detection [63].
+
+
+--- Page 138 ---
+
+Deep Diving into Financial Frauds  115
+The introduction of explainable AI and transparent decision-making 
+is another noteworthy development. As AI and ML models have become 
+more complex, the need for clear explanations for their decisions has 
+grown. Interpretability in AI models is vital not only for building trust 
+but also for compliance with regulatory and ethical standards [64]. As a 
+result, models are now designed to provide comprehensible explanations 
+for their fraud detection decisions, allowing financial institutions to under­
+stand and audit their operations more effectively. The ongoing refinement 
+of algorithms, the incorporation of big data and cloud computing, and the 
+integration of behavioral analytics and biometrics will continue to drive 
+innovation in the industry [65].
+6.7.1	 Blockchain and Distributed Ledger Technology
+Blockchain and distributed ledger technology (DLT) are assuming an 
+increasingly pivotal role in fraud detection within the banking and finan­
+cial industry. These technologies present an immutable, transparent, and 
+decentralized approach to record-keeping, making it exceptionally ardu­
+ous for fraudsters to manipulate transaction data. By furnishing a secure 
+and tamper-resistant ledger, blockchain and DLT significantly augment 
+the integrity of financial transactions [66]. The incorporation of smart 
+contracts, a feature of blockchain, allows for the automation of fraud 
+prevention measures and an enhancement of transaction security. While 
+blockchain and DLT do not serve as standalone solutions, they comple­
+ment AI and ML techniques by furnishing a robust and trustworthy foun­
+dation for fraud detection and prevention in the financial sector [67].
+6.7.2	 Explainable AI for Fraud Detection
+Explainable AI is gaining traction in the realm of fraud detection within 
+the banking and financial industry. As AI and ML models become more 
+intricate, there is an escalating demand to comprehend and interpret the 
+underlying logic behind their decisions [68]. Explainable AI delivers trans­
+parent and understandable explanations for these decisions, empowering 
+financial institutions to not only identify fraud but also comprehend the 
+reasons why specific transactions are identified as fraudulent. This transpar­
+ency plays a crucial role in fostering trust, ensuring regulatory compliance, 
+and addressing concerns related to bias and discrimination. Explainable 
+AI enhances the efficacy of fraud detection by facilitating human oversight 
+and enabling more informed decision-making [69].
+
+
+--- Page 139 ---
+
+116  Generative Artificial Intelligence in Finance
+6.8	 Challenges and Risks
+Implementing AI and ML for fraud detection in the banking and financial 
+industry presents several challenges and risks. One major challenge is the 
+constantly evolving nature of fraud tactics. Fraudsters continuously adapt 
+and develop new techniques, making it necessary for AI and ML models to 
+keep pace [70]. Staying ahead of emerging threats requires ongoing model 
+refinement and the ability to detect novel fraud patterns. AI and ML mod­
+els, while highly accurate, are not infallible, and misclassifying legitimate 
+transactions as fraudulent or failing to identify actual fraud can lead to 
+financial losses and customer dissatisfaction [71].
+Biasness in AI model biased training data can result in discriminatory 
+or unfair outcomes, disproportionately affecting certain groups. Ensuring 
+fairness in AI is essential, and addressing bias through data preprocess­
+ing and model calibration is crucial. Data privacy is an ongoing concern 
+[72]. Handling sensitive customer information and transaction data neces­
+sitates robust privacy and security measures to protect against breaches 
+or unauthorized access. Ensuring that data are used in a compliant and 
+ethical manner is a priority. Explainability and transparency are crucial. 
+Understanding how AI and ML models arrive at their decisions is essential 
+for building trust. The “black-box” nature of some models can be a barrier, 
+and financial institutions must invest in techniques that allow for model 
+interpretability and auditability [73].
+6.8.1	 Model Robustness and Adversarial Attacks
+The banking industry must ensure the resilience of AI and ML models 
+for fraud detection, and potential adversarial assaults must be given top 
+priority. Adversarial attacks intentionally alter data or input to deceive the 
+model, resulting in incorrect classifications and possible security breaches 
+[74]. Continuous testing and validation are necessary to identify weak­
+nesses and reinforce AI models against such attacks. This entails creating 
+systems that can survive malicious input while also continuously improv­
+ing fraud detection algorithms to fend off new dangers. The cornerstone of 
+protecting the financial sector from fraud is model robustness, which also 
+supports the dependability and credibility of AI and ML systems [75].
+6.8.2	 Scalability and Computational Resources
+The potential of AI and ML models to detect fraud on a large scale offers 
+both benefits and challenges. To support real-time fraud detection, there 
+
+
+--- Page 140 ---
+
+
+
+Deep Diving into Financial Frauds  117
+is an increasing requirement for computational resources and processing 
+power as transaction volumes rise. Making significant infrastructure and 
+computational resource investments is necessary to solve this scaling prob­
+lem [76]. It is essential to speed up and optimize models for efficiency in 
+order to handle the growing data flow. The scalability of AI and ML systems 
+is another important opportunity. Scaling makes it possible to accommo­
+date more information and complexity, which can improve the precision 
+and potency of fraud detection. This potential for scaling results in the 
+creation of more reliable and adaptable models that can address new fraud 
+trends in the ever-changing financial industry [77].
+6.8.3	 Evolving Nature of Fraud
+Systems for detecting fraud have a perpetual challenge since the fraud 
+landscape is constantly changing [78]. Fraudsters continuously refine their 
+tactics, employing increasingly sophisticated methods to exploit vulnera­
+bilities in the financial system [79, 80]. Ranging from conventional credit 
+card fraud to more intricate forms such as identity theft and document 
+manipulation, fraud manifests in diverse guises. The advent of digital plat­
+forms and e-commerce has furnished fraudsters with new avenues for 
+deception [81]. To counteract this, AI and ML models must maintain a 
+dynamic nature, adapting to identify emerging fraud patterns and remain­
+ing proactive in staying ahead of evolving threats within the perpetually 
+changing landscape of financial fraud [82].
+6.9	 Conclusion and Future Scope
+The application of AI and ML in fraud detection within the banking and 
+financial industry represents a significant advancement in bolstering secu­
+rity and operational efficiency. These technologies have proven invaluable 
+for identifying and mitigating fraudulent activities, allowing financial insti­
+tutions to respond promptly to emerging threats in real time. Nonetheless, 
+this progress comes with its set of challenges. Adapting continuously to 
+evolving fraud tactics, mitigating potential risks such as bias and adversar­
+ial attacks, and strictly adhering to a dynamic legal and regulatory land­
+scape are imperative for the responsible and effective use of AI and ML in 
+this domain. AI and ML models are poised for a promising future in the 
+field of fraud detection. The rapid evolution of technology is likely to result 
+in more advanced and adaptive systems capable of not only identifying 
+known fraud patterns but also proactively anticipating emerging threats. 
+
+
+--- Page 141 ---
+
+118  Generative Artificial Intelligence in Finance
+These systems will harness the power of predictive analytics and anom­
+aly detection to continuously enhance their capabilities. The future also 
+holds potential for closer collaboration between financial institutions and 
+regulatory bodies. A collaborative effort to establish best practices, share 
+knowledge, and implement robust governance measures can elevate the 
+overall effectiveness and trustworthiness of AI and ML in fraud detection. 
+As technology continues to advance, the financial industry can leverage AI 
+and ML to stay ahead of the ever-evolving landscape of fraudulent activi­
+ties while maintaining the integrity of financial transactions.
+References
+	 1.	 Adewumi, A.O. and Akinyelu, A.A., A survey of machine-learning and 
+nature-inspired based credit card fraud detection techniques. Int. J. Syst. 
+Assur. Eng. Manage., 8, 937–953, 2017.
+	 2.	 Ahmed, S., Alshater, M.M., El Ammari, A., Hammami, H., Artificial intelli­
+gence and machine learning in finance: A bibliometric review. Res. Int. Bus. 
+Finance, 61, 101646, 2022.
+	 3.	 Alghofaili, Y., Albattah, A., Rassam, M.A., A financial fraud detection model 
+based on LSTM deep learning technique. J. Appl. Secur. Res., 15, 4, 498–516, 
+2020.
+	 4.	 Ali, A., Abd Razak, S., Othman, S.H., Eisa, T.A.E., Al-Dhaqm, A., Nasser, M., 
+Saif, A., Financial fraud detection based on machine learning: a systematic 
+literature review. Appl. Sci., 12, 19, 9637, 2022.
+	 5.	 Ashfaq, T., Khalid, R., Yahaya, A.S., Aslam, S., Azar, A.T., Alsafari, S., 
+Hameed, I.A., A machine learning and blockchain based efficient fraud 
+detection mechanism. Sensors, 22, 19, 7162, 2022.
+	 6.	 Awotunde, J.B., Misra, S., Ayeni, F., Maskeliūnas, R., Damasevičius, R., 
+Artificial intelligence based system for bank loan fraud prediction, in: 
+International Conference on Hybrid Intelligent Systems, pp. 463–472, Springer, 
+Cham, December 2021.
+	 7.	 Aziz, S. and Dowling, M.M., AI and machine learning for risk management, 
+in: Disrupting Finance: FinTech and Strategy in the 21st Century, T. Lynn, 
+G. Mooney, P. Rosati, M. Cummins (Eds.), pp. 33–50, Palgrave, UK, 2018.
+	 8.	 Bhasin, M.L., Menace of frauds in the Indian banking industry: an empirical 
+study. Aust. J. Bus. Manage. Res., 4, 12, 45, 2015.
+	 9.	 Bhatore, S., Mohan, L., Reddy, Y.R., Machine learning techniques for credit 
+risk evaluation: a systematic literature review. J. Bank. Financ. Technol., 4, 
+111–138, 2020.
+	 10.	 Biswas, A., Deol, R.S., Jha, B.K., Jakka, G., Suguna, M.R., Thomson, B.I., 
+Automated Banking Fraud Detection for Identification and Restriction 
+of Unauthorised Access in Financial Sector, in: 2022 3rd International 
+
+
+--- Page 142 ---
+
+Deep Diving into Financial Frauds  119
+Conference on Smart Electronics and Communication (ICOSEC), IEEE, 
+pp. 809–814, October 2022.
+	 11.	 Błaszczyński, J., de Almeida Filho, A.T., Matuszyk, A., Szeląg, M., Słowiński, 
+R., Auto loan fraud detection using dominance-based rough set approach 
+versus machine learning methods. Expert Syst. Appl., 163, 113740, 2021.
+	 12.	 Bose, I. and Mahapatra, R.K., Business data mining—a machine learning 
+perspective. Inf. Manage., 39, 3, 211–225, 2001.
+	 13.	 Dalal, S., Seth, B., Radulescu, M., Secara, C., Tolea, C., Predicting fraud 
+in financial payment services through optimized hyper-parameter-tuned 
+XGBoost model. Mathematics, 10, 24, 4679, 2022.
+	 14.	 Goodell, J.W., Kumar, S., Lim, W.M., Pattnaik, D., Artificial intelligence and 
+machine learning in finance: Identifying foundations, themes, and research 
+clusters from bibliometric analysis. J. Behav. Exp. Finance, 32, 100577, 2021.
+	 15.	 Hajek, P. and Henriques, R., Mining corporate annual reports for intelli­
+gent detection of financial statement fraud–A comparative study of machine 
+learning methods. Knowl.-Based Syst., 128, 139–152, 2017.
+	 16.	 Hasan, I. and Rizvi, S.A.M., AI-driven fraud detection and mitigation in 
+e-commerce transactions, in: Proceedings of Data Analytics and Management: 
+ICDAM 2021, Volume 1, Springer, Singapore, pp. 403–414, 2022.
+	 17.	 Kaur, D.N., Sahdev, S.L., Sharma, D.M., Siddiqui, L., Banking 4.0: ‘the influ­
+ence of artificial intelligence on the banking industry & how ai is changing 
+the face of modern day banks’. Int. J. Manage., 11, 6, 11–15, 2020.
+	 18.	 Kurshan, E., Shen, H., Yu, H., Financial crime & fraud detection using graph 
+computing: Application considerations & outlook, in: 2020 Second Inter­
+national Conference on Transdisciplinary AI (TransAI), IEEE, pp. 125–130, 
+September 2020.
+	 19.	 Kute, D.V., Pradhan, B., Shukla, N., Alamri, A., Deep learning and explain­
+able artificial intelligence techniques applied for detecting money launder­
+ing–a critical review. IEEE Access, 9, 82300–82317, 2021.
+	 20.	 Lei, X., Mohamad, U.H., Sarlan, A., Shutaywi, M., Daradkeh, Y.I., Mohammed, 
+H.O., Development of an intelligent information system for financial analysis 
+depend on supervised machine learning algorithms. Inf. Process. Manage., 
+59, 5, 103036, 2022.
+	 21.	 Leo, M., Sharma, S., Maddulety, K., Machine learning in banking risk man­
+agement: A literature review. Risks, 7, 1, 29, 2019.
+	 22.	 Lokanan, M., Tran, V., Vuong, N.H., Detecting anomalies in financial state­
+ments using machine learning algorithm: The case of Vietnamese listed 
+firms. Asian J. Account. Res., 4, 2, 181–201, 2019.
+	 23.	 Mahalakshmi, V., Kulkarni, N., Kumar, K.P., Kumar, K.S., Sree, D.N., Durga, 
+S., The Role of implementing Artificial Intelligence and Machine Learning 
+Technologies in the financial services Industry for creating Competitive 
+Intelligence. Mater. Today Proc., 56, 2252–2255, 2022.
+	 24.	 Meghani, K., Use of artificial intelligence and Blockchain in banking sector: A 
+study of scheduled commercial banks in India. Indian J. Appl. Res., 10, 45–55, 
+2020.
+
+
+--- Page 143 ---
+
+120  Generative Artificial Intelligence in Finance
+	 25.	 Mirza, N., Elhoseny, M., Umar, M., Metawa, N., Safeguarding FinTech 
+innovations with Machine Learning: Comparative Assessment of Various 
+Approaches. Res. Int. Bus. Finance, 1, 102009, 2023.
+	 26.	 Nazeer, I., Prasad, K.D.V., Bahadur, P., Bapat, V., MJ, K., Synchronization of 
+AI and Deep Learning for Credit Card Fraud Detection. Int. J. Intell. Syst. 
+Appl. Eng., 11, 5s, 52–59, 2023.
+	 27.	 Nguyen, T.T., Tahir, H., Abdelrazek, M., Babar, A., Deep learning methods 
+for credit card fraud detection, 2020, arXiv preprint arXiv:2012.03754.
+	 28.	 Paruchuri, H., Credit Card Fraud Detection using Machine Learning: A 
+Systematic Literature Review. ABC J. Adv. Res., 6, 2, 113–120, 2017.
+	 29.	 Roy, A., Sun, J., Mahoney, R., Alonzi, L., Adams, S., Beling, P., Deep learning 
+detecting fraud in credit card transactions, in: 2018 Systems and Information 
+Engineering Design Symposium (SIEDS), IEEE, pp. 129–134, April 2018.
+	 30.	 Ryman-Tubb, N.F., Krause, P., Garn, W., How Artificial Intelligence and 
+machine learning research impacts payment card fraud detection: A survey 
+and industry benchmark. Eng. Appl. Artif. Intell., 76, 130–157, 2018.
+	 31.	 Sadgali, I., Sael, N., Benabbou, F., Performance of machine learning tech­
+niques in the detection of financial frauds. Procedia Comput. Sci., 148, 45–54, 
+2019.
+	 32.	 Sen, J., Sen, R., Dutta, A., Introductory Chapter: Machine Learning in 
+Finance-Emerging Trends and Challenges, in: Algorithms, Models and 
+Applications, p. 1, 2021.
+	 33.	 Sharma, A. and Singh, B., Measuring Impact of E-commerce on Small Scale 
+Business: A Systematic Review. JCGIBL, 5, 1, 75, 2022.
+	 34.	 Singh, B., Understanding Legal Frameworks Concerning Transgender 
+Healthcare in the Age of Dynamism. Electron. J. Soc. Strateg. Stud., 3, 56–65, 
+2022.
+	 35.	 Singh, B., Blockchain Technology in Renovating Healthcare: Legal and Future 
+Perspectives, in: Revolutionizing Healthcare Through Artificial Intelligence 
+and Internet of Things Applications, pp. 177–186, IGI Global, USA, 2023.
+	 36.	 Singh, B., Federated Learning for Envision Future Trajectory Smart Transport 
+System for Climate Preservation and Smart Green Planet: Insights into 
+Global Governance and SDG-9 (Industry, Innovation and Infrastructure). 
+Natl. J. Environ. Law, 6, 2, 6–17, 2023.
+	 37.	 Singh, C., Pattanayak, D., Dixit, D., Antony, K., Agarwala, M., Kant, R., 
+Mathur, V., Frauds in the Indian banking industry. IIM Bangalore Research 
+Paper, (505), 2016.
+	 38.	 Singla, A. and Jangir, H., A comparative approach to predictive analytics 
+with machine learning for fraud detection of realtime financial data, in: 2020 
+International Conference on Emerging Trends in Communication, Control and 
+Computing (ICONC3), IEEE, pp. 1–4, February 2020.
+	 39.	 Sood, P. and Bhushan, P., A structured review and theme analysis of financial 
+frauds in the banking industry. Asian J. Bus. Ethics, 9, 305–321, 2020.
+
+
+--- Page 144 ---
+
+Deep Diving into Financial Frauds  121
+	 40.	 Stojanovic, B., Božić, J., Hofer-Schmitz, K., Nahrgang, K., Weber, A., Badii, 
+A., Runevic, J., Follow the trail: Machine learning for fraud detection in 
+Fintech applications. Sensors, 21, 5, 1594, 2021.
+	 41.	 Taiwo, J.N., Babajide, A., Isibor, A.A., Growth of bank frauds and the impact 
+on the Nigerian banking industry. J. Bus. Manage. Econ., 4, 12, 2016.
+	 42.	 Thekkethil, M.S., Shukla, V.K., Beena, F., Chopra, A., Robotic process auto­
+mation in banking and finance sector for loan processing and fraud detec­
+tion, in: 2021 9th International Conference on Reliability, Infocom Technologies 
+and Optimization (Trends and Future Directions)(ICRITO), IEEE, pp. 1–6, 
+September 2021.
+	 43.	 Thennakoon, A., Bhagyani, C., Premadasa, S., Mihiranga, S., Kuruwitaarachchi, 
+N., Real-time credit card fraud detection using machine learning, in: 2019 9th 
+International Conference on Cloud Computing, Data Science & Engineering 
+(Confluence), IEEE, pp. 488–493, January 2019.
+	 44.	 Verma, J., Application of Machine Learning for Fraud Detection–A Decision 
+Support System in the Insurance Sector, in: Big Data Analytics in the Insurance 
+Market, Emerald Publishing Limited, pp. 251–262, 2022.
+	 45.	 Mamela, T.L., Assessment of the impact of artificial intelligence on the perfor­
+mance of the workforce at a South African banking institution, University of 
+Johannesburg, South Africa, 2021.
+	 46.	 Ullah, K., Rashid, I., Afzal, H., Iqbal, M.M.W., Bangash, Y.A., Abbas, H., SS7 
+vulnerabilities—a survey and implementation of machine learning vs rule 
+based filtering for detection of SS7 network attacks. IEEE Commun. Surv. 
+Tutorials, 22, 2, 1337–1371, 2020.
+	 47.	 Rodgers, W., Artificial intelligence in a throughput model: Some major algo­
+rithms, CRC Press, US, 2020.
+	 48.	 Sarveshwaran, V., Chen, J.I.Z., Pelusi, D. (Eds.), Artificial Intelligence and 
+Cyber Security in Industry 4.0, Springer Nature, Singapore, 2023.
+	 49.	 Mandal, J.K., Misra, S., Banerjee, J.S., Nayak, S. (Eds.), Applications of Machine 
+Intelligence in Engineering: Proceedings of 2nd Global Conference on Artificial 
+Intelligence and Applications (GCAIA, 2021), Jaipur, India, September 8-10, 
+2021, CRC Press, US, 2022.
+	 50.	 Lee, K.F. and Qiufan, C., AI 2041: Ten visions for our future, Currency, US, 2021.
+	 51.	 Leach, N., Architecture in the age of artificial intelligence, Bloomsbury 
+Publishing, US, 2021.
+	 52.	 Chamola, V., Hassija, V., Gupta, V., Guizani, M., A comprehensive review of 
+the COVID-19 pandemic and the role of IoT, drones, AI, blockchain, and 5G 
+in managing its impact. IEEE Access, 8, 90225–90265, 2020.
+	 53.	 Sarkar, A. and Singh, B.K., A review on performance, security and various 
+biometric template protection schemes for biometric authentication systems. 
+Multimed. Tools Appl., 79, 27721–27776, 2020.
+	 54.	 Paget-Wilkes, M., Things Fall Apart?: The Mission of God and the Third 
+Decade, Wipf and Stock Publishers, US, 2020.
+
+
+--- Page 145 ---
+
+
+
+122  Generative Artificial Intelligence in Finance
+	 55.	 Komporozos-Athanasiou, A., Speculative communities: Living with uncer­
+tainty in a financialized world, University of Chicago Press, US, 2022.
+	 56.	 Suarez-Villa, L., Technology and Oligopoly Capitalism, Taylor & Francis, US, 
+2023.
+	 57.	 Crary, J., Scorched earth: Beyond the digital age to a post-capitalist world, 
+Verso Books, US, 2022.
+	 58.	 Bhatore, S., Mohan, L., Reddy, Y.R., Machine learning techniques for credit 
+risk evaluation: A systematic literature review. J. Bank. Financ. Technol., 4, 
+111–138, 2020.
+	 59.	 Almazroi, A.A. and Ayub, N., Online Payment Fraud Detection Model Using 
+Machine Learning Techniques. IEEE Access, 11, 137188–137203, 2023.
+	 60.	 Gill, M.A., Quresh, M., Rasool, A., Hassan, M.M., Detection of credit card 
+fraud through machine learning in banking industry. J. Comput. Biomed. 
+Inf., 5, 01, 273–282, 2023.
+	 61.	 Lacruz, F. and Saniie, J., Applications of machine learning in fintech credit 
+card fraud detection, in: 2021 IEEE International Conference on Electro 
+Information Technology (EIT), IEEE, pp. 1–6, May 2021.
+	 62.	 Khan, H.U., Malik, M.Z., Alomari, M.K.B., Khan, S., Al-Maadid, A.A.S., 
+Hassan, M.K., Khan, K., Transforming the Capabilities of Artificial 
+Intelligence in GCC Financial Sector: A Systematic Literature Review. Wirel. 
+Commun. Mobile Comput., 2022, 2022.
+	 63.	 Saeed, A. and Ebrahim, H., The Intersection of Machine Learning, Artificial 
+Intelligence, and Big Data, in: Big Data Computing, pp. 111–131, CRC Press, 
+US, 2024.
+	 64.	 Bahoo, S., Cucculelli, M., Goga, X., Mondolo, J., Artificial intelligence in 
+Finance: a comprehensive review through bibliometric and content analysis. 
+SN Bus. Econ., 4, 2, 23, 2024.
+	 65.	 Hassan, M.A.M., Sardar, T.H., Fahim, M.F.H., Mohamed, M.S., Suleyman, 
+R.M., Usman, M.M., Artificial Intelligence and Deep Learning Applications 
+on Big Data Computing Frameworks, in: Big Data Computing, pp. 196–211, 
+CRC Press, 2024.
+	 66.	 Spreitzenbarth, J.M., Bode, C., Stuckenschmidt, H., Artificial intelligence and 
+machine learning in purchasing and supply management: A mixed-meth­
+ods review of the state-of-the-art in literature and practice. J. Purch. Supply 
+Manage., 100896, 2024.
+	 67.	 Gera, R., Chadha, P., Saxena, A., Dixit, S., A Scientometric and Bibliometric 
+Review of Impacts and Application of Artificial Intelligence and Fintech for 
+Financial Inclusion, in: Artificial Intelligence, Fintech, and Financial Inclusion, 
+pp. 82–111, CRC Press, US, 2024.
+	 68.	 Pahsa, A., Financial technology decision support systems. J. Electr. Syst. Inf. 
+Technol., 11, 1, 5, 2024.
+	 69.	 Hashid, A. and Almaqtari, F.A., The Impact of Artificial Intelligence and 
+Industry 4.0 on Transforming Accounting and Auditing Practices. J. Open 
+Innov. Technol. Mark. Complex., 100218, 2024.
+
+
+--- Page 146 ---
+
+Deep Diving into Financial Frauds  123
+	 70.	 Rawat, R., Chakrawarti, R.K., Sarangi, S.K., Vyas, P., Alamanda, M.S., 
+Srividya, K., Sankaran, K.S. (Eds.), Conversational Artificial Intelligence, John 
+Wiley & Sons, US, 2024.
+	 71.	 Zhu, H., Vigren, O., Söderberg, I.L., Implementing artificial intelligence 
+empowered financial advisory services: A literature review and critical 
+research agenda. J. Bus. Res., 174, 114494, 2024.
+	 72.	 Buttar, A.M., Shahzad, F., Jamil, U., Conversational AI: Security Features, 
+Applications, and Future Scope at Cloud Platform, in: Conversational 
+Artificial Intelligence, pp. 31–58, 2024.
+	 73.	 Hassija, V., Chamola, V., Mahapatra, A., Singal, A., Goel, D., Huang, K., 
+Scardapane, S., Spinelli, I., Mahmud, M., Hussain, A., Interpreting black-box 
+models: a review on explainable artificial intelligence. Cognit. Comput., 16, 1, 
+45–74, 2024.
+	 74.	 Ahmad, A.Y.B., Tiwari, A., Nayeem, M.A., Biswal, B.K., Satapathy, D.P., 
+Kulshreshtha, K., Bordoloi, D., Artificial Intelligence Perspective Framework 
+of the Smart Finance and Accounting Management Model. Int. J. Intell. Syst. 
+Appl. Eng., 12, 4s, 586–594, 2024.
+	 75.	 Chadha, P., Gera, R., Khera, G.S., Sharma, M., Challenges of Artificial 
+Intelligence Adoption for Financial Inclusion, in: Artificial Intelligence, 
+Fintech, and Financial Inclusion, pp. 135–160, CRC Press, 2024.
+	 76.	 Anwar, T., Khan, G.A., Ashraf, Z., Ansari, Z.A., Ahmed, R., Azrour, M., The 
+Combination of Blockchain and the Internet of Things (IoT): Applications, 
+Opportunities, and Challenges for Industry, in: Blockchain and Machine 
+Learning for IoT Security, pp. 56–76, 2024.
+	 77.	 Musa, A., The role of artificial intelligence in achieving auditing quality for 
+small and medium enterprises in the Kingdom of Saudi Arabia. Int. J. Data 
+Netw. Sci., 8, 2, 835–844, 2024.
+	 78.	 Blanuša, J., Baraja, M.C., Anghel, A., von Niederhäusern, L., Altman, E., 
+Pozidis, H., Atasu, K., Graph Feature Preprocessor: Real-time Extraction 
+of Subgraph-based Features from Transaction Graphs, 2024, arXiv preprint 
+arXiv:2402.08593.
+	 79.	 Broby, D. and Murphy, C., A Curriculum for the Body of Knowledge in Open 
+Finance, 2024.
+	 80.	 Renda, A., Governance, government records, and the policymaking process 
+aided by AI, in: Handbook of Artificial Intelligence at Work, pp. 291–313, 
+Edward Elgar Publishing, US, 2024.
+	 81.	 Wilkinson, D., Christie, A., Tarr, A.A., Tarr, J.A., Big Data, Artificial 
+Intelligence and Insurance, in: The Global Insurance Market and Change, 
+pp. 22–46, Informa Law from Routledge, US, 2024.
+	 82.	 Nallakaruppan, M.K., Balusamy, B., Shri, M.L., Malathi, V., Bhattacharyya, 
+S., An Explainable AI framework for credit evaluation and analysis. Appl. 
+Soft Comput., 111307, 2024.
+
+
+--- Page 147 ---
+
+125
+Pethuru Raj Chelliah, Pushan Kumar Dutta, Abhishek Kumar, Ernesto D.R. Santibanez Gonzalez, 
+Mohit Mittal and Sachin Gupta (eds.) Generative Artificial Intelligence in Finance: Large Language 
+Models, Interfaces, and Industry Use Cases to Transform Accounting and Finance Processes, 
+(125–148) © 2025 Scrivener Publishing LLC
+7
+Generative AI: A Transformative Tool for 
+Mitigating Risks for Financial Frauds
+Rahul Joshi1*, Krishna Pandey1 and Suman Kumari2
+1Department of Journalism & Mass Communication, School of Media Studies 
+& Humanities, Manav Rachna International Institute of Research & Studies, 
+Faridabad, Haryana, India
+2Independent Researcher, Haryana, India
+Abstract
+Financial fraud has a profound and far-reaching effect on the people. Financial 
+institutions have the technical capacity to identify fraud using clever artificial intel­
+ligence systems. Nevertheless, the duration needed to gather a significant amount 
+of deceptive data to train their fraud detection algorithms poses an expensive haz­
+ard. The industry faces security challenges such as infringements on intellectual 
+property rights, harmful or discriminatory content creation, and data breaches. 
+Financial institutions should use generative artificial intelligence systems inside 
+secure and isolated networks to mitigate these possible risks. Furthermore, it is 
+crucial to guarantee the utilization of specific training data, implement thorough 
+security protocols, provide staff training initiatives, and actively supervise the 
+produced output. Establishing governance structures, using anomaly detection 
+technologies, incorporating external data sources, and validating the generated 
+information are highly encouraged. Hence, it is recommended to form alliances 
+with trustworthy suppliers and actively participate in cooperative initiatives 
+with regulatory bodies and industry associations to enhance security protocols. 
+Furthermore, mitigating the possible financial fraud and manipulation hazards is 
+crucial by implementing robust governance frameworks, utilizing advanced algo­
+rithms, acquiring expert validation, enforcing strong cybersecurity measures, and 
+*Corresponding author: rahuljoshi.785@gmail.com; ORCID: https://orcid.org/0000-0002-5467-5105
+Krishna Pandey: ORCID: https://orcid.org/0000-0001-8290-3681
+Suman Kumari: ORCID: https://orcid.org/0000-0002-4691-4065
+
+
+
+
+
+
+--- Page 365 ---
+
+previously. Robo-advisor and AI-driven trading platforms are
+now becoming common in the field of portfolio management.
+As the costs of hardware fall, we can expect a substantial
+increase in the future uses of AI by financial institutions which
+will then affect the ways that financial institutions operate and
+provide services.
+AI has come to play an integral role in many phases of the
+financial ecosystem from managing assets to accessing risks.
+The present and future applications include AI algorithmic
+trading, robo-advisor, chatbots, fraud detection, and loan/
+insurance underwriting.
+AI Algorithmic Trading
+Algorithmic/quantitative trading has been used by hedge funds
+or other financial institutions since the 1970s. Today, AI has
+become the new emerging trend in the asset management
+landscape. Unlike traditional trading algorithms that were built
+to exploit specific market opportunities such as identifying the
+trend of price movement, AI has the power to truly act as an
+independent agent participating in market action.
+Big data and various forms of artificial intelligence, such as
+ML and NLP, have changed the asset management industry.
+Using NLP tools, the machine can analyze the company’s
+revenue calls to detect changes in management sentiment that
+may signal future performance and screen through the analyst
+report to indicate terms that are about to change its headline
+forecast. These tools can also be used to analyze a large number
+
+
+--- Page 366 ---
+
+of unstructured data sources (such as news reports, blogs, and
+social media) to identify potential investment trends.
+Advances in AI are being used to improve research and
+make informed investment decisions. In addition, big data and
+AI are also boosting automation and efficiencies across client
+servicing, 
+data 
+management, 
+operational 
+support, 
+and
+compliance.
+Robo-Advisors
+Robo-advisors are online financial advisors that provide
+automated, algorithm-driven financial investment services.
+Robo-advisors are becoming an increasingly popular and
+convenient way for the individual to invest and manage
+portfolios. According to IDC Financial Insight (Araneta,
+Agrawal, & Kapoor, 2017), the hybrid model that combines
+traditional and robo-advisory will be the winner in the market.
+The total asset under management (AUM) by robo-advisors will
+reach US$500b by 2021 in APAC.
+For those interested in robo-advisors, refer to Chapter 19.
+Chatbots
+A chatbot is a human-computer dialog system relying on
+auditory or textual methods. It has been widely used in our
+daily life. Many companies use the virtual chatbots built into
+social media platforms like WhatsApp, Facebook, or WeChat.
+WeChat’s chatbot can, for example, call a taxi, check in for a
+flight, report traffic accidents, and make medical appointments.
+
+
+--- Page 367 ---
+
+Most advanced chatbots use sophisticated NLP systems. Some
+simple chatbots scan for keywords within the input and then
+reply with the most matching keywords from a preset database.
+Many banks and insurers leverage chatbots to respond to
+customer’s inquiries. Chatbots not only significantly improve
+the service efficiency, but can also become a marketing channel
+to promote customer engagement as well as client acquisition.
+More importantly, chatbots collect user’s information. Big data
+allows 
+the 
+company 
+to 
+know 
+more 
+about 
+customer’s
+preferences. Targeted marketing then becomes possible.
+Simpler chatbots are provided by social media platforms, and
+are cost-effective and easy to maintain.
+Fraud Detection
+The frequency of online financial fraud attempts has been
+increasing over time. Fraud detection is tricky, as fraud means
+change from time to time. One major challenge is to detect
+“Black Swan”–like fraud events, which are events that rarely
+happen but will bring about catastrophic losses if they
+happened. Fraud detection systems in the past were rule-based.
+The main defect of a rule-based system is that it cannot detect
+unidentified fraud means. As there is little data on such Black
+Swan–like fraud cases due to their low frequency of
+occurrences, detection using the old rule-based system is nearly
+impossible. 
+Modern 
+advanced 
+fraud 
+systems 
+adopt
+sophisticated machine learning models to detect the potential
+fraud, which implies that fraud can be flagged before it
+happens. Rather than general machine learning black boxes, a
+
+
+--- Page 368 ---
+
+fraud system is called “white boxing,” which consists of a
+scoring system based on local linear approximation, a text
+mining system, graph generation, and a visualization system. It
+can thus detect emerging patterns by learning new data and
+generate a probability of potential fraud.
+Loan/Insurance Underwriting
+Traditional credit evaluation typically involves the applicant’s
+FICO scores, debt to income ratio, and a number of inquiries
+into the financial status/employment state of the applicants. In
+recent years, as the AI ability to extract highly relevant
+information for a specific purpose from a massive amount of
+big 
+data 
+has 
+greatly 
+increased, 
+online 
+loan/insurance
+underwriting has become possible.
+Many AI-enabled credit assessment systems have emerged
+and small loan underwriters tend to employ such an end-to-end
+AI credit system to assess borrower’s credit using large
+amounts of data from social and ecommerce media, which has
+not been traditionally used for credit evaluation. The
+customers’ behavioral traits from social media such as the
+contents of text messages, the patterns of call history,
+geolocation information, and mobile transaction, are valuable
+information. Such information provides insight into customers’
+identity, incomes, and expenses. The system adopts algorithms
+and machine learning to find useful patterns in the data and
+generates a default probability to gauge the suitability of the
+applicant for a loan. The whole underwriting process can be
+done using the mobile phone very quickly, even within 10
+
+
+--- Page 369 ---
+
+minutes. The granted loan can be transferred to the applicant’s
+bank account or e-wallets within 15 minutes which enhances
+customer experience.
+Similarly, insurance underwriting can also leverage on an AI
+system to extract and analyze data containing information on
+the applicant’s hazard likelihood, historical claims, life attitude,
+and so on to generate an insurance quote quickly.
+The AI underwriting system is superior as it can evaluate the
+borrowers without loan/ insurance histories that are essential
+in 
+traditional 
+underwriting. 
+Compared 
+to 
+traditional
+underwriting, banks and insurance companies will benefit
+from AI-based underwriting as it reduces employee costs and
+may also lead to a decrease in fraud cases as the social media
+data comes from the applicant’s real life activities. The
+interested reader may refer to Chapter 23, a dedicated chapter
+on InsurTech.
+Last but not least, AI will also assist compliance officers to
+ensure 
+regulatory 
+compliance. 
+For 
+example, 
+AI-driven
+compliance system learns and complies with all applicable
+regulations such as know-your-client (KYC) and anti-money
+laundering (AML) regulations. It scans financial transactions to
+detect signs of money laundering or other illegal activities,
+which are not easy to be identified manually. The interested
+reader may refer to Chapter 21, a dedicated chapter on RegTech
+in this textbook.
+In conclusion, AI technologies lead to a new era of efficiency
+and performance. We expect deep learning to be widely
+adopted within the next decade.
+
+
+--- Page 370 ---
+
+Endnotes
+1 Artificial Neural Network is a system inspired by human brain neural activities. It
+simulates the way in which the human brain processes information. The system
+consists of a large number of nodes (or neurons) segregated into layers and gathers
+its knowledge by detecting the patterns and relationships in data and learning
+through the training experience.
+2 Support vector machine (SVM) is a supervised machine-learning algorithm, which
+is based on the idea of finding a hyperplane that best divides a dataset into two
+classes. SVM can be used for both classification or regression challenges.
+3 A sigmoid function is a mathematical function having an S-shaped curve (sigmoid
+curve), and is defined by the formula S(t)=1/(1+e–t).
+References
+AIINDEX. (2017). Artificial Intelligence Index, 2017 Annual Report. AIINDEX.ORG.
+Araneta, M., Agrawal, A., & Kapoor, S. (2017). Robo-Advisory: Changing the Face of Wealth
+in Asia/ Pacific. IDC Perspective.
+Cho, K., Van Merrienboer, B., Caglar, G., Bahdanau, D., Bougares, F., Schwenk, H., &
+Bengio, Y. (2014). Learning phrase representations using RNN encoder-decoder
+for statistical machine translation. arXiv:1406.1078.
+Deng, L., & Yu, D. (2011). Deep convex network: A scalable architecture for deep
+learning. INTERSPEECH (28). Florence, Italy: ISCA.
+Feigenbaum E.A., 1977, The Art of Artificial Intelligence: Themes and Case Studies of
+Knowledge Engineering, International Joint Conference on Artificial Intelligence,
+pp 1014–1029.
+Hochreiter, S., & Schmidhuber, J. (1997, 11 15). Long short-term memory. Neural
+computation, Vol. 9, Issue 8, pp. 1735–1780.
+Holland, J. H. (1975). Adaptation in natural and artificial systems: An introductory analysis
+with applications to biology, control, and artificial intelligence. Ann Arbor: University
+
+
+--- Page 371 ---
+
+of Michigan Press.
+Kanungo, R. P. (2004, 4 26). Genetic algorithms: genesis of stock evaluation. Economics
+WPA, p. 17.
+LeCun, Yann. (1989). Generalization and network design strategies. Technical Report
+CRG-TR-89-4, University of Toronto, 326–345.
+Lin, L., Cao, L., Wang, J., & Zhang, C. (2004). The applications of genetic algorithms in
+stock market data mining optimisation. Data Mining V, Data Mining, Text Mining and
+Their Business Application, pp. 273–280. WIT Press.
+Werbos, P. J. (1974). Beyond regression: new tools for predicion and analysis in the
+behavioral sciences. PhD thesis. Harvard University.
+Dr. Bing Li is the Managing Director at Yuanyin Asset
+Management and takes the Overall Management Oversight of the
+company. Before that, he was the president of Forwin Capital
+Management, a Hong Kong based multi-family office. Previously,
+he worked as an investment management professional at
+Lombard Odier, ING Investment Management, Pearl Insurance
+Group, ABP Investment, and TD Asset management, managed
+billions of dollars assets ranged from global equities, bonds, to
+fund of funds. Bing earned his Ph.D. in Chemistry from University
+of Western Ontario, and B.S. and M.S. degrees in Material Science
+and Engineering from Shanghai Jiaotong University. He is also a
+CFA charter holder.
+Dr. Min Cao is an Investment Manager at UCF Asset
+Management, focusing on global asset allocation and active
+equity strategies. Previously, Min worked as Investment Manager
+at Forwin Capital Management and Quantitative Analyst at Delta
+Asia Financial Group, with the research scope covers global asset
+
+
+--- Page 372 ---
+
+allocation, high dividend Hong Kong stock hedging, and best stop
+loss strategy. Prior to that, she was a Senior Research Associate
+in the Department of Economics and Finance of the City
+University of Hong Kong, where she worked on macroeconomics
+and international finance. Min graduated from South China
+University of Technology, and obtained her master’s degree in
+High Performance Computing from Trinity College Dublin, the
+University of Dublin, and Ph. D from the IMSE department at the
+University of Hong Kong.
+OceanofPDF.com
+
+
+--- Page 373 ---
+
+Chapter 12
+A Practical Approach to Machine Learning
+(ML) and Artificial Intelligence (AI)
+In the previous chapter, the reader would have gained an
+understanding of the technologies underpinning machine
+learning (ML) and artificial intelligence (AI). This chapter aims
+to complement the previous chapters by providing a more
+practice-oriented approach to demystifying both technologies
+and to introduce the reader to the process of setting up a ML
+solution. We will succinctly recap some of the key concepts
+previously covered, but the readers should refer to the
+dedicated chapters on data science and big data for details.
+Are AI and Machine Learning the Same Thing?
+While it may seem that neural networks, deep learning,
+machine learning, and artificial intelligence are all the same
+concepts, each has its own history and origin, as well as
+hierarchy. The reason it might be hard to see this distinction is
+that all the research and media attention around the last
+decade of advances zoom in specifically on deep learning.
+To aid in deciphering the many conflicting and overlapping
+terms used in this field, we will define an overall hierarchy to
+help break down the relationships within artificial intelligence.
+
+
+--- Page 374 ---
+
+Figure 12.1: AI to ML to NN to DL
+To put it simply, artificial intelligence is the capability of any
+system to exhibit intelligent behavior. Almost everything
+relevant today in AI relates to machine learning.
+Machine Learning Covers a Lot
+Let us succinctly recap machine learning, which as a term
+contains its own definition. Instead of the human telling the
+machine what decisions and rules to make, the human teaches
+it. A machine that learns. This leaves the methods of teaching
+and learning open-ended. What can you teach a machine, and
+what can it learn? We briefly summarize the primary machine
+learning methods in Figure 12.2 and in words below.
+
+
+--- Page 375 ---
+
+Figure 12.2: Primary machine-learning methods
+–
+Classification algorithms can be taught to split existing data
+into predefined groups, such as names of animals. When you
+feed the algorithm some new data it has not yet seen, it will
+predict which group the new data belongs to—for example,
+that this animal is a chicken.
+–
+Regression algorithms basically try to learn the function of
+a dataset, by predicting future data based on past data. If
+you have a series of data points that form a straight line, the
+algorithm will attempt to describe that line as a function. Of
+course, the line could be curved, a wave, a circle, or any kind
+of shape. While helpful to think of two-dimensional
+examples you can plot in your mind, these algorithms also
+work on any number of input dimensions.
+–
+Unsupervised learning can be used if you have lots of data
+with patterns, groups, or clusters that you wish to separate
+without explicitly defining them beforehand—that is,
+without human supervision. Perhaps you know that the
+dataset is comprised of different animals, and want to
+establish how many different kinds by clustering them using
+variables like weight and speed.
+
+
+--- Page 376 ---
+
+
+
+–
+Reinforcement learning has been widely popularized by
+the media attention on Deepmind’s various game playing
+algorithms including the famed AlphaGo. These algorithms
+learn to choose actions through the use of rewards given
+based on the results of those actions in the game
+environment. Due to several breakthrough results such as
+AlphaGo, reinforcement methods have been an active area
+of research.
+While the last two methods will continue to garner many
+headlines, the first two are more applicable to industries with a
+much lower learning curve. The rest of this chapter will mainly
+focus on classification and regression. There are many ways to
+implement both, and a neural network, which we have learned
+in the previous chapter, is just one approach. To ensure that the
+reader can follow the practical examples later, we will quickly
+revisit neural networks and recall how these fit under ML.
+Neural Networks Are a Special Type of Machine Learning
+Neural networks and the associated learning algorithms hold a
+special place within the machine learning community, largely
+due to the fact that their design is inspired by the brain. We
+know that neurons are connected in vast networks inside our
+brain, and that electrical signals go from neuron to neuron to
+produce all of our conscious experiences—seeing, hearing,
+thinking, and speaking—which involve all neural networks in
+action, as far as science can tell us today.1
+
+
+--- Page 377 ---
+
+Figure 12.3: Simple neural network with weighted connections between
+layers
+What is inside a neural network? Neurons organized into
+inputs (the left portion in Figure 12.3), hidden layers (the
+middle portion in Figure 12.3), and outputs (the right portion in
+Figure 12.3). Connections between these neurons have weights
+and biases. The neurons, or nodes, themselves have activation
+functions, which act as filters on the input data. The primary
+function of all these elements is to introduce complex
+behaviors. Otherwise, you could only perform basic functions
+like adding numbers together. Combining these elements across
+hundreds or even thousands of neurons in several layers, these
+complex behaviors become very powerful indeed. This is called
+deep learning.
+
+
+--- Page 378 ---
+
+Figure 12.4: A neural network with a few more layers introduces increased
+complexity and is called a deep neural network
+The types of neural networks used for relatively simple tasks
+like recognition of handwriting can contain hundreds of nodes
+in each layer, to a point where drawing the thousands of
+connections no longer helps. These specialized networks
+process parts of an image at the rate of a few pixels at a time to
+determine its contents.
+Figure 12.5: Convolutional neural network used for image recognition
+
+
+--- Page 379 ---
+
+Still, even a large neural network can be represented visually in
+rather simple terms, yet the inner behavior becomes almost
+indecipherable. It can learn almost anything with a learning
+process called “backpropagation,” which starts by comparing
+how far the prediction is from the intended outcome. Then it
+calculates a series of minute changes for the connection weights
+across that whole network to improve that prediction, and tries
+the prediction again to see if the result becomes better or
+worse. To achieve the desired prediction accuracy, this process
+will be repeated hundreds of times across large datasets of
+millions of inputs, creating the need for significant computing
+power and therefore computing costs.
+What can you achieve with this powerful learning
+approach? Neural networks can read handwriting. They can
+generate language, too. They can recognize objects in pictures,
+or faces, and even play chess—all at human level or beyond.
+The complexity of the learning behavior also means that it is
+challenging to explain predictions or decisions for each case.
+You can change one input by a fraction, and the whole output
+changes. Why does the learning work? When does it work?
+How do we find the best and fastest way to train the network?
+While this spans an active area of research, there is no
+definitive answer today.
+Should We Always Use Neural Networks?
+In theory, the benefit of neural networks is their flexibility to
+tackle many forms of data. In practice, their lack of clear
+explanation and degree of specific configuration, or tuning,
+
+
+--- Page 380 ---
+
+means that they are harder to work with. The following
+demonstration will illustrate the differences in behavior.
+Figure 12.6: Comparing classifier behavior
+On the left, you see three datasets with a white background.
+Going from left to right, each column represents a type of
+machine learning algorithm trying to separate the black dots
+from the white dots using only a part of the dataset called test
+data. Remember, we have informed each algorithm already
+which color each dot is. The algorithm is just trying to create a
+general rule to identify the area in which black dots appear,
+and the area where white dots appear. As evident, the
+approaches and results are quite diverse.
+The bottom right corner of each square shows how
+accurately the algorithm has separated the two types of dots.
+Again, this score is based on a different group of dots than we
+used to train the algorithm. Why would we do this? If you tested
+
+
+
+
+`;
+    const viMarkdown = `
+
+--- Trang 124 ---
+
+101
+Pethuru Raj Chelliah, Pushan Kumar Dutta, Abhishek Kumar, Ernesto D.R. Santbanez Gonzalez, 
+Mohit Mittal và Sachin Gupta (eds.) Trí tuệ nhân tạo sáng tạo trong tài chính: Ngôn ngữ lớn 
+Mô hình, giao diện và trường hợp sử dụng trong ngành để chuyển đổi quy trình tài chính và kế toán, 
+(101–124) © 2025 Scrivener Publishing LLC
+6
+Đi sâu vào gian lận tài chính thông qua 
+Nhấp chuột quảng cáo, Quản lý thẻ tín dụng 
+và phân phát tài liệu ở 
+Giao dịch thương mại điện tử
+Bhupinder Singh1*, Pushan Kumar Dutta2 và Christian Kaunert3
+1Đại học Sharda, Greater Noida, Ấn Độ
+2Phòng Kỹ thuật Điện tử và Truyền thông tại ASETK, 
+Đại học Amity Kolkata, Tây Bengal, Kolkata, Ấn Độ
+3Đại học Thành phố Dublin, Dublin, Ireland
+Tóm tắt
+Gian lận tài chính gây ra mối nguy hiểm đáng kể cho ngành tài chính ngân hàng, 
+tác động tiêu cực đến các cá nhân, doanh nghiệp và toàn bộ nền kinh tế. Gần đây 
+năm, sự tích hợp của trí tuệ nhân tạo (AI) và học máy (ML) 
+kỹ thuật đã nổi lên như một vũ khí mạnh mẽ chống lại các hình thức tài chính đa dạng 
+lừa đảo. Ngành tài chính ngân hàng - nền tảng của nền kinh tế hiện đại 
+đang trải qua một sự chuyển đổi sâu sắc do sự phát triển vượt bậc của chuyển đổi kỹ thuật số
+hành động. Sự thay đổi này đã dẫn đến sự gia tăng các gian lận tài chính, buộc một mô hình 
+thay đổi các giao thức bảo mật. Việc tích hợp các phân tích nâng cao, bao gồm cả anom
+phát hiện và nhận dạng mẫu aly, được xem xét kỹ lưỡng để tiết lộ một biện pháp bảo vệ mạnh mẽ 
+cơ chế chống lại các chiến thuật ngày càng phát triển được sử dụng bởi những kẻ lừa đảo trong 
+tên miền nhấp vào quảng cáo. Quản lý thẻ tín dụng, mục tiêu lâu năm của Mali
+hoạt động quan trọng, đòi hỏi một cách tiếp cận phức tạp để phát hiện gian lận. chương này 
+khám phá các hệ thống xác minh tài liệu dựa trên AI nhằm nhấn mạnh quan điểm của họ
+vai trò quan trọng trong việc đảm bảo các giao dịch xoay quanh các tài liệu xác thực như 
+*Tác giả tương ứng: bhupindersinghlaw19@gmail.com; 
+ORCID: https://orcid.org/0009-0006-4779-2553
+Pushan Kumar Dutta: ORCID: https://orcid.org/0000-0002-4765-3864
+Christian Kaunert: ID Orcid: https://orcid.org/0000-0002-4493-2235
+
+--- Trang 125 ---
+
+102  Trí tuệ nhân tạo sáng tạo trong tài chính
+tài liệu giả mạo, được giải quyết thông qua các giải pháp sáng tạo bao gồm
+tích hợp công nghệ blockchain với AI không chỉ nâng cao 
+bảo mật mà còn thiết lập một sổ cái giao dịch bất biến, giảm thiểu rủi ro 
+liên quan đến gian lận dựa trên tài liệu.
+Từ khóa:  Lượt click quảng cáo, trí tuệ nhân tạo, quản lý thẻ tín dụng, tài liệu 
+phân phối, gian lận tài chính, giao dịch thương mại điện tử
+6.1 Giới thiệu và bối cảnh
+Bối cảnh hiện nay của ngành tài chính ngân hàng là 
+được đánh dấu bằng sự kết hợp của các công nghệ tiên tiến và luôn-
+phát triển sự phức tạp, nhấn mạnh nhu cầu cấp thiết về đổi mới 
+giải pháp chống lại sự gia tăng các hoạt động lừa đảo tinh vi [1]. Cái này 
+chương bắt tay vào một cuộc khám phá đầy tham vọng vào lĩnh vực nhân tạo
+trí tuệ xã hội (AI) và máy học (ML) đang thăm dò sự phức tạp của chúng 
+giao diện để vạch ra các chiến lược nhằm nắm bắt và ngăn chặn gian lận [2]. 
+Trọng tâm được đặc biệt tập trung vào ba khía cạnh then chốt: lượt nhấp vào quảng cáo 
+gian lận, gian lận quản lý thẻ tín dụng và gian lận phân phối tài liệu 
+trong phạm vi mở rộng của giao dịch thương mại điện tử [3]. đường đi
+câu chuyện của nghiên cứu này được gắn chặt với sự phát triển lịch sử của tài chính
+gian lận chính thức làm sáng tỏ câu chuyện phức tạp về cách các hoạt động này 
+đã phát triển cùng với những tiến bộ công nghệ [4]. Một nền văn học mạnh mẽ 
+đánh giá sẽ đóng vai trò như một chiếc la bàn, hướng dẫn việc khám phá theo lộ trình
+tiền lệ lịch sử và những thách thức đương đại [5].
+Sau đó, hành trình sẽ đi sâu vào các khía cạnh cụ thể của gian lận nhấp chuột vào quảng cáo, 
+gian lận quản lý thẻ tín dụng và gian lận phân phối tài liệu. Mỗi 
+phần mổ xẻ những thách thức đặc biệt do những gian lận và giám sát này đặt ra
+nhấn mạnh vai trò của AI và ML trong việc giảm thiểu những thách thức này [6]. Nó 
+xem xét kỹ lưỡng các kỹ thuật phát hiện bất thường được hỗ trợ bởi máy học, 
+chứng tỏ là công cụ hữu ích trong việc xác định những sai lệch tinh tế so với những gì đã được thiết lập 
+mô hình chi tiêu [7]. Chương này không chỉ đơn thuần là một bài tập lý thuyết mà còn là một 
+nghiên cứu sâu sắc về ứng dụng thực tế của công nghệ tiên tiến 
+để bảo vệ tính toàn vẹn tài chính của thời đại kỹ thuật số [8]. Tiếp theo 
+các phần của chương toàn diện này mở ra một câu chuyện vượt qua 
+chỉ là những giả thuyết mang tính lý thuyết, nhằm mục đích trình bày một kế hoạch thực tế cho 
+việc triển khai AI và ML làm lính gác bảo vệ các cổng của 
+ngành tài chính ngân hàng trước sự xâm nhập ngấm ngầm của gian lận
+hoạt động cho vay [9].
+
+--- Trang 126 ---
+
+Đi sâu vào gian lận tài chính  103
+6.1.1 Mục tiêu của Chương
+Khung này dùng để phân tích toàn diện sự tương tác giữa 
+gian lận tài chính và giải pháp AI/ML [10]. Nghiên cứu nhằm mục đích góp phần 
+vào khối kiến thức trong lĩnh vực an ninh tài chính bằng cách cung cấp 
+những hiểu biết sâu sắc có thể hành động và các chiến lược đổi mới để tăng cường phát hiện gian lận 
+và phòng ngừa trong ngành tài chính ngân hàng nhằm:
+--
+Rà soát toàn diện các loại và phương pháp khác nhau 
+gian lận tài chính, tập trung cụ thể vào gian lận nhấp chuột vào quảng cáo, 
+gian lận quản lý thẻ tín dụng và phân phối tài liệu 
+gian lận trong giao dịch thương mại điện tử.
+--
+hiểu rõ hơn về động thái của gian lận tài chính, 
+Chương này nhằm mục đích xác định và phân tích các lỗ hổng trong 
+lĩnh vực tài chính ngân hàng mà những kẻ lừa đảo khai thác.
+--
+đánh giá bối cảnh hiện tại của các ứng dụng AI và ML trong 
+ngành tài chính ngân hàng, đặc biệt là trong lĩnh vực
+văn bản phát hiện và ngăn chặn gian lận.
+--
+những hiểu biết thu được từ cuộc điều tra, nghiên cứu nhằm mục đích 
+đề xuất các mô hình AI và ML tiên tiến dành riêng cho 
+được thiết kế để chống gian lận tài chính.
+6.1.2 Ý nghĩa của chương
+Chương này có ý nghĩa quan trọng nhất trong bối cảnh của một bài rap
+số hóa hệ sinh thái tài chính một cách nhàn rỗi [11]. Ngành tài chính ngân hàng
+try đứng ở mối liên hệ giữa đổi mới công nghệ và các mối đe dọa mới nổi, 
+và những phát hiện của nghiên cứu sẵn sàng đóng góp đáng kể vào sức mạnh
+định vị của lĩnh vực này để chống lại các hoạt động gian lận ngày càng gia tăng [12, 13]. các 
+tập trung cụ thể vào gian lận nhấp chuột vào quảng cáo, gian lận quản lý thẻ tín dụng và tài liệu
+gian lận phân phối không chỉ phản ánh mức độ liên quan của những vấn đề này mà còn 
+cũng nhấn mạnh sự cấp thiết của các giải pháp có mục tiêu [14, 15]. Dấu hiệu
+Ý nghĩa của chương này nằm ở khả năng cung cấp thông tin cho các khung chính sách, 
+hướng dẫn các hoạt động thực tiễn của ngành và truyền cảm hứng cho những tiến bộ hơn nữa trong AI và ML 
+ứng dụng cho an ninh tài chính [16]. Khi hệ thống tài chính trở nên 
+ngày càng được kết nối với nhau trên toàn cầu, kết quả của nghiên cứu này có thể có 
+ý nghĩa sâu rộng trong việc bảo vệ lợi ích kinh tế và các chính
+duy trì sự tin cậy và tính toàn vẹn của các giao dịch tài chính kỹ thuật số [17].
+
+--- Trang 127 ---
+
+104  Trí tuệ nhân tạo sáng tạo trong tài chính
+6.2 Phát hiện gian lận nhấp vào quảng cáo trong ngân hàng 
+và lĩnh vực tài chính
+Phát hiện gian lận nhấp chuột vào quảng cáo là một khía cạnh quan trọng trong việc bảo vệ tính toàn vẹn 
+và hiệu quả của hệ sinh thái quảng cáo trực tuyến. Nhà quảng cáo đầu tư phụ
+nguồn lực quan trọng trong các chiến dịch kỹ thuật số để tiếp cận đối tượng mục tiêu của họ,
+khiến họ dễ bị thực hiện các hoạt động gian lận làm ảnh hưởng đến lợi nhuận 
+về đầu tư. Lừa đảo nhấp chuột vào quảng cáo đòi hỏi thao tác nhấp chuột lừa đảo 
+trên các quảng cáo trực tuyến, thường được điều phối bởi các bot tự động hoặc indi
+các video hướng tới khai thác mô hình trả tiền cho mỗi lần nhấp chuột (PPC). Để đếm
+Để giải quyết mối đe dọa này, các giải pháp AI tiên tiến là rất cần thiết [18]. Thuật toán ML 
+phân tích tỉ mỉ các bộ dữ liệu mở rộng, kiểm tra các mẫu hành vi của người dùng, 
+tỷ lệ nhấp và số liệu tương tác để xác định dấu hiệu bất thường
+của các hoạt động gian lận. Các mô hình AI sử dụng giám sát thời gian thực để 
+xác định mức tăng đột biến về số lượng nhấp chuột hoặc các mô hình địa lý bất thường. các 
+sự phát triển liên tục của các cơ chế phát hiện này đảm bảo tính năng động 
+và tính chất thích ứng của việc ngăn chặn gian lận nhấp chuột vào quảng cáo, cung cấp cho nhà quảng cáo 
+với sự bảo vệ mạnh mẽ chống lại các hành vi lừa đảo và thúc đẩy 
+môi trường quảng cáo kỹ thuật số đáng tin cậy [19].
+6.2.1 Định nghĩa và các loại gian lận nhấp chuột vào quảng cáo
+Lừa đảo nhấp chuột vào quảng cáo là hoạt động không trung thực nhằm tạo ra các nhấp chuột giả trên liên
+quảng cáo ròng với mục đích thao túng phân tích quảng cáo hoặc lấy 
+lợi thế của mô hình thu nhập PPC. Được thực hiện bởi bot tự động 
+hoặc cá nhân, hoạt động lừa đảo này cố gắng tăng số lượt nhấp một cách giả tạo 
+đếm, làm cạn kiệt ngân sách của nhà quảng cáo và làm suy yếu tính hiệu quả của 
+chiến dịch quảng cáo kỹ thuật số [20]. Hình thức gian lận này thể hiện bản chất
+thách thức lớn đối với hệ sinh thái quảng cáo trực tuyến, ảnh hưởng đến nhà quảng cáo, 
+nhà xuất bản cũng như mạng quảng cáo.
+Các loại gian lận nhấp chuột vào quảng cáo:
+Bot tự động:
+Định nghĩa: Các bot hoặc tập lệnh tự động được lập trình để mô phỏng
+mô phỏng hành vi của con người bằng cách tương tác với quảng cáo. Đã triển khai ở 
+số lượng đáng kể, những bot này tạo ra một khối lượng đáng kể
+rất nhiều nhấp chuột lừa đảo.
+
+--- Trang 128 ---
+
+Đi sâu vào các vụ lừa đảo tài chính  105
+Những thách thức trong việc phát hiện: Bot đang phát triển ngày càng phức tạp, 
+gây khó khăn trong việc phân biệt giữa hợp pháp và 
+nhấp chuột tự động.
+Bấm vào trang trại:
+Định nghĩa: Các trang trại nhấp chuột sử dụng các nhóm cá nhân, thường 
+ở những khu vực có chi phí lao động thấp hơn, hãy nhấp vào quảng cáo theo cách thủ công. 
+Những hoạt động này có thể được cấu trúc để tạo ra số lượng lớn
+mối liên hệ của các nhấp chuột gian lận.
+Những thách thức trong việc phát hiện: Việc xác định các trang trại nhấp chuột liên quan đến việc phân tích
+phân tích các mẫu hành vi nhấp chuột và địa chỉ IP, với 
+độ phức tạp bổ sung mà các hoạt động này thường đạt đến mức độ lớn 
+độ dài để có vẻ xác thực.
+Số nhấp chuột của đối thủ cạnh tranh:
+Định nghĩa: Các đối thủ cạnh tranh có thể tham gia vào hành vi gian lận nhấp chuột để làm cạn kiệt 
+ngân sách quảng cáo của đối thủ, làm giảm hiệu quả của chiến dịch, 
+hoặc đạt được lợi thế cạnh tranh.
+Những thách thức trong việc phát hiện: Phân biệt giữa người dùng chính hãng 
+sự can thiệp vào lợi ích và cạnh tranh là phức tạp, đòi hỏi 
+phân tích nâng cao.
+Nhà xuất bản lừa đảo:
+Định nghĩa: Các nhà xuất bản vô đạo đức có thể nhấp vào quảng cáo trên trang web của họ 
+sở hữu các trang web để tăng doanh thu một cách giả tạo.
+Thách thức trong việc phát hiện: Xác định sự thông đồng giữa các quán rượu
+những cú nhấp chuột gian lận và lừa đảo liên quan đến việc xem xét kỹ lưỡng dữ liệu lưu lượng truy cập
+các phép đo và số liệu tương tác.
+Xếp chồng quảng cáo:
+Định nghĩa: Việc xếp chồng quảng cáo xảy ra khi nhiều quảng cáo được xếp lớp 
+trong một vị trí quảng cáo duy nhất. Mặc dù người dùng chỉ có thể nhìn thấy phần trên cùng 
+quảng cáo, tất cả quảng cáo trong ngăn xếp sẽ đăng ký dưới dạng lượt nhấp chuột.
+Những thách thức trong việc phát hiện: Việc phát hiện việc xếp chồng quảng cáo đòi hỏi phải có
+phân tích tỷ lệ nhấp và mức độ tương tác của người dùng để khám phá 
+sự khác biệt.
+
+--- Trang 129 ---
+
+106  Trí tuệ nhân tạo sáng tạo trong tài chính
+Gian lận quảng cáo trên thiết bị di động:
+Định nghĩa: Các nhấp chuột gian lận vào quảng cáo trên thiết bị di động có thể xảy ra thông qua 
+bằng nhiều cách khác nhau, bao gồm chèn nhấp chuột, spam nhấp chuột hoặc 
+việc sử dụng các ứng dụng độc hại.
+Những thách thức trong việc phát hiện: Việc phát hiện gian lận quảng cáo trên thiết bị di động đòi hỏi 
+giám sát hành vi ứng dụng và phân tích các mẫu nhấp chuột
+cific cho thiết bị di động.
+Giải quyết hiệu quả gian lận nhấp chuột vào quảng cáo đòi hỏi phải sàng lọc liên tục 
+cơ chế phát hiện, sử dụng AI và ML để xác định các mẫu, bất thường
+đồng minh và các dấu hiệu khác của hoạt động lừa đảo. Cách tiếp cận chủ động này là 
+không thể thiếu để duy trì tính toàn vẹn của hệ sinh thái quảng cáo kỹ thuật số 
+và đảm bảo tính công bằng, hiệu quả của các chiến dịch tiếp thị trực tuyến [21].
+6.2.2 Nguồn dữ liệu và tính năng
+Nguồn dữ liệu và tính năng là các yếu tố cơ bản trong phân tích dựa trên dữ liệu
+chị và ML. Nguồn dữ liệu đề cập đến nguồn gốc của dữ liệu, có thể bao gồm 
+một loạt các kho lưu trữ như cơ sở dữ liệu, quét web, cảm biến hoặc 
+nội dung do người dùng tạo [22]. Những nguồn này cung cấp nguyên liệu cho 
+phân tích và phát triển mô hình. Những đặc điểm này là những thuộc tính cụ thể 
+hoặc các biến được trích xuất từ các nguồn dữ liệu. Họ gói gọn thông tin
+được thuật toán ML sử dụng để đưa ra dự đoán hoặc phân loại. Cẩn thận 
+việc lựa chọn và thiết kế các tính năng là rất quan trọng vì chúng tác động trực tiếp đến 
+hiệu suất của mô hình, nhấn mạnh tầm quan trọng của cả hai nguồn dữ liệu 
+và kỹ thuật tính năng trong quy trình làm việc của khoa học dữ liệu [23].
+6.2.3 Thuật toán AI và ML để phát hiện gian lận khi nhấp vào quảng cáo
+Thuật toán AI và ML đã cách mạng hóa việc phát hiện gian lận khi nhấp vào quảng cáo 
+bằng cách cung cấp các công cụ mạnh mẽ để giải quyết vấn đề phổ biến này trong thời đại kỹ thuật số 
+cảnh quảng cáo. Các thuật toán này phân tích các tập dữ liệu lớn trong thực tế 
+thời gian, xác định các mô hình phức tạp và sự bất thường trong hành vi của người dùng, nhấp chuột
+thông qua tỷ lệ và số liệu tương tác [24]. Các mô hình ML, chẳng hạn như quyết định 
+cây cối, rừng ngẫu nhiên và mạng lưới thần kinh sâu đóng vai trò then chốt trong 
+học hỏi từ dữ liệu nhấp chuột lịch sử và thích ứng với công nghệ gian lận đang phát triển
+niques. Hoạt động bất thường, chẳng hạn như mức tăng đột biến bất thường về số lượng hoặc kiểu nhấp chuột 
+đi chệch khỏi các quy chuẩn đã được thiết lập, có thể được phát hiện nhanh chóng, gây ra tình trạng đỏ mặt 
+cờ để điều tra thêm. Các thuật toán điều khiển bằng AI là công cụ trong 
+phân biệt các tương tác của người dùng thực sự với các tương tác lừa đảo, từ đó
+
+--- Trang 130 ---
+
+
+
+Đi sâu vào gian lận tài chính  107
+bảo vệ các nhà quảng cáo khỏi sự cạn kiệt ngân sách và duy trì tính toàn vẹn 
+quảng cáo trực tuyến [25]
+6.3 Phát hiện gian lận quản lý thẻ tín dụng
+Phát hiện gian lận quản lý thẻ tín dụng là một khía cạnh quan trọng của việc đảm bảo 
+an ninh tài chính trong thời đại kỹ thuật số ngày nay. Sự phổ biến ngày càng tăng của trực tuyến 
+giao dịch và sự mở rộng liên tục của bối cảnh thương mại điện tử 
+đã làm tăng đáng kể nguy cơ gian lận thẻ tín dụng. sự ngụy biện
+việc phát hiện gian lận trong quản lý thẻ tín dụng đã tiến bộ đáng kể, 
+phụ thuộc nhiều vào các công nghệ tiên tiến, đặc biệt là thuật toán AI và ML
+vần điệu. Các thuật toán này được chế tạo cẩn thận để kiểm tra số lượng lớn 
+dữ liệu giao dịch, tích cực tìm kiếm các xu hướng, sự khác thường và sai lệch 
+điều đó có thể chỉ ra hành vi gian lận [26]. Các mô hình AI và ML vượt trội trong 
+giám sát thời gian thực các giao dịch thẻ tín dụng, nhanh chóng xác định
+hành vi nguy hiểm, chẳng hạn như mua hàng lớn và không bình thường, giao dịch
+ở những vị trí địa lý bất thường hoặc khối lượng lớn bất thường 
+của các giao dịch trong một khoảng thời gian ngắn. Những mô hình này thể hiện khả năng thích ứng với 
+phát triển các chiến thuật lừa đảo, rất quan trọng trong môi trường mà những kẻ lừa đảo tiếp tục
+thường nghĩ ra những kế hoạch mới. Ưu điểm đáng chú ý của AI và ML trong thẻ tín dụng 
+phát hiện gian lận trong quản lý là khả năng phân tích dữ liệu lịch sử để 
+thiết lập đường cơ sở cho hành vi bình thường của chủ thẻ. Đường cơ sở này đóng vai trò như 
+một điểm tham chiếu để đánh dấu bất kỳ sai lệch nào, cho dù nó có liên quan đến sự đột biến đột ngột hay không 
+về tần suất giao dịch hoặc sự thay đổi trong thói quen chi tiêu [27].
+Ngoài việc chỉ xác định gian lận tiềm ẩn, quản lý thẻ tín dụng 
+phát hiện gian lận cũng ưu tiên giảm thiểu các kết quả dương tính giả. AI và ML 
+các thuật toán luôn được cải thiện ở khía cạnh này, trao quyền cho các nhà tài chính
+tổ chức cial để giảm số lượng các giao dịch hợp pháp sai lầm
+bị gắn cờ là lừa đảo. Điều này không chỉ nâng cao trải nghiệm người dùng cho 
+chủ thẻ mà còn duy trì khả năng phòng vệ mạnh mẽ chống lại gian lận [28]. trong 
+bối cảnh tài chính hiện đại, năng lực phát hiện gian lận quản lý thẻ tín dụng
+được hỗ trợ bởi AI và ML là điều không thể thiếu. Nó mang lại sự chủ động và thích ứng
+cách tiếp cận có thể để bảo vệ chủ thẻ tín dụng khỏi hoạt động gian lận 
+đồng thời giảm thiểu sự gián đoạn đối với các giao dịch hợp pháp của họ. Là công nghệ
+Công nghệ tiếp tục phát triển và những kẻ lừa đảo ngày càng tinh vi hơn, 
+vai trò của AI và ML trong việc phát hiện gian lận quản lý thẻ tín dụng sẽ vẫn được duy trì 
+quan trọng trong việc bảo vệ cả người tiêu dùng và các tổ chức tài chính khỏi 
+mối đe dọa gian lận luôn hiện hữu [29].
+
+--- Trang 131 ---
+
+108  Trí tuệ nhân tạo sáng tạo trong tài chính
+6.3.1 Nguồn dữ liệu và tính năng liên quan đến thẻ tín dụng 
+Phát hiện gian lận quản lý
+Nguồn dữ liệu là các luồng dữ liệu giao dịch được tạo ra bởi thẻ tín dụng 
+sử dụng trong bối cảnh phát hiện gian lận quản lý thẻ tín dụng. Những cái này 
+nguồn bao gồm hồ sơ giao dịch thời gian thực, hồ sơ khách hàng và
+dữ liệu lịch sử. Tính năng đề cập đến các thuộc tính cụ thể được trích xuất từ ​​điều này 
+dữ liệu, chẳng hạn như số tiền giao dịch, địa điểm, dấu thời gian và chủ thẻ 
+hành vi. Lựa chọn tính năng hiệu quả và kỹ thuật đóng một vai trò quan trọng trong 
+xây dựng các mô hình phát hiện gian lận chính xác. Thông qua việc phân tích những 
+các tính năng, thuật toán ML có thể tiết lộ các mẫu, điểm bất thường và sai lệch, 
+hỗ trợ xác định các giao dịch có khả năng gian lận và đảm bảo an toàn
+bảo vệ chủ thẻ khỏi tổn thất tài chính [30].
+6.3.2 Thuật toán AI và ML để phát hiện gian lận thẻ tín dụng
+Các mô hình ML, bao gồm mạng lưới thần kinh, cây quyết định và tập hợp
+phương pháp ble, xuất sắc trong việc học hỏi từ dữ liệu lịch sử để nhận ra các điển hình 
+mô hình chi tiêu và phát hiện những điểm bất thường cho thấy có khả năng gian lận [31]. 
+Thông qua giám sát thời gian thực, các mô hình này nhanh chóng xác định các điểm đáng ngờ 
+giao dịch, chẳng hạn như mua hàng lớn bất ngờ, giao dịch bất thường 
+địa điểm hoặc những thay đổi đột ngột trong thói quen chi tiêu. Thuật toán AI và ML chơi 
+vai trò then chốt trong việc chuyển đổi việc phát hiện gian lận thẻ tín dụng, sử dụng một 
+cách tiếp cận tinh vi và chủ động để đảm bảo các giao dịch tài chính. 
+Các thuật toán này tận dụng bộ dữ liệu phong phú về giao dịch thẻ tín dụng, 
+phân tích các mô hình phức tạp và sự bất thường trong thời gian thực [32].
+Việc tích hợp AI và ML vào phát hiện gian lận thẻ tín dụng không chỉ 
+nâng cao hiệu quả của việc xác định gian lận tiềm ẩn nhưng cũng làm giảm sai sót 
+tích cực, đảm bảo trải nghiệm mượt mà hơn cho chủ thẻ hợp pháp và 
+củng cố tính an toàn của các giao dịch tài chính. Khi công nghệ tiến bộ 
+và các kỹ thuật gian lận trở nên tiên tiến hơn, tầm quan trọng của AI và 
+Thuật toán ML trong phát hiện gian lận thẻ tín dụng vẫn rất quan trọng để duy trì 
+trước các mối đe dọa tiềm ẩn và bảo vệ tính toàn vẹn của hệ thống tài chính. 
+Bản chất thích ứng của AI và ML đặc biệt có lợi, vì những thuật toán này
+các quy tắc liên tục phát triển để chống lại các chiến thuật gian lận mới nổi. Hơn nữa, 
+khả năng xem xét nhiều biến số của họ, chẳng hạn như tần suất giao dịch, 
+vị trí và hành vi của chủ thẻ, nâng cao tính chính xác của việc ngăn chặn gian lận
+sự khai thác [33].
+
+--- Trang 132 ---
+
+Đi sâu vào gian lận tài chính  109
+6.4 Phát hiện gian lận phân phối tài liệu 
+trong giao dịch thương mại điện tử
+Lừa đảo thông qua thao túng tài liệu trong giao dịch thương mại điện tử đặt ra 
+một thách thức nhiều mặt, mang lại những hậu quả tiềm ẩn về mặt tài chính và pháp lý
+ý kiến. Hành vi lừa đảo này liên quan đến việc thay đổi hoặc làm giả các tài liệu 
+chẳng hạn như hóa đơn, biên lai, lệnh vận chuyển hoặc các giao dịch khác có liên quan 
+giấy tờ nhằm đánh lừa các nền tảng thương mại điện tử, nhà bán lẻ hoặc tổ chức tài chính
+học phí. Việc xác định hiệu quả gian lận phân phối tài liệu đòi hỏi 
+tích hợp các giải pháp công nghệ tiên tiến và sự giám sát của con người [34]. 
+Kỹ thuật xử lý ngôn ngữ tự nhiên (NLP) rất cần thiết để kiểm tra
+nhập nội dung văn bản của tài liệu ngoài AI và ML. Họ có thể 
+phát hiện sự mâu thuẫn hoặc bất thường về mặt ngôn ngữ có thể dẫn đến gian lận. 
+Chẳng hạn, các phương pháp tiếp cận NLP có thể tiết lộ lỗi trong mô tả sản phẩm 
+hoặc trong cách diễn đạt hoặc cách trình bày của hóa đơn. Mặc dù việc sử dụng công nghệ trong 
+phát hiện gian lận phân phát tài liệu, sự tương tác của con người vẫn là điều cần thiết 
+[35].
+Người đánh giá đưa ra bối cảnh và đánh giá cần thiết để đưa ra 
+quyết định về tính xác thực của tài liệu, được hỗ trợ bởi những hiểu biết sâu sắc từ AI và 
+Công nghệ ML. Khi phát hiện thấy bất thường, họ cũng có thể tiến hành 
+điều tra chuyên sâu, xem xét lịch sử giao dịch và dữ liệu liên quan để 
+giúp họ quyết định xem tài liệu đó có hợp pháp hay không [36]. Đang phát hiện tài liệu
+Gian lận phân phối sản phẩm trong giao dịch thương mại điện tử là một vấn đề phức tạp và 
+quá trình liên ngành. Nó đòi hỏi sức mạnh tổng hợp của thuật toán AI và ML 
+để phân tích hình ảnh và văn bản, kết hợp với chuyên môn của con người để tạo ra 
+các quyết định sắc thái dựa trên bối cảnh và kinh nghiệm. Sự hợp tác này 
+Cách tiếp cận đảm bảo khả năng phòng thủ mạnh mẽ chống lại thao tác gian lận tài liệu
+quan hệ, duy trì tính toàn vẹn của các giao dịch thương mại điện tử và duy trì 
+sự tin cậy và bảo mật của hệ sinh thái bán lẻ trực tuyến [37].
+6.4.1 Thuật toán AI và ML để phân phối tài liệu 
+Phát hiện gian lận
+Đóng vai trò then chốt trong nhiệm vụ phức tạp là phát hiện việc phân phát tài liệu
+gian lận trong thương mại điện tử, thuật toán AI và ML góp phần đáng kể 
+để xác định các hành vi lừa đảo liên quan đến hóa đơn, biên lai, vận chuyển 
+lệnh và các tài liệu liên quan đến giao dịch khác. Các thuật toán này vượt trội 
+trong việc phân tích hình ảnh tài liệu và xem xét kỹ lưỡng nội dung 
+và cấu trúc để phát hiện những bất thường và không nhất quán cho thấy sự gian lận 
+thao tác [38]. Nhận dạng ký tự quang học được hỗ trợ bởi AI (OCR)
+
+--- Trang 133 ---
+
+110  Trí tuệ nhân tạo sáng tạo trong tài chính
+hệ thống trích xuất và phân tích văn bản từ hình ảnh tài liệu, cho phép liên kết chéo
+tham chiếu với hồ sơ giao dịch. Sự không nhất quán trong mô tả sản phẩm
+số lượng, giá cả cũng như những mâu thuẫn khác giữa 
+thông tin tài liệu và dữ liệu giao dịch thực, có thể dễ dàng được phát hiện bởi ML 
+thuật toán. Các thuật toán AI cũng có thể tìm thấy bằng chứng giả mạo như bị thay đổi 
+hình ảnh tài liệu hoặc chữ ký giả [39].
+Các thuật toán NLP cũng rất cần thiết trong tình huống này. Họ kiểm tra văn bản 
+của tài liệu để tìm kiếm các lỗi ngữ pháp, xu hướng ngôn ngữ hoặc các lỗi khác 
+những bất thường về mặt văn bản có thể cho thấy sự gian lận. Thuật toán NLP tiết lộ 
+sự không nhất quán hoặc khác biệt về ngôn ngữ và cấu trúc bằng cách phân tích văn bản 
+và định dạng hóa đơn, biên lai mua hàng hoặc các tài liệu khác [40]. 
+Khi làm việc với số lượng lớn tài liệu, tính hữu ích của 
+Công nghệ AI và ML trở nên rất rõ ràng. Họ có thể tự động cao
+các tài liệu nhẹ cần được kiểm tra chuyên sâu hơn bằng sự xem xét của con người
+ers trong quá trình sàng lọc ban đầu. Được trang bị kiến thức từ 
+thuật toán, những người đánh giá này cân nhắc bối cảnh, lịch sử giao dịch và 
+kinh nghiệm của bản thân khi đưa ra nhận định về tính hợp pháp của văn bản. 
+Tính bảo mật và tin cậy của hệ sinh thái thương mại điện tử được duy trì bằng cách này 
+nỗ lực hợp tác giữa công nghệ và kỹ năng con người nhằm đảm bảo một 
+phòng thủ mạnh mẽ chống lại việc sửa đổi tài liệu gian lận [41].
+6.5 Phân tích tên miền chéo: Lừa đảo trong ngân hàng 
+và ngành tài chính
+Trong việc phát hiện gian lận trong ngành tài chính ngân hàng, tên miền chéo 
+phân tích liên quan đến việc hợp nhất và xem xét kỹ lưỡng dữ liệu từ nhiều nguồn khác nhau 
+để tăng cường việc xác định và ngăn chặn các hoạt động gian lận [42]. 
+Lĩnh vực tài chính phải vật lộn với nhiều hình thức gian lận khác nhau, từ 
+gian lận thẻ tín dụng và giao dịch nội gián để đánh cắp danh tính. Thông qua một chéo
+Phương pháp phân tích miền đòi hỏi sự hợp nhất dữ liệu từ các lĩnh vực khác nhau, 
+bao gồm hồ sơ giao dịch, hồ sơ khách hàng, dữ liệu thị trường và các thông tin bên ngoài 
+các yếu tố như chỉ số kinh tế. Thông qua việc tích hợp các tính năng đa dạng này 
+dữ liệu, các tổ chức tài chính có thể đạt được một cách toàn diện hơn
+tồn tại các mô hình lừa đảo, có khả năng phát hiện ra các dấu hiệu cảnh báo sớm 
+điều đó có thể không rõ ràng khi kiểm tra từng miền một cách riêng biệt [43].
+Chiến lược tổng thể có thể liên quan đến việc phân tích dữ liệu giao dịch cùng với 
+hành vi của khách hàng, kết hợp những hiểu biết sâu sắc về biến động của thị trường và thậm chí 
+xem xét các yếu tố kinh tế vĩ mô [44]. Cách tiếp cận toàn diện này
+
+--- Trang 134 ---
+
+Đi sâu vào các vụ lừa đảo tài chính  111
+trao quyền cho các ngân hàng và tổ chức tài chính phát triển phức tạp hơn 
+các mô hình phát hiện gian lận Những mô hình này có thể khám phá mối tương quan giữa 
+điều kiện thị trường bên ngoài và sự gia tăng đột biến của một số loại hoạt động gian lận
+liên kết hoặc theo dõi các mẫu hành vi của khách hàng có thể cho thấy hành vi trộm cắp danh tính 
+hoặc xâm phạm tài khoản. Những kẻ lừa đảo liên tục điều chỉnh chiến thuật của chúng và 
+phân tích tên miền chéo có thể là công cụ tạo ra sự mạnh mẽ hơn và 
+phòng thủ thích ứng trong bối cảnh tài chính đang phát triển nhanh chóng. Cách tiếp cận này 
+có thể dẫn đến các chiến lược chủ động và hiệu quả hơn để giảm thiểu gian lận, 
+bảo vệ các tổ chức tài chính và khách hàng của họ, đồng thời duy trì 
+tính toàn vẹn của hệ sinh thái tài chính rộng lớn hơn [45].
+6.5.1 Điểm tương đồng và khác biệt trong gian lận 
+Kỹ thuật phát hiện
+Những điểm tương đồng và khác biệt tồn tại giữa các phương pháp phát hiện gian lận khác nhau 
+kỹ thuật. Điểm chung là sự phụ thuộc của họ vào phân tích dữ liệu, nơi họ 
+xem xét kỹ lưỡng các mô hình, sự bất thường và sai lệch. ML và AI thường xuyên 
+được sử dụng trong các kỹ thuật này để nâng cao độ chính xác của chúng. Tuy nhiên, khác biệt
+các tham chiếu xuất hiện trong các nguồn dữ liệu họ sử dụng; ví dụ, thẻ tín dụng 
+phát hiện gian lận tập trung vào dữ liệu giao dịch, trong khi phân phối tài liệu
+phát hiện gian lận tập trung vào nội dung tài liệu và hình ảnh. Các loại 
+gian lận mà họ nhắm tới cũng khác nhau và các thuật toán cũng như mô hình được sử dụng có thể 
+phù hợp với các loại gian lận cụ thể [46].
+6.5.2 Chuyển giao học tập và chia sẻ kiến thức 
+trong Phát hiện gian lận
+Trong bối cảnh phát hiện gian lận, chuyển giao kiến thức và chia sẻ thông tin
+là những khái niệm mạnh mẽ. Quá trình vận dụng kiến thức từ một 
+miền hoặc tập dữ liệu để cải thiện hiệu suất của mô hình ở một miền khác đã được biết đến 
+như học chuyển giao [47]. Điều này liên quan đến việc sử dụng thông tin chi tiết và mô hình
+được bảo vệ bằng cách phát hiện một loại gian lận để nâng cao khả năng phát hiện các loại gian lận khác 
+các loại trong lĩnh vực phát hiện gian lận. Ý tưởng chia sẻ thông tin rộng rãi
+thực hiện chiến lược này bằng cách cho phép các mô hình hoặc hệ thống khác nhau hợp tác và 
+chia sẻ ý tưởng của họ, tăng cường năng lực của nhóm để xác định gian lận nhiều hơn 
+thành công. Thông qua việc thích ứng liền mạch và cải thiện gian lận 
+thuật toán phát hiện được thực hiện bằng các phương pháp này, tài chính 
+các tổ chức có khả năng phản ứng nhanh hơn với các mối đe dọa mới, do đó cải thiện 
+sự an toàn của các giao dịch tài chính [48].
+
+--- Trang 135 ---
+
+
+
+112  Trí tuệ nhân tạo sáng tạo trong tài chính
+6.5.3 Xây dựng mô hình phát hiện gian lận thống nhất
+Để tạo ra một hệ thống toàn diện và có khả năng thích ứng, một công cụ phát hiện gian lận tích hợp
+mô hình hoạt động phải được xây dựng bằng cách kết hợp nhiều nguồn dữ liệu khác nhau và gian lận 
+các kỹ thuật phát hiện. Cách tiếp cận này sử dụng các thuật toán ML có thể 
+phát hiện các xu hướng trong các hình thức gian lận khác nhau, chẳng hạn như thao túng tài liệu, 
+trộm danh tính và gian lận thẻ tín dụng [49]. Các tổ chức tài chính có được một 
+sự hiểu biết thấu đáo về những mối nguy hiểm tiềm ẩn thông qua việc tích hợp 
+những mô hình này, cho phép phát hiện gian lận chính xác và hiệu quả hơn. Cái này 
+mô hình tích hợp có khả năng học hỏi liên tục từ dữ liệu mới, 
+ứng phó với việc thay đổi chiến lược gian lận và đưa ra biện pháp phòng vệ mạnh mẽ 
+chống lại một loạt các hành vi gian lận trong thế giới tài chính phức tạp 
+giao dịch [50].
+6.6 Cân nhắc về đạo đức và quyền riêng tư: Lừa đảo 
+trong ngành tài chính ngân hàng
+Ngành tài chính ngân hàng sử dụng AI và ML để phát hiện gian lận 
+chắc chắn có hiệu quả, nhưng nó cũng đặt ra các vấn đề quan trọng về đạo đức và quyền riêng tư. 
+Những công nghệ này liên quan đến việc phân tích dữ liệu rộng rãi, bao gồm 
+thông tin nhạy cảm của khách hàng, hồ sơ giao dịch và dữ liệu hành vi
+nhạn biển. Đảm bảo việc triển khai AI và ML một cách có đạo đức trong bối cảnh này là điều bình thường
+số tiền. Mối quan tâm chính là khả năng sử dụng sai và xâm nhập vào 
+quyền riêng tư cá nhân [51]. Trong khi việc phát hiện gian lận tài chính một cách hiệu quả 
+đòi hỏi phải phân tích dữ liệu cá nhân bằng thuật toán AI và ML, ở đó 
+tồn tại sự cân bằng mong manh giữa việc sử dụng dữ liệu để bảo mật và vi phạm 
+về quyền riêng tư. Đạt được trạng thái cân bằng này là một thách thức vì dữ liệu quá mức 
+việc thu thập và lưu trữ có thể xâm phạm quyền cá nhân. Điều quan trọng là 
+nhận ra rằng các thuật toán AI và ML không tránh khỏi những sai lệch có trong 
+dữ liệu huấn luyện của họ. Điều này có thể dẫn đến sự phân biệt đối xử không chủ ý hoặc không công bằng 
+lập hồ sơ của một số nhóm hoặc cá nhân nhất định. Điều quan trọng là phải liên tục
+và khắc phục những thành kiến này để duy trì sự công bằng trong việc phát hiện gian lận [52].
+Tính minh bạch và khả năng giải thích nổi lên như những mệnh lệnh đạo đức. Nó thật tệ
+điều quan trọng là phải hiểu cách các mô hình AI và ML đưa ra quyết định, đặc biệt là 
+khi những quyết định đó mang lại ý nghĩa đáng kể về mặt tài chính và pháp lý [53]. 
+Khả năng kiểm tra các công nghệ này và làm sáng tỏ việc ra quyết định của họ 
+quá trình là không thể thiếu để thiết lập niềm tin. Trong việc giải quyết những vấn đề đạo đức này 
+và những lo ngại về quyền riêng tư, việc thực hiện quy định mạnh mẽ trở nên cấp thiết
+khuôn khổ lý thuyết, chính sách bảo vệ dữ liệu nghiêm ngặt và thực hành có trách nhiệm
+những bước tiến trong sự phát triển của AI. Tạo sự cân bằng giữa an ninh và
+
+--- Trang 136 ---
+
+Đi sâu vào các vụ lừa đảo tài chính  113
+quyền cá nhân là chìa khóa để thúc đẩy niềm tin vào việc sử dụng AI và ML cho 
+phát hiện gian lận trong lĩnh vực tài chính ngân hàng đồng thời duy trì 
+các tiêu chuẩn về quyền riêng tư và đạo đức [54].
+6.6.1 Quyền riêng tư và bảo mật dữ liệu
+Quyền riêng tư và bảo mật dữ liệu là điều tối quan trọng trong lĩnh vực chuyển đổi tài chính
+hành động và phát hiện gian lận. Đảm bảo tính bí mật và toàn vẹn của 
+dữ liệu nhạy cảm, chẳng hạn như thông tin khách hàng và hồ sơ giao dịch, không được 
+chỉ là một yêu cầu pháp lý nhưng là một khía cạnh cơ bản của niềm tin vào khả năng tài chính 
+ngành công nghiệp. Để bảo vệ dữ liệu này khỏi bị truy cập trái phép hoặc vi phạm, 
+bắt buộc phải thực hiện các biện pháp bảo mật nghiêm ngặt, các giao thức mã hóa, 
+và kiểm soát truy cập [55]. Điều quan trọng không kém là việc thiết lập một cơ chế mạnh mẽ 
+chính sách quyền riêng tư thông báo cho khách hàng về việc xử lý dữ liệu của họ,
+sự minh bạch và tin cậy. Trong lĩnh vực dữ liệu chịu trách nhiệm về AI và ML 
+quản lý là rất quan trọng để đạt được sự cân bằng tinh tế giữa an ninh 
+và việc triển khai công nghệ có đạo đức. Các tổ chức tài chính phải đối mặt
+liên tục cập nhật và sửa đổi các giao thức bảo mật và quyền riêng tư của họ để có hiệu quả
+giải quyết triệt để các mối đe dọa đang nổi lên và tuân thủ các quy định đang phát triển [56].
+6.6.2 Sự thiên vị và công bằng trong các mô hình AI/ML
+Các vấn đề về thiên vị và công bằng có tầm quan trọng đáng kể trong các mô hình AI/ML, 
+đặc biệt là trong các ứng dụng như phát hiện gian lận trong ngân hàng và 
+ngành tài chính. Sự thiên vị có thể vô tình thấm vào các mô hình thông qua sự sai lệch 
+dữ liệu đào tạo, dẫn đến kết quả không công bằng ảnh hưởng không tương xứng 
+một số nhóm hoặc cá nhân nhất định [57]. Tính công bằng trong AI đòi hỏi phải đảm bảo rằng 
+các dự đoán do mô hình đưa ra là không thiên vị và không phân biệt đối xử 
+dựa trên các yếu tố nhân khẩu học, dân tộc hoặc kinh tế xã hội. Giải quyết những điều này 
+những thách thức đòi hỏi phải kiểm tra, xác nhận và giám sát liên tục nghiêm ngặt
+để phát hiện và giảm thiểu sự thiên vị. Ưu tiên sự công bằng cho phép các tổ chức tài chính
+hướng dẫn để xây dựng các mô hình AI/ML công bằng và đáng tin cậy hơn giúp tạo ra 
+các quyết định khách quan trong lĩnh vực phát hiện gian lận phức tạp [58].
+6.6.3 Tuân thủ quy định
+Lĩnh vực tài chính hoạt động theo các quy định nghiêm ngặt, bao gồm các biện pháp chống
+rửa tiền (AML), quy tắc nhận biết khách hàng (KYC), Quy tắc thanh toán 
+Tiêu chuẩn bảo mật dữ liệu ngành thẻ (PCI DSS), v.v. Những quy định này
+các quy định được xây dựng để đảm bảo tính an toàn của các giao dịch tài chính, an toàn
+bảo vệ người tiêu dùng và duy trì tính toàn vẹn của hệ thống tài chính. Vì
+
+--- Trang 137 ---
+
+114  Trí tuệ nhân tạo sáng tạo trong tài chính
+các tổ chức tài chính sử dụng mô hình AI và ML để phát hiện gian lận, 
+điều hướng các sắc thái của việc tuân thủ quy định là bắt buộc. Họ phải 
+chứng minh rằng hệ thống của họ phù hợp với các yêu cầu quy định này, 
+đặc biệt liên quan đến việc xử lý dữ liệu khách hàng nhạy cảm [59]. 
+Tính minh bạch, độ chính xác và khả năng kiểm tra của các mô hình AI/ML trở thành yếu tố quan trọng
+otal, vì các cơ quan quản lý yêu cầu cái nhìn sâu sắc về quá trình ra quyết định. 
+Sự tuân thủ mở rộng đến những cân nhắc về đạo đức, với các cơ quan quản lý tăng cường
+thực sự mong đợi các tổ chức tài chính giải quyết các tác động đạo đức của 
+triển khai AI trong phát hiện gian lận. Điều này liên quan đến việc đảm bảo sự công bằng, minh bạch
+hiệu quả và trách nhiệm giải trình trong hoạt động của mô hình, giải quyết các vấn đề như 
+như sự thiên vị, phân biệt đối xử và việc sử dụng AI có trách nhiệm [60].
+Trong bối cảnh pháp lý này, các tổ chức tài chính phải đầu tư mạnh mẽ vào 
+các chương trình quản trị, quản lý rủi ro và tuân thủ (GRC). Những cái này 
+các chương trình hỗ trợ phát triển các mô hình AI và ML không chỉ vượt trội trong việc gian lận 
+phát hiện mà còn phù hợp với yêu cầu pháp lý và đạo đức ngày càng phát triển
+đảm bảo an toàn cho các giao dịch tài chính và bảo vệ quyền lợi của 
+quyền cá nhân. Việc không làm như vậy có thể dẫn đến hình phạt đáng kể và đại diện
+thiệt hại mang tính thực tế, khiến việc tuân thủ quy định trở thành ưu tiên hàng đầu trong việc thực hiện
+đề cập đến AI và ML để phát hiện gian lận trong lĩnh vực tài chính.
+6.7 Những tiến bộ trong kỹ thuật AI/ML
+Những tiến bộ trong kỹ thuật AI và ML đã thay đổi đáng kể 
+bối cảnh phát hiện gian lận trong ngành tài chính ngân hàng. 
+Những công nghệ này đã phát triển nhanh chóng, mang lại khả năng nâng cao 
+trao quyền cho các tổ chức tài chính để đi trước các xu hướng ngày càng tinh vi hơn
+những kẻ lừa đảo bịp bợm. Sự tiến bộ là sự chuyển đổi từ dựa trên quy tắc 
+hệ thống sang thuật toán ML [61]. Các cách tiếp cận dựa trên quy tắc truyền thống là 
+bị hạn chế về khả năng thích ứng với các mô hình gian lận mới. Ngược lại, ML 
+các mô hình rất năng động và có thể liên tục học hỏi từ dữ liệu, nhận biết 
+cả các chiến thuật gian lận đã biết và mới nổi. Việc áp dụng học sâu 
+các kỹ thuật, như mạng lưới thần kinh, đã cải thiện hơn nữa độ chính xác và 
+sự phức tạp của các mô hình phát hiện gian lận, cho phép họ xác định các mô hình phức tạp 
+mô hình và sự bất thường [62].
+Những tiến bộ của AI và ML đã mở ra kỷ nguyên phân tích dự đoán 
+bởi vì những mô hình này hiện có thể dự đoán các mô hình gian lận tiềm ẩn dựa trên 
+dữ liệu lịch sử, cho phép các tổ chức tài chính chủ động ngăn chặn gian lận
+các hoạt động phong phú. Các mô hình dự đoán có thể xác định các ngoại lệ, phát hiện sự bất thường, 
+và kích hoạt các cảnh báo để điều tra thêm, giảm các kết quả dương tính giả và 
+nâng cao hiệu quả tổng thể của việc phát hiện gian lận [63].
+
+--- Trang 138 ---
+
+Đi sâu vào các vụ gian lận tài chính  115
+Sự ra đời của AI có thể giải thích và ra quyết định minh bạch 
+là một sự phát triển đáng chú ý khác. Khi các mô hình AI và ML đã trở thành 
+phức tạp hơn, nhu cầu giải thích rõ ràng cho các quyết định của họ đã 
+trưởng thành. Khả năng giải thích trong các mô hình AI là rất quan trọng không chỉ để xây dựng lòng tin 
+mà còn để tuân thủ các tiêu chuẩn quy định và đạo đức [64]. Như một 
+Kết quả là, các mô hình hiện được thiết kế để cung cấp những lời giải thích dễ hiểu 
+cho các quyết định phát hiện gian lận của họ, cho phép các tổ chức tài chính thực hiện theo
+đứng và kiểm tra hoạt động của họ hiệu quả hơn. Sự hoàn thiện đang diễn ra 
+thuật toán, sự kết hợp của dữ liệu lớn và điện toán đám mây, và 
+việc tích hợp phân tích hành vi và sinh trắc học sẽ tiếp tục thúc đẩy 
+đổi mới trong ngành [65].
+6.7.1 Công nghệ sổ cái phân tán và chuỗi khối
+Công nghệ chuỗi khối và sổ cái phân tán (DLT) đang giả định một 
+vai trò ngày càng quan trọng trong việc phát hiện gian lận trong lĩnh vực tài chính ngân hàng.
+ngành công nghiệp chính thức. Những công nghệ này thể hiện một tính chất bất biến, minh bạch và 
+cách tiếp cận phi tập trung để lưu trữ hồ sơ, làm cho nó trở nên đặc biệt khó khăn
+để những kẻ lừa đảo thao túng dữ liệu giao dịch. Bằng cách cung cấp một môi trường an toàn 
+và sổ cái chống giả mạo, chuỗi khối và DLT tăng cường đáng kể 
+tính toàn vẹn của các giao dịch tài chính [66]. Việc tích hợp thông minh 
+hợp đồng, một tính năng của blockchain, cho phép tự động hóa gian lận 
+biện pháp phòng ngừa và tăng cường an ninh giao dịch. Trong khi 
+blockchain và DLT không đóng vai trò là giải pháp độc lập, chúng bổ sung
+các kỹ thuật AI và ML bằng cách cung cấp một nền tảng mạnh mẽ và đáng tin cậy
+thiết bị phát hiện và ngăn chặn gian lận trong lĩnh vực tài chính [67].
+6.7.2 AI có thể giải thích để phát hiện gian lận
+AI có thể giải thích đang đạt được sức hút trong lĩnh vực phát hiện gian lận trong 
+ngành tài chính ngân hàng. Khi các mô hình AI và ML ngày càng trở nên phổ biến hơn 
+phức tạp, nhu cầu hiểu và giải thích các vấn đề ngày càng tăng cao. 
+logic cơ bản đằng sau các quyết định của họ [68]. AI có thể giải thích mang lại sự chuyển đổi
+cha mẹ và những lời giải thích dễ hiểu cho những quyết định này, trao quyền 
+các tổ chức tài chính không chỉ xác định gian lận mà còn hiểu được 
+lý do tại sao các giao dịch cụ thể được xác định là gian lận. trong suốt này
+ency đóng một vai trò quan trọng trong việc thúc đẩy niềm tin, đảm bảo tuân thủ quy định, 
+và giải quyết các mối lo ngại liên quan đến thành kiến và phân biệt đối xử. Có thể giải thích được 
+AI nâng cao hiệu quả phát hiện gian lận bằng cách tạo điều kiện cho con người giám sát 
+và cho phép đưa ra quyết định sáng suốt hơn [69].
+
+--- Trang 139 ---
+
+116  Trí tuệ nhân tạo sáng tạo trong tài chính
+6.8 Thách thức và Rủi ro
+Triển khai AI và ML để phát hiện gian lận trong lĩnh vực tài chính ngân hàng 
+ngành gặp nhiều thách thức và rủi ro. Một thách thức lớn là 
+bản chất không ngừng phát triển của các chiến thuật gian lận. Kẻ lừa đảo liên tục thích nghi 
+và phát triển các kỹ thuật mới, khiến các mô hình AI và ML cần phải 
+theo kịp [70]. Đi trước các mối đe dọa mới nổi đòi hỏi phải có mô hình liên tục 
+sàng lọc và khả năng phát hiện các mô hình gian lận mới. Chế độ AI và ML
+những thứ khác, mặc dù có độ chính xác cao nhưng không phải là không thể sai lầm và phân loại sai các giá trị hợp pháp 
+giao dịch là gian lận hoặc không xác định được gian lận thực tế có thể dẫn đến 
+tổn thất tài chính và sự không hài lòng của khách hàng [71].
+Sự thiên vị trong dữ liệu đào tạo thiên vị của mô hình AI có thể dẫn đến sự phân biệt đối xử 
+hoặc kết quả không công bằng, ảnh hưởng không tương xứng đến một số nhóm nhất định. Đảm bảo 
+sự công bằng trong AI là điều cần thiết và giải quyết sự thiên vị thông qua quá trình tiền xử lý dữ liệu
+việc hiệu chỉnh và hiệu chuẩn mô hình là rất quan trọng. Quyền riêng tư dữ liệu là mối quan tâm đang diễn ra 
+[72]. Xử lý thông tin khách hàng nhạy cảm và nhu cầu dữ liệu giao dịch
+trang web các biện pháp bảo mật và quyền riêng tư mạnh mẽ để bảo vệ chống lại các vi phạm 
+hoặc truy cập trái phép. Đảm bảo rằng dữ liệu được sử dụng một cách tuân thủ và 
+cách có đạo đức là ưu tiên hàng đầu. Khả năng giải thích và minh bạch là rất quan trọng. 
+Hiểu cách các mô hình AI và ML đưa ra quyết định của chúng là điều cần thiết 
+để xây dựng niềm tin. Bản chất “hộp đen” của một số mô hình có thể là rào cản, 
+và các tổ chức tài chính phải đầu tư vào các kỹ thuật cho phép mô hình hóa 
+khả năng diễn giải và kiểm toán [73].
+6.8.1 Độ bền của mô hình và các cuộc tấn công đối nghịch
+Ngành ngân hàng phải đảm bảo khả năng phục hồi của mô hình AI và ML 
+để phát hiện gian lận và các cuộc tấn công đối nghịch tiềm ẩn phải được đặt lên hàng đầu 
+ưu tiên. Các cuộc tấn công đối nghịch cố ý thay đổi dữ liệu hoặc đầu vào để đánh lừa 
+mô hình, dẫn đến phân loại không chính xác và có thể vi phạm an ninh 
+[74]. Kiểm tra và xác nhận liên tục là cần thiết để xác định điểm yếu
+cần thiết và củng cố các mô hình AI chống lại các cuộc tấn công như vậy. Điều này đòi hỏi phải tạo ra 
+các hệ thống có thể vượt qua đầu vào độc hại đồng thời liên tục cải tiến
+sử dụng các thuật toán phát hiện gian lận để chống lại những mối nguy hiểm mới. Nền tảng của 
+bảo vệ khu vực tài chính khỏi gian lận là sự vững chắc của mô hình, điều này cũng 
+hỗ trợ độ tin cậy và độ tin cậy của hệ thống AI và ML [75].
+6.8.2 Khả năng mở rộng và tài nguyên tính toán
+Tiềm năng của các mô hình AI và ML để phát hiện gian lận trên quy mô lớn 
+cả lợi ích và thách thức. Để hỗ trợ phát hiện gian lận theo thời gian thực, có
+
+--- Trang 140 ---
+
+
+
+Đi sâu vào gian lận tài chính  117
+là một yêu cầu ngày càng tăng về tài nguyên tính toán và xử lý 
+sức mạnh khi khối lượng giao dịch tăng lên. Xây dựng cơ sở hạ tầng quan trọng và 
+đầu tư tài nguyên tính toán là cần thiết để giải quyết vấn đề mở rộng quy mô này
+lem [76]. Điều cần thiết là phải tăng tốc và tối ưu hóa các mô hình để đạt hiệu quả trong 
+để xử lý luồng dữ liệu ngày càng tăng. Khả năng mở rộng của hệ thống AI và ML 
+là một cơ hội quan trọng khác. Việc mở rộng quy mô làm cho nó có thể phù hợp
+cập nhật thêm thông tin và độ phức tạp, có thể cải thiện độ chính xác 
+và khả năng phát hiện gian lận. Tiềm năng mở rộng quy mô này dẫn đến 
+tạo ra các mô hình đáng tin cậy và dễ thích ứng hơn để có thể giải quyết các gian lận mới 
+xu hướng trong ngành tài chính luôn thay đổi [77].
+6.8.3 Bản chất gian lận ngày càng gia tăng
+Các hệ thống phát hiện gian lận luôn gặp phải thách thức kể từ khi gian lận xảy ra 
+cảnh quan luôn thay đổi [78]. Những kẻ lừa đảo liên tục tinh chỉnh 
+chiến thuật, sử dụng các phương pháp ngày càng tinh vi để khai thác lỗ hổng
+khả năng của hệ thống tài chính [79, 80]. Khác nhau từ tín dụng thông thường 
+gian lận thẻ đến các hình thức phức tạp hơn như trộm danh tính và đánh cắp tài liệu. 
+thao túng, lừa đảo biểu hiện dưới nhiều chiêu bài khác nhau. Sự ra đời của nền tảng kỹ thuật số
+hình thức và thương mại điện tử đã cung cấp cho những kẻ lừa đảo những con đường mới để 
+lừa dối [81]. Để chống lại điều này, các mô hình AI và ML phải duy trì 
+tính chất năng động, thích ứng để xác định các mô hình gian lận mới nổi và duy trì
+chủ động đón đầu các mối đe dọa ngày càng gia tăng trong môi trường không ngừng 
+bối cảnh thay đổi của gian lận tài chính [82].
+6.9 Kết luận và phạm vi tương lai
+Ứng dụng AI và ML trong phát hiện gian lận trong hoạt động ngân hàng và 
+Ngành tài chính đại diện cho một tiến bộ đáng kể trong việc củng cố an ninh
+tính hợp lý và hiệu quả hoạt động. Những công nghệ này đã được chứng minh là có giá trị 
+để xác định và giảm thiểu các hoạt động gian lận, cho phép tổ chức tài chính
+hướng dẫn để ứng phó kịp thời với các mối đe dọa mới nổi trong thời gian thực. Tuy nhiên, 
+sự tiến bộ này đi kèm với những thách thức của nó. Thích ứng liên tục 
+phát triển các chiến thuật gian lận, giảm thiểu rủi ro tiềm ẩn như thiên vị và đối thủ
+các cuộc tấn công ial, và tuân thủ nghiêm ngặt một vùng đất pháp lý và quy định năng động
+scape là bắt buộc đối với việc sử dụng AI và ML có trách nhiệm và hiệu quả trong 
+miền này. Các mô hình AI và ML đã sẵn sàng cho một tương lai đầy hứa hẹn trong thế giới 
+lĩnh vực phát hiện gian lận. Sự phát triển nhanh chóng của công nghệ có thể dẫn đến 
+trong các hệ thống tiên tiến và thích ứng hơn có khả năng không chỉ xác định 
+các mô hình gian lận đã biết mà còn chủ động dự đoán các mối đe dọa mới nổi.
+
+--- Trang 141 ---
+
+118  Trí tuệ nhân tạo sáng tạo trong tài chính
+Các hệ thống này sẽ khai thác sức mạnh của phân tích dự đoán và bất thường
+phát hiện aly để liên tục nâng cao khả năng của họ. Tương lai cũng 
+có tiềm năng hợp tác chặt chẽ hơn giữa các tổ chức tài chính và 
+cơ quan quản lý. Một nỗ lực hợp tác để thiết lập các phương pháp thực hành tốt nhất, chia sẻ 
+kiến thức và thực hiện các biện pháp quản trị mạnh mẽ có thể nâng cao 
+hiệu quả và độ tin cậy tổng thể của AI và ML trong việc phát hiện gian lận. 
+Khi công nghệ tiếp tục phát triển, ngành tài chính có thể tận dụng AI 
+và ML để đón đầu bối cảnh ngày càng phát triển của các hoạt động lừa đảo
+quan hệ trong khi vẫn duy trì tính toàn vẹn của các giao dịch tài chính.
+Tài liệu tham khảo
+	 1. Adewumi, A.O. và Akinyelu, A.A., Một cuộc khảo sát về học máy và 
+kỹ thuật phát hiện gian lận thẻ tín dụng dựa trên cảm hứng tự nhiên. Int. J. Hệ thống. 
+Đảm bảo. Anh. Quản lý., 8, 937–953, 2017.
+	 2. Ahmed, S., Alshater, M.M., El Ammari, A., Hammami, H., Trí tuệ nhân tạo
+Cấu trúc và học máy trong tài chính: Đánh giá thư mục. Res. Int. Xe buýt. 
+Tài chính, 61, 101646, 2022.
+	 3. Alghofaili, Y., Albattah, A., Rassam, M.A., Mô hình phát hiện gian lận tài chính 
+dựa trên kỹ thuật học sâu LSTM. J. Ứng dụng. An toàn. Nghị quyết, 15, 4, 498–516, 
+2020.
+	 4. Ali, A., Abd Razak, S., Othman, S.H., Eisa, T.A.E., Al-Dhaqm, A., Nasser, M., 
+Saif, A., Phát hiện gian lận tài chính dựa trên học máy: một phương pháp có hệ thống 
+phê bình văn học. ứng dụng. Khoa học, 12, 19, 9637, 2022.
+	 5. Ashfaq, T., Khalid, R., Yahaya, A.S., Aslam, S., Azar, A.T., Alsafari, S., 
+Hameed, I.A., Một trò lừa đảo hiệu quả dựa trên công nghệ máy học và blockchain 
+cơ chế phát hiện. Cảm biến, 22, 19, 7162, 2022.
+	 6. Awotunde, J.B., Misra, S., Ayeni, F., Maskeliūnas, R., Damasevičius, R., 
+Hệ thống dựa trên trí tuệ nhân tạo để dự đoán gian lận khoản vay ngân hàng, trong: 
+Hội nghị quốc tế về hệ thống thông minh lai, trang 463–472, Springer, 
+Chăm, tháng 12 năm 2021.
+	 7. Aziz, S. và Dowling, M.M., AI và máy học để quản lý rủi ro, 
+trong: Đột phá tài chính: Công nghệ tài chính và chiến lược trong thế kỷ 21, T. Lynn, 
+G. Mooney, P. Rosati, M. Cummins (Eds.), trang 33–50, Palgrave, UK, 2018.
+	 8. Bhasin, M.L., Mối đe dọa gian lận trong ngành ngân hàng Ấn Độ: một nghiên cứu thực nghiệm 
+học tập. Úc. J. Xe buýt. Quản lý. Nghị quyết, 4, 12, 45, 2015.
+	 9. Bhatore, S., Mohan, L., Reddy, Y.R., Kỹ thuật học máy cho tín chỉ 
+Đánh giá rủi ro: xem xét tài liệu có hệ thống. Ngân hàng J. Tài chính. Công nghệ, 4, 
+111–138, 2020.
+	 10. Biswas, A., Deol, R.S., Jha, B.K., Jakka, G., Suguna, M.R., Thomson, B.I., 
+Phát hiện gian lận ngân hàng tự động để nhận dạng và hạn chế 
+về truy cập trái phép trong lĩnh vực tài chính, vào: 2022 Quốc tế thứ 3
+
+--- Trang 142 ---
+
+Đi sâu vào các vụ lừa đảo tài chính  119
+Hội nghị về Điện tử và Truyền thông Thông minh (ICOSEC), IEEE, 
+trang 809–814, tháng 10 năm 2022.
+	 11. Błaszczyński, J., de Almeida Filho, A.T., Matuszyk, A., Szeląg, M., Słowiński, 
+R., Tự động phát hiện gian lận khoản vay bằng cách sử dụng phương pháp tập hợp thô dựa trên ưu thế 
+so với các phương pháp học máy. Hệ thống chuyên gia Ứng dụng, 163, 113740, 2021.
+	 12. Bose, I. và Mahapatra, R.K., Khai thác dữ liệu kinh doanh—học máy 
+quan điểm. Thông tin Quản lý., 39, 3, 211–225, 2001.
+	 13. Dalal, S., Seth, B., Radulescu, M., Secara, C., Tolea, C., Dự đoán gian lận 
+trong các dịch vụ thanh toán tài chính thông qua điều chỉnh siêu tham số được tối ưu hóa 
+Mô hình XGBoost. Toán, 10, 24, 4679, 2022.
+	 14. Goodell, J.W., Kumar, S., Lim, W.M., Pattnaik, D., Trí tuệ nhân tạo và 
+học máy trong tài chính: Xác định nền tảng, chủ đề và nghiên cứu 
+các cụm từ phân tích thư mục. J. Cư xử. Exp. Tài chính, 32, 100577, 2021.
+	 15. Hajek, P. và Henriques, R., Báo cáo thường niên của các công ty khai thác mỏ cho intelli
+phát hiện gian lận báo cáo tài chính – Một nghiên cứu so sánh về máy 
+phương pháp học tập. Hệ thống dựa trên kiến thức, 128, 139–152, 2017.
+	 16. Hasan, I. và Rizvi, S.A.M., phát hiện và giảm thiểu gian lận dựa trên AI trong 
+giao dịch thương mại điện tử, trong: Thủ tục phân tích và quản lý dữ liệu: 
+ICDAM 2021, Tập 1, Springer, Singapore, trang 403–414, 2022.
+	 17. Kaur, D.N., Sahdev, S.L., Sharma, D.M., Siddiqui, L., Banking 4.0: ‘cúm
+Sự phát triển của trí tuệ nhân tạo đối với ngành ngân hàng và AI đang thay đổi như thế nào 
+bộ mặt của các ngân hàng hiện đại”. Int. J. Quản lý., 11, 6, 11–15, 2020.
+	 18. Kurshan, E., Shen, H., Yu, H., Phát hiện tội phạm tài chính và gian lận bằng biểu đồ 
+điện toán: Cân nhắc và triển vọng ứng dụng, trong: 2020 Second Inter
+Hội nghị quốc gia về AI xuyên ngành (TransAI), IEEE, trang 125–130, 
+Tháng 9 năm 2020.
+	 19. Kute, D.V., Pradhan, B., Shukla, N., Alamri, A., Học sâu và giải thích
+kỹ thuật trí tuệ nhân tạo có thể áp dụng để phát hiện rửa tiền
+ing-một đánh giá quan trọng. Truy cập IEEE, 9, 82300–82317, 2021.
+	 20. Lei, X., Mohamad, U.H., Sarlan, A., Shutaywi, M., Daradkeh, Y.I., Mohammed, 
+H.O., Phát triển hệ thống thông tin thông minh để phân tích tài chính 
+phụ thuộc vào các thuật toán học máy có giám sát. Thông tin Quá trình. Quản lý., 
+59, 5, 103036, 2022.
+	 21. Leo, M., Sharma, S., Maddulety, K., Học máy trong quản lý rủi ro ngân hàng
+Tuổi: Một bài phê bình văn học. Rủi ro, ngày 7, 1, 29, 2019.
+	 22. Lokanan, M., Tran, V., Vương, N.H., Phát hiện bất thường về tình hình tài chính
+sử dụng thuật toán học máy: Trường hợp tiếng Việt được liệt kê 
+các công ty. Tài khoản J. Châu Á. Nghị quyết, 4, 2, 181–201, 2019.
+	 23. Mahalakshmi, V., Kulkarni, N., Kumar, K.P., Kumar, K.S., Sree, D.N., Durga, 
+S., Vai trò của việc triển khai Trí tuệ nhân tạo và Học máy 
+Công nghệ trong ngành dịch vụ tài chính để tạo ra năng lực cạnh tranh 
+Tình báo. Mẹ ơi. Hôm nay Proc., 56, 2252–2255, 2022.
+	 24. Meghani, K., Sử dụng trí tuệ nhân tạo và Blockchain trong lĩnh vực ngân hàng: A 
+nghiên cứu các ngân hàng thương mại theo lịch trình ở Ấn Độ. Ấn Độ J. Appl. Nghị quyết, 10, 45–55, 
+2020.
+
+--- Trang 143 ---
+
+120  Trí tuệ nhân tạo sáng tạo trong tài chính
+	 25. Mirza, N., Elhoseny, M., Umar, M., Metawa, N., Bảo vệ FinTech 
+những đổi mới với Học máy: Đánh giá so sánh các loại khác nhau 
+Phương pháp tiếp cận. Res. Int. Xe buýt. Tài chính, ngày 1, 102009, 2023.
+	 26. Nazeer, I., Prasad, K.D.V., Bahadur, P., Bapat, V., MJ, K., Đồng bộ hóa 
+AI và Deep Learning để phát hiện gian lận thẻ tín dụng. Int. J. Trí tuệ. Hệ thống. 
+ứng dụng. Tiếng Anh, 11, 5s, 52–59, 2023.
+	 27. Nguyen, T.T., Tahir, H., Abdelrazek, M., Babar, A., Phương pháp học sâu 
+để phát hiện gian lận thẻ tín dụng, 2020, arXiv in trước arXiv:2012.03754.
+	 28. Paruchuri, H., Phát hiện gian lận thẻ tín dụng bằng cách sử dụng máy học: A 
+Tổng quan tài liệu có hệ thống. ABC J. Adv. Nghị quyết, 6, 2, 113–120, 2017.
+	 29. Roy, A., Sun, J., Mahoney, R., Alonzi, L., Adams, S., Beling, P., Học sâu 
+phát hiện gian lận trong giao dịch thẻ tín dụng, trong: Hệ thống và Thông tin 2018 
+Hội nghị chuyên đề về thiết kế kỹ thuật (SIEDS), IEEE, trang 129–134, tháng 4 năm 2018.
+	 30. Ryman-Tubb, N.F., Krause, P., Garn, W., Trí tuệ nhân tạo và 
+nghiên cứu học máy tác động đến việc phát hiện gian lận thẻ thanh toán: Một cuộc khảo sát 
+và điểm chuẩn của ngành. Anh. ứng dụng. Nghệ thuật. Intell., 76, 130–157, 2018.
+	 31. Sadgali, I., Sael, N., Benabbou, F., Hiệu suất của công nghệ máy học
+đặc biệt trong việc phát hiện gian lận tài chính. Máy tính thủ tục. Khoa học, 148, 45–54, 
+2019.
+	 32. Sen, J., Sen, R., Dutta, A., Chương giới thiệu: Học máy trong 
+Các xu hướng và thách thức mới nổi về tài chính, trong: Thuật toán, mô hình và 
+Ứng dụng, tr. 1, 2021.
+	 33. Sharma, A. và Singh, B., Đo lường tác động của thương mại điện tử ở quy mô nhỏ 
+Kinh doanh: Đánh giá có hệ thống. JCGIBL, 5, 1, 75, 2022.
+	 34. Singh, B., Tìm hiểu khung pháp lý liên quan đến người chuyển giới 
+Chăm sóc sức khỏe trong thời đại năng động. Điện tử. J. Sóc. Chiến lược. Học sinh, 3, 56–65, 
+2022.
+	 35. Singh, B., Công nghệ chuỗi khối trong cải tiến chăm sóc sức khỏe: Pháp lý và tương lai 
+Các góc nhìn trong: Cách mạng hóa chăm sóc sức khỏe thông qua trí tuệ nhân tạo 
+và Ứng dụng Internet of Things, trang 177–186, IGI Global, Hoa Kỳ, 2023.
+	 36. Singh, B., Học tập liên kết để hình dung quỹ đạo tương lai Giao thông thông minh 
+Hệ thống bảo tồn khí hậu và hành tinh xanh thông minh: Những hiểu biết sâu sắc về 
+Quản trị Toàn cầu và SDG-9 (Công nghiệp, Đổi mới và Cơ sở hạ tầng). 
+Natl. J. Môi trường. Luật, 6, 2, 6–17, 2023.
+	 37. Singh, C., Pattanayak, D., Dixit, D., Antony, K., Agarwala, M., Kant, R., 
+Mathur, V., Gian lận trong ngành ngân hàng Ấn Độ. Nghiên cứu IIM Bangalore 
+Giấy, (505), 2016.
+	 38. Singla, A. và Jangir, H., Một cách tiếp cận so sánh để phân tích dự đoán 
+với học máy để phát hiện gian lận dữ liệu tài chính theo thời gian thực, vào: 2020 
+Hội nghị quốc tế về các xu hướng mới nổi trong truyền thông, kiểm soát và 
+Máy tính (ICONC3), IEEE, trang 1–4, tháng 2 năm 2020.
+	 39. Sood, P. và Bhushan, P., Đánh giá có cấu trúc và phân tích chủ đề về tài chính 
+gian lận trong ngành ngân hàng. Xe buýt Châu Á J. Đạo đức, 9, 305–321, 2020.
+
+--- Trang 144 ---
+
+Đi sâu vào các vụ lừa đảo tài chính  121
+	 40. Stojanovic, B., Božić, J., Hofer-Schmitz, K., Nahrgang, K., Weber, A., Badii, 
+A., Runevic, J., Đi theo dấu vết: Học máy để phát hiện gian lận trong 
+Ứng dụng Fintech. Cảm biến, 21, 5, 1594, 2021.
+	 41. Taiwo, J.N., Babajide, A., Isibor, A.A., Sự gia tăng gian lận ngân hàng và tác động 
+về ngành ngân hàng Nigeria. J. Xe buýt. Quản lý. Kinh tế, 4, 12, 2016.
+	 42. Thekkethil, M.S., Shukla, V.K., Beena, F., Chopra, A., Tự động xử lý robot
+trong lĩnh vực tài chính ngân hàng để xử lý khoản vay và phát hiện gian lận
+tion, trong: Hội nghị quốc tế lần thứ 9 về độ tin cậy, Công nghệ Infocom năm 2021 
+và Tối ưu hóa (Xu hướng và Định hướng Tương lai)(ICRITO), IEEE, trang 1–6, 
+Tháng 9 năm 2021.
+	 43. Thennakoon, A., Bhagyani, C., Premadasa, S., Mihiranga, S., Kuruwitaarachchi, 
+N., Phát hiện gian lận thẻ tín dụng theo thời gian thực bằng cách sử dụng máy học, năm: 2019 lần thứ 9 
+Hội thảo quốc tế về Điện toán đám mây, Khoa học & Kỹ thuật dữ liệu 
+(Hợp lưu), IEEE, trang 488–493, tháng 1 năm 2019.
+	 44. Verma, J., Ứng dụng học máy để phát hiện gian lận–Một quyết định 
+Hệ thống hỗ trợ trong lĩnh vực bảo hiểm, trong: Phân tích dữ liệu lớn trong bảo hiểm 
+Market, Công ty TNHH Xuất bản Emerald, trang 251–262, 2022.
+	 45. Mamela, T.L., Đánh giá tác động của trí tuệ nhân tạo đến hiệu suất
+lực lượng lao động tại một tổ chức ngân hàng Nam Phi, Đại học 
+Johannesburg, Nam Phi, 2021.
+	 46. Ullah, K., Rashid, I., Afzal, H., Iqbal, M.M.W., Bangash, Y.A., Abbas, H., SS7 
+lỗ hổng bảo mật—khảo sát và triển khai học máy so với quy tắc 
+lọc dựa trên việc phát hiện các cuộc tấn công mạng SS7. Cộng đồng IEEE. Sống sót. 
+Hướng dẫn, 22, 2, 1337–1371, 2020.
+	 47. Rodgers, W., Trí tuệ nhân tạo trong mô hình thông lượng: Một số thuật toán chính
+nhịp điệu, CRC Press, Hoa Kỳ, 2020.
+	 48. Sarveshwaran, V., Chen, J.I.Z., Pelusi, D. (Eds.), Trí tuệ nhân tạo và 
+An ninh mạng trong Công nghiệp 4.0, Springer Nature, Singapore, 2023.
+	 49. Mandal, J.K., Misra, S., Banerjee, J.S., Nayak, S. (Eds.), Ứng dụng của máy 
+Trí tuệ trong Kỹ thuật: Kỷ yếu Hội nghị Toàn cầu lần thứ 2 về Nhân tạo 
+Trí tuệ và Ứng dụng (GCAIA, 2021), Jaipur, Ấn Độ, ngày 8-10 tháng 9, 
+2021, Nhà xuất bản CRC, Hoa Kỳ, 2022.
+	 50. Lee, K.F. và Qiufan, C., AI 2041: Mười tầm nhìn cho tương lai của chúng ta, Tiền tệ, Hoa Kỳ, 2021.
+	 51. Leach, N., Kiến trúc trong thời đại trí tuệ nhân tạo, Bloomsbury 
+Nhà xuất bản, Hoa Kỳ, 2021.
+	 52. Chamola, V., Hassija, V., Gupta, V., Guizani, M., Đánh giá toàn diện về 
+đại dịch COVID-19 và vai trò của IoT, máy bay không người lái, AI, blockchain và 5G 
+trong việc quản lý tác động của nó. Truy cập IEEE, 8, 90225–90265, 2020.
+	 53. Sarkar, A. và Singh, B.K., Đánh giá về hiệu suất, bảo mật và các 
+Đề án bảo vệ mẫu sinh trắc học cho hệ thống xác thực sinh trắc học. 
+Đa năng. Ứng dụng Công cụ, 79, 27721–27776, 2020.
+	 54. Paget-Wilkes, M., Mọi thứ sụp đổ?: Sứ mệnh của Chúa và sứ mệnh thứ ba 
+Thập kỷ, Wipf và Nhà xuất bản Chứng khoán, Hoa Kỳ, 2020.
+
+--- Trang 145 ---
+
+
+
+122  Trí tuệ nhân tạo sáng tạo trong tài chính
+	 55. Komporozos-Athanasiou, A., Cộng đồng đầu cơ: Sống chung với người không chắc chắn
+sự ô uế trong một thế giới tài chính hóa, Nhà xuất bản Đại học Chicago, Hoa Kỳ, 2022.
+	 56. Suarez-Villa, L., Công nghệ và Chủ nghĩa tư bản độc quyền nhóm, Taylor & Francis, US, 
+2023.
+	 57. Crary, J., Thiêu đốt trái đất: Vượt qua thời đại kỹ thuật số để đến một thế giới hậu tư bản, 
+Sách Verso, Hoa Kỳ, 2022.
+	 58. Bhatore, S., Mohan, L., Reddy, Y.R., Kỹ thuật học máy cho tín chỉ 
+Đánh giá rủi ro: Đánh giá tài liệu có hệ thống. Ngân hàng J. Tài chính. Công nghệ, 4, 
+111–138, 2020.
+	 59. Almazroi, A.A. và Ayub, N., Mô hình phát hiện gian lận thanh toán trực tuyến bằng cách sử dụng 
+Kỹ thuật học máy. Truy cập IEEE, 11, 137188–137203, 2023.
+	 60. Gill, M.A., Quresh, M., Rasool, A., Hassan, M.M., Phát hiện thẻ tín dụng 
+gian lận thông qua học máy trong ngành ngân hàng. J. Máy tính. Sinh học. 
+Thông tin, 5, 01, 273–282, 2023.
+	 61. Lacruz, F. và Saniie, J., Ứng dụng học máy trong tín dụng fintech 
+phát hiện gian lận thẻ, tại: Hội nghị quốc tế IEEE về điện tử năm 2021 
+Công nghệ thông tin (EIT), IEEE, trang 1–6, tháng 5 năm 2021.
+	 62. Khan, H.U., Malik, M.Z., Alomari, M.K.B., Khan, S., Al-Maadid, A.A.S., 
+Hassan, M.K., Khan, K., Chuyển đổi khả năng của nhân tạo 
+Thông tin tình báo trong lĩnh vực tài chính GCC: Đánh giá tài liệu có hệ thống. Wirel. 
+Cộng đồng. Máy tính di động., 2022, 2022.
+	 63. Saeed, A. và Ebrahim, H., Giao điểm của Học máy, Nhân tạo 
+Thông minh và Dữ liệu lớn, trong: Máy tính dữ liệu lớn, trang 111–131, CRC Press, 
+Hoa Kỳ, 2024.
+	 64. Bahoo, S., Cucculelli, M., Goga, X., Mondolo, J., Trí tuệ nhân tạo ở 
+Tài chính: đánh giá toàn diện thông qua phân tích nội dung và đo lường thư mục. 
+Xe buýt SN. Kinh tế, 4, 2, 23, 2024.
+	 65. Hassan, M.A.M., Sardar, T.H., Fahim, M.F.H., Mohamed, M.S., Suleyman, 
+R.M., Usman, M.M., Ứng dụng trí tuệ nhân tạo và học sâu 
+về Khung tính toán dữ liệu lớn, trong: Tính toán dữ liệu lớn, trang 196–211, 
+Nhà xuất bản CRC, 2024.
+	 66. Spreitzenbarth, J.M., Bode, C., Stuckenschmidt, H., Trí tuệ nhân tạo và 
+học máy trong quản lý mua hàng và cung ứng: Một phương pháp hỗn hợp
+đánh giá của chúng ta về những tiến bộ mới nhất trong văn học và thực tiễn. J. Purch. cung cấp 
+Quản lý., 100896, 2024.
+	 67. Gera, R., Chadha, P., Saxena, A., Dixit, S., A Scientometric và Bibliometric 
+Đánh giá tác động và ứng dụng trí tuệ nhân tạo và Fintech đối với 
+Tài chính toàn diện, trong: Trí tuệ nhân tạo, Công nghệ tài chính và Tài chính toàn diện, 
+trang 82–111, Nhà xuất bản CRC, Hoa Kỳ, 2024.
+	 68. Pahsa, A., Hệ thống hỗ trợ quyết định công nghệ tài chính. J. Điện. Hệ thống. Thông tin 
+Technol., 11, 1, 5, 2024.
+	 69. Hashid, A. và Almaqtari, F.A., Tác động của trí tuệ nhân tạo và 
+Công nghiệp 4.0 về chuyển đổi thực hành kế toán và kiểm toán. J. Mở 
+Đổi mới. Technol. Đánh dấu. Phức hợp., 100218, 2024.
+
+--- Trang 146 ---
+
+Đi sâu vào các vụ lừa đảo tài chính  123
+	 70. Rawat, R., Chakrawarti, R.K., Sarangi, S.K., Vyas, P., Alamanda, M.S., 
+Srividya, K., Sankaran, K.S. (Eds.), Trí tuệ nhân tạo đàm thoại, John 
+Wiley & Sons, Hoa Kỳ, 2024.
+	 71. Zhu, H., Vigren, O., Söderberg, I.L., Triển khai trí tuệ nhân tạo 
+dịch vụ tư vấn tài chính được trao quyền: Đánh giá tài liệu và phê bình 
+chương trình nghị sự nghiên cứu. J. Xe buýt. Nghị quyết, 174, 114494, 2024.
+	 72. Buttar, A.M., Shahzad, F., Jamil, U., AI đàm thoại: Các tính năng bảo mật, 
+Các ứng dụng và Phạm vi tương lai của Nền tảng đám mây, trong: Đàm thoại 
+Trí tuệ nhân tạo, trang 31–58, 2024.
+	 73. Hassija, V., Chamola, V., Mahapatra, A., Singal, A., Goel, D., Huang, K., 
+Scardapane, S., Spinelli, I., Mahmud, M., Hussain, A., Giải thích hộp đen 
+các mô hình: đánh giá về trí tuệ nhân tạo có thể giải thích được. Nhận thức. Máy tính, 16, 1, 
+45–74, 2024.
+	 74. Ahmad, A.Y.B., Tiwari, A., Nayeem, M.A., Biswal, B.K., Satapathy, D.P., 
+Kulshreshtha, K., Bordoloi, D., Khung quan điểm trí tuệ nhân tạo 
+của Mô hình quản lý tài chính kế toán thông minh. Int. J. Trí tuệ. Hệ thống. 
+ứng dụng. Tiếng Anh, 12, 4s, 586–594, 2024.
+	 75. Chadha, P., Gera, R., Khera, G.S., Sharma, M., Những thách thức của nhân tạo 
+Áp dụng trí thông minh để tiếp cận tài chính, trong: Trí tuệ nhân tạo, 
+Fintech và Tài chính toàn diện, trang 135–160, CRC Press, 2024.
+	 76. Anwar, T., Khan, G.A., Ashraf, Z., Ansari, Z.A., Ahmed, R., Azrour, M., The 
+Sự kết hợp giữa Blockchain và Internet vạn vật (IoT): Ứng dụng, 
+Cơ hội và thách thức cho ngành trong: Blockchain và Máy móc 
+Học về Bảo mật IoT, trang 56–76, 2024.
+	 77. Musa, A., Vai trò của trí tuệ nhân tạo trong việc đạt được chất lượng kiểm toán cho 
+doanh nghiệp vừa và nhỏ ở Vương quốc Ả Rập Saudi. Int. J. Dữ liệu 
+Mạng. Khoa học, 8, 2, 835–844, 2024.
+	 78. Blanuša, J., Baraja, M.C., Anghel, A., von Niederhäusern, L., Altman, E., 
+Pozidis, H., Atasu, K., Bộ tiền xử lý tính năng đồ thị: Trích xuất thời gian thực 
+của các Tính năng dựa trên biểu đồ con từ Biểu đồ giao dịch, 2024, bản in trước arXiv 
+arXiv:2402.08593.
+	 79. Broby, D. và Murphy, C., Chương trình giảng dạy cho khối kiến thức mở 
+Tài chính, 2024.
+	 80. Renda, A., Quản trị, hồ sơ chính phủ và quy trình hoạch định chính sách 
+được hỗ trợ bởi AI, trong: Sổ tay trí tuệ nhân tạo tại nơi làm việc, trang 291–313, 
+Nhà xuất bản Edward Elgar, Hoa Kỳ, 2024.
+	 81. Wilkinson, D., Christie, A., Tarr, A.A., Tarr, J.A., Dữ liệu lớn, Nhân tạo 
+Tình báo và Bảo hiểm, trong: Thị trường Bảo hiểm Toàn cầu và Sự Thay đổi, 
+trang 22–46, Luật Thông tin của Routledge, Hoa Kỳ, 2024.
+	 82. Nallakaruppan, M.K., Balusamy, B., Shri, M.L., Malathi, V., Bhattacharyya, 
+S., Khung AI có thể giải thích được để đánh giá và phân tích tín dụng. ứng dụng. 
+Máy tính mềm., 111307, 2024.
+
+--- Trang 147 ---
+
+125
+Pethuru Raj Chelliah, Pushan Kumar Dutta, Abhishek Kumar, Ernesto D.R. Santbanez Gonzalez, 
+Mohit Mittal và Sachin Gupta (eds.) Trí tuệ nhân tạo sáng tạo trong tài chính: Ngôn ngữ lớn 
+Mô hình, giao diện và trường hợp sử dụng trong ngành để chuyển đổi quy trình tài chính và kế toán, 
+(125–148) © 2025 Scrivener Publishing LLC
+7
+AI sáng tạo: Một công cụ biến đổi cho 
+Giảm thiểu rủi ro gian lận tài chính
+Rahul Joshi1*, Krishna Pandey1 và Suman Kumari2
+1Khoa Báo chí và Truyền thông đại chúng, Trường Nghiên cứu Truyền thông 
+& Nhân văn, Viện Nghiên cứu & Nghiên cứu Quốc tế Manav Rachna, 
+Faridabad, Haryana, Ấn Độ
+2Nhà nghiên cứu độc lập, Haryana, Ấn Độ
+Tóm tắt
+Gian lận tài chính có ảnh hưởng sâu sắc và sâu rộng đến người dân. tài chính 
+các tổ chức có năng lực kỹ thuật để xác định gian lận bằng cách sử dụng trí tuệ nhân tạo thông minh
+hệ thống giấy phép. Tuy nhiên, khoảng thời gian cần thiết để thu thập một lượng đáng kể 
+dữ liệu lừa đảo để huấn luyện các thuật toán phát hiện gian lận của họ gây ra mối nguy hiểm đắt đỏ
+ard. Ngành này phải đối mặt với những thách thức về an ninh như vi phạm quyền sở hữu trí tuệ 
+quyền sở hữu, tạo nội dung có hại hoặc phân biệt đối xử và vi phạm dữ liệu. 
+Các tổ chức tài chính nên sử dụng hệ thống trí tuệ nhân tạo tổng hợp bên trong 
+mạng an toàn và biệt lập để giảm thiểu những rủi ro có thể xảy ra. Hơn nữa, nó là 
+quan trọng để đảm bảo việc sử dụng dữ liệu đào tạo cụ thể, thực hiện triệt để 
+các giao thức bảo mật, cung cấp các sáng kiến đào tạo nhân viên và tích cực giám sát 
+sản lượng được sản xuất. Thiết lập cấu trúc quản trị, sử dụng tính năng phát hiện bất thường 
+công nghệ, kết hợp các nguồn dữ liệu bên ngoài và xác nhận các dữ liệu được tạo 
+thông tin rất được khuyến khích. Do đó, nên thành lập liên minh 
+với các nhà cung cấp đáng tin cậy và tích cực tham gia vào các sáng kiến hợp tác 
+với các cơ quan quản lý và hiệp hội ngành để tăng cường các giao thức bảo mật. 
+Hơn nữa, việc giảm thiểu các nguy cơ gian lận và thao túng tài chính có thể xảy ra là 
+quan trọng bằng cách triển khai các khuôn khổ quản trị mạnh mẽ, sử dụng thuật toán tiên tiến
+quy tắc, có được sự xác nhận của chuyên gia, thực thi các biện pháp an ninh mạng mạnh mẽ và 
+*Tác giả tương ứng: rahuljoshi.785@gmail.com; ORCID: https://orcid.org/0000-0002-5467-5105
+Krishna Pandey: ORCID: https://orcid.org/0000-0001-8290-3681
+Suman Kumari: ORCID: https://orcid.org/0000-0002-4691-4065
+
+
+
+
+
+
+--- Trang 365 ---
+
+trước đó. Cố vấn robot và nền tảng giao dịch dựa trên AI là
+hiện đang trở nên phổ biến trong lĩnh vực quản lý danh mục đầu tư.
+Khi chi phí phần cứng giảm, chúng ta có thể mong đợi một sự thay đổi đáng kể
+sự gia tăng việc sử dụng AI trong tương lai của các tổ chức tài chính
+sau đó sẽ ảnh hưởng đến cách thức hoạt động của các tổ chức tài chính và
+cung cấp dịch vụ.
+AI đã đóng một vai trò không thể thiếu trong nhiều giai đoạn của
+hệ sinh thái tài chính từ quản lý tài sản đến tiếp cận rủi ro.
+Các ứng dụng hiện tại và tương lai bao gồm thuật toán AI
+giao dịch, cố vấn robo, chatbot, phát hiện gian lận và cho vay/
+bảo lãnh bảo hiểm.
+Giao dịch thuật toán AI
+Giao dịch thuật toán/định lượng đã được các quỹ phòng hộ sử dụng
+hoặc các tổ chức tài chính khác kể từ những năm 1970. Ngày nay, AI đã
+trở thành xu hướng mới nổi trong quản lý tài sản
+phong cảnh. Không giống như các thuật toán giao dịch truyền thống được xây dựng
+để khai thác các cơ hội thị trường cụ thể như xác định
+xu hướng biến động giá, AI có khả năng thực sự hoạt động như một
+đại lý độc lập tham gia hoạt động thị trường.
+Dữ liệu lớn và các dạng trí tuệ nhân tạo khác nhau, chẳng hạn như
+ML và NLP, đã thay đổi ngành quản lý tài sản.
+Sử dụng các công cụ NLP, máy có thể phân tích hoạt động của công ty
+các cuộc gọi doanh thu để phát hiện những thay đổi trong tâm lý quản lý
+có thể báo hiệu hiệu suất trong tương lai và sàng lọc thông qua nhà phân tích
+báo cáo để chỉ ra các thuật ngữ sắp thay đổi tiêu đề của nó
+dự báo. Những công cụ này cũng có thể được sử dụng để phân tích một số lượng lớn
+
+--- Trang 366 ---
+
+nguồn dữ liệu phi cấu trúc (chẳng hạn như báo cáo tin tức, blog và
+truyền thông xã hội) để xác định xu hướng đầu tư tiềm năng.
+Những tiến bộ trong AI đang được sử dụng để cải thiện nghiên cứu và
+đưa ra những quyết định đầu tư sáng suốt. Ngoài ra, dữ liệu lớn và
+AI cũng đang tăng cường tự động hóa và hiệu quả trên toàn bộ khách hàng
+phục vụ, 
+dữ liệu 
+quản lý, 
+hoạt động 
+hỗ trợ, 
+và
+tuân thủ.
+Robot-Cố vấn
+Cố vấn robot là cố vấn tài chính trực tuyến cung cấp
+dịch vụ đầu tư tài chính tự động, dựa trên thuật toán.
+Cố vấn robot đang ngày càng trở nên phổ biến và
+cách thuận tiện cho cá nhân đầu tư và quản lý
+danh mục đầu tư. Theo IDC Financial Insight (Araneta,
+Agrawal, & Kapoor, 2017), mô hình lai kết hợp
+tư vấn truyền thống và robot sẽ là người chiến thắng trên thị trường.
+Tổng tài sản được quản lý (AUM) bởi cố vấn robo sẽ
+đạt 500 tỷ USD vào năm 2021 tại APAC.
+Đối với những người quan tâm đến cố vấn robot, hãy tham khảo Chương 19.
+Chatbot
+Chatbot là một hệ thống hội thoại giữa người và máy tính dựa trên
+phương pháp thính giác hoặc văn bản. Nó đã được sử dụng rộng rãi ở nước ta
+cuộc sống hàng ngày. Nhiều công ty sử dụng chatbot ảo được tích hợp sẵn
+các nền tảng truyền thông xã hội như WhatsApp, Facebook hoặc WeChat.
+Ví dụ: chatbot của WeChat có thể gọi taxi, đăng ký
+chuyến bay, báo cáo tai nạn giao thông và đặt lịch hẹn khám bệnh.
+
+--- Trang 367 ---
+
+Hầu hết các chatbot tiên tiến đều sử dụng hệ thống NLP phức tạp. Một số
+các chatbot đơn giản quét các từ khóa trong đầu vào và sau đó
+trả lời bằng các từ khóa phù hợp nhất từ cơ sở dữ liệu cài sẵn.
+Nhiều ngân hàng và công ty bảo hiểm tận dụng chatbot để đáp ứng
+thắc mắc của khách hàng. Chatbots không chỉ cải thiện đáng kể
+hiệu quả dịch vụ mà còn có thể trở thành một kênh tiếp thị
+để thúc đẩy sự tương tác của khách hàng cũng như thu hút khách hàng.
+Quan trọng hơn, chatbot thu thập thông tin của người dùng. Dữ liệu lớn
+cho phép 
+cái 
+công ty 
+để 
+biết 
+hơn thế nữa 
+về 
+của khách hàng
+sở thích. Khi đó việc tiếp thị có mục tiêu sẽ trở nên khả thi.
+Các chatbot đơn giản hơn được cung cấp bởi các nền tảng truyền thông xã hội và
+tiết kiệm chi phí và dễ bảo trì.
+Phát hiện gian lận
+Tần suất các nỗ lực gian lận tài chính trực tuyến đã tăng lên
+ngày càng tăng theo thời gian. Việc phát hiện gian lận rất phức tạp vì gian lận có nghĩa là
+thay đổi theo thời gian. Một thách thức lớn là phát hiện
+“Thiên nga đen” – giống như các sự kiện lừa đảo, là những sự kiện hiếm khi xảy ra
+xảy ra nhưng sẽ mang lại những tổn thất thảm khốc nếu chúng
+đã xảy ra. Các hệ thống phát hiện gian lận trước đây đều dựa trên quy tắc.
+Nhược điểm chính của hệ thống dựa trên quy tắc là nó không thể phát hiện
+phương tiện lừa đảo không xác định. Vì có rất ít dữ liệu về Black như vậy
+Các trường hợp gian lận giống như thiên nga do tần suất xảy ra thấp
+xảy ra, việc phát hiện bằng hệ thống dựa trên quy tắc cũ gần như
+không thể được. 
+hiện đại 
+nâng cao 
+gian lận 
+hệ thống 
+nhận nuôi
+mô hình học máy phức tạp để phát hiện tiềm năng
+gian lận, ngụ ý rằng gian lận có thể bị phát hiện trước khi nó xảy ra.
+xảy ra. Thay vì các hộp đen học máy nói chung, một
+
+--- Trang 368 ---
+
+hệ thống gian lận được gọi là “quyền anh trắng”, bao gồm một
+hệ thống tính điểm dựa trên xấp xỉ tuyến tính cục bộ, một văn bản
+hệ thống khai thác, tạo biểu đồ và hệ thống trực quan hóa. Nó
+do đó có thể phát hiện các mẫu mới nổi bằng cách học dữ liệu mới và
+tạo ra khả năng xảy ra gian lận tiềm ẩn.
+Bảo lãnh khoản vay/bảo hiểm
+Đánh giá tín dụng truyền thống thường liên quan đến việc đánh giá tín dụng của người nộp đơn.
+Điểm FICO, tỷ lệ nợ trên thu nhập và một số câu hỏi
+vào tình trạng tài chính/tình trạng việc làm của người nộp đơn. trong
+những năm gần đây, khi khả năng AI trích xuất có liên quan cao
+thông tin cho một mục đích cụ thể từ một lượng lớn
+lớn 
+dữ liệu 
+có 
+rất nhiều 
+tăng lên, 
+trực tuyến 
+khoản vay/bảo hiểm
+bảo lãnh đã trở thành có thể.
+Nhiều hệ thống đánh giá tín dụng hỗ trợ AI đã xuất hiện
+và các nhà bảo lãnh cho khoản vay nhỏ có xu hướng sử dụng dịch vụ từ đầu đến cuối như vậy
+Hệ thống tín dụng AI để đánh giá tín dụng của người đi vay bằng cách sử dụng số lượng lớn
+lượng dữ liệu từ các phương tiện truyền thông xã hội và thương mại điện tử, có
+theo truyền thống không được sử dụng để đánh giá tín dụng. các
+đặc điểm hành vi của khách hàng từ phương tiện truyền thông xã hội như
+nội dung tin nhắn văn bản, mẫu lịch sử cuộc gọi,
+thông tin vị trí địa lý và giao dịch di động đều có giá trị
+thông tin. Những thông tin như vậy cung cấp cái nhìn sâu sắc về khách hàng
+danh tính, thu nhập và chi phí. Hệ thống áp dụng thuật toán
+và học máy để tìm ra các mẫu hữu ích trong dữ liệu và
+tạo ra xác suất vỡ nợ để đánh giá sự phù hợp của
+người nộp đơn xin vay tiền. Toàn bộ quá trình bảo lãnh có thể được
+thực hiện việc sử dụng điện thoại di động rất nhanh chóng, thậm chí trong vòng 10
+
+--- Trang 369 ---
+
+phút. Khoản vay được cấp có thể được chuyển giao cho người nộp đơn
+tài khoản ngân hàng hoặc ví điện tử trong vòng 15 phút, giúp nâng cao
+trải nghiệm của khách hàng.
+Tương tự, bảo lãnh phát hành bảo hiểm cũng có thể tận dụng AI
+hệ thống trích xuất và phân tích dữ liệu chứa thông tin về
+khả năng xảy ra nguy hiểm của người nộp đơn, các tuyên bố lịch sử, thái độ sống,
+v.v. để tạo báo giá bảo hiểm một cách nhanh chóng.
+Hệ thống bảo lãnh phát hành AI vượt trội hơn vì nó có thể đánh giá
+người đi vay không có lịch sử vay/bảo hiểm cần thiết
+trong 
+truyền thống 
+bảo lãnh phát hành. 
+So sánh 
+để 
+truyền thống
+bảo lãnh phát hành, các ngân hàng và công ty bảo hiểm sẽ được hưởng lợi
+từ việc bảo lãnh phát hành dựa trên AI vì nó làm giảm chi phí nhân viên và
+cũng có thể dẫn đến giảm các trường hợp gian lận khi phương tiện truyền thông xã hội
+dữ liệu đến từ các hoạt động thực tế cuộc sống của người nộp đơn. các
+độc giả quan tâm có thể tham khảo Chương 23, một chương dành riêng
+trên InsurTech.
+Cuối cùng nhưng không kém phần quan trọng, AI cũng sẽ hỗ trợ các nhân viên tuân thủ
+đảm bảo 
+quy định 
+tuân thủ. 
+cho 
+ví dụ, 
+điều khiển bằng AI
+hệ thống tuân thủ tìm hiểu và tuân thủ tất cả các quy định hiện hành
+các quy định như nhận biết khách hàng (KYC) và chống tiền bạc
+quy định về rửa tiền (AML). Nó quét các giao dịch tài chính để
+phát hiện dấu hiệu rửa tiền hoặc các hoạt động bất hợp pháp khác,
+không dễ dàng được xác định bằng tay. Người quan tâm
+độc giả có thể tham khảo Chương 21, một chương dành riêng về RegTech
+trong cuốn sách giáo khoa này.
+Tóm lại, công nghệ AI dẫn đến một kỷ nguyên mới về hiệu quả
+và hiệu suất. Chúng tôi mong đợi deep learning sẽ được phổ biến rộng rãi
+được thông qua trong thập kỷ tới.
+
+--- Trang 370 ---
+
+Chú thích cuối
+1 Mạng nơ-ron nhân tạo là một hệ thống được lấy cảm hứng từ các hoạt động thần kinh của não người. Nó
+mô phỏng cách thức mà bộ não con người xử lý thông tin. hệ thống
+bao gồm một số lượng lớn các nút (hoặc nơ-ron) được phân tách thành các lớp và tập hợp
+kiến thức của nó bằng cách phát hiện các mẫu và mối quan hệ trong dữ liệu và học tập
+thông qua kinh nghiệm đào tạo.
+2 Máy vectơ hỗ trợ (SVM) là một thuật toán học máy có giám sát,
+dựa trên ý tưởng tìm một siêu phẳng có thể chia tập dữ liệu thành hai phần một cách tốt nhất
+các lớp học. SVM có thể được sử dụng cho cả thử thách phân loại hoặc hồi quy.
+3 Hàm sigmoid là hàm toán học có đường cong hình chữ S (sigmoid
+đường cong), và được xác định bởi công thức S(t)=1/(1+e–t).
+Tài liệu tham khảo
+AIINDEX. (2017). Chỉ số trí tuệ nhân tạo, Báo cáo thường niên 2017. AIINDEX.ORG.
+Araneta, M., Agrawal, A., & Kapoor, S. (2017). Robo-Advisory: Thay đổi bộ mặt của cải
+ở Châu Á/Thái Bình Dương. Quan điểm của IDC.
+Cho, K., Van Merrienboer, B., Caglar, G., Bahdanau, D., Bougares, F., Schwenk, H., &
+Bengio, Y. (2014). Học cách biểu diễn cụm từ bằng bộ mã hóa-giải mã RNN
+cho dịch máy thống kê. arXiv:1406.1078.
+Đặng, L., & Yu, D. (2011). Mạng lồi sâu: Một kiến trúc có thể mở rộng cho mạng sâu
+học tập. INTERSPEECH (28). Florence, Ý: ISCA.
+Feigenbaum E.A., 1977, Nghệ thuật trí tuệ nhân tạo: Chủ đề và nghiên cứu điển hình về
+Kỹ thuật tri thức, Hội nghị chung quốc tế về trí tuệ nhân tạo,
+trang 1014–1029.
+Hochreiter, S., & Schmidhuber, J. (1997, 11 15). Trí nhớ ngắn hạn dài. thần kinh
+tính toán, Tập. 9, Số 8, trang 1735–1780.
+Hà Lan, J. H. (1975). Thích ứng trong các hệ thống tự nhiên và nhân tạo: Phân tích giới thiệu
+với các ứng dụng về sinh học, điều khiển và trí tuệ nhân tạo. Ann Arbor: Đại học
+
+--- Trang 371 ---
+
+của Nhà xuất bản Michigan.
+Kanungo, R. P. (2004, 4 26). Thuật toán di truyền: nguồn gốc của việc đánh giá trữ lượng. Kinh tế
+WPA, tr. 17.
+LeCun, Yann. (1989). Chiến lược tổng quát hóa và thiết kế mạng. Báo cáo kỹ thuật
+CRG-TR-89-4, Đại học Toronto, 326–345.
+Lin, L., Cao, L., Wang, J., & Zhang, C. (2004). Ứng dụng của thuật toán di truyền trong
+tối ưu hóa khai thác dữ liệu thị trường chứng khoán Khai thác dữ liệu V, Khai thác dữ liệu, Khai thác văn bản và
+Ứng dụng Kinh doanh của họ, trang 273–280. Báo chí WIT.
+Werbos, P. J. (1974). Ngoài hồi quy: các công cụ mới để dự đoán và phân tích trong
+khoa học hành vi. luận án tiến sĩ. Đại học Harvard.
+Tiến sĩ Bing Li là Giám đốc điều hành tại Yuanyin Asset
+quản lý và chịu trách nhiệm giám sát quản lý tổng thể về
+công ty. Trước đó ông là chủ tịch của Forwin Capital
+Management, một văn phòng đa gia đình có trụ sở tại Hồng Kông. Trước đây,
+ông làm việc như một chuyên gia quản lý đầu tư tại
+Lombard Odier, Quản lý đầu tư ING, Bảo hiểm Pearl
+Group, ABP Investment và TD Asset Management, được quản lý
+tài sản trị giá hàng tỷ đô la từ cổ phiếu toàn cầu, trái phiếu cho đến
+quỹ của quỹ. Bing đã lấy được bằng tiến sĩ. môn Hóa học tại trường Đại học
+của Tây Ontario và B.S. và M.S. bằng cấp về Khoa học Vật liệu
+và Kỹ thuật từ Đại học Giao thông Thượng Hải. Anh ấy cũng là một
+Người nắm giữ điều lệ CFA.
+Tiến sĩ Min Cao là Giám đốc Đầu tư tại UCF Asset
+Quản lý, tập trung vào phân bổ tài sản toàn cầu và tích cực
+các chiến lược công bằng. Trước đây Min từng giữ chức vụ Giám đốc đầu tư
+tại Forwin Capital Management và Nhà phân tích định lượng tại Delta
+Tập đoàn Tài chính Châu Á, với phạm vi nghiên cứu bao gồm tài sản toàn cầu
+
+--- Trang 372 ---
+
+phân bổ, phòng ngừa rủi ro chứng khoán Hồng Kông cổ tức cao và điểm dừng tốt nhất
+chiến lược thua lỗ. Trước đó, cô là Chuyên viên Nghiên cứu Cấp cao
+tại Sở Kinh tế - Tài chính TP.
+Đại học Hồng Kông, nơi cô làm việc về kinh tế vĩ mô
+và tài chính quốc tế. Min tốt nghiệp từ Nam Trung Quốc
+Đại học Công nghệ và lấy bằng thạc sĩ chuyên ngành
+Máy tính hiệu năng cao của Trinity College Dublin, trường
+Đại học Dublin và Tiến sĩ từ khoa IMSE tại
+Đại học Hồng Kông.
+OceanofPDF.com
+
+--- Trang 373 ---
+
+Chương 12
+Một cách tiếp cận thực tế đối với Machine Learning
+(ML) và Trí tuệ nhân tạo (AI)
+Trong chương trước, người đọc đã có được một
+hiểu biết về công nghệ nền tảng của máy
+học (ML) và trí tuệ nhân tạo (AI). Chương này nhằm mục đích
+để bổ sung cho các chương trước bằng cách cung cấp thêm
+cách tiếp cận theo định hướng thực hành để làm sáng tỏ cả hai công nghệ
+và giới thiệu cho người đọc quy trình thiết lập ML
+giải pháp. Chúng tôi sẽ tóm tắt ngắn gọn một số khái niệm chính
+đã được đề cập trước đó nhưng độc giả nên tham khảo
+các chương dành riêng về khoa học dữ liệu và dữ liệu lớn để biết chi tiết.
+AI và Machine Learning có giống nhau không?
+Mặc dù có vẻ như mạng lưới thần kinh, học sâu,
+học máy và trí tuệ nhân tạo đều giống nhau
+các khái niệm, mỗi khái niệm đều có lịch sử và nguồn gốc riêng, cũng như
+thứ bậc. Lý do có thể khó nhận ra sự khác biệt này là
+rằng tất cả sự chú ý của giới nghiên cứu và truyền thông xung quanh thời gian vừa qua
+thập kỷ tiến bộ đặc biệt tập trung vào học sâu.
+Để hỗ trợ giải mã nhiều vấn đề xung đột và chồng chéo
+thuật ngữ được sử dụng trong lĩnh vực này, chúng tôi sẽ xác định một hệ thống phân cấp tổng thể để
+giúp phá vỡ các mối quan hệ trong trí tuệ nhân tạo.
+
+--- Trang 374 ---
+
+Hình 12.1: AI sang ML sang NN sang DL
+Nói một cách đơn giản, trí tuệ nhân tạo là khả năng của bất kỳ
+hệ thống thể hiện hành vi thông minh. Hầu hết mọi thứ
+liên quan ngày nay trong AI liên quan đến học máy.
+Học máy bao gồm rất nhiều
+Chúng ta hãy tóm tắt ngắn gọn về học máy, một thuật ngữ
+chứa đựng định nghĩa riêng của nó. Thay vì con người nói với
+máy móc sẽ đưa ra những quyết định và quy tắc nào, con người sẽ dạy
+nó. Một cỗ máy học hỏi. Điều này làm cho phương pháp giảng dạy
+và học tập mở rộng. Bạn có thể dạy một cái máy những gì và
+nó có thể học được gì? Chúng tôi tóm tắt ngắn gọn về máy chính
+phương pháp học tập trong Hình 12.2 và trong các từ dưới đây.
+
+--- Trang 375 ---
+
+Hình 12.2: Các phương pháp học máy sơ cấp
+–
+Các thuật toán phân loại có thể được dạy để phân chia dữ liệu hiện có
+thành các nhóm được xác định trước, chẳng hạn như tên của động vật. Khi bạn
+cung cấp cho thuật toán một số dữ liệu mới mà nó chưa thấy, nó sẽ
+dự đoán dữ liệu mới thuộc về nhóm nào—ví dụ:
+rằng con vật này là một con gà.
+–
+Các thuật toán hồi quy về cơ bản cố gắng tìm hiểu chức năng của
+một tập dữ liệu, bằng cách dự đoán dữ liệu trong tương lai dựa trên dữ liệu trong quá khứ. Nếu
+bạn có một chuỗi các điểm dữ liệu tạo thành một đường thẳng,
+thuật toán sẽ cố gắng mô tả dòng đó dưới dạng một hàm. của
+Tất nhiên, đường thẳng có thể là đường cong, sóng, hình tròn hoặc bất kỳ dạng nào
+về hình dạng. Mặc dù hữu ích khi nghĩ về hai chiều
+những ví dụ bạn có thể vẽ ra trong đầu, những thuật toán này cũng
+làm việc trên bất kỳ số lượng kích thước đầu vào.
+–
+Học không giám sát có thể được sử dụng nếu bạn có nhiều dữ liệu
+với các mẫu, nhóm hoặc cụm mà bạn muốn tách
+mà không xác định rõ ràng chúng trước đó - nghĩa là,
+không có sự giám sát của con người. Có lẽ bạn biết rằng
+tập dữ liệu bao gồm các động vật khác nhau và muốn
+thiết lập có bao nhiêu loại khác nhau bằng cách phân cụm chúng bằng cách sử dụng
+các biến số như trọng lượng và tốc độ.
+
+--- Trang 376 ---
+
+
+
+–
+Học tăng cường đã được phổ biến rộng rãi bởi
+sự chú ý của giới truyền thông về cách chơi nhiều trò chơi khác nhau của Deepmind
+các thuật toán bao gồm cả AlphaGo nổi tiếng. Các thuật toán này
+học cách lựa chọn hành động thông qua việc sử dụng phần thưởng được trao
+dựa trên kết quả của những hành động đó trong trò chơi
+môi trường. Nhờ một số kết quả mang tính đột phá như
+AlphaGo, các phương pháp tăng cường đã là một lĩnh vực hoạt động
+của nghiên cứu.
+Mặc dù hai phương pháp cuối cùng sẽ tiếp tục thu hút được nhiều
+tiêu đề, hai tiêu đề đầu tiên có thể áp dụng nhiều hơn cho các ngành có
+đường cong học tập thấp hơn nhiều. Phần còn lại của chương này chủ yếu sẽ
+tập trung vào phân loại và hồi quy. Có nhiều cách để
+triển khai cả hai và mạng lưới thần kinh mà chúng ta đã học được
+trong chương trước, chỉ là một cách tiếp cận. Để đảm bảo rằng
+Bạn đọc có thể theo dõi các ví dụ thực tế sau, chúng tôi sẽ nhanh chóng
+xem lại các mạng thần kinh và nhớ lại cách chúng phù hợp với ML.
+Mạng thần kinh là một loại máy học đặc biệt
+Mạng lưới thần kinh và các thuật toán học tập liên quan có vai trò
+vị trí đặc biệt trong cộng đồng học máy, phần lớn
+do thực tế là thiết kế của họ được lấy cảm hứng từ bộ não. Chúng tôi
+biết rằng tế bào thần kinh được kết nối trong các mạng lưới rộng lớn bên trong chúng ta
+não, và các tín hiệu điện đi từ tế bào thần kinh này đến tế bào thần kinh khác
+tạo ra tất cả những trải nghiệm có ý thức của chúng ta – nhìn, nghe,
+suy nghĩ và nói—liên quan đến tất cả các mạng lưới thần kinh trong
+hành động, theo như khoa học có thể cho chúng ta biết ngày nay.1
+
+--- Trang 377 ---
+
+Hình 12.3: Mạng nơ-ron đơn giản với các kết nối có trọng số giữa
+lớp
+Bên trong mạng lưới thần kinh có gì? Các nơ-ron được tổ chức thành
+đầu vào (phần bên trái trong Hình 12.3), các lớp ẩn (phần
+phần giữa trong Hình 12.3) và đầu ra (phần bên phải trong
+Hình 12.3). Các kết nối giữa các nơ-ron này có trọng số
+và những thành kiến. Bản thân các nơ-ron hoặc các nút có khả năng kích hoạt
+các hàm hoạt động như bộ lọc trên dữ liệu đầu vào. chính
+chức năng của tất cả các yếu tố này là tạo ra sự phức tạp
+hành vi. Nếu không, bạn chỉ có thể thực hiện các chức năng cơ bản
+như cộng các số lại với nhau. Kết hợp các yếu tố này xuyên suốt
+hàng trăm hoặc thậm chí hàng nghìn nơ-ron ở nhiều lớp, chúng
+những hành vi phức tạp thực sự trở nên rất mạnh mẽ. Đây được gọi là
+học sâu.
+
+--- Trang 378 ---
+
+Hình 12.4: Mạng nơ-ron có thêm một vài lớp giới thiệu các
+phức tạp và được gọi là mạng lưới thần kinh sâu
+Các loại mạng thần kinh được sử dụng cho các nhiệm vụ tương đối đơn giản
+như nhận dạng chữ viết tay có thể chứa hàng trăm nút
+trong mỗi lớp, đến mức vẽ hàng nghìn
+kết nối không còn giúp đỡ. Các mạng chuyên dụng này
+xử lý các phần của hình ảnh với tốc độ vài pixel mỗi lần để
+xác định nội dung của nó.
+Hình 12.5: Mạng nơ ron tích chập dùng để nhận dạng hình ảnh
+
+--- Trang 379 ---
+
+Tuy nhiên, ngay cả một mạng lưới thần kinh lớn cũng có thể được biểu diễn trực quan dưới dạng
+những thuật ngữ khá đơn giản, tuy nhiên hành vi bên trong gần như trở thành
+không thể giải mã được. Nó có thể học hầu hết mọi thứ bằng cách học
+quá trình được gọi là "lan truyền ngược", bắt đầu bằng cách so sánh
+dự đoán cách kết quả dự định bao xa. Sau đó nó
+tính toán một loạt các thay đổi nhỏ cho trọng số kết nối
+trên toàn bộ mạng lưới đó để cải thiện dự đoán đó và cố gắng
+dự đoán lại để xem liệu kết quả có trở nên tốt hơn hay không
+tệ hơn. Để đạt được độ chính xác dự đoán mong muốn, quá trình này
+sẽ được lặp lại hàng trăm lần trên các tập dữ liệu lớn của
+hàng triệu đầu vào, tạo ra nhu cầu về tính toán đáng kể
+năng lượng và do đó chi phí tính toán.
+Bạn có thể đạt được gì với khả năng học tập mạnh mẽ này
+tiếp cận? Mạng lưới thần kinh có thể đọc chữ viết tay. Họ có thể
+cũng tạo ra ngôn ngữ. Chúng có thể nhận ra đồ vật trong ảnh,
+hoặc khuôn mặt, và thậm chí chơi cờ—tất cả đều ở cấp độ con người hoặc cao hơn.
+Sự phức tạp của hành vi học tập cũng có nghĩa là nó
+thách thức để giải thích dự đoán hoặc quyết định cho từng trường hợp.
+Bạn có thể thay đổi một đầu vào theo một phân số và toàn bộ đầu ra
+những thay đổi. Tại sao việc học lại có hiệu quả? Khi nào nó hoạt động?
+Làm cách nào để tìm ra cách tốt nhất và nhanh nhất để huấn luyện mạng?
+Trong khi điều này mở rộng một lĩnh vực nghiên cứu tích cực, không có
+câu trả lời dứt khoát ngày hôm nay.
+Chúng ta có nên luôn sử dụng mạng thần kinh không?
+Về lý thuyết, lợi ích của mạng lưới thần kinh là tính linh hoạt của chúng trong việc
+giải quyết nhiều dạng dữ liệu. Trong thực tế, họ thiếu sự rõ ràng
+giải thích và mức độ cấu hình hoặc điều chỉnh cụ thể,
+
+--- Trang 380 ---
+
+có nghĩa là họ khó làm việc cùng hơn. Sau đây
+cuộc biểu tình sẽ minh họa sự khác biệt trong hành vi.
+Hình 12.6: So sánh hành vi của bộ phân loại
+Ở bên trái, bạn thấy ba bộ dữ liệu có nền trắng.
+Đi từ trái sang phải, mỗi cột đại diện cho một loại
+thuật toán học máy cố gắng tách các chấm đen
+từ các chấm trắng chỉ sử dụng một phần của tập dữ liệu được gọi là kiểm tra
+dữ liệu. Hãy nhớ rằng chúng tôi đã thông báo từng thuật toán rồi
+mỗi chấm có màu gì. Thuật toán chỉ đang cố gắng tạo ra một
+quy tắc chung để xác định khu vực xuất hiện các chấm đen,
+và khu vực xuất hiện các chấm trắng. Như hiển nhiên,
+cách tiếp cận và kết quả khá đa dạng.
+Góc dưới bên phải của mỗi ô vuông cho thấy cách
+chính xác thuật toán đã tách hai loại dấu chấm.
+Một lần nữa, điểm số này dựa trên một nhóm dấu chấm khác với nhóm chúng tôi
+được sử dụng để huấn luyện thuật toán. Tại sao chúng ta lại làm điều này? Nếu bạn đã thử nghiệm
+
+
+
+
+`;
+
+    // Render Markdown to HTML
+    document.getElementById('en-tab').innerHTML = marked.parse(enMarkdown);
+    document.getElementById('vi-tab').innerHTML = marked.parse(viMarkdown);
+
+    // Tab switching logic
+    function openTab(tabId, element) {
+        const contents = document.querySelectorAll('.content-area');
+        contents.forEach(content => content.classList.remove('active'));
+
+        const tabs = document.querySelectorAll('.tab');
+        tabs.forEach(tab => tab.classList.remove('active'));
+
+        document.getElementById(tabId).classList.add('active');
+        element.classList.add('active');
+    }
+</script>
+
+</body>
+</html>

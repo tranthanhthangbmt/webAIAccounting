@@ -1,0 +1,410 @@
+EX 3.7  (LO 3, 6)  Financial Accounting   Trend and Correlation Analysis The corporate controller 
+asked the team to analyze accounts receivable and the aging of accounts receivable compared to prior 
+year. Your descriptive analysis indicates accounts receivable increased over prior year, while sales have 
+remained steady. Since you are the intern on the job, your colleagues have asked you to consider the 
+diagnostic analysis questions that you must ask to plan your analysis. You were provided with the data 
+dictionary.
+Data Field
+Description
+SalesOrderNumber
+Uniquely assigned sales order number.
+CustomerID
+Uniquely assigned customer number.
+CustomerName
+A customers name.
+CustomerCredit
+Customer’s credit limit.
+CustomerAddress
+U.S Postal mailing address and street name.
+CustomerCity
+Mailing address city.
+CustomerState
+Mailing address state.
+CustomerZipcode
+Mailing address zip.
+CustomerPayTerms
+Payment terms negotiated with the customer.
+SalesOrderDate
+Sales order date.
+SalesOrderID
+Uniquely identifiable item number.
+SalesOrderDescription
+Description of item.
+ItemPrice
+Sales price of the item per negotiated terms with the customer.
+ItemQuantity
+Total quantity of items sold to the customer.
+InvoiceNumber
+Uniquely assigned invoice number.
+InvoiceAmount
+The total amount of the invoice, including shipping charges and tax.
+PaidAmount
+The total amount of the payment received from the customer.
+PaidDate
+The date the invoice was paid.
+Complete the diagnostic objective questions in the chart.
+Objective
+Initial Question
+Sub-questions
+Possible Measures
+Understand why 
+accounts receivable 
+increased compared 
+to the prior year.
+1. 
+2. 
+3. 
+EX 3.8  (LO 3, 6)  Data   Accounting Information Systems   Trend and Correlation Analysis You 
+and your team have tracked the number of cybersecurity threats reported by employees. Employees can 
+report cybersecurity threats such as phishing attempts, and IT specialists can report threats through 
+examination of the monthly login report.
+Your initial descriptive analysis revealed that in the last three years, 313 cyber incidents were 
+reported. There were 73 reports in 2023, 111 in 2024, and 129 in 2025. Your manager would like to 
+understand why cyber incident reports have increased. You have started to identify initial questions, 
+sub-questions, and possible measures for your analysis in the following chart. Complete the chart. 
+
+Exercises  3-55
+Objective
+Initial Questions
+Sub-questions
+Possible Measures
+Determine why cyber 
+incident reports are 
+increasing.
+Are there more cyber 
+incidents reporting 
+during a specific 
+period of time?
+Create a line chart of 
+cyber incident reports 
+over time and review 
+for a trend or pattern.
+Perform a correlation 
+between training 
+expenses and cyber 
+incidents reported by 
+using the CORREL 
+function in Excel.
+	 4.	 Perform the possible analyses.
+EX 3.9  (LO 4, 6)  Data   Accounting Information Systems   Trendlines Your controller has asked 
+you to demonstrate the relationship between cybersecurity training expenses and the number of valid 
+cybersecurity threats reported by employees. You have collected monthly data reporting the monthly 
+cybersecurity training expense and the number of valid cybersecurity threats reported by employees. Cre-
+ate a line graph showing the relationship between these two variables. Include the trendline, equation, 
+and R-square of your analysis.
+EX 3.10  (LO 5, 6)  Data   Auditing   Sales Returns Analytical Procedures You are the audit intern 
+staffed on the fiscal year ended December 31, 2025 financial statement audit of a private company. Your 
+audit senior is thrilled that you have just completed a data analytics in accounting course and wants you to 
+use your knowledge of predictive analytics to develop an expectation of sales returns based on sales quan-
+tity to perform analytical procedures. You have engaged in critical thinking and developed the partial chart.
+Complete the chart:
+Objective
+Initial Question
+Sub-question
+Possible Measures
+Predict sales returns.
+How much will sales 
+returns change if we 
+have a 10% increase in 
+sales quantity?
+Regression analysis
+	 2.	 Perform the regression analysis to predict sales return dollars using sales quantity.
+	 3.	 Write the regression equation.
+	 4.	 What is the R2 for the regression model?
+EX 3.11  (LO 5, 6)  Data   Financial Accounting   Estimate Warranty Expense for Accruals As a 
+financial accountant for a public widget manufacturing company, you are given a data file and asked 
+to calculate and record month-end adjusting journal entries. You must calculate the warranty expense 
+amount for ­January 2025.
+	 1.	 Perform a regression to predict warranty expense using sales quantity.
+	 2.	 Write the regression equation.
+	 3.	 You just performed a query of your company’s accounting information system and determined that 
+January 2026 sales quantity is 10,385. Write the journal entry to record warranty expense.
+EX 3.12  (LO 5, 6)  Data   Managerial Accounting   Trend Analysis You are a financial analyst sup-
+porting the control in a private company that manufactures paper plates, trays, and other disposable 
+paper products. The company is owned by a private equity (PE) investment group. The PE board is inter-
+ested in cost savings and identifying efficiencies within the company’s processes. You collected monthly 
+data on the number of die-cut changes and the monthly maintenance expenses. The goal is to predict the 
+cost of maintenance expenses for the next period.
+	 1.	 Run a regression analysis using die-cut changes to predict maintenance expenses.
+	 2.	 Write the regression equation.
+	 3.	 If the company plans to have 650 die-cut changes during the month of January 2024, what is the 
+company’s expected maintenance expense?
+1. 
+2. 
+3. 
+1. 
+
+3-56  CHAPTER 3  Motivations and Objectives for Data Analysis
+EX 3.13  (LO 4, 6)  Data   Auditing   Predictive Analytics Kahn & Williams CPA firm are the exter-
+nal auditors for Super Scooters. The audit team is performing substantive procedures on revenue and 
+designed a test that uses predictive analytics to evaluate the reasonableness of Super Scooters reported 
+revenue. The objective is to evaluate recorded revenue for reasonableness. The initial question is: Does 
+reported monthly revenue vary significantly with the predicted monthly revenue from the engagement 
+team’s regression model? The team’s model is based on the prior three years of monthly data. Further, 
+the team believes that revenue is driven by sales volume and the average price of scooters sold during the 
+month. The team has decided that any difference between predicted revenue and the actual revenue that 
+is greater than the standard error (in absolute dollars), should be investigated further.
+The summary output is given here:
+PREDICTED REVENUE MODEL
+Multiple R
+R Square
+Adjusted R Square
+Standard Error
+Observations
+ANOVA
+0.997170819
+0.994349643
+0.994007197
+27302.53042
+36
+df
+SS
+MS
+F
+4,328,953,815,697.83
+24,599,129,513.81
+Regression
+Residual
+Total
+2
+33
+35
+4,353,552,945,211.64
+2,164,476,907,848.92
+745,428,167.09
+2,903.67
+0.00
+79141.28598
+7.525920213
+Intercept
+Volume
+Average Price
+−597355.3555
+424.0763009
+1453.623412
+208.2682902
+6.97957145
+−7.547961195
+56.34876386
+5.57457E-08
+2.20655E-34
+1.10769E-08
+Significance F
+Coeﬀicients
+Standard Error
+t Stat
+P-value
+1029.89839
+408.7647011
+−758369.5125
+Lower 95%
+1029.89839
+408.7647011
+−758369.5125
+Lower 95.0%
+1877.348434
+439.3879007
+−436341.1985
+Upper 95%
+1877.348434
+439.3879007
+−436341.1985
+Upper 95.0%
+SUMMARY OUTPUT
+Regression Statistics
+	 1.	 What is the dependent variable in the model (y range)?
+	 2.	 What are the independent variables in the model (x range)?
+	 3.	 What is the regression equation for this model?
+EX 3.14  (LO 5, 6)  Data   Managerial Accounting   Optimization Your production manager has 
+asked you to identify the quantity of items that should be produced to maximize the company’s contribu-
+tion margin for the period. Your company has four products:
+•  Standard widgets
+•  Blue flying widgets
+•  Red swimming widgets
+•  Yellow hopping widgets
+You have created a spreadsheet outlining the demand, machine hours per unit, contribution margin 
+per unit, and overall machine hours. Use Microsoft Solver to identify the number of units to be produced 
+for each product and the maximum contribution margin. 
+EX 3.15  (LO 5)  Data   Managerial Accounting   Use Linear Optimization to Determine Prod-
+uct Mix and Profit You and your college roommates open a business designing and crafting dog and cat 
+leashes with your college logo and colors. You have decided to offer leashes in three lengths: 6, 8, and 12 feet.
+Further, you have two types of leash: “standard” or “decorative.” While the decorative leashes take 
+longer to create, they have a large profit margin per each. However, the standard leashes are in higher 
+demand. You and your two roommates have put a schedule together so that you can fit everything into 
+your week – this includes classes, social events, and crafting time. Since you are enrolled in the data 
+analytics in accounting course, you have volunteered to calculate how many of each type of leash you 
+should produce weekly based on demand, gross profit for each product, and the constraint of work hours.
+	 1.	 Perform a linear optimization using Excel Solver.
+	 2.	 How many of each unit should you and your two roommates produce each week?
+	 3.	 What is the total gross profit you should expect to earn based on the weekly production of dog 
+leashes?
+	 4.	 Are there any constraints identified in the answer report that are non-binding?
+
+Exercises  3-57
+EX 3.16  (LO 4, 5)  Data   Build the Spreadsheet and Identify Contraints Along with your college 
+roommates, you are opening a business to make decorative hats, T-shirts, and socks with your college 
+colors. You have decided to start with five core products:
+•  Decorative ball cap
+•  Decorative “GO Team” t-shirt
+•  Decorative “Defense Wins Championships” 
+t-shirt
+•  Decorative socks
+•  Decorative knee-high socks
+As part of your business plan, you want to calculate the total number of each product to create each 
+week. You plan to use Microsoft Solver to identify the maximum number of units to produce given your 
+constraints. You want to maximize your company’s profit given the constraints of work hours per per-
+son. The table outlines the gross profit and crafting hours per unit for each item.
+Product
+Gross Profit per Item
+Crafting Hours per Item
+Ball cap
+5.00
+4
+GO Team t-shirt
+7.50
+2.5
+Defense Wins Championships t-shirt
+7.50
+3
+Socks
+3.30
+6
+Knee-high socks
+4.50
+3.5
+In addition, you and your roommates have committed to working the following hours each week:
+•  You: 20
+•  Roommate 1: 20
+•  Roommate 2: 15
+•  Roommate 3: 10
+1.	 Build a linear optimization model spreadsheet.
+2.	 Calculate the total number of units for each product that should be produced each week.
+3.	 What is the total gross profit you should expect to earn based on the weekly production?
+4.	 Are there any constraints identified in the answer report that are non-binding?
+EX 3.17  (LO 5, 6)  Data   Managerial Accounting   Linear Optimization Tiana’s Jewel Design, Inc. 
+designs and manufactures mass produced metal jewelry and custom designed silver-plated jewelry. 
+­Currently, the owner designs and produces three lines of custom jewelry: necklaces, bracelets, and earrings 
+(decision variables). The contribution margin and the resource requirements for each product follows.
+ $ 12.00
+$ 8.00
+8
+1
+1
+$ 14.00
+13
+5
+2
+22
+4
+2
+Machining Hours per unit
+Design Hours per unit
+Direct Materials, ounces per unit
+Resource Requirements:
+Contribution Margin per unit
+Necklaces
+Bracelets
+Earrings
+They would like to maximize the contribution margin (objective function). However, the owner has 
+these constraints:
+•  A contract to produce at least ten pairs of custom earrings a month.
+•  They can sell all the custom necklaces and custom earrings that are produced 
+•  Demand for custom bracelets is only 30 a month.
+•  Each month 800 ounces of silver plate can be purchased. 
+•  Two designers work a total of 120 hours a month.
+•  An estimated 80 hours of machining time are available each month.
+1.	 Use Microsoft Excel Solver to create a linear optimization model.
+2.	 How many of each product should be produced to maximize the contribution margin?
+3.	 Are any of the constraints binding?
+4.	 Based on the output from the answer report, what advice would you give the owner? 
+
+3-58  CHAPTER 3  Motivations and Objectives for Data Analysis
+Professional Application Case: Healthcare Service Company
+Kindred Healthcare is a post-acute healthcare service company that operates long-term acute care and 
+rehabilitation services across the United States. Kindred’s hospitals offer the same in-depth care that a 
+patient would receive at a traditional hospital, but for an extended recovery period. The data used in this 
+case is based on actual data from the California Health and Human Services Open Data Portal.
+Kindred has 13 long-term acute care hospitals in California:
+	
+•	 Baldwin Park	
+•  Riverside
+	
+•	 Brea	
+•  Sacramento
+	
+•	 La Mirada	
+•  San Diego
+	
+•	 Los Angeles	
+•  San Francisco Bay Area
+	
+•	 Ontario	
+•  South Bay
+	
+•	 Paramount	
+•  Westminster
+	
+•	 Rancho	
+The hospital locations in California are consolidated into financial statements which are audited 
+by external auditors and provided to the board of directors, the company’s primary investors, and the 
+financial institutions who have extended the bank loans. The income statement for the prior three years 
+is provided.
+2019
+(unaudited)
+2018
+(audited)
+2017
+(audited)
+Gross Patient Revenue
+$2,802,211,999
+$2,515,881,547
+$2,423,431,540
+Deductions from 
+Revenue
+$2,206,888,182
+$1,940,233,238
+$1,869,518,824
+Net Patient Revenue
+$   595,323,817
+$   575,648,309
+$   553,912,716
+Other Operating 
+Revenue
+$       2,262,385
+$       2,367,007
+$       2,663,316
+Operating Expenses
+$   579,928,100
+$   523,090,033
+$   506,521,633
+Net Revenue from 
+Operations
+$     17,658,102
+$     54,925,283
+$     50,054,399
+Non-Operating 
+Revenue
+$       1,237,718
+$          970,497
+$          763,174
+Non-Operating 
+Expense
+$          110,477
+$           200,367
+$          385,724
+Income Tax
+$            86,442
+$            73,200
+$            25,176
+Net Income
+$      18,698,901
+$      55,622,213
+$     50,406,673
+The financial statements are prepared based on annual amounts from each of the California loca-
+tions. The consolidated entity has provided a data file that contains annual data by location for a variety 
+of data fields. 
+
+PAC 3.1  Auditing: Develop Objectives and Questions for an Audit Plan
+Data   Auditing   You are a second-year staff member at a public accounting firm who is assigned to 
+the Kindred Hospitals engagement, which is a new engagement for the firm. You have been asked to 
+perform descriptive, diagnostic, and predictive analytics for your engagement team.

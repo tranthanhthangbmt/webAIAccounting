@@ -1,0 +1,53 @@
+mãn của khách hàng, doanh số bị mất và giảm uy tín thương hiệu. Chúng ta đã thảo luận về cách phân tích dữ liệu và các thuật toán học máy, đặc biệt là Random Forest, có thể giúp các tổ chức chủ động dự đoán và quản lý sự không chắc chắn này. Chúng ta đã khám phá các khái niệm như ma trận nhầm lẫn (confusion matrix), độ nhạy (sensitivity), độ đặc hiệu (specificity) và tầm quan trọng của việc xử lý dữ liệu mất cân bằng thông qua các kỹ thuật như giảm mẫu (downsampling).
+
+## 12.8 THỰC HÀNH BẰNG R: DỰ ĐOÁN TÌNH TRẠNG CHẬM GIAO HÀNG
+(Phần này bao gồm các đoạn mã R đã được trình bày trong các phần trước để dự đoán tình trạng chậm giao hàng bằng Random Forest, vui lòng xem mã nguồn trong sách).
+
+## 12.9 HIỂU RÕ CHƯƠNG HỌC
+
+1. Tại sao tính chính xác (accuracy) không phải là số đo (metric) duy nhất hoặc tốt nhất để đánh giá mô hình học máy khi dữ liệu bị mất cân bằng (imbalanced)? Nêu ví dụ từ bài toán dự đoán chậm giao hàng.
+2. Hãy xem xét một nhiệm vụ lập mô hình dự đoán liên quan đến bộ phân loại Random Forest. Giải thích vai trò và tầm quan trọng của việc sử dụng kiểm chứng chéo k-fold (k-fold CV) trong quá trình đánh giá mô hình.
+3. Các quyết định được đưa ra khi thiếu một số thông tin được gọi là gì?
+a. Quyết định rủi ro (Risky decisions)
+b. Quyết định chắc chắn (Decisions under certainty)
+c. Không thể đưa ra quyết định (No decision can be made)
+d. Quyết định nhị phân (Binary decisions)
+4. Trong các tùy chọn được cung cấp, đâu là đặc điểm của các quyết định được đưa ra trong sự không chắc chắn? (Chọn tất cả những phương án đúng.)
+a. Cân nhắc rủi ro của việc ra quyết định với lợi ích của quyết định đó
+b. Cân nhắc rủi ro so với chi phí của việc ra quyết định
+c. Cân nhắc lợi ích của quyết định so với lợi nhuận từ bán hàng
+d. Đánh giá các tùy chọn hiện có so với các tùy chọn mới
+5. Câu nào sau đây đúng về hiệu ứng cái roi da (bullwhip effect)?
+a. Nó xảy ra khi một thay đổi nhỏ về nhu cầu bị đánh giá quá cao, dẫn đến dư thừa nguồn cung.
+b. Nó xảy ra khi một thay đổi nhỏ về nguồn cung bị đánh giá thấp.
+c. Nó xảy ra khi cung cầu gặp nhau.
+d. Nó xảy ra khi lạm phát khiến nhu cầu giảm.
+6. Đối với cây quyết định, số đo (metric) nào được sử dụng để tìm biến nào là công cụ phân loại (classifier) tốt hơn?
+a. Độ vẩn đục Gini (Gini impurity)
+b. Hệ số xác định (Coefficient of determination)
+c. Hệ số lạm phát phương sai (Variance inflation factor - VIF)
+d. Hệ số tương quan đồng thế hệ (Cophenetic correlation coefficient)
+7. Câu nào sau đây về bagging là sai?
+a. Bagging là kết hợp bằng cách tái lấy mẫu (bootstrap aggregation).
+b. Bagging bao gồm lấy mẫu có hoàn lại.
+c. Bagging bao gồm lấy mẫu không hoàn lại.
+d. Bagging giúp xây dựng các cây đa dạng.
+8. Câu nào sau đây về việc giảm mẫu (downsampling) là sai?
+a. Nó giải quyết vấn đề mất cân bằng dữ liệu.
+b. Nó cho phép mô hình tìm hiểu tốt hơn các tính năng của lớp thiểu số.
+c. Nó làm giảm nghiêm trọng độ chính xác của mô hình.
+d. Nó làm giảm một chút độ đặc hiệu nhưng cải thiện đáng kể độ nhạy.
+9. Giả sử chúng ta đang sử dụng cây quyết định để tìm ra (các) biến dự đoán nào có thể phân loại tốt hơn biến kết quả: liệu khách hàng có mua sản phẩm hay không. Cho các giá trị Gini impurity sau đối với ba biến dự đoán—Predictor A = 0.55, Predictor B = 0.24, và Predictor C = 0.76—lựa chọn nào sau đây sẽ được coi là bộ phân loại tối ưu cho quyết định mua/không mua?
+a. Predictor A
+b. Predictor B
+c. Predictor C
+d. Cả Predictor A và Predictor C
+
+### CHÚ THÍCH (ENDNOTES)
+(Các tài liệu tham khảo trong sách, ví dụ: bài viết của Heath và Amos Tversky về sự không chắc chắn, báo cáo kỹ thuật của IBM, các gói R như tidymodels, dplyr, ranger, themis, v.v.)
+
+### MÔ TẢ CÁC HÌNH ẢNH (Descriptions of Images and Figures)
+<!-- IMAGE_PLACEHOLDER: Figure mô tả sự gia tăng nhu cầu khách hàng, nhà bán lẻ đặt hàng quá nhiều, sản xuất quá mức và nguồn cung (Bullwhip effect) -->
+<!-- IMAGE_PLACEHOLDER: Figure mô tả Doanh số Dự báo (Forecasted Sales) với các node Cao/Thấp -->
+<!-- IMAGE_PLACEHOLDER: Figure mô tả tính toán Chỉ số Gini -->
+<!-- IMAGE_PLACEHOLDER: Figure mô tả sơ đồ khối của Cây phân loại với Doanh số Dự báo và Thời gian vận chuyển -->

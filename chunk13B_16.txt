@@ -1,0 +1,365 @@
+aggregated by month. Then, for each toy in each month, 
+the total monthly production cost should be divided by 
+the total number of toys produced to calculate the average 
+toy cost per month for each toy type. The result will be 
+36 data points for the monthly average cost for each type 
+of toy.
+	 3.	Analysis strategy
+•	 The December sales in units can be estimated by running 
+a regression on each month’s unit sales. 
+•	 A calculated variable must be created for each month’s 
+ending inventory units for each toy type, resulting in 36 
+data points for each toy. This variable’s formula is: begin-
+ning inventory units + monthly toys produced − monthly 
+units sold. (You can assume that this business started 
+three years ago with no beginning inventory.)
+•	 The December year-end ending inventory in units can be 
+estimated by running a regression on the monthly ending 
+inventory units for each toy type. 
+•	 The December year-end average cost per toy can be esti-
+mated by running a regression on the average monthly 
+costs per toy. 
+•	 To calculate the total December ending inventory val-
+uation, the December ending inventory units for each 
+toy should be multiplied by its corresponding estimated 
+December average cost. Then these total costs per toy must 
+be added for the total December year end inventory value. 
+(Continued)
+
+4.4  How Do Data and Analysis Strategies Differ Across Practice Areas?  4-25
+	 4.	Risks to data strategy 
+	
+	 Risks to analysis strategy 
+•	 There may be missing, duplicated, or erroneous data in 
+the fields selected for analysis.
+•	 Costs may have changed over the three years due to sea-
+sonality, changes in vendors, and inflation. 
+•	 Calculations may contain errors.
+	 5.	Data strategy controls
+	
+	 Analysis strategy controls
+•	 Perform data cleaning tests to find and correct missing 
+data, duplicates, and errors that result in outlier data 
+points. 
+•	 Compare the unit cost and sales per month to determine 
+if an inflation factor, seasonality, or other changes have 
+occurred. If data shifts are noticed, their cause and perma-
+nence should be verified by speaking with the employees 
+who would know the answers. 
+•	 Each of the calculations performed should be verified, as 
+well as the averaging calculations.
+•	 Regression analyses can be verified by making visual-
+izations of the three years of monthly data points and 
+visually inspected for agreement with the regression 
+estimations.
+4.4  How Do Data and Analysis Strategies 
+Differ Across Practice Areas?
+LEARNING OBJECTIVE ❹
+Summarize data and analyses strategies in professional practice areas.
+As the last step of the data analysis planning stage, accounting professionals across practice 
+areas design data and analysis strategies based on their project objectives. Here, we offer 
+examples of common data and analytics strategies for the accounting information systems 
+(AIS), auditing, financial accounting, managerial accounting, and tax accounting professional 
+practice areas.
+Accounting Information Systems
+Because a company’s accounting information system is involved in planning, executing, 
+controlling, and reporting the business’ operations, data analysis projects in this area often 
+involve interdisciplinary data and knowledge. These project objectives can range in scope 
+from impacting just one or two employees to involving most of the organization. All four 
+types of analytics objectives (descriptive, diagnostic, predictive, and prescriptive) are com-
+monly used.
+
+4-26  CHAPTER 4  Planning Data and Analysis Strategies
+ILLUSTRATION 4.20  Number of Service Requests Each Month
+Number of Service Requests
+Service 
+Requests
+Months
+0
+Jan.
+Feb.
+Mar.
+Apr.
+May
+Jun.
+Jul.
+Aug.
+Sep.
+Oct.
+Nov.
+Dec.
+20
+40
+60
+80
+120
+140
+160
+180
+100
+99
+153
+118
+100
+46
+98
+98
+72
+92
+72
+153
+72
+92
+72
+77
+64
+AIS data analyses projects may also choose data strategies which use quantitative interval and 
+ratio data:
+•	Costs such as equipment and software installations and updates, and IT staff labor.
+•	Budget variances for any of these costs.
+It is important to select data that captures the AIS system’s performance, vulnerabilities, and 
+errors. For example, to analyze performance we could analyze the number of spam emails 
+(ratio data) before and after investment in a new firewall.
+Accountants designing analysis strategies for AIS projects are focused on increasing com-
+petitive advantage and improving the organization’s operations. They often use statistics to 
+understand which element of the accounting system they should focus on. The mathemat-
+ical formality of statistical tools can help to persuade management to make the necessary 
+investments.
+There are risks involved with AIS data choice and analysis choices. Some common 
+strategic and critical risks and suggested controls for AIS data and analysis are listed in 
+Illustration 4.21.
+The data analyzed in these projects can include a variety of IT operational data with dif-
+ferent levels of data integrity and control documentation. More traditional accounting data 
+are often analyzed with qualitative categorical and ordinal data:
+•	Counts of help tickets and incidents.
+•	Error counts and delay times.
+•	Login issues.
+•	System satisfaction and IT service satisfaction.
+For example, Illustration 4.20 is an example of a visualization of the number of monthly 
+service requests related to the accounting information system of a company. The objective was 
+to identify how many and which months experienced more than the IT staff’s capacity of 90 
+service requests.
+
+4.4  How Do Data and Analysis Strategies Differ Across Practice Areas?  4-27
+ILLUSTRATION 4.21  Risks and Controls for AIS Data and Analysis Strategies
+Analysis
+Data
+Risks
+Controls
+• Human behavior is not captured.
+• Data manipulation from unauthorized
+   access or untrained employees.
+• Strong logs and segregation of duties in IT.
+• Eﬀective back ups and graceful degradation.
+• Clear procedures.
+• Thorough data cleaning and triangulation to
+   verify data capture.
+• Strong audit trails.
+• Data and change management controls.
+• Data retention and destruction policies.
+• Strong access controls.
+• Loss of data due to security breaches,
+   ransomware, or natural disasters.
+• Diﬀiculties capturing high velocity data.
+• Diﬀiculties measuring interdepartmental
+   dependencies on process sofware.
+• Dirty data and outliers.
+• Errors in variable transformations.
+• Verifying analysis steps and calculations.
+• Errors in calculations.
+• Performing sensitivity analyses for critical results.
+• Data availability windows are too short to
+   capture more strategic trends and issues.
+• Creating eﬀective visualizations and explanations.
+Auditing
+Auditors’ historic resistance to change, due to high litigation risks and Public Accounting 
+Oversight Board (PCAOB) review of audit processes, is disappearing as new technologies help 
+them perform higher-quality, lower-risk, and more efficient audits. Audit firms are increas-
+ingly investing in technology and new ways to use it. They are reorganizing to offer new ser-
+vices to provide more business intelligence and economic value to their clients.
+Auditors use statistics to determine risks to account balances and unusual transactions, 
+especially in journal entries that involve estimates and assumptions. They commonly work 
+with different kinds of data sources, from process documentation, journal entries, general 
+and subsidiary ledgers, trial balances, to financial ratios. Auditors use analysis strategies for:
+•	Continuous auditing modules to test large data populations rather than testing samples 
+with inference risks.
+•	Automated identification of dirty data, unusual transactions, and pattern anomalies to 
+better reduce audit risk and fraud risks.
+•	Testing entire transaction cycles’ internal controls with process mining and tracing pur-
+chasing to payment flows, P-cards (purchasing credit cards) usage and payroll documen-
+tation. Testing the revenue cycle from order to collection.
+•	Using robotic process automation (RPA) to remove the human (and often inconsistent) 
+element of repetitive audit tasks, freeing auditors to focus on areas that require thought-
+ful critical thinking and judgments. (RPA applications and benefits to accountants are 
+explained in the chapter that covers data and analysis developments in accounting.)
+•	Testing hypotheses about inventory and fixed assets with sampling, statistical tests, and 
+inferences for the population of these assets.
+
+4-28  CHAPTER 4  Planning Data and Analysis Strategies
+Illustration 4.22 is an example of auditors using a process mining analysis strategy to learn 
+whether all purchases followed the correct process from requisition to the recording of the 
+invoice for the purchase. The visualization indicates that more than expected purchases 
+(308 purchases) skip the authorized purchase requisition process step as well as the autho-
+rized order confirmation, goods receipt, and vendor invoice steps. These deviations from the 
+authorized process are concerning to an auditor. The blue boxes indicate where the process is 
+letting in purchase orders without purchase requisitions and letting out purchase orders with-
+out the subsequent required steps. An auditor will then want to follow-up on these exceptions 
+to the authorized process.
+ILLUSTRATION 4.22  Process Mining Results for Purchases 
+Analysis
+Process Start
+8,864
+Create Purchase Requisition Item
+8,556
+Create Purchase Order Item
+8,864
+Print and Send Purchase Order (Paper)
+8,864
+Receive Order Confirmation
+8,556
+Record Goods Receipt
+8,556
+3,556
+3,556
+Vendor creates Invoice
+8,556
+Record Invoice Receipt
+8,556
+Process End
+8,864
+3,556
+3,556
+3,556
+3,556
+3,556
+8,864
+3,556
+8,556
+8,556
+8,556
+8,556
+8,556
+8,864
+8,556
+5,308
+308
+5,308
+308
+
+4.4  How Do Data and Analysis Strategies Differ Across Practice Areas?  4-29
+Regardless of the data and analysis strategies used, auditors must identify the risks and con-
+trols necessary to assure they can rely on the results of their analyses (Illustration 4.23).
+ILLUSTRATION 4.23  Risks and Controls for Auditing Data and Analysis Strategies
+Analysis
+Data
+Risks
+Controls
+• Missing data.
+• Dirty data.
+• Strong audit trail tests of internal controls for
+   data entry, storage, processing, and reporting.
+• Testing authorization and access controls.
+• Fake transaction data.
+• Errors in assumptions.
+• Verification of all audit steps and calculations.
+• Errors in calculations and conclusions.
+• Checks on authentication and approvals.
+• Sensitivity analysis for critical results.
+Financial Accounting
+Financial accountants are primarily responsible for capturing, recording, processing, storing, 
+and reporting accounting information. Accuracy, thoroughness, and documentation are essen-
+tial. The accounting data they use for analyses are both guided and restrained by accounting 
+regulations and government agency compliance. Due to the measurement scales of the vari-
+ables they need for analysis, financial accountants may have to transform data depending on 
+their objective questions. These data most often include categorical, interval, and ratio data.
+The purpose of a data analysis strategy might be describing and diagnosing based on cor-
+responding financial accounting rules and regulations:
+•	Nature, timing, and authorization of transactions (and diagnose issues) charged to each 
+account.
+•	Internal control effectiveness and weaknesses.
+•	The completeness and reasonableness of adjusting entries at the end of the period.
+Financial accountants also use analysis strategies designed for their predictive and prescrip-
+tive objectives regarding financial outcomes for managers and board members. One example 
+is estimating additional information to be presented along with their financial statements, 
+such as:
+•	Ranking alternative capital sources and costs of capital in terms of favorability.
+•	Future net income and cash flows from operations, investing, and financing activities.
+•	Impacts of new strategies on the financial statement.
+•	Expected future costs associated with contingent liabilities, pension costs, new business 
+units or the discontinuation of business units.
+Financial accountants use statistics to identify opportunities and problems with profitability, 
+liquidity, and business valuation. They analyze categorical industry codes from their client’s 
+categorical groups of held to maturity, trading, and available for sale investment assets to 
+ensure desired diversification risks and holding strategies.
+
+4-30  CHAPTER 4  Planning Data and Analysis Strategies
+Illustration 4.24 is a waterfall chart that shows the analysis results for a project with the 
+objective to better understand the monthly net cash flows for an organization by month. A water-
+fall chart is a useful visualization to show the positive and negative components of a change.
+ILLUSTRATION 4.24  Net Cash Flow Visualization
+$8,000
+$7,000
+$6,000
+$5,000
+$4,000
+$3,000
+$2,000
+$1,000
+$0
+Jan. Feb. Mar. Apr. May Jun. Jul. Aug. Sep. Oct. Nov. Dec. Total
+Net Cash Flows
+$2,600
+$2,350
+$(900)
+$(1,400)
+$(700)
+$800
+$2,400
+$(500)
+$(800)
+$2,350
+$1,300
+$(2,900)
+$4,600
+Increase
+Decrease
+This waterfall visualization shows the change in cashflow for each month. For instance, in 
+February cashflow increased by $2,350 but then decreased by $900 in March. The net of all 
+the monthly changes agrees to the total. Like other accountants, financial accountants must 
+identify potential risks in their data and analysis strategies (Illustration 4.25).
+ILLUSTRATION 4.25  Risks and Controls for Financial Accounting Data and Analysis Strategies
+Analysis
+Data
+Risks
+Controls
+• Missing operational and adjusting entries.
+• Dirty data.
+• Strong accounting cycle steps.
+• Strong internal controls for data entry,
+  storage, processing, and reporting.
+• Fake transaction data.
+• Authorization and access controls.
+• Testing for and correcting missing,
+  duplicate, and outlier data.
+• Incorrect valuation.
+• Incorrect account.
+• Incorrect time period.
+• Missing data.
+• Calculation errors.
+• Verifying all cycle steps and calculations.
+• Biases and self-interests.
+• Checking authentication and approvals.
+• Sensitivity analysis for critical results.
+• Incorrect calculations.
+• Verify applicable GAAP guidance.
+• Not following GAAP analysis guidance.
+Managerial Accounting
+Managerial accountants add value to their organization with different data analysis strategies. 
+The purpose of most managerial accounting data analyses is to improve planning, operational 
+control, and decision-making to support an organization’s mission and strategies. This type 
+of data analysis is valuable for improving the selection, execution, and evaluation of organi-
+zational strategy. These kinds of analyses can also lead to decisions that give employees more 
+access to information, which improves performance and, eventually, organizational culture 
+and operations.
+
+4.4  How Do Data and Analysis Strategies Differ Across Practice Areas?  4-31

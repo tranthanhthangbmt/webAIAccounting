@@ -1,0 +1,413 @@
+import os
+
+def create_beamer_day14():
+    content = r"""\documentclass[aspectratio=169,12pt]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T5]{fontenc}
+\usepackage[vietnamese]{babel}
+\usepackage{lmodern}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{multicol}
+\usepackage{tikz}
+
+\usetheme{Madrid}
+\usefonttheme{professionalfonts}
+
+% --- Custom Colors & Settings ---
+\definecolor{UBrandBlue}{RGB}{0, 71, 155}
+\definecolor{UBrandGold}{RGB}{255, 184, 28}
+\setbeamercolor{palette primary}{bg=UBrandBlue,fg=white}
+\setbeamercolor{palette secondary}{bg=UBrandGold,fg=black}
+\setbeamercolor{palette tertiary}{bg=UBrandBlue!80!black,fg=white}
+\setbeamercolor{title}{bg=UBrandBlue,fg=white}
+\setbeamercolor{item}{fg=UBrandBlue}
+
+% --- Title Page Info ---
+\title[AI trong Kế toán - Buổi 14]{Khám phá Dữ liệu (EDA) \& \\ Nghệ thuật Truyền đạt Kết quả}
+\subtitle{Data Exploration \& Data Storytelling}
+\author[Giảng viên]{Trí tuệ Nhân tạo cho Kế toán (AI in Accounting)}
+\institute[Đại học]{Khoa Kế toán - Kiểm toán}
+\date{Buổi học 14 (Tổng kết Học phần)}
+
+\begin{document}
+
+% Slide 1: Title
+\begin{frame}
+    \titlepage
+\end{frame}
+
+% Slide 2: Mục tiêu
+\begin{frame}{Mục tiêu Bài học (Learning Objectives)}
+    \begin{itemize}
+        \item \textbf{Phân biệt Tư duy:} Ranh giới giữa "Báo cáo" tĩnh (Reporting) và "Khám phá" động (Exploration).
+        \item \textbf{5 Mô hình Khám phá:} Ứng dụng PivotTable để phân tích Xu hướng, Ngoại lai và Phương sai.
+        \item \textbf{Data Storytelling:} Vận dụng Kim tự tháp Freytag để kể câu chuyện dữ liệu lôi cuốn sếp.
+        \item \textbf{Tâm lý học Thị giác:} Ứng dụng nguyên tắc Gestalt trong thiết kế Dashboard tài chính.
+        \item \textbf{Đạo đức Nghề nghiệp:} Tránh 4 "bẫy biểu đồ" kinh điển và kiểm duyệt rủi ro từ Generative AI.
+    \end{itemize}
+\end{frame}
+
+% Slide 3: Agenda
+\begin{frame}{Nội dung Chính (Agenda)}
+    \tableofcontents
+\end{frame}
+
+% ==========================================
+\section{Báo cáo vs. Khám phá (Reporting vs. Exploration)}
+% ==========================================
+\begin{frame}
+    \tableofcontents[currentsection]
+\end{frame}
+
+% Slide 5
+\begin{frame}{Bối cảnh Kỷ nguyên Số}
+    \begin{itemize}
+        \item Doanh nghiệp đang bị "nhấn chìm" trong Big Data. Mọi thao tác, mọi hóa đơn đều được ghi nhận.
+        \item \textbf{Dữ liệu thô tự nó bị câm.}
+        \item Nếu kế toán viên không biết biến mớ bòng bong đó thành một thông điệp rõ ràng, dữ liệu sẽ gây nhiễu loạn toàn bộ quyết định của ban lãnh đạo.
+    \end{itemize}
+\end{frame}
+
+% Slide 6
+\begin{frame}{Báo cáo (Reporting) là gì?}
+    \begin{itemize}
+        \item Trọng tâm: Thu thập và trình bày lại những gì đã diễn ra trong quá khứ.
+        \item Mang tính \textbf{tĩnh} (Static).
+        \item Trả lời câu hỏi: \textbf{"Cái gì?"} (What happened?)
+        \item \textit{Ví dụ:} Đọc tờ hóa đơn siêu thị để biết hôm nay mua hết bao nhiêu tiền.
+        \item \textit{Đánh giá:} Ai cũng có thể làm được bằng các phần mềm xuất báo cáo thông thường.
+    \end{itemize}
+\end{frame}
+
+% Slide 7
+\begin{frame}{Khám phá (Exploration) là gì?}
+    \begin{itemize}
+        \item Trọng tâm: Đào sâu dữ liệu để tìm ra sự thật ngầm hiểu (Insights).
+        \item Mang tính \textbf{động} (Dynamic).
+        \item Trả lời câu hỏi: \textbf{"Tại sao?"} và \textbf{"Như thế nào?"}.
+        \item \textit{Ví dụ:} Gom hàng chục tờ hóa đơn lại và phát hiện quy luật tương quan: "Trời nóng $>30^\circ\mathrm{C}$ thì mua lượng kem tăng vọt."
+    \end{itemize}
+\end{frame}
+
+% Slide 8
+\begin{frame}{Quyền năng của Khám phá}
+    \begin{itemize}
+        \item \textbf{Sự tương quan (Correlation)} là chìa khóa của Khám phá Dữ liệu (EDA).
+        \item Não bộ con người KHÔNG được thiết kế để tự động nhìn thấy sự tương quan từ một bảng Excel 10,000 dòng.
+        \item Chúng ta phải dùng \textbf{PivotTable} (kéo, thả, xoay chiều) để lật các góc khuất của khối rubik dữ liệu.
+    \end{itemize}
+\end{frame}
+
+
+% ==========================================
+\section{5 Mô hình Khám phá Dữ liệu (Data Exploration Patterns)}
+% ==========================================
+\begin{frame}
+    \tableofcontents[currentsection]
+\end{frame}
+
+% Slide 10
+\begin{frame}{Tại sao cần Mô hình Thăm dò?}
+    \begin{itemize}
+        \item Khi đứng trước hàng triệu dòng dữ liệu, ta rất dễ đi lạc.
+        \item 5 Mô hình (Patterns) định hướng cho Kế toán viên biết mình đang tìm kiếm "loại hình" thông tin gì.
+    \end{itemize}
+\end{frame}
+
+% Slide 11
+\begin{frame}{Pattern 1: So sánh Danh nghĩa (Nominal Comparison)}
+    \begin{itemize}
+        \item Mục tiêu: So sánh độ lớn giữa các hạng mục không có thứ tự nhất định.
+        \item Biểu đồ phù hợp: Bar Chart (Thanh ngang) hoặc Column Chart (Cột dọc).
+        \item \textit{Ví dụ:} So sánh chi phí Tiếp thị giữa 3 chi nhánh (Hà Nội, Đà Nẵng, TP.HCM).
+    \end{itemize}
+\end{frame}
+
+% Slide 12
+\begin{frame}{Pattern 2: Phân phối (Distribution)}
+    \begin{itemize}
+        \item Mục tiêu: Xem tần suất xuất hiện và độ tập trung của tập dữ liệu.
+        \item Biểu đồ phù hợp: Box Plot hoặc Histogram.
+        \item \textbf{Ứng dụng Kiểm toán:} Giúp phát hiện nhanh các \textbf{Ngoại lai (Outliers)}.
+        \item Những hóa đơn có giá trị vọt ra xa khỏi khoảng trung bình chính là dấu hiệu của sai sót đánh máy hoặc cố tình khai khống.
+    \end{itemize}
+\end{frame}
+
+% Slide 13
+\begin{frame}{Pattern 3: Sai lệch (Deviation)}
+    \begin{itemize}
+        \item Mục tiêu: So sánh số thực tế (Actual) với mức tham chiếu (Budget hoặc Prior Year).
+        \item Đây là cốt lõi của \textbf{Phân tích Phương sai Ngân sách (Variance Analysis)}.
+        \item \textbf{Favorable (F):} Lợi nhuận cao hơn ngân sách, Chi phí thấp hơn ngân sách.
+        \item \textbf{Unfavorable (U):} Lợi nhuận thấp hơn ngân sách, Chi phí cao hơn ngân sách.
+    \end{itemize}
+\end{frame}
+
+% Slide 14
+\begin{frame}{Ví dụ Phương sai Ngân sách (Tập đoàn Happy Colors)}
+    \begin{itemize}
+        \item Hãng xe \textbf{Odyssey:} Doanh số thực 92k so với ngân sách 85k $\rightarrow$ \textbf{Favorable (+8.35\%)}.
+        \item Hãng xe \textbf{Tatra:} Doanh số thực 98k so với ngân sách 110k $\rightarrow$ \textbf{Unfavorable (-10.45\%)}.
+        \item Hành động: Cắt 15\% ngân sách marketing của Tatra bù cho Odyssey để tối ưu hóa biên lợi nhuận toàn công ty.
+    \end{itemize}
+\end{frame}
+
+% Slide 15
+\begin{frame}{Pattern 4: Xếp hạng (Ranking)}
+    \begin{itemize}
+        \item Mục tiêu: Sắp xếp dữ liệu từ cao xuống thấp để tìm trọng tâm chiến lược.
+        \item Ứng dụng \textbf{Quy tắc Pareto (80/20):}
+        \begin{itemize}
+            \item Xác định 20\% khách hàng đem lại 80\% doanh thu.
+            \item Lập danh sách 5 dòng sản phẩm bị lỗi nhiều nhất để đình chỉ sản xuất.
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+% Slide 16
+\begin{frame}{Pattern 5: Phần-trên-Tổng thể (Part-to-Whole)}
+    \begin{itemize}
+        \item Mục tiêu: Đánh giá cơ cấu và tỷ trọng đóng góp vào 100\% tổng thể.
+        \item Biểu đồ phù hợp: Stacked Bar Chart, Treemap (Tốt hơn Pie Chart nếu có nhiều danh mục).
+        \item \textit{Ví dụ:} Phân tích cơ cấu nguồn vốn (Nợ ngắn hạn / Dài hạn / Vốn CSH) trên Bảng cân đối kế toán.
+    \end{itemize}
+\end{frame}
+
+
+% ==========================================
+\section{Nghệ thuật Kể chuyện bằng Dữ liệu (Data Storytelling)}
+% ==========================================
+\begin{frame}
+    \tableofcontents[currentsection]
+\end{frame}
+
+% Slide 18
+\begin{frame}{Năng lực Dữ liệu (Data Literacy)}
+    \begin{itemize}
+        \item Có Insight từ Khám phá mới chỉ là đi được nửa chặng đường!
+        \item Quăng một bảng Excel chi chít số liệu lên máy chiếu sẽ khiến cả phòng ngáp dài. CEO nhíu mày, Giám đốc mất tập trung.
+        \item Bạn bắt buộc phải \textbf{"bán"} được Insight đó thông qua nghệ thuật kể chuyện.
+    \end{itemize}
+\end{frame}
+
+% Slide 19
+\begin{frame}{3 Cột trụ của Câu chuyện Dữ liệu}
+    \begin{enumerate}
+        \item \textbf{Data (Dữ liệu sự thật):} Nền tảng khách quan.
+        \item \textbf{Narrative (Cốt truyện):} Đặt con số vào bối cảnh kinh doanh thực tế.
+        \item \textbf{Visuals (Hình ảnh):} Trực quan hóa dữ liệu để bộ não dễ tiếp nhận.
+    \end{enumerate}
+    \vspace{0.3cm}
+    \textit{Sự kết hợp của cả 3 yếu tố này sẽ thúc đẩy Sếp đưa ra "Quyết định thay đổi chiến lược".}
+\end{frame}
+
+% Slide 20
+\begin{frame}{Sức mạnh của Hình ảnh trong Sinh học}
+    \begin{itemize}
+        \item Não người được tiến hóa để xử lý Hình ảnh \textbf{nhanh hơn 60,000 lần} so với văn bản (Text).
+        \item Thông tin dễ nhớ hơn \textbf{22\%} khi được kể như một câu chuyện có hình ảnh minh họa.
+        \item Không phải tự nhiên mà 1 biểu đồ đẹp thay cho 10 trang báo cáo!
+    \end{itemize}
+\end{frame}
+
+% Slide 21
+\begin{frame}{Mượn Cấu trúc Kịch Shakespeare (Freytag's Pyramid)}
+    \begin{itemize}
+        \item Để báo cáo tài chính lôi cuốn, hãy cấu trúc như kịch 5 hồi của Shakespeare.
+        \item Điều này không làm mất đi tính chuyên nghiệp, mà giúp dẫn dắt sự chú ý của lãnh đạo một cách tự nhiên nhất.
+    \end{itemize}
+\end{frame}
+
+% Slide 22
+\begin{frame}{Case Study: Kiểm toán Gian lận Kickback (Giai đoạn 1 \& 2)}
+    \begin{itemize}
+        \item \textbf{Giai đoạn 1 - Mở đầu (Bối cảnh):} "Thưa HĐQT, trong Quý 3 vừa qua, chi phí vật tư của chúng ta tự nhiên vọt lên 15\% dù quy mô sản xuất không đổi." \textit{(Thu hút sự chú ý)}.
+        \item \textbf{Giai đoạn 2 - Thắt nút (Manh mối):} "Khi đào sâu dữ liệu (EDA), chúng tôi nhận thấy 100\% sự gia tăng này chỉ tập trung vào DUY NHẤT một nhà cung cấp mới, Công ty Z." \textit{(Tạo sự căng thẳng)}.
+    \end{itemize}
+\end{frame}
+
+% Slide 23
+\begin{frame}{Case Study: Giai đoạn 3 (Climax) \& 4, 5}
+    \begin{itemize}
+        \item \textbf{Giai đoạn 3 - Cao trào (Đỉnh điểm):} (Chiếu biểu đồ thời gian). "Bằng chứng đây: Giờ phê duyệt hóa đơn của Kế toán mua sắm trùng khớp từng phút với giao dịch chuyển khoản từ Công ty Z vào tài khoản cá nhân của anh ta!" \textit{(Cú chốt không thể chối cãi)}.
+        \item \textbf{Giai đoạn 4 - Mở nút:} Giải thích quy trình thu thập chứng cứ.
+        \item \textbf{Giai đoạn 5 - Giải quyết:} Đề xuất quy trình duyệt kép (Dual-Approval) trên phần mềm ERP từ ngày mai.
+    \end{itemize}
+\end{frame}
+
+
+% ==========================================
+\section{Thiết kế Biểu đồ \& Tâm lý học Thị giác (Gestalt)}
+% ==========================================
+\begin{frame}
+    \tableofcontents[currentsection]
+\end{frame}
+
+% Slide 25
+\begin{frame}{Cây Quyết định Chọn Biểu đồ (Decision Tree)}
+    \begin{itemize}
+        \item Chọn sai biểu đồ giống như đang \textit{"kể chuyện ma mà bật nhạc tấu hài"}.
+        \item \textbf{Xem Xu hướng Thời gian?} $\rightarrow$ Biểu đồ Đường (Line chart).
+        \item \textbf{Xem Cấu trúc / Tỷ trọng?} $\rightarrow$ Cột xếp chồng (Stacked Bar) hoặc Tròn (Pie).
+        \item \textbf{Tìm Ngoại lai \& Phân bổ?} $\rightarrow$ Phân tán (Scatter Plot).
+    \end{itemize}
+\end{frame}
+
+% Slide 26
+\begin{frame}{Tâm lý học Thị giác (Gestalt Principles)}
+    \begin{itemize}
+        \item \textbf{Quy luật Gần gũi (Proximity):} Những điểm trên biểu đồ Scatter Plot nằm sát nhau sẽ được não bộ \textit{tự động} gộp thành 1 nhóm, không cần bạn phải vẽ vòng tròn hay dán nhãn thừa thãi.
+    \end{itemize}
+\end{frame}
+
+% Slide 27
+\begin{frame}{Quy luật Điểm nhấn (Focal Point)}
+    \begin{itemize}
+        \item Đừng tô biểu đồ cột 7 sắc cầu vồng sặc sỡ!
+        \item Hãy tô \textbf{Màu Xám nhạt} cho tất cả các quốc gia, và chỉ tô \textbf{Đỏ Đậm} duy nhất cho chi nhánh Venezuela đang thua lỗ nặng.
+        \item Não sếp sẽ lập tức bị "thôi miên" và chĩa mũi dùi vào thẳng vấn đề trọng tâm.
+    \end{itemize}
+\end{frame}
+
+% Slide 28
+\begin{frame}{Thiết kế Dashboards: Bài học từ Ô tô}
+    \begin{itemize}
+        \item Bảng điều khiển (Dashboard) của xe hơi không chớp nháy loạn xạ.
+        \item Nó chỉ sáng đèn "Check Engine" Đỏ chót khi có sự cố thực sự.
+        \item Tương tự, Financial Dashboard phải gọn gàng, triệt tiêu sự lộn xộn (Clutter).
+    \end{itemize}
+\end{frame}
+
+% Slide 29
+\begin{frame}{Lưu ý Nhân văn về Màu sắc (Color-blind friendly)}
+    \begin{itemize}
+        \item Cấm kỵ việc sử dụng cặp màu \textbf{Đỏ (Lỗ) - Xanh lá cây (Lãi)} đi liền nhau!
+        \item Có khoảng 8\% nam giới bị hội chứng mù màu, họ sẽ không thể phân biệt được đâu là cột tăng trưởng, đâu là rủi ro nếu bạn dùng 2 màu này.
+        \item Giải pháp thay thế: Đỏ - Xanh dương đậm.
+    \end{itemize}
+\end{frame}
+
+% Slide 30
+\begin{frame}{Thói quen Đọc (F-Pattern \& Z-Pattern)}
+    \begin{itemize}
+        \item Mắt người phương Tây (và hầu hết thế giới) bắt đầu đọc từ \textbf{Góc trên cùng Bên trái} và quét theo hình chữ Z.
+        \item Kết luận: Chỉ số quan trọng nhất (KPI cốt lõi, Lợi nhuận ròng) PHẢI LUÔN nằm ở góc trên cùng bên trái của màn hình.
+    \end{itemize}
+\end{frame}
+
+% Slide 31
+\begin{frame}{Nguyên tắc 5 Giây (The 5-Second Rule)}
+    \begin{itemize}
+        \item Một Dashboard Kế toán thành công là khi Giám đốc Tài chính (CFO) nhìn vào:
+        \item Trong vòng \textbf{đúng 5 giây}, họ phải trả lời được câu hỏi:
+        \begin{quote}
+            "Công ty đang kinh doanh tốt hay xấu, và bộ phận nào đang gặp rắc rối lớn nhất?"
+        \end{quote}
+    \end{itemize}
+\end{frame}
+
+
+% ==========================================
+\section{Những Cú lừa Thị giác \& Đạo đức Nghề nghiệp}
+% ==========================================
+\begin{frame}
+    \tableofcontents[currentsection]
+\end{frame}
+
+% Slide 33
+\begin{frame}{4 Cú Lừa Thị Giác Ngoạn Mục (Unethical Charting)}
+    \begin{itemize}
+        \item Nếu tâm lý học thị giác được dùng để lấp liếm báo cáo tài chính thì sao?
+        \item Đây là ranh giới giữa việc "thiếu kỹ năng vẽ" và "vi phạm đạo đức nghề nghiệp".
+    \end{itemize}
+\end{frame}
+
+% Slide 34
+\begin{frame}{Bẫy 1: Cắt xén Trục tung (Omitting the baseline)}
+    \begin{itemize}
+        \item Không bắt đầu trục Y từ 0, mà bắt đầu từ 90.
+        \item Hậu quả: Một sự sụt giảm rất nhỏ từ 95 xuống 91 trên biểu đồ trông như một \textbf{cú lao dốc thảm khốc}. (Bóp méo hoàn toàn tỷ lệ).
+    \end{itemize}
+\end{frame}
+
+% Slide 35
+\begin{frame}{Bẫy 2: Đi ngược Quy ước (Going against conventions)}
+    \begin{itemize}
+        \item Thông thường, cột càng dài/cao là giá trị càng lớn. Đỏ là nguy hiểm.
+        \item Kẻ gian lận cố tình đảo ngược: Vẽ biểu đồ Chi phí với cột cao lại mang ý nghĩa chi phí \textit{thấp}. Lập tức lừa được não bộ khán giả trong 5 giây đầu.
+    \end{itemize}
+\end{frame}
+
+% Slide 36
+\begin{frame}{Bẫy 3: Trích xuất có Chọn lọc (Cherry-picking)}
+    \begin{itemize}
+        \item Che giấu rủi ro bằng cách "Giấu lỗ, Khoe lãi".
+        \item Chỉ chiếu doanh thu tổng năm đang tăng trưởng tuyệt đẹp.
+        \item Nhưng lờ đi biểu đồ diễn biến từng tháng (đang chồi sụt cực kỳ rủi ro ở giữa năm) để qua mặt nhà đầu tư.
+    \end{itemize}
+\end{frame}
+
+% Slide 37
+\begin{frame}{Bẫy 4: Dùng sai Biểu đồ (Using the wrong graph)}
+    \begin{itemize}
+        \item Dùng Biểu đồ tròn (Pie chart) để so sánh sự thay đổi doanh thu qua các năm.
+        \item \textbf{Lỗi kinh điển:} Mắt người cực kỳ kém trong việc đánh giá sự thay đổi của diện tích/góc. (Bar chart mới là chân ái để so sánh!).
+    \end{itemize}
+\end{frame}
+
+% Slide 38
+\begin{frame}{Hậu quả của Việc Đánh Lừa Dữ Liệu}
+    \begin{itemize}
+        \item Dù bạn vô tình làm sai hay cố ý thao túng, hậu quả chỉ có một: \textbf{Sự mất niềm tin (Loss of Trust)}.
+        \item Mà trong nghề Tài chính - Kiểm toán: Mất niềm tin là mất tất cả.
+    \end{itemize}
+\end{frame}
+
+% Slide 39
+\begin{frame}{Rủi ro từ Generative AI (ChatGPT/Copilot)}
+    \begin{itemize}
+        \item Ngày nay, chúng ta nhờ AI tự động tạo Dashboard.
+        \item AI được lập trình để "Tối ưu hóa cái đẹp". Nó có thể tự động \textbf{cắt xén trục Y} chỉ vì nó thấy biểu đồ như thế trông sẽ "kịch tính hơn".
+        \item AI \textbf{không hiểu} bối cảnh đạo đức kinh doanh!
+    \end{itemize}
+\end{frame}
+
+% Slide 40
+\begin{frame}{Lời Khuyên Chốt Hạ}
+    \begin{quote}
+        "Kế toán viên tương lai không chỉ là những người chuyên đi vẽ biểu đồ. Bạn phải trở thành \textbf{Người kiểm duyệt tư duy} của máy móc. Tuyệt đối không để phần mềm quyết định thay tính trung thực và khách quan của dữ liệu."
+    \end{quote}
+\end{frame}
+
+% Slide 41
+\begin{frame}{Tổng Kết Học Phần (The Big Picture)}
+    \begin{itemize}
+        \item \textbf{Khai phá dữ liệu:} Để tìm ra Sự thật (Insights) thay vì chỉ báo cáo tĩnh.
+        \item \textbf{Nghệ thuật Kể chuyện:} Mượn Freytag's Pyramid để biến số liệu thành hành động.
+        \item \textbf{Tâm lý học Thị giác:} Giảm nhiễu (Clutter), tạo điểm nhấn (Focal point).
+        \item \textbf{Đạo đức Nghề nghiệp:} Cảnh giác 4 bẫy thị giác và duy trì "Cái phanh khẩn cấp" trước AI.
+    \end{itemize}
+\end{frame}
+
+% Slide 42
+\begin{frame}{Hỏi đáp \& Cảm ơn (Q\&A)}
+    \begin{center}
+        \Large \textbf{Cảm ơn các bạn sinh viên đã đồng hành suốt 14 Buổi học!}\\
+        \vspace{1cm}
+        Chúc các bạn tự tin ứng dụng AI \& Dữ liệu vào sự nghiệp Kế toán chuyên nghiệp.
+    \end{center}
+\end{frame}
+
+\end{document}
+"""
+    tex_path = os.path.join("TaiLieu", "slideAIAcc", "Slide_AIAcc_Day14.tex")
+    os.makedirs(os.path.dirname(tex_path), exist_ok=True)
+    with open(tex_path, 'w', encoding='utf-8') as f:
+        f.write(content)
+        
+    print(f"Generated {tex_path} successfully.")
+
+if __name__ == '__main__':
+    create_beamer_day14()

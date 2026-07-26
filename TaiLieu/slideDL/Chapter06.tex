@@ -1,0 +1,215 @@
+\documentclass[aspectratio=169]{beamer}
+\usetheme{Madrid}
+\usecolortheme{default}
+\usepackage[utf8]{inputenc}
+\usepackage[T5]{fontenc}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{amsmath}
+
+\setbeamertemplate{caption}[numbered]
+\renewcommand{\figurename}{Hình}
+\renewcommand{\thefigure}{6.\arabic{figure}}
+
+\title[Chương 6: Quy trình ML]{Học Sâu (Deep Learning) \\ \vspace{0.5cm} \Large Chương 6: Quy trình Phổ quát của Học máy \\ (The Universal Workflow of Machine Learning)}
+\author{Đại học Đông Á}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame}{Nội dung chương}
+    \tableofcontents
+\end{frame}
+
+\section{1. Tầm quan trọng của Quy trình Phổ quát}
+
+\begin{frame}{Vượt ra ngoài Tập dữ liệu có sẵn}
+    \begin{itemize}
+        \item Trong các chương trước, chúng ta luôn có sẵn dữ liệu chuẩn (MNIST, IMDb, Boston Housing).
+        \item Thực tế (Real World): Bạn không bắt đầu với dữ liệu, bạn bắt đầu bằng \textbf{Vấn đề kinh doanh (Business Problem)}.
+        \item Ví dụ: Phát hiện gian lận thẻ tín dụng, Đề xuất âm nhạc, Ứng dụng lọc Spam.
+        \item \textbf{Quy trình 3 bước (MLOps Workflow):}
+        \begin{enumerate}
+            \item Định nghĩa bài toán (Define the task).
+            \item Phát triển mô hình (Develop a model).
+            \item Triển khai mô hình (Deploy the model).
+        \end{enumerate}
+    \end{itemize}
+\end{frame}
+
+\section{2. Định nghĩa Bài toán (Defining the task)}
+
+\begin{frame}{Khung bài toán (Framing the problem)}
+    Cần phải trao đổi liên tục với các bên liên quan (Stakeholders) để chốt 3 câu hỏi cốt lõi:
+    \begin{itemize}
+        \item \textbf{Dữ liệu đầu vào (Input) là gì? Mục tiêu dự đoán (Target) là gì?}
+        \item \textbf{Bài toán ML thuộc loại nào?}
+        \begin{itemize}
+            \item Phân loại nhị phân (Binary Classification).
+            \item Hồi quy vô hướng (Scalar Regression).
+            \item Đề xuất (Recommendation - Collaborative Filtering).
+        \end{itemize}
+        \item \textbf{Khách hàng đang dùng giải pháp nào?} (Hệ thống cũ viết bằng if-else hay đang dùng nhân sự thủ công?)
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Thu thập Dữ liệu \& Thiên kiến Lấy mẫu (Sampling Bias)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item \textbf{Sự cố lịch sử:} Báo Chicago Tribune in tít "Dewey đánh bại Truman" năm 1948 do lấy mẫu thăm dò qua điện thoại (thời đó chỉ người giàu mới có điện thoại, và họ ủng hộ Dewey).
+            \item \textbf{Bài học Học máy:} Mô hình chỉ có thể suy luận những thứ nó thấy. Nếu dữ liệu huấn luyện không đại diện cho môi trường thực tế, mô hình sẽ thất bại hoàn toàn.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.7\textheight,keepaspectratio]{../../images/ch06/dewey_truman.015b2e12.jpg}
+            \caption{Tác hại của Thiên kiến lấy mẫu}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Sự trôi dạt Khái niệm (Concept Drift)}
+    \begin{itemize}
+        \item Dữ liệu Học máy không bất biến, nó thay đổi theo thời gian.
+        \item \textbf{Ví dụ:} Một mô hình phân loại tin tức giả (Fake News) năm 2013 sẽ không thể nhận diện các tin tức giả về COVID-19 năm 2020.
+        \item \textbf{Ví dụ 2:} Gu âm nhạc, thị hiếu thời trang của người dùng thay đổi theo mùa.
+        \item \textbf{Kết luận:} Học máy là quy trình liên tục. Mô hình cần phải được \textbf{huấn luyện lại (retrain)} thường xuyên để đối phó với Concept Drift.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Lựa chọn Độ đo Thành công (Metrics) - Phần 1}
+    Nếu không thể đo lường, bạn không thể tối ưu.
+    \begin{itemize}
+        \item Với dữ liệu cân bằng (Balanced data): Sử dụng \textbf{Accuracy (Độ chính xác)} và \textbf{ROC AUC}.
+        \begin{equation}
+            Accuracy = \frac{TP + TN}{TP + TN + FP + FN}
+        \end{equation}
+        \item \textit{(Trong đó: TP=True Positive, TN=True Negative, FP=False Positive, FN=False Negative)}.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Lựa chọn Độ đo Thành công (Metrics) - Phần 2}
+    Với dữ liệu mất cân bằng nghiêm trọng (vd: 99\% giao dịch thường, 1\% gian lận), ta phải dùng \textbf{Precision} và \textbf{Recall}.
+    \begin{itemize}
+        \item \textbf{Độ chuẩn xác (Precision):}
+        \begin{equation}
+            Precision = \frac{TP}{TP + FP}
+        \end{equation}
+        \textit{(Trong số các giao dịch máy báo là gian lận, bao nhiêu \% là gian lận thật?)}
+        
+        \item \textbf{Độ bao phủ (Recall):}
+        \begin{equation}
+            Recall = \frac{TP}{TP + FN}
+        \end{equation}
+        \textit{(Trong số toàn bộ gian lận thật, máy tìm ra được bao nhiêu \%?)}
+    \end{itemize}
+\end{frame}
+
+\section{3. Phát triển Mô hình (Developing a model)}
+
+\begin{frame}{Chuẩn bị Dữ liệu (Data Preparation)}
+    Dữ liệu thô phải được xử lý trước khi đưa vào Mạng Nơ-ron:
+    \begin{itemize}
+        \item \textbf{Vector hóa (Vectorization):} Biến mọi thứ (Văn bản, Âm thanh, Hình ảnh) thành Tensor chứa các số thực (float32).
+        \item \textbf{Chuẩn hóa (Normalization):} Mạng Nơ-ron ghét các số lớn hoặc các đặc trưng có tỷ lệ khác nhau. Cần chuẩn hóa về miền $[0, 1]$ hoặc $\mu=0, \sigma=1$.
+        \item \textbf{Xử lý giá trị khuyết (Missing Values):} Thường điền bằng $0$ (nếu an toàn) hoặc dùng giá trị trung bình/trung vị (mean/median imputation).
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Chọn Giao thức Đánh giá (Evaluation Protocol)}
+    Làm sao để biết mô hình hoạt động tốt?
+    \begin{itemize}
+        \item \textbf{Hold-out Validation:} Dành cho dữ liệu dồi dào. Cắt hẳn $20\%$ làm Validation.
+        \item \textbf{K-Fold Cross-Validation:} Dành cho dữ liệu vừa và nhỏ. Đánh giá chéo qua K vòng lặp để lấy trung bình.
+        \item \textbf{Iterated K-Fold:} Lặp lại quy trình K-Fold nhiều lần với các hạt giống ngẫu nhiên (random seeds) khác nhau. Phù hợp cho dữ liệu siêu nhỏ.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Đánh bại Đường cơ sở (Beating a baseline)}
+    \begin{itemize}
+        \item Trước khi xây dựng Deep Learning, bạn phải thiết lập được \textbf{Sức mạnh Thống kê (Statistical Power)}.
+        \item Đường cơ sở (Baseline) có thể là:
+        \begin{itemize}
+            \item Dự đoán theo nhãn chiếm đa số (Ví dụ: đoán 100\% là không gian lận $\rightarrow$ Đúng 99\%).
+            \item Một mô hình Machine Learning cổ điển siêu đơn giản (Random Forest, SVM).
+        \end{itemize}
+        \item \textbf{Lưu ý:} Không phải bài toán nào Deep Learning cũng giải được. Nếu thuật toán phức tạp không thắng nổi Baseline đơn giản, hãy quay lại bước kiểm tra Dữ liệu.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Mở rộng Quy mô (Scaling up: Overfitting Model)}
+    Để tìm ra ranh giới tối ưu, trước tiên bạn phải biết điểm Overfitting nằm ở đâu. Các bước để cố tình tạo ra mô hình Overfit:
+    \begin{enumerate}
+        \item Thêm các lớp (Layers) cho Mạng Nơ-ron.
+        \item Tăng số lượng Nơ-ron (Units) ở mỗi lớp để tăng sức chứa (Capacity).
+        \item Huấn luyện mô hình lâu hơn (tăng số Epochs).
+    \end{enumerate}
+    $\rightarrow$ Chú ý quan sát Training Loss liên tục giảm, nhưng Validation Loss bắt đầu tăng vọt.
+\end{frame}
+
+\begin{frame}{Tinh chỉnh và Chuẩn hóa (Regularizing \& Tuning)}
+    Đây là bước mất thời gian nhất (chiếm tới 70\% nỗ lực). Khi đã biết mô hình Overfit ở đâu, tiến hành gọt giũa:
+    \begin{itemize}
+        \item Áp dụng **Dropout** để ngắt nơ-ron ngẫu nhiên.
+        \item Bổ sung Phạt trọng số **L1/L2 Regularization**.
+        \item Thử nghiệm các siêu tham số (Learning rate, Batch size).
+        \item Sử dụng **Early Stopping** để dừng tự động khi Loss bắt đầu thoái trào.
+    \end{itemize}
+\end{frame}
+
+\section{4. Triển khai Mô hình (Deploying the model)}
+
+\begin{frame}{Quản trị Kỳ vọng với Bên liên quan (Stakeholders)}
+    \begin{itemize}
+        \item \textbf{Khoảng cách mong đợi:} Người làm kinh doanh thường hy vọng AI hoàn hảo (AI sẽ giải quyết được 100\% vấn đề).
+        \item \textbf{Thực tế Học máy:} Mô hình chỉ hoạt động dựa trên xác suất, sẽ luôn có sai số (False Positives, False Negatives).
+        \item \textbf{Nhiệm vụ của Kỹ sư ML:} Phải minh bạch hóa rủi ro. (Ví dụ: "Hệ thống sẽ chặn 98\% thư rác, nhưng có tỷ lệ 0.5\% chặn nhầm thư công việc"). Cần có cơ chế Fallback (Con người can thiệp).
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Các Hình thức Triển khai (Deployment Types)}
+    Mô hình khi lưu trữ thành tệp (vd `.h5` hoặc `.tflite`) có thể triển khai qua:
+    \begin{itemize}
+        \item \textbf{REST API (Cloud):} Client gửi yêu cầu HTTP, Server chạy dự đoán bằng GPU và trả kết quả. Chịu tải tốt nhưng phụ thuộc đường truyền Internet.
+        \item \textbf{In-browser (TensorFlow.js):} Chạy thẳng mô hình bằng CPU/GPU ngay trên trình duyệt web của người dùng (Bảo mật dữ liệu tuyệt đối).
+        \item \textbf{On-device / Edge AI:} Triển khai vào điện thoại (iOS/Android), Raspberry Pi, hoặc chip nhúng IoT. Đòi hỏi nén mô hình siêu nhẹ (Quantization).
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Giám sát trên Môi trường Thực (Monitoring in the wild)}
+    Ngay khi mô hình "Go Live", hiệu suất của nó sẽ bắt đầu suy giảm.
+    \begin{itemize}
+        \item Giám sát hệ thống (System metrics): Lỗi phần mềm, thời gian phản hồi API, lượng RAM tiêu thụ.
+        \item Cảnh báo \textbf{Data Drift}: Phát hiện dữ liệu đầu vào thực tế đang khác xa so với dữ liệu huấn luyện (Vd: Hình ảnh mờ hơn, user nhập tiếng lóng).
+        \item Cần kiểm toán định kỳ (Audit) bằng tay để đánh giá lại Metric thực tế.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Bảo trì và Cập nhật Vòng lặp (Feedback Loop)}
+    \begin{itemize}
+        \item Xây dựng cơ chế \textbf{Vòng lặp Phản hồi (Feedback Loop)}: Người dùng gắn cờ (Flag) những dự đoán sai của máy.
+        \item Các kỹ sư lấy dữ liệu sai đó, đưa cho con người gán nhãn lại cho chuẩn xác.
+        \item Bổ sung dữ liệu mới vào tập Training Set.
+        \item Tiến hành Retrain mô hình $\rightarrow$ Nâng cấp lên Version 2.0.
+    \end{itemize}
+\end{frame}
+
+\section{Tổng kết}
+
+\begin{frame}{Tổng kết Chương 6}
+    \begin{itemize}
+        \item Machine Learning không đơn thuần là code các mạng Nơ-ron. Nó là một \textbf{vòng đời Phần mềm hoàn chỉnh (MLOps)}.
+        \item \textbf{Bước 1:} Luôn định nghĩa bài toán kỹ càng, cẩn trọng với Thiên kiến dữ liệu (Sampling Bias) và chọn độ đo chuẩn (Precision/Recall).
+        \item \textbf{Bước 2:} Xây dựng Baseline $\rightarrow$ Thúc đẩy Overfitting $\rightarrow$ Thu hẹp lại bằng Regularization/Dropout.
+        \item \textbf{Bước 3:} Triển khai mô hình hợp lý (API/Edge), và thiết lập hệ thống giám sát (Monitoring) chống lại Concept Drift.
+    \end{itemize}
+\end{frame}
+
+\end{document}

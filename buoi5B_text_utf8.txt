@@ -1,0 +1,525 @@
+14 NEW PRODUCT DEVELOPMENT WITH A/B
+TESTING
+14.1 Innovations in the Marketplace
+14.2 New Product Development Stages
+14.2.1  Idea Generation
+14.2.2  Idea Screening
+14.2.3  Concept Development and Testing
+14.2.4  Business Analysis
+14.2.5  Product Development and Design
+14.2.6  Test Marketing
+14.2.7  Commercialization
+14.2.8  Evaluation and Control
+14.3 The Importance of Testing and Market Research
+14.3.1  For Design Evaluation
+14.3.2  For Engaging Customers in an Omnichannel W orld
+14.3.3  For Incorporating Feedback and Customer Experience
+14.4 The Intricacies of A/B Testing
+14.5 Using A/B Testing to Test Gaming Prototypes
+14.5.1  Experimental Design
+14.5.2  Analyzing the Data and Presenting the Results
+14.5.3  F Test
+14.5.4  Testing Statistical Dif ference
+14.6 Using the A/B Test in New Product Development
+14.6.1  Insights Derived From the A/B Test
+14.7 Implementation Using R: The A/B Test
+14.8 Understanding the Chapter
+LEARNING OBJECTIVES
+1. Introduce new products in the marketplace
+2. Recall the steps in the new product development process
+3. Support new product development with machine learning
+4. Use A/B testing for new product development
+5. Introduce a digital product
+14.1 INNOVATIONS IN THE MARKETPLACE
+Chase introduced its new credit card, the Chase Sapphire Reserve, in 2016, which of fered users
+100,000 sign-up bonus points for the first year and led to Chase exceeding its annual sales target in the
+first few weeks. The enthusiasm with which millennials adopted the card because of the free points was
+a key factor in its success. However , Chase needed to see beyond the first year of product introduction
+to assess how the card would do in the next years after the promotional of fer expired and annual fees
+kicked in. Despite high annual fees of $550, it is considered the best travel card around because of the
+perks it of fers—including airport lounge access and application fee credit for Global Entry and TSA
+PreCheck.1 This is one example of a product launch that was designed and launched well, and the right
+strategies are helping Chase sustain its success.
+Nintendo released the Switch in 2017, which sold 2.74 million units in the first month. Its design allowed
+for handheld and console gaming that appealed to a broad user base. The launch titles, such as The
+Legend of Zelda: Breath of the W ild, captured people’ s attention. The Switch was priced competitively ,
+and its features such as local multiplayer gaming and portability helped it perform successfully in the
+marketplace.
+The concept of a product has evolved in the digital age. Technological advances in artificial intelligence,
+cloud computing, 3D printing, and wireless sensor networks have now made it possible to build products
+that do not have a physical presence but that live entirely on the web, such as health monitoring apps
+on smartphones and facial recognition apps for fraud detection; even in automobiles much of the driving
+is controlled by algorithms, such as with self-driving technology . Netflix is a good example of how
+algorithmic power has been harnessed for new product of ferings. Netflix began algorithmic
+recommendation as early as 2010. Gradually algorithms helped it decide which movies to show , how to
+display them on screens, and which pictures should be used to advertise them. Today the company’ s
+algorithms are not just used for providing recommendations to users; user interactions with the Netflix
+platform inform the company , for example, what content to develop next and what type of show is likely
+to garner the most viewership. As early as 2013, Netflix was using predictive analytics to determine what
+type of new content needed to be included in its show House of Cards  to ensure a specific size of
+viewership.
+14.2 NEW PRODUCT DEVELOPMENT STAGES
+How can we define a new product? Is it something entirely new that customers have never seen before,
+such as the microwave oven that was introduced as a substitute for the conventional gas/electric range?
+Or is it a product that is merely an extension of an existing product, or a newer model with enhanced
+features, such as a new version of the iPhone that has more memory or functionality than an earlier
+version? New products get categorized broadly as breakthrough or incremental depending on whether
+they completely disrupt the existing marketplace or of fer newer benefits to consumers. Breakthrough
+innovations are relatively rare, accounting for less than 10% of all products that get introduced in the
+marketplace. Many product launches are merely extensions of existing products or me-too products with
+barely any innovation that are introduced at a lower cost. Moreover , the failure rate for new products is
+quite high. Many ideas never culminate in a viable product. Even among those new products that do get
+developed, more than 50% are not profitable. Before we see a product in the marketplace—be it a
+biotechnology , pharmaceutical, automotive, or digital product—it has gone through a long process of
+being designed and introduced. What are the steps in new product development? They commonly are
+the following, with many of these steps being iterative. Next, we will go through the steps in the new
+product development (NPD) process (see Figure 14.1 ) in the context of creating an entertaining game
+with various levels of dif ficulty .
+Description
+Figure 14.1  New Product Development Process
+14.2.1 Idea Generation
+The first step of any project is idea generation (this is Step 1 in Figure 14.1 ). This can be a structured
+process in some businesses where regular brainstorming involves discussing what consumers need and
+what type of (as well as whether) new products can be developed. For instance, in some industries, new
+models or brand extensions are an outcome of such a structured process. Alternatively , new product
+ideas can emerge as a by-product or even accidentally while working on other projects. In the context of
+game development, this step could involve generating ideas for a puzzle-adventure game in which
+players travel dif ferent worlds where each world represents a unique level of dif ficulty . Such a game can
+be developed in the realm of fantasy , science fiction, or history .
+14.2.2 Idea Screening
+The second step involves the rigorous evaluation of product ideas with each idea undergoing a
+comprehensive assessment to determine its viability , innovation, and market appeal.
+Viability:  This considers whether the idea is technically feasible and economically sustainable,
+ensuring that the product can be developed as well as marketed successfully .
+Innovation:  An important criterion is to determine the product idea’ s uniqueness or substantial
+improvement over existing products. It ensures that the product features are indeed novel to the
+market.
+Market Appeal:  The idea is evaluated for its potential attractiveness to the intended target segment,
+determining whether it meets customer needs and preferences ef fectively .
+The aim of this step is to filter and retain only those ideas that show potential for success.
+For game development, after careful consideration, the idea of a multilevel, puzzle-adventure game
+rooted in medieval history was chosen for its engaging concept and scalability .
+14.2.3 Concept Development and Testing
+In this step, the ideas start to take shape. W e can think of it like a sketch turning into a detailed
+blueprint. The designers start defining the product’ s features, how the product functions, and what
+makes it unique. It is possible that more than one version of the product is built to find the best-
+performing one. This could involve the shape, size, or weight of a physical product or the seamless
+connectivity of a digital product. At this step the designers may use surveys or focus groups to test the
+product with potential users. Consumers’  feedback is helpful in tweaking the product, making sure it is
+something people will find valuable.
+For the puzzle-adventure game, detailed features such as the game rules, objectives, and varying levels
+of dif ficulty are established at this step, ensuring that the game is well structured, engaging, immersive,
+and challenging. To ensure that the developed concept aligns with user expectations and preferences,
+testing can also be conducted with users in this step.
+14.2.4 Business Analysis
+The aim of this step is to figure out the business or market viability of the developed concepts. Dif ferent
+types of comprehensive business analysis such as cost estimation, sales projections, and profitability
+analysis are conducted to assess the potential business impact and commercial success of the new
+product.
+For game development, this step will involve analyzing the costs associated with developing the game,
+the product price, and estimating potential revenues based on market research.
+14.2.5 Product Development and Design
+In this step, the developed concepts are further developed into tangible products. The product design is
+finalized, incorporating all the necessary features and functionalities, ensuring it’ s user-friendly and
+aesthetically appealing. Prototypes or samples are developed, getting the product ready for market
+introduction.
+This step for our game development example would involve probably programming the game
+mechanics, designing unique worlds for each dif ficulty level, and ensuring that the user interface is
+intuitive and engaging.
+14.2.6 Test Marketing
+Before the product is launched in the market, it is tested in select markets to obtain user reactions to
+both design and cost. W e can think of this to be a dress rehearsal before the main performance, in
+which a select audience is invited to provide their review of the performance. This allows for any last-
+minute adjustments or improvements. The arrow pointing back from Step 6 to Step 5 in Figure 14.1
+indicates the possibility of such feedback. Any necessary corrections can be made at this stage based
+on test market results.
+Step 6 for game launch could include the game being soft-launched in select markets or platforms to
+gather user feedback, analyze gameplay data, and make any needed improvements.
+14.2.7 Commercialization
+After adjustments or improvements are included in the product following the test marketing step, the
+product is of ficially launched in the market. In this step, several marketing strategies are deployed,
+aiming for a successful launch and a wide market adoption.
+When the game is launched in the market, it is likely to involve launching the fully optimized puzzle-
+adventure game globally , implementing a comprehensive marketing strategy to maximize visibility and
+downloads.
+14.2.8 Evaluation and Control
+The new product development process does not conclude after the product launch. The business will
+closely monitor the product’ s market performance. This step involves evaluating the product’ s success
+against the company’ s expectations regarding sales as well as customer reviews. It could also include
+assessment of how well the product performs in comparison to any other competitor that was introduced
+in the market.
+For the game, its performance is continuously monitored postlaunch, and updates are made to improve
+the game, fix bugs, and keep the content fresh and engaging based on user feedback and evolving
+gaming trends.
+14.3 THE IMPORTANCE OF TESTING AND MARKET RESEARCH
+As we just learned through the dif ferent processes of ideating, designing, and launching a new product,
+the role of continuously getting feedback from potential users is very important since the process can
+include many uncertainties. This includes how consumers and competitors will react; if any external
+factors in the economic or social environment will change before, during, or immediately after the
+launch; what the price of the product should be; through which channel the product should be launched;
+and how the product should be promoted. Even before launching a new product in the market, the
+manager needs to weigh the cost of designing the new product: Will the design be financially viable?
+How long will it take to move from design, to production, to launch stage? What does the company have
+to give up to invest in this new product? In order to answer these questions and reduce some of the
+uncertainty , companies sometimes conduct surveys to find out which features of the product or launch
+environment result in greater acceptance by consumers.
+14.3.1 For Design Evaluation
+Whether the product is digital or physical, it is important to incorporate user experience and feedback
+into the product during the design stage. A commonly used method to gather user feedback is through
+A/B testing to find out which product design will attract the most interest. For instance, for digital
+products like apps that people view online, click rate is used to determine interest (and eventual
+purchase). As we discussed in Chapter 7 , a multi-armed-bandit-based algorithm is now being deployed
+by large firms to determine quickly which combination of product features will result in the highest
+interest and purchase.
+14.3.2 For Engaging Customers in an Omnichannel World
+When the product is ready for launch, algorithms again are used to determine the best way to engage
+customers in today’ s omnichannel world. This has both benefits and shortcomings. Traditionally , people
+gained product information through one channel such as television or in- store behavior . Today ,
+however , people can be reached through multiple interconnected channels, which makes the task
+challenging because businesses need to find the optimal channels as well as to customize the message
+depending on the channel. Hence, a one-message/one-channel policy may not be successful.
+14.3.3 For Incorporating Feedback and Customer Experience
+Just as user feedback is gathered during the design stage, once the new product is launched it again
+becomes essential to find out how customers are reacting to it. In the design stage, the feedback is
+probably gathered from a smaller sample of people, while in the postlaunch stage, a larger set of
+customers can be reached to find out what they like (or don’t like) about the product. This feedback now
+happens on an ongoing basis, building a continuous chain from users to designers and back.
+14.4 THE INTRICACIES OF A/B TESTING
+As we discussed in Chapter 7  on advertising, there are several steps that need to be followed to
+develop a sound A/B test. This includes ensuring that the experimental design is causal (an A/B test is
+really another name for causal experimentation) and not correlational. For this, we need to ensure that
+we are keeping all features of the A/B test constant and only varying the feature(s) whose influence we
+want to examine. Second, we need to create groups (also called conditions or treatments) that vary
+different levels of the feature that we want to examine. Finally , we should be careful that participants are
+randomly assigned  to the various groups and that there is no issue of self-selection. What exactly is self-
+selection? Self-selection occurs if participants are allowed to choose which group (or treatment) they
+want to be part of. For instance, if we design an A/B test for video games to find out which color of the
+visual interface is more immersive (e.g., blue vs. green) and let participants choose to play using their
+choice of color , then the experimental design is not randomized because we are allowing participants to
+self-select  their experimental group based on color preference.
+14.5 USING A/B TESTING TO TEST GAMING PROTOTYPES
+For this chapter let’ s use the example of a video game company . GameV has been working on a new
+game idea that its designers believe will be more immersive and engaging than other games that
+GameV currently has developed. However , before they launch the game, GameV designers have
+generated several prototypes of the game so they can launch the version that is likely to retain the most
+players. They know from previous data in the gaming industry that every point of engagement in the
+game results in players who will return. For instance, many players don’t return after the first session
+because of glitchy install or because of game features that are less than immersive. Therefore, GameV
+wants to use A/B testing to assess specific features. The game lets players earn an extra life by
+performing some tasks. GameV has determined three levels of dif ficulty: 25, 35, and 45. They want to
+find out which level of dif ficulty results in greater engagement. It is possible that if players have earned a
+life by performing a dif ficult task, it could result in their feeling more engaged. Alternatively , it is possible
+that earning a life with a more dif ficult task results in players giving up. Hence, GameV wants to find out
+which dif ficulty level engages more players in this game environment. One can think of the three levels
+of dif ficulty as low , medium, and high.
+GameV believes that a good outcome metric to figure out the success of the prototype is the time
+players spend playing. Since the game is a prototype, players have never played it before, and the time
+they spend playing the game will help GameV determine which of the prototypes results in greatest
+engagement and immersion. The outcome variable (unlike in Chapter 7 ) is continuous in nature.
+Therefore, we will use an F test to find out which level of dif ficulty results in highest immersiveness.
+14.5.1 Experimental Design
+GameV has developed the three prototypes in such a way that each prototype is designed with one of
+the three levels of dif ficulty . Each prototype of fers unique game features that correspond to its specific
+difficulty level, providing players with a variety of experiences. In the experimental design, the level of
+difficulty is the only factor that varies across the three prototypes, with specific levels set at 25, 35, and
+45. Every other feature of the game stays the same; only the features associated with the level of
+difficulty are dif ferent. Moreover , during A/B testing, a player who plays prototype-25 will not be playing
+prototype-35 or prototype-45. That is, one player will see and play only one game prototype. Such a
+design is called a one-factor , between-participants design . GameV followed the usual steps to run its
+A/B test:
+1. It recruited 1,200 video game players who agreed to test the game in return for free games from
+GameV . Hence, the sample for the A/B test is 1,200.
+2. It randomly assigned about 400 players to each of the three groups: prototype-25, prototype-35,
+and prototype-45.
+3. Players played the game for 10 rounds, during which they were presented with the dif ficulty level
+specific to their group. They could continue to play after 10 rounds for another 2 rounds, or they
+could quit and leave.
+4. Time played was recorded for each participant and served as a measure (also called a proxy) for
+immersiveness and engagement with the game.
+5. The null hypothesis would be that changing the dif ficulty level would not influence the
+immersiveness, resulting in no dif ference in the time spent playing among players in the three
+groups.
+14.5.2 Analyzing the Data and Presenting the Results
+Before we determine what analysis needs to be run, we first should examine the nature of the data. If
+the data are normally distributed , then we can go ahead and use parametric tests such as an F test or t
+test. However , if the data are not normally distributed, this failure of the normality assumption might
+require the use of nonparametric tests like the Mann-Whitney .
+14.5.3 F Test
+The F test, also called the F statistic, is used to describe tests that use the F distribution to determine
+whether a factor has a significant  influence on the outcome variable. When we use an F test for A/B
+testing, we want to examine whether the intervention we have used in each of the groups results in
+different values of the outcome. In our A/B test, we want to examine whether the three levels of dif ficulty
+result in dif ferent levels of immersion as measured through time spent playing the game prototype. The
+null hypothesis states that there is no dif ference in time spent playing across the three levels of dif ficulty .
+We can reject the null hypothesis only if there is a dif ference in playing time. When we use an F test, we
+are comparing the groups to test whether there are variances among the groups. Hence, an F test is
+frequently used for analysis of variance (ANOV A) testing, which is a common test for causal
+experimentation.
+The F test can be performed if the data follow an F distribution and the group data are independent. In
+A/B testing, group data are obtained independently because the intervention for one group is dif ferent
+from the intervention for the other groups. Note, when we use an F test for correlational analysis, the
+assumption is that the predictors have an independent influence on the outcome variable. For our
+example, we have three levels of one factor—that is, three independent groups with no interaction (we
+will discuss interactions later). Hence, our A/B test design will examine the main ef fect, which is the
+effect of each of the groups on the outcome.
+The three main ef fects for prototype-25, prototype-35, and prototype-45 constitute the model equation.
+SSM=SS25+SS35+SS45
+The sum of squares  (SSM) captures how much variance is explained by each of the factors. For
+instance, SS25 indicates how much variation in the immersiveness experienced by players is captured
+by a dif ficulty level of 25. Here, we have only one factor but with three levels. However , along with SS
+we need something called degrees of freedom  (df) to calculate the F test.
+dfM=k−1wherek= number of experimental groups (herek= 3)
+14.5.4 Testing Statistical Difference
+Imagine we ran the A/B test and obtained data for each of the three conditions. Assume that mean
+(average) time spent with prototype-35 is higher than the averages of time spent with prototype-25 and
+prototype-45. How can we quantify that prototype-35 is indeed more immersive? The only way we can
+answer this is by testing if the averages are statistically dif ferent. The testing process begins with the
+hypothesis that there is no dif ference in the averages across conditions; this serves as the null
+hypothesis. It implies that all prototypes are equally immersive. Now our goal is to test this hypothesis. A
+one-way ANOV A makes it possible to simultaneously compare the averages of more than two conditions
+and determine if they are statistically dif ferent. ANOV A is a generalization of the t test that compares the
+means of two conditions.
+Traditional ANOV A (also known as the ANOV A F test) makes the following assumptions.
+Independence : The observations should be independent of each other . This implies that
+participants providing responses in each condition are unique and that no participant is included in
+more than one condition. The assumption of independence is related to the design of the study . If
+participants are randomly assigned to only one of the conditions and do not influence or get
+influenced by other participants, then this assumption is met.
+Homogeneity of V ariance : This assumption requires that variance (spread of values around the
+average) among groups should be similar . In our case, the variance of the outcome variable, time
+spent on the app, should be similar in each of the conditions.
+Normal Distribution : The population of all the respondents (players) from which the sample was
+drawn is normally distributed. In the context of GameV’ s A/B test, this assumption implies that the
+time spent by all the users ( note:  all users, not only those in our sample) of the game follows a bell-
+shaped distribution. Some users will spend a lot of time and some less time, but the majority of
+users’  time will spread around the average.
+The use of an ANOV A is not recommended if the independence assumption is violated, although
+sometimes an ANOV A is used despite violation of the normality assumption since an ANOV A can still
+perform reasonably well if a large sample size is used. However , the assumption of homogeneity of
+variance tends to be frequently violated in many real-world datasets. In fact, assuming unequal
+variances might be a more realistic approach when working with real-world datasets.2 Therefore,
+assuming unequal variance, it is advisable to use W elch’s ANOV A as it does not assume homogeneity
+of variance.
+The output of W elch’s ANOV A will provide an estimate of p value. Let’ s understand what p value means.
+It is the probability of observing the obtained results if the null hypothesis was actually true. In the
+context of our A/B test, it is the probability of wrongly concluding that the group means are not the same
+(i.e., rejecting the null hypothesis) when they are actually the same (i.e., the null hypothesis is true). W e
+want to reduce the probability of such wrong conclusions; thus, smaller p values are preferred. The
+convention is to set the threshold p value at 0.05; if the estimated p value is less than 0.05, then we can
+conclude that the averages are statistically dif ferent.
+If the results of W elch’s ANOV A show that the averages across all conditions are not the same, then the
+next step is to ask the following questions: Which conditions are dif ferent, and how do they dif fer? Post
+hoc pairwise comparisons help us answer these questions. Given the frequent violation of the
+homogeneity of variance assumption, it is advisable to use the Games-Howell method for pairwise
+comparison, which allows unequal variance in pairwise comparisons.
+We will follow these steps closely in the next sections when we analyze the A/B test for GameV .
+14.6 USING THE A/B TEST IN NEW PRODUCT DEVELOPMENT
+We first import data and create a boxplot. The data are hypothetical and created for the purposes of this
+chapter .
+We see from Table 14.1  and Figure 14.2  that the average time players spent with prototype-35 is higher
+than with either prototype-25 or prototype-45. Having obtained this result, we need to determine if the
+average time spent is statistically dif ferent across conditions.
+condition count mean min sd
+Prototype_25 195 46.52970 11.174987 15.06432
+Prototype_35 175 51.23371      9.062043 16.61373
+condition count mean min sd
+Prototype_45 185 47.41703 18.099590 10.65673
+Description
+Figure 14.2  A Boxplot of Time Spent With Dif ferent Prototypes
+The first step is to test if our data satisfies the normality assumption by performing the Shapiro–Wilk
+normality test.
+Across all the conditions, we see that the p value is more than 0.05 (see Table 14.2 ). This shows that
+our data do not violate the assumption of normality .
+condition variable statistic p
+Prototype_25 time 0.9922398 0.3874756
+Prototype_35 time 0.9895805 0.2286476
+Prototype_45 time 0.9913752 0.3363401
+The second step tests the homogeneity of variance assumption. W e use Levene’ s test for homogeneity
+of variance across groups. The null hypothesis of this test states that variances in the three groups are
+the same (i.e., they are not significantly dif ferent).
+The obtained p value is less than 0.05, so the null hypothesis is rejected (see Table 14.3 ). We can
+conclude that our data do not meet the assumption of homogeneity of variance. As we discussed earlier ,
+the ideal method when the assumption of homogeneity of variance is violated is Welch’s ANOV A. W e
+implement it next.
+df1 df2 statistic p
+2 552 14.29075 9e-07
+The p value of W elch’s ANOV A is less than 0.05 (see Table 14.4 ). This shows that the means across the
+three conditions are not the same. In order to find out how they dif fer across conditions, we use the
+Games-Howell test. It compares means across all possible combinations of conditions and tests if the
+differences between conditions are statistically significant or not.
+.y.n statistic DFn DFd p method
+time 555 4.51 2 350.8273 0.012 Welch ANOV A
+The results show that prototype-35 players spent statistically more time with the game than both
+prototype-25 and prototype-45 players (see Table 14.5 ).
+.y.group1 group2 estimate conf.low conf.high p.adj p.adj.signif
+time Prototype_25 Prototype_35    4.7040084    0.8073325    8.6006842 0.013 *
+time Prototype_25 Prototype_45    0.8873367 -2.2508397    4.0255130 0.784 ns
+time Prototype_35 Prototype_45 -3.8166717 -7.3036038 -0.3297396 0.028 *
+14.6.1 Insights Derived From the A/B Test
+Given the finding that prototype-35 results in greater immersiveness than prototype-25 and prototype-
+45, the insights we can draw are quite informative. The results indicate that for lower levels of dif ficulty
+(prototype-25), players do not find the game immersive. However , as the dif ficulty level increases to
+prototype-35, immersiveness increases. At this point, GameV might have wrongfully concluded that
+increasing dif ficulty will always increase immersiveness since players feel a greater sense of
+achievement when they win more dif ficult games. Hence, including prototype-45 was informative since it
+indicated that its increased level of dif ficulty resulted in lowered immersiveness. The results clearly
+indicate that as dif ficulty increases, immersiveness increases initially , peaks at a certain level, and then
+starts to decrease. In other words, the results seem to follow an inverted- U shape. Therefore, GameV
+can now identify what level of dif ficulty should be retained to obtain the maximum immersiveness.
+The A/B test we ran had one factor with multiple levels and no interactions. Interaction occurs when an
+experimental design has two factors (or independent variables) and we want to find the combined (or
+interactive) influence of the two factors on the outcome variable. Of course, there can be more than two
+factors; in that case, we would be examining the interactive influence of three or four factors on the
+outcome. However , the more factors we include in an experimental design, the larger and more
+complicated the design becomes, requiring that each factor ’s interactive influence be examined on the
+outcome variable. For instance, if we had an experimental design with three factors and each of them
+had two levels, then the model equation would include three main ef fects, three two-factor interactions,
+and one three-factor interaction, indicating that the experimental design should include 2 * 2 * 2 = 8
+groups. Assuming a sample size of 50 participants per group, we would need a sample of 400
+participants.
+14.7 IMPLEMENTATION USING R: THE A/B TEST
+First, we import the data and the libraries rstatix,3 dplyr ,4 and ggplot2 .5 We then summarize the
+data by creating a boxplot as shown in Figure 14.2 .
+library(rstatix)
+library(dplyr)
+ 
+data_game <-
+ read.csv(url("http://data.mishra.us/files/chapter_NPD/data_game.csv"))
+ 
+ 
+data_game %>%
+ group_by(condition) %>%
+ summarise(
+  count = n(),
+  mean = mean(time),
+  min = min(time),
+  sd = sd (time)
+                               )
+###A tibble: 3 × 5
+## condition count                    mean                        min                           sd
+## <chr> <int> <dbl> <dbl> <dbl>
+##1Prototype_25                         195                     46.511.2                    15.1
+##2Prototype_35                         175                     51.2                    9.06                    16.6
+##3Prototype_45                         185                     47.418.1                    10.7
+library(ggplot2)
+p <- ggplot(data_game, aes(condition,time))
+p + geom_boxplot()+theme_minimal()
+The average time spent with prototype-35 is higher than that with both prototype-25 and prototype-45.
+Next, we determine if average time spent is statistically dif ferent across the three groups.
+We perform the Shapiro–Wilk normality test to test for the normality assumption.
+data_game %>%
+ group_by(condition) %>%
+ shapiro_test(time)
+###A tibble: 3 × 4
+## condition variable statistic                                 p
+## <chr> <chr> <dbl> <dbl>
+##1Prototype_25 time 0.992 0.387
+##2Prototype_35 time 0.990 0.229
+##3Prototype_45 time 0.991 0.336
+Across all conditions, we see that the p value is more than 0.05. This shows that our data do not violate
+the assumption of normality .
+We next use Levene’ s test for homogeneity of variance across groups. The null hypothesis of this test
+states that the variances across the three groups is similar .
+levene_test(time ~ condition,data = data_game)
+###A tibble: 1 × 4
+##                        df1df2 statistic                                                            p
+## <int> <int> <dbl>                                          <dbl>
+##1                                2                       552                     14.30.000000889
+The obtained p value is less than 0.05; hence, we conclude that our data do not meet the assumption of
+homogeneity of variance. W e implement W elch’s ANOV A next.
+welch_anova_test(time ~ condition, data=data_game)
+###A
+tibble:                               
+1× 7     
+## .y.                                
+nstatistic                        DFn                        
+DFd                             p
+method
+##*<chr> <int>                                  
+<dbl><dbl> <dbl> <dbl> <chr>
+##1time 555                                     
+4.51                                
+2                    
+351.0.012Welch
+ANOVA
+The p value of W elch’s ANOV A is less than 0.05. This shows that the means across the three conditions
+are not the same. In order to find out how they dif fer across conditions, we use the Games-Howell test.
+games_howell_test(time ~ condition,data=data_game)
+###Atibble: 3 × 8
+## .y.group1group2 estimate conf.low conf.high p.adjp.adj.sign
+##*<chr><chr><chr> <dbl> <dbl> <dbl> <dbl><chr>
+##1time
+Prototype_25Prototype_35                    
+4.70                   
+0.807                   
+8.600.013*
+##2time
+Prototype_25Prototype_45                    
+0.887-2.25                    
+4.030.784ns
+##3time
+Prototype_35Prototype_45 -3.82 -7.30 -0.330 0.028*
+The results show that with prototype-35 players spent statistically more time than with either prototype-
+25 or prototype-45.
+14.8 UNDERSTANDING THE CHAPTER
+1. What is the dif ference between causal testing and correlational testing? Is A/B testing causal or
+correlational?
+2. What is the dif ference between a null hypothesis and an alternate hypothesis in an A/B test?
+3. What is the primary purpose of an A/B test?
+a. To compare two dif ferent advertisement designs
+b. To determine the ef fectiveness of an intervention between groups
+c. To test the ef fectiveness of a new medication
+d. To find correlations between variables
+4. Which statistical test would you use to compare the means of three or more groups?
+a. t test
+b. F test
+c. chi-square test
+d. Pearson correlation
+5. What is the null hypothesis in an A/B test?
+a. There is a significant dif ference between the groups.
+b. There is no significant dif ference between the groups.
+c. The intervention causes the observed dif ference.
+d. The observed dif ference is due to chance.
+6. What is the main advantage of using W elch’s ANOV A over the standard F test (ANOV A)?
+a. It is more powerful when the variances are equal.
+b. It is less sensitive to unequal variances.
+c. It has a higher Type I error rate.
+d. It requires fewer assumptions.
+7. When should you use a post hoc test after an F test (ANOV A)?
+a. When the null hypothesis is rejected
+b. When the null hypothesis is not rejected
+c. Always after an F test
+d. Only when the sample sizes are unequal
+8. In which situation would you choose to use W elch’s ANOV A over the standard F test?
+a. When the data are normally distributed
+b. When the variances within each group are equal
+c. When the variances within each group are unequal
+d. When the groups are dependent
+ENDNOTES
+1. Saks-Frankel, Robin, and Kelly-Ann Franklin, “Chase Sapphire Reserve Card Review 2023,” Forbes
+Advisor , August 31, 2023, https://www .forbes.com/advisor/credit-cards/reviews/chase-sapphire-reserve/.
+2. Delacre, Marie, Daniël Lakens, and Christophe Leys, “Why Psychologists Should by Default Use
+Welch’s t-Test Instead of Student’ s t-Test,” International Review of Social Psychology  30, no. 1 (2017).
+3. Kassambara, Alboukadel, “rstatix: Pipe-Friendly Framework for Basic Statistical Tests,” R package
+version 0.7.2 (February 1, 2023), https://CRAN.R-project.org/package=rstatix.
+4. Wickham, Hadley , Romain François, Lionel Henry , and Kirill Müller , “dplyr: A Grammar of Data
+Manipulation,” R package version 1.1.3 (September 3, 2023), https://CRAN.R-
+project.org/package=dplyr .
+5. Wickham, Hadley , ggplot2:Elegant Graphics for Data Analysis  (New York: Springer-V erlag, 2016).
+Descriptions of Images and Figures
+Back to Figure
+The figure consists of numerals 1 to 8 enclosed in a circle. On the left are the odd variables 1, 3, 5, 7
+and on the right are even variables. The numerals are connected by downward arrows. From numeral 6
+to 5 is an upward arrow . The numerals 1 to 8 have the descriptions Idea Generation, Idea Screening,
+Concept Development and testing, Business Analysis, Product Development and Design, Test
+Marketing, Commercialization and Evaluation and Control, respectively .
+Back to Figure
+The figure is a graph with 30, 60 and 90 on y-axis labeled time. On the x-axis are three criteria
+Prototype_25, Prototype_35 and Prototype_45 labeled condition. Within the graph is a rectangular block
+with a horizontal line dividing the block into two regions and a vertical line on top and bottom of the block
+on the left. In the middle is a block with vertical lines and two circular nodes on the top and bottom. On
+the right is a block with a circular node on top and two circular nodes at the bottom.
+OceanofPDF .com
+PART V BUSINESS ETHICS AND
+ANALYTICS
+OceanofPDF .com

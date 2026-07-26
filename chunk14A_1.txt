@@ -1,0 +1,490 @@
+7-0
+ C H A PT E R  7 
+Analysis: Data 
+Exploration 
+ Chapter Preview 
+ So far in the analyze stage of the data analysis process, you have prepared the data, completed 
+information modeling, and created an analytical database. Now, it is time to explore the data 
+and collect insights. This step investigates data to uncover anomalies, new patterns, and any-
+thing that might improve decision-making. This chapter will help you develop the skills needed 
+for successful data exploration, which is a process that includes asking the right questions and 
+identifying and exploring data relationships to find insights. The patterns presented in this 
+chapter will help you effectively and efficiently explore the data sets you will work with during 
+your career. 
+Data
+Preparation 
+Information
+Modeling
+Data
+Exploration 
+Analyze
+Plan
+Report
+Stage 2
+Stage 3
+Stage 1
+Interpret
+Communicate
+Analysis
+Strategy
+Objective
+Motivation
+Discover insights
+relevant for
+decision-making
+Identify and
+calculate
+relevant
+information
+Detect and
+correct data
+issues
+
+Professional Insight: Why Should You Know How to Explore Data?
+After earning her master’s in accounting, Yuqi joined the data analytics department of a large 
+financial institution.
+My transition into the workplace was not without challenges. In school I was given 
+complex problems for which I had to find elegant solutions, and I really excelled 
+at that. However, when I started my job, there were no neatly defined questions. 
+For example, the financial data team continuously asked us for new insights. What can 
+you tell us that we don’t know yet? So, I needed to learn more skills—specifically 
+data exploration. I started looking at data sets from as many different angles as 
+possible. I looked at trends, distributions, grouped data in ways that no one had done 
+before, correlated all kinds of variables, looked for outliers, and so much more. I devel-
+oped a unique data exploration skill set and became good at it. ­Honestly, I feel like I 
+have become a data researcher. What is next for me? After doing this for almost ten 
+years, I plan to get my PhD in data science.
+Chapter Roadmap
+LEARNING OBJECTIVES
+TOPICS
+APPLY IT
+ LO 7.1  Describe the process  
+of data exploration.
+•	 The Process of Data Exploration
+•	 Exploring Data with PivotTables
+•	 Data Exploration Across Tools
+Explore Data with 
+PivotTables
+(Example: Managerial 
+Accounting)
+ LO 7.2  Explore foundational 
+data relationships through 
+visualizations.
+•	 Eight Patterns Exploring Foundational Data 
+Relationships
+Visualize Part-To-Whole 
+Relationships with Excel
+(Example: Managerial 
+Accounting)
+ LO 7.3  Explore data by 
+­integrating foundational 
+relationships.
+•	 Two Patterns Using a Single Visualization
+•	 Reports Using Multiple Visualizations
+Build an Interactive 
+Report 
+(Example: Managerial 
+Accounting)
+Data   The Data tag appears in the chapter when the data for an example, illustration, or application are  
+available on Wiley’s online learning platform.
+Data analytics software is continuously changing, and there may be more recent versions of the software refer-
+enced in this chapter. For more information access the accompanying video on Wiley’s online learning platform. 
+7.1  What is Data Exploration?
+LEARNING OBJECTIVE ➊
+Describe the process of data exploration.
+In the chapter on information modeling, you learned how to add information useful for 
+analysis to an analytical database. Now you are ready to start exploring the data. Data explo-
+ration, or exploratory data analysis, is the discovery process of looking for something new 
+and previously unknown. This is accomplished by looking for patterns, outliers, or, more 
+7.1  What is Data Exploration?  7-1
+
+7-2  CHAPTER 7  Analysis: Data Exploration
+generally, for insights. An insight is an observation that might significantly affect a business’ 
+decision-making. Remember, decisions are not based on data. Rather, decisions are informed 
+by the insights generated from data.
+This process of generating insights is what distinguishes data analysis from the simple 
+act of reporting numbers. Calculating and presenting the total dollar amount of donations 
+per year for a non-for-profit organization is reporting, but recognizing there is a downward 
+trend of donations over the years and that donors in different age groups behave differently is 
+a result of data exploration. While they might share some tools, it is essential to differentiate 
+between data exploration, interpretation, and reporting:
+•	Exploration: Discovering insights.
+•	Interpretation: Contextualizing and understanding insights.
+•	Reporting: Communicating insights.
+Interpretation and reporting are covered in their own chapters. For now, let’s summarize 
+the process of data exploration.
+The Process of Data Exploration
+Data exploration is an integral part of what accountants do every day. They look for insights, 
+from identifying if there are seasonal fluctuations in sales and whether those fluctuations 
+affect the bottom line, to how changes in credit policy affect sales and uncollectible accounts 
+receivable. It is a four-step process of identifying questions, identifying data relationships, 
+exploring data relationships, and finally, generating insights (Illustration 7.1).
+ILLUSTRATION 7.1  Data Exploration as a Process
+Are unit sales improving?
+1,774,263 1,723,765 1,782,692 2,041,879 2,225,138
+2021
+2022
+2023
+2024
+2025
+Identify 
+Data
+Relationships
+Explore
+Data
+Relationships
+Generate
+Insights
+Upward trend
+starting from 2023
+Upward trend
+starting from 2023
+Time Series
+Describes how something 
+changes over time. 
+Also identifies 
+patterns of change 
+such as growth,
+fluctuation, and decline. 
+Visualization
+2021
+0
+1,000,000
+2,000,000
+3,000,000
+2022
+2023
+Year
+2024
+2025
+2,225,138
+2,041,879
+1,782,692
+1,723,765
+1,774,263
+UnitsSold
+Design
+Axis
+Year
+Legend
+Add data fields here
+Values
+UnitsSold
+Identify 
+Questions
+
+7.1  What is Data Exploration?  7-3
+Identify Questions
+Data exploration helps answer accounting questions such as whether sales and profits are 
+improving, which products deserve investment, if bad debts are appropriately managed, and 
+more. An analytical database should provide answers to both anticipated and unanticipated 
+(unplanned) questions. Once the question is determined, such as the question about whether 
+unit sales are improving in Illustration 7.1, then the underlying data relationships can be 
+identified.
+Identify Data Relationships
+If we want to know if sales are improving and the available data indicated a change in both 
+the marketing budget and in unit sales, then the relationship between those two elements 
+could generate valuable insights. A data relationship describes how data elements (or val-
+ues) relate to each other. But before aspects of data relationships can be analyzed, they have to 
+be identified. Stephen Few1, an expert in data visualizations, differentiates eight foundational 
+data relationships:
+•	Nominal comparison
+•	Distribution
+•	Deviation
+•	Ranking
+•	Part-to-whole
+•	Correlation
+•	Time series
+•	Geospatial
+The data relationship identified in Illustration 7.1 is a time series, which describes how 
+something changes over time and helps to identify patterns of change. A relationship that has 
+been identified, whether it is a time series relationship or one of the relationships examined 
+later in this chapter, is ready for exploration.
+Explore Data Relationships
+While there are different approaches to exploring data relationships, visualization and statis-
+tics are the most common. Exploration involves selecting the visualization or visualizations 
+best suited for exploring the data relationships. In Illustration 7.1 a line chart visualizes the 
+time series.
+Keep in mind that tool-specific knowledge is required to create visualizations. For 
+­example, a time series analysis requires knowing how to create line charts. Business 
+­intelligence ­software such as Excel, Power BI, and Tableau all have powerful tools that visu-
+alize data ­relationships for exploration. The line chart in Illustration 7.1 was designed using 
+Power BI. In the design section of the illustration, the axis field refers to the time unit used for 
+the x-axis in the chart, and the values field refers to the variable used for the y-axis.
+Generate Insights
+The line chart in Illustration 7.1 shows an upward trend of unit sales starting in 2023. 
+Exploring this insight further would include discovering the source of that growth and if 
+the upward trend can be explained by other factors. In fact, data exploration is a continuous 
+process. Insights generate new questions, which then generate even more insights. These 
+observations are then interpreted and communicated to stakeholders during the last stage of 
+the data ­analysis process.
+1Few, Stephen. (2012). Show Me the Numbers: Designing Tables and Graphs to Enlighten. El Dorado Hills, 
+CA: Analytics Press.
+
+7-4  CHAPTER 7  Analysis: Data Exploration
+Exploring Data with PivotTables
+Data exploration investigates data from different angles to collect insights. A widely-used tool 
+for this is the Excel PivotTable. You learned in the foundational data analysis skills chapter 
+that a PivotTable can quickly rearrange data to help answer important business questions. 
+Here, we illustrate the key elements of data exploration using a PivotTable.
+Data The data set in Illustration 7.2 (A) summarizes unit sales for Honda Motors North 
+America (HNA) for the period 2021–2025 in a cross tabulation table.2 Illustration 7.2 (B) shows 
+the same data as a flat table.3 Recall that for data analytics, flat tables are preferred over cross-
+tabulation tables because the column headers in flat tables do not contain data values useful 
+for analysis purposes. The flat table in Illustration 7.2 (B) will be used to build PivotTables.
+APPLYING CRITICAL THINKING 7.1: Think Critically During 
+Data Exploration
+Critical thinking is an integral part of data exploration:
+•	 Exploring requires in-depth understanding of data relationships, how they are presented, and 
+the insights they can generate. For example, many visualizations can present and explore 
+time series, including area charts, column charts, line charts, sparkline charts, and waterfall 
+charts. You must know which chart to use when. When exploring time series, you are looking 
+for trends, cycles, and irregularities (Knowledge).
+•	 Data exploration is often pattern-based. You will look for patterns and structures you have en-
+countered before and develop more that you can leverage in future analyses. One example is 
+breaking trends down to better understand the reason for changes. If there is an upward trend 
+in units sold, is this also true for all products and regions (Self-Reflection)?
+2The data set is fictitious.
+3Illustration 7.2 (A) shows the full data set. Illustration 7.2 (B) shows a partial data set; the first 10 rows of the 
+flat table.
+ILLUSTRATION 7.2  HNA Data Set
+Country
+Civic
+Civic
+Accord
+CR-V
+Pilot
+Accord
+CR-V
+Pilot
+Odyssey
+Ridgeline
+USA
+Canada
+Canada
+Canada
+Canada
+Canada
+Canada
+Odyssey
+Ridgeline
+Minivan
+Truck
+320981
+243192
+175883
+140444
+188664
+58322
+230887
+195232
+135423
+40998
+25229
+19008
+301882
+245998
+160886 190001
+142980
+167123
+55897
+56889
+242998
+200872
+129809 126592
+35672
+39811
+7761
+31887
+292331
+231441
+139441
+150872
+275667
+210665
+26981
+42001
+USA
+USA
+USA
+USA
+USA
+Model
+Sedan
+Sedan
+Sedan
+SUV
+SUV
+Sedan
+SUV
+SUV
+Minivan
+Truck
+Type
+2021
+2022
+2023
+220877
+55899
+114119
+43125
+291002
+309885
+142917
+150881
+381998
+253988
+22099
+55089
+2024
+252019
+54891
+98077
+47329
+255423
+344771
+125090
+139009
+480871
+319755
+19822
+88081
+2025
+   
+Country
+Accord
+Civic
+Civic
+Civic
+Civic
+Accord
+Accord
+Accord
+Accord
+Civic
+Canada
+Canada
+Canada
+Canada
+Canada
+2021
+2022
+2023
+2024
+2025
+2021
+2022
+2023
+2024
+2025
+195232
+200872
+210665
+253988
+319755
+230887
+242998
+275667
+381998
+480871
+Canada
+Canada
+Canada
+Canada
+Canada
+Model
+Sedan
+Sedan
+Sedan
+Sedan
+Sedan
+Sedan
+Sedan
+Sedan
+Sedan
+Sedan
+Type
+Year
+UnitsSold
+  	
+(A) Cross Tabulation Structure of HNA Data Set	
+(B) Flat Structure of HNA Data Set
+Illustration 7.3 (A) is a PivotTable made with Excel using the HNA data set. It lists 
+HNA’s  models in descending order of total units sold. Illustration 7.3 (B) shows how the 
+­PivotTable in panel A is created using the PivotTable Fields dialog box, which is Excel’s tool 
+for defining a PivotTable’s content.
+
+7.1  What is Data Exploration?  7-5
+The five components used for data exploration with PivotTables are fields, values, rows, 
+columns, and filters (Illustration 7.3 (B)).
+Fields
+The Fields area lists all the data elements available for exploration purposes. They can be dragged 
+and dropped to other areas to build data relationships and filter the data. In ­Illustration 7.3, the 
+Model and UnitsSold fields are used for exploration.
+Values
+The Values area in Illustration 7.3 (B) represents the number or numbers to be analyzed. It can 
+be used to explore data in different ways:
+•	Drag and drop any field into the Values area and apply mathematical operations such as 
+average, count, or sum to it.
+•	Create calculated fields.
+Examples of accounting-related values that could be analyzed include gross revenue, net rev-
+enue, taxes, cost, profit, and more. For HNA, the values in the UnitsSold field are summed, 
+generating the total number of units sold during the 2021–2025 period.
+Rows and Columns
+In Illustration 7.3 (B), the Model field has been dragged to the Rows area so the table will 
+calculate and show the total units sold per model. The TotalUnitsSold column in Illustration 
+7.3 (A) can then be sorted and formatted.
+When the Country field is added to the Columns area in Illustration 7.3 (B), the resulting 
+crosstabulation table (Illustration 7.4) shows the total units sold per model, represented by 
+the rows, and per country, which is represented by the columns.
+  TotalUnitsSold
+Odyssey
+CR-V
+Accord
+Ridgeline
+Pilot
+Civic
+3,074,040
+2,555,799
+1,603,686
+898,441
+897,807
+517,964
+9,547,737
+Models
+TotalUnitsSold
+         
+PivotTable Fields
+Choose fields to add to report:
+Country
+Model
+Type
+Year
+UnitsSold
+More Tables..
+Drag fields between areas below:
+Filters
+Columns
+Search
+Rows
+Defer Layout Update
+Values
+∑
+Model
+TotalUnitsSold
+Update
+  (A) PivotTable: Total Units Sold Per Model4	
+   (B) PivotTable Creation
+4Some minor formatting was applied.
+ILLUSTRATION 7.3  Excel 
+PivotTable and PivotTable 
+Dialog Box
+
+7-6  CHAPTER 7  Analysis: Data Exploration
+Any fields can be dragged to the Rows and Columns areas and dropped. For example, we 
+can analyze the number of units sold per Type (Rows) per Country (Columns). It is also possi-
+ble to drag and drop more than one field into the Rows and Columns sections to drill further 
+down into the data. 
+Filters
+Using filters further enhances data exploration with Excel PivotTables. Filters let us deter-
+mine what data should be considered for analysis, and they can be created for any field. 

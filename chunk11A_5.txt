@@ -1,0 +1,653 @@
+	 3.	 Finally, use the Excel filter option in the data file to filter the salaries from highest to 
+lowest.
+Illustration 2.37 shows the top five salaries and the bottom five salaries.
+ILLUSTRATION 2.36  University 
+Payroll Data
+ILLUSTRATION 2.37  University 
+Salaries Highest to Lowest
+fx
+1
+A
+B
+Sheet1
+2
+3
+4
+6
+1853
+2227
+7814
+6166
+Professor
+Professor
+5
+9964
+Professor
+Professor
+$ 426,091.00
+$ 425,000.00
+$ 406,909.00
+$ 397,118.00
+Professor
+$468,675.00
+EmployeeNumber
+Top Filter: Top Five University Salaries
+Bottom Filter: Bottom Five University Salaries
+Title
+C
+AnnualSalary
+AutoSave
+Oﬀ
+fx
+1
+A
+B
+Sheet1
+2
+3
+4
+6
+1674
+3031
+5008
+6845
+Graduate Research Assistant
+Graduate Assistant
+5
+4766
+Graduate Assistant
+Professor
+$ 159.00
+$ 152.00
+$ 123.00
+Publication Graphic Artist
+$ 172.00
+EmployeeNumber
+Title
+C
+AnnualSalary
+AutoSave
+Oﬀ
+$78.00
+C2
+C6
+$ 468,675.00
+There is a large diﬀerence
+between the highest paid
+employee and the lowest
+paid employee
+$   78.00
+
+2-28 
+CHAPTER 2  Foundational Data Analysis Skills
+Given how much higher the mean salary is compared to the median, it is likely there are 
+more salaries at lower amounts than at higher amounts. We can better understand the differ-
+ence between the mean and median salary amounts by considering how much variation is in 
+the data.
+Measures of Dispersion
+In the salary example there was a large difference between the mean and median annual 
+­salary amounts. Measures of dispersion, which describe the amount of variation in the 
+data, can help find the cause of this disparity. Are the data spread out or are they compact? In 
+other words, how far apart are all the observations, or data points, from the mean?
+Variance and Standard Deviation
+There are two widely-used measures of dispersion:
+•	Variance is the average squared distance between the data points in the data set and the mean.
+•	Standard deviation is the square root of the variance.
+Although variance is necessary to calculate standard deviation, only standard deviation is usu-
+ally reported because it is easier to interpret than variance. It is easier to understand because it 
+is in the same units as the mean. In the university payroll example, standard deviation would 
+be in dollars of annual salary.
+Calculate Measures of Dispersion
+Data   Measures of dispersion can be calculated using Microsoft Excel (Illustration 2.38).
+ILLUSTRATION 2.38  University 
+Payroll Data
+fx
+1
+B
+C
+Sheet1
+2
+3
+4
+6
+10790
+10791
+10792
+10793
+Program Coordinator
+Eminent Scholar
+Eminent Scholar
+Network Administrator
+Professor
+10789
+Associate Professor
+$    94,626.00
+$ 141,939.00
+5
+Assistant Professor
+$    87,454.00
+$    48,874.00
+$    23,998.00
+$    59,196.00
+Standard Deviation 
+Variance
+=VAR(C2:C10790)
+=STDEV(C2:C10790)
+$    57,633.00
+Title
+AnnualSalary
+AutoSave
+Oﬀ
+University Payroll Data
+Again, calculate these measures by performing calculations in Excel:
+	 1.	 Calculate the variance using the Excel function VAR. The formula is =VAR(C2:C10790). 
+The result is $1,939,797,496.92
+	 2.	 Next, calculate the standard deviation using the Excel function STDEV. The formula is 
+=STDEV(C2:C10790). The result is $44,043.13
+While there is not a practical interpretation of the variance number, there is for standard 
+deviation:
+•	A low standard deviation indicates the observations in the data set tend to be close to the 
+mean of the data set.
+•	A high standard deviation indicates the values are spread out over a wider range.
+
+2.4  Which Descriptive Measures Help Us Understand Data? 
+2-29
+In this example a standard deviation of $44,043.14 indicates that an observation, in this case 
+an employee’s annual salary, in the data set could vary by $44,043.14 from the mean. Recall 
+that the mean is $40,068.88, so $44,043.14 would be considered a high standard deviation.
+Another way to evaluate dispersion is to use a scatterplot (also called a scatter chart) to 
+visualize the data (Illustration 2.39).
+ILLUSTRATION 2.39  University 
+Payroll Scatterplot
+$0
+$50,000
+0
+2,000
+4,000
+6,000
+Employee Number
+8,000
+10,000
+12,000
+$100,000
+$150,000
+$200,000
+$250,000
+$300,000
+$350,000
+$400,000
+$450,000
+$500,000
+Annual Salary
+University Payroll
+Salaries are widely dispersed between $0 and a little over $450,000. This visualization of 
+the data coincides with the large standard deviation of $44,043.14
+Measures of Shape
+Besides understanding the dispersion of data, it is also important to understand its distribu-
+tion, or shape. Measures of shape describe the distribution of the data in the data set. How 
+a data set is shaped can reveal the best measure of central tendency to use, or it can show 
+patterns in the data.
+Skewness and Kurtosis
+Data sets are either symmetrical or asymmetrical in shape. In a symmetrical distribution, the 
+mean, median, and mode are equal and the data distribution to the right of the mean mirrors 
+the data to the left of the mean. A symmetrical distribution will look like a bell curve in a 
+graph (Illustration 2.40).
+ILLUSTRATION 2.40  
+Symmetrical Distribution
+Mean/Median/Mode
+The distribution’s shape can be determined by graphing the data or by using two sta-
+tistical measures. Often, both are appropriate. Two measures of shape are skewness and 
+kurtosis.
+Skewness describes the lack of symmetry of data:
+•	Distributions that tail off to the right of the mean are considered positively skewed.
+•	Distributions that tail to the left of the mean are negatively skewed.
+
+2-30 
+CHAPTER 2  Foundational Data Analysis Skills
+The coefficient of skewness (CS) measures the skewness of a distribution. If the CS is 
+negative, then the data are left skewed (tails off to the left). If the CS is positive, the data are 
+right skewed (tails off to the right). The degree of skewness can be interpreted by the absolute 
+value of the CS:
+•	|CS| > 1, high degree of skewness
+•	0.5 ≤ |CS| ≥ 1, moderate skewness
+•	|CS| < 0.5, relative symmetry
+Calculate the coefficient of skewness using the Excel function =SKEW(data range). Data   
+Illustration 2.42 shows the Excel function and result using the university payroll data file. 
+The CS is a positive 2.3, indicating the data have a high degree of skewness and skew to the 
+right.
+ILLUSTRATION 2.41  Skewness 
+Examples
+Positive Skew
+Symmetrical
+Distribution
+Negative Skew
+Mode
+Median
+Mean
+Mean/Median/Mode
+Mode
+Median
+Mean
+ILLUSTRATION 2.42  Skewness and 
+Kurtosis of University Payroll Data
+Function
+Measure
+=SKEW(C2:C10790)
+=KURT(C2:C10790)
+Result
+CS
+CK
+2.3
+8.2
+Kurtosis refers to how peaked or flat a histogram of the data is. The coefficient of kur-
+tosis (CK) measures the degree of kurtosis of a distribution:
+•	If the CK is greater than three, then the data are somewhat peaked with less dispersion.
+•	If the CK is less than three, the data are somewhat flat with a wide degree of dispersion.
+The coefficient of kurtosis can be calculated in Excel using the function =KURT(data range). 
+Illustration 2.42 shows the CK of the university salary data is 8.2. This indicates the data are 
+peaked with less dispersion.
+Frequency Distributions and Histograms
+Along with the CS and CK measures, the shape of a distribution can be visualized with two 
+other measures:
+•	A frequency distribution is a representation of the data that summarizes the number 
+of observations within a given interval. For example, the number of employees by salary 
+dollar groupings.
+•	A histogram is a bar chart of a frequency distribution in which the height of the bar 
+reflects the frequency within the interval. For example, we may want to group salaries by 
+dollar amounts of $10,000, $20,000, and $30,000 and then count how many employees 
+are in each category.
+These measures can be created in data visualization software such as Power BI, Tableau, and 
+in Microsoft Excel using the Analysis Toolpak. Analysis Toolpak is a free add-on for Excel. 
+Once added, it will be under the Data tab. Illustration 2.43 shows where to find the Data 
+Analysis tool and the corresponding box that opens after clicking Data Analysis.
+Illustration 2.41 shows a positive, symmetrical, and negative skewed distribution.
+
+2.4 Which Descriptive Measures Help Us Understand Data? 
+2-31
+ ILLUSTRATION 2.43  Excel Data Analysis Tool 
+Review
+View
+Developer
+Help
+Power Pivot
+New Tab
+Share
+Share
+fx
+1
+A
+B
+Sheet1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+AutoSave
+Oﬀ
+OK
+Cancel
+Help
+Data Analysis
+Analysis Tools
+?
+Anova: Two-Factor With Replication
+Anova: Two-Factor Without Replication
+Correlation
+Covariance
+Descriptive Statistics
+Exponential Smoothing
+F-Test Two-Sample for Variances
+Fourier Analysis
+Histogram
+Moving Average
+Analyze
+Analyze
+Queries &
+Connections
+Queries &
+Connections
+Edit Links
+Properties
+Refresh
+All
+Text to
+Columns
+Data Tools
+Stocks Geography
+Data Types
+New Tab
+Sort
+Filter
+Clear
+Reapply
+Advanced
+Sort & Filter
+Data
+Data
+Analysis
+Solver
+1
+Analyze
+Analyze
+Analyze
+Queries &
+Connections
+Queries &
+Connections
+Edit Links
+Properties
+Refresh
+All
+Text to
+Columns
+Data Tools
+Stocks Geography
+Data Types
+New Tab
+Sort
+Filter
+Clear
+Reapply
+Advanced
+ab
+Ad
+ab
+Sort & Filter
+Solver
+  1.  To prepare a histogram and frequency distribution, choose Histogram and click  OK . 
+  2.  A dialog box opens ( Illustration 2.44 ). 
+  3.  There are two input boxes:
+•  The  Input Range is the data that will be visualized. It is helpful to select the column 
+title and check the  Labels box so the histogram is labeled with the title of the data 
+being visualized (Illustration  2.44 ). 
+•  The next input box is  Bin Range , which defines the groups used for the frequency 
+distribution and histogram bars. These must be established before opening the dialog 
+box. Create the Bin Range by setting up a column of the values in which the data 
+should be grouped. In general, the values should be in equal increments and the num-
+ber of groups should be between five and fifteen. 
+  4.  Finally, choose where the outputs should go. Be sure to check the  Chart Output box 
+before clicking  OK . 
+ ILLUSTRATION 2.44  Histogram 
+Dialog Box 
+OK
+Cancel
+Help
+Histogram
+Input
+Input Range:
+Bin Range:
+Output options
+Output Range:
+New Workbook
+New Worksheet Ply:
+Pareto (sorted histogram)
+Cumulative Percentage
+Chart Output
+?
+Labels
+2
+3
+4
+
+2-32 
+CHAPTER 2  Foundational Data Analysis Skills
+How do you know how many groups to create? The best way is to experiment with the 
+data to find the number that will create a useful visualization. For example, using fewer groups 
+means the group widths will be wider and the visualization may provide less detailed insight. 
+It is often helpful to divide the range (maximum observation – minimum observation) by the 
+number of groups you would like display as a starting point.
+Data   These steps can be used to create a histogram with the university payroll data file:
+	 1.	 Open the spreadsheet and create a column for the bins.
+	 2.	 First, determine the range of the data. The minimum salary is $78.00 and the maximum 
+salary is $468,675.00, indicating there is a large range of data. Create 12 bins, starting with 
+$8,000 in $20,000 increments (Illustration 2.45).
+ILLUSTRATION 2.45  Payroll Data, 
+Bins, and Histogram Dialog Box
+fx
+1
+B
+C
+Sheet1
+2
+3
+4
+6
+10789
+10790
+Program Coordinator
+Eminent Scholar
+Eminent Scholar
+Network Administrator
+Professor
+Associate Professor
+$   94,626.00
+$  141,939.00
+5
+Assistant Professor
+$   87,454.00
+$   48,874.00
+7
+Student Program Coordinator
+$   42,630.00
+8
+Professor
+$ 113,736.00
+9
+Professor
+$      2,170.00
+10
+Professor
+ $ 115,228.00
+11
+Research Assistant
+$      6,700.00
+12
+Research Assistant
+$     6,700.00
+13
+Research Assistant
+$   20,100.00
+28,000
+48,000
+68,000
+88,000
+108,000
+128,000
+148,000
+168,000
+188,000
+208,000
+228,000
+14
+Professor
+$  119,900.00
+$   23,998.00
+$   59,196.00
+$   57,633.00
+8,000
+Title
+Annual Salary
+E
+D
+Bins
+AutoSave
+Oﬀ
+Payroll Data, Bins, and Histogram Dialog Box
+OK
+Cancel
+Help
+Histogram
+Input
+Input Range:
+Bin Range:
+Output options
+Output Range:
+New Workbook
+New Worksheet Ply:
+Pareto (sorted histogram)
+Cumulative Percentage
+Chart Output
+?
+Labels
+$C$1:$C$10790
+$E$4:$E$15
+The results from the histogram dialog box are presented in Illustration 2.46.
+
+2.4  Which Descriptive Measures Help Us Understand Data? 
+2-33
+ILLUSTRATION 2.46  University Payroll Data Histogram and Frequency Distribution
+2,873
+Histogram
+Salary Bins (in thousands)
+Frequency
+2,169
+1,241
+753
+466
+265
+162
+102
+72
+83
+40
+59
+2,504
+$8K
+0
+500
+1,000
+1,500
+2,000
+2,500
+3,000
+3,500
+28K
+48K
+68K
+88K
+108K 128K 148K
+168K 188K 208K 228K
+More
+8,000
+28,000
+48,000
+68,000
+88,000
+108,000
+128,000
+148,000
+168,000
+188,000
+208,000
+228,000
+More
+2,504
+2,873
+2,169
+1,241
+753
+466
+265
+162
+102
+72
+83
+40
+59
+23.21%
+26.63%
+20.10%
+11.50%
+6.98%
+4.32%
+2.46%
+1.50%
+0.95%
+0.67%
+0.77%
+0.37%
+0.55%
+Bins
+Frequency
+Frequency %
+The histogram reveals some information about the shape of the data set, including that 
+most of the data is grouped between $8,000 and $48,000:
+•	The data then trails off to the right. This supports the results of the measures of location 
+and shape. Recall the median for the data is $28,276.00, and the mean is $40,065.88. The 
+data peaks at the mode.
+•	The data then tails off to the right, which supports the result for the coefficient of skew-
+ness of a positive 2.3.
+•	Finally, the data are highly peaked. The majority (69%) are within the first three bars on 
+the histogram. This supports the result for the coefficient of kurtosis of 8.2 that indicates 
+highly peaked data with less dispersion.
+Descriptive Statistics Tools
+You have now learned how to calculate measures of location, dispersion, and shape using sin-
+gle Excel functions. There is another Excel tool, Descriptive Statistics, that calculates all these 
+measures at once (Illustration 2.47):
+	 1.	 Choose Descriptive Statistics from the Analysis Tools list.
+	 2.	 Use the dialog box for Descriptive Statistics to input the data range to analyze.
+	 3.	 Once the data range is entered, select labels (if you chose the row with the column title), 
+choose where the output will go, select Summary statistics, and click OK.
+ILLUSTRATION 2.47  Descriptive 
+Statistics Excel Tool and Dialog 
+Box
+OK
+Cancel
+Help
+Data Analysis
+Analysis Tools
+?
+Anova: Single Factor
+Anova: Two-Factor With Replication
+Anova: Two-Factor Without Replication
+Correlation
+Covariance
+Descriptive Statistics
+Exponential Smoothing
+F-Test Two-Sample for Variances
+Fourier Analysis
+Histogram
+1
+Note that the Bins and Frequency are generated by Excel when the histogram is created. The column for Frequency % was  
+calculated by dividing the Frequency for each bin by the total number of observations (10,789).
+
+2-34 
+CHAPTER 2  Foundational Data Analysis Skills
+OK
+Cancel
+Help
+Descriptive Statistics
+Input
+Columns
+Rows
+Input Range:
+Grouped By:
+Output options
+Output Range:
+New Workbook
+New Worksheet Ply:
+Summary statistics
+Confidence Level for Mean:
+Kth Smallest:
+Kth Largest:
+$C$1:$C$10790
+1
+95
+%
+1
+?
+Labels in First Row
+2
+3
+ILLUSTRATION 2.47  (Continued)
+Excel will then calculate the descriptive statistics and print the results on a new work-
+sheet (Illustration 2.48).

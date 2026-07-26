@@ -1,0 +1,532 @@
+7.2  Các mối quan hệ dữ liệu được hiển thị như thế nào để khám phá?  7-13
+Hình minh họa 7.13 cho thấy mười hàng đầu tiên của tập dữ liệu.
+MINH HỌA 7.13    Mười đầu tiên 
+Hàng lợi nhuận của đại lý 
+Tập dữ liệu. 
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+$ 2,125
+$ 2,798
+$ 2,144
+$ 2,749
+$1,810
+$1,844
+$4,446
+$ 3,107
+$1,912
+$ 2,101
+ID
+Lợi nhuận
+dân sự
+CR-V
+Odyssey
+hiệp định
+hiệp định
+hiệp định
+Odyssey
+Phi công
+dân sự
+dân sự
+người mẫu
+MINH HỌA 7.14  Trực quan hóa 
+mối quan hệ dữ liệu phân phối 
+với biểu đồ hình hộp và râu
+7.000 USD
+6.000 USD
+5.000 USD
+4.000 USD
+3.000 USD
+2.000 USD
+1.000 USD
+8.000 USD
+$0
+Lợi nhuận
+Phân phối lợi nhuận
+người mẫu
+Loại trung bình
+Loại râu
+Nghĩa là
+Tứ phân vị 1
+Tứ phân vị 3
+Tối đa
+tối thiểu
+IQR
+Râu trên
+Râu dưới
+trung vị
+Bao gồm
+Tối thiểu/Tối đa
+2728
+1963
+2979
+6960
+340
+1016
+6960
+340
+2374
+Hình minh họa 7.15 cho thấy cách tạo biểu đồ này trong Power BI. Power BI yêu cầu kéo-
+đưa một trường vào khe Trục. Các giá trị cho trường này đại diện cho các điểm dữ liệu. Kéo một 
+khóa chính vào vị trí này là một cách làm tốt vì tất cả các điểm dữ liệu và giá trị duy nhất của chúng đều được 
+sau đó đại diện. Biểu đồ dạng hộp và râu tương tự cũng có thể được tạo trong Excel. (Dữ liệu Xem 
+Làm thế nào để 7.1. ở cuối chương để tìm hiểu cách thực hiện việc này.)
+Làm thế nào để
+Như đã đề cập trước đó, việc tạo và so sánh nhiều phân phối của cùng một số 
+biến dựa trên các giá trị khác nhau của một biến danh nghĩa là phổ biến trong loại phân tích này. 
+Hình minh họa 7.16 cho thấy cách tạo biểu đồ với sự so sánh này bằng Power BI:
+• Kéo Model vào ô Axis Category I.
+• Sau đó, một bản phân phối riêng sẽ được tạo cho từng mô hình.
+Hình minh họa 7.14 hiển thị biểu đồ hình hộp và râu cho trường Lợi nhuận. Đại diện vòng tròn màu đỏ-
+bực bội với mức trung bình. Phần dưới cùng của hộp màu xanh lá cây là tứ phân vị đầu tiên và phần trên cùng của hộp màu cam 
+hộp là tứ phân vị thứ ba. Trung vị là giao điểm giữa các hộp màu xanh lá cây và màu cam, 
+và chiều dài của các hộp màu xanh lá cây và màu cam kết hợp là phạm vi liên vùng. Cuối cùng, 
+hàng rào phía dưới mô tả giá trị tối thiểu, trong khi hàng rào phía trên mô tả giá trị tối đa. 
+Trục
+ID
+Trục loại I
+Thêm trường dữ liệu ở đây
+Trục loại II
+Thêm trường dữ liệu ở đây
+Giá trị
+Lợi nhuận
+duy nhất
+Mã định danh
+Các điểm dữ liệu
+đại diện trong
+phân phối.
+số
+Biến
+Biến số
+xác định lĩnh vực nào
+đang được khám phá.
+MINH HỌA 7.15  Tạo một 
+Biểu đồ hình hộp và râu trong Power BI
+
+7-14  CHƯƠNG 7  Phân tích: Khám phá dữ liệu
+Hình minh họa 7.17 là biểu đồ kết quả.
+Khám phá và hiểu biết sâu sắc
+Kéo và thả các biến cũng hỗ trợ khám phá dữ liệu bằng mẫu này. Sử dụng 
+cấu trúc thăm dò cho mối quan hệ dữ liệu phân phối, chúng ta có thể nhanh chóng kiểm tra sự phân bố
+sự kết hợp của bất kỳ trường số nào trong tập dữ liệu và sử dụng bất kỳ trường danh nghĩa nào trong tập dữ liệu để so sánh 
+phân phối dữ liệu.
+Hình minh họa 7.14 cho thấy thông tin phân phối do Power BI cung cấp, bao gồm 
+trung vị, giá trị trung bình, khoảng tứ phân vị (IQR), giá trị thấp nhất và giá trị cao nhất. Cái này 
+giúp bạn có thể điều tra các ngoại lệ, độ lệch, v.v. Biểu đồ trong Hình minh họa 7.17 
+cho phép so sánh nhiều hơn giữa các bản phân phối:
+• Lợi nhuận của mô hình Ridgeline cao hơn các mô hình khác.
+• Lợi nhuận của các mẫu CR-V và Pilot là như nhau, có nghĩa là có rất ít 
+biến thể.
+• Lợi nhuận của Odyssey và đặc biệt là dòng xe Civic được dàn trải hơn.
+Trục
+ID
+người mẫu
+Trục loại I
+Trục loại II
+Thêm trường dữ liệu ở đây
+Giá trị
+Lợi nhuận
+duy nhất
+Mã định danh
+Các điểm dữ liệu
+đại diện trong
+phân phối.
+danh nghĩa
+Biến
+Các giá trị của
+biến danh nghĩa là
+dùng để tạo nhiều
+phân phối.
+số
+Biến
+Biến số
+xác định lĩnh vực nào
+đang được khám phá.
+MINH HỌA 7.16  Tạo 
+Biểu đồ hình hộp và râu với 
+Nhiều phân phối
+hiệp định
+dân sự
+CR-V
+Odyssey
+Phi công
+Đường sườn núi
+$0
+1.000 USD
+2.000 USD
+3.000 USD
+4.000 USD
+5.000 USD
+6.000 USD
+7.000 USD
+8.000 USD
+Lợi nhuận
+người mẫu
+Phân phối lợi nhuận theo mô hình
+MINH HỌA 7.17  Song song 
+Phân phối lợi nhuận cho xe HNA 
+Người mẫu
+
+7.2  Các mối quan hệ dữ liệu được hiển thị như thế nào để khám phá?  7-15
+Có thể cần phải khám phá dữ liệu nhiều hơn để hiểu rõ hơn về nguồn gốc của biến thể. 
+Nguyên nhân có thể là do giá cao hơn cho một mẫu cụ thể, số lượng tùy chọn 
+có sẵn cho một mô hình cụ thể, kỹ năng đàm phán của nhân viên bán hàng hoặc khuyến mãi bán hàng, 
+chẳng hạn.
+Phân tích phân phối có nhiều ứng dụng, bao gồm phân tích lương thưởng của nhân viên.
+chuyện. Để hiểu tiền lương được phân phối như thế nào, phân tích phân phối có thể được sử dụng để trả lời 
+những câu hỏi sau:
+• Lương có bị lệch phải không? Mức lương cao hơn có dàn trải hơn không?
+• So sánh mức lương giữa các phòng ban như thế nào?
+• Việc phân bổ thù lao của một tổ chức như thế nào so với việc phân bổ cho 
+các tổ chức khác?
+Mẫu khám phá dữ liệu 3: Độ lệch
+Mối quan hệ dữ liệu sai lệch cho thấy một tập hợp các giá trị thực tế lệch khỏi tham chiếu của chúng như thế nào.
+các giá trị xác thực, là các giá trị được dự toán hoặc dự báo. Các mối quan hệ sai lệch là mọi-
+kế toán ở đâu. Phân tích phương sai là một ví dụ điển hình, chẳng hạn như sự khác biệt giữa 
+chi phí thực tế và tiêu chuẩn. Cấu trúc thăm dò các mối quan hệ sai lệch được thể hiện trong 
+Hình minh họa 7.18 chứa biến được so sánh và các biến được sử dụng để kết hợp
+mục đích của parison – thực tế, mục tiêu và độ lệch.
+MINH HỌA 7.18  Khám phá 
+Cấu trúc cho dữ liệu sai lệch 
+Mối quan hệ
+danh nghĩa
+Biến
+số
+Biến:
+Độ lệch
+Làm thế nào
+so sánh là
+đang được thực hiện.
+Cái gì đang được
+so sánh.
+số
+Biến:
+Mục tiêu
+số
+Biến:
+thực tế
+Trực quan hóa
+Biểu đồ thanh và cột được nhóm lại (được sử dụng trong ví dụ sau), thước đo, biểu đồ dấu đầu dòng, 
+và nhiều hơn nữa có thể được sử dụng để phân tích độ lệch. Hãy tưởng tượng rằng HNA muốn khám phá 
+liệu mỗi mẫu xe có đáp ứng được kỳ vọng về doanh số bán hàng hay không. Dữ liệu Công ty có một cái khác
+
+7-16  CHƯƠNG 7  Phân tích: Khám phá dữ liệu
+MINH HỌA 7.19  Bán đơn vị dự toán HNA-2025
+Hoa Kỳ
+Hoa Kỳ
+Hoa Kỳ
+Hoa Kỳ
+Hoa Kỳ
+Hoa Kỳ
+Canada
+Canada
+Canada
+Canada
+xe sedan
+xe sedan
+SUV
+SUV
+Xe tải nhỏ
+xe tải
+xe sedan
+SUV
+xe sedan
+SUV
+Quốc gia
+Loại
+dân sự
+hiệp định
+CR-V
+Phi công
+Odyssey
+Đường sườn núi
+dân sự
+CR-V
+hiệp định
+Phi công
+Canada
+Canada
+xe tải
+Xe tải nhỏ
+255423
+344771
+252019
+125090
+139009
+54891
+480871
+98077
+319755
+47329
+88081
+19822
+300000
+350000
+25000
+160000
+145000
+55000
+425000
+110000
+275000
+45000
+65000
+30000
+Đường sườn núi
+Odyssey
+người mẫu
+Đơn vị ngân sách
+Đơn vị thực tế
+Tập dữ liệu này được dùng để tạo biểu đồ cột theo cụm trong Hình minh họa 7.20 với Power BI.
+MINH HỌA 7.21  Tạo 
+Biểu đồ cột được nhóm trong 
+Power BI
+Trục
+người mẫu
+Truyền thuyết
+Thêm trường dữ liệu ở đây
+Giá trị
+Tổng sốĐơn vị thực tế
+Tổng số đơn vị dự toán
+So sánh thế nào
+đang được thực hiện.
+danh nghĩa
+Biến
+Cái gì đang được
+so sánh.
+số
+Biến:
+Mục tiêu
+số
+Biến:
+thực tế
+664.526
+625.000
+736.294
+725.000
+350.096
+135.000
+172.419
+205.000
+158.831
+175.000
+142.972
+120.000
+Tổng số đơn vị thực tế
+Tổng số đơn vị dự toán
+100.000
+0
+200.000 300.000 400.000 500.000 600.000 700.000
+hiệp định
+dân sự
+CR-V
+Phi công
+Odyssey
+Đường sườn núi
+người mẫu
+Phân tích phương sai: Doanh số bán hàng thực tế so với ngân sách
+MINH HỌA 7.20  Trực quan hóa 
+mối quan hệ dữ liệu sai lệch với 
+Biểu đồ cột nhóm
+Hình minh họa 7.21 cho thấy biểu đồ được tạo ra như thế nào.
+tập dữ liệu bao gồm cả doanh số bán hàng thực tế và ngân sách cho giai đoạn 2025 
+(Minh họa 7.19).
+
+7.2  Các mối quan hệ dữ liệu được hiển thị như thế nào để khám phá?  7-17
+Không giống như biểu đồ cột, biểu đồ cột liên cụm sử dụng nhiều biến để so sánh
+tư thế. Mặc dù biểu đồ cột được nhóm có thể so sánh giữa các mô hình nhưng nó cũng cung cấp 
+sự so sánh trong một mô hình Ví dụ, sự so sánh trong Hình minh họa 7.20 là giữa 
+số lượng đơn vị thực tế đã bán và số lượng đơn vị đã bán theo kế hoạch, đó là hai 
+các biến trong vùng Giá trị:
+• TotalActualUnits biểu thị tổng của tất cả các giá trị trong trườngActualUnits.
+• TotalBudgetedUnits biểu thị tổng của tất cả các giá trị trong trường BudgetedUnits.
+Khám phá và hiểu biết sâu sắc
+Các biến bổ sung có thể được kéo vào ô Giá trị trong Hình minh họa 7.21. Ví dụ, 
+phương sai, một biến được tính bằng chênh lệch giữa thực tế và dự toán 
+đơn vị, có thể được thêm vào. Ngoài ra còn có ba biến danh nghĩa trong bộ dữ liệu này để bạn lựa chọn: 
+quốc gia, loại hoặc mô hình.
+Các loại hiểu biết sâu sắc khác nhau có thể được thu thập từ phân tích sai lệch, bao gồm cả khi 
+kết quả cao hơn hoặc thuận lợi hơn dự kiến, thấp hơn hoặc kém thuận lợi hơn dự kiến, và 
+nếu mục tiêu không hợp lý. Khi chúng tôi xác định được những hiểu biết này, bước tiếp theo có thể là khám phá
+tìm ra những nguyên nhân có thể xảy ra, chẳng hạn như làm thế nào để đảo ngược những sai lệch bất lợi. Điều này đặc biệt hữu ích 
+khi sự khác biệt là đáng kể.
+Phương sai từ trước đến nay là công cụ có giá trị để kế toán viên chỉ ra các vấn đề 
+cần được giải quyết:
+• Sự thiếu hiệu quả như thiếu kinh nghiệm trong việc đàm phán giá cả, nhân viên không đủ trình độ, sử dụng lao động-
+được giao nhiệm vụ sai, sử dụng nguồn lực chất lượng thấp hoặc đào tạo không đầy đủ.
+• Những thay đổi bất ngờ như thay đổi về giá, hoặc nhu cầu giảm.
+• Lập ngân sách kém.
+Một cái nhìn sâu sắc có thể được thu thập từ Hình minh họa 7.20 là hầu hết các mô hình đều có ưu điểm
+có thể có phương sai, nhưng một số (Pilot và Odyssey) có phương sai không thuận lợi. Một điều nữa là, 
+ngoại trừ mẫu CR-V, hầu hết các phương sai đều không đáng kể.
+Mẫu khám phá dữ liệu 4: Xếp hạng
+Mối quan hệ dữ liệu xếp hạng (Minh họa 7.22) sắp xếp các giá trị của một biến một cách tuần tự 
+dựa trên giá trị của biến thứ hai. Thứ hạng được xác định bởi một số chất lượng, chẳng hạn như chất lượng cao
+est, thấp nhất, nhanh nhất, chậm nhất, như được xác định bởi biến thứ hai. Thứ hạng có thể được hiển thị trong 
+thứ tự tăng dần hoặc giảm dần. Cũng có thể tính toán thứ hạng một cách rõ ràng.
+MINH HỌA 7.22  Khám phá 
+Cấu trúc dữ liệu xếp hạng 
+Mối quan hệ
+Xếp hạng làm gì.
+Biến được sử dụng
+để xếp hạng.
+Biến
+Biến
+Trực quan hóa
+Không có hình ảnh trực quan xếp hạng cụ thể, nhưng nhiều hình ảnh tích hợp thông tin xếp hạng, 
+bao gồm bảng, biểu đồ thanh và biểu đồ cột. Hình minh họa 7.23 (B) thể hiện biểu đồ cột 
+xếp hạng các mẫu xe của HNA (xếp hạng gì) dựa trên số xe bán ra trong giai đoạn 2021–2025
+
+7-18  CHƯƠNG 7  Phân tích: Khám phá dữ liệu
+Khám phá và hiểu biết sâu sắc
+Các mối quan hệ xếp hạng khác nhau có thể được khám phá bằng cách kéo và thả. Khách hàng có thể 
+được xếp hạng dựa trên doanh số bán hàng hoặc độ tuổi của họ; nhân viên có thể được xếp hạng dựa trên 
+lương hoặc thâm niên của họ. Các biện pháp, chẳng hạn như tổng số nợ tồn đọng ít nhất 60 ngày, có thể 
+cũng được sử dụng để xếp hạng khách hàng. Thứ hạng có thể xác định, ví dụ, top 25 hoặc cuối cùng 
+25 khách hàng dựa trên doanh thu. Biểu đồ cột trong Hình minh họa 7.23 cho biết thứ hạng của mô hình 
+dựa trên số lượng sản phẩm bán ra trong giai đoạn 2021–2025. Civic là mẫu xe bán chạy nhất 
+bởi Hiệp định.
+Mẫu khám phá dữ liệu 5: Từng phần đến toàn bộ
+Mối quan hệ dữ liệu một phần với toàn bộ (Minh họa 7.24) so sánh các bộ phận với tổng thể và hình thức 
+các phần khác nhau so sánh với nhau như thế nào. Ví dụ, một tổ chức có thể tạo ra
+đạt được doanh thu 100.000 đô la, đó là toàn bộ. Danh mục sản phẩm gia đình, văn phòng và sân vườn 
+tạo ra lần lượt 30.000 USD (30 %), 50.000 USD (50%) và 20.000 USD (20%). Ba sản phẩm này 
+danh mục đại diện cho các bộ phận.
+MINH HỌA 7.24  Khám phá 
+Cấu trúc cho một phần dữ liệu toàn bộ 
+Mối quan hệ
+Biến đó
+xác định cách 
+toàn bộ bị phá vỡ
+theo từng phần.
+Toàn bộ hoặc
+số bị phá vỡ
+xuống.
+số
+Biến
+danh nghĩa
+Biến
+Hình dung từ phần đến toàn bộ sẽ xác định số là tổng thể và cách toàn bộ 
+nên chia thành nhiều phần. 
+(cách xếp hạng). Hình minh họa 7.23 (A) hiển thị mối quan hệ xếp hạng này được tạo cho PivotTable 
+trong Excel.
+  MINH HỌA 7.23    Tích hợp mối quan hệ dữ liệu xếp hạng vào biểu đồ cột
+Biến được sử dụng
+để xếp hạng.
+Xếp hạng làm gì.
+Biến
+Biến
+dân sự
+hiệp định
+CR-V
+Odyssey
+Phi công
+Đường sườn núi
+3.074.040
+2.555.799
+1.603.686
+898.441
+897.807
+517.964
+người mẫu
+Tổng số căn đã bán
+dân sự
+hiệp định
+CR-V
+Odyssey
+Phi công
+Đường sườn núi
+Các mô hình được xếp hạng theo tổng số đơn vị đã bán
+(A) Tạo mối quan hệ xếp hạng cho PivotTable
+(B) Tích hợp mối quan hệ xếp hạng với biểu đồ cột
+500.000
+0
+1.000.000
+1.500.000
+2.000.000
+2.500.000
+3.000.000
+3.500.000
+2.555.799
+1.603.686
+517.964
+3.074.040
+898.441
+897.807
+Sắp xếp lớn nhất đến nhỏ nhất
+ZA
+AZ
+Sắp xếp nhỏ nhất đến lớn nhất
+
+7.2  Các mối quan hệ dữ liệu được hiển thị như thế nào để khám phá?  7-19
+Trực quan hóa
+Nhiều hình ảnh trực quan có thể mô hình hóa các mối quan hệ từng phần với toàn bộ, bao gồm biểu đồ hình tròn, bánh rán 
+biểu đồ, biểu đồ thanh xếp chồng, biểu đồ cột xếp chồng và sơ đồ dạng cây. Trong khi bản đồ cây được xem xét-
+được ưu việt hơn trong việc mô tả các mối quan hệ từng phần với toàn bộ, ở đây chiếc bánh được sử dụng phổ biến hơn 
+biểu đồ được hiển thị. Biểu đồ hình tròn trong Hình minh họa 7.25 cho thấy tầm quan trọng tương đối của từng 
+Các mẫu xe của HNA là các bộ phận, xét về mặt tổng thể, là các đơn vị được bán trong thời gian 
+Giai đoạn 2021–2025. Tầm quan trọng tương đối được thể hiện dưới dạng phần trăm hoặc phần trăm.
+MINH HỌA 7.25  Trực quan hóa 
+mối quan hệ dữ liệu một phần với toàn bộ 
+Với biểu đồ hình tròn
+Phân tích số căn bán theo mẫu: 2021–2025
+dân sự
+32,2%
+Phi công
+9,4%
+Đường sườn núi
+5,42%
+hiệp định
+26,77%
+CR-V
+16,8%
+Odyssey
+9,41%
+Hình minh họa 7.26 cho thấy cách tạo biểu đồ hình tròn này bằng Power BI:
+• Khe Giá trị xác định cái gì: Điều này đề cập đến số được chia nhỏ. Đây, nó 
+là thước đo TotalUnitsSold.
+• Khe Legend xác định cách thức: Điều này đề cập đến cách chia nhỏ tổng thể. Đây, đây là 
+thực hiện theo mô hình. Đối với mỗi giá trị của mô hình, số lượng đơn vị bán được sẽ được tính toán, xác định
+ing kích thước phần của nó trong chiếc bánh. Hình ảnh này hiển thị kích thước phần trăm của nó.
+Khám phá và hiểu biết sâu sắc
+Bất kỳ thước đo nào cũng có thể được kéo vào ô Giá trị (toàn bộ) trong Hình minh họa 7.26. Các biện pháp phù hợp 
+cho các nhu cầu cụ thể cũng có thể được tạo ra, chẳng hạn như doanh số bán hàng trong tháng 7 cho khách hàng không ở Hoa Kỳ. Bất kỳ danh nghĩa nào 
+biến có thể được kéo vào khe Legend (phần).
+MINH HỌA 7.26  Tạo một 
+Biểu đồ hình tròn trong Power BI
+Truyền thuyết
+người mẫu
+Chi tiết
+Thêm trường dữ liệu ở đây
+Giá trị
+Tổng số đơn vị đã bán
+danh nghĩa
+Biến
+Biến đó
+xác định cách 
+toàn bộ bị phá vỡ
+theo từng phần.
+Toàn bộ hoặc
+số bị phá vỡ
+xuống.
+số
+Biến
+
+7-20  CHƯƠNG 7  Phân tích: Khám phá dữ liệu
+Mối quan hệ từng phần với toàn bộ thường được sử dụng trong kế toán. Các ví dụ bao gồm break-
+giảm chi phí trong nhiều hạng mục như chi phí hành chính, khấu hao,
+chi phí quản lý và phân tích chi phí về nguyên vật liệu, nhân công và chi phí chung.
+Biểu đồ hình tròn trong Hình minh họa 7.25 cho thấy mỗi mô hình đóng góp như thế nào, xét về mặt tương đối, vào 
+tổng số căn bán được trong giai đoạn 2021–2025. Nó còn cho thấy rằng các mẫu xe Accord và Civic 
+tổng cộng chiếm hơn 50% doanh số bán hàng. Thị phần của các mô hình khác, chẳng hạn như 
+Ridgeline, tương đối nhỏ.
+Mẫu khám phá dữ liệu 6: Tương quan
+Mối quan hệ dữ liệu tương quan cho biết mức độ mà hai biến số thay đổi trong 
+cùng hướng hoặc ngược chiều. Ví dụ: nếu chi phí tiếp thị cho một sản phẩm tăng lên,

@@ -1,0 +1,152 @@
+outcome variable. For instance, if we had an experimental design with three factors and each of them
+had two levels, then the model equation would include three main ef fects, three two-factor interactions,
+and one three-factor interaction, indicating that the experimental design should include 2 * 2 * 2 = 8
+groups. Assuming a sample size of 50 participants per group, we would need a sample of 400
+participants.
+14.7 IMPLEMENTATION USING R: THE A/B TEST
+First, we import the data and the libraries rstatix,3 dplyr ,4 and ggplot2 .5 We then summarize the
+data by creating a boxplot as shown in Figure 14.2 .
+library(rstatix)
+library(dplyr)
+ 
+data_game <-
+ read.csv(url("http://data.mishra.us/files/chapter_NPD/data_game.csv"))
+ 
+ 
+data_game %>%
+ group_by(condition) %>%
+ summarise(
+  count = n(),
+  mean = mean(time),
+  min = min(time),
+  sd = sd (time)
+                               )
+###A tibble: 3 × 5
+## condition count                    mean                        min                           sd
+## <chr> <int> <dbl> <dbl> <dbl>
+##1Prototype_25                         195                     46.511.2                    15.1
+##2Prototype_35                         175                     51.2                    9.06                    16.6
+##3Prototype_45                         185                     47.418.1                    10.7
+library(ggplot2)
+p <- ggplot(data_game, aes(condition,time))
+p + geom_boxplot()+theme_minimal()
+The average time spent with prototype-35 is higher than that with both prototype-25 and prototype-45.
+Next, we determine if average time spent is statistically dif ferent across the three groups.
+We perform the Shapiro–Wilk normality test to test for the normality assumption.
+data_game %>%
+ group_by(condition) %>%
+ shapiro_test(time)
+###A tibble: 3 × 4
+## condition variable statistic                                 p
+## <chr> <chr> <dbl> <dbl>
+##1Prototype_25 time 0.992 0.387
+##2Prototype_35 time 0.990 0.229
+##3Prototype_45 time 0.991 0.336
+Across all conditions, we see that the p value is more than 0.05. This shows that our data do not violate
+the assumption of normality .
+We next use Levene’ s test for homogeneity of variance across groups. The null hypothesis of this test
+states that the variances across the three groups is similar .
+levene_test(time ~ condition,data = data_game)
+###A tibble: 1 × 4
+##                        df1df2 statistic                                                            p
+## <int> <int> <dbl>                                          <dbl>
+##1                                2                       552                     14.30.000000889
+The obtained p value is less than 0.05; hence, we conclude that our data do not meet the assumption of
+homogeneity of variance. W e implement W elch’s ANOV A next.
+welch_anova_test(time ~ condition, data=data_game)
+###A
+tibble:                               
+1× 7     
+## .y.                                
+nstatistic                        DFn                        
+DFd                             p
+method
+##*<chr> <int>                                  
+<dbl><dbl> <dbl> <dbl> <chr>
+##1time 555                                     
+4.51                                
+2                    
+351.0.012Welch
+ANOVA
+The p value of W elch’s ANOV A is less than 0.05. This shows that the means across the three conditions
+are not the same. In order to find out how they dif fer across conditions, we use the Games-Howell test.
+games_howell_test(time ~ condition,data=data_game)
+###Atibble: 3 × 8
+## .y.group1group2 estimate conf.low conf.high p.adjp.adj.sign
+##*<chr><chr><chr> <dbl> <dbl> <dbl> <dbl><chr>
+##1time
+Prototype_25Prototype_35                    
+4.70                   
+0.807                   
+8.600.013*
+##2time
+Prototype_25Prototype_45                    
+0.887-2.25                    
+4.030.784ns
+##3time
+Prototype_35Prototype_45 -3.82 -7.30 -0.330 0.028*
+The results show that with prototype-35 players spent statistically more time than with either prototype-
+25 or prototype-45.
+14.8 UNDERSTANDING THE CHAPTER
+1. What is the dif ference between causal testing and correlational testing? Is A/B testing causal or
+correlational?
+2. What is the dif ference between a null hypothesis and an alternate hypothesis in an A/B test?
+3. What is the primary purpose of an A/B test?
+a. To compare two dif ferent advertisement designs
+b. To determine the ef fectiveness of an intervention between groups
+c. To test the ef fectiveness of a new medication
+d. To find correlations between variables
+4. Which statistical test would you use to compare the means of three or more groups?
+a. t test
+b. F test
+c. chi-square test
+d. Pearson correlation
+5. What is the null hypothesis in an A/B test?
+a. There is a significant dif ference between the groups.
+b. There is no significant dif ference between the groups.
+c. The intervention causes the observed dif ference.
+d. The observed dif ference is due to chance.
+6. What is the main advantage of using W elch’s ANOV A over the standard F test (ANOV A)?
+a. It is more powerful when the variances are equal.
+b. It is less sensitive to unequal variances.
+c. It has a higher Type I error rate.
+d. It requires fewer assumptions.
+7. When should you use a post hoc test after an F test (ANOV A)?
+a. When the null hypothesis is rejected
+b. When the null hypothesis is not rejected
+c. Always after an F test
+d. Only when the sample sizes are unequal
+8. In which situation would you choose to use W elch’s ANOV A over the standard F test?
+a. When the data are normally distributed
+b. When the variances within each group are equal
+c. When the variances within each group are unequal
+d. When the groups are dependent
+ENDNOTES
+1. Saks-Frankel, Robin, and Kelly-Ann Franklin, “Chase Sapphire Reserve Card Review 2023,” Forbes
+Advisor , August 31, 2023, https://www .forbes.com/advisor/credit-cards/reviews/chase-sapphire-reserve/.
+2. Delacre, Marie, Daniël Lakens, and Christophe Leys, “Why Psychologists Should by Default Use
+Welch’s t-Test Instead of Student’ s t-Test,” International Review of Social Psychology  30, no. 1 (2017).
+3. Kassambara, Alboukadel, “rstatix: Pipe-Friendly Framework for Basic Statistical Tests,” R package
+version 0.7.2 (February 1, 2023), https://CRAN.R-project.org/package=rstatix.
+4. Wickham, Hadley , Romain François, Lionel Henry , and Kirill Müller , “dplyr: A Grammar of Data
+Manipulation,” R package version 1.1.3 (September 3, 2023), https://CRAN.R-
+project.org/package=dplyr .
+5. Wickham, Hadley , ggplot2:Elegant Graphics for Data Analysis  (New York: Springer-V erlag, 2016).
+Descriptions of Images and Figures
+Back to Figure
+The figure consists of numerals 1 to 8 enclosed in a circle. On the left are the odd variables 1, 3, 5, 7
+and on the right are even variables. The numerals are connected by downward arrows. From numeral 6
+to 5 is an upward arrow . The numerals 1 to 8 have the descriptions Idea Generation, Idea Screening,
+Concept Development and testing, Business Analysis, Product Development and Design, Test
+Marketing, Commercialization and Evaluation and Control, respectively .
+Back to Figure
+The figure is a graph with 30, 60 and 90 on y-axis labeled time. On the x-axis are three criteria
+Prototype_25, Prototype_35 and Prototype_45 labeled condition. Within the graph is a rectangular block
+with a horizontal line dividing the block into two regions and a vertical line on top and bottom of the block
+on the left. In the middle is a block with vertical lines and two circular nodes on the top and bottom. On
+the right is a block with a circular node on top and two circular nodes at the bottom.
+OceanofPDF .com
+PART V BUSINESS ETHICS AND
+ANALYTICS
+OceanofPDF .com
+

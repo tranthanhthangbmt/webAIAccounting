@@ -1,0 +1,278 @@
+also bring additional revenue to the bank; however an
+investigation revealed that the scheme resulted in losses to the
+bank. The loan is supposed to be repaid in the form of monthly
+installments—where the installment amount and number of
+installments depend on the loan amount, loan tenure and
+agreed interest rate. When the bank is unable to debit any
+monthly installments for a month from the bank account, the
+loan is considered to be “delinquent.”
+Since 2013, the delinquency rate is ~10 percent, or 1 out of
+10 customers missed on their payment, but customers are
+charged with a hefty fee in case of any missed installment
+leading to dissatisfaction. The probability of missing payment is
+not yet considered in any risk management/account
+management decisions in the bank, which if considered can
+enhance the performance of savings/ credit card portfolio as
+well. Given this information, bank management has requested
+that its data science team identify customers who are most
+likely to miss payment of the loan installment in next three
+months so that these customers receive a telephone reminder.
+Bank management believes that such preventive action can
+keep some customers from missing payment and wants to test
+out this hypothesis. After its success is established, management
+would like to make telephone reminders a regular practice. It is
+also known that the bank’s call center’s capacity is calling only
+30,000 customers per month. Therefore, it is essential to
+identify the right customers to call at the right time.
+Given this problem statement, what are diﬀerent ways to
+structure this problem into a data science problem?
+–Objective: The problem involves ﬁnding top 30,000
+customers with the highest likelihood to miss payment of
+their loan installment in the next three months so that they
+can receive telephone reminders. A few ways to approach
+this problem are
+Approach 1: Identify customers whose account
+balance falls below a certain amount, say, two to three
+times the amount of monthly loan installment. This
+approach might work well; however, it does not take
+into account the fluctuations in the account balance
+over the month. For example, some customers
+routinely pay their installments but have to wait for
+their pay to be deposited and might not need to be
+called. Can this be further improved?
+Approach 2: Analyze the historical characteristics of
+customers who have missed payment of their loan
+installment in the past and understand the reasons
+behind it. For example, customers aged 30-40 years
+with income below $2500 per month are more likely
+to miss payment than other customers. Such insights
+can be used to generate rules to filter the right set of
+customers. Can these rules be further improved? Can
+these rules be made more robust?
+Approach 3: Create a machine learning model using
+historical customer behavior and characteristics to
+predict a score for the likelihood to miss payment in
+the next three months. This score would be specific to
+each customer and can change with time.
+–Data collection and preparation: To proceed with any of
+these approaches, having data about customers who have
+missed a payment vs not missed any payment since 2013 can
+be useful. This data can be used to study the characteristics,
+such as customer account balance history, demographics,
+and loan details that can help to understand underlying
+reasons for missing payments. The sections “Step 2—Data
+Collection” and “Step 3—Data Preparation” describe how to
+gather the right data for the problem and various methods
+to collect and prepare such data.
+–Modeling: In the case of Approach 3, this step can be used to
+gauge which machine learning models would be useful for
+the given problem. The “Modeling” section describes the
+types of machine learning models suitable for diﬀerent
+problems and steps needed to build any model.
+–Model evaluation: After the machine learning model is built,
+it is useful to evaluate its performance. This step is needed to
+gauge the performance of the model (how correctly the
+model can predict customers with high likelihood to miss
+payments in the next three months) before starting to call
+those customers.
+–Experimentation: Although a model can help identify such
+customers who are likely to miss payment in next three
+months, it is necessary to test whether the model works in
+the real world. Experiments can be carried out to check
+model accuracy and the impact of calling. For example,
+customers with a high likelihood to miss payment can be
+identiﬁed and either called or not called to answer these
+questions:
+–Does calling customers with a high likelihood of delinquency
+actually prevent them from missing their payment?
+–Do customers with a high likelihood of delinquency end up
+missing their payment when they are not called?
+–Do customers with a high likelihood of delinquency end up
+missing their payment even after being called?
+Answering such questions and analyzing the results can help to
+measure the success of the model in the real world. The “Step 5
+—Experimentation” section describes how such experiments
+can be designed.
+Step 2—Data Collection
+After precisely deﬁning the problem, the next step is to gather
+relevant data for that problem. This is done by following a
+systematic approach to gather various data from the variety of
+sources to get a complete picture of the problem. The diﬀerent
+types of data are discussed below.
+Based on the source, data can be mainly categorized into:
+primary data and secondary data:
+–Primary data is the data that is gathered from the ﬁrst-hand
+experiences of a researcher for a speciﬁc project. Usually,
+collecting primary data involves a lot of time, eﬀort, and
+cost. Examples of primary data include data collected using
+questionnaires, interviews, surveys, experiments, and so on.
+–Secondary data is the data that was already collected and
+recorded in the past for a diﬀerent problem. Usually,
+secondary data is readily available, so it is widely used in
+data science projects. Examples of secondary data include
+private datasets (for example, internal companies’ records),
+datasets for sale (such as those available through data
+aggregator companies), scraping websites, and public
+datasets (like government publications, books, journal
+articles, and so forth).
+Care should be taken to ensure that data is relevant for the
+business problem and captures suﬃcient events of interest.
+Both primary and secondary data can be used for a data science
+problem, but in most cases, secondary data is used. This is
+because secondary data is cheap and provides a longer history,
+which includes more data points that could give more insights
+even though it is less accurate when compared to primary data.
+For the loan delinquency problem, secondary data from
+internal bank systems can be used containing details such as:
+–Customer demographics (age, gender, income, location)
+–Bank account details (number of accounts, tenure of the
+bank account, account status—active, inactive, or other)
+–Account transaction details (types of transactions, amounts
+spend on diﬀerent transactions)
+–Loan details (loan status—delinquency, defaults, paid-up, or
+other; principal loan amount; outstanding loan amount, the
+total number of paid installments, date of delinquency)
+–Other data, such as customer interaction details and website
+usage
+Types of Data
+Raw data (including primary and secondary data) is not always
+of great quality. The quality of data mainly depends on how the
+data is captured, what tools are used to capture it and what
+measures are used to ensure the right type. There are mostly
+three types in which data is captured, namely structured
+datasets, semi-structured datasets and unstructured datasets.
+Their diﬀerences are shown in Table 6.1.
+Table 6.1: Differences between Structured, Semi-Structured and Unstructured Data
+Traditionally, models have worked well on structured and semi-
+structured data but not so well on unstructured data (audio,
+images, and patterns in the text). But recent machine learning
+and deep learning algorithms are signiﬁcantly better at
+interpreting even unstructured data, which has led to many
+new exciting applications such as speech recognition, image
+recognition, and natural language processing on text. For the
+loan delinquency problem, all three types of data can be used
+depending on how the data is available in the bank systems. For
+example, both customer demographics recorded in structured
+databases and customer interactions recorded in the form of
+emails or voice recordings can be used.
+Levels of Data
+Structured data is captured at several levels. In this context, a
+“level” is the smallest unit of the data. For example, a
+transaction is the smallest level when money is transferred
+from one bank account to another. This transaction is captured
+as one row in the data. Similarly, a social security number
+uniquely represents a person, and one person will have
+consistent characteristics, such as gender and place of birth,
+associated with this social security number. Therefore, data can
+be captured at a person level using the social security number.
+On the other hand, for semi-structured and unstructured data,
+the levels may or may not be there. For example, unstructured
+text or images do have such levels. Table 6.2 illustrates diﬀerent
+levels of data capture.
+Table 6.2: Levels of Data
+Level Each Row Represents Data gathered at each levels
+Event One event Data for each event, like the time of a
+banking transaction
+Entity One user, product
+family, or other such
+entityFor example, age, gender, demographics,
+aggregation of event level data to user
+level—customer’s month-end ledger
+balance
+Segment One segment For example, a list of cities with average
+income more than $30,000
+Data with more granularity captures more information. For
+example, a customer’s daily banking transaction amounts
+provide more information about the customer’s transaction
+behavior than the total transaction amount for the bank.
+Therefore, in the loan delinquency problem, event or user level
+data would be more useful than segment level.
+Step 3—Data Preparation
+After gathering data from various sources, the next step is to
+process and transform this data into a useable form for the
+analysis. Often data is collected from various sources, so it is
+untidy—has inconsistent data types, useful columns spread
+across multiple ﬁles, etc. Data preparation involves steps such
+as performing quality checks, ﬁltering, and aggregating, joining,
+concatenating diﬀerent datasets, creating features so that it can
+be used to generate some meaningful insights and further used
+for modeling tasks. The ﬁrst step of data preparation is
+performing data quality checks. Data collected in the real world
+for practical purposes is usually of poor quality—data has
+incorrectly captured information, missing values, duplicate
+records, and so forth. Therefore, it is essential to perform
+quality checks (QCs) on the data and address issues before
+proceeding.
+Data Quality Checks
+The ideal method for performing data quality checks is to check
+every record against the source system. But if there is a large
+number of records across many ﬁles, such a method can be
+cumbersome. Therefore, some pragmatic means are needed to
+gauge the quality of the data. Some of the typical measures used
+to perform data quality checks include the following:12
+–Completeness: Check whether all intended datasets and data
+items (ﬁelds, values) are captured. Compare the numbers of
+rows, columns, and ﬁelds; the size of the data at the source
+data; and the available data to ensure completeness.
+–Accuracy: Secondary data is not as accurate as primary data,
+but realistically, it should be checked to determine how well
+the data represents real-world observations and events.
+Therefore, check whether the data was captured accurately:
+By reconciling it with third-party source data that is
+trustworthy or confirming insights with the business
+teams.
+By checking for abnormal values in data, such as
+values that are too high or too low, or missing or
+incorrect values (numerical or categorical). If
+abnormal values account for too many of those in a
+column, then the result of data analysis can be biased.
+Thus, all abnormal values should be treated.
+–Uniqueness: Check whether all records are uniquely
+captured; that is, there is no duplicate information. Identify
+the unique keys of the data (for example, bank account
+number or customer ID) and check if the dataset is unique
+across these keys. For example—if same customer across
+one customer ID has duplicate records then de-duplicate the
+data by either removing duplicate rows or aggregating them
+to the customer ID level.
+–Consistency: Check whether the data is consistent with
+diﬀerent representations of the same information across
+multiple datasets; that is, there is no diﬀerence between two
+representations of the same data. This can be done by
+analyzing patterns and verifying insights from the data
+ﬁelds. For example—dataset is inconsistent if number of
+registered bank customers is less than number of active
+bank customers.
+–Validity: Check whether data conforms to the standard data
+deﬁnitions, such as data types, size and format. This can be
+done by analyzing the data types of ﬁelds in the source data
+and available data.
+Exploratory Data Analysis
+After completing the quality checks on the data, the next step is
+to perform exploratory data analysis (EDA), or descriptive
+analysis. EDA is an approach to analyze the data by
+summarizing its main characteristics into summary statistics
+and graphical representations. For example, we might carry out
+a univariate analysis (such as frequency or central tendency—
+mean, median, and mode) on diﬀerent variables, and perform a
+bivariate analysis, such as analyzing variables with each other
+and analyzing variables with the target variable. In the context
+of machine learning, the variable that is predicted is called the
+output variable or business outcome or target variable. In the
+loan delinquency problem, the target variable has two
+outcomes: delinquent (customers who miss payment of loan
+installment in the next three months) and non-delinquent
+(customers do not miss payment of loan installment in the next
+three months). This is illustrated in Figure 6.5.
+Figure 6.5: Target creation
+At this step, it is also important to realize that dataset should be
+ﬁltered for appropriate customer cohort i.e. customers with
+that speciﬁc personal loan. EDA can help generate insights by
+analyzing diﬀerent variables for the customers of interest. In
+this problem, variables such as the customer’s month-end
+ledger balance, age, account tenure, and so on, can also be
+useful to look into. EDA could help us analyze account balance
+with respect to the target variable to tell whether there is any
+account balance pattern that suggests whether a customer is
+likely to miss payment. Overall, the objective of EDA is to try
+and ﬁnd these speciﬁc patterns from the data. For example, Tab

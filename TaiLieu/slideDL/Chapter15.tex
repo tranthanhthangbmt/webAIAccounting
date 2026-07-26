@@ -1,0 +1,237 @@
+\documentclass[aspectratio=169]{beamer}
+\usetheme{Madrid}
+\usecolortheme{default}
+\usepackage[utf8]{inputenc}
+\usepackage[T5]{fontenc}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{amsmath}
+
+\setbeamertemplate{caption}[numbered]
+\renewcommand{\figurename}{Hình}
+\renewcommand{\thefigure}{15.\arabic{figure}}
+
+\title[Chương 15: Transformer]{Học Sâu (Deep Learning) \\ \vspace{0.5cm} \Large Chương 15: Mô hình Ngôn ngữ \& Kiến trúc Transformer}
+\author{Đại học Đông Á}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame}{Nội dung chương}
+    \tableofcontents
+\end{frame}
+
+\section{1. Mô hình Ngôn ngữ \& Seq2Seq}
+
+\begin{frame}{Language Model (Mô hình Ngôn ngữ) là gì?}
+    \begin{itemize}
+        \item Xuyên suốt khóa học, ta đã quen với việc phân loại (Classification). Nhưng để máy tính có thể "nói chuyện" và "tạo ra văn bản", ta cần một cách tiếp cận khác.
+        \item \textbf{Language Model:} Một mô hình thống kê học phân phối xác suất: $P(\text{token\_tiếp\_theo} | \text{các\_token\_trước\_đó})$.
+        \item Quá trình sinh văn bản (Text Generation): Dự đoán 1 token, ghép nó vào cuối chuỗi cũ, rồi lại đưa toàn bộ chuỗi mới vào mô hình để dự đoán token tiếp theo. Cứ lặp lại như vậy.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Kiến trúc Sequence-to-Sequence (Dịch máy)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Sequence-to-Sequence (Seq2Seq) là bài toán biến một chuỗi đầu vào (Tiếng Anh) thành một chuỗi đầu ra (Tiếng Tây Ban Nha).
+            \item Không thể dịch từng từ một (Word-by-word) vì ngữ pháp hai ngôn ngữ hoàn toàn khác nhau. Phải đọc trọn vẹn cả câu rồi mới bắt đầu dịch.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch15/seq2seq-learning.0e1e1c31.png}
+            \caption{Học chuỗi sang chuỗi (Seq2Seq)}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Nút thắt cổ chai của Seq2Seq sử dụng RNN/LSTM}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item \textbf{Encoder (Bộ mã hóa):} Đọc toàn bộ câu Tiếng Anh, nén toàn bộ ý nghĩa vào một véc-tơ Trạng thái duy nhất (Context Vector).
+            \item \textbf{Decoder (Bộ giải mã):} Lấy Context Vector đó làm điểm tựa để nhả ra từng từ Tiếng Tây Ban Nha.
+            \item \textbf{Khuyết điểm chí mạng:} Context Vector trở thành nút thắt cổ chai (Bottleneck). Nếu câu văn quá dài (50 từ), một véc-tơ duy nhất không thể chứa nổi toàn bộ ngữ nghĩa.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch15/seq2seq-rnn.ec377d3b.png}
+            \caption{Nút thắt của Seq2Seq RNN}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\section{2. Cơ chế Chú ý (Attention Mechanism)}
+
+\begin{frame}{Sự ra đời của Cơ chế Attention}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Tại sao phải nén toàn bộ câu vào 1 véc-tơ duy nhất? Tại sao không cho Decoder "nhìn" lại toàn bộ chuỗi đầu vào ở mỗi bước dịch?
+            \item \textbf{Cơ chế Attention (2014):} Khi Decoder sinh ra từ thứ $t$, nó sẽ tự động tính toán xem trong số tất cả các từ của Encoder, từ nào là \textbf{quan trọng nhất} ở thời điểm hiện tại để "chú ý" vào.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch15/attention-concept.fde57742.png}
+            \caption{Ý tưởng của Cơ chế Attention}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Điểm Chú ý (Attention Scores)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Điểm chú ý (Attention Scores) là tập hợp các trọng số từ $0$ đến $1$ (tổng bằng $1$).
+            \item Ví dụ, khi Decoder đang dịch từ "station" (Trạm), nó sẽ gán điểm chú ý $0.95$ cho từ "estación" trong câu gốc, và gán gần $0.0$ cho các từ "I", "am", "at".
+            \item Context Vector ở mỗi bước dịch giờ đây là Tích chập (Weighted Sum) của tất cả các trạng thái Encoder nhân với điểm chú ý.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch15/attention-scores.2932e0ff.png}
+            \caption{Cách tính Toán học Attention Scores}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Trực quan hóa Ma trận Attention}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Khi vẽ Ma trận điểm chú ý, ta thấy mô hình tự động học được cách "óng hàng" (Alignment) giữa 2 ngôn ngữ.
+            \item Đặc biệt, nó xử lý hoàn hảo hiện tượng đảo ngữ pháp (VD: Tính từ đứng sau Danh từ trong tiếng Pháp/Tây Ban Nha).
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch15/attention.6007731a.png}
+            \caption{Biểu đồ phân bố Attention}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\section{3. Self-Attention và Query-Key-Value}
+
+\begin{frame}{Truy vấn Cơ sở dữ liệu: Query, Key, Value}
+    \begin{columns}
+        \column{0.5\textwidth}
+        Để tổng quát hóa Attention, các nhà khoa học đã mượn khái niệm từ Hệ quản trị Cơ sở dữ liệu:
+        \begin{itemize}
+            \item \textbf{Query (Q):} Truy vấn ta đang tìm kiếm (Từ hiện tại đang xét).
+            \item \textbf{Key (K):} Nhãn của các mục trong CSDL (Các từ khác trong câu).
+            \item \textbf{Value (V):} Nội dung thực sự của các mục đó.
+        \end{itemize}
+        Mô hình sẽ so khớp $Q$ với tất cả các $K$. $K$ nào càng giống $Q$ thì $V$ của nó sẽ càng đóng góp nhiều vào kết quả.
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch15/query-key-value.b57cceb0.png}
+            \caption{Cơ chế Query - Key - Value}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Phương trình Scaled Dot-Product Attention}
+    \begin{itemize}
+        \item Đây là phương trình Toán học quan trọng nhất thập kỷ của Trí tuệ Nhân tạo:
+        $$ \text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V $$
+        \item \textbf{Giải thích:}
+        \begin{itemize}
+            \item $Q K^T$: Tích vô hướng (Dot Product) đo độ tương đồng giữa Query và toàn bộ Key.
+            \item $\sqrt{d_k}$: Hệ số chia (Scaled) nhằm ổn định đạo hàm không bị quá lớn.
+            \item $\text{softmax}$: Ép các điểm tương đồng thành xác suất phân bố từ $0$ đến $1$.
+            \item $\times V$: Nhân kết quả xác suất với các Giá trị thực tế.
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Self-Attention (Tự Chú ý)}
+    \begin{itemize}
+        \item Điều gì xảy ra nếu $Q$, $K$, và $V$ đều đến từ **Cùng một chuỗi dữ liệu**?
+        \item Đó gọi là \textbf{Self-Attention}. Nó cho phép một từ trong câu tự quan sát toàn bộ các từ còn lại trong chính câu đó để hiểu rõ ngữ cảnh của bản thân.
+        \item Ví dụ câu: "The bank of the river" vs "The bank of America". Chữ "bank" sẽ tập trung sự chú ý vào "river" (bờ sông) hay "America" (ngân hàng) để thay đổi véc-tơ ngữ nghĩa của chính nó.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Multi-Head Attention (Chú ý Đa luồng)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Thay vì chỉ tính Self-Attention 1 lần, ta tính nó $h$ lần song song (gọi là $h$ Heads).
+            \item Tại sao? Vì một từ có rất nhiều khía cạnh: Ngữ pháp, Đại từ nhân xưng, Thời gian, Cảm xúc.
+            \item Mỗi Head sẽ học cách "chú ý" vào một khía cạnh khác nhau của câu văn, làm cho không gian biểu diễn vô cùng phong phú.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch15/multi-head-attention.718456ad.png}
+            \caption{Kiến trúc Multi-Head Attention}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\section{4. Kiến trúc Transformer}
+
+\begin{frame}{Bài báo vĩ đại: "Attention Is All You Need" (2017)}
+    \begin{itemize}
+        \item Năm 2017, các nhà nghiên cứu Google tự hỏi: Nếu Attention mạnh mẽ như vậy, tại sao phải dùng RNN hay CNN nữa?
+        \item Họ loại bỏ hoàn toàn RNN/CNN, chỉ thiết kế một mạng Nơ-ron cấu thành \textbf{hoàn toàn từ Multi-Head Attention}. Đó là \textbf{Transformer}.
+        \item Ưu điểm tuyệt đối: Transformer có thể tính toán \textbf{Song song (Parallel)} trên GPU cho toàn bộ chuỗi cùng lúc, phá vỡ giới hạn tính tuần tự (từng từ một) chậm chạp của RNN.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Sơ đồ Kiến trúc Transformer}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Gồm 2 khối: Encoder (Bên trái) và Decoder (Bên phải).
+            \item \textbf{Encoder:} Dùng Self-Attention để làm giàu ngữ cảnh cho câu đầu vào.
+            \item \textbf{Decoder:} Dùng Causal Self-Attention (Che tương lai để không ăn gian) kết hợp với Cross-Attention (Lấy Q từ Decoder, K và V từ Encoder) để sinh từ tiếp theo.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch15/encoder-decoder.d979dbbc.png}
+            \caption{Sơ đồ kinh điển của Transformer}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Mảnh ghép cuối: Positional Encoding (Mã hóa Vị trí)}
+    \begin{itemize}
+        \item Do tính toán song song, Transformer xử lý một câu giống như Bag-of-Words: Không hề biết từ nào đứng trước, từ nào đứng sau!
+        \item Giải pháp: Cộng thêm một véc-tơ \textbf{Positional Encoding} (Dựa trên hàm Sine và Cosine) vào véc-tơ Embedding của từ ban đầu.
+        \item Nhờ đó, mỗi từ mang theo một "dấu vân tay" về vị trí của nó trong câu, giúp Transformer kết hợp tốc độ tính toán song song và khả năng hiểu ngữ pháp.
+    \end{itemize}
+\end{frame}
+
+\section{Tổng kết}
+
+\begin{frame}{Tổng kết Chương 15}
+    \begin{itemize}
+        \item \textbf{Sequence-to-Sequence:} Mô hình nền tảng cho Dịch máy, nhưng RNN vướng phải nút thắt cổ chai về véc-tơ ngữ cảnh.
+        \item \textbf{Attention Mechanism:} Giải quyết bằng cách tính điểm trọng số cho toàn bộ câu đầu vào tại mỗi bước sinh từ.
+        \item \textbf{Q-K-V Self-Attention:} Thuật toán tối thượng (Scaled Dot-Product) cho phép từ trong câu tự ánh xạ lên các từ khác để hiểu sâu ngữ cảnh.
+        \item \textbf{Transformer:} Kiến trúc loại bỏ RNN, sử dụng hoàn toàn Multi-Head Attention. Đây chính là "trái tim" cấu thành nên các siêu AI như ChatGPT, GPT-4, BERT hiện nay.
+    \end{itemize}
+\end{frame}
+
+\end{document}

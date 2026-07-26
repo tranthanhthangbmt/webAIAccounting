@@ -1,0 +1,543 @@
+Hồi quy tuyến tính đơn giản bao gồm một biến độc lập duy nhất, trong khi nhiều hồi quy
+sion liên quan đến hai hoặc nhiều biến độc lập. Mục tiêu của mô hình hồi quy là tìm 
+phương trình của đường thẳng phù hợp nhất với dữ liệu.
+Hãy kiểm tra đầu ra của mô hình hồi quy để hiểu cách chúng giúp trả lời các câu hỏi-
+ý kiến. Là nhân viên kế toán tại Super Scooters, bạn đang cố gắng ước tính chi phí bảo trì cho năm tới 
+chi phí cho thiết bị máy móc. Bạn tin rằng các yếu tố thúc đẩy chi phí bảo trì 
+là số giờ thiết bị được sử dụng và số lượng yêu cầu sửa chữa. Sự hối hận-
+các biến mô hình sion sẽ là:
+• Biến phụ thuộc: Chi phí bảo trì
+• Biến độc lập: Giờ máy và yêu cầu sửa chữa
+Dữ liệu lịch sử từ 36 tháng trước sẽ được sử dụng để tạo mô hình hồi quy. các 
+đầu ra của mô hình được thể hiện trong Hình minh họa 3.18.
+MINH HỌA 3.18  Đầu ra mô hình hồi quy
+Nhiều R
+R vuông
+Hình vuông R đã điều chỉnh
+Lỗi chuẩn
+Quan sát
+ANOVA
+0.97868787
+0.95782995
+0.95527419
+1283.82134
+36
+df
+SS
+MS
+F
+1235399491
+54390508.88
+Hồi quy
+dư
+Tổng cộng
+2
+33
+35
+1289790000
+6.18E+08
+1648197
+374.773
+2.05385E-23
+897.8427419
+0.43769194
+Đánh chặn
+Giờ máy
+Yêu cầu sửa chữa
+5252.85845
+3.56920298
+759.836675
+168.7763028
+4.502034
+5.850533
+8.154601
+7.94E-05
+2.05E-09
+1.5E-06
+Ý nghĩa F
+Hệ số lỗi chuẩn
+t Thống kê
+giá trị P
+TÓM TẮT ĐẦU RA
+Thống kê hồi quy
+Phép hồi quy trong Hình 3.18 được thực hiện bằng Microsoft Excel. Bản tóm tắt 
+đầu ra được chia thành ba phần.
+Thống kê hồi quy 
+Đầu tiên là thống kê hồi quy hoặc các biện pháp thống kê 
+được sử dụng để đánh giá mô hình. Hình minh họa 3.19 thể hiện thống kê hồi quy từ Hình minh họa 
+3.18, cùng với định nghĩa về số liệu thống kê và cách giải thích cho Siêu xe tay ga 
+mô hình hồi quy.
+
+3.4  Mục tiêu dự đoán là gì?  3-21
+MINH HỌA 3.19  Thống kê hồi quy
+Hồi quy 
+Thống kê
+Định nghĩa
+đầu ra
+Phiên dịch
+Nhiều R
+• Còn gọi là tương quan  
+hệ số, nó đo cường độ 
+về mối quan hệ giữa sự phụ thuộc
+biến định tính và biến độc lập.
+• Đó là thước đo từ –1 đến 1. Số dương 
+số bằng một mối tương quan tích cực, 
+vì vậy các biến di chuyển giống nhau 
+hướng. Số âm bằng 
+một mối tương quan tiêu cực, trong đó sự thay đổi
+có khả năng di chuyển theo hướng ngược nhau.
+0.97868787
+• Bội số R là 0,978. Đây là một điều tích cực 
+mối tương quan giữa tổng chi phí 
+và các biến độc lập trong 
+mô hình (giờ máy, sửa chữa 
+yêu cầu).
+• Là các biến trong mô hình 
+tăng, tổng chi phí bảo trì 
+cũng sẽ tăng lên.
+R Vuông (R2)
+• Còn được gọi là hệ số ngăn chặn
+sự suy giảm, nó là thước đo mức độ tốt 
+đường hồi quy phù hợp với dữ liệu.
+• R2 cho biết tỷ lệ của biến
+tion trong biến phụ thuộc đó là 
+giải thích bởi các biến độc lập.
+• R2 càng gần 1 thì càng tốt 
+đường hồi quy phù hợp với dữ liệu.
+0.95782995
+Điều này cho thấy rằng 95,8% (0,9578) của 
+thay đổi tổng chi phí bảo trì 
+được giải thích bằng bao nhiêu giờ 
+thiết bị được sử dụng (giờ máy) 
+và có bao nhiêu yêu cầu sửa chữa 
+thực hiện.
+R2 đã điều chỉnh
+• Giải thích đường hồi quy tốt như thế nào 
+phù hợp với dữ liệu.
+• Sửa đổi giá trị của R2 bằng cách kết hợp
+xác định cỡ mẫu và số lượng 
+các biến độc lập.
+• Thường được sử dụng để đánh giá bội số 
+mô hình hồi quy.
+• R2 điều chỉnh càng gần 1 thì 
+sự phù hợp tốt hơn của đường hồi quy với 
+dữ liệu.
+0.95527419
+R2 điều chỉnh được diễn giải theo cách tương tự 
+giống như R2.
+Điều này cho thấy 95,5% tổng chi phí 
+có thể được giải thích bằng bao nhiêu giờ 
+thiết bị được sử dụng và số lượng 
+các yêu cầu sửa chữa được thực hiện.
+Tiêu chuẩn  
+Lỗi
+• Thể hiện sự biến thiên của 
+giá trị biến phụ thuộc quan sát 
+từ các giá trị được dự đoán bởi mô hình.
+• Nếu dữ liệu được nhóm gần với 
+đường hồi quy thì sai số chuẩn 
+nhỏ (tối ưu).
+• Nếu dữ liệu bị phân tán nhiều hơn thì đó là 
+lớn hơn.
+1.283.82134
+• Sai số chuẩn là $1.283,82.
+• Để xác định xem sai số chuẩn có lớn không 
+hoặc nhỏ thì so sánh với tiêu chuẩn 
+độ lệch của biến phụ thuộc.
+• Trong ví dụ này, so sánh tiêu chuẩn 
+sai số so với độ lệch chuẩn của 
+tổng chi phí. Nếu sai số chuẩn là 
+nhỏ hơn độ lệch chuẩn, 
+sai số chuẩn có thể chấp nhận được.
+• Giá trị trung bình và độ lệch chuẩn của 
+tổng chi phí là:
+• Trung bình: $27,450
+• Độ lệch chuẩn: $6,070
+Quan sát
+• Số lượng quan sát được đưa vào 
+trong tập dữ liệu.
+36
+Trong ví dụ về Super Scooters, nó là 36 
+tháng dữ liệu.
+Phân tích phương sai (ANOVA) 
+Phần tiếp theo của kết quả hồi quy là ANOVA 
+(phân tích phương sai). Hình minh họa 3.20 là phần ANOVA từ mô hình hồi quy.
+Trong một phép hồi quy tuyến tính bội như thế này, mức ý nghĩa là một phép kiểm định giả thuyết về việc liệu 
+mô hình hồi quy tốt hơn mô hình không có biến độc lập. Nói cách khác, là 
+mô hình tốt hơn là không có mô hình nào cả?
+MINH HỌA 3.20  Thống kê hồi quy ANOVA
+ANOVA
+df
+SS
+MS
+F
+1235399491
+54390508.88
+Hồi quy
+dư
+Tổng cộng
+2
+33
+35
+1289790000
+6.18E+08
+1648197
+374.773
+2.05385E-23
+Ý nghĩa F
+
+3-22
+CHƯƠNG 3 Động lực và mục tiêu phân tích dữ liệu
+ Nói chung, một mô hình được coi là có ý nghĩa nếu thống kê F ( Ý nghĩa F trong Hình minh họa 
+3,20 ) nhỏ hơn 0,05:
+• Nếu F có ý nghĩa thì mô hình có thể giải thích một số biến thiên của biến phụ thuộc 
+biến. Nói cách khác, có còn tốt hơn là không có mô hình nào cả. 
+• ANOVA trong Hình minh họa 3.20 có mức ý nghĩa F là 2,05385E-23. Ký hiệu “E-23” 
+sau 2,05385 đại diện cho ký hiệu khoa học, còn được gọi là ký hiệu số mũ. 2.05385E-23 
+giống như 0,00000000000000000000000205385. Rõ ràng đây là một con số dưới 0,05, 
+nên mô hình có ý nghĩa. 
+ Nói cách khác, các biến độc lập có thể giải thích một số biến động của tổng chi phí, 
+vì vậy có mô hình tốt hơn là không có mô hình nào cả. 
+ Phương trình hồi quy 
+ Phần cuối cùng của kết quả tóm tắt hồi quy cung cấp 
+thông tin để xây dựng phương trình dự đoán biến phụ thuộc:
+• Điểm chặn và các hệ số của mô hình thể hiện phương trình của đường thẳng phù hợp nhất 
+dữ liệu. 
+• Thống kê quan trọng cần phân tích trong phần này là giá trị p cho mỗi biến độc lập
+khả năng. Giống như thống kê F, giá trị p cung cấp một phép thử về ý nghĩa. Trong trường hợp giá trị p, 
+nó là một phép thử xem liệu biến độc lập có cải thiện khả năng của mô hình trong việc 
+dự đoán tốt hơn biến phụ thuộc. Giá trị p từ 0,05 trở xuống thường được coi là 
+đáng kể. 
+ Hãy sử dụng kết quả đầu ra trong Hình minh họa 3.21 để xác định mô hình dự đoán cho máy 
+chi phí bảo trì và giải thích các hệ số. 
+ MINH HỌA 3.21 Mô hình hồi quy 
+897.8427419
+0.43769194
+Đánh chặn
+Giờ máy
+Yêu cầu sửa chữa
+5252.85845
+3.56920298
+759.836675
+168.7763028
+4.502034
+5.850533
+8.154601
+7.94E-05
+2.05E-09
+1.5E-06
+Hệ số lỗi chuẩn
+t Thống kê
+giá trị P
+ Lưu ý rằng giá trị p của các biến độc lập đáp ứng được kiểm định là nhỏ hơn 
+0,05 và do đó rất có ý nghĩa.  Mô hình dự đoán sẽ bằng phần chặn cộng 
+(hoặc trừ nếu số âm) hệ số của các biến độc lập nhân với 
+giá trị dự đoán cho các biến đó. Dựa vào mô hình hồi quy ở Hình minh họa 3.21, 
+phương trình để dự đoán tổng chi phí bộ phận mua hàng là:
+ 5.252,86 USD + 3,57 USD (số giờ máy) + 759,84 USD (số yêu cầu sửa chữa) 
+ Cách tính tổng chi phí dự kiến nếu có 2.250 giờ máy trong 1 tháng 
+và 8 yêu cầu sửa chữa được thể hiện ở hình minh họa 3.22. Bắt đầu với phần chặn và thêm sản phẩm-
+uc của từng hệ số biến độc lập và giá trị dự đoán của biến để dự đoán 
+$19.364,08 tổng chi phí bảo trì trong năm. 
+Giờ máy
+Đánh chặn
+Yêu cầu sửa chữa
+người mẫu
+hệ số
+3,57
+5.252,86 USD
+$
+$
+759,84
+Biến
+Giá trị
+2250
+1
+8
+19.364,08 USD
+Dự đoán
+8.032,50
+5.252,86
+$
+$
+$
+6.078,72
+ MINH HỌA 3.22 Dự đoán 
+Ví dụ mẫu
+
+3.4  Mục tiêu dự đoán là gì?  3-23
+Mô hình có thể được hiểu như sau:
+• Phần chặn: Phần chặn không phải lúc nào cũng có cách giải thích thực tế. Đó là kết quả của 
+mô hình đại diện cho giá trị trung bình của phản hồi khi tất cả các biến độc lập 
+là số không. Đó là nơi hàm phương trình đi qua trục y. Tuy nhiên, ở đây việc đánh chặn 
+thể hiện số lượng chi phí cố định tồn tại bất kể số giờ máy và số lần sửa chữa 
+yêu cầu
+• Giờ máy: Mỗi giờ sử dụng thiết bị máy sẽ cộng thêm 3,57 USD vào tổng chi phí.
+• Yêu cầu sửa chữa: Mỗi yêu cầu sẽ cộng thêm $759,84 vào tổng chi phí.
+Sử dụng mô hình như Hình minh họa 3.22 giúp doanh nghiệp dự đoán kết quả trong tương lai. 
+( Dữ liệu   Xem Cách thực hiện 3.2 để tìm hiểu cách thực hiện hồi quy này trong Microsoft Excel.)
+Làm thế nào để
+Áp dụng nó 3.4 
+Lập kế hoạch xu hướng bán hàng 
+Phân tích
+Dữ liệu   Kế toán quản lý   Với tư cách là kế toán quản lý cho Best Bakes Bakery, bạn chuẩn bị
+phân tích xu hướng bán hàng để giúp lập ngân sách hoạt động năm 2026. Bạn đã được trao 
+giao dịch bán hàng trong giai đoạn 2022–2025. Sau đây là một đoạn trích từ tập tin.
+101
+101
+101
+521121 Quán cà phê Bluebird
+Quán cà phê chim xanh
+Quán cà phê chim xanh
+Quán cà phê chim xanh
+Quán cà phê chim xanh
+Quán cà phê chim xanh
+Kem hải mã
+521121
+101
+521121
+521121
+101
+521121
+101
+521121
+(720) 296–2323
+(720) 296–2323
+(720) 296–2323
+(720) 296–2323
+(720) 296–2323
+(720) 296–2323
+102
+521425
+(303) 674–0930
+Đơn đặt hàng bán hàng
+Số
+Khách hàng
+Số
+80521
+80521
+80521
+80521
+80521
+80521
+80521
+Khách hàng
+Mã Zip
+CO
+CO
+CO
+CO
+CO
+CO
+CO
+Khách hàng
+tiểu bang
+Khách hàng
+Điện thoại
+Khách hàng
+Tên
+524 W đường Laurel
+524 W đường Laurel
+524 W đường Laurel
+524 W đường Laurel
+524 W đường Laurel
+524 W đường Laurel
+Đại lộ núi 125 W
+Pháo đài Collins
+Pháo đài Collins
+Pháo đài Collins
+Pháo đài Collins
+Pháo đài Collins
+Pháo đài Collins
+Pháo đài Collins
+Khách hàng
+Địa chỉ
+Khách hàng
+Thành phố
+GIẢI PHÁP
+1. Mục tiêu của việc phân tích là dự đoán doanh thu cho ngân sách hoạt động năm tới.
+2.
+Câu hỏi
+Biện pháp
+Xu hướng bán hàng từ năm 2022 đến năm 2025 như thế nào?
+Khối lượng bán, giá bán bình quân
+Xu hướng bán hàng theo sản phẩm từ năm 2022 đến năm 2025 như thế nào?
+Khối lượng bán, giá bán bình quân
+Xu hướng bán hàng theo địa điểm từ năm 2022 đến năm 2025 như thế nào?
+Khối lượng bán, giá bán bình quân
+3. Phân tích đường xu hướng sẽ cung cấp ước tính về xu hướng bán hàng mà sau đó có thể áp dụng cho ngân sách.
+có được cho năm 2026.
+853200
+853300
+853600
+Caramen táo
+19/2/2022
+19/2/2022
+19/2/2022
+19/2/2022
+19/2/2022
+19/2/2022
+10/3/2022
+Bánh mì hạt anh túc
+853500
+Miếng bánh phô mai
+Bánh quy sô cô la
+853800
+Bánh nướng việt quất
+853900
+Bánh mâm xôi
+$57,60
+$68,40
+$45,00
+$34,50
+$63,60
+$6,50
+853100
+Bánh quế
+$34,80
+0.160193
+0.333333
+Hàng tồn kho
+Mã
+Hàng tồn kho
+Mô tả
+Lợi nhuận
+Đơn đặt hàng bán hàng
+Ngày
+36
+24
+25
+30
+24
+10
+24
+$3,45
+$4,85
+$3,40
+$3,20
+$4,10
+$4,05
+$4,35
+Đơn đặt hàng bán hàng
+số lượng
+Hàng tồn kho
+Giá
+$124,20
+$116,40
+$85,00
+$ 96,00
+$98,40
+$40,50
+$104,40
+Tổng
+bán hàng
+$1,85
+$ 2,00
+$1,60
+$ 2,05
+$1,45
+$3,40
+$ 2,90
+Hàng tồn kho
+Chi phí
+$66,60
+$48,00
+$40,00
+$61,50
+$34,80
+$ 34,00
+$69,60
+$66,60
+$48,00
+$40,00
+$61,50
+$34,80
+$ 34,00
+$69,60
+0,463768
+0,587629
+0,529412
+0,359375
+0,646341
+Lợi nhuận
+Ký quỹ
+Chi phí
+Hàng đã bán
+1. Mục tiêu của việc phân tích là gì?
+2. Xây dựng ba câu hỏi liên quan đến mục tiêu và nêu các biện pháp cần thiết để trả lời 
+họ. 
+3. Bạn sẽ sử dụng những phân tích nào để trả lời ba câu hỏi này?
+
+3-24  CHƯƠNG 3  Động cơ và Mục tiêu Phân tích Dữ liệu
+3.5  Mục tiêu quy định là gì?
+MỤC TIÊU BÀI HỌC ➎
+Trình bày cách phát triển các câu hỏi mang tính quy tắc.
+Bạn đã học về các câu hỏi giúp mô tả điều gì đã xảy ra, điều tra lý do và 
+dự đoán điều gì sẽ xảy ra tiếp theo. Tiếp theo, hãy xem xét những câu hỏi chúng ta đặt ra khi muốn 
+biết điều gì sẽ xảy ra.
+Phát triển các câu hỏi mang tính quy tắc
+Mục tiêu quy định được xây dựng dựa trên mô tả về hiện tại và dự đoán về tương lai 
+để xác định hành động tốt nhất. Các câu hỏi mang tính quy định nhằm điều tra cách tận dụng lợi thế của 
+cơ hội trong tương lai hoặc giảm thiểu kết quả rủi ro trong tương lai. Các phân tích xác định các hành động cần thiết-
+cao để đạt được kết quả mong muốn.
+Trong ví dụ về Siêu xe tay ga, chúng tôi đã trả lời câu hỏi dự đoán trước đó về-
+chi phí bảo hành cho năm 2026. Bây giờ, chúng ta có thể giải quyết phân tích thứ ba mà Super yêu cầu 
+Xe tay ga – quyết định số lượng mỗi mẫu sẽ được sản xuất để đáp ứng mục tiêu năm 2026
+mục tiêu mới. Bước đầu tiên là trình bày rõ ràng các câu hỏi.
+Hình minh họa 3.23 bắt đầu với mục tiêu xác định sản phẩm có lợi nhuận cao nhất 
+trộn:
+• Câu hỏi ban đầu cụ thể hơn. Nên sản xuất và bán bao nhiêu chiếc xe tay ga? 
+tối đa hóa tỷ lệ đóng góp?
+• Tiếp theo, tìm hiểu sâu hơn bằng cách hỏi về những hạn chế tiềm ẩn cần được xem xét và cách thực hiện 
+nhiều đơn vị của mỗi mô hình nên được sản xuất.
+MINH HỌA 3.23   
+Câu hỏi quy định 
+Xác định siêu xe tay ga ' 
+Hỗn hợp sản phẩm
+Mục tiêu
+Câu hỏi ban đầu
+Câu hỏi phụ
+Xác định nhiều nhất  
+sản phẩm có lợi nhuận 
+trộn.
+Có bao nhiêu chiếc xe tay ga 
+chúng ta có nên sản xuất 
+và bán để tối đa hóa 
+tỷ lệ đóng góp?
+Có những hạn chế nào cần được đưa vào 
+trong mô hình tối ưu hóa?
+Mỗi mẫu xe tay ga có bao nhiêu chiếc 
+nên được sản xuất để tối đa hóa sự đóng góp 
+lề và đáp ứng bất kỳ ràng buộc nào?
+Phân tích theo quy định được thực hiện với các phương pháp và dữ liệu phân tích cụ thể.
+Phân tích theo quy tắc Ví dụ
+Hai phương pháp phân tích phổ biến nhất được sử dụng để trả lời các câu hỏi mang tính quy tắc là tối ưu.
+mô hình zation và phân tích what-if.
+Tối ưu hóa tuyến tính
+Tối ưu hóa là quá trình lựa chọn các giá trị của các biến để cực tiểu hóa hoặc cực đại hóa 
+một số lượng quan tâm. Mô hình tối ưu hóa giúp người quản lý phân bổ nguồn lực nhiều hơn
+
+3.5  Mục tiêu quy định là gì?  3-25
+hiệu quả và đưa ra các quyết định về chi phí/lợi nhuận. Mô hình tối ưu hóa phổ biến nhất được sử dụng trong 
+kế toán là tối ưu hóa tuyến tính. Trong tối ưu hóa tuyến tính, mô hình bao gồm:
+• Các biến quyết định: Các giá trị chưa biết mà mô hình tìm cách xác định.
+• Hàm mục tiêu: Phương trình toán học mô tả mục tiêu đầu ra ở mức tối thiểu
+bắt chước hoặc tối đa hóa.
+• Ràng buộc: Những hạn chế, yêu cầu hoặc những hạn chế khác phải được áp đặt 
+về bất kỳ giải pháp nào, chẳng hạn như các hạn chế về nhu cầu, vật chất hoặc lao động.
+Đầu ra từ mô hình tối ưu hóa tuyến tính sẽ hiển thị giải pháp tối ưu.
+Ban quản lý của Super Scooters đã quyết định tiếp tục sản xuất cả Celeritas và 
+người mẫu Kicks trong ít nhất một năm nữa. Họ muốn biết mỗi mẫu có bao nhiêu 
+nên được sản xuất để tối đa hóa lợi nhuận đóng góp. Họ đã dự báo nhu cầu cho từng 
+mô hình:
+• Thuyền trưởng: 18.000 chiếc.
+• Celeritas: 10.000 chiếc.
+• Số cú đá: 7.000 đơn vị.
+• Lazer: 24.000 chiếc.
+Bởi vì họ muốn tránh tình trạng dư thừa hàng tồn kho nên họ không muốn sản xuất nhiều hơn mức họ có thể 
+mong đợi để bán. Ngoài ra còn có giới hạn về số giờ máy có sẵn trong năm.
+Hình minh họa 3.24 thể hiện thông tin cần thiết để tạo mô hình tối ưu hóa cho Super 
+Xe tay ga.
+MINH HỌA 3.24  Số tiền đóng góp và yêu cầu về nguồn lực
+Tổng CM
+Hạn chế:

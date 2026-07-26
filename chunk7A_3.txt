@@ -1,0 +1,208 @@
+Was the system accessed by the people who are authorized to do so?
+Was the system accessed at odd times or near the closing period?
+Was the system accessed with higher frequency at some time intervals?
+Were two or more systems being accessed by a person whose
+responsibilities do not allow him or her to do so due to separation of
+duties?
+Were systems accessed by a group of people whose hours of accessing
+the system matched, however, they typically don't access systems at
+the same time?
+In their impressive work, Jans et al. (2013) made a strong case for using
+process mining in audit and argued the value creation potential of using
+process mining. They presented the following four key attributes of process
+mining:
+1. Process mining analyzes the entire population of data and not just a
+sample.
+2. Critically that data consists of meta‐data – data entered independently
+of the actions of auditee – and not just data entered by the auditee.
+3. Process mining allows the auditor to have a more effective way of
+implementing the audit risk model by providing effective ways of
+conducting the required walk throughs of processes and conducting
+analytic procedures.
+4. Process mining allows the auditor to conduct analyses not possible
+with existing audit tools, such as discovering the ways in which
+business processes are actually being carried out in practice, and to
+identify social relationships between individuals.
+Process mining can be used to identify processes from beginning to end –
+giving a comprehensive view of how a process moves through the
+company's systems and laying out the audit trail. Van der Aalst et al. (2010)
+outline the capabilities of process mining as being able to provide business
+provenance by ensuring traceability, process discovery by identifying
+
+frequent patterns, and being able to compare an a priori model with the
+event logs and vice versa.
+Data‐Centric Analysis
+Data‐centric internal control analysis refers to analyzing the transactional
+data to assess internal controls and to performing actual substantive
+procedures and testing. This data includes that which resides in accounting
+systems and that becomes the source of information used to construct the
+financial statements supplied by the management. These are the general
+analysis, such as budgets, reports, business intelligence, business analytics,
+and other management information reporting. In human‐led control
+structures, these reports are the life‐blood of decision‐making.
+In an automated world, some of that decision‐making will no longer be
+performed by humans. Much of this will be discussed in the next chapter.
+However, for this chapter it is important to consider that a computerized
+financial system is made up of transactional data, the underlying processes
+and structures, and the human who enters data or makes decisions outside
+of the system. These decisions could be about how to treat a transaction, or
+what/how to reconcile, or how to record an entry. But while the human
+decision‐making can be considered as outside the system, since it happens
+in the human mind, those decisions impact what transpires in the
+computerized financial system. We, the humans, are both part of the system
+and exist outside of it. As we move ahead with the AI revolution, we may
+need to think differently about viewing what goes on in the human mind as
+external to the system and instead include those thoughts, decisions, and
+cognitive frameworks as part of the system. This broadening of the system
+concept happens as cognitive frameworks and decision‐making is
+transferred from human mind and embedded in the financial system.
+Data + Metadata
+The addition of machine learning to process mining is a great innovation for
+audit. When combined, both can produce continuous, automated, and
+integrated audit. Six years after proposing the use of process mining, Jans,
+with another author, proposed the use of machine learning with process
+mining (Jans and Hosseinpour, 2019). The idea of machine learning comes
+from the fact the process mining creates an extremely large number of
+
+exceptions. These exceptions are then interpreted by humans and marked as
+“of interest” and “not of interest.” The exceptions provide a huge source of
+learning data, such that the machine can learn how to classify the output of
+process mining data. In fact, human‐classified data provides a perfect set of
+examples needed to teach machines how to identify good versus
+unacceptable patterns. Using the classification algorithms, the machine can
+identify patterns and generalize its learning to recognize previously
+unknown anomalous patterns.
+CONTROL ACTIVITIES
+Unlike the control environment assessment, which focused on the passive
+factors of internal controls, control activities focus on actions and activities
+related to ensuring that internal controls are implemented, and that board
+and management directives are followed about internal controls. The goal
+of evaluation of control activities (McNally, 2013) is to ensure that the
+organization
+Selects and develops control activities
+Selects and develops general controls over technology
+Deploys policies and procedures
+The goal of intelligent automation is to automate the evaluation of the
+achievement of the above three goals automatically.
+Selects and Develops Control Activities
+The selection and development of control activities is a function of the risks
+identified. Every significant risk requires controls so that the overall goal of
+ensuring that risk of material misstatement for all relevant assertions is
+effectively managed. In some ways, controls serve the preventative role.
+Frauds and errors should be detected and corrected before they enter the
+financial system.
+The selection and development of controls can be viewed as establishing a
+link between each significant risk and the preventative process designed to
+block fraud and error entering the financial system. This preventative
+
+process is composed of activities that are embedded in the workflows and
+business processes. For example, hiring the right people, establishing
+separation of duties, developing limits on transaction sizes, implementing
+approvals in the workflow, and limiting access to systems are some of the
+key activities undertaken.
+In the context of modernization of audit, there are two ways to determine
+whether management is actively selecting and developing controls and
+therefore actively engaging in control activities.
+The first is the direct evidence obtained in response to the known risks
+evaluation. This evidence is not based upon questionnaires but is
+acquired directly (as discussed in the previous section) and it shows
+whether the management has done a good job in preparing the
+organization to prevent material errors and fraud finding their way into
+the accounting systems.
+The second is to understand the management's ability and preparation
+for unknown or unanticipated emergent risks that can arise rapidly and
+lead to a material event. Since the auditor's focus is primarily on the
+historical information, one can question the need for including this in
+the assessment. The reason for that is simple. Even if we ignore the
+direct benefits for assessing the potential versus known risk‐centric
+evaluation, the fact that management is engaging in understanding
+potential risks is on its own an indication of management being
+responsible and active in preventative response.
+The model implies establishing a context‐sensitive model that offers a
+relationship between risks and preventative response processes. In many
+cases there will be similarities between various approaches and risks. An
+assertion risk may call for a specific functional separation of duties – for
+instance, in accounts payable, purchasing, and receiving – regardless of the
+company. In other cases, risks may require new, customized, or creative
+preventative responses. Most auditing operates with existing models, what
+van der Aalst et al. calls de jure models that “describe a desired or required
+way of working,” in contrast to de facto models that “aim to describe reality
+with potential violations of the boundaries defined in de jure models” (van
+der Aalst et al., 2011, 2010). Hence, we can assume that the de jure model
+
+results from the knowledge of what works and what doesn't work. In this
+case, they come from auditor's knowledge of a certain preventative control
+being an effective mitigation to a certain specific risk. This implies that an
+ontology of risks and preventative measures can be created, which
+essentially can be transformed into a set of rules that can be invoked or
+checked against for an audit.
+The machine learning – centric automation for control activities automation
+refers to two applications:
+1. The application that studies new risk patterns and suggests mitigation
+strategies. This can be a combination of both unsupervised (clustering)
+and supervised (classification) approaches. The job of this application
+is to update the existing de jure models. Whether that update happens
+via learning or updating existing rules, risk‐response patterns
+recognition is the core capability needed to propose and develop
+effective control activities in response to emerging risk patterns.
+2. The application that incorporates the above learning and compares it to
+de facto situations. This is done from a combination of “metadata +
+data” analysis, as discussed in the previous section. Van der Aalst et al.
+clarified that concept when they said, “It is possible to promote a de
+facto model to a de jure one. A comparison showing that the actual
+process execution is inconsistent with the standard preexisting model
+may motivate an update of the de jure model” (van der Aalst et al.,
+2010). What machine learning does is to explore the inconsistency
+between the de jure model and the de facto model and then if it finds
+the de facto model more effective, it updates the de jure model. The
+learning can happen from at least three sources: (1) historical data
+from previous audits; (2) auditor (human)‐provided knowledge base
+where the auditor provides examples of an effective response; and (3)
+the system is designed with a critic that can simulate the risk scenarios
+and critique the strategies used to prevent and counter the risks in
+terms of a goal structure. This design will generally require the use of
+reinforcement learning.
+
+Selects and Develops Controls Over Technology
+Control activities related to technology were addressed by van der Aalst et
+al. (2011) in which they proposed the concept of an oversight system being
+created to monitor another system. They clarified that a control is “an
+automated task in the information system aimed at the prevention of
+violations of certain business rules. These controls are strongly related to
+the functions of the information system” and then cautioned that “often
+business rules are generic (i.e., not bound to a specific business context).”
+The process of management deploying controls over information
+technology is being achieved by continuous controls monitoring (CCM).
+CCM is a collection of tools that extract data from databases and scans for
+separation of duties, authorizations, breaches, errors, anomalies, size limits
+of transactions, etc. These controls are embedded within the technology.
+Technology access controls are also important considerations. Separation of
+duties can be ascertained from the reports about who logged into systems.
+Ensuring that only those people who are authorized to access the systems
+do so is essential for establishing a better controls environment.
+The advent of AI will have three important impacts on this area. First, two
+types of analysis – predictive and prescriptive – are added to the
+deterministic, rule‐based anomaly detection of CCM. This means that the
+system not only analyzes data from databases, it uses the data to learn about
+breaches and hence predicts them and offers prescriptive remedies to
+counter the threats. The second impact is that significantly larger amounts
+of data can be processed and deployed in deep learning – centric
+architecture. This enables detecting frauds and errors that are not easily
+detectable. Third, AI's introduction will lead to control redesign and
+weakening of existing controls. Intelligent systems are deployed not only by
+those who are trying to protect a firm, but also by those who don't mean
+well. This means that intelligent controls will be needed.
+Consider the fact that our transactional (deterministic) systems have a
+source of concern for us from a controls perspective – imagine the arrival of
+intelligent machines in our organization. How will we manage and control
+them? The advent of AI will further exacerbate the problem of controls.
+This topic is covered in Chapter 18 of this book.
+
+Deploys Policies and Procedures
+The policies and procedures are scanned and using natural language
+processing analyzed to determine if they comply with the risk types
+identified for the client firm. For instance, frequency of key words can
+classify documents into various areas of controls and determine if there was
+proper coverage of each area of controls. For instance, using the Term
+Frequency – Inverse Document Frequency (TF‐IDF) method, documents
+can be analyzed and classified based upon importance and coverage.

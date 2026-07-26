@@ -1,0 +1,407 @@
+C H A P T ER 9
+Truyền dữ liệu 
+Kết quả phân tích
+Xem trước chương
+Bước cuối cùng trong quy trình phân tích dữ liệu là giải thích kết quả phân tích của chúng tôi và 
+những hàm ý. Cho dù mục tiêu là thông báo hay thuyết phục thì việc truyền đạt kết quả một cách hiệu quả là 
+quan trọng. Nếu đối tượng mục tiêu không hiểu thông tin thì không thành vấn đề 
+việc phân tích được thực hiện tốt như thế nào.
+	
+Kết quả phân tích dữ liệu có thể được truyền đạt thông qua các bản ghi nhớ, báo cáo hoặc thuyết trình, 
+kể tên một số phương pháp Bất kể hình thức truyền thông nào, việc phân tích đều phải được hỗ trợ 
+sử dụng trực quan hóa dữ liệu, câu chuyện dữ liệu hoặc trực quan hóa dữ liệu tương tác. Chương này tập trung 
+về các phương pháp hay nhất cho các hình thức giao tiếp phân tích dữ liệu phổ biến mà bạn sẽ gặp trong 
+sự nghiệp kế toán của bạn, bao gồm việc chuẩn bị trực quan hóa dữ liệu hiệu quả (cả tĩnh và liên
+hoạt động) và tạo các câu chuyện dữ liệu.
+Báo cáo
+Giai đoạn 3
+Báo cáo
+Giai đoạn 3
+giao tiếp
+tôi
+C
+Xác minh quá trình
+và kết quả
+Giải thích kết quả
+và của họ
+ý nghĩa
+Phiên dịch
+Phân tích
+Giai đoạn 2
+Phân tích
+M
+ồ
+S
+A
+Hiểu
+lý do cho
+phân tích dữ liệu
+1. Chuẩn bị dữ liệu
+2. Xây dựng thông tin
+    mô hình
+3. Khám phá dữ liệu
+Xác định
+mục tiêu và cụ thể
+đặt câu hỏi
+phân tích sẽ
+câu trả lời
+Thiết kế dữ liệu
+và phân tích
+chiến lược
+kế hoạch
+Giai đoạn 1
+Chiến lược
+Mục tiêu
+Động lực
+9-0
+
+Cái nhìn sâu sắc chuyên nghiệp: Kiến thức trực quan hóa dữ liệu có thể 
+Phân biệt bạn với đám đông?
+Jenna là sinh viên kế toán cao cấp vừa hoàn thành khóa thực tập kiểm toán tại một công ty lớn. 
+công ty kế toán quốc tế.
+Một trong những điều rút ra được lớn nhất của tôi là mức độ giao tiếp chất lượng cao 
+được công ty thực tập của tôi đánh giá cao. Điều này đặc biệt đúng khi nói đến giao tiếp
+ra kết quả phân tích dữ liệu.
+Tôi là thực tập sinh duy nhất của khách hàng kiểm toán có kinh nghiệm sử dụng trực quan hóa dữ liệu.
+phần mềm hoạt động. Tôi đã có thể tạo trực quan hóa dữ liệu cho bản trình bày mà 
+nhóm chuẩn bị cho khách hàng. Kết quả là tôi được mời tham dự buổi thuyết trình. 
+Việc tham gia vào cuộc họp với khách hàng cho phép tôi tương tác với đối tác trên 
+kiểm toán. Tôi tin rằng nó thực sự đã giúp tôi nổi bật so với các thực tập sinh khác và là một trong những 
+lý do tôi được mời làm việc toàn thời gian.
+Lộ trình chương
+MỤC TIÊU BÀI HỌC
+ÁP DỤNG NÓ
+ LO 9.1   Giải thích cách dữ liệu 
+câu chuyện truyền đạt dữ liệu qua đường hậu môn-
+kết quả ysis.
+• Phát triển kiến thức dữ liệu
+• Giao tiếp hiệu quả
+• Kể một câu chuyện dữ liệu
+Kế toán giao tiếp 
+Thông tin
+(Ví dụ: Tài chính 
+Kế toán) 
+ LO 9.2   Tóm tắt các bước 
+để tạo dữ liệu hiệu quả 
+trực quan hóa.
+• Xác minh dữ liệu
+• Xem xét khán giả
+• Xác định mục tiêu
+Kết hợp mục tiêu với 
+Các loại trực quan
+(Ví dụ: Kiểm toán) 
+ LO 9.3   Mô tả đặc điểm
+cơ sở dữ liệu hiệu quả 
+trực quan hóa.
+• Sử dụng nguyên tắc nhận thức thị giác
+• Xem xét các thuộc tính quan tâm trước
+• Tránh lộn xộn
+• Sử dụng các phương pháp hay nhất dành riêng cho hình ảnh hóa
+Đánh giá trực quan
+(Ví dụ: Quản lý 
+Kế toán) 
+ LO 9.4   Nhận biết sai lệch 
+trực quan hóa dữ liệu.
+• Bỏ qua đường cơ sở
+• Thao tác với trục Y
+• Đi ngược lại quy ước
+• Chọn lọc dữ liệu
+• Sử dụng biểu đồ sai
+Xác định dữ liệu sai lệch 
+Trực quan hóa
+(Ví dụ: Quản lý 
+Kế toán) 
+ LO 9.5   Tạo tính tương tác 
+trình bày trực quan hóa dữ liệu.
+• Các phương pháp hay nhất cho bài thuyết trình trực tiếp
+• Tạo trực quan hóa dữ liệu tương tác
+Tạo một tương tác 
+Trực quan hóa
+(Ví dụ: Tài chính 
+Kế toán) 
+Dữ liệu   Thẻ Dữ liệu xuất hiện trong chương khi dữ liệu cho một ví dụ, hình minh họa hoặc ứng dụng được  
+có sẵn trên nền tảng học tập trực tuyến của Wiley.
+Phần mềm phân tích dữ liệu liên tục thay đổi và có thể có nhiều phiên bản phần mềm mới hơn.
+được đưa ra trong chương này. Để biết thêm thông tin, hãy truy cập video đi kèm trên nền tảng học tập trực tuyến của Wiley. 
+Chương Lộ trình  9-1
+
+9-2  CHƯƠNG 9  Truyền đạt kết quả phân tích dữ liệu
+Theo cách nói của 
+Nhà kinh tế trưởng Hal Varian của Google, một “kỹ năng cực kỳ quan trọng”.1 Điều này đặc biệt quan trọng 
+dành cho những kế toán viên thường xuyên truyền đạt kết quả phân tích dữ liệu cho nhiều bên liên quan. 
+Phát triển kiến thức dữ liệu
+Việc truyền đạt hiệu quả những phát hiện này đòi hỏi kiến thức về dữ liệu, đó là khả năng hiểu rõ
+đứng và truyền đạt dữ liệu. Tại sao kiến ​​thức dữ liệu lại quan trọng đến vậy? Nghiên cứu trực quan hóa dữ liệu 
+công ty phần mềm Qlik và công ty tư vấn Accenture nhận thấy rằng 63% nhân viên sử dụng dữ liệu 
+đưa ra quyết định ít nhất mỗi tuần một lần.2 Hơn nữa, một nghiên cứu khác của công ty tư vấn McKinsey 
+& Company nhận thấy rằng những công ty có nhân viên thường xuyên sử dụng dữ liệu trong quá trình ra quyết định 
+có nhiều khả năng báo cáo mức tăng trưởng doanh thu hơn 10% trong ba năm qua.3
+Dữ liệu Hãy sử dụng một ví dụ để minh họa khả năng hiểu biết về dữ liệu. Hãy tưởng tượng bạn là một nhân viên kế toán 
+Huskie Motor Corporation (HMC).4 HMC là nhà sản xuất ô tô quốc tế 
+sản xuất và bán ô tô tại 15 quốc gia. Các quốc gia được nhóm thành ba khu vực – Châu Âu, 
+Bắc Mỹ và Nam Mỹ (Minh họa 9.1).
+9.1  Chúng ta kể một câu chuyện dữ liệu như thế nào?
+MỤC TIÊU HỌC TẬP ➊
+Giải thích cách câu chuyện dữ liệu truyền đạt kết quả phân tích dữ liệu.
+1McKinsey & Company, 2009. Hal Varian về việc Web thách thức các nhà quản lý như thế nào. https://www.mckinsey.com/
+các ngành/công nghệ-truyền thông và viễn thông/thông tin chi tiết của chúng tôi/hal-varian-on-how-the-web-thách thức-
+người quản lý (truy cập vào tháng 7 năm 2022). 
+2Qlik và Accenture. 2020. Tác động của con người đối với kiến ​​thức dữ liệu. Dự án kiến ​​thức dữ liệu. https:// 
+thedataliteracyproject.org/humanimpact (truy cập vào tháng 7 năm 2022). 
+4Ann C. Dzuranin, Johan Perols và Dana L. Hart, “Huskie Motor Corporation: Hình dung hiện tại và 
+Dự đoán Tương lai,” Tạp chí Trường hợp Giáo dục IMA, Tập 11 Số 2, 2018, bit.ly/3qHsGS2. ©2022, 
+Viện Kế toán Quản trị, www.imanet.org. Được sử dụng với sự cho phép.
+3QuantamBlack AI của McKinsey, 2019. Hãy nắm bắt chúng nếu bạn có thể: những người dẫn đầu về dữ liệu và phân tích đã thu hút như thế nào 
+phía trước. https://www.mckinsey.com/business-functions/quantumblack/our-insights/catch-them-if-you-can-
+cách các nhà lãnh đạo về dữ liệu và phân tích đã tiến lên phía trước (truy cập vào tháng 7 năm 2022).
+MINH HỌA 9.1  Huskie 
+Tổng công ty ô tô (HMC) 
+Hoạt động quốc tế
+Châu Âu
+Bắc Mỹ
+Nam Mỹ
+Pháp
+Canada
+Argentina
+nước Đức
+México
+Bôlivia
+Ba Lan
+Hoa Kỳ
+Brazil
+Tây Ban Nha
+Chilê
+Thụy Điển
+Colombia
+Vương quốc Anh
+Venezuela
+MINH HỌA 9.2  Thương hiệu HMC 
+và Người mẫu
+Thương hiệu
+apechete
+Jackson
+Tatra
+Người mẫu
+Chare
+tàn bạo
+Lợi thế
+đảo
+mấu chốt
+nở hoa
+Sỏi
+vĩ cầm
+Jespie
+Robin
+nổi loạn
+máy đo thời gian
+mùa hè
+Gỗ
+Người nói huyên thuyên
+HMC có ba nhãn hiệu xe và mỗi nhãn hiệu có năm mẫu xe riêng biệt (Minh họa 9.2).
+
+9.1  Chúng ta kể một câu chuyện dữ liệu như thế nào?  9-3
+Bạn được yêu cầu chuẩn bị một bản phân tích về xu hướng bán hàng theo tháng của mỗi thương hiệu. 
+Hình minh họa 9.3 cung cấp thông tin bán hàng theo nhãn hiệu cho từng tháng nhưng nó có thể hiện những gì 
+bạn cần hiểu về xu hướng bán hàng?
+MINH HỌA 9.3  Tổng HMC 
+Doanh số theo thương hiệu
+2,4 triệu USD
+4,3 triệu USD
+6,5 triệu USD
+0,2 triệu USD
+1,2 triệu USD
+2,2 triệu USD
+3,4 triệu USD
+0,2 triệu USD
+2,5 triệu USD
+1,2 triệu USD
+4,6 triệu USD
+2,3 triệu USD
+2,3 triệu USD
+1,2 triệu USD
+2,4 triệu USD
+1,2 triệu USD
+2,4 triệu USD
+1,2 triệu USD
+2,6 triệu USD
+1,7 triệu USD
+2,7 triệu USD
+1,6 triệu USD
+2,2 triệu USD
+1,4 triệu USD
+2,5 triệu USD
+2,8 triệu USD
+3,7 triệu USD
+1,3 triệu USD
+2,0 triệu USD
+2,9 triệu USD
+3,2 triệu USD
+3,7 triệu USD
+3,5 triệu USD
+3,2 triệu USD
+2,9 triệu USD
+1,9 triệu USD
+tháng Giêng
+tháng hai
+tháng ba
+tháng tư
+tháng 5
+tháng sáu
+tháng bảy
+tháng Tám
+tháng chín
+tháng mười
+tháng mười một
+tháng mười hai
+apechete
+Xu hướng tổng doanh thu theo thương hiệu:
+2024–2025 (triệu USD)
+Jackson Tatra
+Phân tích bảng này sẽ xác định tháng nào có doanh thu cao nhất và tháng nào có doanh thu cao nhất. 
+thấp nhất. Việc chuẩn bị một biểu đồ đường cũng sẽ thực hiện được điều tương tự (Minh họa 9.4).
+MINH HỌA 9.4  Tổng HMC 
+Biểu đồ đường xu hướng bán hàng
+3,0 triệu USD
+3,5 triệu USD
+4,0 triệu USD
+4,5 triệu USD
+5,0 triệu USD
+5,5 triệu USD
+6,0 triệu USD
+6,5 triệu USD
+7,0 triệu USD
+2,0 triệu USD
+2,5 triệu USD
+1,0 triệu USD
+1,5 triệu USD
+0,0 triệu USD
+0,5 triệu USD
+Tổng doanh thu
+Tháng
+Tổng doanh thu theo thương hiệu: 2024–2025 (Triệu đô la)
+tháng Giêng.
+Tháng Hai
+Tháng ba.
+Tháng Tư.
+tháng 5
+Tháng Sáu.
+Tháng Bảy.
+Tháng 8
+Tháng 9
+Tháng 10
+Tháng 11
+Tháng mười hai
+Thương hiệu
+apechete
+Jackson
+Tatra
+Biểu đồ trong Hình 9.4 thể hiện rõ hơn xu hướng bán hàng:
+• Tháng 3 là tháng có lượng bán ra cao nhất và tháng 4 là tháng có lượng bán ra thấp nhất.
+• Doanh số bán hàng đạt đỉnh trở lại vào tháng 6 đối với thương hiệu Apechete và Jackson, sau đó chững lại đối với thương hiệu Apechete và Jackson. 
+phần còn lại của năm.
+• Thương hiệu Tatra có doanh số tăng từ tháng 4 đến tháng 8.
+Mặc dù các số liệu trong Hình minh họa 9.3 có thể được sử dụng để xác định xu hướng bán hàng nhưng sẽ dễ dàng hơn để 
+làm như vậy với Hình minh họa 9.4. Bởi vì kỹ năng hiểu biết về dữ liệu là cần thiết để lập kế hoạch thành công-
+Trong sự nghiệp, chương này xem xét kỹ năng hiểu biết về dữ liệu trong việc truyền đạt kết quả phân tích dữ liệu.
+
+9-4  CHƯƠNG 9  Truyền đạt kết quả phân tích dữ liệu
+Giao tiếp hiệu quả
+Bước cuối cùng trong quá trình phân tích dữ liệu là tóm tắt những phát hiện của dự án và trao đổi.
+giới thiệu chúng tới đối tượng mục tiêu. Điều này đòi hỏi phải giải thích ý nghĩa của dữ liệu bằng cách 
+viết ghi nhớ hoặc báo cáo hoặc chuẩn bị bài thuyết trình giải thích kết quả phân tích dữ liệu 
+rõ ràng và ngắn gọn. Điều này không dễ dàng và cần phải thực hành. Báo cáo kết quả một cách hiệu quả 
+phân tích dữ liệu đòi hỏi phải có nhận thức về khán giả, tập trung vào thông điệp, đưa ra 
+thông điệp trong ngữ cảnh và đảm bảo nó được trình bày rõ ràng dưới dạng một câu chuyện hấp dẫn. 
+Hiểu khán giả
+Bạn đã bao giờ tham dự một buổi thuyết trình mà người thuyết trình không cung cấp đủ thông tin cơ bản 
+thông tin để bạn hiểu chủ đề? Giống như bước vào một lớp vật lý nâng cao 
+khi bạn chưa bao giờ tham gia một khóa học vật lý. Hiểu người mà chúng ta đang giao tiếp 
+là rất quan trọng. Khán giả (hoặc người đọc) phải được cung cấp đủ thông tin cơ bản và giải thích.
+ý để theo dõi phần trình bày.
+ÁP DỤNG TƯ DUY PHIẾU 9.1: Xác định đối tượng
+Khi truyền đạt kết quả phân tích dữ liệu, việc xác định các bên liên quan của phân tích là một 
+bước quan trọng đầu tiên. Họ là đối tượng mà bạn đang giao tiếp (Các bên liên quan):
+• Các bên liên quan nội bộ có thể sẽ biết một số thông tin bạn đang truyền đạt.
+• Khi giao tiếp với các bên liên quan bên ngoài, hãy cân nhắc thông tin nào họ sẽ tìm thấy nhiều nhất 
+phù hợp và tập trung vào đó.
+Biết được khán giả bao gồm các bên liên quan bên trong hay bên ngoài sẽ có thể 
+phát triển giao tiếp phù hợp và dễ hiểu. Trong ví dụ về HMC, nếu 
+giao tiếp dành cho các bên liên quan nội bộ như quản lý công ty, có thể giả định một cách an toàn 
+họ sẽ có kiến thức về nền tảng của công ty. Trong khi đó, nếu bài thuyết trình dành cho 
+các bên liên quan bên ngoài như nhà đầu tư, nó nên bao gồm nhiều thông tin cơ bản hơn về 
+công ty.
+Tập trung vào tin nhắn
+Kế toán rất thoải mái khi đọc và giải thích các con số nên dễ dàng chỉ tập trung vào 
+các con số khi truyền đạt phân tích dữ liệu. Tuy nhiên, khán giả có thể tương tác nhiều hơn
+được thiết lập trong mối quan hệ giữa các con số và thông điệp. Ví dụ, nếu mục tiêu 
+của việc phân tích là xác định xu hướng chi phí, đảm bảo thông tin liên lạc giải thích được xu hướng 
+và không chỉ tập trung vào số lượng.
+Đặt nó trong bối cảnh
+Gợi ý thứ ba để giao tiếp hiệu quả là đưa dữ liệu vào bối cảnh hoặc quan điểm. 
+Có hai khía cạnh đối với bối cảnh khi truyền đạt kết quả phân tích dữ liệu:
+	 1. Bối cảnh của mục đích tổng thể của việc phân tích. Mục đích là để thông báo hoặc thuyết phục 
+khán giả?
+	 2. Bối cảnh của các phân tích riêng lẻ. Các phân tích có dựa trên tất cả dữ liệu của công ty hay không? 
+chỉ một khoa thôi à? Số liệu được tính bằng đô la hay hàng triệu?
+Khi truyền đạt kết quả phân tích dữ liệu, hãy cung cấp cho khán giả thông tin họ cần để hiểu rõ.
+đứng vững bối cảnh của phân tích. Chúng ta sẽ thảo luận về các khía cạnh khác của bối cảnh trong suốt chương này.
+Phấn đấu cho sự rõ ràng
+Gợi ý thứ tư để truyền đạt phân tích dữ liệu hiệu quả là đảm bảo rằng cộng đồng
+tốt đẹp là dễ hiểu. Thực hiện điều này bằng cách giải thích rõ ràng dữ liệu và kết quả trong
+
+9.1  Chúng ta kể một câu chuyện dữ liệu như thế nào?  9-5
+tường thuật về giao tiếp và bao gồm cả hình ảnh trực quan hiệu quả. Gợi ý cuối cùng cho 
+giao tiếp hiệu quả là thu hút khán giả bằng một câu chuyện đáng nhớ.
+Kể một câu chuyện dữ liệu
+Con người đã truyền đạt kiến thức và thông tin bằng cách sử dụng những câu chuyện trong hàng ngàn năm–
+chúng là một phần không thể thiếu trong giao tiếp của con người. Trên thực tế, tâm trí con người được kết nối để hấp thụ 
+những câu chuyện. Nghiên cứu đã chỉ ra rằng khi chúng ta nghe hoặc đọc một câu chuyện, bộ não của chúng ta được kích hoạt. các 
+phần cảm xúc của não tiết ra các chất hóa học để kích thích cảm giác kết nối, khen thưởng và 
+sự công nhận.5 Nói cách khác, một câu chuyện tạo ra cả phản ứng về thể chất và cảm xúc. Nghiên cứu 
+cũng đã chỉ ra rằng các sự kiện sẽ đáng nhớ hơn tới 22% khi chúng là một phần của câu chuyện.6 Vì vậy, 
+cách kể chuyện có thể giúp truyền đạt kết quả phân tích dữ liệu như thế nào?
+Yếu tố câu chuyện dữ liệu
+Có ba yếu tố trong một câu chuyện dữ liệu – dữ liệu, tường thuật và hình ảnh (Minh họa 9.5).
+5Tâm lý học ngày nay, 2011. Rutledge, P. Sức mạnh tâm lý của việc kể chuyện. https://www.psychologytoday.
+com/us/blog/ Positively-media/201101/the-psychological-power-storytelling (truy cập vào tháng 7 năm 2022).
+6Forbes, 2015. Harrison, K. Một bài thuyết trình hay là về dữ liệu và câu chuyện. https://www.forbes.com/sites/
+kateharrison/2015/01/20/a-good-trình bày-is-about-data-and-story/#1f9a2f54450f (truy cập vào tháng 7 năm 2022). 
+8Thermopylae Sciences and Technology, 2014. Con người xử lý dữ liệu trực quan tốt hơn. https://www.t-sciences.
+com/news/humans-process-visual-data-better (truy cập vào tháng 7 năm 2022). 
+MINH HỌA 9.5  Các yếu tố của 
+Kể chuyện hiệu quả
+dữ liệu
+Tường thuật
+Tường thuật
+Hình ảnh
+Hình ảnh
+dữ liệu
+Tường thuật
+dữ liệu
+dữ liệu
+Giải thích
+Khai sáng
+Hình ảnh
+Tường thuật
+Hình ảnh
+Tương tác
+Tác giả cuốn Kể chuyện bằng dữ liệu hiệu quả, Brent Dykes, mô tả cách các yếu tố này 
+kết hợp để giải thích, khai sáng và thu hút khán giả:7
+• Sự giao thoa giữa dữ liệu và tường thuật giải thích câu chuyện dữ liệu. Lời tường thuật của câu chuyện
+cung cấp bối cảnh và bình luận cần thiết để hiểu kết quả phân tích. Nó 
+cung cấp cấu trúc cho dữ liệu và hướng dẫn người đọc hiểu ý nghĩa của việc phân tích.
+• Dữ liệu cũng kết hợp với hình ảnh để giúp người đọc hiểu rõ hơn. Trực quan hóa 
+dữ liệu tiết lộ các mô hình hoặc xu hướng có thể không được chú ý nếu không có sự trợ giúp của trực quan-
+hóa. Trên thực tế, con người xử lý hình ảnh trực quan nhanh hơn 60.000 lần so với văn bản.8
+• Cuối cùng, việc kết hợp tường thuật với hình ảnh sẽ thu hút khán giả vào câu chuyện. Một câu chuyện hay 
+có thể thu hút sự chú ý của người đọc và tăng khả năng hành động.
+Ngoài việc bao gồm ba yếu tố này, một câu chuyện dữ liệu tốt phải được cấu trúc một cách hiệu quả.
+Cấu trúc câu chuyện dữ liệu
+Hầu hết các câu chuyện đều có cấu trúc tương tự nhau. Họ giới thiệu các nhân vật và dựng bối cảnh, sau đó là 
+một loạt các sự kiện xây dựng đến thời điểm quan trọng nhất hoặc khí hậu nhất của câu chuyện. Theo đoạn cao trào 
+của câu chuyện, phần còn lại của các sự kiện sẽ sáng tỏ cho đến khi xung đột được giải quyết và câu chuyện kết thúc.
+7Đê, B. (2020). Kể chuyện hiệu quả: Cách thúc đẩy sự thay đổi bằng dữ liệu, tường thuật và hình ảnh. Hoboken, 
+NJ: Wiley.
+
+9-6  CHƯƠNG 9  Truyền đạt kết quả phân tích dữ liệu
+Đi theo mạch kể chuyện được mô tả trong Hình minh họa 9.7 là một cách đơn giản và hiệu quả

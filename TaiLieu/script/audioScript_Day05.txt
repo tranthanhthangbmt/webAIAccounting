@@ -1,0 +1,132 @@
+Chào mừng các bạn sinh viên đến với bài giảng Muôn trí tuệ nhân tạo ứng dụng trong kế toán. Hôm nay chúng ta học buổi năm với nội dung quản trị rủi ro quyết định và phát triển sản phẩm mới. Tài liệu tham khảo chương 12 và chương 14 file buổi 05A và buổi 05.
+Ờ xin chào mọi người. Hôm nay chúng ta có một chủ đề thực sự là rất hấp dẫn.
+Được rồi. Chúng ta hãy cùng bóc tách vấn đề này. Bình thường khi mà chúng ta làm việc với các báo cáo tài chính thì mọi thứ nó đều rất là giành mạch đúng không chị?
+Đúng. Thế các con số trên giấy tờ thì nó luôn có logic rõ ràng của nó.
+Nhưng mà hôm nay hãy bước ra khỏi những con số đó một chút. Hãy tưởng tượng một cái tình huống thực tế như thế này. Ờ một chuối bán lẻ công nghệ khổng lồ đi. Nửa đêm họ đột nhiên nhận được thông báo là nguồn cung của cái chiếc smartphone đang hot nhất mùa sẽ bị cắt giảm một nửa.
+Chà, một cơn ác mộng thực sự với bộ phận vận hành đấy.
+A, tuần sau em trả hàng hay là treo biển hết hàng và cứ thế đứng nhìn doanh phú bốc hơi?
+Nó không chỉ là bài toán vận hành nữa đâu mà đó là đỉnh cao. của sự bất định trong kinh doanh rồi.
+Chuẩn luôn. Và nhiệm vụ của buổi phân tích show hôm nay là tìm hiểu xem trí tuệ nhân tạo có thể biến cái vùng nước đục của sự bất định đó thành những cái rủi ro có thể tính toán được như thế nào.
+Nếu chúng ta liên kết điều này với bức tranh toàn cảnh thì quản trị kinh doanh và kế toán hiện đại nó đã vượt xa khỏi cái việc chỉ cộng trừ những gì xảy ra trong quá khứ rồi. Trọng tâm hiện tại của chúng ta là làm sao để kiểm soát được tương lai?
+Một cái tham vọng rất lớn nhỉ?
+Chắc chắn rồi. Và để đối phó với những tình huống hỗn loạn kiểu như là thiếu hột nguồn cung hay rủi ro khi tung ra sản phẩm mới, chúng ta cần đến những công cụ cực kỳ quyền lực của AI từ thuật toán rừng ngẫu nhiên, Random Forest cho đến những thử nghiệm nhân quả thông qua AB testing.
+Vậy thì hãy bắt đầu với cái cơn ác mộng mà chuỗi bán lẻ kia đang gặp phải trước đi. Sự thiếu hụt hàng hóa hay trong ngành người ta hay gọi là back order. Khái niệm này ban đầu nghe qua thì có vẻ vô hại.
+Nghe thì có vẻ giống một chiến lược giữ chân khách hàng đúng không?
+Đúng rồi. Kiểu như doanh nghiệp không có sẵn hàng nhưng mà vẫn nhận tiền hoặc là nhận đơn rồi hứa là à vài hôm nữa có hàng tôi sẽ giao. Nhìn từ bên ngoài thì có vẻ bình thường
+nhưng thực tế thì nó là một mồi lửa đấy. Một mồi lửa châm ngòi cho sự sụp đổ niềm tin. Dữ liệu thực chứng chỉ ra rằng back order nó gây ra thiệt hại âm ỷ nhưng mà ờ cực lớn trong giải hạn.
+Tức là người mua họ không dễ dàng chấp nhận việc chờ đợi.
+Chính xác. Những người tiêu dùng mà từng trải qua cái cảm giác chập chờ bị chậm giao hàng ấy thì tỉ lệ họ quay lại mua sấm ở cửa hàng đó sẽ giảm đi đáng kể. Doanh nghiệp có thể giữ được cái đơn hàng của ngày hôm nay nhưng mà vĩnh viễn mất đi khách hàng đó trong tương lai. Thật sự là một cái giá quá đắt. Mà không chỉ là mất khách đâu, sự thiếu hụt này nó còn tạo ra một cái thảm hoại dây chuyền kinh điển có tên là hiệu ứng trước roi da BL whip effect.
+Ồ, hiệu ứng này thì quá nổi tiếng trong quản trị trị chuỗi cung ứng rồi.
+Nó nó giống hệt như cái trò chơi Tam Sao Thất Bản ấy. Nhưng mà ở quy mô công nghiệp, chị hãy nhớ lại đợt thiếu hụt giấy vệ sinh trên toàn cầu vài năm trước đi.
+Nhớ chứ. Lúc đó ai cũng hoảng loạn đi vơ vét siêu thị.
+Đúng đấy. Bắt đầu thì chỉ từ việc ừ một số lượng rất nhỏ khách hàng mua dư ra một hai lốc giấy thôi. Nhưng mà siêu thị thấy cậy hàng chống trơn họ bắt đầu hoảng hốt. Thế là họ làm gì? Họ đặt gấp đôi số lượng từ nhà phân phối.
+Và khi nhà phân phối nhận được cái đơn hàng khổng lồ bất thường đó, họ lại suy diễn là ồ nhu cầu thị trường đang bùng nổ rồi, thế là họ lập túc đặt gấp bốn lần từ nhà máy sản xuất.
+Đấy, một tiếng thi thầm rất cẩn thọng của khách hàng. Qua vài rước trung gian, nó biến thành một tiếng hét hoảng loạn ở cuối chuỗi cung ứng. Kết quả là các nhà máy hoạt động hết công suất để tạo ra những cái núi hàng hóa thừa mứa mà vài tháng sau chẳng ai thèm mua nữa.
+Một thảm họa thực sự. Để ngăn chặn cái tiếng hết hoảng loạn đó, các quản trị cần phải dự đoán được chính xác khi nào thì tình trạng back order thực sự xảy ra. Nhưng mà đây lại là một bài toán vô cùng hóc búa về mặt dữ liệu.
+Tại sao lại hóc búa? Tôi tưởng dữ liệu chuỗi cung ứng thì các tập đoàn có đầy dãy chứ.
+Có. Nhưng mà đứt gãy chuỗi cung ứng thì lại hiếm khi xảy ra. Hàng triệu đơn hàng có thể giao rất trơn chu và chỉ có vài trăm đơn là bị thiếu hụt thôi. Trong khoa học dữ liệu, người ta gọi cái hiện tượng này là tập dữ liệu mất cân bằng. Imbalanced data.
+À À tôi hiểu rồi. Sự chênh lệch quá lớn giữa cái bình thường và cái bất thường.
+Đúng vậy. Và khi đưa một tập dữ liệu mà tỉ lệ bình thường áp đảo hoàn toàn sự bất thường vào các mô hình dự báo thống kê truyền thống ấy thì chúng sẽ hoàn toàn vô dụng.
+Và đây là lúc vấn đề trở nên thực sự thú vị. Khắc tinh của những cái tập dữ liệu mất cân bằng phức tạp này chính là machine learning. Cụ thể là thuật toán, random forests hay còn gọi là rừng ngấu nhiên.
+Chuẩn luôn.
+Để hiểu được cái khu rừng này hoạt động ra sao, chúng ta cần nhìn vào từng cái. Cây quyết định tức là decision trees. Một cây quyết định thì nó đơn giản là một công cụ phân loạn. Nó dùng các biến số kiểu như là dự báo doanh số này hay là thời gian vận chuyển để rẽ nhánh và đưa ra dự đoán xem hàng có bị thiếu hay không.
+Nhưng mà cái vấn đề của một cây quyết định đơn lẻ là nó rất yếu ớt và rất dễ bị đánh lửa.
+Nó quá nhạy cảm đúng không?
+Cực kỳ nhạy cảm luôn. Nó nhạy cảm với cái dữ liệu huấn luyện ban đầu. Kiểu như anh chỉ cần thay đổi bộ dữ liệu một chút xíu thôi. Cái cây đó nó sẽ mọc ra những cái nhánh hoàn toàn khác biệt. và đưa ra một dự đoán sai lệch ngay.
+Vậy thì rừng ngẫu nhiên đã khắc phục cái sự yếu ớt này một cách nào? Ở đây chúng ta có hai cơ chế đột phá. Đầu tiên là boot trapping hay còn gọi là bagging.
+Anh giải thích rõ hơn về cơ chế này đi.
+Ừ, thay vì đưa toàn bộ dữ liệu cho tất cả các cây cùng học, thuật toán nó sẽ bốc ngẫu nhiên một phần dữ liệu có hoàn lại huấn luyện cho một cây, rồi lại thả dữ liệu đó vào rổ, bốc tiếp một phần khác cho cây tiếp theo,
+một cách rất thông minh để đa dạng hóa góc nhìn.
+Đúng rồi. Nhưng mà cái bước thứ hai mới thực sự là thiên Tải này. Subspace sampling. Lấy mẫu không gian con. Hãy thử dùng một phép so sánh như thế này nhá. Giả sử chúng ta đang nhờ 100 bác sĩ hội trẩn chung cho một ca bệnh khỏ đi.
+Một ca bệnh rất phức tạp.
+Đúng. Nếu đưa cho tất cả 100 người cùng một cuốn hồ sợ y án đầy đủ y hệt nhau, rất có thể tất cả bọn họ đều sẽ chỉ chăm chăm chú ý vào một cái triệu chứng nổi bật nhất. Ví dụ như việc bệnh nhân ho dữ dội chẳng hạn.
+Và hệ quả là tất cả đều kết luận chung một căn bệnh, thiếu đi dự khách quan.
+Chuẩn. Một sự so sảnh rất trực quan đúng không? Và để tránh việc cả 100 bác sĩ đưa ra cùng một kết quả giống hệt nhau. Lấy mẫu không gian con nó hoạt động y như việc chúng ta cố tình giấu đi một vài kết quả xét nghiệm khi đưa cho từng người.
+A, hiểu rồi. Kiểu như bác sĩ A thì không được xem kết quả X quang, bác sĩ B thì bị giấu đi chỉ số huyết áp.
+Khá là khác nghiệt nhưng mà lại hiệu quả. Điều này vô tình ép các bác sĩ hay trong mô hình là các cây quyết định phải suy nghĩ thực sự độc lập. Họ bị buộc phải đào sâu tìm kiếm những dấu hiệu bệnh lý từ các triệu chứng nhỏ nhặt, mờ nhạt hơn.
+Phải công nhận cơ chế này rất thông minh và khi tập hợp cái chẩn đoán của 100 bác sĩ với 100 góc nhìn hoàn toàn độc lập đó lại rồi lấy bầu trợ số đông. Chúng ta sẽ có một kết quả dự đoán chính xác và ổn định hơn gấp nhiều lần so với việc hỏi một bác sĩ.
+Thật sự là sức mạnh của đám đông. Nhưng mà này chúng ta quên mất một điều. Chúng ta vẫn đang đối mặt với cái tập dữ liệu mất cân bằng.
+Ờ đúng cái nơi mà số ca bệnh hiếm khi xảy ra ấy.
+Vấn đề là nếu cứ để mô hình học một cách tự nhiên từ dữ liệu thực tế nơi mà số lần giao hàng thành công nó gấp tận 10 lần hay 100 lần số lần thiếu hụt thì mô hình học máy nó sẽ trở nên vô cùng lười biến. Lười biến như thế nào cơ?
+Nó sẽ nhận ra một quy luật rất là khôn lỏi. Ồ, tôi chỉ cần nhắm mắt đoán bừa là không bao giờ thiếu hàng đâu. Thì tỉ lệ chính xác ACC của tôi nghiễm nhiên vẫn đạt 90 đến 99%.
+Kiểu như nó đang gian lận bài thi bằng cách đánh lụi toàn bộ một đáp án vậy.
+Chính xác là gian lận. Vậy hệ thống ngăn chặn cái sự lời biếng này như thế nào thư chị?
+Để triệt tiêu cái trò khon lỏi này, thuật toán áp dụng một kỹ thuật gọi là down sampling, tức là lấy mẫu giảm. Nó sẽ chủ động cắt bỏ bớt cái lượng dữ liệu khổng lồ của nhóm giao hàng thành công.
+Ép tỉ lệ xuống sao cho cân bằng hơn đúng không?
+Đúng rồi. Nó ép xuống sao cho nhóm bình thường chỉ còn nhỉnh hơn một chút xíu khoảng 1,5 lần so với nhóm thiếu hụt trong cái quá trình huấn luyện thôi.
+Ồ, một chiều bài rất hay.
+Bằng cách cướp đi cái lợi thế về mặt số lượng của nhóm đa sổ, mô hình lúc này nó bị dồn vào chân tường. Nó buộc phải thực sự học cách nhận diện các đặc trưng ẩn giấu của những ca thiếu hụt thay vì chỉ đoán bừa.
+Điều đó giải thích tại sao trong các mô hình này người ta không bao giờ dùng độ chính xác thông thường để đánh giá xem mô hình có tốt hay không.
+Đúng vậy, accuracy lúc này là vô nghĩa.
+Mà thay vào đó có một thắt ngữ được sử dụng là biểu đồ diện tích dưới đường công AUC ROC. Nghe qua thì có vẻ rất là học thuật và đáng sợ. Làm sao để chúng ta hiểu cái AUCR ROC này một cách đơn giản nhất? Đây
+thực ra nó rất đơn giản thôi. Anh cứ coi cái AUCROC như một bảng điểm từ 0 đến 1. Nó đánh giá năng lực của mô hình dựa trên hai tiêu chí cực kỳ khắt khe.
+Hai tiêu chí đó cụ thể là gì?
+Thứ nhất là độ nhạy sensitivity tức là khả năng đánh hơi trúng pháp những ca thực sự bị thiếu hụt. hàng hóa, khả năng bắt đúng bệnh ấy.
+Rồi thế còn tiêu chí thứ hai?
+Tiêu chí thứ hai là độ đặc hiệu specificity có nghĩa là khả năng không đưa ra những báo động giả, không đi cảnh báo nhầm những cái đơn hàng mà vốn dĩnh nó đang giao rất suôn sẻ.
+À ra là vậy. Tức là cái điểm số AUC ROC này mặc càng gần một thì mô hình nó càng xuất sắc trong việc phân loại thực sự thay vì là nhắm mắt đoán bừa.
+Hoàn toàn chính xác, thật ấn tượng. Và có một cái điểm cộng nữa khiến giới phân tích rất ưu ái thuật toán dừng ngẫu nhiên đó là nó khá dễ tính.
+Dễ tính ở chỗ nào?
+Nó không bắt chúng ta phải chuẩn hóa dữ liệu một cách quá cầu kỳ. Nó tự động phớt lờ đi những cái biến số ngoại lai nhiễu loạn outliers ấy. Và đặc biệt là xử lý rất mượt, hiện tụng đa cộng tuyến. Cái nơi mà các biến số đầu vào nó tự tác động qua lại lẫn nhau.
+Quá tuyệt vời. Đó là lý do tại sao nó lại là cứu cánh hoàn hảo cho một cái môi trường hỗn loạn như chuỗi cung ứng toàn cầu.
+Đúng thế.
+Nhưng ở đây ờ có một bức chuyển giao về mặt logic mà chúng ta cần phải làm rõ. Rừng ngẫu nhiên nó đang hoạt động như một cỗ máy thần kỳ để bảo vệ doanh nghiệp khỏi cái sự điên dồ của thế giới bên ngoài. Ý anh là những yếu tố khách quan.
+Đúng. Những thứ như là bão lụt này, đối thủ tự nhiên phá giá hay là đứt gãy logistic. Nhưng mà sẽ thế nào nếu nguồn cơn của sự bất định lại xuất phát từ chính bên trong nội bộ doanh nghiệp?
+Cơ hội rất hay.
+Sẽ thế nào nếu cái sự hỗn loạn đó nó bắt nguồn từ quyết định chủ quan của ban giám đốc? Kiểu như tung ra một cái thiết kế ứng dụng mới toanh hay là đổi hẳn cốt chuyện của một tựa game? Chúng ta đâu có cái dữ liệu lịch sự của ngày hôm qua để mà dự báo cho một sản phẩm chưa được tồn tại.
+Rõ ràng là sự thay đổi bối cảng này đòi hỏi chúng ta phải cất cái công cụ dự đoán đi. Rồi lúc này chúng ta đang chuyển từ mô hình dự đoán predictive modeling để bước sang một cái lãnh địa mới gọi là thử nghiệm nhân quả ca experimentation.
+Và công cụ tối thượng ở đây không phải là một thuật toán dự báo nữa mà nó là một phương pháp luận thực chiến. AB testing.
+Việc thử nghiệm trước các nguyên mẫu với một nhóm nhỏ người dùng nó sẽ giúp đo lường trải nghiệm thực tế với chi phí thấp nhất.
+Nhưng mà cái cốt lõi của phương pháp này theo tôi thấy nó là một cuộc chiến dai rằng trong tư duy thống kê. Đó là phân biệt giữa tương quan correlation và nhân quả causation.
+Ồ, đây chính là cái cạm bẫy ngọt ngào mang tên tương quan giả tạo Spurious Correlation. Đấy, anh thử nghĩ xem dữ liệu nó hoàn toàn có thể cho thấy là số lượng người ăn kem tăng lên cùng lúc với số vụ cháy rừng.
+Vì cả hai đường đồ thị nó di chuyển cùng chiều với nhau trên toán học đúng không?
+Nếu một nhà quản lý ra quyết định kinh doanh mà chỉ dựa trên cái sự tương quan bề mặt đó thì họ đang thực sự ném tiền qua cửa sổ.
+Chờ đã, từ từ. Hãy áp dụng cái ví dụ ăn kem đó vào thực tế kinh doanh đi. Giả sử tôi có dữ liệu phân tích chỉ ra rằng ờ những người chơi đang sử dụng giao diện game màu xanh nước biển, họ thường chi rất nhiều tiền để mua vật phẩm hơn so với những người dùng giao diện màu đỏ.
+Rồi số liệu có thật luôn.
+Dự liệu rành rành ra đó. Điều đó chẳng phải chứng minh là cái màu xanh nó kích thích người ta mua hàng sao?
+Cha, điều này đặt ra một câu hỏi quan trọng đấy anh. Câu hỏi là dữ liệu đó được tạo ra như thế nào từ ban đầu?
+Ý chị là cái nguồn gốc của dữ liệu.
+Đúng vậy. Nếu trong cái ứng dụng đó nhà phát hành cho phép người chơi được tự do lựa chọn màu sắc giao diện mà họ thích thì cái bài phân tích của anh coi như bỏ đi. bỏ đi. Tại sao chứ?
+Bởi vì đó gọi là thiên kiến tự chọn lượng, self selection bias. Rất có thể những game thủ VIP, những cái người mà cày quốc ngày đêm và sẵn sàng bạo chi á, vô tình họ lại có một cái gu thẩm mỹ thích màu xanh nước biển hơn là người mới chơi.
+Ồ, tức là màu xanh ở đây chỉ là một cái dấu hiệu đi kèm thôi chứ bản thân cái màu xanh không có ma lực nào thôi miên họ rút ví cả.
+Chính xác. Nếu anh cứ mù quáng tin vào cái dữ liệu tương quan đó, anh sẽ lầm tưởng cái gu của nhóm khách hàng xộp chính là chiếc chìa khóa vạn năng.
+Và thế là tôi sẽ ép tất cả người chơi mới phải dùng màu xanh với một cái hy vọng ảo tưởng là họ cũng sẽ ném tiền vào game như VIP
+đấy. Một thảm họa kinh doanh bắt đầu từ việc hiểu sai tương quan. Vậy làm sao AB testing phá vở được cái bẫy này?
+Theo tôi được biết thì yếu tố sống còn của AB test là sự phân bổ ngẫu nhiên randomized. Hệ thống nó phải tước đi cái quyền tự lựa chọn của người dùng.
+Đúng thế. Không do họ tự chọn nữa.
+Hệ thống sẽ tự động ném ngẫu nhiên một nửa số người dùng bật kỳ vào giao diện màu xanh, nửa còn lại vào màu đỏ. Khi mà cái mẫu thử nó đ đủ lớn. Sự ngẫu nhiên này sẽ cao bằng tất cả mọi yếu tỗ nhiễu. Tỷ lệ người giàu, người nghèo, người chơi lâu năm hay lính mới ở hai nhóm sẽ ngang bằng nhau trần trận.
+Và khi mọi yếu tố khác đã bị chị diệt tiêu hết, chỉ còn lại duy nhất một biến số là màu sắc thôi thì nếu lúc này nhóm màu xanh vẫn chi tiền nhiều hơn, chúng ta mới có thể vỗ bàn khẳng định được,
+khẳng định rằng chính màu xanh là nguyên nhân tạo ra lợi nhuận.
+Hoàn toàn chính xác, đó chính là ý nghĩa đích thực của thử nghiệm nhân quả. Để minh họa rõ hơn cho sức mạnh của thống kê trong việc ra quyết định, chúng ta hãy xem xét một kịch bản về công ty game viên.
+Tình huống này khá thú vị trong tài liệu.
+Công ty họ có ba nguyên mẫu game với ba mức độ khó khác nhau gọi là mức 25, 35 và 45. Đại diện cho dễ, trung bình và khó. Mục tiêu là để tìm ra mức nào khiến người chơi nán lại với game lâu nhất.
+Đây là một thiết kế thử nghiệm một yếu tố One Factor Design, nơi mà mỗi nhóm người chơi chỉ tiếp xức với một mức độ khó duy nhất. Đúng không?
+Đúng vậy.
+Nhưng mà khi đối mặt với dữ liệu thu về từ tận ba nhóm này, làm sao để chắc chắn sự chênh lệch thời gian chơi không phải là do ăn may? Trong thống kê, người ta luôn dựng lên một cái giảo cản gọi là giả thuyết không no hypertasis.
+Anh giải thích kỹ hơn về giảo cản này đi.
+Hãy thưởng tượng cái giả thuyết không này nó giống như một gã giám khảo cực kỳ bảo thủ và luôn hoài nghi. Gõ ta luôn khoanh tay và bíu môi nói, chẳng có cái mức độ khó nào tạo ra sự khác biệt cả. Mọi biến động về thời gian chơi giữa các nhóm chỉ là do sự ngẫu nhiên của vũ trụ mà thôi.
+Một gã giám khảo rất đáng ghét, rất khó tính. Và nhiệm vụ của dự liệu là phải tung ra được những bằng chứng đủ mạnh để đập tan cái sự hoài nghi của gã giám khảo đó.
+Và để đánh bại gã giám khảo này với ba nhóm giữ liệu trở lên. Các nhà phân tích không dùng các phép thử Test thông thường đâu. Vì thực hiện TEST nhiều lần sẽ làm tăng vọt tỉ lệ sai số giả dương.
+Size số giả dương tức là báo động nhầm đúng không?
+Đúng rồi. Thay vào đó họ dùng phân tích phương sai ANOVA và phép thử F tức là F test.
+Vậy phân tích phương sai nó hoạt động theo cơ chế nào? Ở đây
+chữ dương sai ở đây ý nghĩa cốt lõi của nó là sự biến động. F test trong ANOVA nó sẽ đặt hai thứ lên bản cân để so sánh trực tiếp với nhau.
+Đó là những thứ gì?
+Thứ nhất là sự khác biệt giữa các nhóm với nhau. Cái này là do mức độ khó của game t tạo ra. Và thứ hai là sự khác biệt bên trong nội bộ từng nhóm.
+À sự khác biệt bên trong nội bộ tức là do đặt tiếng cá nhân của mỗi người chơi đúng không? Kiểu người rảnh rỗi thì chơi lâu, người bận rộn thì thoát game sớm.
+Chuẩn luôn. Nếu sự chênh lệch thời gian chơi giữa ba mức độ khó mà nó lớn áp đảo so với những cái biến động cá nhân lộn xộn bên trong từng nhóm thì hệ thống lúc đó mới kết luận rằng sự chênh lệch này là có ý nghĩa thực sự.
+Và kết quả cuối cùng nó trả về một con số quyền lực giá trị P dash value. Giả sử như phiên bản mức độ khó 35 có thời gian chơi cao nhất đi và hệ thống nó báo cái giá trị P nhỏ hơn 0,05. Cái con số vàng này có nghĩa là gì thưa chị?
+Nghĩa là cái xác suất để gã giám khảo bảo thủ kia đúng. Tức là xác suất kết quả này xảy ra hoàn toàn do ăn may ngẫu nhiên. Nó đã rơi xuống dưới mức 5%.
+Dưới 5% là một tỉ lệ rất nhỏ.
+Đúng thế. Khi Pi vé nhỏ hơn 0.05 chúng ta có đủ cơ sở khoa học vững chắc để bác bỏ giả thuyết không? Công ty game VIP lúc này không còn phải đoán mò hay cãi vã trong phòng họp nữa. Họ có thể tự tin 100% đầu tư hàng triệu đô la để tung nguyên bản 35 ra thị trường toàn cầu.
+Vậy tất cả những điều này có ý nghĩa gì khi chúng ta lùi lại một bước để nhìn tổng thể? Dù là đang dùng hàng trăm cây quyết định trong rừng ngẫu nhiên để lung sục những nguy cơ đứt gãy chuỗi cung ứng mờ nhạt nhất hay là dùng trong AB testing để dấp tắt sự hoài nghi thì điểm chung của AI và thống kỳ là chúng hoạt động như một tấm khiên.
+Một tấm khiên bảo vệ vô hình.
+Tấm khiên bảo vệ doanh nghiệp khỏi những cái quyết định cảm tính, khỏi cái tôi quá lớn của một nhà thiết kế cứ nghĩ rằng mình luôn thấu hiểu khách hàng hay sự tự tin thái quá của một nhà vận hành. Dữ liệu nó không biết tự ái, nó chỉ phản ánh một sự thật khách quan.
+AI không thay thế con người trong việc vạch ra tầm nhìn, nhưng mà nó cung cấp một cái nền tạng thực chứng vô cùng vững chắc để những tầm nhìn đó không bao giờ trở thành những canh bạc mù quáng.
+Thật sự là một góc nhìn rất sâu sắc.
+Tuy nhiên, điều này lại mở ra một cái hướng suy ngẫm sâu xa hơn. Anh thử tưởng tượng nhé. Nếu trong tương lai các thuật toán dự báo tiến hóa đến một mức hoàn hảo, chúng học được mọi biến động phức tạp nhất của thế giới và các hệ thống AB testing có có thể giải mã chính xác tuyệt đối từng tế bào cảm xúc của người dùng.
+Chà!
+Thì liệu có khi nào AI sẽ tìm ra một cái công thức kinh doanh hoàn hảo duy nhất không? Điều gì sẽ xảy ra khi rủi ro bằng không?
+Ồ, đó là một viễn cảnh vừa hấp dẫn mà lại vừa đáng sợ. Nếu mọi rủi ro được AI đưa về con số không, nếu mọi quyết định dù lớn hay nhỏ đều được toán học bảo chứng an toàn tuyệt đối thì liệu những cái trực giáp bén nhạy, sự liều lĩnh và những ý tưởng điên rổ, thứ mà vốn dĩ đã tạo ra những cuộc cách mạng công nghệ vĩ đại nhất của nhân loại có trở nên thừa thãi không?
+Liệu sự liều lĩnh có bị loại bỏ hoàn toàn khỏi phương trình kinh doanh? Đôi khi chính trong những khoảng mờ mịt chưa thể dự đoán của sự bất định lại là nơi duy nhất dung dưỡng cho sự sáng tạo đích thực.
+Một suy ngẫm quá tuyệt vời để khép lại chủ đề ngày hôm nay. Sự bất định là rủi ro nhưng biết đâu nó cũng là cái đặc quyền của sự sáng tạo. Rất cảm ơn mọi người đã đồng hành cùng buổi phân tích chuyên sâu này. Các bạn sinh viên hãy tiếp tục đào sâu vào các tài liệu nhé và hẹn gặp lại ở những chủ đề tiếp theo.

@@ -1,0 +1,527 @@
+MINH HỌA 2.48  Đại học 
+Thống kê mô tả dữ liệu tiền lương
+Nghĩa là
+Lỗi chuẩn
+trung vị
+Chế độ
+Độ lệch chuẩn
+Phương sai mẫu
+Kurtosis
+Độ lệch
+Phạm vi
+tối thiểu
+Tối đa
+Tổng
+Đếm
+40.065,88 USD
+$424,02
+$ 28,276,00
+$ 3,269,00
+44.043,13 USD
+1.939.797.496,92 USD
+$8,19
+$ 2,30
+$ 468.597,00
+$78,00
+$ 468.675,00
+$ 432.270.823,00
+10.789,00
+Lương hàng năm
+Các gói phần mềm thống kê thường có tính năng tương tự để tính toán nhiều mô tả.
+thống kê tích cực cùng một lúc. Cho dù chúng ta sử dụng nhiều hàm Excel đơn lẻ hay chỉ một hàm để 
+tính toán nó, việc làm rõ hình dạng của tập dữ liệu giúp chúng ta hiểu rõ hơn về dữ liệu. Ngoài ra còn có 
+một thành phần quan trọng khác – hiểu các mối quan hệ trong một tập dữ liệu.
+Phân tích tương quan
+Phân tích tương quan có thể tiết lộ mối quan hệ trong dữ liệu bằng cách đo lường mối quan hệ tuyến tính 
+giữa hai biến. Bước đầu tiên là hiểu các biến số có mối tương quan như thế nào và 
+bước thứ hai liên quan đến việc tính toán mối tương quan.
+Giải thích các hệ số tương quan
+Tương quan tuyến tính của các biến liên tục được đo bằng hệ số tương quan, còn 
+được gọi là Hệ số tương quan thời điểm sản phẩm Pearson. Thước đo này là một con số 
+giá trị giữa −1 và +1. Số tuyệt đối càng cao thì sức mạnh của 
+mối quan hệ.
+
+2.4  Biện pháp mô tả nào giúp chúng tôi hiểu dữ liệu? 
+2-35
+Mối tương quan có thể âm, bằng 0 hoặc dương (Minh họa 2.49):
+• Tương quan âm là mối quan hệ nghịch đảo. Khi một biến tăng lên thì biến kia 
+giảm đi. Có mối quan hệ nghịch biến giữa doanh số bán súp và nhiệt độ vì 
+khi nhiệt độ giảm, doanh số bán súp tăng lên.
+• Không có mối tương quan cho thấy không có mối quan hệ giữa các biến. Chúng tôi sẽ không mong đợi 
+Ví dụ: nhiệt độ ngoài trời có tác động đến việc bán ngũ cốc.
+• Hệ số tương quan dương chỉ ra rằng khi một biến tăng thì 
+biến khác. Chúng tôi mong đợi một mối quan hệ tích cực giữa doanh số bán kem và
+nhiệt độ cửa. Khi nhiệt độ tăng, doanh số bán kem cũng có xu hướng tăng.
+MINH HỌA 2.49  Tương quan 
+Ví dụ
+Nhiệt độ
+bán súp
+ngũ cốc
+Bán kem
+tiêu cực
+số không
+tích cực
+Chúng ta cũng có thể xem xét sức mạnh của một mối quan hệ. Hệ số tương quan càng cao thì 
+giữa số âm 1 và số 1 dương thì mối tương quan càng mạnh. Hình minh họa 2.50 là hướng dẫn 
+để xác định xem hệ số tương quan cho thấy mối quan hệ yếu, trung bình hay mạnh.
+MINH HỌA 2.50  Phiên dịch 
+Hệ số tương quan
+−0,70
+−0,50
+−0,30
+Mối quan hệ tuyến tính tiêu cực vừa phải
+Mối quan hệ tuyến tính tiêu cực yếu
+0
+Không có mối quan hệ tuyến tính
+Chính xác −1
++0,50
++0,70
+Chính xác +1
++0,30
+Mối quan hệ tuyến tính phủ định hoàn hảo
+Mối quan hệ tuyến tính tiêu cực mạnh mẽ
+Mối quan hệ tuyến tính tích cực mạnh mẽ
+Một mối quan hệ tuyến tính tích cực hoàn hảo
+Mối quan hệ tuyến tính tích cực yếu
+Một mối quan hệ tuyến tính tích cực vừa phải
+Phiên dịch
+Tương quan r
+Hãy tưởng tượng xem xét mối quan hệ giữa doanh số bán kem và nhiệt độ ngoài trời.
+ture. Nếu hệ số tương quan giữa doanh số bán hàng và nhiệt độ là dương 0,75 thì có 
+mối quan hệ tích cực mạnh mẽ giữa doanh số bán hàng và nhiệt độ. Khi nhiệt độ tăng lên, doanh số bán nước đá 
+kem tăng lên và ngược lại. (Minh họa 2.51)
+MINH HỌA 2.51  Tích cực 
+Ví dụ tương quan
+Nhiệt độ tăng
+Hệ số tương quan của kem
+Bán hàng và Nhiệt độ
+Doanh số tăng
+$
+
+2-36 
+CHƯƠNG 2  Kỹ năng phân tích dữ liệu cơ bản
+$
+Chi phí sưởi ấm tăng
+Nhiệt độ giảm
+Hệ số tương quan của hệ thống sưởi
+Chi phí và nhiệt độ
+MINH HỌA 2.52  Âm 
+Ví dụ tương quan
+MINH HỌA 2.53  Đại học 
+Dữ liệu về lương và giờ
+ngoại hối
+1
+F
+G
+Trang 1
+2
+3
+4
+6
+10789
+10790
+Điều phối viên chương trình
+học giả nổi tiếng
+học giả nổi tiếng
+Quản trị mạng
+giáo sư
+Phó giáo sư
+$ 94.626,00
+$141,939.00
+5
+Trợ lý giáo sư
+$87,454.00
+$48,874.00
+7
+Điều phối viên chương trình sinh viên
+$ 42.630,00
+612
+918
+1.530
+2.040
+2.040
+$ 23,998,00
+$ 59.196,00
+387,6
+306
+$ 57.633,00
+2.040
+Tiêu đề
+Lương hàng năm
+H
+Giờ Đã Làm Việc
+Tự động Lưu
+Oﬀ
+Dữ liệu về lương và giờ của trường đại học
+Hình 2.54 hiển thị hộp thoại tương quan mở ra sau khi nhấn vào Correlation 
+và chọn OK trong menu thả xuống Công cụ phân tích dữ liệu. Phạm vi đầu vào trong hộp thoại 
+Trong trường hợp này, có mối tương quan nghịch mạnh mẽ giữa chi phí sưởi ấm và nhiệt độ. 
+Khi nhiệt độ giảm, chi phí sưởi ấm trong nhà tăng lên và ngược lại.
+Thực hiện phân tích tương quan
+Mối tương quan có thể được đánh giá một cách trực quan bằng cách chuẩn bị một biểu đồ phân tán, giống như trong Hình minh họa 2.49, 
+rồi vẽ một đường. Điều này sẽ cho biết liệu mối tương quan có tồn tại hay không và nó là tích cực hay 
+tiêu cực.
+Hệ số tương quan có thể được tính bằng tay bằng công thức hoặc bằng phần mềm. Tất cả 
+phần mềm thống kê có thể tính toán hệ số tương quan, bao gồm cả Microsoft Excel, 
+được sử dụng trong ví dụ này. Bất kể phần mềm được sử dụng là gì, việc giải thích kết quả là 
+giống nhau. Có hai cách để thực hiện phân tích tương quan trong Excel:
+• Sử dụng hàm CORREL.
+• Sử dụng tùy chọn Tương quan trong công cụ Phân tích Dữ liệu.
+Lợi ích của việc sử dụng tùy chọn Tương quan trong công cụ Phân tích Dữ liệu là bảng tương quan 
+vì có thể tạo nhiều biến cùng một lúc.  Dữ liệu   Chúng tôi sử dụng khoản thanh toán của trường đại học-
+cuộn dữ liệu để minh họa tùy chọn tương quan trong Excel và sau đó diễn giải kết quả.
+Trong tab Số giờ trả lương trong tệp dữ liệu (Minh họa 2.53), thực hiện phân tích tương quan 
+để xem liệu có mối tương quan giữa mức lương hàng năm và số giờ làm việc hay không.
+Thay vào đó, giả sử chúng ta đang kiểm tra mối quan hệ giữa chi phí sưởi ấm và nhiệt độ.
+ture và hệ số tương quan là âm 0,70 (Minh họa 2.52)
+
+2.4  Biện pháp mô tả nào giúp chúng tôi hiểu dữ liệu? 
+2-37
+hộp chứa các cột đang được kiểm tra sự tương quan. Ví dụ này đang kiểm tra mối tương quan 
+giữa cột G (Lương hàng năm) hàng 1 – 10790 và cột H (Số giờ làm việc) hàng 1 
+– 10790.
+MINH HỌA 2.54  Dữ liệu 
+Công cụ phân tích và mối tương quan 
+Hộp thoại
+được rồi
+Hủy bỏ
+Trợ giúp
+Phân tích dữ liệu
+Công cụ phân tích
+?
+Anova: Yếu tố đơn lẻ
+Anova: Hai yếu tố với sự nhân rộng
+Anova: Hai yếu tố không cần nhân rộng
+Tương quan
+Hiệp phương sai
+Thống kê mô tả
+Làm mịn theo cấp số nhân
+F-Test Hai mẫu cho phương sai
+Phân tích Fourier
+biểu đồ
+được rồi
+Hủy bỏ
+Trợ giúp
+Tương quan
+đầu vào
+Cột
+Hàng
+Phạm vi đầu vào:
+Được nhóm theo:
+Tùy chọn đầu ra
+Phạm vi đầu ra:
+Sổ làm việc mới
+Lớp bảng tính mới:
+$G$1:$H$10790
+$J$3
+?
+Nhãn ở hàng đầu tiên
+Hộp thoại trong Hình minh họa 2.54 hiển thị các đầu vào cần thiết để chạy phân tích tương quan.
+ysis. Kết quả phân tích tương quan được thể hiện ở Hình minh họa 2.55:
+• Hệ số tương quan là 0,552.
+• Có mối tương quan dương giữa mức lương hàng năm và số giờ làm việc.
+Nói cách khác, khi số giờ làm việc tăng thì mức lương hàng năm cũng tăng.
+MINH HỌA 2.55  Đại học 
+Phân tích tương quan tiền lương
+Lương hàng năm
+1
+0,552
+Số giờ đã làm việc
+1
+Lương hàng năm
+Số giờ đã làm việc
+Tại sao không có mối tương quan mạnh mẽ hơn? Mối tương quan chặt chẽ giữa số giờ làm việc 
+và số tiền lương hàng năm được trả có vẻ hợp lý. Tuy nhiên, nếu nhân viên được trả lương 
+mức lương cố định hàng năm thay vì theo giờ sẽ làm giảm mối tương quan với số giờ.
+Phân tích tương quan có thể giúp khám phá các mối quan hệ trong dữ liệu và hiểu được chúng 
+sức mạnh. Nhưng đừng bao giờ cho rằng một biến gây ra sự thay đổi ở biến kia vì có 
+mối tương quan giữa hai. Có thể tìm thấy mối tương quan giữa hai biến có 
+không có gì liên quan đến nhau Đây là mối tương quan giả, xảy ra khi có 
+mối quan hệ toán học, nhưng không phải là logic, giữa hai biến. Luôn đảm bảo sự tương quan
+những điều này có ý nghĩa trước khi sử dụng nó để đưa ra quyết định.
+
+2-38 
+CHƯƠNG 2  Kỹ năng phân tích dữ liệu cơ bản
+Áp dụng nó 2.4
+Sử dụng mô tả 
+Thống kê để kiểm toán 
+Chi phí bảo hành
+Dữ liệu   Kiểm toán   Với tư cách là kiểm toán viên bên ngoài, bạn đã được chỉ định tham gia hợp đồng kiểm toán cho Super 
+Xe tay ga. Một trong những trách nhiệm của bạn là xem xét chi phí bảo hành. Như hình minh họa cho thấy, trung bình 
+chi phí bảo hành cho Super Scooters đã tăng lên trong ba năm qua.
+2023
+$0
+$50
+100 USD
+$150
+$200
+$250
+$300
+$350
+$400
+$450
+Chi phí bảo hành trung bình
+trung bình
+ Bảo hành
+chi phí
+Năm
+2024
+2025
+Để phân tích chi phí bảo hành, bạn đã quyết định sử dụng số liệu thống kê mô tả. Thực hiện như sau 
+phân tích và giải thích kết quả của bạn.
+	 1. Sử dụng tùy chọn Thống kê mô tả trong công cụ Phân tích dữ liệu để tính toán thống kê mô tả.
+chính sách chi phí bảo hành từ năm 2023 đến năm 2025. Giải thích các biện pháp sau:
+•  Trung bình
+•  Trung vị
+•  Độ lệch chuẩn
+•  Kurtosis
+•  Độ lệch
+	 2. Thống kê mô tả chi phí bảo hành năm 2025. Giải thích các biện pháp sau:
+•  Trung bình
+•  Trung bình
+•  Kurtosis
+•  Độ lệch
+	 3. Lập biểu đồ Chi phí bảo hành năm 2025 với các thùng sau: 200, 400, 600, 800, 1000, 
+1200 và 1.400.
+•  Lập biểu đồ dữ liệu.
+•  Hình dạng và sự phân bố biểu đồ của bạn có hỗ trợ độ nhọn và độ lệch không 
+biện pháp?
+
+2.4  Biện pháp mô tả nào giúp chúng tôi hiểu dữ liệu? 
+2-39
+GIẢI PHÁP
+	 1. Thống kê mô tả chi phí bảo hành giai đoạn 2023 - 2025:
+	
+343,57
+4.06
+300
+240
+244,90
+59.977,92
+1,54
+1,23
+1,493
+7
+1.500
+1.252.326
+3.645
+Nghĩa là
+Lỗi chuẩn
+trung vị
+Chế độ
+Độ lệch chuẩn
+Phương sai mẫu
+Kurtosis
+Độ lệch
+Phạm vi
+tối thiểu
+Tối đa
+Tổng
+Đếm
+Tổng số bảo hành
+	 	
+Đo lường giải thích:
+Đo lường
+kết quả
+Phiên dịch
+Nghĩa là
+Chi phí bảo hành trung bình cho 
+trong thời gian 3 năm là $343,57.
+Chi phí bảo hành trung bình cho toàn bộ 3.645 sản phẩm bán ra 
+trong thời gian 3 năm là $343,57.
+trung vị
+Chi phí bảo hành trung bình cho 
+thời hạn 3 năm là $300,00.
+Giá trị trung bình của chi phí bảo hành cho 
+thời hạn 3 năm, khi xếp hạng bảo hành 
+chi phí từ cao đến thấp là 300$.
+Tiêu chuẩn 
+sự lệch lạc
+Độ lệch chuẩn trên 
+trong thời gian 3 năm là $244,90.
+Đây là độ lệch chuẩn cao so với 
+đến số trung bình và số trung vị. Nó biểu thị một phạm vi rộng 
+phân tán chi phí bảo hành.
+Đối với bất kỳ lần bán hàng nào, chi phí bảo hành có thể 
+bằng + hoặc − $244,90 so với giá trị trung bình.
+Kurtosis
+Hệ số kurtosis  
+là 1,54.
+Giá trị này nhỏ hơn 3, biểu thị rằng hình dạng 
+của sự phân phối có phần bằng phẳng với một 
+mức độ phân tán rộng.
+Độ lệch
+Hệ số độ lệch là 
+dương 1,23.
+Giá trị này lớn hơn 1, chứng tỏ rằng 
+đỉnh dữ liệu xung quanh giá trị trung bình và sau đó đuôi 
+lệch sang bên phải.
+	 2. Thống kê mô tả chi phí bảo hành năm 2025: 
+414,18
+7.551634
+330
+330
+276,13
+76.245,34
+0,93
+1.18
+1.460
+40
+1.500
+553.759
+1.337
+Nghĩa là
+Lỗi chuẩn
+trung vị
+Chế độ
+Độ lệch chuẩn
+Phương sai mẫu
+Kurtosis
+Độ lệch
+Phạm vi
+tối thiểu
+Tối đa
+Tổng
+Đếm
+Tổng số bảo hành–2025
+
+2-40 
+CHƯƠNG 2  Kỹ năng phân tích dữ liệu cơ bản
+Đo lường giải thích:
+Đo lường
+kết quả
+Phiên dịch
+Nghĩa là
+Chi phí bảo hành trung bình cho 
+Năm 2025 là $414,18.
+Con số này cao hơn mức trung bình ba năm 
+tìm thấy ở câu hỏi 1.
+trung vị
+Chi phí bảo hành trung bình cho 
+Năm 2025 là $330,00.
+Điều này thể hiện chính xác phần giữa của 
+phân phối nếu dữ liệu được sắp xếp từ 
+thấp nhất đến cao nhất.
+Kurtosis
+Hệ số kurtosis  
+là 0,93.
+Con số này nhỏ hơn ba, cho thấy rằng 
+hình dạng của sự phân bố hơi bằng phẳng 
+với mức độ phân tán rộng.
+Độ lệch
+Hệ số độ lệch là 
+dương 1,18.
+Giá trị này lớn hơn một, biểu thị dữ liệu 
+đạt đỉnh xung quanh giá trị trung bình và sau đó tắt dần 
+bên phải.
+	 3. Biểu đồ:
+0
+100
+Thùng
+Tần số
+200
+300
+400
+500
+200
+400
+600
+800
+1.000
+1.200
+1.400
+Thêm
+biểu đồ
+Có, độ nhọn biểu thị sự phân tán rộng. Chi phí bảo hành được trải đều từ 200 USD đến 1.200 USD:
+• Có ba đỉnh và một đỉnh cao. Độ lệch biểu thị các đỉnh dữ liệu xung quanh 
+trung bình và sau đó đuôi sang bên phải.
+• Đỉnh cao nhất là quanh mức trung bình $414 và sau đó giảm dần về bên phải.
+2.5  Trực quan hóa được sử dụng như thế nào trong 
+Phân tích dữ liệu?
+MỤC TIÊU BÀI HỌC ➎
+Tóm tắt cách trực quan hóa dữ liệu khám phá và giải thích dữ liệu.
+Trực quan hóa dữ liệu là cách trình bày đồ họa của dữ liệu và thông tin. Các doanh nghiệp đang 
+ngày càng tập trung vào trực quan hóa dữ liệu do sự kết hợp của tính sẵn có của dữ liệu ngày càng tăng.
+ity và các công cụ phần mềm dễ sử dụng. Ở nơi làm việc ngày nay, người sử dụng lao động mong đợi sinh viên tốt nghiệp kế toán
+cần biết cách sử dụng trực quan hóa dữ liệu để hiểu, giải thích và truyền đạt câu trả lời 
+cho các câu hỏi về dữ liệu.
+
+2.5  Trực quan hóa được sử dụng như thế nào trong Phân tích dữ liệu? 
+2-41
+Có hai loại trực quan hóa dữ liệu:
+• Trực quan hóa dữ liệu thăm dò sử dụng các công cụ và kỹ thuật trực quan hóa dữ liệu để khám phá 
+dữ liệu để tìm hiểu sâu sắc. Trực quan hóa dữ liệu thăm dò giúp hiểu dữ liệu và xác định
+xác định các mô hình, xu hướng hoặc sự bất thường cơ bản.
+• Trực quan hóa dữ liệu giải thích sử dụng các công cụ và kỹ thuật trực quan hóa dữ liệu để giao tiếp
+truyền đạt kết quả phân tích. Nó được sử dụng để giải thích kết quả phân tích, chỉ ra 
+các mối quan hệ trong dữ liệu và truyền đạt những hiểu biết sâu sắc.
+Khóa học này cuối cùng sẽ bao gồm cả hai chi tiết hơn. Cuộc thảo luận này giới thiệu cách trực quan
+các thuật toán phân tích có ý nghĩa đối với các tập dữ liệu lớn, xác định các hình ảnh trực quan phổ biến và khi nào nên sử dụng 
+chúng và giải thích cách tạo chúng trong Microsoft Excel. Nhiều chuyên gia kế toán 
+thích phần mềm trực quan hóa mạnh mẽ hơn như Power BI và Tableau vì Microsoft 
+Excel có khả năng hiển thị dữ liệu hạn chế. Tuy nhiên, việc tạo trực quan hóa trong Excel là 
+một giới thiệu hiệu quả và đơn giản. 
+Tạo cảm giác về các tập dữ liệu lớn
+Hình dung có tác dụng mạnh mẽ vì nó có thể tiết lộ nhanh chóng và hiệu quả những hiểu biết ẩn giấu trong những thông tin thô sơ. 
+dữ liệu. Hình minh họa 2.56 là bảng tổng hợp doanh thu của một cửa hàng điện máy qua các năm 
+2023–2025. So sánh bảng với hình ảnh trực quan của nó trong biểu đồ cột.
+MINH HỌA 2.56  Trực quan hóa 
+Dữ liệu bán hàng
+Thiết bị gia dụng
+Máy ảnh
+Máy tính
+Phụ kiện máy tính
+TV
+Tổng cộng
+$627,417,576
+$ 931,975,979
+$ 589,356,617
+$ 1,255,786,672
+4.760.213.442 USD
+$ 434,358,182
+$ 1,355,676,598
+Doanh thu hàng năm
+Danh mục sản phẩm
+năm tài chính 2024
+Tổng cộng
+ Năm tài chính 2023
+$ 217,276,947
+$ 434,363,120
+327.140.700 USD
+$ 216,412,502
+$ 432,403,786
+$ 217,491,906
+$ 323,513,274
+$ 215,524,232
+$ 434,187,852
+1.625.075.446 USD
+$ 486,955,296
+năm tài chính 2025
+$192,648,723
+281.322.005 USD
+$157,419,883
+$ 389,195,034
+1.507.540.941 USD
+1.627.597.055$
+0
+200.000.000 USD
+100.000.000 USD
+300.000.000 USD
+400.000.000 USD
+500.000.000 USD
+600.000.000 USD
+Thiết bị gia dụng
+Máy ảnh
+Máy tính
+Máy tính
+Phụ kiện
+TV
+Doanh thu hàng năm
+sản phẩm
+Năm tài chính 2023
+năm tài chính 2024
+năm tài chính 2025
+Biểu đồ doanh số dễ diễn giải hơn:
+• Có thể thấy ngay rằng thiết bị gia dụng và TV có doanh số bán hàng cao nhất trong cả ba năm, 
+và chỉ có thiết bị gia dụng có doanh số bán hàng tăng vào năm 2025.
+• Tất cả các danh mục sản phẩm khác đều có doanh số năm 2025 thấp hơn hai năm trước đó.

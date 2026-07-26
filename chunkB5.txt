@@ -1,0 +1,254 @@
+changing the data types, ﬁltering, aggregating, joining or
+concatenating diﬀerent datasets. The transformed datasets can
+then be used to generate some meaningful insights or business
+intelligence reports.
+Traditionally, companies have followed an ETL (extract,
+transform and load) approach, which involves performing such
+transformations before loading data into the database. But
+many times, the entire transformation process can be
+cumbersome and signiﬁcantly reduce the volume of the data
+that can be stored. With the availability of cheap and scalable
+data storage, such as data lakes, companies are gradually
+moving from ETL to an ELT (extract, load and transform) model
+where transformation can happen after storing the data. The
+advantage is that all the data can be stored ﬁrst and
+transformed later according to need. However, in practice,
+companies are neither completely ETL (as they need to store
+more and more data) nor completely ELT (as storing entire raw
+data may consume a lot of disk space which can be unnecessary
+and add to the cost).
+Data Processing Tools
+Some of the data processing tools described here can be used for data preparation,
+building machine learning models and even perform model evaluations. Data
+processing for small datasets can be handled by commonly used spreadsheet tools,
+but processing of bigger datasets requires tools like R, Python, SQL, Hive, Impala, and
+Pig. The following are some of the commonly used data processing tools: R and
+Python are open-source programming languages widely used in data science for data
+processing and modeling.
+SQL is a programming language widely used for querying and managing data in
+relational databases. Hadoop MapReduce is a programming model in Hadoop used
+for parallel processing of large datasets in a distributed manner.
+Apache Hive is a data warehouse built on Hadoop for data processing,
+summarization, querying, and analysis using a SQL-like language called Hive QL (HQL).
+Pig is a high-level scripting language for performing data analysis on top of Hadoop.
+Impala is another query engine built on top of Hadoop in which querying is faster
+than Hive.
+Apache Spark is a processing framework similar to but much faster than MapReduce.
+It supports various tools for different purposes, such as Spark SQL for structured
+datasets, Spark Streaming for data streaming, MLlib for machine learning, and Apache
+Storm for real-time computation.
+Source: Apache Software Foundation. [Online]. Available: http://www.apache.org
+Data Workflow Toolkit
+Given the standard steps of data ingestion, data transfer, data
+storage and data processing, there are two ways these processes
+can be operationalized: either by manually executing these
+steps, or using data workﬂows that can carry out these
+processes automatically or semi-automatically. It is diﬃcult to
+manually perform all of these tasks eﬃciently, accurately and
+quickly every time new data is received. Therefore, data
+workﬂows/pipelines are created to automate these processes.
+Workflow Tools
+Some of the popular open source data workflow tools include the following:
+Apache Oozie is used to automate the entire data ingestion, transfer, storage, and
+processing process and schedule these processes as jobs. Apache Oozie is quite useful
+as it can fully integrate with the Apache Hadoop and supports Hadoop jobs for Apache
+MapReduce, Pig, Hive, and Sqoop. In addition to that, complex data transformations
+that need complex scheduling can be managed by creating sub-workflows.
+Apache Airflow is another open source tool managing complex computational
+workflows and data processing pipelines. Overall, Airflow supports connectors to most
+of the cloud service providers, and it has a better UI, which can help you visualize your
+pipeline’s dependencies and see how they progress.
+Source: Apache Software Foundation. [Online]. Available: http://www.apache.org
+In addition to the open source solutions for the big data
+technology stack, there is a mix of good commercial cloud
+platform solutions (standalone or built on top of these open
+source frameworks) oﬀered by leading companies. A few such
+solutions are AWS (Amazon Web Services), Microsoft Azure,
+and Google Cloud Platform. The advantages of using these
+commercial solutions is that they can provide on-demand cloud
+computing solutions with software, databases, computing
+power and services on a paid subscription basis.
+Challenges and Lessons from Data Science Projects
+Data science is a rapidly evolving ﬁeld with continuous
+research and development of new algorithms, big data and
+analytics tools, and products using machine learning. Yet, many
+organizations have started adopting data science only quite
+recently. Due to this limited experience, there are several
+challenges that companies face when they start working on
+data science. These challenges can be unique to the company,
+team, project or even the model, but broadly, most of the
+challenges are similar across the industry (based on the
+maturity of the data science practice). The following are the
+typical challenges faced while working on data science projects:
+–Data platform (legacy systems): Many companies that are
+new to data science (but have been in existence for several
+decades) have legacy systems. It is diﬃcult to connect these
+legacy systems seamlessly to data lakes, for example. It is
+complex to implement a new algorithm and way to feed data
+back to the legacy system for operations teams that need to
+use them in decision making.
+–Data quality and data dictionaries: In most companies, raw
+data is dirty (missing, inaccurate, duplicate, misleading, and
+non-integrated), and data dictionaries are incomplete or
+absent. This poses a signiﬁcant challenge to data scientists’
+productivity as they need to spend a lot of time in
+understanding the data and perform a lot of quality checks.
+And many times incorrect data can lead to erroneous
+results.
+–Data privacy and lack of data access: In many projects, data
+is not available, or not available on time, due to data privacy
+issues. To resolve these issues, an upfront assessment of data
+privacy should be done at the scoping phase itself, and
+appropriate measures should be taken to address the issues.
+In some cases, a project may have to discontinue due to
+unresolved issues.
+–Ethical Issues: Many times, data science projects involve
+working with sensitive data such as race, gender, religion,
+national origin, and medical history, and we should be
+careful to use only data that is allowed by rules and
+regulations. Some of the variables, even though allowed by
+the regulations, might introduce discrimination (or
+marginalize certain sections of the society). Organizations
+must take extra care to ensure that algorithms do not create
+discrimination and are used in ethical ways.
+–Lack of project sponsorships: Many companies do not focus
+on investing appropriately in data science projects. This is
+due to a couple reasons:
+First, data science projects usually have a high setup
+cost (cost of resources and big data tools). Also,
+management often does not fully understand the
+potential benefits of data science project.
+Second, management usually underestimates the
+complexity associated with implementing a successful
+experiment in business operations. A lot of projects
+fail when implemented at scale in an organization
+even after success during experimentation. This is due
+to challenges associated with integrating data science
+models with legacy systems, and due to the
+complexity associated with change management, as
+business processes need to be updated and teams
+have to accept new ways of working.
+–Expectation management: It is diﬃcult to manage
+expectations about the impact of data science projects with
+management. It can only provide you a limited boost in
+business or reduce ineﬃciencies. Remember that data
+science is not magic! The beneﬁt of a data science project
+also may not immediately quantiﬁable when used to develop
+a data-driven approach for business, automatic processing,
+data-driven decision making for business transformation
+and change management, training existing employees with
+data science skills, and so forth, but can eliminate future
+problems and help create a data-driven culture. This should
+also be explained to management to set the right
+expectations.
+–Focus on wrong problems: The lack of clear direction,
+unclear problem statements, and unclear execution plans
+can cause data science projects to fail. For example—
+building a cool product without any business utility is likely
+to fail, as in cases when the product or model was created by
+data geeks without involving business teams.
+Conclusion
+The ﬁeld of data science and big data is very broad. The aim of
+this chapter was to provide a high-level overview of the data
+science and big data analytics ﬁeld and explain some key
+concepts. To master this ﬁeld and develop proﬁciency to apply
+these learnings in the real world, one must go through further
+readings and practice on real-world problems (under the
+supervision of an experienced data scientist) or on open data
+science competitions. Moreover, the ﬁeld is rapidly evolving
+and therefore continuous learning is required to keep up to
+date about the developments.
+In order to gain further knowledge about this subject, the
+following are some good resources:
+–An Introduction to Statistical Learning with Applications in R
+by Gareth James, Daniela Witten, Trevor Hastie and Robert
+Tibshirani
+–Machine Learning: A Probabilistic Perspective by Kevin
+Murphy
+–Machine Learning with R by Brett Lantz
+–Doing Data Science by Cathy O’Neil, Rachel Schutt
+–Deep Learning by Aaron Courville, Ian Goodfellow, and
+Yoshua Bengio
+–Mining of Massive Datasets by Jure Leskovec, Anand
+Rajaraman, Jeﬀ Ullman
+–Coursera online course: Machine Learning by Andrew Ng
+Endnotes
+1 Data source: Google Trends (https://www.google.com/trends).
+2 Ng, Andrew (2018) Machine Learning Yearning—Technical Strategy for AI
+Engineers in the Era of Deep Learning, Unpublished book, www.mlyearning.org
+3 Linden, Greg, Smith, Brent, York, Jeremy (2003) Amazon.com “Recommendations:
+Item-to-Item Collaborative Filtering, IEEE Internet Computing,” v. 7, n. 1, pp. 76–80,
+January 2003. doi>10.1109/MIC.2003.1167344
+4 Gomez-Uribe, Carlos A. and Hunt, Neil (2016) “The Netﬂix Recommender System:
+Algorithms, Business Value, and Innovation, ACM Transactions on Management
+Information Systems (TMIS),” v. 6, n. 4, pp. 1–19, January 2016.
+5 Khandani, A. E., Kim, A. J., and Lo, A. W. (2010) “Consumer credit-risk models via
+machine learning algorithms.” Journal of Banking & Finance, v 34, pp. 2767–2787.
+6 Tukey, John W. (1962) “The Future of Data Analysis.” Ann. Math. Statist. v. 33, n. 1,
+pp. 1–67. doi:10.1214/aoms/1177704711
+7 Cleveland, William S. (2001) “Data Science: an action plan for expanding the
+technical areas of the ﬁeld of statistics.” International Statistical Review, v. 69, n. 1, pp.
+21–26.
+8 Davenport, Thomas & J Patil, D. (2012) “Data Scientist: The Sexiest Job of the 21st
+Century.” Harvard Business Review. v. 90, pp. 70–76, 128.
+9 Manyika, J., Chui, M., Brown, B., Bughin, J. et al. (2011) Big data: The next frontier
+for innovation, competition, and productivity, McKinsey Global Institute working
+paper. www.mckinsey.com
+1 0 Jacobson, Ralph (2013) “2.5 quintillion bytes of data created every day. How does
+CPG & Retail manage it?” (IBM, April 24, 2013) [Online]. Available: https://www.ibm.co
+m/blogs/insights-on-business/consumer-products/2-5-quintillion-bytes-of-datacreated-
+every-day-how-does-cpg-retail-manage-it/
+1 1 IBM Corporation (2016), “The Four V’s of Big Data,” 2016. [Online]. Available: htt
+p://www.ibmbigdatahub.com/infographic/four-vs-bigdata
+1 2 Pipino, L.L., Lee, Y.W., and Wang, R.Y. (2002) “Data quality assessment.”
+Communications of the ACM, v. 45, n. 4, pp. 211–218.
+1 3 Ng, Machine Learning Yearning, op.cit.
+1 4 Fortmann-Roe, Scott Understanding the Bias-Variance Tradeoﬀ http://scott.fortma
+nn-roe.com/docs/BiasVariance.html
+1 5 Ibid.
+1 6 James, G., Witten, D., Hastie, T., Tibshirani, R. (2013) An Introduction to Statistical
+Learning with Applications in R, 2013, Springer Science and Business Media, New
+York.
+We would like to thank AXA for providing an intellectual
+environment where we could devote time to write this chapter
+and receive feedback and guidance from colleagues. This
+chapter is written to provide a high-level introduction and
+motivation to readers on data science and big data. Most of
+what we discuss here has already been said in many books,
+research papers, blog posts, mailing lists, and so on. The further
+reading suggestions and references at the end of the chapter
+are great sources if you want to learn any speciﬁc area in more
+depth.
+Ankur Agrawal is a seasoned actuarial, analytics professional
+heading AXA Data and Tech Innovation Asia lab. Objective of the
+lab is to drive AXA towards a tech-led company by leveraging
+data and emerging technologies at scale which have the potential
+to disrupt the current insurance business model and provide
+opportunities to shape future businesses. In his last role with AXA
+Business Services in India, he was a member of Exec team
+responsible for managing a team of over 200+ professionals
+supporting 20+ AXA entities across life, health and P&C actuarial,
+data science, and research areas spanning North America,
+Europe and Asia region. Prior to that, he has held various
+leadership positions in actuarial areas in direct companies as
+well as consulting ﬁrms across life, health and P&C actuarial,
+operational areas spanning North America, Europe and Asia
+region. Ankur is a qualiﬁed actuary from Institute and Faculty of
+Actuaries UK and Institute of Actuaries of India and also holds a
+Bachelor of Technology, Mechanical from Indian Institute of
+Technology, Delhi.
+Siddhant Tiwari is a data science professional working as a
+senior data scientist at AXA Data and Tech Innovation Asia lab.
+His role at lab involves executing high-impact data science
+projects for AXA entities and supporting them in their data
+transformation journey. He is experienced in leading data science
+projects involving opportunity assessments, customer
+acquisitions, cross-selling and up-selling, product
+recommendations, customer retention, risk management and
+fraud. Previously, at ZS Associates, he consulted various Fortune
+500 pharmaceutical clients in devising sales and marketing
+strategies to improve brand positioning in the market using data
+analytics. He holds a BE Hons. in Electrical and Electronics from
+BITS Pilani, India and MSc. in Business Analytics from National
+University of Singapore.
+OceanofPDF .com

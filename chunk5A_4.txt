@@ -1,0 +1,118 @@
+329+73=0.818.
+12.9 UNDERSTANDING THE CHAPTER
+1. Given a dataset where instances of backorders are vastly outnumbered by regular orders,
+hyperparameter tuning in Random Forest, such as the number of trees or minimum data points
+per node, can be used. How might adjusting these parameters specifically aid or not aid in
+improving prediction accuracy for the minority class (backorders)?
+2. Consider a predictive modeling task involving a Random Forest classifier . Explain the role and
+significance of employing k-fold cross-validation (CV) in the model evaluation process. How does
+k-fold CV work, and in what ways does it attempt to provide a robust estimate of the model’ s
+performance? Moreover , discuss the trade-of fs involved in choosing a specific k value (e.g., k = 5
+vs. k = 10).
+3. Decisions that are made with some information missing are called which of the following?
+a. Risky decisions
+b. Decisions under certainty
+c. No decision can be made
+d. Binary decisions
+4. From the options provided, which are features of decisions made under uncertainty? (Choose all
+that apply .)
+a. Weighing the risks of making the decision versus the benefits of the decision
+b. Weighing the risks versus the costs of making the decision
+c. Weighing the benefits of the decision versus profits from the sales
+d. Evaluating existing options versus new ones
+5. Which of the following statements is true about the bullwhip ef fect?
+a. It occurs when a small change in demand is overestimated, resulting in oversupply .
+b. It occurs when a small change in supply is underestimated.
+c. It occurs when demand matches supply .
+d. It occurs when inflation causes demand to fall.
+6. For decision trees, the metric used to find which variable is a better classifier is which of the
+following?
+a. Gini impurity
+b. Coef ficient of determination
+c. Variance inflation factor (VIF)
+d. Cophenetic correlation coef ficient
+7. Which of the following statements about bagging is false ?
+a. Bagging is bootstrap aggregation.
+b. Bagging involves sampling with replacement.
+c. Bagging involves sampling without replacement.
+d. Bagging helps build diverse trees.
+8. Which of the following statements about downsampling is false ?
+a. It addresses the issue of data imbalance.
+b. It allows the model to better learn the features of the minority class.
+c. It severely reduces accuracy of the model.
+d. It slightly decreases specificity but improves sensitivity significantly .
+9. Let’s assume that we are using a decision tree to find out which predictor variable(s) can better
+classify the outcome variable: whether or not customers will buy a product. Given the following
+Gini impurity values for the three predictor variables—Predictor A = 0.55, Predictor B = 0.24, and
+Predictor C = 0.76—which of the following options would be considered the optimal classifier of
+the buy/no buy decision?
+a. Predictor A
+b. Predictor B
+c. Predictor C
+d. Both Predictor A and Predictor C
+ENDNOTES
+1. Heath, Chip, and Amos Tversky , “Preference and Belief: Ambiguity and Competence in Choice
+Under Uncertainty ,” Journal of Risk and Uncertainty  4, no. 1 (1991): 5–28.
+2. Fischhof f, Baruch, and Alex L. Davis, “Communicating Scientific Uncertainty ,” Proceedings of the
+National Academy of Sciences  111, Suppl. 4 (2014): 13664–13671.
+3. IBM Corporation, “Scientific and Technical Report: Backorder Prediction,” for Defense Logistics
+Agency Research and Development (Contract No. SP4701-20-C-0052), submitted February 26, 2021,
+https://apps.dtic.mil/sti/pdfs/AD1141471.pdf.
+4. Bhan, Hyung Sup, and Eric T. Anderson, “Multiyear Impact of Backorder Delays: A Quasi-
+experimental Approach,” Marketing Science  22, no. 2 (2022): 314–335.
+5. The data for the analysis is a subset of data adopted from Santis et al. (2017). It was made available
+as a Kaggle competition and is posted at https://github.com/rodrigosantis1/backorder_prediction.
+Santis, Rodrigo B., Eduardo Pestana de Aguiar , and Leonardo Goliatt, “Predicting Material Backorders
+in Inventory Management Using Machine Learning,” Fourth IEEE Latin American Conference on
+Computational Intelligence, Arequipa, Peru (2017).
+6. Wickham, Hadley , and Jennifer Bryan, “readxl: Read Excel Files,” R package version 1.4.3 (July 6,
+2023), https://CRAN.R-project.org/package=readxl.
+7. Kuhn, Max, et al., “T idymodels: A Collection of Packages for Modeling and Machine Learning Using
+tidyverse Principles” (2020), https://www .tidymodels.org.
+8. Wickham, Hadley , Romain François, Lionel Henry , and Kirill Müller , “dplyr: A Grammar of Data
+Manipulation,” R package version 1.1.3 (September 3, 2023), https://CRAN.R-
+project.org/package=dplyr .
+9. Wright, Marvin N., and Andreas Ziegler , “ranger: A Fast Implementation of Random Forests for High
+Dimensional Data in C++ and R,” Journal of Statistical Software  77, no. 1 (2017): 1 ‒ 17,
+https://doi.org/10.18637/jss.v077.i01.
+10. Hvitfeldt, Emil, “themis: Extra Recipes Steps for Dealing With Unbalanced Data,” R package
+version 1.0.0 (2022), https://CRAN.R-project.org/package=themis.
+Descriptions of Images and Figures
+Back to Figure
+The figure consists of images from left to right as follows: image for human, house, industry and
+vehicles for construction. Above human is the description CUST OMER DEMAND INCREASE; above
+house is the description RET AILER OVERORDERING; above industry is the description OVER
+MANUF ACTURING; above the vehicle is the description SUPPL Y. In the figure, from left to right is a
+dotter wave enclosing the image and the description is present above each peak.
+Back to Figure
+The figure has a horizontal line on the left and above the line is a vertical line. On the left of the line are
+four circular nodes of which first three are grey and the last is black in colour and this region is labeled
+Low. On the right are five nodes of which first four are black and the last is grey in color and this region
+is labeled High. The left image is labeled Forecasted Sales at the bottom. On the right is an image with
+a horizontal line and vertical line above the horizontal line labeled Transit Time. On the left is the region
+Low with five circular nodes of which first two nodes are grey and last three nodes are black. On the
+right is the region for high with four nodes of which first two nodes are black and last two nodes are
+grey.
+Back to Figure
+The figure has two images. On the top is an image for Forecasted Sales, which has a horizontal line
+and a vertical dotted line on the top. The left side is a region for Low with three grey nodes on the left
+and a black node on the right, and on the right is the region for high with four black nodes on the left
+and a grey node on the right. At the bottom is the equation Weighted Average Impurity  = (5/9) 0.32 +
+(4/9) 0.375 = 0.34. On the top left is the 1−(1/4)2−(3/4)2 = 0.375 and on the right is the equation 1–
+(4/5)2−(1/5)2 = 0.32. At the bottom is an image for Transit Time, which has a horizontal line and a
+vertical dotted line on the top. The left side is a region for Low with two grey nodes on the left and
+three black node on the right, and on the right is the region for high with two blacks nodes on the left
+and two grey node on the right. At the bottom is the equation Weighted Average Impurity  = (5/9) 0.48 +
+(4/9) 0.5 = 0.48. On the top left is the equation 1−(2/5)2−(3/5)2 = 0.48 and on the right is the equation
+1–(2/4)2−(2/4)2 = 0.5.
+Back to Figure
+The figure is a flow diagram consisting of rectangular blocks and circular nodes in the box. On top is a
+block with four black nodes on the top and five grey nodes at the bottom. On the left is a block labeled
+Low with a black node on the top and three grey nodes at the bottom. This block is again divided into
+two blocks labeled Low on the left and High on the right, and the term Transit Time is at the center . On
+the left is a block with a black node on the top and two grey nodes on the right. On the right is a block
+for high with four black nodes on the top and a grey node at the bottom. This block is divided as Low
+with two black nodes on the left and High on the right with two black nodes on the top and a grey node
+at the bottom and at the center is the term Transit Time.
+OceanofPDF .com
+

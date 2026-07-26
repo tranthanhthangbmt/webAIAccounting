@@ -1,0 +1,862 @@
+• Add a label name for this column in row 1: “Analysis Date.” 
+•  In row 2, enter “12/31/2025” and copy this date to the bottom row of data. This can be eas-
+ily done by clicking on the bottom corner of the cell where “12/31/2025” was entered and 
+dragging the cursor down to the last row of data ( Illustration 4.30 ). 
+ ILLUSTRATION 4.30  Add Analysis Date Column 
+12/31/2025
+fx
+1
+E
+B
+C
+D
+A
+F
+G
+InvoiceAmount
+InvoiceNumber InvoiceDate
+DueDate
+CustID
+AnalysisDate
+$ 1,169.74
+1405
+1/8/2025
+2/7/2025
+121054
+$     286.00
+1501
+2/6/2025
+3/8/2025
+121054
+$     760.89
+1551
+2/18/2025
+3/20/2025
+121050
+$     298.09
+1651
+3/22/2025
+4/21/2025
+121053
+Sheet1
+2
+3
+4
+5
+AutoSave
+Oﬀ
+2
+ STEP 3: Create a new column to the right of the 12/31/2025 date column: 
+• Add a label name for this column in row 1: “Days Outstanding.” 
+•  Calculate the days outstanding by creating a formula in cell G2 which subtracts the invoice 
+date (Cell C2) from 12/31/2025 cell (F2) for the Analysis Date. The formula is =F2-C2. 
+• Copy this formula through all the data rows in Column G. Copying can be done by clicking 
+on the bottom corner of the cell where the formula was entered and dragging in down to 
+the last row of data, ( Illustration 4.31 ). 
+ HOW TO 4.1
+Calculate Year-End Bad Debts Estimation Using Excel 
+The figures shown in the table in Illustration 4.2 were calculated in Excel.  Recall a few facts 
+about this example:
+•  WeMakeIt, Inc. estimates that 2% of its 30 to 60 days outstanding receivables will be uncol-
+lectible, and that 30% of outstanding receivables older than 60 days will be uncollectible. 
+•  The 2025 year-end allowance for uncollectible accounts unadjusted balance is $3,000. 
+ What You Need :
+Data The How To 4.1 data file. 
+ STEP 1: Select the entire data set, but not the labels, and sort the outstanding invoice data by 
+invoice date. The  Sort option appears in the  Data tab. ( Illustration 4.29 )
+How To
+How To Walk-Throughs
+
+How To Walk-Throughs
+4-37
+ ILLUSTRATION 4.31  Data set with Analysis Date and Days Outstanding Columns 
+12/31/2025
+357
+fx
+1
+E
+B
+C
+D
+A
+F
+G
+InvoiceAmount
+InvoiceNumber InvoiceDate
+DueDate
+CustID
+AnalysisDate
+$ 1,169.74
+1405
+1/8/2025
+2/7/2025
+121054
+$     286.00
+1501
+2/6/2025
+3/8/2025
+121054
+$     760.89
+1551
+2/18/2025
+3/20/2025
+121050
+$     298.09
+1651
+3/22/2025
+4/21/2025
+121053
+$     572.78
+1724
+4/11/2025
+5/11/2025
+121050
+$     795.60
+1999
+6/22/2025
+7/22/2025
+121049
+$     819.39
+2033
+7/3/2025
+8/2/2025
+12/31/2025
+12/31/2025
+12/31/2025
+12/31/2025
+12/31/2025
+12/31/2025
+DaysOutstanding
+328
+316
+284
+264
+192
+181
+121050
+Sheet1
+2
+3
+4
+5
+6
+7
+8
+AutoSave
+Oﬀ
+3
+ STEP 4: Select the data field titles and data rows and create a PivotTable. This option is located 
+under the Insert menu option on Excel ( Illustration 4.32 ).
+ ILLUSTRATION 4.32  Insert PivotTable 
+AutoSave
+Insert
+Recommended
+PivotTables
+Table
+Illustrations
+Add-ins
++ Get Add-ins
+My Add-ins
+SmartArt
+Screenshot
+Shapes
+Pictures
+Icons
+3D
+Models
+Tables
+PivotTable
+Visio Data
+Visualizer
+Bing Maps
+People Graph
+File
+Home
+Formulas
+Data
+Review
+View
+Help
+Page Layout
+Acrobat
+Draw
+On
+Recommended
+PivotTables
+Table
+Illustrations
+Add-ins
++ Get Add-ins
+My Add-ins
+SmartArt
+Screenshot
+Shapes
+Pictures
+Icons
+3D
+Models
+Tables
+Visio Data
+Visualizer
+Bing Maps
+People Graph
+4
+ Select  New Worksheet . Your screen will automatically move to the new worksheet. Name 
+this table “BadDebts2025.” The name appears at the top left of your screen. 
+ STEP 5: Select any place in the PivotTable so the  PivotTable Fields appears on the right of 
+your screen:
+• Drag  Invoice Amount to the Values area. 
+• Drag  Days Outstanding to Rows. The new PivotTable solution should appear ( Illustra-
+tion 4.33 ) .
+ ILLUSTRATION 4.33 Unpaid
+Invoices by Days Outstanding 
+Grand Total
+9
+8
+7
+4
+ $        456.3
+$     970.06
+$  1,688.44
+$ 1,912.04
+$ 83,734.3
+RowLabels
+SumOfInvoiceAmount
+5
+ STEP 6: Next, select any row in the  Days Outstanding column: 
+•  Right click and select  Group . 
+•  In the dialog box that opens ( Illustration 4.34 ), enter a zero (0) in the starting point, 60 in 
+the ending point, and then enter 30 for the  By option. Select  OK .
+ ILLUSTRATION 4.34  Dialog Box 
+to Group by Days Outstanding 
+Grouping
+Auto
+Starting at:
+Ending at:
+0
+60
+By:
+30
+Cancel
+OK
+?
+6
+
+4-38  CHAPTER 4  Planning Data and Analysis Strategies
+Now the PivotTable has become three rows for the three desired age categories, with the sub-
+totals already calculated for the Sum of InvoiceAmount column. Format the Sum column 
+as currency (Illustration 4.35). Format the amounts as currency.
+STEP 7: In the cell to the right of the SumofInvoiceAmount title, enter “Estimation %.” In the 
+cell to the right, enter “$ Uncollectible.” Adjust column widths:
+•	 In the cell to the right of the $ 20,441.46, enter “0.02,” and in the cell below enter “0.3” for 
+the uncollectible percentages. 
+•	 Format the $ Uncollectible column as currency.
+STEP 8: In the cells to the right of each of these percentages, enter the following formulas 
+using cell references: 
+•	 For the 30-60 day group, the formula is:
+=(click on cell with 20441.46)*(click on the cell with the 0.02)
+•	 And for the >60 days group:
+=(click on the cell with 33193.55)*(click on cell with the 0.3)
+•	 An example of the formula and totals that result is shown in Illustration 4.36. Add an 
+underline to the cell containing the last formula.
+ILLUSTRATION 4.35  Age Group Totals for 
+Accounts Receivable Invoice Values
+fx
+1
+B
+A
+Sheet1
+2
+3
+4
+5
+AutoSave
+Oﬀ
+Grand Total
+>60
+30–60
+0–29
+30,099.29
+20,441.46
+  33,193.55
+$ 83,734.30
+RowLabels
+SumOfInvoiceAmount
+$
+$
+$
+ILLUSTRATION 4.36  Age Group Totals for Bad Debt Estimations
+fx
+1
+B
+A
+C
+D
+E
+Sheet1
+2
+3
+4
+5
+6
+7
+AutoSave
+Oﬀ
+Grand Total
+>60
+30–60
+0–29
+30,099.29
+20,441.46
+  33,193.55
+0.02
+0.3
+$ 83,734.30
+RowLabels
+SumOfInvoiceAmount
+Estimation %
+=GETPIVOTDATA("InvoiceAmount",$A$3,"Days Outstanding",30)*C5
+D5
+408.83
+$ 9,958.07
+$ Uncollectible
+$
+$
+$
+$
+7
+8
+STEP 9: Enter the sum formula in the next cell (D7 in this example solution):
+=sum(D5:D6)
+This sum is the desired adjusted year-end credit balance of allowance for uncollectible 
+accounts. This total is $10,366.89 (also shown in Illustration 4.37).
+
+How To Walk-Throughs  4-39
+STEP 10: Compare the 2025 unadjusted allowance account balance, a $3,000 credit balance, 
+to the calculated desired ending balance to calculate the amount needed for the adjusting 
+­entry to ensure the allowance for uncollectible accounts has that desired credit balance: 
+•	 Enter the unadjusted balance in cell D8 and the formula for the calculation in cell D10 
+(Illustration 4.37):
+=D7−D8
+•	 You are now ready to make your adjusting entry:
+Debit
+Credit
+Bad debt expense
+7,366.89
+Allowance for uncollectible accounts
+7,366.89
+HOW TO 4.2  Create a Frequency Bar Chart in Power BI
+Illustration 4.16 can be recreated in Power BI by analyzing the outstanding invoices in 
+accounts receivable by customer and creating a visualization that shows how many outstand-
+ing invoices are owed by unique customers at the end of 2024 and 2025 in three groupings: 1-3 
+invoices, 4-6 invoices, and 7-9 invoices.
+What You Will Need:  Data   The How To 4.2 data file.
+STEP 1: Upload the data set into Power BI:
+•	 Open Power BI and Select Get Data.
+•	 Select Import data from Excel and choose Excel Worksheet.
+•	 Navigate to the saved the data set file and open it. 
+How To
+ILLUSTRATION 4.37  Completed Analysis of Bad Debts Expense Calculation
+fx
+1
+B
+A
+C
+D
+E
+Sheet1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+AutoSave
+Oﬀ
+Grand Total
+>60
+30–60
+0–29
+30,099.29
+20,441.46
+  33,193.55
+0.02
+0.3
+$ 83,734.30
+RowLabels
+SumOfInvoiceAmount
+Estimation %
+408.83
+9,958.07
+Adjusting entry amount
+Subract the unadjusted
+balance in Allowance
+$ 10,366.89
+7,366.89
+($ 3,000)
+$ Uncollectible
+$
+$
+$
+$
+$
+$
+9
+10
+
+4-40  CHAPTER 4  Planning Data and Analysis Strategies
+ILLUSTRATION 4.38  Load Data 
+into Power BI
+Navigator
+Display Options
+Accounts Receivable_HowTo_4.2.xlsx [1]
+Sheet 1
+Sheet 1
+Cancel
+Load
+Transform Data
+CustID
+InvoiceNumber
+InvoiceAmount
+InvoiceDate
+DueDate
+406
+607
+647
+746
+864
+892
+966
+983
+998
+1000
+1004
+1010
+1014
+1031
+1037
+1042
+1049
+1054
+4/5/2024
+5/31/2024
+6/12/2024
+7/10/2024
+8/18/2024
+8/25/2024
+9/12/2024
+9/18/2024
+9/22/2024
+9/23/2024
+9/24/2024
+9/25/2024
+9/26/2024
+9/29/2024
+9/30/2024
+10/1/2024
+10/4/2024
+10/5/2024
+10/8/2024
+10/9/2024
+10/10/2024
+10/11/2024
+10/14/2024
+5/5/2024
+6/30/2024
+7/12/2024
+8/9/2024
+9/17/2024
+9/24/2024
+10/12/2024
+10/18/2024
+10/22/2024
+10/23/2024
+10/24/2024
+10/25/2024
+10/26/2024
+10/29/2024
+10/30/2024
+10/31/2024
+11/3/2024
+11/4/2024
+11/7/2024
+11/8/2024
+11/9/2024
+11/10/2024
+11/13/2024
+121008
+121035
+121023
+121038
+121001
+121009
+121024
+121024
+121036
+121008
+121010
+121011
+121006
+121014
+121005
+121005
+121023
+121018
+121016
+121037
+121036
+121014
+121008
+$    351.65
+$     349.83
+$     415.48
+$     450.19
+$    197.34
+$     469.17
+$          663
+$     316.29
+$    848.38
+$       839.8
+$     719.68
+$     575.12
+$     691.34
+$       868.4
+$     515.97
+$     756.47
+$     726.44
+$     416.65
+$    582.01
+$    244.01
+$ 1,376.05
+$   1,125.8
+$    811.59
+1062
+1066
+1068
+1070
+1078
+ana
+1
+•	 Verify this import by double-clicking on the data sheet icon on the left side of the screen. 
+Look at the bottom left corner to verify that you have successfully loaded all 201 records of 
+the data set (Illustration 4.39).
+ILLUSTRATION 4.39  Verify Excel Import
+File
+Home
+Help
+Table tools
+Sheet 1
+Name
+Structure 
+Calendars
+Mark as date
+     table
+Manage
+relationships
+Relationships
+New
+measure
+Quick
+measure
+New
+column
+New
+table
+Calculations
+InvoiceNumber
+121054
+121054
+121050
+121053
+121050
+121049
+1405
+1999
+1724
+1651
+1551
+1501
+Friday, February 7, 2025
+Saturday, March 8, 2025
+Thursday, March 20, 2025
+Monday, April 21, 2025
+Sunday, May 11, 2025
+Tuesday, July 22, 2025
+Wednesday, January 8, 2025
+Thursday, February 6, 2025
+Tuesday, February 18, 2025
+Saturday, March 22, 2025
+Friday, April 11, 2025
+Sunday, June 22, 2025
+DueDate
+InvoiceAmount
+ $ 1,169.74
+ $       795.6
+ $     572.78
+ $     298.09
+ $     760.89
+ $           286
+Wednesday, December 31, 2025
+Wednesday, December 31, 2025
+Wednesday, December 31, 2025
+Wednesday, December 31, 2025
+Wednesday, December 31, 2025
+Wednesday, December 31, 2025
+AnalysisDate
+DaysOverdue
+327
+298
+286
+254
+234
+162
+1
+CustID
+InvoiceDate
+	
+Once the Navigator window opens, select Sheet 1 of the file listed on the left, then select 
+Load (Illustration 4.38).
+
+How To Walk-Throughs  4-41
+STEP 2: Select the AnalysisDate column.
+•	 In the menu under Column Tools, pull down the Format Field options and choose the 
+last option “2001 (yyyy)” (Illustration 4.40).
+•	 Verify the analysis date field has changed to show 2024 and 2025.
+ILLUSTRATION 4.40  Change the 
+AnalysisDate Column Format
+Table tools
+Column tools
+ 
+0
+Don’t Summ
+Uncategoriz
+Formatting
+Properties
+Summarization
+Data category
+Format
+$
+%
+$%
+.00
+.0
+“Wednesday, March
+Date formats
+*3/14/2001 (Short Date)
+*Wednesday, March 14, 2001 (Long Date)
+Wednesday, 14 March, 2001 (dddd, d mmmm, yyyy)
+Wednesday, March 14, 2001 (dddd, mmmm d, yyyy)
+March 14, 2001 (mmmm d, yyyy)
+14 March, 2001 (d mmmm, yyyy)
+3/14/2001 (m/d/yyyy)
+03/14/2001 (mm/dd/yyyy)
+03/14/01 (mm/dd/yy)
+3/14/01 (m/d/yy)
+2001-03-14 (yyyy-mm-dd)
+01/03/14 (yy/mm/dd)
+14-Mar-01 (dd-mmm-yy)
+14/03/2001 (dd/mm/yyyy)
+March 2001 (mmmm yyyy)
+2001-03 ( yyyy-mm)
+March 14 ( mmmm d)
+01 (yy)
+2001 (yyyy)
+2
+STEP 3: Select the CustID column by clicking on the column header. Right click and select 
+Edit Query (Illustration 4.41).
+ILLUSTRATION 4.41  Edit Query 
+Selection
+CustID
+Sort ascending
+Sort descending
+1.
+1.
+1.
+1.
+1.
+1.
+1.
+1.
+1.
+1.
+1.
+Clear sort
+Clear filter
+Clear all filters
+Copy
+Copy table
+New measure
+New column
+Refresh data
+Edit query
+Rename
+3
+
+4-42
+CHAPTER 4 Planning Data and Analysis Strategies
+•  This will open the Power Query Editor window. In this window, the CustID column will 
+also be selected. 
+•  Select  Group By from the top menu, and it will open. 
+•  Select  Advanced . Right below the CustID field you will see the Add grouping button. 
+Select this to add a second grouping for the field AnalysisDate. Then, below the new group-
+ing box, in the New column name box, enter “CountInvoices” (do not enter the quotes).
+•  In the pull down menu for  Operation , select  Count Distinct Rows and select  OK .  Close 
+and Apply the Power Query Editor (Illustration 4.42). 
+ ILLUSTRATION 4.42  Group By Customer  ID and Count Distinct Invoices 
+Group By
+Basic
+Advanced
+New column name
+Operation
+Column
+Specify the columns to group by and one or more outputs.
+Count Distinct Rows
+CustID
+Add grouping
+Add aggregation
+CountInvoices
+Cancel
+OK
+?
+ STEP 4: Select the  Count Invoices column. Select  Data Groups from the top column, then 
+select  New Data Group ( Illustration 4.43 ).
+ ILLUSTRATION 4.43  Select Data Groups 
+Home
+Help
+Table tools
+Column tools
+File
+CountInvoices
+Whole number
+Whole number
+0
+Sum
+Uncategorized
+Name
+Data type
+Structure 
+Formatting
+Properties
+Sort
+Groups
+     Sort by
+ column
+    Data
+groups
+Summarization
+Data category
+Format
++
+$
+%
+$%
+.00
+.0
+123
+2024
+2024
+2024
+7
+4
+5
+121008
+121035
+121023
+CountInvoices
+CustID
+AnalysisDate
+CountInvoices
+Whole number
+Whole number
+0
+Sum
+Uncategorized
+Name
+Data type
+Structure
+Formatting
+Properties
+Sort
+    Sort by
+ column
+Summarization
+Data category
+Format
+$
+%
+$%
+.00
+.0
+123
+12
+12
+4
+
+How To Walk-Throughs  4-43
+Illustration 4.43 shows the dialog box that opens once you select Data Groups:
+•	In the dialog box select List (not bins) for the Group Type.
+•	Under Ungrouped values, hold the shift key down to select values 1 2, and 3.
+•	Select Group. Double click the new group that appears on the right window and change 
+the label to “1-3”.
+•	Select the Other group, and move to the ungrouped left side. Select 4 and 5 together by 
+again holding down the shift key. Select Group and move over to the right window. Dou-
+ble click on the label for this field, and type “4-6” (it happens that there are no customers 
+with six outstanding invoices, but the range will be 4-6 regardless).
+•	Once again, select Other and move to the Ungrouped values window. Select 7, 8, and 9 
+by holding down the shift key and selecting GROUP.
+•	Go back to the right and double click on the label for this group. Change it to “7-9.” Select 
+OK. (Illustration 4.44).
+ILLUSTRATION 4.44  Create Grouping of Number of Invoices
+Groups
+Name
+Field
+List
+Group type
+Ungrouped values
+Group
+Ungroup
+Groups and members
+1-3
+4-6
+7-9
+Other
+Contains all ungrouped values
+Include Other group
+i
+CountInvoices
+CountInvoices (groups)
+Cancel
+OK
+?
+STEP 5: Now you are ready to create your visualization:
+•	Select the graphing icon on the left of the screen.
+•	Select all three variables in your Fields list.
+
+4-44  CHAPTER 4  Planning Data and Analysis Strategies
+ILLUSTRATION 4.45  Create the 
+Visualization
+Search
+Filters
+Search
+Filters on this visual
+AnalysisDate - Year
+is (All)
+CountInvoices (groups)
+is (All)
+CustID
+is (All)
+Add data fields here
+Add data fields here
+Filters on this page
+Filters on all pages
+Visualizations
+Fields
+R
+Py
+Axis
+CountInvoices (groups)
+Legend

@@ -1,0 +1,273 @@
+• Thiết kế và triển khai các biện pháp kiểm soát phòng ngừa và phát hiện trong quá trình phân tích 
+dẫn đến kết quả chính xác, có giá trị và đáng tin cậy.
+Kế hoạch phân tích dữ liệu làm tăng khả năng kết quả phân tích mô tả chính xác những gì 
+xảy ra, chẩn đoán lý do tại sao nó xảy ra, dự đoán điều gì có thể xảy ra hoặc đưa ra giải pháp tốt nhất 
+khóa học về phía trước. Khi kế hoạch dự án hoàn tất, việc lập kế hoạch cho quá trình phân tích dữ liệu cũng vậy. 
+giai đoạn này và đã đến lúc chuyển sang giai đoạn phân tích. Chương tiếp theo mô tả cách thực hiện đúng 
+chuẩn bị dữ liệu để phân tích. Nhưng trước tiên, hãy thực hành sử dụng công cụ lập kế hoạch dự án này trong kế toán. 
+bối cảnh.
+Kế hoạch dự án phân tích dữ liệu mẫu
+Hãy tưởng tượng bạn là kế toán tài chính cho WeMakeIt, Inc., một công ty 3D do nhân viên sở hữu. 
+công ty in ấn ở Phoenix, Arizona. Họ bán tượng siêu anh hùng, cửa hàng cơ khí 
+các công cụ và bộ phận giả y tế được sản xuất bằng công nghệ in 3D. Được thành lập 
+5 năm trước bởi một sinh viên đại học địa phương, Marisabel Cordoba, WeMakeIt, Inc. đã nhanh chóng phát triển thành 
+lấp đầy năng lực sản xuất của họ và duy trì quy mô ổn định trong ba năm qua.
+Bước 1: Tập trung vào mục tiêu
+Dự án trong ví dụ này là ước tính các khoản nợ khó đòi trong các khoản thu cuối năm 2025.
+có khả năng cân bằng. Kết quả sẽ là giá trị ước tính cho tạp chí điều chỉnh cuối năm 2025 
+mục ghi nợ chi phí nợ khó đòi và ghi có khoản dự phòng cho các tài khoản khó thu 
+chống lại tài sản.
+
+4-4  CHƯƠNG 4  Lập kế hoạch chiến lược phân tích và dữ liệu
+ÁP DỤNG TƯ duy phê phán 4.1: Ước tính các khoản nợ khó đòi
+Phương pháp kết thúc các khoản phải thu theo GAAP của Hoa Kỳ yêu cầu như sau:
+• Số dư các khoản phải thu cuối năm có thể được xem xét theo tổng hoặc theo nhóm tuổi. 
+Quy tắc phân nhóm tuổi cho các công ty sản xuất thường dưới 30 ngày, 30 đến 60 ngày, 
+và còn nợ trên 60 ngày, nhưng những khoản này khác nhau tùy theo ngành.
+• Xem xét hướng dẫn pháp lý, thông lệ ngành, chính sách và quy trình kinh doanh cũng như các hoạt động trước đây 
+tỷ lệ ước tính nợ xấu là cách tiếp cận chuyên nghiệp để lựa chọn ước tính nợ xấu.
+tỷ lệ phần trăm. Thông thường, khi thời hạn của các khoản phải thu tăng lên, tỷ lệ phần trăm 
+không thể sưu tầm áp dụng cho độ tuổi đó cũng tăng lên (Kiến Thức).
+Giả sử như sau cho ví dụ này:
+• Công ty cung cấp cho khách hàng tín dụng thời hạn thanh toán là 30 ngày.
+• Số dư các khoản phải thu cuối năm 2025 trong sổ cái chung là $83.734,30.
+• Khoản trích lập dự phòng chưa điều chỉnh cuối năm 2025 đối với các khoản phải thu khó đòi có số dư bên Có 
+là 3.000 USD.
+• WeMakeIt, Inc. quyết định sử dụng phương pháp tỷ lệ phần trăm các khoản phải thu cuối năm để 
+ước tính chi phí nợ khó đòi hàng năm. Họ đã cho phép giả định nợ xấu là 2% 
+đối với hóa đơn còn nợ từ 30 đến 60 ngày và 30% đối với hóa đơn chưa thanh toán 
+trong hơn 60 ngày.
+Dự án phân tích dữ liệu này có mục tiêu và các câu hỏi liên quan sau:
+• Mục tiêu: Ước tính chính xác số nợ khó đòi trong dư nợ phải thu cuối năm
+phù hợp với GAAP của Hoa Kỳ.
+• Các câu hỏi cụ thể: 
+	 1.  Ước tính hợp lý về khoản phải thu khó thu hồi cuối năm 2025 là bao nhiêu? 
+các khoản phải thu chưa thanh toán? 
+	 2.  Số tiền nào nên được sử dụng trong mục nhật ký điều chỉnh cho chi phí nợ khó đòi?
+Với mục tiêu được xác định và các câu hỏi được nêu rõ, đã đến lúc phát triển chiến lược dữ liệu.
+Bước 2: Chọn chiến lược dữ liệu
+Phát triển một số lựa chọn thay thế dữ liệu có thể giúp trả lời câu hỏi khách quan. Sau đó, để chọn 
+dữ liệu thay thế hữu ích nhất cho kế hoạch dự án, xác định các yếu tố bạn muốn sử dụng để 
+xếp hạng các phương án này và gán giá trị cho các yếu tố của từng phương án. Chiến lược dữ liệu tốt nhất 
+phương án thay thế là phương án có xếp hạng yếu tố tổng thể cao nhất.
+ÁP DỤNG TƯ DUY PHIẾU 4.2: Xem xét sự khác biệt 
+Quan điểm
+Giá trị thuần có thể thực hiện được của các khoản phải thu (các khoản phải thu trừ đi dự phòng 
+khoản không thu hồi được) được báo cáo trên bảng cân đối kế toán như một tài sản lưu động. Những khoản nợ xấu 
+chi phí làm giảm thu nhập ròng được báo cáo trên báo cáo kết quả hoạt động kinh doanh. Hãy nhớ rằng các bữa tiệc với 
+những quan điểm rất khác nhau sử dụng thông tin này để ra quyết định (Các bên liên quan):
+• Các chủ nợ muốn được hoàn trả quan tâm đến tính thanh khoản của tài sản.
+• Cổ đông, những người dự đoán giá trị cổ phiếu trong tương lai cũng như kỳ vọng về cổ tức, phải hiểu rõ
+nắm bắt được dòng tiền dự kiến trong tương lai từ hoạt động kinh doanh.
+• Các nhà quản lý muốn kiếm được tiền thưởng được xác định bằng mức tăng trưởng thu nhập ròng và tổng tài sản. 
+Sự thay đổi về khoản trợ cấp cho các tài khoản khó thu sẽ ảnh hưởng đến cả hai số tiền.
+
+4.1  Kế toán thiết kế dự án phân tích dữ liệu như thế nào?  4-5
+Có một số lựa chọn thay thế chiến lược dữ liệu có thể được xem xét riêng lẻ hoặc theo 
+sự kết hợp cho dự án này:
+• Ghi có tất cả các hóa đơn bán hàng và dữ liệu thu tiền liên quan đến kỳ kế toán.
+• Toàn bộ hóa đơn còn tồn đọng được tính vào số dư khoản phải thu cuối năm.
+• Số dư tài khoản điều chỉnh cuối năm trước và số dư tài khoản chưa điều chỉnh cuối năm hiện tại 
+số dư tài khoản trong khoản dự phòng phải thu khó đòi.
+• Tổng số khoản xóa nợ phải thu của năm hiện tại.
+• Tỷ lệ ước tính nợ xấu được phê duyệt cho các nhóm tuổi khoản phải thu.
+Hãy nhớ lại rằng câu hỏi khách quan cho dự án phân tích này yêu cầu ước tính hợp lý về 
+các khoản phải thu khó đòi cuối năm. Bởi vì WeMakeIt, Inc. sử dụng GAAP cho mỗi
+tỷ lệ phần trăm của phương pháp kết thúc khoản phải thu với ba nhóm tuổi điển hình cho người đàn ông-
+các công ty sản xuất, dữ liệu hữu ích nhất khi xem xét các mục tiêu sẽ 
+bao gồm:
+• Các hóa đơn còn thiếu trong dư nợ phải thu cuối năm.
+• Dự phòng chưa điều chỉnh cho số dư tài khoản khó thu năm nay.
+• Tỷ lệ ước tính nợ xấu được phê duyệt cho từng nhóm tuổi khoản phải thu.
+ÁP DỤNG TƯ duy phản biện 4.3: Chọn chiến lược dữ liệu 
+phù hợp với mục tiêu của bạn
+Cả chiến lược dữ liệu và phân tích đều được cải thiện khi chúng được phát triển, đánh giá và xếp hạng 
+bởi các giá trị yếu tố được đặt trên mỗi chiến lược dữ liệu tiềm năng: 
+• Các yếu tố đánh giá mức độ liên quan của dữ liệu, chẳng hạn như các bộ sưu tập dự kiến trong tương lai, ước tính trước 
+sai sót và rủi ro không thể thu thập được dự kiến nên được sử dụng để chọn chiến lược dữ liệu tốt nhất cho 
+Kế hoạch phân tích của WeMakeIt, Inc (Các lựa chọn thay thế). 
+• Sử dụng số liệu từ các hóa đơn chưa thanh toán, khoản dự phòng chưa điều chỉnh đối với các tài khoản phải thu khó đòi 
+các khoản phải thu và tỷ lệ ước tính nợ xấu được ủy quyền là lựa chọn tốt nhất cho WeMakeIt, 
+Phân tích của Inc. Những lựa chọn dữ liệu này phù hợp nhất với mục tiêu của việc phân tích, đó là tính toán 
+một ước tính hợp lý cho các khoản phải thu khó thu hồi cuối năm (Mục đích).
+• Ví dụ cá nhân, nếu mục tiêu của bạn là ăn mặc đẹp khi đi phỏng vấn thì bạn 
+có thể phát triển, đánh giá và xếp hạng các lựa chọn thay thế cho việc mặc thứ gì đó bạn đã sở hữu, 
+mượn của bạn bè, hoặc mua đồ mới để mặc đi phỏng vấn. Sử dụng quần áo bạn 
+đã sở hữu sẽ xếp hạng cao hơn việc mua quần áo mới nếu bạn xếp hạng các lựa chọn dựa trên 
+yếu tố chi phí và thời gian thấp nhất. 
+Bước 3: Chọn chiến lược phân tích
+Đối với bất kỳ kế hoạch dự án nào, việc lựa chọn chiến lược phân tích tốt nhất bao gồm việc xem xét và đánh giá 
+một số phân tích thay thế khả thi dựa trên các câu hỏi khách quan và các câu hỏi đã được chọn 
+chiến lược cho dữ liệu. Các phương án phân tích trong ví dụ ước tính nợ xấu này bao gồm 
+các phương pháp khác nhau để xác định tuổi của hóa đơn chưa thanh toán:
+• Số ngày chưa thanh toán kể từ ngày lập hóa đơn trở đi.
+• Số ngày còn nợ kể từ ngày đáo hạn trở đi.
+Phương án phân tích đầu tiên được ưu tiên hơn vì chính sách của WeMakeIt, Inc. là cho phép tùy chỉnh-
+có 30 ngày để thanh toán hóa đơn và vì họ chỉ ước tính các khoản nợ khó đòi khi có hóa đơn. 
+quá hạn, tương đương hoặc hơn 30 ngày chưa thanh toán.
+Vì vậy, câu hỏi đầu tiên, ước tính hợp lý về khoản tiền phải thu khó đòi là bao nhiêu?
+khả năng tồn đọng các khoản phải thu cuối năm 2025 sẽ được giải quyết bằng cách tổng hợp
+
+4-6  CHƯƠNG 4  Lập kế hoạch chiến lược phân tích và dữ liệu
+giá trị nợ xấu ước tính của từng nhóm tuổi. Đây là thước đo ước tính số tiền khó thu hồi 
+phần dư nợ phải thu cuối năm (Minh họa 4.2). (Dữ liệu Xem cách thực hiện 
+4.1 ở cuối chương để tìm hiểu cách tính các số liệu trong hình minh họa này.)
+MINH HỌA 4.2  WeMakeIt, Inc.: Giá trị ước tính của các khoản phải thu khó thu hồi
+Tổng giá trị các khoản phải thu
+x % không thể thu thập được
+$ Ước tính là không thể thu hồi được
+Tổng cộng
+30.099,29 USD
+0%
+$0
+< 30 ngày
+20.441,46 USD
+2%
+$408,83
+30–60 ngày
+33.193,55 USD
+30%
+9.958,07 USD
+$83,734.30
+10.366,89 USD
+> 60 ngày
+Câu hỏi thứ hai, giá trị nào sẽ được sử dụng trong mục nhật ký điều chỉnh vào cuối năm 
+đối với chi phí nợ khó đòi sẽ được giải quyết khi tổng số tiền 10.366,89 USD này được trừ đi do chưa giải quyết được.
+trợ cấp cuối năm vừa phải cho số dư tài khoản khó thu ($ 3.000). Kết quả tính toán
+giá trị cuối năm là mục nhật ký điều chỉnh cuối năm ghi nợ chi phí nợ khó đòi và ghi có 
+trợ cấp cho tài khoản khó đòi:
+Ghi nợ
+tín dụng
+Chi phí nợ khó đòi
+$ 7.366,89
+    Trợ cấp đối với tài khoản không thể thu hồi
+$ 7.366,89
+Việc tăng số dư chưa điều chỉnh $3.000 của tài khoản trợ cấp lên $7.366,89 sẽ dẫn đến 
+số dư đã điều chỉnh là 10.366,89 USD, bằng số tiền ước tính không thể thu hồi được trong tài khoản 
+phải thu vào cuối năm 2025. Hình minh họa 4.3 tóm tắt ba bước đầu tiên của quá trình này 
+kế hoạch của dự án.
+MINH HỌA 4.3  Kế hoạch dự án đang thực hiện để ước tính nợ xấu cuối năm: Các bước 1-3
+3
+4
+5
+Câu hỏi: 1. Giá trị ước tính của khoản phải thu khó đòi cuối năm là bao nhiêu?
+                         2. Số tiền cần sử dụng để điều chỉnh bút toán nợ khó đòi cuối năm là bao nhiêu?
+Sử dụng GAAP của Hoa Kỳ để ước tính các khoản nợ khó đòi trong số dư khoản phải thu cuối năm.
+Mục tiêu
+1
+Chiến lược phân tích
+Rủi ro chiến lược dữ liệu
+Kiểm soát chiến lược dữ liệu
+2 Chiến lược dữ liệu
+1. Hóa đơn tồn đọng trong các khoản phải thu cuối năm.
+2. Tỷ lệ nợ xấu ước tính được phép: 2% trong 30–60 ngày; 30% cho nhóm > 60 ngày.
+3. Dự phòng chưa điều chỉnh đối với số dư cuối năm của các khoản phải thu khó đòi.
+1. Tính tuổi các hóa đơn chưa thanh toán bằng cách sắp xếp theo ngày thành các nhóm < 30 ngày, 30–60 ngày và > 60 ngày.
+2. Tạo tổng giá trị hóa đơn cho từng nhóm tuổi trong số ba nhóm tuổi này.
+3. Nhân tổng số ngày của nhóm 30-60 ngày với 2% để ước tính giá trị không thể thu hồi cho nhóm này.
+4. Nhân tổng số nhóm > 60 ngày với 30% để ước tính giá trị không thể thu hồi cho nhóm này.
+5. Tổng hợp ước tính giá trị không thể thu hồi từ bước 3 và bước 4 để có tổng giá trị ước tính không thể thu hồi.
+6. Trừ tổng số bước #5 khỏi Trợ cấp cho các Tài khoản Không thể thu hồi số dư chưa điều chỉnh là $3.000
+     đối với giá trị mục nhập điều chỉnh.
+Tổng số câu trả lời này
+dự án đầu tiên
+câu hỏi kế hoạch
+Kết quả này trả lời
+dự án thứ hai
+câu hỏi kế hoạch
+Kế hoạch dự án này được
+không đầy đủ. các bước
+để đánh giá rủi ro
+và nhúng
+điều khiển là
+được bảo hiểm tiếp theo. 
+4
+Chiến lược phân tích rủi ro
+5
+Kiểm soát chiến lược phân tích
+Làm thế nào để
+
+4.1 Kế toán viên thiết kế dự án phân tích dữ liệu như thế nào? 4-7
+ Hai bước cuối cùng là xem xét rủi ro và biện pháp kiểm soát cho cả chiến lược dữ liệu và phân tích.
+chiến lược của chị. Trước tiên, chúng tôi sẽ đánh giá các rủi ro và biện pháp kiểm soát của chiến lược dữ liệu, sau đó là phân tích 
+rủi ro và kiểm soát chiến lược. 
+Bước 4 và 5: Rủi ro và kiểm soát chiến lược dữ liệu
+ Trong khi các tổ chức đầu tư vào các quy trình và biện pháp kiểm soát được thiết kế để thu thập dữ liệu kế toán 
+một cách chính xác, cơ sở dữ liệu kế toán chắc chắn có một số vấn đề về dữ liệu.  Trong ví dụ này, dữ liệu 
+bao gồm các hóa đơn còn nợ phải thu cuối năm 2025 và các khoản nợ xấu được ủy quyền 
+tỷ lệ ước tính nợ. Có thể có một số rủi ro khi sử dụng dữ liệu khoản phải thu này:
+• Thiếu hoặc ghi sai hóa đơn vào sổ cái chung hoặc sổ phụ. 
+• Lỗi trong các trường ngày đến hạn của hóa đơn hoặc tổng số tiền trong hóa đơn. 
+• Lỗi phát sinh khi xuất dữ liệu từ hệ thống AIS sang công cụ phân tích. 
+ ÁP DỤNG TƯ duy phê phán 4.4: Các mối đe dọa đối với chiến lược dữ liệu 
+ Rủi ro dữ liệu có thể ảnh hưởng đến tính chính xác và hiệu lực của kết quả phân tích. Những rủi ro này phải được đánh giá
+được điều chỉnh sao cho các biện pháp kiểm soát thích hợp có thể được bổ sung vào kế hoạch dự án.  Rủi ro chiến lược dữ liệu có thể bao gồm 
+(Rủi ro):
+• Dữ liệu bẩn như dữ liệu không đầy đủ, dữ liệu không chính xác và các trường dữ liệu được định dạng không chính xác. 
+• Dữ liệu không liên quan đến mục tiêu của dự án. 
+• Không đủ dữ liệu để phân tích có thể tin cậy được. 
+• Dữ liệu là mẫu không mang tính đại diện của tổng thể cơ bản. 
+• Sai sót trong ước tính và giả định của ban quản lý về dữ liệu. 
+ Những rủi ro dữ liệu này có thể được kiểm soát bằng cách so sánh dữ liệu được trích xuất với hóa đơn nguồn và 
+tài liệu sưu tầm. Những rủi ro có thể xảy ra liên quan đến ước tính của ban quản lý về tỷ lệ nợ xấu
+tỷ lệ phần trăm bao gồm sự thiên vị của con người gắn liền với tỷ lệ nợ xấu được cho phép, những thay đổi trong 
+hành vi thanh toán của khách hàng và những thay đổi trong quy trình kinh doanh đối với việc phê duyệt tín dụng của khách hàng và 
+thực tiễn thu thập.
+Kế toán công ty
+Kiểm toán viên bên ngoài
+Các hoá đơn này được
+99% sưu tầm được!
+Chỉ có 86% trong số này
+có vẻ sưu tầm được...
+ Một cách để kiểm soát những rủi ro này là yêu cầu nhân viên tài chính, bán hàng và các khoản phải thu
+tăng trưởng nếu có những thay đổi về cơ sở khách hàng, điều kiện thị trường hoặc chính sách kinh doanh và 
+thủ tục phê duyệt tín dụng, xóa nợ hoặc chính sách thu nợ trong năm. Kiến thức này
+edge có thể xác nhận tỷ lệ nợ xấu hiện có hoặc thúc đẩy việc điều chỉnh chúng. 
+ Một biện pháp kiểm soát khác để đánh giá rủi ro trong các ước tính và giả định của ban quản lý là 
+để so sánh số liệu hiện tại với số liệu năm trước. Đánh giá sự gia tăng số lượng trung bình của 
+số ngày còn tồn đọng và số lượng khách hàng mới quay lại ở mỗi nhóm tuổi có thể cung cấp 
+cái nhìn sâu sắc về tính hợp lý của tỷ lệ ước tính nợ xấu. 
+ Để minh họa, hãy tưởng tượng bạn đang tự hỏi liệu tỷ lệ nợ xấu 30% trên hóa đơn có 
+dư nợ lớn hơn 60 ngày là giả định quản lý hợp lý vào năm 2025.
+
+4-8  CHƯƠNG 4  Lập kế hoạch chiến lược phân tích và dữ liệu
+Hình minh họa 4.4 chứng minh rằng số ngày trung bình còn nợ ở mức lớn hơn 
+Nhóm tồn đọng hơn 60 ngày tăng vào năm 2025.
+MINH HỌA 4.4  Rủi ro dữ liệu 
+về Tỷ lệ Nợ xấu: Trung bình 
+Số ngày chưa thanh toán
+Danh mục lão hóa
+30–60 ngày
+45
+61
+> 60 ngày
+Các khoản phải thu quá hạn năm 2024 và 2025
+Số ngày dư nợ trung bình theo nhóm tuổi
+0
+20
+40
+60
+80
+100
+2024
+2025
+95
+95
+55
+Ngoài ra, bạn có thể thắc mắc liệu sự gia tăng này có phải do khách hàng mới gây ra hay không, vì chi phí
+thói quen của khách hàng mới không chắc chắn hơn so với khách hàng thường xuyên. 
+Hình minh họa 4.5 cho thấy nhóm tuổi > 60 ngày có nhiều hóa đơn chưa thanh toán từ 
+khách hàng mới.
+MINH HỌA 4.5  Rủi ro dữ liệu trong 
+Tỷ lệ nợ xấu: Rủi ro từ 
+Khách hàng mới
+30–60 ngày
+> 60 ngày
+So sánh hóa đơn quá hạn cho khách hàng mới
+so với khách hàng quay lại theo nhóm tuổi
+$0
+10.000 USD
+20.000 USD
+30.000 USD
+Khách hàng quay lại
+Khách hàng mới

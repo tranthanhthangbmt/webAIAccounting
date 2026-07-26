@@ -1,0 +1,35 @@
+biến kết quả (outcome variable) và thực tế là mức thiểu số (minority level) (khi sản phẩm bị chậm giao) quan trọng hơn đối với nhiệm vụ dự đoán, chúng ta cần ước tính độ nhạy (sensitivity) cũng như độ đặc hiệu (specificity) của dự đoán này.
+
+### 12.6.4.2 Ma trận Nhầm lẫn (Confusion Matrix), Độ nhạy (Sensitivity) và Độ đặc hiệu (Specificity)
+Một phần ôn tập nhanh từ Chương 9 về hồi quy logistic giải thích về ma trận nhầm lẫn. Hãy làm việc với ví dụ sau để hiểu quá trình tính toán độ nhạy và độ đặc hiệu.
+
+| | Dự đoán (Prediction) | |
+|---|---|---|
+| **Sự thật (Truth)** | **Không (No)** | **Có (Yes)** |
+| **Không (No)** | i | ii |
+| **Có (Yes)** | iii | iv |
+
+Dựa vào ma trận nhầm lẫn trong Bảng 12.4, độ nhạy và độ đặc hiệu như sau:
+- Độ nhạy (Sensitivity) = $\frac{iv}{iii + iv}$
+- Độ đặc hiệu (Specificity) = $\frac{i}{i + ii}$
+
+Bằng trực giác, độ nhạy là tỷ lệ dương tính thật (true positive rate) và thể hiện khả năng mô hình của chúng ta phân loại chính xác các sản phẩm bị chậm giao. Độ đặc hiệu là tỷ lệ âm tính thật (true negative rate) và đại diện cho khả năng mô hình của chúng ta phân loại chính xác các sản phẩm không bị chậm giao. Nếu độ nhạy của mô hình thấp, thì chúng ta sẽ không thể xác định trước các sản phẩm có khả năng bị chậm giao. Mặt khác, nếu độ đặc hiệu thấp, chúng ta sẽ kết thúc bằng việc đặt hàng quá mức (overordering) những sản phẩm ít có khả năng bị chậm giao. Đối với mô hình của chúng ta, độ nhạy là $\frac{83}{83+16} = 0.838$, và độ đặc hiệu là $\frac{329}{329+73} = 0.818$.
+
+### 12.6.4.3 Vai trò của Việc Giảm mẫu (Downsampling)
+Trong phân tích trước đó, chúng ta đã sử dụng kỹ thuật giảm mẫu (downsampling) để xử lý vấn đề mất cân bằng lớp (class imbalance). Phương pháp giảm mẫu này lấy mẫu các hàng từ dữ liệu huấn luyện theo cách mà mức đa số (tức là khi sản phẩm không bị chậm giao) được lấy mẫu ít hơn. Nhưng hãy kiểm tra xem kết quả sẽ thay đổi như thế nào nếu chúng ta không giảm mẫu. Các kết quả khi không sử dụng giảm mẫu được trình bày trong Bảng 12.5, cùng với ma trận nhầm lẫn trong Bảng 12.6.
+
+```R
+.metric    .estimator .estimate .config
+accuracy   binary     0.8602794 Preprocessor1_Model1
+roc_auc    binary     0.9038896 Preprocessor1_Model1
+```
+
+| | Không (No) | Có (Yes) |
+|---|---|---|
+| **Không (No)** | 393 | 61 |
+| **Có (Yes)** | 9 | 38 |
+
+Chúng ta nhận thấy rằng cả độ chính xác (accuracy) và giá trị AUC đều cao và có thể so sánh được với phân tích trước đó khi chúng ta thực hiện giảm mẫu. Tuy nhiên, khi ước tính độ nhạy và độ đặc hiệu, chúng ta quan sát thấy một bức tranh rất khác. Nếu không giảm mẫu, độ nhạy là $\frac{38}{38+61} = 0.384$, và độ đặc hiệu là $\frac{393}{393+9} = 0.978$. Có sự sụt giảm lớn về độ nhạy từ 0.838 xuống 0.384 và sự gia tăng về độ đặc hiệu từ 0.818 lên 0.978. Điều này cho thấy trong trường hợp không có giảm mẫu, mô hình của chúng ta không thể xác định các sản phẩm cuối cùng sẽ bị chậm giao. Giảm mẫu giải quyết điểm yếu này và cái giá phải trả là sự sụt giảm về độ đặc hiệu. Giảm mẫu đảm bảo rằng không làm tổn hại đến giá trị AUC và độ chính xác, chúng ta có thể làm cho độ nhạy và độ đặc hiệu rất tương đồng nhau. Lưu ý rằng giảm mẫu chỉ là một trong nhiều phương pháp lấy mẫu con (subsampling) có sẵn trong các gói phân tích.
+
+## 12.7 THÔNG TIN KINH DOANH VÀ TÓM TẮT (BUSINESS INSIGHTS AND SUMMARY)
+Trong chương này, chúng ta đã xem xét tình trạng chậm giao hàng (backorders), một chủ đề lớn trong chuỗi cung ứng có thể gây ra nhiều vấn đề như sự không hài lòng của khách hàng.

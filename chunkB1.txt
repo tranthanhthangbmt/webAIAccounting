@@ -1,0 +1,277 @@
+Chapter 6
+Data Science and Big Data
+Over the last decade, there has been a lot of hype about data
+science and big data. The hype has resulted in much excitement
+and has encouraged many students, researchers, academicians,
+and organizations to get interested in this subject.
+Organizations have become interested in using data science to
+reduce ineﬃciencies and generate growth. Students,
+researchers, and professionals have become interested in
+learning data science due to the exciting work in this subject.
+This also has created new career opportunities and new job
+titles such as “data scientists” and “data engineers.” The Google
+Trends chart in Figure 6.1 indicates this hype. The trend clearly
+shows the increased interest in these search terms since 2014:
+data science, machine learning, artiﬁcial intelligence, deep
+learning and big data.1 Furthermore, the trend has been rising
+recently and clearly, and search queries on “Machine Learning”
+have surpassed other terms and clearly show the increasing
+public interest. However, it would be unfair to say that all that
+the research in this domain has been carried out in last few
+years. Most of the research and algorithms in data science have
+resulted from decades of work by statisticians, mathematicians,
+and scientists.
+The recent increase in the use of data science and machine
+learning algorithms is due to the availability of data and high
+computing power:
+–Availability of data has increased usage of digital devices
+and services, and the rise in usage of sensors technology and
+connected objects has led to the generation of more and
+more data. Moreover, cheaper storage is available to collect
+and store the data.
+–High computing power has become available at a low cost to
+process big datasets and use these complex algorithms.2
+Figure 6.1: Google Trends, 2004–2018
+In the midst of all this hype, there is a lot of confusion within
+this topic due to considerable noise in the literature. Many
+people get lost in the maze of terms like data science, machine
+learning, deep learning, and big data and do not know where to
+start. This chapter aims to clear up this confusion by providing
+a concise overview of data science and big data for business
+practitioners and discussing some commonly faced questions
+such as What are data science, big data, AI, machine learning?
+What are the applications of data science used in industry?
+Moreover, what are the learnings and challenges of data science
+projects? We introduce some basic data science concepts and
+big data tools, and discuss the typical data science project
+lifecycle in an organization.
+Applications of Data Science and Big Data
+Data science and big data are ﬁrmly embedded today in a lot of
+products and services that meet our daily needs. Some common
+examples of everyday applications of data science and big data
+include
+–Biometrics, such as face and ﬁngerprint recognition, for
+unlocking phones using our faces or ﬁnger
+–Matching drivers and commuters to simplify booking rides
+using taxi or other ride apps
+–Recommendations for watching videos and shopping on e-
+commerce websites
+–Targeting, such as product advertisements based on search
+engine history
+The exciting part is that most of these products have come into
+existence within the past one to two decades and have become
+a part of our daily routines. Such widespread use of data
+science has arguably led tech companies such as Google,
+Facebook, Amazon, Netﬂix, and others to proliferate and
+disrupt existing businesses, and to create new products and
+experiences for their customers.
+Now, let us illustrate in more detail some industry use cases
+where data science and big data are used and have proven to
+be successful:
+–Promotional emails and digital ads: On a typical day, people
+are contacted by several promotional email messages, SMS
+messages, or ads for things such as hotel discounts, airline
+vouchers, and shopping discounts. Sometimes, these
+promotional messages are targeted explicitly to speciﬁc
+customers. With the advent of the internet, companies have
+been gathering and storing extensive data related to their
+customers, such as customer demographics, past purchases,
+browsing patterns, and aﬄuence level. They use this data to
+understand the characteristics of their customers and build
+machine learning models based on those characteristics to
+identify the likelihood of a customer responding to a
+particular ad at a given moment. Depending on this
+likelihood, customers are contacted with the right oﬀers and
+in many cases even personalized oﬀers. This helps
+companies increase their sales by cross-selling and up-
+selling and also improve customer experience and
+engagement.
+–Recommendation engines: Everyday, we come across
+various recommendation engines, such as for friends on
+Facebook, videos on YouTube, products on Amazon, and
+movies on Netﬂix. These systems show personalized
+oﬀerings to people based on factors like their search
+histories and preferences. It is widely known that Amazon
+uses recommendation algorithms to personalize the
+shopping experience for each customer. Customers see
+recommended items that are based on their previous
+browsing behavior, product ratings, similar product
+purchases and other factors.3 Along similar lines, Netﬂix
+recommends personalized content (movies and TV shows)
+based on a user’s viewing history and ratings, the viewing
+history of similar users, and so forth. Furthermore, these
+recommendations are diverse, include new releases, and
+adapt with time in response to changing user preferences.4
+–Risk management: Banks and credit card companies have
+used credit scores to evaluate loan or credit card
+applications for many years. Credit scores typically indicate
+the risk level of a customer, such as the likelihood of a
+customer to default. The model takes into consideration
+several parameters, such as payment history, length of credit
+history, inquiries, and income, to predict a customer’s
+likelihood to default by comparing them to similar
+characteristics of other customers who have defaulted in the
+past.5
+–Fraud detection: Fraud does not have a constant pattern.
+Fraud detection model is an evolving process, and by
+investigating and ﬂagging more and more frequent cases,
+cases of fraud can be identiﬁed. In the case of credit card
+companies, investigating a large number of transactions one
+by one is not possible. Therefore, fraud detection models are
+used that can auto-approve legitimate transactions and raise
+alerts in case of any transactions that appear fraudulent.
+Events such as a sudden big purchase after many small
+purchases, purchases that do not ﬁt the cardholder’s proﬁle,
+and unusual geographical locations can raise suspicion and
+block the transaction or card automatically.
+What Is Data Science?
+The term “data science” has been ﬂoating in various literature,
+journals and lecture notes for many years. In 1962, John Tukey,
+in his paper “The Future of Data Analysis,” pointed to the
+existence of an unrecognized “science” that dealt with the
+subject of learning from the data.6 Later in 2001, William S.
+Cleveland from Bell Labs proposed to expand the ﬁeld of
+statistics to data analysis by emphasizing the importance of
+data preparation, computation, and presentation rather than
+statistical modeling.7 However, the term “data science” gained
+widespread popularity more recently in 2012 through a
+Harvard Business Review article “Data Scientist: The Sexiest Job
+of the 21st Century.”8 In academia or industry, there is no single
+approved deﬁnition of data science because it is a broad term
+encompassing many domains, which leads to diﬀerent views
+and ambiguity.
+However, in simple terms, one can understand data science
+as an interdisciplinary ﬁeld that uses the concepts of statistics,
+mathematics, computer science, and domain expertise to
+extract meaningful insights from data that can generate some
+business value. A data scientist is someone who is a specialist in
+these three domains and extracts meaning from the data by
+performing data and statistical analysis; building and applying
+machine learning models and algorithms; and visualizing,
+summarizing and communicating the results. Figure 6.2
+describes a data scientist with skills from these three domains.
+In reality, it is hard to ﬁnd someone who is a perfect data
+scientist—highly skilled in all three domains. Therefore,
+organizations build data science teams with people of
+complementary skillsets.
+The terms, “business analytics” and “data analytics” have
+been used popularly over the years and are often confused with
+data science. Overall, there is a blurred diﬀerence between
+analytics and data science, and therefore these terms are
+sometimes used interchangeably. Our interpretation of this
+blurred diﬀerence is that the role of a business/ data analyst
+involves using a lot of domain expertise and data analysis to
+generate insights from the data, whereas the role of a data
+scientist is slightly broader and includes machine learning
+modeling and programming. In many cases, the responsibilities
+of a data scientist also include data analysis, building models
+and developing those models into products or services.
+Source: Drew Conway’s Data Science Venn Diagram. [Online]. Available: htt
+p://drewconway.com/zia/2013/3/26/the-data-science-venn-diagramce:
+Figure 6.2: Data scientist Venn diagram
+Machine Learning vs. Artificial Intelligence
+Artiﬁcial intelligence (AI) is a ﬁeld of computer science focused
+on making computers more intelligent so that they can imitate
+intelligent human behavior. AI is a medium to enable
+computers to learn and engage in human-like thought
+processes, such as learning, reasoning and self-correction.
+Traditionally, this involved hard-coding knowledge about the
+world in the form of computer programs, but success was
+limited because most human knowledge grows with
+experiences and is subjective, intuitive and challenging to
+articulate using a set of rules. The introduction of machine
+learning enabled computers to learn real-world knowledge by
+identifying patterns from the data, self-correction from this
+learning process to enable decision making [9]. However,
+machine learning algorithms also suﬀered from a trade-oﬀ as
+their performance was dependent on how data was presented
+to them. Deep learning algorithms solved this problem by
+extracting information by itself. Deep learning is a particular
+type of machine learning that makes the computer learning
+more powerful, ﬂexible and abstract. The Venn diagram in Figu
+re 6.3 illustrates how these concepts are interrelated.
+Source: Ian Goodfellow, Yoshua Bengio, Aaron Courville, Deep Learning, The
+MIT Press, 2016
+Figure 6.3: AI, machine learning, and deep learning Venn diagram
+What Data Science Is Not
+AI, machine learning, and deep learning do not comprise a
+branch of data science. Rather, data science uses them to solve
+problems. Consider machine learning as a statistical toolkit that
+helps machines learn based on historical data and make
+predictions on the new data. On the other hand, data science is
+a broader term that includes the process for building this
+machine learning model, including data collection, data
+processing, data analysis, data visualization, modeling, making
+predictions, and so forth.
+Big data also is not a branch of data science. Data science
+can be used to solve problems using various types and sizes of
+datasets.
+What Is Big Data?
+The origin of the term “big data” is still ambiguous, but one of
+the early and popular deﬁnitions is that big data is the amount
+of data that traditional database software tools cannot manage
+and analyze due to the complexity and size.9 In simple terms,
+big data means large data, where large depends on the context
+and computational processing power. According to a report by
+IBM in 2013, about 2.5 quintillion bytes of data are created each
+day in the world.10 The pace of creation is only accelerating
+with the growth of internet access, increase in mobile usage,
+and IoT (internet of things) devices around the world. Data
+points are created in our daily activities, such as:
+–Social media activity (Twitter tweets and messages;
+Facebook likes, shares and messages)
+–Search engine activity (Google searches, creating web pages)
+–Video streaming (watching or uploading videos on YouTube
+or Netﬂix)
+–Payments (using credit cards, internet banking)
+To make any use of this data, it needs to be captured. In the
+past, data storage was quite expensive and ineﬃcient, so
+storing big datasets was a challenge. Now, there are better and
+more economical data storage solutions that make it easier to
+store and process the data.
+IBM deﬁned big data in association with four Vs: volume
+(size of the data), velocity (speed at which the data is created,
+stored, analyzed and visualized), variety (diﬀerent data sources
+for structured and unstructured data), and veracity
+(trustworthiness of the data for any analysis in terms of
+accuracy and ambiguity, for example).11 Other researchers have
+deﬁned big data as three Vs, six Vs and so on. Although there
+are several critiques of the V model, one thing is clear: there is a
+lot of data available that can be used for solving numerous
+business problems using data science.
+Data Science and Big Data in Industry Practice
+The key steps required in any data science project are shown in
+Figure 6.4. Regardless of the problem, any data science project
+can be deployed by following these steps. The multi-step
+lifecycle, from deﬁning the problem to experimentation, is
+explained in this section. The big data technology stack used in
+this process, and also shown in Figure 6.4, is explained in the
+section “Big Data Technology Stack.”
+Figure 6.4: Data science project lifecycle
+Step 1—Defining the Problem
+Before starting to work on a data science task, the ﬁrst step is to
+deﬁne the objective of the business problem clearly. This
+involves answering questions about diﬀerent aspects of the
+problem, such as
+–What is the business problem and how to translate it into a
+data science problem?
+–What data is required for the problem and how to collect
+and to prepare it?
+–What insights can be generated from the data and what
+machine learning/deep learning models can be useful for the
+problem?
+–How to build and evaluate the model, deﬁne success (KPIs,
+metrics, and so on) for the solution of the problem?
+–How to measure the impact of a machine learning model in
+the real world?
+In practice, it is essential to simplify and structure the problem
+at this stage and precisely answer these questions. Depending
+on how the problem is structured at this step, the subsequent
+steps of data collection, data preparation modeling, model
+evaluation and experimentation can be diﬀerent. This is
+illustrated using the following example over the course of the
+chapter:
+Loan Delinquency Problem
+A bank has disbursed personal loans to 800,000 existing
+savings/credit card customers over the last ﬁve years (2013–
+2018). This loan scheme was expected to help customers and

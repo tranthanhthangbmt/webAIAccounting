@@ -1,0 +1,236 @@
+CHAPTER 12
+Intelligent Automation of Fraud Detection
+WE COVER AUDIT RELATED ERRORS AND FRAUD throughout this
+book; however, this chapter is dedicated to intelligent financial fraud
+detection and investigation (IFFDI) using artificial intelligence (AI). The
+internal controls environment serves as the firewall to protect against fraud.
+Prevention is different than detection and detection is different than
+investigation. Detection implies active search to discover, find, uncover, or
+expose fraud. Investigation begins once a reasonable degree of suspicion
+develops about the likelihood that a fraud is taking place. In this chapter we
+will cover both detection and investigation.
+When deploying your fraud detection capabilities, you will address
+questions such as
+How to allocate capabilities between prevention, detection, and
+investigation? What technologies to deploy for each?
+When and for what to use deterministic versus stochastic technologies?
+What methods, models, or techniques should you use?
+How do you design and architect your IFFDI system?
+How to protect your firm from AI‐centric fraud?
+DETECTING FRAUD
+Fraud happens when material misrepresentations of facts are made
+intentionally and they lead to loss for one or more victims. The Association
+of Certified Fraud Examiners (ACFE) classifies fraud against a firm into
+two types: internal and external (ACFE, n.d.). Internal fraud, also known as
+occupational fraud, is defined by ACFE as “the use of one's occupation for
+personal enrichment through the deliberate misuse or misappropriation of
+the employing organization's resources or assets.” Internal fraud is
+committed by the managers, employees, owners, or board members of a
+
+firm. External fraud, in contrast, is conducted by parties external to the
+firm, for example, customers, suppliers, partners.
+ACFE classifies internal fraud into three areas: corruption, asset
+misappropriation, and financial statement fraud. ACFE has developed a
+powerful and comprehensive representation of internal fraud. Known as the
+Fraud Tree (Figure 12.1), it covers the various subcategories and subclasses
+of internal fraud.
+Fraud can happen at any point in an organization. For example, it can
+happen at the employee level, at the board level, or across the value chain
+via collaboration between partners and even competitors. Detecting fraud is
+one of the most complex undertakings. Protecting a firm from any possible
+fraud can be expensive and therefore costs of IFFDI need to be considered.
+Let's not forget that in many cases savvy managers operate on the
+borderline of law and while technically statements and disclosures may not
+qualify as misrepresentations from a legal perspective, the underlying
+motivation for business decisions could be self‐serving. For instance, the
+management team of a nonprofit deploys a CEO friendly board and with the
+board approval starts making investments in a manner that the CEO intends
+to personally benefit from in the future. Such situations make fraud
+detection extremely hard.
+ELEMENTS OF FRAUD
+In the 1950s, Donald Cressey presented the fraud triangle theory that
+identified the three fraud elements as pressure, opportunity, and
+rationalization (Cressey, 1953). A fourth element of capability was later
+added and the model transformed from a triangle to a diamond (Wolfe and
+Hermanson, 2004; Mansor, 2015). As we think about intelligent
+automation, our design elements must first begin by analyzing the elements
+of fraud and building capabilities around them.
+
+FIGURE 12.1 The Fraud Tree
+Pressure or Motivation
+Preemptive detection of motivation can go a long way to detect and prevent
+fraud. Motivation can be anything from personal to business situations. At
+an individual level it could be when a person is facing financial difficulties
+and hence decides to engage in a fraud. On a management team level, it
+could be pressure to report certain earnings numbers for which guidance has
+been provided. Motivation determination technologies are deployed to
+evaluate the situations that can motivate a person or management team to
+commit a fraud. They typically involve understanding the situational
+dynamics to predict the likelihood of fraud.
+Opportunity
+The opportunity for fraud is based upon the internal controls weaknesses.
+An environment that lacks controls or that has a culture that promotes
+recklessness can be a fertile ground for fraud. The opportunities are
+identified and exploited by individuals and management teams. Fraud
+opportunity assessment technology is deployed to assess the control
+
+weaknesses as well as cultural and behavioral modeling to assess the
+seriousness and desire of the management team and boards to deploy
+internal controls.
+Rationalization
+Rationalization is the justification that a person or team gives to the conduct
+of fraud. This is a self‐deceiving factor where teams and individuals say to
+themselves that it is okay to engage in a fraudulent behavior for such‐and‐
+such reasons. The justification could be that it is a one‐time thing or that
+they are only borrowing money or that they were denied proper
+compensation and therefore it is their right to steal. Rationalization
+detection technology is composed of systems deployed to perform
+behavioral analysis of individuals and teams.
+Capability
+Capability is when a person or team believes that they have the capability to
+get away with doing the fraud, to not get caught, and to pull it off.
+Capability detection technology is also used to assess the materiality of the
+impact a person, machine, or team can have.
+AI has been used to combat fraud by building capabilities in accordance
+with the fraud triangle in practice. For instance, Lin et al. (2015) employed
+Logistic Regression, Decision Trees, Classification and Regression Trees
+(CART), and Artificial Neural Networks (ANNs) to study the three aspects
+of the fraud triangle.
+DOMAIN‐SPECIFIC FRAUD DETECTION
+The FBI classifies financial frauds into various areas such as securities
+fraud, credit card fraud, financial statement fraud, insurance fraud, and
+corporate other fraud. One way to approach your design is to consider each
+specific domain area in which you have material exposure. This means that
+specialized solutions need to be developed in those specific domains.
+Significant research exists in the use of intelligent automation for domain‐
+specific fraud detection (Ngai et al., 2011; West and Bhattacharya, 2016).
+
+STOPSCAM
+The American Institute of Artificial Intelligence has developed a model
+known as STOPSCAM. This model expands upon the domain‐specific
+model and fraud elements to develop broad classification of fraud by
+capability areas or detectors that focus on building and deploying intelligent
+capabilities. STOPSCAM is an acronym for Strategy, Transactions,
+Operations, Processes, Statements, Culture, Attitudes, and Model.
+Strategy
+The strategy tool analyzes a company's strategy to obtain key insights to
+capture signals of significant changes or persistence in a company's
+strategy. A sudden or abrupt change in strategy, a reluctance to change
+strategy when it is evident that the strategy is not working, rise of a new
+competitor, a change in technology, bankruptcy risk, and other strategy
+concepts are captured and analyzed. Strategy changes also include mergers
+and acquisitions and major financing events. Automated strategy analysis is
+performed from analyzing analyst reports, company press releases, and
+other news and opinions about a firm.
+Transactions
+Transaction‐level analysis is achieved by deploying systems that scan
+transaction‐level details. For example, journal entries, G/L, supporting
+documents inspection, and other similar applications of technology in
+automated audit forms the baseline for transaction‐level continuous audit
+with the explicit focus on fraud‐centric anomaly detection. The primary
+goal in transaction analysis is anomaly detection.
+Operations
+Operational‐level fraud assessment is done by assessing the operational
+footprint of a firm and including the value chain of a firm in both directions.
+This means including the suppliers and partners (e.g., channel partners) and
+customers to analyze the potential of fraud. In many cases the interaction or
+structures among partners, subsidiaries, customers, and suppliers shows the
+presence of fraud.
+
+Processes
+Process‐centric evaluation of fraud focuses on understanding anomalous
+process patterns. These patterns could be based upon transaction patterns, or
+people accessing systems abnormally, or awkward timings of accessing
+systems. Process mining technologies, along with machine learning, are
+used to evaluate this.
+Statements
+Statement analysis is performed by external parties where publicly available
+financial statements are analyzed to determine the presence of fraud. This
+can be based upon analyzing the text or other unstructured data from annual
+reports, or financial ratio analyses, or by analyzing other company
+communications, such as earnings call.
+Culture
+Organizational‐level automated analysis focuses on understanding the
+culture, management, reporting relationships, social networks, board, and
+other such factors. Many such factors provide information about potential
+fraud. For instance, a forceful or overly aggressive CEO with a submissive
+board can create an environment ripe for fraud.
+Attitude
+The attitude is the behavioral analysis of the management team and board
+members. This is a critical part of analysis. Using pictures, videos, text, and
+other combinations and available data, intelligent automation is used to
+create a profile of individuals and of social networks. Social networks can
+exist inside or outside the firm. They can exist between management team
+members or board members and certain executives. They are formed by
+shared interests and in terms of structural dynamics, the influence patterns
+could be completely different than that shown on corporate organizational
+charts. Understanding those patterns can shed light on how fraud can take
+shape and who could be involved in that.
+
+Model
+A firm's business model is at the heart of its strategies and processes.
+Changes in the business model can signify several things – including
+opening up of opportunities for fraud. Technologies used to analyze
+business models include business process mapping using machine learning
+(Evermann et al., 2017). The rise of AI in business will also enable
+businesses to launch new business models (Ehret and Wirtz, 2017).
+TECHNOLOGIES AND MODELS
+Ngai et al. (2011) performed literature research and showed that a wide
+variety of approaches are being used in fraud detection. They developed a
+model where they first outlined the broad categories of frauds such as
+insurance fraud, securities and commodities fraud, bank fraud, and other
+financial fraud. Then they further categorized based upon fraudulent
+activities such as money laundering. And from a solution side they divided
+the data mining solutions into classification, clustering, outlier detection,
+prediction, regression, and visualization.
+More recently, another group of researchers also performed an extensive
+survey of fraud detection (West and Bhattacharya, 2016). They, too, first
+categorized by fraud classes (e.g., insurance, financial statements, etc.).
+However, they investigated several methods, including neural network,
+logistic, support‐vector machine, decision trees, genetic algorithms,
+Bayesian belief network, process mining, artificial immune system, and
+hybrid methods. Their extensive survey revealed that a diversity of methods
+are used in intelligent automation.
+A third survey of literature used a similar approach to others; however,
+these researchers divided the machine learning techniques into broad
+groupings of supervised, unsupervised, and semi‐supervised. They also
+provide examples of challenges in implementing some of the solutions and
+techniques of addressing those problems (Abdallah et al., 2016).
+The above research is very helpful to learn about various AI approaches
+being used in different types of business areas. As we have discussed
+throughout this book, a point solution approach is not enough if you want to
+build a modern‐era audit or forensic accounting firm. Tools must work
+
+together to form an ecosystem within which various agents can work
+together to get work accomplished.
+OUR APPROACH
+We have approached fraud detection not only from the angle of problem
+area (i.e., fraud category > fraud activity > solution) but also by introducing
+a class layer for solution deployment in practical business areas (i.e.,
+STOPSCAM agents). The STOPSCAM agents can be deployed in various
+areas for comprehensive fraud detection. Building a comprehensive fraud
+detection system requires blending the four key technologies of process
+mining, robotic process automation, expert systems, and machine learning.
+Within machine learning various types of models exist and some are better
+than others for certain types of models.
+Strategy, organization, culture, attitude, and business model are automated
+by algorithms modeling social, behavioral, game theory – centric processes.
+Transaction and financial statement fraud detection is automated by using
+anomaly detection, behavioral, and process mining.
+Supervised Models in Fraud Detection
+Supervised learning techniques are deployed in anomaly detection, social,
+and behavioral models. Both regression and classification can help in fraud
+detection. Since supervised techniques are based upon known examples,
+they are easier to interpret. The main issue with using supervised learning is
+that we usually (and thankfully) have many more examples of fraud‐free
+transactions than fraudulent transactions. Therefore, teaching the algorithm
+becomes harder when, say, for every thousand examples of clean
+transactions, one example of a fraudulent transaction is provided. There are
+techniques that can be applied to balance out the examples. For example,
+one way is to introduce synthetic (made‐up) examples of anomalous
+behavior. The second limitation is that data requires labeling and unless data
+is being pulled out of systems where both input and target output values are
+present for the specific problem being addressed, we may have to rely upon
+human‐centric labeling of the data. Recall that labeling means providing the
+target output value for each input vector. That can become quite a laborious
+project.

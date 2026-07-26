@@ -1,0 +1,275 @@
+from the perfect model, variance measures how far oﬀ the
+model predictions are from each other. Typically, bias and
+variance have competing properties, and improving one
+usually compromises the other. That is, a low-bias model has
+high variance, and a high-bias model has low variance.15 As
+seen in Figure 6.9, with the increase in model complexity model
+bias decreases but variance increases. The art is to ﬁnd a model
+with the right level of complexity that has low bias and low
+variance.16
+Source: Fortmann-Roe, Scott, Understanding the Bias-Variance Tradeoff, htt
+p://scott.fortmann-roe.com/docs/BiasVariance.html
+Figure 6.9: The bias vs variance tradeoff in a model
+Suppose, after several modeling iterations on the loan
+delinquency problem, diﬀerent error rates are calculated on
+training and validation data. Out of all the customers in the
+training dataset, the model is correctly able to predict 90
+percent of customers if they would become delinquent or not.
+Then the error rate of the model is 10 percent, which includes
+irreducible errors, bias, and variances. After calculating errors
+on diﬀerent iterations of the models, eﬀorts should be made to
+reduce these errors as described in the following:
+–A model with high bias is underﬁtting. That is, the model has
+barely learned on the training set to even perform well on
+validation and test sets. A good way to address this problem
+is by increasing the model complexity, such as by adding
+more features.
+–A model with high variance is overﬁtting. That is, the model
+has tried to capture too much information from the training
+set and failed to generalize on new data. A good way to
+address this problem is by adding more training data.
+Ideally, a model with low bias and low bias is a good model
+which should be ﬁnally selected.
+Model Improvement
+After evaluating the errors, the next step is to improve the
+performance of the model further to create a ﬁnal model. Note
+that model improvement is also an iterative process and the
+modeling process goes through the steps of data collection, data
+preparation, modeling and evaluation again and again. There is
+no completely right or wrong way to do this, but the following
+points should be kept in mind while experimenting with model
+improvement:
+–Add external data, such as census data or credit scores, to
+create new features.
+–Add more and more features but at the same time include
+features that inﬂuence the target.
+–Have training, validation and test sets with sizes suﬃcient to
+have statistically signiﬁcant data points to learn training and
+validation error rates.
+–Use modeling technique suitable for the problem.
+–Control for model complexity and generalization by
+reducing the number of features.
+Step 5—Experimentation
+Model evaluation techniques only help to evaluate the
+theoretical performance of the model on the validation and test
+sets. But theoretical performance does not guarantee the
+success of the model in real-world. For example, in the loan
+delinquency problem, customers identiﬁed as high likelihood to
+miss payment of loan installment would need some action such
+as reminder calls in order to prevent them missing their
+payment. A campaign can be designed to make preventive calls
+to all such customers. In practice, there can be lot of operational
+issues (e.g. capacity of call center, script designing and training
+to call center agents, IT issues in implementing the new process,
+data privacy/ information security especially in case of
+outsourced call center, etc.), in executing such a campaign.
+Therefore, it is essential to conduct such campaigns on small
+scale i.e. on small customer base, learn and address these issues
+before implementing such campaigns regularly for all
+customers. In addition to this, testing the model on a small base
+can also help in observing quantitative beneﬁts from this
+exercise and qualitative feedback from customers.
+Experiments should be designed in such campaigns in order to
+test out diﬀerent hypothesis and quantify the actual impact of
+the models and know whether it meets the desired
+expectations. There are many diﬀerent ways to design an
+experiment, but the following are important general steps:
+1.Deﬁne a relevant success metric that meets the business
+objective. Examples of such metrics are conversion rate,
+customer retention rate, saving costs, or crosssell rate.
+2.Divide the population randomly into groups to measure the
+performance improvement of the model. One of the ways is
+to design an A/ B test with two groups:
+a.A test group, on which the output of the model is
+tested
+b.A control group that does not use model output
+3.Execute the experiment and measure the success metric for
+the test and control groups
+In the loan delinquency problem, an A/ B test can be designed
+to measure (a) the impact of then model (do the customers
+identiﬁed as having a high likelihood to miss payment actually
+end up missing payment) and (b) the impact of preventive
+reminder calls to customers using the call center (does call
+center calling prevent customers from missing payment).
+Following the preceding steps, an experiment can be designed
+as follows (see Figure 6.10):
+1.The success metric can be deﬁned as the “delinquency rate”:
+the percentage of customers who missed out their payment
+during the three months of campaign duration
+2.Divide the population into test and control groups in equal
+proportions with enough samples to measure the
+performance between the groups:
+a.Test group: The customers identiﬁed by the model as
+having a high likelihood to miss payment.
+Furthermore, divide the test group into two more
+groups: Group A, the customers who are called by the
+call center, and Group B, the customers who are not
+called.
+b.Control group: The customers who are randomly
+selected or selected using some existing rules (that is,
+without applying the model). Similarly, divide the
+control groups into two more groups: Group C, the
+customers who are called, and Group D, the customers
+who are not called.
+3.An experiment can be conducted to measure the
+delinquency rate success metric over these four groups to
+quantify the real impact of the model based on the real
+impact of preventive calling. The call center can actively call
+customers under Group A and Group C, while customers
+under Group B and Group D can be left without calling.
+Figure 6.10: The A/B test design
+After all the customers are successfully contacted, the
+delinquency rate of these groups should be measured over
+three months to observe whether the model and preventive
+calling helped. Ideally, if the model and preventive calling has a
+positive impact, the following should be true:
+–The delinquency rate of Group B should be more than that of
+Group D. This would mean that the model is correctly able to
+identify customers who would miss payment: customers in
+Group B (who have a high likelihood to miss payment as per
+the model) end up missing payment more than the randomly
+selected customers in Group D.
+–The delinquency rate of Group A should be less than that of
+Group B. This would mean that preventive calling leads to a
+lower delinquency rate in the customers identiﬁed by the
+model as having a high likelihood to miss payment. This is
+because customers in both Group A and Group B are
+identiﬁed from the model, but only Group A customers are
+called. Similarly, the delinquency rate of Group C should also
+be less than that of Group D.
+–The delinquency rate of Group A also can be compared with
+the delinquency rate of Group C to measure the impact of
+the model on the customers who are called. Note that the
+impact of preventive calling can have diﬀerent eﬀects on
+customers from Group A (high likelihood to miss payment)
+and Group C (random customers). For example, preventive
+calling can remind customers and eventually reduce the
+delinquency rate, or it may have no impact at all as those
+customers might have already decided to miss payment.
+These measurements can easily help quantify the success of the
+model and success of preventive calling. Additionally, these
+impacts also can be estimated in terms of dollar value to
+quantify the business impact. Once the success of the model
+and preventive calling is established from this experiment,
+bank management can implement such campaigns regularly.
+This can be done by preparing such list of customers with high
+likelihood to miss payment and conduct preventive calling
+every month.
+Big Data Technology Stack
+This section describes the big data technology stack, which
+forms a backbone for any data science project. As deﬁned in the
+data science lifecycle (refer to Figure 6.3), diﬀerent tools are
+needed for collecting the data, preparing and manipulating the
+data, building machine learning models and evaluating the
+performance of these models.
+Figure 6.11 describes popular tools used for data ingestion
+and data storage (under data collection) and data preparation,
+modeling and evaluation (under data processing). Note that
+only open source software option licensed under Apache
+Software Foundation are described here because they are
+widely used across the industry and have good open source
+community support. But generally, companies use open source
+or commercial tools based on their needs.
+Figure 6.11: The big data technology stack
+Data Collection Toolkit
+As explained in the preceding section, data collection involves
+ingesting data in diﬀerent formats and from diﬀerent sources.
+Depending on the volume, velocity, variety and veracity of data,
+diﬀerent tools can be used. For example, a number of tweets
+about one topic on Twitter could be in the range of a few
+thousand per second, whereas the number of transactions on a
+stock exchange can be in the range of few hundred thousand
+per second or even more. Depending on the high volume and
+velocity of data from a stock, diﬀerent tools may be required for
+ingesting and storing the data.
+Broadly, data collection involves these two steps, data ingestion
+and data storage:
+–Data ingestion: Data ingestion involves ingesting or
+importing the data from diﬀerent sources. The ingestion can
+happen in batches or real time:
+Batches: When data is ingested in batches, it is
+imported in discrete chunks at periodic intervals of
+time. The batch can run daily, weekly, or monthly
+depending on the requirement (for example, sales
+reporting or financial consolidation). The advantage of
+batch processing is that it allows for some high level
+of transformation on the data before storing.
+Real time: When data is ingested in real time, it is
+imported from the source with a short execution time,
+providing near-instantaneous output. Real-time
+ingestion does not allow complex data
+transformation; therefore, it is mainly used in
+processes where data is needed quickly for real-time
+actions or decisions. Some examples where real-time
+ingestion is required include high-frequency trading,
+sentiment analysis on social media, and IoT (internet
+of things) data capture.
+Data Ingestion Tools
+There are many open source tools available for ingesting the data in real-time and
+batches. Some of these tools are the following:
+Apache Kafka is a streaming platform used for handling real-time data feeds.
+Apache Flume is used for efficiently collecting, aggregating, and moving bulk
+streaming data.
+Apache Sqoop is used for efficiently transferring data from a relational database to
+Hadoop HDFS.
+(HDFS is a popular data storage system used by Hadoop architecture. It is just a type
+of distributed file system, or a system that stores a copy of files stored across multiple
+computers.) Source: Apache Software Foundation. [Online]. Available: http://www.apac
+he.org
+In cases where only data transfer is needed, then FTP can be used. The transfer can be
+from the data source to the landing zone (temporary storage location) or from landing
+zone to a database, data warehouse or data lake (permanent storage location).
+FTP (file transfer protocol) is a network protocol used to transfer files between a client
+and a server. It enables easy data transfer across the network. For more secure file
+access, transfer and management, SFTP (SSH file transfer protocol) is used.
+Source: The TCP/IP Guide. [Online]. Available: http://tcpipguide.com/
+–Data storage: Data storage involves storing all the data in a
+single storage place, which provides robustness, security,
+and ﬂexibility. There are many data storage solutions over
+the cloud and on-premises that can be used according to
+need. Two popular ones are data warehouses and data lakes:
+A data warehouse is a centralized repository that
+stores data from multiple sources and transforms it
+into a standard format for efficient storage, querying
+and analysis. In data warehouses, data is stored in
+RDBMSs (relational database management systems)
+in the form of tables, in which the table
+structure/schema is predefined. This ensures that the
+data organization is subject to database rules to
+ensure accuracy, credibility, and integrity. Due to the
+data warehouses rules, bad quality data is either
+rejected or treated according to special rules.
+A data lake is a system that gives flexibility to store
+data in any format (relational, non-relational, and so
+on). The principle of data lake is “Store first, process
+later,” or have single storage for all of the data that
+anyone in an organization might need to analyze.
+Data is kept in its raw form and transformed only
+when it is ready to be used. In contrast to a data
+warehouse, a data lake does not need a data table
+structure/schema before storage. These applications
+make data lakes an ideal choice to store all data of a
+company as it does not require any business
+specification before storage and saves a lot of time
+and effort.
+Data Lakes with Apache Hadoop HDFS
+Data lakes are commonly constructed with the Hadoop architecture because Hadoop
+provides a collection of open source software libraries that can efficiently store and
+process big datasets. Some advantages of using HDFS:
+–HDFS is better than traditional distributed file systems as it is highly fault-tolerant.
+It can prevent data loss in case of system failure as a copy of files is stored across
+multiple computers.
+–It can store massive datasets with easy access.
+–It can break down data into separate pieces and do parallel processing.
+–It has a low cost compared to a traditional data storage system.
+Source: Apache Hadoop. [Online]. Available: http://www.apache.org
+Data Processing Toolkit
+After storing the data, the next step is to process and transform
+it into a useable form for modeling. The toolkit described in this
+section covers tools usually used for data preparation, modeling
+and evaluation. Often data is collected from various sources, so
+it is untidy. That is, it has inconsistent data types, useful
+columns spread across multiple ﬁles, and other unstructured
+characteristics. Data processing ensures that this data is
+organized so that is easy to retrieve whenever needed. This step
+is also called data transformation as it involves steps such as

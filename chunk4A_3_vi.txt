@@ -1,0 +1,38 @@
+bởi vì không có nhiều giá trị ngoại lai (outliers) trong dữ liệu. Nếu số lượng các giá trị ngoại lai tăng lên, k-medoid sẽ đưa ra một giải pháp tốt hơn.
+
+Do đó, chúng ta có thể kết luận phân tích phân cụm của mình bằng những hiểu biết sâu sắc sau đây. Khi muốn thực hiện phân khúc (segmentation), chúng ta có thể sử dụng thuật toán phân cụm như k-Means hoặc k-Medoid. Chúng ta sử dụng phân cụm vì dữ liệu của chúng ta không được gán nhãn (unlabeled), tức là chúng không có nhãn kết quả. Trong ví dụ, chúng ta thấy rằng khi số tiền chi tiêu (amount spent) và thời gian mua sắm (patronage duration) được sử dụng và chúng ta yêu cầu ba cụm, chúng ta có thể thu được các đặc điểm trung bình của khách hàng trong ba cụm đó. Sự khác biệt giữa các khách hàng này cho chúng ta biết doanh nghiệp có thể đưa ra các đề xuất sản phẩm hiệu quả như thế nào đối với khách hàng trong ba phân khúc này.
+
+## 5.6 THỰC HÀNH BẰNG R: PHÂN KHÚC BẰNG K-MEANS VÀ K-MEDOID (IMPLEMENTATION USING R: SEGMENTATION USING K-MEANS AND K-MEDOID)
+
+Để phân tích và vẽ biểu đồ dữ liệu, chúng ta sẽ sử dụng hai gói (packages): `cluster` và `factoextra`. Sau khi nhập dữ liệu, chúng ta căn giữa và chia tỷ lệ nó (center and scale) bằng cách sử dụng hàm `scale()` với các tùy chọn `center = TRUE` và `scale = TRUE`; `center = TRUE` trừ giá trị trung bình cột của một biến khỏi các giá trị cột tương ứng của chúng, và `scale = TRUE` chia các cột (đã được căn giữa) của một biến cho độ lệch chuẩn (standard deviations) của chúng. Quá trình này chuyển đổi các giá trị của mỗi biến thành điểm $z$ (z scores) của chúng. Đây là một bước quan trọng trước khi phân tích cụm (cluster analysis) vì mỗi biến của một tập dữ liệu có thể được đo trên các thang đo khác nhau. Ví dụ, trong tập dữ liệu của chúng ta, thời gian khách hàng quen của cửa hàng được tính bằng tháng, nhưng số tiền chi tiêu được tính bằng đô la. Việc chia tỷ lệ (scaling) dữ liệu đảm bảo rằng không có sự biến dạng nào do sự khác biệt trong các thang đo được sử dụng giữa các biến.
+
+Khi chúng ta đã đọc và chia tỷ lệ dữ liệu (`df`), mã thực tế để chạy k-Means khá đơn giản. Trong hàm `kmeans()`, `centers` chỉ định số lượng cụm ($k$), sau đó `nstart = 25` đặt 25 trung tâm (centroids) ngẫu nhiên ban đầu và chọn trung tâm tốt nhất. Giá trị `nstart` cao hơn mang lại giải pháp ổn định hơn, nhưng đối với các tập dữ liệu lớn hơn, điều này có thể tốn nhiều thời gian tính toán hơn.
+
+```R
+library(cluster)
+library(factoextra)
+ 
+set.seed(12345) # Thiết lập seed để có thể tái tạo kết quả
+ 
+df <- read.csv(url("http://data.mishra.us/files/chapter_segmentation/segmentation_kmeans.csv"))
+ 
+df <- scale(df, center = TRUE, scale = TRUE)
+ 
+k_means <- kmeans(df, centers = 3, nstart = 25)
+```
+
+Đoạn mã sau giúp tạo Hình 5.4 bằng cách sử dụng hàm `fviz_cluster()`. Tùy chọn `repel = TRUE` ngăn các điểm dữ liệu tụ lại với nhau và giúp chúng dễ đọc hơn.
+
+```R
+fviz_cluster(k_means, data = df,
+ repel = TRUE,
+ main = "k-means segmentation plot"
+)
+```
+
+Chúng ta cũng có thể in các trung tâm cụm (cluster centers) cho mỗi cụm trong số ba cụm, như chúng ta đã thấy trong Hình 5.4. Điều này rất hữu ích khi dữ liệu của chúng ta có nhiều hơn hai biến và việc vẽ biểu đồ các cụm trở nên khó khăn hơn. Bằng cách sử dụng các trung tâm cụm, chúng ta có thể đánh giá các đặc điểm trung bình của từng cụm. Nhất quán với biểu đồ, ở đây đầu ra của chúng ta cho thấy các thành viên của cụm 1 có thời gian mua sắm trung bình là -1.009 tháng và đã chi $1.383, trong khi các thành viên của cụm 2 có thời gian mua sắm là -1.006 tháng.
+
+## 5.7 HIỂU RÕ CHƯƠNG HỌC (UNDERSTANDING THE CHAPTER)
+- Phân khúc khách hàng là rất quan trọng để xác định chiến lược tiếp thị mục tiêu.
+- Dữ liệu cung cấp cái nhìn sâu sắc về nhu cầu và hành vi.
+- Các kỹ thuật phân cụm như k-Means giúp tự động hóa và định lượng các phân khúc này.

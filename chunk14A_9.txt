@@ -1,0 +1,287 @@
+(Small). The remaining $44 million was to be awarded to other businesses (Not-Small). The 2021 report 
+summarizes the 2020 R&D credit amount requested and awarded.
+Source: Adapted from THE RESEARCH & DEVELOPMENT TAX CREDIT REPORT to the PENNSYLVANIA GENERAL 
+ASSEMBLY.
+•	 The Tentative column represents the taxpayers’ total requested credit amount on their R&D credit 
+applications.
+•	 The Actual column represents the total amount awarded to those submitting applications.
+•	 The actual amounts determine the proportional amount of the budgets allocated.
+Create visualizations to answer the following three questions:
+	 1.	 What percentage of the amount was requested by each business type?
+	 2.	 How much of the budget was allocated to each business type, Small and Not Small?
+	 3.	 What percentage of the money requested did each group receive? 
+
+7-58  CHAPTER 7  Analysis: Data Exploration
+EX 7.14  (LO 3)  Data   Perform Pareto Analysis Nicole, manager of the Rainbow hotel, provides you 
+this summary table regarding customer complaints received in January 2025.
+Hotel Website
+Calls
+Calls
+Dirty Rooms
+Dirty Rooms
+Elevator
+Poor Wifi
+Poor Wifi
+Poor Wifi
+Rodents
+Source
+4
+22
+2
+4
+2
+7
+2
+Number
+Room Temperature
+Unexpected Fees
+Unexpected Fees
+Unexpected Fees
+Hotel Website
+ratemyhotel.com
+Calls
+Calls
+2
+Calls
+Unexpected Fees
+Unfriendly Staﬀ
+Unfriendly Staﬀ
+Unfriendly Staﬀ
+14
+60
+16
+90
+2
+Letter
+Hotel Website
+ratemyhotel.com
+Calls
+105
+44
+45
+Letter
+Hotel Website
+ratemyhotel.com
+Calls
+Unfriendly Staﬀ
+Type
+	 1.	 Use the data file to create a Pareto chart.
+	 2.	 Discuss the insights it generates.
+EX 7.15  Data   Explore with an Interactive Report Jumpers is a grocery store in Indianapolis with 
+locations in NIndy (North Indy) and SIndy (South Indy). They compiled a five-year report with revenues 
+generated for each of their seven product categories (meat, drinks, vegetables and fruits, snacks, freezer, 
+diary, other). 
+	 1.	 Create an interactive report based on the following exploration structure. 
+ProductName
+Filters
+Columns
+Rows
+Values
+Store
+Filters
+Columns
+Rows
+Values
+Filters
+Year
+TotalAmount
+Columns
+Rows
+Values
+Store
+ProductName
+Store
+Filters
+Year
+TotalAmount
+Columns
+Rows
+Values
+ProductName
+	 2.	 Describe the relationships that are part of your dashboard.
+	 3.	 Identify questions that can be explored with your dashboard.
+
+Professional Application Case: NoTable 7-59
+ Data Dictionary 
+PurchaseOrders
+Name
+ Description 
+ PurchaseOrderId 
+ Uniquely identifies a purchase order. 
+ Status 
+ A purchase order’s status: Canceled, Delivered, Open, or Returned. 
+ QuotedLeadTime 
+ The number of days the vendor committed to deliver the goods. 
+ ActualLeadTime 
+ The number of days it took the vendor to deliver the goods. 
+ Supplier 
+ ID of the vendor from whom the goods are purchased. 
+ DeliveryStatus 
+An order is canceled, delivered, open, or returned. For orders that 
+have been delivered, it is specified whether they were early, ontime, 
+late, or disruptive. Disruptive implies that the production process was 
+disrupted.
+ LaborEstimate 
+ The estimated dollar amount for labor for the production order. 
+ LaborActual 
+ The actual dollar amount used for labor for the production order. 
+ Professional Application Case: NoTable
+ NoTable is a furniture store in Halfway, Oregon, that manufactures custom-designed wooden tables of 
+exceptional quality. Most of their customers are collectors, including several movie stars. Their business 
+model is simple: a customer contacts them, they work with the customer on a design, build the table, and 
+deliver it to the customer’s residence. NoTable just hired you as an intern for their accounting department. 
+They hope your data analytics skills can help them with some of the decisions they face. They provide 
+you with an Excel file that contains several worksheets with data generated from their ERP system. The 
+underlying data model is shown here, followed by a data dictionary.
+ Data Model 
+ID
+SupplierName
+1
+N
+ID
+CustomerName
+State
+SalesTaxRate
+PurchaseOrderID
+Status
+QuoteLeadTime
+ActualLeadTime
+Supplier
+DeliveryStatus
+LaborEstimate
+LaborActual
+RawMaterialEstimate
+RawMaterialActual
+Designer
+SalesOrderID
+Amount
+Paid
+Customer
+Days
+DaysOutstanding
+1
+N
+N
+1
+PurchaseOrders
+Supplier
+ID
+DesignerName
+Designer
+SalesOrders
+Customer
+(Continued)
+
+7-60  CHAPTER 7  Analysis: Data Exploration
+Name
+Description
+RawMaterialEstimate
+The estimated dollar amount for raw materials for the production 
+order.
+RawMaterialActual
+The actual dollar amount for raw materials for the production order.
+Designer
+ID of the designer who designed the production order (table).
+Supplier
+Name
+Description
+ID
+Uniquely identifies a vendor.
+Name
+A vendor’s name.
+SalesOrders
+Name
+Description
+SalesOrderId
+Uniquely identifies a sales order.
+Amount
+The amount the customer owes NoTable.
+Paid
+Has the order been paid in full: Yes or No.
+Days
+For orders that are fully paid, the number of days it took to pay them.
+DaysOutstanding
+For orders that are not fully paid yet, the number of days the 
+receivable has been outstanding.
+Customer
+ID of the customer to whom the table was sold.
+Customer
+Name
+Description
+ID
+Uniquely identifies a customer.
+Name
+A customer’s name.
+State
+The state in which a customer lives.
+SalesTaxRate
+The sales tax rate for the state in which the customer lives.
+Designer
+Name
+Description
+ID
+Uniquely identifies a designer.
+Name
+A designer’s name.
+PAC 7.1  Auditing: Explore Vendor Reliability
+Data   Auditing   Part of NoTable’s success rests on its use of premium wood such as Bubinga and 
+­Dalbergia. One of its main challenges is to find suppliers for such wood. They currently work with eleven 
+different suppliers, and selection is exclusively based on price: the order goes to the supplier with the 
+lowest price. You point out that supplier performance, particularly on-time delivery, should be consid-
+ered as well. Risks related to late deliveries include lost sales, downtime, or not meeting the delivery 
+schedule. Late deliveries can dramatically impact the bottom line. You decide to use the data to support 
+your statement. You start by developing an algorithm to create a field called DeliveryStatus that contains 
+one of the following values: Early, Ontime, Late, Disruptive, Canceled, Returned. You already added that 
+column to the NoTable file.
+	 1.	 Using the values in the DeliveryStatus field, explore the delivery risks NoTable is facing.
+	 2.	 Assess the risk of each supplier, and assign them one the following labels: Safe, Risky, High-Risk.
+	 3.	 To mitigate supplier risk, how would you suggest tiering NoTable’s suppliers?
+
+Le Grind Continuing Case: Investigate Gross Profit Using Exploration Patterns
+7-61
+PAC 7.2 Managerial Accounting: Manage Variances
+Data
+Managerial Accounting
+Another key part of NoTable’s success is its designers , highly-paid
+artists who design the tables with and for customers. They currently have five designers, and one is 
+assigned to each purchase order. They meet extensively with each of the customers and develop compre-
+hensive specifications. Production steps and required raw materials are specified with the highest level 
+of detail. Accuracy of cost estimates are of utmost importance for NoTable given that they determine a 
+table’s price. 
+ You receive data generated by NoTable’s ERP system that show the estimated and actual labor and 
+material cost in dollars for each production order (table). You can find these data in the PurchaseOrders 
+worksheet. You are asked to analyze how accurate the design specifications are both overall and among 
+designers.
+ 1.  Determine and analyze the overall variances. 
+ 2.  Compare variances among designers. 
+PAC 7.3 Financial Accounting: Manage Accounts Receivable
+Data
+Financial Accounting
+NoTable’s management would like to include additional information 
+about credit risk in their financial report. They ask you to explore accounts receivable and provide some 
+insights. They provide you with sales orders and payment data generated by their ERP system. You can 
+find these data in the SalesOrders and Customer worksheets. The following is some additional informa-
+tion regarding NoTable’s credit policy:
+•  All payments are due within 30 days. 
+•  Early payments: There is a 3% discount for all orders paid in full within 2 weeks (15 days). 
+•  On time payments: There is no discount or no penalty for sales orders paid on time. 
+•  Late payments: There is a 3% penalty for all sales orders with a late payment. 
+  1.  Explore whether NoTable’s credit policy works. For orders that already have been paid, compare 
+early, on time, and late payments. 
+ 2.  For the orders that have not been fully paid yet, explore the aging of the outstanding balances. What 
+insights can you collect? 
+ 3.  Analyze accounts receivable by customer. Explore whether there is an issue with accounts receivable
+concentration. 
+PAC 7.4 Tax Accounting: Analyze Sales Tax 
+Data
+Tax Accounting
+NoTable delivers items to customer residencies. You notice that no sales tax 
+was collected for any of the sales. 
+ 1.  Determine the total sales tax amount that NoTable should have collected. 
+ 2.  Determine how much sales tax should have been collected and remitted to the different states. 
+Le Grind Continuing Case: Investigate Gross Profit Using 
+Exploration Patterns
+Data
+Visit Wiley’s online learning platform for the case background, additional questions, data, and 
+more details about the continuing case.  
+

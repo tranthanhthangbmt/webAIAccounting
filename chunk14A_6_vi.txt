@@ -1,0 +1,537 @@
+nhân viên
+Camille
+sản phẩm
+Thấp
+Cao
+Cao cấp
+3
+8730
+Andre
+0K
+5K
+10K
+Bianca
+nhân viên
+Số lượng
+Lon bị lỗi
+Camille
+8472
+7325
+2
+35,59%
+40%
+30%
+20%
+10%
+0%
+34,54%
+29,87%
+Andre
+Bianca
+nhân viên
+Tỷ lệ phần trăm
+của khiếm khuyết
+Lon
+Camille
+4
+
+7-36  CHƯƠNG 7  Phân tích: Khám phá dữ liệu
+Cấu trúc thăm dò cho báo cáo này trông như sau:
+Không gian khám phá: Màu sắc hạnh phúc Phân tích lon bị lỗi
+Tháng
+Bộ lọc
+nhân viên
+Tổng số
+của lon bị lỗi
+Cột
+Hàng
+Giá trị
+sản phẩm
+Tháng
+sản phẩm
+Bộ lọc
+nhân viên
+Tổng số
+của lon bị lỗi
+Cột
+Hàng
+Giá trị
+Bộ lọc
+nhân viên
+Số tương đối
+của lon bị lỗi
+Cột
+Hàng
+Giá trị
+Tháng
+sản phẩm
+Tháng
+sản phẩm
+Bộ lọc
+Cột
+Hàng
+Giá trị
+Máy thái
+Biểu đồ cột xếp chồng 100%
+Biểu đồ cột
+Biểu đồ cột
+1
+3
+2
+4
+4. Những hiểu biết sâu sắc này có thể được thu thập từ báo cáo:
+• Biểu đồ cột (2) có thể so sánh số lon bị lỗi của mỗi nhân viên. Đây là danh nghĩa-
+so sánh cuối cùng. Andre có số lượng cao nhất và Camille thấp nhất.
+• Biểu đồ cột xếp chồng 100% (3) phân tích số lượng lon bị lỗi theo nhân viên 
+và sản phẩm. Đây là mối quan hệ một phần với toàn bộ. Hầu hết các lon bị lỗi của Bianca đều dành cho Low 
+sản phẩm. Đối với Camille, phần lớn số lon bị lỗi đều dành cho sản phẩm High.
+• Biểu đồ cột thứ hai (4) phản ánh biểu đồ cột đầu tiên (2) và cũng là biểu đồ so sánh danh nghĩa
+ison. Tuy nhiên, ở đây, số lon bị lỗi của nhân viên được thể hiện dưới dạng phần trăm của 
+tổng số lon bị lỗi (mối quan hệ từng phần với toàn bộ).
+• Sử dụng bộ lọc (1), chọn bất kỳ kết hợp nào giữa tháng và sản phẩm để tạo thêm 
+những hiểu biết sâu sắc. Ví dụ, vào tháng 1, Andre có nhiều lon bị lỗi hơn Rebecca. Tuy nhiên, trong 
+Tháng Hai thì ngược lại.
+Ôn tập và thực hành chương
+Đánh giá mục tiêu học tập
+❶  Mô tả quá trình khám phá dữ liệu.
+Khám phá dữ liệu là quá trình khám phá tìm kiếm thứ gì đó 
+mới và chưa được biết trước đây:
+•  Khám phá dữ liệu có bốn bước: xác định câu hỏi, xác định-
+thiết lập các mối quan hệ dữ liệu, khám phá những mối quan hệ đó và tạo ra
+ăn những hiểu biết sâu sắc.
+•  Một công cụ được sử dụng rộng rãi để khám phá dữ liệu là Excel PivotTable. 
+Nó cho phép khám phá bằng cách chọn, từ danh sách các trường, 
+các con số cần phân tích, các con số sẽ được chia nhỏ như thế nào 
+về mặt hàng và cột cũng như các bộ lọc áp dụng cho 
+dữ liệu.
+•  PivotTable tích hợp các kỹ thuật khám phá dữ liệu chính: 
+xác định các mối quan hệ dữ liệu, lọc và kéo và 
+đánh rơi.
+
+Đánh giá mục tiêu học tập  7-37
+MINH HỌA 7.46  Tổng quan về các mẫu khám phá dữ liệu 
+Mã
+Mối quan hệ dữ liệu
+Mô tả
+Ví dụ trực quan
+(In đậm chỉ ví dụ về chương)
+Mối quan hệ dữ liệu cơ bản
+1
+So sánh danh nghĩa
+So sánh các giá trị của một biến danh nghĩa dựa trên 
+giá trị của biến số thứ hai.
+Biểu đồ thanh, biểu đồ cột, biểu đồ dấu chấm, 
+biểu đồ kẹo mút
+2
+Phân phối
+Cho biết giá trị của một biến số như thế nào 
+phân phối, hoặc lây lan.
+Biểu đồ, hộp và râu (boxplot) 
+biểu đồ, âm mưu violin
+3
+Độ lệch
+Cho thấy một tập hợp các giá trị thực tế lệch khỏi giá trị của chúng như thế nào 
+các giá trị tham chiếu như giá trị dự toán hoặc dự báo.
+Biểu đồ thanh và cột được nhóm lại, thước đo, 
+biểu đồ đạn
+4
+Xếp hạng
+Sắp xếp các giá trị của một biến một cách tuần tự dựa trên 
+giá trị của biến thứ hai
+Được xác định là một phần của bảng, biểu đồ thanh hoặc 
+biểu đồ cột.
+5
+Một phần thành toàn bộ
+Cho thấy mỗi phần so sánh với tổng thể như thế nào và 
+các bộ phận so sánh với nhau.
+Biểu đồ hình tròn, biểu đồ bánh rán, biểu đồ thanh xếp chồng, 
+biểu đồ cột xếp chồng, biểu đồ dạng cây
+6
+Tương quan
+Cho biết mức độ mà hai biến thay đổi trong 
+cùng hướng hoặc ngược chiều.
+biểu đồ phân tán
+7
+Chuỗi thời gian
+Hiển thị giá trị của một biến tại các điểm liên tiếp trong 
+thời gian.
+Biểu đồ vùng, biểu đồ thanh, biểu đồ cột, đường 
+biểu đồ, biểu đồ thu nhỏ, biểu đồ thác nước
+8
+Không gian địa lý
+Gán giá trị số cho vị trí và mã hóa chúng 
+thông qua màu sắc (bóng râm) và kích thước (kích thước bong bóng).
+Bản đồ
+Mối quan hệ dữ liệu tích hợp
+9
+Xu hướng tổng hợp
+Cho thấy cách một cấu trúc tổng hợp (một phần đến toàn bộ) 
+thay đổi theo thời gian (chuỗi thời gian).
+Biểu đồ cột xếp chồng, xếp chồng 100% 
+biểu đồ cột, biểu đồ vùng xếp chồng
+10
+Phân tích Pareto
+Minh họa tầm quan trọng của các danh mục khác nhau 
+(so sánh danh nghĩa), xếp hạng chúng (xếp hạng) và hiển thị 
+tỷ lệ phần trăm tích lũy của chúng (một phần trên toàn bộ).
+Biểu đồ Pareto, biểu đồ đường và cột
+❷  Khám phá các mối quan hệ dữ liệu cơ bản thông qua 
+trực quan hóa.
+Điều tra các mối quan hệ dữ liệu là trọng tâm của việc khám phá dữ liệu. Tám mô hình cơ bản có thể giúp trả lời các câu hỏi về những gì 
+mối quan hệ dữ liệu có thể được khám phá, làm thế nào chúng có thể được minh họa bằng hình ảnh
+các sự phân tích, cách tạo những hình ảnh trực quan đó và những hiểu biết sâu sắc nào có thể 
+được tạo ra từ chúng:
+•  Mối quan hệ dữ liệu so sánh danh nghĩa so sánh các giá trị của một 
+biến danh nghĩa dựa trên giá trị của biến thứ hai, số,. Ví dụ: chúng ta có thể so sánh các loại sản phẩm (biến danh nghĩa) 
+dựa trên tổng lợi nhuận họ đã tạo ra (biến số).
+•  Mối quan hệ dữ liệu phân phối cho thấy các giá trị của một lượng tử
+biến định tính được trải ra. Mối quan hệ này có thể cho thấy mức độ cao
+giá dự kiến trả cho một sản phẩm, giá thấp nhất, khoảng giá, v.v.
+•  Mối quan hệ dữ liệu sai lệch cho thấy một tập hợp các giá trị thực tế 
+lệch khỏi giá trị tham chiếu của chúng. Khám phá mối quan hệ sai lệch
+tionship có thể cho thấy lợi nhuận thực tế của năm 2025 so sánh như thế nào với 
+lợi nhuận dự toán.
+•  Mối quan hệ dữ liệu xếp hạng sắp xếp các giá trị của một chuỗi biến-
+dựa trên giá trị của biến thứ hai. Một ví dụ về 
+những gì nó có thể cho thấy là các sản phẩm khác nhau được xếp hạng như thế nào dựa trên lợi nhuận.
+•  Mối quan hệ dữ liệu từng phần với toàn bộ hiển thị cách mỗi phần tương tác với nhau
+so sánh với tổng thể và cách các bộ phận so sánh với nhau. Nó 
+giúp hiểu các vấn đề như sự đóng góp tương đối của 
+từng loại sản phẩm trong tổng doanh thu của doanh nghiệp.
+•  Mối quan hệ dữ liệu tương quan cho biết mức độ mà 
+hai biến chuyển động cùng chiều hoặc ngược chiều. Để thi-
+Ví dụ, doanh số bán kem có mối tương quan như thế nào với nhiệt độ.
+•  Mối quan hệ dữ liệu chuỗi thời gian xác định giá trị của một biến tại 
+các điểm liên tiếp trong thời gian. Ví dụ, nó có thể được sử dụng để khám phá 
+lợi nhuận của doanh nghiệp đã thay đổi như thế nào trong thập kỷ qua.
+•  Mối quan hệ dữ liệu không gian địa lý mã hóa các vị trí thông qua col-
+oring, sắc thái và kích thước, dựa trên các giá trị của một biến số
+có thể. Các tiểu bang (địa điểm) có thể được tô màu dựa trên tổng lợi nhuận 
+(biến số) mà họ đã tạo ra.
+❸  Khám phá dữ liệu bằng cách tích hợp các mối quan hệ nền tảng.
+Khám phá dữ liệu thường yêu cầu tích hợp hai hoặc nhiều dữ liệu 
+các mối quan hệ, có thể được thể hiện bằng một hình ảnh trực quan hoặc bằng 
+sử dụng các hình ảnh trực quan khác nhau như một phần của báo cáo:
+•  Xu hướng tổng hợp là một ví dụ về quan hệ dữ liệu tích hợp-
+những con tàu miêu tả tỷ lệ tương đối (một phần toàn bộ) thay đổi như thế nào 
+theo thời gian (chuỗi thời gian). Khám phá những mối quan hệ này có thể giúp ích 
+trả lời các câu hỏi, chẳng hạn như sự biến động kết hợp doanh thu của doanh nghiệp như thế nào?
+ăn mười năm qua.
+•  Phân tích Pareto xếp hạng các danh mục và xác định, dựa trên đó 
+xếp hạng, các danh mục đóng góp bao nhiêu vào điểm tích lũy 
+phần trăm. Biểu đồ Pareto có thể khám phá dữ liệu để xác định, 
+ví dụ, những sai sót phẫu thuật thường gặp nhất ở bệnh viện.
+•  Báo cáo tương tác với nhiều hình ảnh trực quan thể hiện 
+các mối quan hệ dữ liệu khác nhau cung cấp cơ hội khám phá vô tận
+giai điệu. Tổng lợi nhuận của doanh nghiệp (hình 1) có thể được chia nhỏ thành 
+danh mục sản phẩm (hình ảnh 2) trong khi danh mục sản phẩm có thể được nâng cao
+sau đó được chia nhỏ theo khu vực (hình 3) hoặc ngược lại.
+Hình minh họa 7.46 là tổng quan về mười mẫu khám phá dữ liệu được trình bày trong chương này.. 
+
+7-38
+CHƯƠNG 7 Phân tích: Khám phá dữ liệu
+Đánh giá các điều khoản chính
+Mối quan hệ dữ liệu xu hướng tổng hợp
+7-27
+Mối quan hệ dữ liệu tương quan
+7-20
+Thăm dò dữ liệu 7-1
+Mối quan hệ dữ liệu 7-3
+Mối quan hệ dữ liệu sai lệch 7-15
+Mối quan hệ dữ liệu phân phối 7-12
+Cấu trúc thăm dò 7-10
+Mối quan hệ dữ liệu không gian địa lý 7-24
+Cái nhìn sâu sắc 7-2
+Mối quan hệ dữ liệu so sánh danh nghĩa 7-10
+Phân tích Pareto
+7-30
+Mối quan hệ dữ liệu một phần với toàn bộ 7-18
+Xếp hạng mối quan hệ dữ liệu 7-17
+Mối quan hệ dữ liệu chuỗi thời gian 7-22
+Cách đi qua
+ CÁCH 7.1 Tạo biểu đồ hình hộp và râu bằng Excel 
+ Biểu đồ hình hộp và râu là công cụ tuyệt vời để khám phá các mối quan hệ phân phối. Minh họa 
+ 7.14 đã đưa ra một ví dụ về biểu đồ hình hộp và đường sọc được tạo bằng Power BI, nhưng bạn cũng có thể
+tạo một cái bằng Excel. 
+ Những gì bạn cần: Dữ liệu
+Tệp dữ liệu How To 7.1. 
+ BƯỚC 1: Chọn dữ liệu ở cột Profit như hình 7.47, sau đó click vào nút 
+Chèn tab (1). Vào nhóm Charts và chọn Insert Statistic Chart (2) và Box-and-
+Râu (3). 
+Làm thế nào để
+ MINH HỌA 7.47 Tạo biểu đồ hình hộp và râu bằng Excel 
+3D
+Bản đồ
+Chuyến tham quan
+Chèn
+tập tin
+Trang chủ
+Công thức
+dữ liệu
+Xem lại
+Xem
+Trợ giúp
+Bố cục trang
+nhào lộn
+Vẽ
+Bản đồ
+Biểu đồ Pivot
+Biểu đồ
+Được đề xuất
+Biểu đồ
+Thêm-
+trong
+Minh họa
+Bàn
+C1
+ƒx
+Lợi nhuận
+1
+2
+3
+A
+B
+C
+D
+E
+1
+1
+2
+3
+2
+ID
+người mẫu
+Lợi nhuận
+CIVIC
+CR-V
+2125
+2798
+3D
+Bản đồ
+Chuyến tham quan
+tập tin
+Trang chủ
+Công thức
+dữ liệu
+Xem lại
+Xem
+Trợ giúp
+Bố cục trang
+nhào lộn
+Vẽ
+Bản đồ
+Biểu đồ Pivot
+Biểu đồ
+Được đề xuất
+Biểu đồ
+Thêm-
+trong
+Minh họa
+Bàn
+C1
+ƒx
+ƒx
+ƒ
+Lợi nhuận
+H
+biểu đồ
+Hộp và Râu
+1
+2
+3
+
+Cách đi qua  7-39
+Điều này tạo ra biểu đồ hình hộp và râu được hiển thị tiếp theo (Minh họa 7.48).
+MINH HỌA 7.48  Biểu đồ hộp và râu trong Excel để kiếm lợi nhuận 
+Phân phối
+$0
+1
+1.000 USD
+2.000 USD
+3.000 USD
+4.000 USD
+5.000 USD
+6.000 USD
+7.000 USD
+8.000 USD
+Lợi nhuận phân phối
+Lợi nhuận
+Ký hiệu X đại diện cho mức trung bình. Các ngoại lệ, được định nghĩa là 1,5 lần của liên tứ phân vị 
+phạm vi (IQR) dưới tứ phân vị thứ nhất hoặc trên tứ phân vị thứ ba, cũng được hiển thị như một phần của 
+biểu đồ. Để xem tất cả các điểm dữ liệu, hãy bấm vào một trong các hộp và chọn Định dạng chuỗi dữ liệu. Sau đó, 
+chọn Hiển thị điểm bên trong. Chúng tôi đã áp dụng một số định dạng bổ sung cho biểu đồ.
+BƯỚC 2: Để tạo phân phối lợi nhuận song song cho các mô hình khác nhau, hãy chọn cả hai Mô hình 
+và cột Lợi nhuận. Để tạo lại biểu đồ trong Hình minh họa 7.49, hãy sắp xếp cột Model theo 
+thứ tự tăng dần.
+MINH HỌA 7.49  Phân phối lợi nhuận song song cho các mẫu xe HNA.
+hiệp định
+dân sự
+CR-V
+Odyssey
+Phi công
+Đường sườn núi
+$0
+1.000 USD
+2.000 USD
+3.000 USD
+4.000 USD
+5.000 USD
+6.000 USD
+7.000 USD
+8.000 USD
+Lợi nhuận
+người mẫu
+
+7-40  CHƯƠNG 7  Phân tích: Khám phá dữ liệu
+MINH HỌA 7.50  Bảng dữ liệu Pareto
+Odyssey
+CR-V
+hiệp định
+Đường sườn núi
+Phi công
+dân sự
+3.074.040
+2.555.799
+1.603.686
+898.441
+897.807
+517.964
+người mẫu
+Tổng số đơn vị đã bán
+32,20%
+58,97%
+75,76%
+85,17%
+94,58%
+100,00%
+Phần Trăm Tích Lũy
+CÁCH 7.2 
+Tạo biểu đồ Pareto bằng Excel và Power BI
+Khi tiến hành phân tích Pareto, bạn phải tính toán dữ liệu, tạo biểu đồ và thực hiện 
+sự phân tích. Điều này có thể được thực hiện trong Excel hoặc trong Power BI. Ở đây chúng tôi minh họa cách kết hợp 
+cả hai công cụ.
+Những gì bạn cần:   Dữ liệu   Tệp dữ liệu How To 7.2. 
+BƯỚC 1: Mở Power BI và trích xuất bảng tính dữ liệu thô Pareto từ HNA Pareto raw 
+tập tin dữ liệu Excel. Trang tính được hiển thị trong Hình minh họa 7.50 và là bản sao của PivotTable 
+dữ liệu được hiển thị trong Hình minh họa 7.42 (A).
+Làm thế nào để
+BƯỚC 2: Chọn biểu đồ Dòng và Cột xếp chồng trong ngăn Trực quan hóa. định nghĩa 
+đối với biểu đồ Pareto được thể hiện trong Hình minh họa 7.51. 
+MINH HỌA 7.51  Tạo biểu đồ đường và cột để phân tích Pareto trong Power BI
+Trục chia sẻ
+người mẫu
+Chuỗi cột
+Thêm trường dữ liệu ở đây
+Giá trị cột
+Tổng số đơn vị đã bán
+Giá trị dòng
+Phần Trăm Tích Lũy
+danh nghĩa
+Biến
+Những hạng mục nào đang được
+đã phân tích.
+Biến số đó
+xác định
+đóng góp cho
+tỷ lệ tích lũy.
+Biến số
+dùng để so sánh và
+xếp hạng biến danh nghĩa.
+số
+Biến:
+tích lũy
+Giá trị
+số
+Biến:
+Giá trị
+
+Câu hỏi trắc nghiệm  7-41
+Biểu đồ tương ứng được thể hiện trong Hình minh họa 7.52 và tương tự như biểu đồ trong 
+Hình minh họa 7.42 (B). Một số định dạng bổ sung đã được áp dụng.
+MINH HỌA 7.52  Phân tích Pareto về doanh số bán hàng của HNA
+3.500.000
+3.000.000
+2.500.000
+2.000.000
+1.500.000
+1.000.000
+500.000
+dân sự
+hiệp định
+CR-V
+người mẫu
+Tổng số căn đã bán Tỷ lệ tích lũy
+Odyssey
+Phi công
+Đường sườn núi
+0
+100%
+90%
+80%
+70%
+60%
+50%
+40%
+30%
+Tổng số căn đã bán
+Phần trăm tích lũy
+Việc kết hợp nhiều công cụ cho một nhiệm vụ phân tích dữ liệu và tích hợp điểm mạnh của chúng là điều phổ biến 
+luyện tập.
+Dữ liệu   Thẻ Dữ liệu xuất hiện khi dữ liệu cần thiết để trả lời một câu hỏi hoặc hoàn thành một câu hỏi. 
+bài tập có sẵn trên nền tảng học tập trực tuyến của Wiley. 
+Câu hỏi trắc nghiệm
+1.  (LO 1)  Khám phá dữ liệu là một quá trình gồm bốn bước nhằm xác định các câu hỏi, xác định các mối quan hệ dữ liệu, 
+khám phá những mối quan hệ đó, và
+một.	 xác định các yêu cầu thông tin.
+b.	 sửa các dữ liệu bất thường.
+c.	 xác định những hiểu biết sâu sắc.
+d.	 truyền đạt những hiểu biết sâu sắc.
+2.  (LO 1)  Khám phá dữ liệu dựa trên bốn yếu tố. Yếu tố nào sau đây không phải là một trong bốn yếu tố?
+Một.	 Tế bào
+b.	 Bộ lọc
+c.	 Hàng
+d.	 Giá trị
+đ.	 Cột
+3.  (LO 1)  Vùng giá trị của PivotTable
+một.	 xác định số lượng cần báo cáo.
+b.	 xác định những gì đang được phân tích.
+c.	 đại diện cho các biến được sử dụng để cắt và thái hạt lựu.
+d.	 đại diện cho các điểm dữ liệu.
+
+7-42  CHƯƠNG 7  Phân tích: Khám phá dữ liệu
+4.  (LO 1)  Sweet Candy là một cửa hàng dành cho người sành ăn bán giỏ kẹo cho khách hàng ở tất cả 50 tiểu bang của Hoa Kỳ. Họ 
+đã xây dựng PivotTable trong Excel để phân tích doanh thu được tạo ra bởi các tiểu bang giữa Đại Tây Dương khác nhau ở 
+Tháng 1 năm 2025. Thành phần nào sau đây của PivotTable sẽ trống?
+Một.	 Cột
+b.	 Bộ lọc
+c.	 Hàng
+d.	 Giá trị
+5.  (LO 1)  Công cụ nào sau đây khám phá dữ liệu? 
+Một.	 Microsoft Excel
+b.	 Microsoft Power BI
+c.	 hoạt cảnh
+d.	 Tất cả những công cụ này đều có thể khám phá dữ liệu.
+6.  (LO 2)  Sau đây là tất cả các mối quan hệ dữ liệu ngoại trừ
+một.	 không gian địa lý.
+b.	 sự tương quan.
+c.	 một phần đến toàn bộ.
+d.	 sai lệch.
+đ.	 boolean.
+f.	 phân bổ.
+7.  (LO 2)  Khi so sánh số giờ làm thêm giữa các nhân viên để xác định ai không có giờ làm thêm, rất ít 
+giờ làm thêm hoặc nhiều giờ làm thêm, bạn đang khám phá mối quan hệ dữ liệu nào?
+Một.	 Một phần đến toàn bộ
+b.	 Xếp hạng
+c.	 So sánh danh nghĩa
+d.	 Phân phối
+8.  (LO 2)  Điều nào sau đây không mô tả việc khám phá dữ liệu?
+Một.	 Tạo danh sách các sản phẩm, được sắp xếp theo thứ tự “lượt thích” trên Facebook theo thứ tự giảm dần.
+b.	 Tạo một hình ảnh trực quan hiển thị, trên mỗi sản phẩm, số lượng đơn vị đã bán thực tế và mục tiêu vào năm 2025.
+c.	 Tạo biểu đồ hiển thị giá trị trung bình, trung vị và phạm vi của số tiền giao dịch bán hàng của năm ngoái.
+d.	 Tạo bản đồ với các tiểu bang hoặc tỉnh được tô màu dựa trên tổng số lượng bán ra ở đó.
+đ.	 Xây dựng công thức xác định lợi nhuận gộp: doanh thu – giá vốn hàng bán.
+9.  (LO 2)  Điều nào sau đây không phải là ví dụ về tư duy phản biện được áp dụng trong việc khám phá dữ liệu?
+Một.	 Xem xét dữ liệu từ các quan điểm khác nhau, chẳng hạn như khách hàng, nhà đầu tư và nhân viên.
+b.	 Đánh giá và đánh giá lại các giả định làm cơ sở cho những hiểu biết sâu sắc được tạo ra.
+c.	 Chuyển đổi trang tổng quan để đảm bảo thông tin chi tiết được tạo ra dễ hiểu.
+d.	 Nghiên cứu và áp dụng các phương pháp thống kê nâng cao để tăng thêm độ chính xác cho những hiểu biết sâu sắc được tạo ra.

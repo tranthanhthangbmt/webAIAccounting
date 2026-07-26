@@ -1,0 +1,862 @@
+• Thêm tên nhãn cho cột này ở hàng 1: “Ngày phân tích”. 
+• Ở hàng 2, nhập “31/12/2025” và sao chép ngày này xuống hàng dữ liệu dưới cùng. Điều này có thể dễ dàng
+được thực hiện bằng cách nhấp vào góc dưới cùng của ô nơi nhập “31/12/2025” và 
+kéo con trỏ xuống hàng dữ liệu cuối cùng (Hình minh họa 4.30). 
+ MINH HỌA 4.30 Thêm cột ngày phân tích 
+31/12/2025
+ngoại hối
+1
+E
+B
+C
+D
+A
+F
+G
+Hóa đơnSố tiền
+Hóa đơnSố hóa đơnNgày
+Ngày đến hạn
+ID giám sát
+Ngày phân tích
+1.169,74 USD
+1405
+8/1/2025
+7/2/2025
+121054
+$ 286,00
+1501
+6/2/2025
+8/3/2025
+121054
+$760,89
+1551
+18/2/2025
+20/3/2025
+121050
+$298,09
+1651
+22/3/2025
+21/4/2025
+121053
+Trang 1
+2
+3
+4
+5
+Tự động Lưu
+Oﬀ
+2
+ BƯỚC 3: Tạo cột mới bên phải cột ngày 31/12/2025: 
+• Thêm tên nhãn cho cột này ở hàng 1: “Số ngày chưa thanh toán”. 
+• Tính số ngày chưa thanh toán bằng cách tạo công thức trong ô G2 để trừ hóa đơn 
+ngày (Ô C2) từ ô 31/12/2025 (F2) cho Ngày phân tích. Công thức là =F2-C2. 
+• Sao chép công thức này qua tất cả các hàng dữ liệu trong Cột G. Việc sao chép có thể được thực hiện bằng cách nhấp vào 
+ở góc dưới cùng của ô nơi nhập công thức và kéo xuống 
+hàng dữ liệu cuối cùng, ( Minh họa 4.31 ). 
+ CÁCH 4.1
+Tính toán ước tính nợ xấu cuối năm bằng Excel 
+Các số liệu ở bảng Hình 4.2 được tính toán trên Excel.  Nhớ lại một số sự thật 
+về ví dụ này:
+• WeMakeIt, Inc. ước tính rằng 2% trong số các khoản phải thu tồn đọng từ 30 đến 60 ngày của họ sẽ không được thanh toán
+có thể được chấp nhận và 30% số nợ phải thu tồn đọng trên 60 ngày sẽ không thể thu hồi được. 
+• Khoản trợ cấp cuối năm 2025 cho số dư chưa điều chỉnh của tài khoản không thu được là 3.000 USD. 
+ Những gì bạn cần:
+Dữ liệu Tệp dữ liệu How To 4.1. 
+ BƯỚC 1: Chọn toàn bộ tập dữ liệu, nhưng không chọn nhãn và sắp xếp dữ liệu hóa đơn chưa thanh toán theo 
+ngày lập hoá đơn. Tùy chọn Sắp xếp xuất hiện trong tab Dữ liệu. ( Minh họa 4.29 )
+Làm thế nào để
+Cách đi qua
+
+Cách đi qua
+4-37
+ MINH HỌA 4.31 Tập dữ liệu với các cột Ngày và Ngày Phân tích 
+31/12/2025
+357
+ngoại hối
+1
+E
+B
+C
+D
+A
+F
+G
+Hóa đơnSố tiền
+Hóa đơnSố hóa đơnNgày
+Ngày đến hạn
+ID giám sát
+Ngày phân tích
+1.169,74 USD
+1405
+8/1/2025
+7/2/2025
+121054
+$ 286,00
+1501
+6/2/2025
+8/3/2025
+121054
+$760,89
+1551
+18/2/2025
+20/3/2025
+121050
+$298,09
+1651
+22/3/2025
+21/4/2025
+121053
+$572,78
+1724
+11/4/2025
+11/5/2025
+121050
+$795,60
+1999
+22/6/2025
+22/7/2025
+121049
+$819,39
+2033
+3/7/2025
+2/8/2025
+31/12/2025
+31/12/2025
+31/12/2025
+31/12/2025
+31/12/2025
+31/12/2025
+NgàyNợ đọng
+328
+316
+284
+264
+192
+181
+121050
+Trang 1
+2
+3
+4
+5
+6
+7
+8
+Tự động Lưu
+Oﬀ
+3
+ BƯỚC 4: Chọn tiêu đề trường dữ liệu và hàng dữ liệu rồi tạo PivotTable. Tùy chọn này nằm 
+trong tùy chọn menu Insert trên Excel ( Hình minh họa 4.32 ).
+ MINH HỌA 4.32 Chèn PivotTable 
+Tự động Lưu
+Chèn
+Được đề xuất
+PivotTable
+Bảng
+Minh họa
+Phần bổ trợ
++ Nhận bổ trợ
+Tiện ích bổ sung của tôi
+SmartArt
+Ảnh chụp màn hình
+Hình dạng
+Hình ảnh
+Biểu tượng
+3D
+Người mẫu
+Bàn
+bảng tổng hợp
+Dữ liệu Visio
+Trình hiển thị
+Bản đồ Bing
+Biểu đồ con người
+tập tin
+Trang chủ
+Công thức
+dữ liệu
+Xem lại
+Xem
+Trợ giúp
+Bố cục trang
+nhào lộn
+Vẽ
+Bật
+Được đề xuất
+PivotTable
+Bảng
+Minh họa
+Phần bổ trợ
++ Nhận bổ trợ
+Tiện ích bổ sung của tôi
+SmartArt
+Ảnh chụp màn hình
+Hình dạng
+Hình Ảnh
+Biểu tượng
+3D
+Người mẫu
+Bàn
+Dữ liệu Visio
+Trình hiển thị
+Bản đồ Bing
+Biểu đồ con người
+4
+ Chọn Bảng tính mới. Màn hình của bạn sẽ tự động chuyển sang bảng tính mới. Tên 
+bảng này “BadDebts2025.” Tên xuất hiện ở phía trên bên trái màn hình của bạn. 
+ BƯỚC 5: Chọn bất kỳ vị trí nào trong PivotTable để Trường PivotTable xuất hiện ở bên phải 
+màn hình của bạn:
+• Kéo Số tiền Hóa đơn vào vùng Giá trị. 
+• Kéo số ngày chưa thanh toán vào hàng. Giải pháp PivotTable mới sẽ xuất hiện ( Minh họa-
+câu 4.33 ).
+ MINH HỌA 4.33 Chưa thanh toán
+Hóa đơn theo số ngày chưa thanh toán 
+Tổng cộng
+9
+8
+7
+4
+ $456,3
+$970,06
+1.688,44 USD
+1.912,04 USD
+83.734,3 USD
+HàngNhãn
+Tổng hóa đơnSố tiền
+5
+ BƯỚC 6: Tiếp theo, chọn hàng bất kỳ trong cột Số ngày chưa thanh toán: 
+• Nhấp chuột phải và chọn Nhóm . 
+• Trong hộp thoại mở ra ( Minh họa 4.34 ), nhập số 0 (0) ở điểm bắt đầu, 60 in 
+điểm kết thúc, sau đó nhập 30 cho tùy chọn By. Chọn OK .
+ MINH HỌA 4.34 Hộp thoại 
+nhóm theo số ngày chưa thanh toán 
+Nhóm
+Tự động
+Bắt đầu lúc:
+Kết thúc lúc:
+0
+60
+Bởi:
+30
+Hủy bỏ
+được rồi
+?
+6
+
+4-38  CHƯƠNG 4  Lập kế hoạch chiến lược phân tích và dữ liệu
+Bây giờ PivotTable đã trở thành ba hàng cho ba loại độ tuổi mong muốn, với cột phụ-
+tổng số đã được tính cho cột Sum of InvoiceAmount. Định dạng cột Tổng 
+dưới dạng tiền tệ (Minh họa 4.35). Định dạng số tiền dưới dạng tiền tệ.
+BƯỚC 7: Trong ô bên phải tiêu đề SumofInvoiceAmount, nhập “Ước tính %”. trong 
+ô bên phải, nhập “$ Không thể thu thập được.” Điều chỉnh độ rộng cột:
+• Trong ô bên phải của $ 20.441,46, nhập “0,02” và ở ô bên dưới nhập “0,3” cho 
+những tỷ lệ phần trăm không thể thu thập được. 
+• Định dạng cột $ Uncollectible dưới dạng tiền tệ.
+BƯỚC 8: Trong các ô bên phải của từng tỷ lệ phần trăm này, hãy nhập các công thức sau 
+sử dụng tham chiếu ô: 
+• Đối với nhóm 30-60 ngày, công thức là:
+=(nhấp vào ô có 20441.46)*(nhấp vào ô có 0,02)
+• Và đối với nhóm >60 ngày:
+=(nhấp vào ô có 33193.55)*(nhấp vào ô có 0,3)
+• Ví dụ về công thức và kết quả tính tổng được trình bày ở Hình minh họa 4.36. Thêm một 
+gạch chân ô chứa công thức cuối cùng.
+MINH HỌA 4.35  Tổng số nhóm tuổi cho 
+Giá trị hóa đơn các khoản phải thu
+ngoại hối
+1
+B
+A
+Trang 1
+2
+3
+4
+5
+Tự động Lưu
+Oﬀ
+Tổng cộng
+>60
+30–60
+0–29
+30.099,29
+20.441,46
+  33.193,55
+$83,734.30
+HàngNhãn
+Tổng hóa đơnSố tiền
+$
+$
+$
+MINH HỌA 4.36  Tổng số nhóm tuổi để ước tính nợ xấu
+ngoại hối
+1
+B
+A
+C
+D
+E
+Trang 1
+2
+3
+4
+5
+6
+7
+Tự động Lưu
+Oﬀ
+Tổng cộng
+>60
+30–60
+0–29
+30.099,29
+20.441,46
+  33.193,55
+0,02
+0,3
+$83,734.30
+HàngNhãn
+Tổng hóa đơnSố tiền
+Ước tính %
+=GETPIVOTDATA("Số tiền hóa đơn",$A$3,"Số ngày chưa thanh toán",30)*C5
+D5
+408,83
+9.958,07 USD
+$ không thể thu thập được
+$
+$
+$
+$
+7
+8
+BƯỚC 9: Nhập công thức tính tổng vào ô tiếp theo (D7 trong giải pháp ví dụ này):
+=tổng(D5:D6)
+Số tiền này là số dư tín dụng cuối năm đã được điều chỉnh mong muốn của khoản dự phòng phải thu khó đòi. 
+tài khoản. Tổng số này là 10.366,89 USD (cũng được hiển thị trong Hình minh họa 4.37).
+
+Cách đi qua  4-39
+BƯỚC 10: So sánh số dư tài khoản trợ cấp chưa điều chỉnh năm 2025, số dư tín dụng $3.000, 
+vào số dư cuối kỳ mong muốn đã được tính toán để tính số tiền cần thiết cho việc điều chỉnh 
+mục nhập để đảm bảo khoản dự phòng cho các tài khoản khó thu có số dư tín dụng mong muốn: 
+• Nhập số dư chưa điều chỉnh vào ô D8 và công thức tính toán vào ô D10 
+(Minh họa 4.37):
+=D7−D8
+• Bây giờ bạn đã sẵn sàng thực hiện mục nhập điều chỉnh của mình:
+Ghi nợ
+tín dụng
+Chi phí nợ khó đòi
+7.366,89
+Trợ cấp đối với tài khoản không thể thu hồi
+7.366,89
+CÁCH 4.2  Tạo biểu đồ thanh tần số trong Power BI
+Minh họa 4.16 có thể được tạo lại trong Power BI bằng cách phân tích các hóa đơn chưa thanh toán trong 
+các khoản phải thu của khách hàng và tạo ra một hình ảnh trực quan cho thấy có bao nhiêu khoản phải thu
+hóa đơn được khách hàng duy nhất nợ vào cuối năm 2024 và 2025 theo ba nhóm: 1-3 
+hóa đơn, 4-6 hóa đơn và 7-9 hóa đơn.
+Những gì bạn cần:  Dữ liệu   Tệp dữ liệu How To 4.2.
+BƯỚC 1: Tải tập dữ liệu lên Power BI:
+• Mở Power BI và chọn Lấy dữ liệu.
+• Chọn Nhập dữ liệu từ Excel và chọn Bảng tính Excel.
+• Điều hướng đến tập tin dữ liệu đã lưu và mở nó. 
+Làm thế nào để
+MINH HỌA 4.37  Hoàn thành phân tích tính toán chi phí nợ xấu
+ngoại hối
+1
+B
+A
+C
+D
+E
+Trang 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+Tự động Lưu
+Oﬀ
+Tổng cộng
+>60
+30–60
+0–29
+30.099,29
+20.441,46
+  33.193,55
+0,02
+0,3
+$83,734.30
+HàngNhãn
+Tổng hóa đơnSố tiền
+Ước tính %
+408,83
+9.958,07
+Điều chỉnh số tiền nhập
+Trừ phần chưa điều chỉnh
+số dư trong Phụ Cấp
+10.366,89 USD
+7.366,89
+($3,000)
+$ không thể thu thập được
+$
+$
+$
+$
+$
+$
+9
+10
+
+4-40  CHƯƠNG 4  Lập kế hoạch chiến lược phân tích và dữ liệu
+MINH HỌA 4.38  Tải dữ liệu 
+vào Power BI
+Điều hướng
+Tùy chọn hiển thị
+Tài khoản phải thu_HowTo_4.2.xlsx [1]
+Tờ 1
+Tờ 1
+Hủy bỏ
+Tải
+Chuyển đổi dữ liệu
+ID giám sát
+Số hóa đơn
+Hóa đơnSố tiền
+Ngày hóa đơn
+Ngày đến hạn
+406
+607
+647
+746
+864
+892
+966
+983
+998
+1000
+1004
+1010
+1014
+1031
+1037
+1042
+1049
+1054
+5/4/2024
+31/5/2024
+12/6/2024
+10/7/2024
+18/8/2024
+25/8/2024
+12/9/2024
+18/9/2024
+22/9/2024
+23/9/2024
+24/9/2024
+25/9/2024
+26/9/2024
+29/9/2024
+30/9/2024
+1/10/2024
+4/10/2024
+5/10/2024
+8/10/2024
+9/10/2024
+10/10/2024
+11/10/2024
+14/10/2024
+5/5/2024
+30/6/2024
+12/7/2024
+9/8/2024
+17/9/2024
+24/9/2024
+12/10/2024
+18/10/2024
+22/10/2024
+23/10/2024
+24/10/2024
+25/10/2024
+26/10/2024
+29/10/2024
+30/10/2024
+31/10/2024
+3/11/2024
+4/11/2024
+7/11/2024
+8/11/2024
+9/11/2024
+10/11/2024
+13/11/2024
+121008
+121035
+121023
+121038
+121001
+121009
+121024
+121024
+121036
+121008
+121010
+121011
+121006
+121014
+121005
+121005
+121023
+121018
+121016
+121037
+121036
+121014
+121008
+$351,65
+$349,83
+$415,48
+$450,19
+$197,34
+$469,17
+$663
+$316,29
+$848,38
+$839,8
+$719,68
+$575,12
+$691,34
+$868,4
+$515,97
+$756,47
+$726,44
+$416,65
+$582,01
+$244,01
+1.376,05 USD
+1.125,8 USD
+$811,59
+1062
+1066
+1068
+1070
+1078
+Ana
+1
+• Xác minh việc nhập này bằng cách nhấp đúp vào biểu tượng bảng dữ liệu ở bên trái màn hình. 
+Nhìn vào góc dưới bên trái để xác minh rằng bạn đã tải thành công tất cả 201 bản ghi của 
+tập dữ liệu (Minh họa 4.39).
+MINH HỌA 4.39  Xác minh nhập Excel
+tập tin
+Trang chủ
+Trợ giúp
+Công cụ bảng
+Tờ 1
+Tên
+Cấu trúc 
+Lịch
+Đánh dấu là ngày
+     bàn
+Quản lý
+mối quan hệ
+Mối quan hệ
+Mới
+đo lường
+nhanh chóng
+đo lường
+Mới
+cột
+Mới
+bàn
+Tính toán
+Số hóa đơn
+121054
+121054
+121050
+121053
+121050
+121049
+1405
+1999
+1724
+1651
+1551
+1501
+Thứ Sáu, ngày 7 tháng 2 năm 2025
+Thứ Bảy, ngày 8 tháng 3 năm 2025
+Thứ Năm, ngày 20 tháng 3 năm 2025
+Thứ Hai, ngày 21 tháng 4 năm 2025
+Chủ nhật, ngày 11 tháng 5 năm 2025
+Thứ Ba, ngày 22 tháng 7 năm 2025
+Thứ tư, ngày 8 tháng 1 năm 2025
+Thứ Năm, ngày 6 tháng 2 năm 2025
+Thứ Ba, ngày 18 tháng 2 năm 2025
+Thứ Bảy, ngày 22 tháng 3 năm 2025
+Thứ Sáu, ngày 11 tháng 4 năm 2025
+Chủ nhật, ngày 22 tháng 6 năm 2025
+Ngày đến hạn
+Hóa đơnSố tiền
+ 1.169,74 USD
+ $795,6
+ $572,78
+ $298,09
+ $760,89
+ $286
+Thứ tư, ngày 31 tháng 12 năm 2025
+Thứ tư, ngày 31 tháng 12 năm 2025
+Thứ tư, ngày 31 tháng 12 năm 2025
+Thứ tư, ngày 31 tháng 12 năm 2025
+Thứ tư, ngày 31 tháng 12 năm 2025
+Thứ tư, ngày 31 tháng 12 năm 2025
+Ngày phân tích
+NgàyQuá Hạn
+327
+298
+286
+254
+234
+162
+1
+ID giám sát
+Ngày hóa đơn
+	
+Khi cửa sổ Điều hướng mở ra, hãy chọn Trang tính 1 của tệp được liệt kê ở bên trái, sau đó chọn 
+Tải (Minh họa 4.38).
+
+Cách đi qua  4-41
+BƯỚC 2: Chọn cột Ngày phân tích.
+• Trong trình đơn bên dưới Công cụ Cột, kéo xuống các tùy chọn Định dạng Trường và chọn 
+tùy chọn cuối cùng “2001 (yyyy)” (Minh họa 4.40).
+• Xác minh trường ngày phân tích đã thay đổi thành hiển thị 2024 và 2025.
+MINH HỌA 4.40  Thay đổi 
+Phân tíchĐịnh dạng cột ngày
+Công cụ bảng
+Công cụ cột
+ 
+0
+Đừng tổng hợp
+Bỏ phân loại
+Định dạng
+Thuộc tính
+Tóm tắt
+Danh mục dữ liệu
+định dạng
+$
+%
+$%
+0,00
+.0
+“Thứ Tư, tháng Ba
+Định dạng ngày
+*14/3/2001 (Ngày ngắn)
+*Thứ Tư, ngày 14 tháng 3 năm 2001 (Ngày dài)
+Thứ tư, ngày 14 tháng 3 năm 2001 (dddd, d mmmm, yyyy)
+Thứ tư, ngày 14 tháng 3 năm 2001 (dddd, mmmm d, yyyy)
+14 tháng 3, 2001 (mmmm d, yyyy)
+14 tháng 3, 2001 (d mmmm, yyyy)
+14/3/2001 (tháng/ngày/năm)
+14/03/2001 (tháng/ngày/năm)
+14/03/01 (tháng/ngày/năm)
+14/3/01 (tháng/ngày/năm)
+14-03-2001 (năm-tháng-ngày)
+03/01/14 (năm/tháng/ngày)
+14-03-01 (dd-mmm-yy)
+14/03/2001 (ngày/tháng/năm)
+Tháng 3 năm 2001 (mmmm yyyy)
+2001-03 ( yyyy-mm)
+Ngày 14 tháng 3 (mmmm d)
+01 (năm)
+2001 (năm 2001)
+2
+BƯỚC 3: Chọn cột CustID bằng cách nhấp vào tiêu đề cột. Nhấp chuột phải và chọn 
+Chỉnh sửa truy vấn (Minh họa 4.41).
+MINH HỌA 4.41  Chỉnh sửa truy vấn 
+Lựa chọn
+ID giám sát
+Sắp xếp tăng dần
+Sắp xếp giảm dần
+1.
+1.
+1.
+1.
+1.
+1.
+1.
+1.
+1.
+1.
+1.
+Xóa sắp xếp
+Xóa bộ lọc
+Xóa tất cả bộ lọc
+Sao chép
+Sao chép bảng
+Biện pháp mới
+Cột mới
+Làm mới dữ liệu
+Chỉnh sửa truy vấn
+Đổi tên
+3
+
+4-42
+CHƯƠNG 4 Lập kế hoạch dữ liệu và chiến lược phân tích
+• Thao tác này sẽ mở cửa sổ Power Query Editor. Trong cửa sổ này, cột CustID sẽ 
+cũng được chọn. 
+• Chọn Nhóm theo từ trình đơn trên cùng và nó sẽ mở ra. 
+• Chọn Nâng cao. Ngay bên dưới trường CustID bạn sẽ thấy nút Thêm nhóm. 
+Chọn mục này để thêm nhóm thứ hai cho trường Ngày phân tích. Sau đó, bên dưới nhóm mới-
+hộp ing, trong hộp Tên cột mới nhập “CountInvoices” (không nhập dấu ngoặc kép).
+• Trong trình đơn kéo xuống dành cho Thao tác, chọn Đếm các hàng riêng biệt và chọn OK.  Đóng 
+và Áp dụng Trình soạn thảo Power Query (Minh họa 4.42). 
+ MINH HỌA 4.42 Nhóm theo ID khách hàng và đếm hóa đơn riêng biệt 
+Nhóm theo
+Cơ bản
+Nâng cao
+Tên cột mới
+hoạt động
+Cột
+Chỉ định các cột để nhóm theo và một hoặc nhiều kết quả đầu ra.
+Đếm các hàng riêng biệt
+ID giám sát
+Thêm nhóm
+Thêm tổng hợp
+ĐếmHóa đơn
+Hủy bỏ
+được rồi
+?
+ BƯỚC 4: Chọn cột Đếm Hóa đơn. Chọn Nhóm dữ liệu từ cột trên cùng, sau đó 
+chọn Nhóm dữ liệu mới ( Minh họa 4.43 ).
+ MINH HỌA 4.43 Chọn nhóm dữ liệu 
+Trang chủ
+Trợ giúp
+Công cụ bảng
+Công cụ cột
+tập tin
+ĐếmHóa đơn
+Toàn bộ số
+Toàn bộ số
+0
+Tổng
+Chưa được phân loại
+Tên
+Kiểu dữ liệu
+Cấu trúc 
+Định dạng
+Thuộc tính
+Sắp xếp
+Nhóm
+     Sắp xếp theo
+ cột
+    dữ liệu
+nhóm
+Tóm tắt
+Danh mục dữ liệu
+định dạng
++
+$
+%
+$%
+0,00
+.0
+123
+2024
+2024
+2024
+7
+4
+5
+121008
+121035
+121023
+ĐếmHóa đơn
+ID giám sát
+Ngày phân tích
+ĐếmHóa đơn
+Toàn bộ số
+Toàn bộ số
+0
+Tổng
+Chưa được phân loại
+Tên
+Kiểu dữ liệu
+Cấu trúc
+Định dạng
+Thuộc tính
+Sắp xếp
+    Sắp xếp theo
+ cột
+Tóm tắt
+Danh mục dữ liệu
+định dạng
+$
+%
+$%
+0,00
+.0
+123
+12
+12
+4
+
+Cách đi qua  4-43
+Hình minh họa 4.43 hiển thị hộp thoại mở ra khi bạn chọn Nhóm dữ liệu:
+• Trong hộp thoại chọn Danh sách (không phải thùng) cho Loại nhóm.
+• Trong phần Giá trị chưa được nhóm, giữ phím shift để chọn giá trị 1 2 và 3.
+• Chọn Nhóm. Nhấp đúp chuột vào nhóm mới xuất hiện ở cửa sổ bên phải và thay đổi 
+nhãn thành “1-3”.
+• Chọn nhóm Other và di chuyển sang phía bên trái chưa được nhóm. Chọn 4 và 5 cùng nhau bằng cách 
+một lần nữa giữ phím shift. Chọn Nhóm và di chuyển sang cửa sổ bên phải. Dou-
+Hãy nhấp vào nhãn của trường này và nhập “4-6” (điều đó xảy ra là không có khách hàng nào 
+với sáu hóa đơn chưa thanh toán, nhưng phạm vi sẽ là 4-6).
+• Một lần nữa, chọn Khác và di chuyển đến cửa sổ Giá trị chưa được nhóm. Chọn 7, 8 và 9 
+bằng cách giữ phím shift và chọn NHÓM.
+• Quay lại bên phải và nhấp đúp chuột vào nhãn của nhóm này. Thay đổi nó thành “7-9.” chọn 
+Được rồi. (Minh họa 4.44).
+MINH HỌA 4.44  Tạo nhóm số hóa đơn
+Nhóm
+Tên
+trường
+Danh sách
+Loại nhóm
+Giá trị chưa được nhóm
+Nhóm
+Tách nhóm
+Nhóm và thành viên
+1-3
+4-6
+7-9
+Khác
+Chứa tất cả các giá trị chưa được nhóm
+Bao gồm nhóm khác
+tôi
+ĐếmHóa đơn
+ĐếmHóa đơn (nhóm)
+Hủy bỏ
+được rồi
+?
+BƯỚC 5: Bây giờ bạn đã sẵn sàng để tạo trực quan hóa của mình:
+• Chọn biểu tượng đồ thị bên trái màn hình.
+• Chọn cả ba biến trong danh sách Trường của bạn.
+
+4-44  CHƯƠNG 4  Lập kế hoạch chiến lược phân tích và dữ liệu
+MINH HỌA 4.45  Tạo 
+Trực quan hóa
+Tìm kiếm
+Bộ lọc
+Tìm kiếm
+Bộ lọc trên hình ảnh này
+Phân tíchNgày - Năm
+là (Tất cả)
+ĐếmHóa đơn (nhóm)
+là (Tất cả)
+ID giám sát
+là (Tất cả)
+Thêm trường dữ liệu ở đây
+Thêm trường dữ liệu ở đây
+Bộ lọc trên trang này
+Bộ lọc trên tất cả các trang
+Trực quan hóa
+Trường
+R
+Py
+Trục
+ĐếmHóa đơn (nhóm)
+Truyền thuyết

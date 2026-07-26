@@ -1,0 +1,252 @@
+\documentclass[aspectratio=169]{beamer}
+\usetheme{Madrid}
+\usecolortheme{default}
+\usepackage[utf8]{inputenc}
+\usepackage[T5]{fontenc}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{amsmath}
+
+\setbeamertemplate{caption}[numbered]
+\renewcommand{\figurename}{Hình}
+\renewcommand{\thefigure}{7.\arabic{figure}}
+
+\title[Chương 7: Chuyên sâu Keras]{Học Sâu (Deep Learning) \\ \vspace{0.5cm} \Large Chương 7: Lập trình Chuyên sâu với Keras \\ (A Deep Dive on Keras)}
+\author{Đại học Đông Á}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame}{Nội dung chương}
+    \tableofcontents
+\end{frame}
+
+\section{1. Triết lý Thiết kế của Keras}
+
+\begin{frame}{Từng bước phơi bày sự phức tạp (Progressive Disclosure)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item \textbf{Nguyên tắc thiết kế Keras:} Làm cho mọi thứ trở nên dễ bắt đầu, nhưng vẫn hoàn toàn khả thi để xử lý các bài toán siêu phức tạp.
+            \item Không có một "con đường duy nhất". Keras cung cấp một \textbf{Phổ quy trình (Spectrum of workflows)}.
+            \item Người mới dùng Keras như Scikit-learn (`fit()`). Chuyên gia dùng Keras như NumPy (viết tay mọi thứ từ đầu).
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.7\textheight,keepaspectratio]{../../images/ch07/progressive_disclosure_of_complexity_models.f43bcdb0.png}
+            \caption{Từ Sequential đến Model Subclassing}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Vòng lặp Tiến bộ (The Loop of Progress)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Khoa học là quá trình thử nghiệm lặp đi lặp lại.
+            \item \textbf{Idea:} Khởi tạo ý tưởng.
+            \item \textbf{Experiment:} Cài đặt mã nguồn.
+            \item \textbf{Evaluate:} Đánh giá kết quả $\rightarrow$ Rút ra bài học và tạo Idea mới.
+            \item Keras được tối ưu để thu ngắn tối đa thời gian từ lúc có ý tưởng đến lúc chạy xong thí nghiệm.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.7\textheight,keepaspectratio]{../../images/ch07/the_loop_of_progress.df126e89.png}
+            \caption{Vòng lặp phát triển Mô hình ML}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\section{2. Ba phương pháp Xây dựng Mô hình}
+
+\begin{frame}{Phương pháp 1: Sequential API}
+    \begin{itemize}
+        \item Cấu trúc dữ liệu dạng \textbf{Danh sách (Python List)}.
+        \item Đơn giản nhất, dễ tiếp cận nhất.
+        \item \textbf{Hạn chế:} Chỉ hỗ trợ các lớp xếp chồng tuyến tính (lớp sau nối tiếp lớp trước).
+        \item Không thể áp dụng cho: Mô hình đa đầu vào (Multi-input), đa đầu ra (Multi-output), hay các cấu trúc phân nhánh (vd: ResNet).
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Phương pháp 2: Functional API (Mạng phân loại vé)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Coi các layer là các \textbf{Hàm (Functions)}. Nhận Tensor và trả về Tensor.
+            \item Cho phép xây dựng mạng \textbf{Đồ thị đa hướng (Directed Acyclic Graph)}.
+            \item \textit{Ví dụ:} Hệ thống phân loại vé hỗ trợ (Ticket Classifier). Đầu vào: (1) Tiêu đề, (2) Nội dung văn bản, (3) Thẻ tags. Đầu ra: (1) Mức độ ưu tiên, (2) Phòng ban xử lý.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.7\textheight,keepaspectratio]{../../images/ch07/ticket_classifier.6d8d5711.png}
+            \caption{Sơ đồ mạng đa luồng}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Functional API: Luồng dữ liệu và Shapes}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Lợi thế tối thượng của Functional API là hệ thống \textbf{truyền kích thước (Shape Inference)}.
+            \item Ký hiệu TensorShape: `(None, 64)`. Kích thước lô (Batch Size) là `None` để hệ thống tự thích ứng, `64` là số lượng đặc trưng.
+            \item Bất kỳ sự lệch pha kích thước nào cũng được phát hiện ngay lúc thiết kế (Design Time) thay vì lúc chạy (Runtime).
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.7\textheight,keepaspectratio]{../../images/ch07/ticket_classifier_with_shapes.1c26af81.png}
+            \caption{Đồ thị truyền tải Shapes}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Functional API: Khả năng Tái sử dụng}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Mô hình Keras cũng là một "Layer khổng lồ".
+            \item Ta có thể trích xuất các \textit{nút trung gian (Intermediate Nodes)} để tạo ra một nhánh đồ thị hoàn toàn mới.
+            \item \textit{Ví dụ:} Thêm bộ phân loại "Mức độ khó" vào sơ đồ phân loại vé có sẵn mà không cần viết lại toàn bộ mã.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.7\textheight,keepaspectratio]{../../images/ch07/updated_ticket_classifier.d0baf1fe.png}
+            \caption{Mở rộng đồ thị Functional}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Phương pháp 3: Model Subclassing}
+    \begin{itemize}
+        \item Kế thừa Lập trình Hướng đối tượng (OOP) từ lớp cơ sở \texttt{keras.Model}.
+        \item Khai báo các trọng số tại phương thức khởi tạo \texttt{\_\_init\_\_()}.
+        \item Định nghĩa dòng chảy Toán học ngầm tại phương thức \texttt{call()}.
+        \item \textbf{Ưu điểm:} Cung cấp khả năng kiểm soát tuyệt đối (Vd: Dùng vòng lặp \texttt{for} động bên trong mạng Nơ-ron).
+        \item \textbf{Nhược điểm:} Mất đi tính minh bạch của đồ thị. Không thể in ra Tóm tắt cấu trúc (Summary) dễ dàng.
+    \end{itemize}
+\end{frame}
+
+\section{3. Tùy biến Vòng lặp Huấn luyện (Customizing)}
+
+\begin{frame}{Tự định nghĩa Hàm Mất mát (Custom Losses)}
+    Đôi khi hàm \textit{Mean Squared Error (MSE)} mặc định là không đủ. Ta phải kế thừa lớp \texttt{keras.losses.Loss} và cài đặt công thức Toán học:
+    \begin{equation}
+        L = \frac{1}{N} \sum_{i=1}^{N} (y_i - \hat{y}_i)^2
+    \end{equation}
+    Trong đó:
+    \begin{itemize}
+        \item $y_i$ là Mục tiêu gốc (True Label).
+        \item $\hat{y}_i$ là Dự đoán (Prediction).
+        \item Cài đặt qua phương thức \texttt{call(y\_true, y\_pred)}.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Tự định nghĩa Thước đo (Custom Metrics)}
+    Metrics khác với Loss ở chỗ nó mang \textbf{Trạng thái (Stateful)}. Ta kế thừa \texttt{keras.metrics.Metric}.
+    \begin{itemize}
+        \item \textbf{Update State:} Cộng dồn trạng thái sau mỗi Lô (Batch).
+        \begin{equation}
+            S_{total} = S_{total} + \sum (\text{Correct Predictions})
+        \end{equation}
+        \item \textbf{Result:} Trả về kết quả đầu ra hiển thị cho người dùng.
+        \item \textbf{Reset State:} Reset biến đếm về 0 khi bắt đầu một Epoch mới.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Viết lại Vòng lặp Huấn luyện bằng GradientTape}
+    Thay vì gọi \texttt{model.fit()}, ta có thể sử dụng \texttt{tf.GradientTape} để tự điều khiển phép tính \textbf{Đạo hàm riêng (Backpropagation)}:
+    \begin{equation}
+        \Delta W = - \eta \cdot \frac{\partial L}{\partial W}
+    \end{equation}
+    Quy trình lặp:
+    \begin{enumerate}
+        \item Mở Tape, truyền dữ liệu qua Mạng.
+        \item Tính Loss $L$.
+        \item Dùng Tape truy xuất Gradient $\frac{\partial L}{\partial W}$.
+        \item Gửi Gradient cho Trình tối ưu hóa (Optimizer) để cập nhật Trọng số $W$.
+    \end{enumerate}
+\end{frame}
+
+\section{4. Callbacks: Tự động hóa quá trình Huấn luyện}
+
+\begin{frame}{Sức mạnh của Callbacks}
+    \begin{itemize}
+        \item Chạy mô hình hàng chục ngàn Epochs tốn hàng giờ đồng hồ, Kỹ sư không thể ngồi canh bằng mắt.
+        \item \textbf{Callbacks} là các "hook" được kích hoạt tự động vào các thời điểm (Đầu/cuối Epoch, Đầu/cuối Batch).
+        \item \textbf{EarlyStopping:} Tự động dừng huấn luyện khi Validation Loss có dấu hiệu chạm đáy. (Ngăn Overfitting).
+        \item \textbf{ModelCheckpoint:} Tự động sao lưu Trọng số Tốt nhất xuống ổ cứng.
+        \item \textbf{ReduceLROnPlateau:} Tự động bóp nhỏ Tốc độ học (Learning Rate) khi Loss bị mắc kẹt.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Tùy biến Callback (Custom Callback)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Bằng cách kế thừa \texttt{keras.callbacks.Callback}, bạn có thể can thiệp vào hành vi của hệ thống tại sự kiện \texttt{on\_epoch\_end()}.
+            \item \textit{Ví dụ:} Viết một Callback lưu lại giá trị Loss của từng Batch và vẽ thành Đồ thị phân tán.
+            \item Mật độ dày đặc của biểu đồ cho thấy sự thay đổi Loss ở cấp độ Lô (Batch-level).
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.7\textheight,keepaspectratio]{../../images/ch07/loss_history_callback_example.1e42f6b2.png}
+            \caption{Đồ thị Loss do Custom Callback sinh ra}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\section{5. Giám sát với TensorBoard}
+
+\begin{frame}{Bảng điều khiển TensorBoard}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Mắt thường không thể đọc hàng triệu con số trên Terminal.
+            \item \textbf{TensorBoard} chạy một Web Server nội bộ, theo dõi và trực quan hóa thời gian thực (Real-time).
+            \item Chức năng:
+            \begin{itemize}
+                \item So sánh Metrics (Loss, Accuracy) của hàng chục thí nghiệm khác nhau.
+                \item Vẽ biểu đồ phân phối trọng số (Histograms) để kiểm tra Gradient có bị Triệt tiêu (Vanishing) hay Bùng nổ (Exploding) hay không.
+                \item Vẽ lại Đồ thị Mô hình đa luồng phức tạp.
+            \end{itemize}
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.7\textheight,keepaspectratio]{../../images/ch07/tensorboard.aec6cc75.png}
+            \caption{Giao diện Giám sát TensorBoard}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\section{Tổng kết}
+
+\begin{frame}{Tổng kết Chương 7}
+    Keras không chỉ là thư viện dành cho người mới, nó là một Vũ khí Chuyên sâu:
+    \begin{itemize}
+        \item Chọn đúng công cụ: \textbf{Sequential} (Đơn giản), \textbf{Functional API} (Đa luồng đồ thị - Khuyên dùng), \textbf{Model Subclassing} (Tự điều khiển luồng ngầm).
+        \item Khả năng tùy biến vô hạn: Có thể tự viết lại \textbf{Custom Loss}, \textbf{Custom Metric} và thậm chí phá vỡ hàm \texttt{fit()} để viết \textbf{Custom Training Loop}.
+        \item Tự động hóa: Giải phóng Kỹ sư khỏi việc canh màn hình nhờ hệ thống \textbf{Callbacks} (EarlyStopping, Checkpoint).
+        \item Giám sát học thuật: Trực quan hóa mọi thứ với \textbf{TensorBoard}.
+    \end{itemize}
+\end{frame}
+
+\end{document}

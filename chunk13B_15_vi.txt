@@ -1,0 +1,334 @@
+Hãy sử dụng lại tập dữ liệu các khoản phải thu của WeMakeIt Inc., lần này để minh họa chẩn đoán.
+phân tích hoài cổ: 
+• Câu hỏi khách quan mới: Khách hàng quay lại tín dụng có dư nợ nhiều hơn không? 
+hóa đơn vào cuối năm 2025 so với số dư cuối năm 2024?
+• Chiến lược dữ liệu: Một lần nữa, hãy sử dụng bộ dữ liệu cho các tài khoản cuối năm 2024 và 2025 
+hóa đơn mở phải thu.
+• Chiến lược phân tích: Nhóm dữ liệu theo Mã số khách hàng cho câu hỏi này.
+Hình minh họa 4.15 báo cáo kết quả phân tích này.
+
+4-20  CHƯƠNG 4  Lập kế hoạch chiến lược phân tích và dữ liệu
+Để trả lời câu hỏi này, chúng ta có thể chọn tạo một biến thứ tự mới được tính toán (gọi lại 
+rằng một biến là một mục dữ liệu sẽ được sử dụng trong phân tích). Biến này sẽ nhóm tín dụng 
+khách hàng thành các phạm vi tăng dần dựa trên số lượng hoá đơn họ còn tồn tại 
+cuối năm. Có một số lợi ích cho chiến lược này:
+• Thay đổi một biến liên tục thành các phạm vi thứ tự sẽ tạo ra các nhóm có ý nghĩa 
+chứ không phải là việc đếm đơn giản số lượng hóa đơn chưa thanh toán cho mỗi khách hàng.
+• Biến thứ tự mới cho phép hiểu rõ hơn về kết quả tổng thể của số-
+tổng số hóa đơn chưa thanh toán.
+Hãy tạo ba cấp độ cho các hóa đơn chưa thanh toán: khoảng 1-3 hóa đơn, 4-6 hóa đơn và 7-9 hóa đơn 
+hóa đơn dưới dạng cấp độ biến thứ tự mới. Hình minh họa 4.16 cung cấp một hình dung trực quan về 
+kết quả của chiến lược phân tích này. ( Data How To 4.2 mô tả cách tạo lại hình ảnh trực quan này 
+bằng một công cụ khác.)
+Làm thế nào để
+MINH HỌA 4.16  Tần số 
+của khách hàng có thành tích vượt trội 
+Số dư
+Số lượng hóa đơn chưa thanh toán
+Số lượng
+Khách hàng
+1–3
+48
+7
+2
+2
+3
+4–6
+7–9
+Số lượng khách hàng có dư nợ
+Hóa đơn năm 2024 và 2025
+0
+20
+40
+60
+2024
+2025
+27
+Kết quả phân tích lần thứ hai này cho thấy số lượng khách hàng có 4-6 và 7-9 
+số dư nợ năm 2025 giảm so với năm 2024. Tuy nhiên, gần như có 
+số lượng khách hàng có 1-3 hóa đơn quá hạn vào năm 2025 tăng gấp đôi so với năm 2024. Kết quả này 
+là những tin tức trái chiều vì lo ngại về rủi ro khả năng thu hồi các khoản phải thu trong tương lai.
+Phát hiện bất ngờ này là một lời nhắc nhở hữu ích về tầm quan trọng của tư duy phê phán và 
+thảo luận về kết quả phân tích ban đầu. Suy nghĩ chín chắn khi diễn giải phân tích
+Kết quả ysis liên quan đến việc đánh giá cả chiến lược phân tích đã thực hiện và không được thực hiện. 
+Việc đặt câu hỏi một cách hoài nghi về các chiến lược phân tích dữ liệu có thể mang lại những hiểu biết sâu sắc có giá trị. 
+phân tích đã làm.
+ÁP DỤNG TƯ duy phản biện 4.6: Kiểm soát rủi ro 
+đến Chiến lược phân tích
+Tùy thuộc vào mục tiêu của dự án, các chiến lược phân tích có thể bao gồm sự kết hợp đa dạng của
+có thể sử dụng các nguồn và thang đo khác nhau. Đơn giản chỉ cần thêm các biến và phức tạp
+ràng buộc với các lựa chọn phân tích mà không có sự biện minh có thể dẫn đến tình trạng quá tải thông tin, có thể làm suy yếu 
+sự phán xét của bạn. Ví dụ: dự báo doanh thu có thể liên quan đến ít biến số hơn trong các ngành như 
+như nông nghiệp, vì nhu cầu lương thực ổn định hơn so với các hãng hàng không, vì việc đi lại tùy ý hơn. 
+Thói quen giảm thiểu rủi ro nghề nghiệp bao gồm (Rủi ro):
+• Giữ cho việc phân tích càng đơn giản càng tốt bằng cách đưa vào ít biến số nhất nhưng phù hợp nhất.
+• Ghi lại từng bước, đặc biệt là những lợi ích và hạn chế của từng lựa chọn khi bạn phát triển, 
+đánh giá và lựa chọn chiến lược phân tích (Các lựa chọn thay thế).
+Quy trình phân tích các khoản phải thu của WeMakeIt, Inc., dù là mô tả hay chẩn đoán.
+hoài cổ, liên quan đến một cách tiếp cận có thể được sử dụng cho hầu hết các chiến lược phân tích trong kế toán:
+• Bắt đầu với mục tiêu rõ ràng và những câu hỏi cụ thể cần được trả lời.
+
+4.3  Chúng ta nên cân nhắc điều gì khi lựa chọn một phân tích?   4-21
+• Phát triển các dữ liệu thay thế, đánh giá từng yếu tố liên quan đến mục tiêu và chọn 
+chiến lược dữ liệu tốt nhất Lọc dữ liệu được thiết lập theo các biến và phạm vi quan tâm cần thiết 
+cho mục tiêu.
+• Các chiến lược phân tích tốt nhất thường tạo ra các biến được tính toán mới trong hàng cần thiết 
+cho việc phân tích. Các biến được tính toán mới này có thể là các nhóm phân loại, thứ tự xếp hạng-
+ings, các thước đo khoảng và các biến tỷ lệ. Hãy nhớ rằng các nhóm có liên quan có thể tạo ra 
+dễ dàng hơn để giải thích kết quả.
+• Tính toán mọi thước đo phân tích theo chiều dọc cần thiết, chẳng hạn như tổng, tần số, giá trị trung bình, 
+và các thước đo độ phân tán trên các hàng trong tập dữ liệu.
+• Cuối cùng, các biến phân tích có thể được tương quan hoặc cắt theo các biến thứ nguyên để thêm vào 
+những hiểu biết sâu sắc từ việc phân chia tổng số đo theo chiều dọc.
+Các phân tích mô tả và chẩn đoán giúp hiểu rõ hơn điều gì đã xảy ra và tại sao nó lại xảy ra. 
+đã xảy ra. Điều gì sẽ xảy ra nếu mục tiêu là dự đoán kết quả trong tương lai hoặc xác định chiến lược nào 
+có thể đạt được một kết quả cụ thể? Trong những trường hợp đó, chúng ta cần sử dụng phương pháp dự đoán hoặc quy định 
+phân tích sẽ được giải thích tiếp theo.
+Thiết kế phân tích để dự đoán và kê đơn
+Chiến lược phân tích dự đoán sử dụng dữ liệu lịch sử để tạo ra các mô hình ước tính giá trị trong tương lai 
+hoặc kết quả. Mặt khác, các chiến lược phân tích theo quy định giúp xác định lựa chọn nào 
+có nhiều khả năng tạo ra kết quả tốt nhất dựa trên mục tiêu. Dự đoán và quy định 
+chiến lược phân tích có thể xác định cách sử dụng tốt nhất các nguồn lực, cải thiện hiệu suất, dự đoán 
+phản ứng và biến động của thị trường, đồng thời tránh sự cố trong quy trình:
+• Kế toán viên thường sử dụng các chiến lược phân tích này để đánh giá các phương án lập kế hoạch thuế, 
+lựa chọn chiến lược hoạt động và tiếp thị, lựa chọn tài chính, lựa chọn đầu tư và 
+lựa chọn chiến lược thoát.
+• Các ngành có mục tiêu phân tích này bao gồm các tổ chức cho vay muốn tránh 
+các quyết định tín dụng xấu và các công ty bảo hiểm phải lường trước các thảm họa thiên nhiên và 
+dịch bệnh khởi phát để họ có thể điều chỉnh mô hình kinh doanh trước những cuộc khủng hoảng khiến doanh nghiệp của họ 
+phải chịu đựng xảy ra.
+Hình minh họa 4.17 tóm tắt các chiến lược phân tích dự đoán và quy định phổ biến nhất.
+các phương pháp được kế toán viên sử dụng không sử dụng các công cụ công nghệ tiên tiến. Kiểm tra màu xanh lá cây-
+dấu cho biết phân tích phù hợp và dấu x màu đỏ cho biết phân tích không phù hợp. Như 
+minh họa cho thấy, không có nhiều mô hình dự đoán hoặc quy định cho việc phân loại và 
+các biến tỷ lệ thứ tự trừ khi chúng được sử dụng trong các mô hình trong đó các biến tỷ lệ khoảng hoặc tỷ lệ 
+mong muốn cho việc dự đoán.
+MINH HỌA 4.17  Phân tích các chiến lược dự đoán và quy định  
+Phân tích
+Đường xu hướng
+Phân tích hồi quy (tuyến tính)
+Mô hình tối ưu hóa
+Phân tích giả định
+Tỷ lệ
+Phân loại
+Phân tích tiềm năng
+Thang đo dữ liệu
+thứ tự
+Khoảng thời gian
+= phân tích không phù hợp cho thang đo
+Cả chiến lược phân tích dự đoán và phân tích quy định thường sử dụng số liệu thống kê và các phương pháp phân tích phức tạp. 
+kỹ thuật mô hình hóa cho các thuật toán của họ:
+• Các công cụ phổ biến cho việc này bao gồm hồi quy thống kê, phân tích chuỗi thời gian, xử lý tối thiểu
+và lập bản đồ, phân tích văn bản, mô hình trí tuệ nhân tạo, khai thác dữ liệu, toán học 
+mô hình hóa, mô phỏng phức tạp và mô hình phân tích độ nhạy giả định.
+• Những người mẫu này tự rèn luyện bằng cách tận dụng các mô hình, mối quan hệ và cấu trúc 
+trong dữ liệu hiện có để dự đoán chính xác các điều kiện và kết quả trong tương lai.
+
+4-22
+CHƯƠNG 4 Lập kế hoạch dữ liệu và chiến lược phân tích
+ Chìa khóa để thiết kế các chiến lược dự đoán hoặc quy định là chọn dữ liệu có hiệu quả tốt nhất. 
+tiềm năng để thông báo các câu hỏi khách quan mang tính dự đoán hoặc quy định:
+• Nếu mục tiêu là dự đoán chi phí bảo trì thiết bị sản xuất trong năm tới, dữ liệu 
+giúp giải thích số tiền dự kiến hoặc việc tăng hoặc giảm chi phí bảo trì 
+chi phí là cần thiết. Nói cách khác, những biến nào thúc đẩy những thay đổi trong quá trình bảo trì 
+chi phí? Khi các biến đó được xác định, dữ liệu liên quan có thể được chọn và 
+chuẩn bị cho việc phân tích.
+• Nếu chúng tôi tin rằng mức độ sản xuất ảnh hưởng đến chi phí bảo trì thì hãy đưa vào một biến dữ liệu 
+đối với số lượng sản phẩm được sản xuất, thước đo mức sản lượng phổ biến nhất
+hoặc thước đo xem liệu sản lượng dự kiến sẽ tăng hay giảm so với mức hiện tại 
+cấp độ. 
+ Giả sử kiểm toán viên của WeMakeIt đang kiểm tra các giả định được sử dụng để tạo ra sự cân bằng trong
+trợ cấp của công ty đối với các tài khoản nghi ngờ. Kiểm toán viên đã phát triển một mô hình bao gồm 
+ba biến số có thể ảnh hưởng đến việc liệu hóa đơn có được thu đúng hạn hay không. mô hình 
+dự đoán số ngày còn tồn đọng của hóa đơn dựa trên số tiền trên hóa đơn, nếu chúng 
+là khách hàng mới (1) hoặc khách hàng hiện tại (0) và thời hạn tín dụng được phép trên hóa đơn của họ. các 
+Kết quả của mô hình hồi quy được trình bày ở Hình minh họa 4.18. 
+ MINH HỌA 4.18 Mô hình dự đoán số ngày phải thu của các khoản phải thu
+Nhiều R
+R vuông
+Hình vuông R đã điều chỉnh
+Lỗi chuẩn
+Quan sát
+ANOVA
+0.825790307
+0.681929631
+0.681542056
+3.549920129
+2466
+df
+SS
+MS
+F
+66518.36434
+31025.95885
+Hồi quy
+dư
+Tổng cộng
+3
+2462
+2465
+97544.3232
+22172.78811
+12.60193292
+1759.475173
+0,0000
+0.670515711
+0,000903172
+Đánh chặn
+Hóa đơnSố tiền
+Khách hàng mới hoặc hiện tại
+Kỳ hạn tín dụng tính bằng ngày
+−7.961650225
+0,000829906
+1.535043063
+0.189912705
+8.082887691
+−11.87392047
+0.918879698
+9.81036E-16
+0.395420024
+0,006452145
+61.28504622
+0,000
+0.358248513
+1.16228E-31
+Ý nghĩa F
+hệ số
+Lỗi chuẩn
+t Thống kê
+giá trị P
+Thống kê hồi quy
+ Mô hình này cho thấy rằng các biến này (số tiền trong hóa đơn, khách hàng mới hoặc hiện tại và tín dụng 
+kỳ) giải thích khoảng 68% sự thay đổi về số ngày còn nợ của một khách hàng (bình phương R đã điều chỉnh). 
+Mô hình có ý nghĩa với mức ý nghĩa F nhỏ hơn 0,05. Việc chặn tiêu cực sửa 
+dự đoán của mô hình gần 8 ngày vì khách hàng hiếm khi thanh toán trong tuần đầu tiên 
+khi họ được cung cấp một khoảng thời gian miễn lãi để thanh toán hóa đơn. Tầm quan trọng của 
+phần chặn chỉ ra rằng sự tồn tại đơn thuần của thời hạn tín dụng là một biến số tác động đến 
+số ngày khách hàng cần để thanh toán hóa đơn. Với mô hình này, kiểm toán viên có thể
+dự đoán rằng một khách hàng mới có hóa đơn 900 USD và thời gian thanh toán là 60 ngày sẽ mất khoảng 16,5 ngày 
+để thực hiện thanh toán của họ:
+−7,9617 + $ 900 ( 0,0008 ) + 1 ( 1,5350 ) + 60 ( 0,3954 ) = 16,48  ngày 
+ Chiến lược phân tích rủi ro và các biện pháp kiểm soát được đề xuất
+ Hai bước cuối cùng của kế hoạch phân tích dữ liệu là xem xét các rủi ro vốn có của dữ liệu và phân tích. 
+chiến lược và đưa ra các biện pháp kiểm soát để giảm thiểu những rủi ro đó.  Hình minh họa 4.19 thể hiện 
+những rủi ro phổ biến nhất mà kế toán viên gặp phải khi phân tích dữ liệu.
+
+4.3  Chúng ta nên cân nhắc điều gì khi lựa chọn một phân tích?   4-23
+MINH HỌA 4.19  Các rủi ro phân tích phổ biến và các biện pháp kiểm soát được khuyến nghị 
+Phân tích
+Rủi ro
+Kiểm soát
+Phân tích không phù hợp với biến
+thang đo.
+Kích thước mẫu quá nhỏ để cho phép
+những suy luận chính xác.
+Dự đoán được đào tạo không đầy đủ và
+các mô hình phân loại
+Mẫu không mang tính đại diện.
+Các biến gây nhiễu đang can thiệp vào
+độ tin cậy của các mô hình thông tin
+Việc bỏ sót các biến liên quan hoặc các biến
+không được biết đến và không được kiểm soát, dẫn đến ít
+mô hình hóa đáng tin cậy.
+Các vấn đề về dữ liệu bẩn không được sửa chữa và kiểm soát, chẳng hạn như
+như lỗi, trường trống, điểm dữ liệu ngoại lệ và dữ liệu từ
+các nguồn chất lượng khác nhau.
+Thiếu kiến thức hoặc kinh nghiệm thực hiện
+chiến lược phân tích hoặc diễn giải kết quả.
+Hình ảnh được thực hiện kém hoặc gây hiểu nhầm.
+Không giải quyết được những bất ổn cơ bản trong
+bối cảnh.
+Xem xét liệu phân tích có phù hợp với các biến không
+đo cân. Thay đổi chiến lược phân tích nếu cần.
+Kiểm tra tính hợp lý của mẫu bằng mô tả
+phân tích.
+Thực hiện phân tích có và không có nhiễu
+biến để kiểm tra sự khác biệt về khả năng giải thích.
+Thêm proxy có sẵn cho các biến bị thiếu để xem liệu
+sức mạnh giải thích của mô hình tăng lên.
+Chuẩn bị dữ liệu đúng cách trước khi bắt đầu phân tích.
+(Việc chuẩn bị dữ liệu sẽ được giải thích trong chương tiếp theo.)
+Được đào tạo phù hợp hoặc làm việc với một nhóm có
+kiến thức tập thể hơn.
+Thực hiện phân tích mô tả để so sánh và bổ sung
+sự trực quan hóa. Sử dụng các phương pháp trực quan tốt nhất.
+Thực hiện phân tích độ nhạy trên tất cả các giả định được sử dụng
+trong các quyết định phân tích.
+Thu thập thêm dữ liệu để đáp ứng dữ liệu tối thiểu của mô hình
+các điểm và giả định hoặc chọn các phân tích dữ liệu phù hợp
+không yêu cầu mẫu lớn.
+Bao gồm nhiều dữ liệu hơn để đào tạo các mô hình và xác minh đầy đủ
+độ chính xác của chúng trước khi sử dụng chúng trên dữ liệu thử nghiệm.
+Điều quan trọng là phải xem xét những rủi ro này trong quá trình lập kế hoạch chiến lược phân tích và bổ sung các biện pháp kiểm soát để 
+giúp giảm nhẹ chúng. Nếu không có những biện pháp kiểm soát đó, chúng ta có nguy cơ phải chuẩn bị, giải thích và báo cáo 
+kết quả phân tích không chính xác, có thể khiến chính chúng tôi hoặc các bên liên quan của chúng tôi gây ra thiệt hại 
+các quyết định. Bây giờ chúng ta đã thực hiện được quy trình chọn dữ liệu và phân tích tốt nhất.
+Như vậy, chúng ta hãy xem xét cách các kế toán viên thực hiện điều này trong thực tiễn nghề nghiệp.
+Kế toán tài chính   Đồ chơi to lớn đã triển khai cơ sở dữ liệu để nắm bắt hàng tồn kho 
+chi phí sản xuất của họ mỗi tuần. Dữ liệu từ các trường dữ liệu sau đã được trích xuất, không-
+nhập kiểu dữ liệu và thang đo của từng trường.
+Tên trường
+Loại trường
+Thang đo hiện trường
+Sản XuấtChạySố
+Dữ liệu thô không được đo lường
+Phân loại (danh nghĩa)
+Sản xuấtChạyNgày
+Dữ liệu thô không được đo lường
+Khoảng thời gian
+SốĐồ ChơiChạy
+Dữ liệu thô được đo
+Tỷ lệ
+Số ID đồ chơi
+Dữ liệu thô không được đo lường
+Phân loại (danh nghĩa)
+Vật liệu trực tiếp được sử dụng
+Dữ liệu thô được đo
+Tỷ lệ
+Lao động trực tiếpĐược sử dụng
+Dữ liệu thô được đo
+Tỷ lệ
+Chi phí chung được áp dụng
+Dữ liệu được tính toán
+Tỷ lệ
+Tổng chi phí chạy
+Dữ liệu được tính toán
+Tỷ lệ
+Tổng đơn vịChi phí
+Dữ liệu được tính toán
+Tỷ lệ
+Áp dụng nó 4.3
+Tạo dự đoán 
+Phân tích dữ liệu 
+kế hoạch dự án
+
+4-24  CHƯƠNG 4  Lập kế hoạch chiến lược phân tích và dữ liệu
+Sử dụng dữ liệu sản xuất này cũng như dữ liệu bán hàng về số lượng đồ chơi từng loại được bán 
+tháng trong ba năm qua, hãy tạo một kế hoạch dự án phân tích dữ liệu dự đoán để ước tính Tremen-
+định giá hàng tồn kho cuối năm của dous Toy vào cuối năm tài chính tiếp theo. Kế hoạch dự án của bạn nên 
+giải quyết các vấn đề sau:
+	 1. Mục tiêu dự án và câu hỏi cụ thể
+	 2. Chiến lược dữ liệu
+	 3. Chiến lược phân tích
+	 4. Rủi ro trong chiến lược phân tích và dữ liệu 
+	 5. Kiểm soát dữ liệu và chiến lược phân tích 
+GIẢI PHÁP
+	 1. Mục tiêu dự án
+	
+	 Câu hỏi cụ thể
+• Dự đoán chính xác giá trị hàng tồn kho cuối năm tới.
+• Dự đoán có bao nhiêu đơn vị còn tồn kho tại thời điểm 
+cuối năm sau? Chi phí đơn vị dự đoán cho mỗi đồ chơi là bao nhiêu 
+gõ vào cuối năm tới?
+	 2. Chiến lược dữ liệu
+• Dữ liệu từ chương trình hỗ trợ của Tremendous Toys trong ba năm qua
+hồ sơ cảm ứng sẽ được trích xuất và chuẩn bị cho việc phân tích
+ysis liên quan đến chi phí nguyên vật liệu, chi phí nhân công và chi phí chung 
+phí. 
+• Dữ liệu về đơn vị bán hàng theo loại đồ chơi trong ba năm qua sẽ 
+được trích xuất, làm sạch nếu bị thiếu, trùng lặp và ngoại lệ 
+lỗi dữ liệu và được tổng hợp theo tháng. Điều này dẫn đến 36 
+điểm dữ liệu về doanh số bán hàng tháng của từng loại đồ chơi.
+• Một biến tính toán về chi phí trung bình hàng tháng cho mỗi món đồ chơi 
+loại sẽ cần được tạo bằng NumberofToysin-
+Các trường Chạy và TotalRunCost. Đầu tiên, dữ liệu này phải được

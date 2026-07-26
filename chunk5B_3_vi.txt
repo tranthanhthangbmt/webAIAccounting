@@ -1,0 +1,46 @@
+biến kết quả (outcome variable). Ví dụ, nếu chúng ta có một thiết kế thử nghiệm với ba yếu tố (factors) và mỗi yếu tố có hai cấp độ (levels), thì phương trình mô hình sẽ bao gồm ba hiệu ứng chính, ba tương tác hai yếu tố và một tương tác ba yếu tố, chỉ ra rằng thiết kế thử nghiệm nên bao gồm 2 * 2 * 2 = 8 nhóm. Giả sử cỡ mẫu là 50 người tham gia mỗi nhóm, chúng ta sẽ cần một mẫu gồm 400 người tham gia.
+
+## 14.7 THỰC HÀNH BẰNG R: THỬ NGHIỆM A/B
+(Phần này bao gồm các đoạn mã R đã được trình bày để kiểm tra tính chuẩn xác (Shapiro-Wilk), tính đồng nhất phương sai (Levene's test), Welch's ANOVA, và bài kiểm tra hậu hoc Games-Howell, vui lòng xem mã nguồn trong sách).
+
+## 14.8 HIỂU RÕ CHƯƠNG HỌC
+
+1. Sự khác biệt giữa kiểm tra nhân quả (causal testing) và kiểm tra tương quan (correlational testing) là gì? Thử nghiệm A/B là nhân quả hay tương quan?
+2. Sự khác biệt giữa giả thuyết không (null hypothesis) và giả thuyết thay thế (alternate hypothesis) trong một thử nghiệm A/B là gì?
+3. Mục đích chính của một thử nghiệm A/B là gì?
+a. Để so sánh hai thiết kế quảng cáo khác nhau
+b. Để xác định hiệu quả của một sự can thiệp giữa các nhóm
+c. Để kiểm tra hiệu quả của một loại thuốc mới
+d. Để tìm mối tương quan giữa các biến
+4. Kiểm định thống kê nào bạn sẽ sử dụng để so sánh giá trị trung bình của ba hoặc nhiều nhóm?
+a. Kiểm định t (t test)
+b. Kiểm định F (F test)
+c. Kiểm định chi bình phương (chi-square test)
+d. Tương quan Pearson (Pearson correlation)
+5. Giả thuyết không (null hypothesis) trong một thử nghiệm A/B là gì?
+a. Có sự khác biệt đáng kể giữa các nhóm.
+b. Không có sự khác biệt đáng kể giữa các nhóm.
+c. Sự can thiệp gây ra sự khác biệt quan sát được.
+d. Sự khác biệt được quan sát là do ngẫu nhiên.
+6. Ưu điểm chính của việc sử dụng Welch's ANOVA so với kiểm định F tiêu chuẩn (ANOVA) là gì?
+a. Nó mạnh hơn khi các phương sai bằng nhau.
+b. Nó ít nhạy cảm hơn với các phương sai không bằng nhau.
+c. Nó có tỷ lệ lỗi Loại I cao hơn.
+d. Nó yêu cầu ít giả định hơn.
+7. Khi nào bạn nên sử dụng kiểm tra hậu định (post hoc test) sau kiểm định F (ANOVA)?
+a. Khi giả thuyết không bị bác bỏ
+b. Khi giả thuyết không không bị bác bỏ
+c. Luôn luôn sau kiểm định F
+d. Chỉ khi kích thước mẫu không bằng nhau
+8. Trong tình huống nào bạn sẽ chọn sử dụng Welch's ANOVA thay vì kiểm định F tiêu chuẩn?
+a. Khi dữ liệu được phân phối chuẩn
+b. Khi các phương sai trong mỗi nhóm bằng nhau
+c. Khi phương sai trong mỗi nhóm không bằng nhau
+d. Khi các nhóm bị phụ thuộc
+
+### CHÚ THÍCH (ENDNOTES)
+(Các tài liệu tham khảo trong sách, ví dụ: bài viết đánh giá thẻ Chase Sapphire Reserve, bài báo về Welch's t-Test, các gói R như rstatix, dplyr, ggplot2, v.v.)
+
+### MÔ TẢ CÁC HÌNH ẢNH (Descriptions of Images and Figures)
+<!-- IMAGE_PLACEHOLDER: Figure mô tả sơ đồ 8 bước trong Quy trình phát triển sản phẩm mới -->
+<!-- IMAGE_PLACEHOLDER: Figure mô tả đồ thị hộp (boxplot) thời gian chơi theo từng điều kiện nguyên mẫu -->

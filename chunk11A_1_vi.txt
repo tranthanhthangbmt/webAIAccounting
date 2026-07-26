@@ -1,0 +1,531 @@
+2-0
+C H A PT E R 2
+Dữ liệu cơ bản 
+Kỹ năng phân tích
+Xem trước chương
+Bạn sẽ làm việc với dữ liệu và phần mềm phân tích dữ liệu trong suốt sự nghiệp của mình và một trong những 
+công cụ phần mềm phổ biến nhất được sử dụng trong kế toán là Microsoft Excel. Như bạn sẽ thấy trong 
+Tính năng Professional Insight, khả năng sử dụng Microsoft Excel để thao tác với các tập dữ liệu lớn là 
+một tài sản to lớn cho các kế toán viên chuyên nghiệp mới được tuyển dụng. Trong khi kỹ năng Microsoft Excel là 
+quan trọng là phần mềm không đủ mạnh để phân tích các tập dữ liệu cực lớn, vì vậy nó 
+không phải là công cụ duy nhất được sử dụng để phân tích dữ liệu. Chương này giới thiệu một số kỹ năng mà bất kể 
+công nghệ được sử dụng là nền tảng để thực hiện phân tích dữ liệu. Microsoft Excel được sử dụng 
+để thể hiện nhiều kỹ năng phân tích dữ liệu cốt lõi, nhưng các chương tiếp theo cũng giới thiệu 
+phần mềm phân tích dữ liệu như Power BI và Tableau. Sự kết hợp của sự hiểu biết cốt lõi về 
+dữ liệu, trực quan hóa dữ liệu và kỹ năng phân tích mô tả là nền tảng để thực hiện nhiều hơn 
+phân tích dữ liệu nâng cao.
+Cái nhìn chuyên sâu về chuyên môn: Bảng Pivot có thể giúp hiểu được như thế nào 
+Tập dữ liệu lớn?
+Josh, một sinh viên kế toán cấp cao, giải thích việc học Microsoft Excel đã giúp anh như thế nào trong công việc của mình. 
+thực tập.
+Nhiệm vụ đầu tiên của tôi là tạo một PivotTable trong Excel để thao tác một 
+tệp dữ liệu khổng lồ với khoảng 450.000 bản ghi. Tôi vừa nhận được Mic-
+Chứng chỉ Excel cơ bản của rosoft Office Specialist khi tôi bắt đầu thực tập tại PwC. Nó 
+cảm thấy tuyệt vời khi áp dụng những gì tôi học được trên lớp vào thế giới kinh doanh. Kinh nghiệm này
+sự hữu ích đã giúp tôi tự tin khi giao tiếp với cấp trên và giúp tôi 
+xây dựng danh tiếng về độ tin cậy tại công ty của tôi. Giám đốc của tôi về khách hàng là Thor-
+rất ấn tượng với công việc của tôi và cộng sự cấp cao của tôi rất ngạc nhiên rằng tôi có thể 
+để tập hợp một bảng toàn diện như vậy với rất ít kinh nghiệm.
+
+Lộ trình chương
+MỤC TIÊU HỌC TẬP
+CHỦ ĐỀ
+ÁP DỤNG NÓ
+ LO 2.1   Mô tả cách thức xử lý dữ liệu 
+được lưu trữ và trích xuất từ ​​ 
+cơ sở dữ liệu quan hệ.
+• Cơ sở dữ liệu quan hệ
+• Nối các bàn
+Xác định chính và nước ngoài 
+Phím
+(Ví dụ: Kế toán 
+Hệ thống thông tin)
+ LO 2.2   Giải thích cách thức hoạt động 
+giúp trả lời phân tích dữ liệu 
+câu hỏi.
+• Các hàm cơ bản để phân tích dữ liệu
+• Áp dụng các hàm cơ bản của Excel
+Phân tích giao dịch bán hàng 
+với các hàm Excel 
+(Ví dụ: Tài chính và 
+Kế toán quản trị)
+ LO 2.3   Minh họa cách xoay 
+bảng sắp xếp và lọc dữ liệu.
+• Sử dụng Bảng tổng hợp
+• Lọc bảng tổng hợp
+Phân tích doanh số bán hàng bằng Excel 
+PivotTable
+(Ví dụ: Tài chính và 
+Kế toán quản trị)
+ LO 2.4   Xác định mang tính mô tả 
+các biện pháp được sử dụng để thực hiện dữ liệu 
+phân tích.
+• Biện pháp vị trí
+• Biện pháp phân tán
+• Số đo hình dạng
+• Phân tích tương quan
+Sử dụng thống kê mô tả để 
+Kiểm toán chi phí bảo hành
+(Ví dụ: Kiểm toán)
+ LO 2.5   Tóm tắt dữ liệu như thế nào 
+trực quan khám phá và 
+giải thích dữ liệu.
+• Hiểu các tập dữ liệu lớn
+• Hình ảnh trực quan và thời điểm sử dụng chúng
+• Trực quan hóa Microsoft Excel
+Phân tích chi phí sản phẩm với 
+Trực quan hóa dữ liệu
+(Ví dụ: Quản lý 
+Kế toán)
+Dữ liệu   Thẻ Dữ liệu xuất hiện trong chương khi có sẵn dữ liệu cho một ví dụ, hình minh họa hoặc ứng dụng 
+trên nền tảng học tập trực tuyến của Wiley. 
+Phần mềm phân tích dữ liệu liên tục thay đổi và có thể có nhiều phiên bản phần mềm mới hơn.
+được đưa ra trong chương này. Để biết thêm thông tin, hãy truy cập video đi kèm trên nền tảng học tập trực tuyến của Wiley.
+2.1  Hiểu cách lưu trữ dữ liệu giúp trả lời các câu hỏi như thế nào? 
+2-1
+2.1  Hiểu cách lưu trữ dữ liệu 
+Trợ giúp Trả lời câu hỏi?
+MỤC TIÊU HỌC TẬP ➊
+Mô tả cách dữ liệu được lưu trữ và trích xuất từ cơ sở dữ liệu quan hệ.
+Hiểu cách dữ liệu được lưu trữ là rất quan trọng để phân tích dữ liệu. Điều này là do loại 
+phân tích có thể được thực hiện phụ thuộc vào dữ liệu được sử dụng cũng như việc xác định và trích xuất 
+dữ liệu chúng ta cần đòi hỏi phải biết nó được lưu trữ như thế nào.
+
+2-2 
+CHƯƠNG 2  Kỹ năng phân tích dữ liệu cơ bản
+MINH HỌA 2.2  Đại học 
+Cơ sở dữ liệu
+Cơ sở dữ liệu quan hệ
+Dữ liệu, bất kể loại hay định dạng nào, đều cần được lưu trữ ở đâu đó. Một cách để làm điều đó là trong 
+cơ sở dữ liệu quan hệ, là tập hợp các dữ liệu có liên quan về mặt logic có thể được truy xuất, 
+được thao tác và cập nhật để đáp ứng nhu cầu của người dùng. Hầu hết dữ liệu bạn sẽ làm việc với trong tài khoản của mình-
+sự nghiệp của bạn sẽ đến từ cơ sở dữ liệu quan hệ, nơi dữ liệu được lưu trữ trong các bảng riêng lẻ 
+có thể được liên kết với nhau. Khi các bảng được liên kết, dữ liệu từ nhiều bảng có thể được truy cập. 
+Một bảng trong cơ sở dữ liệu quan hệ lưu trữ dữ liệu có giá trị liên quan đến một đối tượng quan tâm, chẳng hạn như một 
+nguồn lực kinh doanh, sự kiện hoặc đại lý. Bảng bao gồm các hàng và cột:
+• Mỗi hàng đại diện cho một bản ghi hoặc một thể hiện của đối tượng của bảng.
+• Các cột phản ánh các thuộc tính, là các trường dữ liệu mô tả các 
+khía cạnh của hồ sơ (Minh họa 2.1).
+MINH HỌA 2.1  Các thành phần cơ sở dữ liệu và ví dụ về bảng và thuộc tính
+Các phần tử cơ sở dữ liệu
+Ví dụ về bảng
+Ví dụ về thuộc tính
+Tài nguyên: Có thể xác định được 
+đối tượng có hiệu quả kinh tế 
+giá trị cho đơn vị kinh doanh.
+Vật phẩm tồn kho
+• Mã mặt hàng tồn kho 
+con số
+• Mô tả
+• Chi phí
+• Số lượng có sẵn
+Sự kiện: Một tổ chức 
+hoạt động kinh doanh.
+Lệnh bán hàng
+• Số đơn bán hàng
+• Ngày lập đơn bán hàng
+• ID khách hàng của 
+người mua
+Đại lý: Đại diện cho người hoặc 
+tổ chức về cái gì 
+dữ liệu được thu thập.
+Nhân viên
+• Mã số nhân viên
+• Tên
+• Địa chỉ
+• Số điện thoại
+Hình minh họa 2.2 là khung nhìn cơ sở dữ liệu về bảng dữ liệu tài sản của một trường đại học chứa dữ liệu về 
+việc kiểm kê tài sản của nó.
+Dữ liệu tài sản đại học
+ID thẻ nội dung
+Mô tả tài sản
+Số tiền
+ID danh mục
+Ngày mua lại
+Tài Sản Hữu ÍchCuộc Sống
+ID danh mục
+Thể loạiMô tả
+Hữu íchCuộc sống
+Khóa chính
+Khóa chính
+
+2.1  Hiểu cách lưu trữ dữ liệu giúp trả lời các câu hỏi như thế nào? 
+2-3
+Mỗi hàng trong bảng hiển thị một nội dung có thể nhận dạng duy nhất. Các thuộc tính liên quan của nó là tổ chức
+được ghi trong mỗi cột dọc được liệt kê bên dưới tên bảng:
+• AssetTagID: Số nhận dạng thẻ
+• AssetDescription: Mô tả tài sản
+• CategoryID: Số nhận dạng danh mục
+• Số tiền: Nguyên giá tài sản
+• AcquisitionDate: Ngày tài sản được mua
+Bảng AssetUsefulLife chứa thông tin liên quan đến danh mục nội dung. Mỗi hàng là một 
+danh mục duy nhất và các cột là thuộc tính của danh mục đó:
+• CategoryID: Mã số nhận dạng cho từng loại tài sản
+• CategoryDescription: Mô tả danh mục
+• Cuộc sống hữu ích: Thời gian hữu ích tính bằng năm của tài sản trong từng danh mục
+Có một ký hiệu cho khóa bên cạnh thuộc tính AssetTagID trong bảng đầu tiên và Catego-
+ryID trong bảng thứ hai. Ký hiệu này xác định khóa chính, là cột 
+phải có một giá trị duy nhất cho mỗi hàng trong bảng. Trong bảng UniversityAssetData, mọi 
+nội dung được xác định duy nhất bởi cột khóa chính AssetTagID. Trong AssetUsefulLife 
+bảng, khóa chính là CategoryID. Mỗi hàng trong bảng AssetUsefulLife sẽ có một giá trị duy nhất 
+Số ID danh mục.
+Để tính khấu hao tài sản, chúng ta cần thông tin về chi phí, thông tin về vòng đời hữu ích và 
+tuổi của tài sản. Tuy nhiên, thông tin đó xuất hiện ở hai bảng khác nhau. Liên kết chúng 
+yêu cầu một trường chung trong cả hai:
+• Trường CategoryID có trong cả hai bảng.
+• CategoryID là cột khóa chính trong bảng AssetUsefulLife.
+• Trong bảng UniversityAssetData, CategoryID là cột khóa ngoại. Một khóa ngoại
+umn chứa dữ liệu giống như khóa chính của một bảng khác. Nó đã được lặp lại trong 
+bảng thứ hai để các bảng có thể được liên kết trong mối quan hệ với nhau. Minh họa 2.3 
+hiển thị mối quan hệ liên kết hai bảng bằng thuộc tính CategoryID.
+Tại sao điều này lại quan trọng? Việc liên kết các bảng tạo ra một mối quan hệ cho phép kéo 
+thông tin từ cả hai bảng và tạo các tính toán khấu hao cho mọi tài sản trong 
+bảng dữ liệu tài sản.
+Dữ liệu tài sản đại học
+ID thẻ nội dung
+Mô tả tài sản
+Số tiền
+ID danh mục
+Ngày mua lại
+Tài Sản Hữu ÍchCuộc Sống
+ID danh mục
+Thể loạiMô tả
+Hữu íchCuộc sống
+Khóa chính
+Khóa chính
+Khóa ngoại
+MINH HỌA 2.3  Tạo một 
+Mối quan hệ giữa các bảng
+
+2-4 
+CHƯƠNG 2  Kỹ năng phân tích dữ liệu cơ bản
+Tham gia các bảng
+Khi các trường chung sử dụng khóa chính và khóa ngoại được xác định trên các bảng, bước tiếp theo 
+là cho cơ sở dữ liệu biết cách liên kết các bảng để trích xuất dữ liệu:
+• Truy vấn là một yêu cầu hành động được thực hiện đối với cơ sở dữ liệu. Nó cung cấp các hướng dẫn máy tính 
+để nối, thêm, cập nhật, xóa, truy xuất hoặc thao tác dữ liệu trong các bảng của nó. 
+Truy vấn có thể được tạo và sử dụng một lần hoặc được lưu trữ để sử dụng lại sau này.
+• Ngôn ngữ lệnh truy vấn tiêu chuẩn được sử dụng để quản lý cơ sở dữ liệu là Ngôn ngữ có cấu trúc 
+Ngôn ngữ truy vấn (SQL). Viết mã SQL nằm ngoài phạm vi của chương này, nhưng đối với-
+May mắn thay, nhiều chương trình phần mềm có sẵn các ứng dụng tự động tạo 
+Mã SQL cần thiết để truy vấn cơ sở dữ liệu.
+Truy xuất tất cả các trường dữ liệu cần thiết để hoàn thành một nhiệm vụ cụ thể đòi hỏi phải có sự hiểu biết 
+cách nối các bảng dựa trên các cột mà chúng có chung. Các bảng được liên kết bằng cách tạo một phép nối 
+kết hợp các hàng từ hai hoặc nhiều bảng dựa trên một cột có liên quan giữa chúng. Tham gia 
+cũng được sử dụng trong phần mềm trực quan hóa và phần mềm phân tích dữ liệu khác khi có nhiều 
+hơn một bảng dữ liệu được sử dụng trong phân tích. (Chúng tôi thảo luận về trực quan hóa dữ liệu chi tiết hơn 
+ở cuối chương này và ở các chương sau.)
+Các phép nối phổ biến nhất là các phép nối trong, trái, phải và đầy đủ. Minh họa 2.4 tóm tắt-
+tăng cường các kết nối khác nhau và cung cấp một biểu diễn trực quan. Màu xanh tượng trưng cho 
+kết quả của sự tham gia. Lưu ý rằng giá trị null không giống với giá trị 0. Một giá trị null là 
+khi một giá trị không xác định hoặc bị thiếu.
+MINH HỌA 2.4  Các loại liên kết
+Tham gia 
+Mô tả
+Trình bày trực quan
+Nội tâm
+• Chọn tất cả các hàng từ cả hai bảng bằng cách so khớp 
+các giá trị.
+• Kết quả sẽ không có giá trị null ở bất kỳ khóa nào 
+cột.
+Bảng 1
+Bảng 2
+trái
+• Trả về tất cả bản ghi từ bảng bên trái và bảng 
+các bản ghi phù hợp từ bảng bên phải.
+• Có thể có giá trị null nếu không có 
+khớp giá trị ở bảng bên phải với bảng bên trái 
+ghi lại.
+Bảng 2
+Bảng 1
+Đúng
+• Trả về tất cả bản ghi từ bảng bên phải và 
+các bản ghi trùng khớp từ bảng bên trái.
+• Có thể trả về giá trị null nếu không có 
+giá trị khớp ở bảng bên trái với bản ghi trong 
+cái bàn bên phải.
+Bảng 1
+Bảng 2
+Đầy đủ
+• Trả về tất cả các bản ghi khi có sự trùng khớp trong 
+bảng bên trái hoặc bên phải.
+• Giá trị rỗng có thể xuất hiện trong kết quả này nếu có 
+không có bản ghi phù hợp giữa các bảng.
+Bảng 2
+Bảng 1
+
+2.1  Hiểu cách lưu trữ dữ liệu giúp trả lời các câu hỏi như thế nào? 
+2-5
+Chúng ta có thể minh họa cách các phép nối này hoạt động bằng một ví dụ. Bikes R Us là nhà bán buôn xe đạp 
+đại lý. Hình minh họa 2.5 hiển thị hai bảng từ cơ sở dữ liệu của họ:
+• Bảng bên trái là bảng Khách hàng, bảng Đơn hàng ở bên phải.
+• CustomerID là khóa chính trong bảng Khách hàng.
+• OrderID là khóa chính trong bảng Order. CustomerID là khóa ngoại.
+MINH HỌA 2.5  Bảng cơ sở dữ liệu của Bikes R Us
+Bảng khách hàng
+1001
+1002
+Quốc gia chu kỳ
+Vòng quay
+Cửa hàng xe đạp thị trấn nhỏ
+Creebo
+tắc kè
+Blunsom
+NY
+NC
+TX
+1003
+1004
+Cửa hàng ba môn phối hợp
+Nhẫn
+CA
+Tên công ty
+ID khách hàng
+Tên liên hệ
+tiểu bang
+50012
+50013
+1/2/2025
+2/2/2025
+3/2/2025
+$578,23
+$982,99
+ 1.563,32 USD
+1001
+1002
+1004
+50014
+50015
+4/2/2025
+300,12 USD
+1001
+5/2/2025
+$639,99
+102
+50016
+Ngày đặt hàng
+ID đơn hàng
+Bảng đặt hàng
+Số tiền
+ID khách hàng
+Việc nối bên trong trên hai bảng này sẽ tạo ra một bảng có tất cả dữ liệu từ các bảng 
+khớp trên trường CustomerID (Minh họa 2.6).
+MINH HỌA 2.6  Kết quả từ sự tham gia nội bộ dành cho Bikes R Us
+Tham gia nội bộ
+1001
+1001
+Quốc gia chu kỳ
+Quốc gia chu kỳ
+Vòng quay
+Creebo
+Creebo
+tắc kè
+NY
+NY
+NC
+1002
+1004
+Cửa hàng ba môn phối hợp
+Nhẫn
+CA
+Tên công ty
+ID khách hàng
+Tên liên hệ
+tiểu bang
+50012
+50013
+1/2/2025
+2/2/2025
+3/2/2025
+$578,23
+$982,99
+1.563,32 USD
+50014
+50015
+4/2/2025
+300,12 USD
+Ngày đặt hàng
+ID đơn hàng
+Số tiền
+Kết nối bên trong hiển thị thông tin khách hàng và đơn đặt hàng cho từng khách hàng có 
+đã đặt hàng:
+• Những kết quả này cho thấy khách hàng có CustomerID = 1003, Cửa hàng xe đạp Little Town, 
+chưa thực hiện bất kỳ giao dịch mua hàng nào.
+• OrderID 50016 không khớp trong bảng khách hàng với CustomerID = 102, vì vậy 
+thứ tự đó không được phản ánh trong các bảng đã nối.
+Phép nối bên trái trả về tất cả các hàng từ bảng bên trái và sẽ hiển thị mọi dữ liệu khớp từ bảng 
+bàn bên phải. Nếu không có hàng trùng khớp trong bảng bên phải thì các trường không khớp 
+sẽ là null (Minh họa 2.7).
+MINH HỌA 2.7  Kết quả từ việc tham gia bên trái cho Bikes R Us
+tham gia
+1001
+1001
+Quốc gia chu kỳ
+Quốc gia chu kỳ
+Vòng quay
+Creebo
+Creebo
+tắc kè
+NY
+NY
+NC
+1002
+1003
+Cửa hàng xe đạp thị trấn nhỏ Blunsom
+TX
+Tên công ty
+ID khách hàng
+Tên liên hệ
+tiểu bang
+50012
+50013
+1/2/2025
+2/2/2025
+KHÔNG CÓ
+$578,23
+$982,99
+KHÔNG CÓ
+KHÔNG CÓ
+1004
+1001
+1001
+1002
+KHÔNG CÓ
+ID khách hàng
+1004
+Cửa hàng ba môn phối hợp
+Nhẫn
+CA
+3/2/2025
+1.563,32 USD
+50014
+50015
+4/2/2025
+300,12 USD
+Ngày đặt hàng
+ID đơn hàng
+Số tiền
+
+2-6 
+CHƯƠNG 2  Kỹ năng phân tích dữ liệu cơ bản
+Phép nối đầy đủ được hiển thị trong Hình minh họa 2.9 hiển thị tất cả các bản ghi từ cả hai bảng:
+• Lưu ý các giá trị null cho các trường trong bảng Đơn hàng cho CustomerID = 1003 và các giá trị null 
+cho các trường bảng Khách hàng cho OrderID = 50016.
+• Bất kỳ trường nào không khớp sẽ có giá trị null.
+Tham gia là cần thiết khi phân tích dữ liệu từ nhiều nguồn. Hình minh họa 2.10 cho thấy 
+ví dụ về một số câu hỏi mà kế toán viên có thể cần hỏi về dữ liệu và loại kết nối đó 
+sẽ trả lời họ.
+MINH HỌA 2.8  Kết quả từ việc tham gia đúng đắn cho Bikes R Us
+Tham gia ngay
+1001
+1001
+Quốc gia chu kỳ
+Quốc gia chu kỳ
+Vòng quay
+Creebo
+Creebo
+tắc kè
+NY
+NY
+NC
+1002
+Tên công ty
+ID khách hàng
+Tên liên hệ
+tiểu bang
+50012
+50013
+1/2/2025
+2/2/2025
+$578,23
+$982,99
+KHÔNG CÓ
+1001
+1001
+1002
+ID khách hàng
+102
+KHÔNG CÓ
+KHÔNG CÓ
+KHÔNG CÓ
+5/2/2025
+$639,99
+50016
+1004
+1004
+Cửa hàng ba môn phối hợp
+Nhẫn
+CA
+3/2/2025
+1.563,32 USD
+50014
+50015
+4/2/2025
+300,12 USD
+Ngày đặt hàng
+ID đơn hàng
+Số tiền
+Phép nối bên phải trong Hình minh họa 2.8 hiển thị tất cả các lệnh từ bảng Order và bất kỳ lệnh khớp nào 
+khách hàng từ bảng Khách hàng:
+• Không có bản ghi khách hàng phù hợp cho CustomerID = 102, do đó các trường từ 
+Bảng khách hàng sẽ có giá trị null cho bản ghi đó.
+• Nếu không có hàng nào phù hợp ở bảng bên trái thì các trường sẽ có giá trị null.
+Một phép nối đầy đủ sẽ trả về tất cả các hàng từ cả hai bảng (Minh họa 2.9).
+MINH HỌA 2.9  Kết quả từ việc tham gia đầy đủ cho Bikes R Us
+Tham gia đầy đủ
+1001
+1001
+Quốc gia chu kỳ
+Quốc gia chu kỳ
+Vòng quay
+Creebo
+Creebo
+tắc kè
+NY
+NY
+NC
+1002
+Tên công ty
+ID khách hàng
+Tên liên hệ
+tiểu bang
+50012
+50013
+1/2/2025
+2/2/2025
+$578,23
+$982,99
+KHÔNG CÓ
+1001
+1001
+1002
+ID khách hàng
+102
+KHÔNG CÓ
+KHÔNG CÓ
+KHÔNG CÓ
+5/2/2025
+$639,99
+50016
+1004
+1004
+Cửa hàng ba môn phối hợp
+Nhẫn
+CA
+3/2/2025
+1.563,32 USD
+50014
+1003
+KHÔNG CÓ
+Cửa hàng xe đạp thị trấn nhỏ Blunsom
+TX
+KHÔNG CÓ
+KHÔNG CÓ
+KHÔNG CÓ
+50015
+4/2/2025
+300,12 USD
+Ngày đặt hàng
+ID đơn hàng
+Số tiền
+Phép nối bên trái trong Hình minh họa 2.7 hiển thị tất cả các khách hàng từ bảng Khách hàng và

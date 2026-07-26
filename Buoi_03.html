@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buổi 3 - Đạo đức, rủi ro của AI & Học máy</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 0; padding: 20px; }
+        .tabs { display: flex; border-bottom: 2px solid #ccc; margin-bottom: 20px; position: sticky; top: 0; background: white; z-index: 100; padding-top: 10px; }
+        .tab { padding: 10px 20px; cursor: pointer; background: #f1f1f1; border: 1px solid #ccc; border-bottom: none; margin-right: 5px; border-radius: 5px 5px 0 0; }
+        .tab.active { background: #fff; border-top: 3px solid #007bff; font-weight: bold; }
+        .content { display: none; }
+        .content.active { display: block; }
+        .en-text { white-space: pre-wrap; font-family: 'Courier New', Courier, monospace; background: #f9f9f9; padding: 15px; border: 1px solid #ddd; border-radius: 5px; }
+        .vi-text { margin-top: 20px; }
+        img { max-width: 100%; height: auto; display: block; margin: 20px auto; }
+        blockquote { border-left: 5px solid #ccc; padding-left: 15px; font-style: italic; color: #555; background: #f9f9f9; padding: 10px; margin: 20px 0; }
+    </style>
+</head>
+<body>
+
+    <h1>Buổi 3: Đạo đức, rủi ro của AI & Các khái niệm cơ bản (ML, DL)</h1>
+
+    <div class="tabs">
+        <div class="tab active" onclick="switchTab('en')">Tiếng Anh</div>
+        <div class="tab" onclick="switchTab('vi')">Tiếng Việt</div>
+    <div class="tab" onclick="switchTab(\'slide\')">Slide Bài Giảng</div>
+    </div>
+
+    <div id="en-content" class="content active">
+        <div class="en-text">from data. Artificial neural networks (ANNs) are a collection of arti -
+ficial neurons (also known as units) that receive data as an input, and 
+then logic is applied to produce an output. ANNs are frequently used 
+for pattern recognition such as facial recognition in pictures and vi -
+deos, speech recognition, social networks, etc., frequently accelerated 
+by tensor processing. A tensor processing unit (TPU) is an application- 
+specific circuit developed by Google that is used to increase processing speeds for machine learning and deep learning applications. Whereas traditional machine learning relies heavily on the guidance provided by 
+human programmers, DL models use ANNs (inspired by the biolo
+-
+gical neural networks found in human brains) to analyze large volumes 
+of data to teach itself. 
+Deep learning can be used in a variety of applications, such as facial 
+recognition, image classification, speech recognition, and text transla -
+tion. Current applications of DL include self-driving vehicles that slow 
+down as it approaches a pedestrian cross-walk, ATM machines that 
+reject a counterfeit banknote, and a smartphone app that translates the image of a street sign in a foreign language (The Mathworks & 
+MATLAB, 2018). 
+EY uses deep learning technology to reconstruct documents (e.g., 
+invoices and contracts used during an audit) that were poorly- scanned using optical recognition software (Duffy, 2019). Researcher 
+Sophia Sun (2019) promotes the use of DL to support audit decision making in two key areas: information identification and judgment 
+support. DL algorithms can analyze semi-structured data (e.g., text 
+data from supporting documents such as invoices, contracts, etc.) 
+and unstructured data (such as images, audio, and video from the 
+internet, social media, etc.), which will aid in information identifi
+-
+cation. Further, Sun notes that the predictive performance of DL 
+models is superior to classic machine learning when the volume of 
+data and the number of variables is large. To maximize the use of DL 
+in an audit context, Sun suggests designing and developing a data warehouse to train the algorithms to make predictions and assist 
+with audit procedures. 
+Natural Language Processing 
+Natural language processing (NLP) is a subfield of AI that focuses on 
+the interaction of computers and people using human languages. The 
+Siri application on Apple’s iPhone and Amazon’s Alexa uses NLP to 
+understand requests for completing a task. 10 What Accountants Need to Know 
+NLP can be broken down into two types: natural language under -
+standing and natural language generation. 
+Natural language understanding (NLU) enables computers to un -
+derstand instructions provided in human language. For example, when 
+a user asks their iPhone for weather conditions by using the following voice command, “Hey Siri, what’s the latest weather?” Siri under
+-
+stands their command and retrieves the information by searching on the Internet. 
+Natural language generation (NLG) enables computers to produce 
+human language so that people can understand computers. After Siri performed a search of the latest weather, it replies with an answer such 
+as the following example: “it’s currently clear and 28 degrees in 
+Philadelphia. Expect partly cloudy skies starting tonight. Today’s high 
+will be 33 degrees, and the low will be 23 degrees”. Siri understood that 
+the user was asking it to look up the weather conditions at a specific 
+location and time, and then returned the results in spoken English 
+words. NLG can also convert data visualizations, such as charts and graphs, into a verbal description that can be understood by humans 
+(CPA Canada & AICPA, 2019). 
+The potential for using NLP in accounting is substantial, as it 
+can be used to process and analyze large amounts of data. NLP has been used to analyze various textual documents related to corpo
+-
+rate financial performance and compliance with accounting stan -
+dards and regulations (Fisher et al., 2016). Text mining uses NLP to extract meaning from textual data. Applications of NLP include 
+text mining components such as semantics analysis, text classifi
+-
+cation, text summarization, and text translation. Additional ap -
+plications include speech recognition, question-answering systems, and chatbots. 
+Data Mining 
+Data mining is a process of analyzing large data sets (i.e., “big data”) 
+to discover previously unknown patterns or relationships. Data mining 
+tools are typically applied to structured data, that is, highly formatted 
+data contained in relational databases such as in an ERP system and, 
+therefore, can be very helpful for accountants. 
+As illustrated in Figure 1.2, data mining intersects with but is not 
+considered a subfield of AI. As computer scientist Xavier Amatriain notes, “machine learning can be used for data. However, data mining can use 
+other techniques on top of machine learning” (Amatriain, 2016, para. 5). What Accountants Need to Know 11 
+Like machine learning, data mining relies on reading large 
+amounts of data to discover patterns and arrive at conclusions. 
+However, technology expert Bernard Marr identified notable dif -
+ferences between data mining and machine learning. First, data mining looks for patterns that already exist in historical data, whereas ML attempts to predict future outcomes based on the given 
+data. Second, the rules or patterns are unknown at the beginning of 
+the data mining process, whereas the rules are programmed into the computer to understand the data with machine learning. Third, data 
+mining relies on human intervention throughout the process, 
+whereas much of the learning with ML is automatic. Finally, data 
+mining uses an existing data set, such as a data warehouse, whereas 
+ML learns from a training data set and then makes predictions using 
+
+
+new data sets (Marr, n.d.). 
+By using data mining techniques on general ledger transactions, ac
+-
+countants can potentially unlock valuable insights and improve 
+decision-making. For example, auditors can use data mining to help detect fraudulent purchases or outlier transactions that require 
+further investigation. Management accountants can use data mining 
+to assess the financial risk of a business entity, such as “trading partners, corporate affiliates, investment partners, and takeover targets” 
+(Calderon et al., 2003, p. 7). 
+• Structured Data
+• Text Mining (Unstructured 
+Textual Data)
+• Other Unstructured Data 
+(Videos, Photos, Audio Files)• Expert Systems and 
+Other Rules -Based 
+or Fuzzy-
+Based Reasoning 
+Systems
+• Machine Learning
+• Deep LearningData and Big Data 
+MiningArtiﬁcial Intelligence
+Data and Big Data 
+Mining with AI
+Figure 1.2 Relationship between (big) data mining and AI.  12 What Accountants Need to Know 
+Text Mining 
+Text mining is a process of extracting information from various 
+text sources (such as Word documents, PDF files, social media 
+posts, emails, websites, articles, XML files, and others) to discover patterns, trends, and themes. The text found in these documents is 
+typically unstructured, that is, they are not in a predefined format that 
+can be analyzed through data analytics software such as IDEA or ACL. 
+Text mining is performed in two steps: 1) imposing structure on the 
+text data sources and then 2) using data mining techniques to extract 
+relevant information (Sharda et al., 2014). 
+Text mining is useful in fields that have a large amount of textual 
+data, as is the case with accounting. For example, auditors review contracts, invoices, legal letters, SEC filings, earnings, conference calls, news articles, and much more. 
+Professor Aldhizer (2017) of Wake Forest University suggests that 
+forensic and audit practices consider using text analytics for high-risk engagements. Aldhizer notes that text analytics could be used for 
+concept extraction to identify incriminating words from social media 
+posts and emails. Text mining could be used to ensure proper reporting 
+under lease and revenue recognition (Iowa State University, n.d.). 
+Robotic Process Automation (RPA) and AI 
+Although RPA is not considered a form of AI by some experts (CPA Canada & AICPA, 2019), this technology enables machines to perform 
+functions usually carried out by humans. Firms are using RPA, cou
+-
+pled with AI capabilities, to increase productivity and performance. Thus, accountants need to understand what RPA is and how it can be combined with AI technologies. Robotic process automation (RPA) is a 
+software application (robot or bot) that automates a business process by replicating the actions of humans performing tasks within digital systems, such as manipulating or transferring data. In many cases, the 
+automation involves minimal coding and is typically activated by using 
+a smart screen recording. Keep in mind that these robots are not 
+physical steel machines found in the old science-fiction movies or tel
+-
+evision shows. RPA lends itself well to high-volume and repeatable tasks traditionally performed by humans. For example, RPA can be 
+used to process bulk transactions, such as processing vendor invoices 
+for payment. 
+By using RPA, businesses can achieve increased productivity 
+and accuracy at a lower cost. The exponential growth in RPA What Accountants Need to Know 13 
+adoption has been facilitated by the availability of software providers 
+such as UiPath, Automation Anywhere, and BluePrism. Many 
+RPA providers will allow individuals to have a limited version of 
+their software to begin building bots. Examples of RPA in ac -
+counting include performing bank reconciliations, automating cash 
+applications, and tracking accounts payable. 
+Application Programming Interfaces (API) and AI 
+An application programming interface (API) is a set of functions or 
+rules that facilitates communication between applications, databases, and devices. An analogy to understand how an API works is a 
+restaurant waiter who takes an order relays it to the kitchen and 
+then returns the prepared food to the customer. APIs are like digital messengers – they allow the weather app on your phone to transmit 
+and retrieve information from a third-party app such as the Weather 
+Channel. As another example, APIs enable customers to purchase movie tickets through a site like Fandango by signing into their 
+Facebook or Google accounts. 
+APIs are used extensively by AI and ML programmers. For example, 
+Google’s Prediction API provides cloud-based access to machine 
+learning, natural language processing, recommendation engines, pattern 
+recognition, and prediction services (Rizk, 2018). In a blog post entitled 
+“Top 20 APIs You Should Know in AI and Machine Learning,” Oleksii 
+Kharkovyna (2019) notes that his preferred APIs are most suitable 
+for AI and ML purposes. BigML, for example, uses APIs to create data sets, models, and predictions that use ML technology. As another 
+example, Anaconda Enterprise is a data science platform that uses APIs 
+to deploy machine learning models. 
+Best Programming Languages Accountants Should Learn 
+for Artificial Intelligence Applications 
+Accountants with a strong technical background in programming 
+languages will be best positioned to work with data scientists in im -
+plementing AI initiatives. For those do-it-yourself accountants who 
+may want to customize AI technologies to solve applications, learning a programming language will be quite useful. Proficiency with popular 
+open-source programming tools for AI, such as Python and R, will 
+enable accountants to customize AI applications to suit the unique business needs of their firms or clients. Other tools, such as SQL and 14 What Accountants Need to Know 
+
+
+283Pethuru Raj Chelliah, Pushan Kumar Dutta, Abhishek Kumar, Ernesto D.R. Santibanez Gonzalez, 
+Mohit Mittal and Sachin Gupta (eds.) Generative Artificial Intelligence in Finance: Large Language Models, Interfaces, and Industry Use Cases to Transform Accounting and Finance Processes, (283–298) © 2025 Scrivener Publishing LLC15
+Ethics and Laws: Governing Generative 
+AI’s Role in Financial Systems
+Prakriti Dixit Porwal*
+Department of Management Studies, Geetanjali Institute of Technical Studies, 
+Udaipur, Rajasthan, India
+“ AI is probably the most important thing humanity has ever worked on”
+– Sundar Pichai- CEO of Google and Alphabet
+Abstract
+Since generative artificial intelligence (AI) has evolved into more prevalent in 
+financial systems, ethical and compliance concerns have emerged as vital parame-ters in its implementation. The present chapter discusses the complex relationship between generative AI tools with the financial arena, with a particular emphasis on the need for ethical principles and legal structures. The study highlights the potential effects of AI-generated outputs such as false dissemination, market fore-casting, and algorithmic trading strategies, all of which have direct implications for financial stability, consumer protection, and data privacy.
+Furthermore, the chapter underscores the complex challenges connected with 
+inbuilt preconceptions, accountability opacity, transparency inadequacies, and unanticipated consequences that have emerged in real-world circumstances. To address these issues, a comprehensive framework is provided, one that smoothly integrates ethical foundations with regulatory processes to promote the secure and lawful integration of generative AI inside the banking domain.
+The system demands continuous surveillance, periodic audits, and synergy 
+among AI programmers, financial firms, and regulatory bodies. It seeks to capitalize on the benefits of generative AI while maintaining the integrity of 
+*Email : prakritiporwal@gmail.com
+ Downloaded from https://onlinelibrary.wiley.com/doi/ by ibrahim ragab - Oregon Health & Science Univer , Wiley Online Library on [06/02/2025]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+284 Generative Artificial Intelligence in Finance
+financial markets and protecting the interests of all stakeholders through a bal-
+anced approach. By following this balanced path, the chapter hopes to traverse the growing terrain of generative AI in finance, focusing on its transformational potential while adhering to ethical standards and regulatory compliance.
+Keywords :
+ Gen
+erative AI, finance AI applications, ethical principles, legal and 
+regulatory framework
+Introduction
+The advancement of technology in finance has been tremendous. It began 
+with manual paper-based transactions and progressed to digital banking, internet trade, artificial intelligence (AI)-driven analytics, blockchain for safe transactions, and fintech innovations such as mobile payments [13]. In this volatile financial landscape, technological advancements have con-stantly transformed the way we do business, manage investments, and assure the sustainability of the economy. In the most recent developments, Generative AI is establishing itself as a potent force, drastically affecting the mode of operation of financial institutions. As generative AI becomes 
+Source: https://images.app.goo.gl/F7Mg876N3s8ywhTx9
+ Downloaded from https://onlinelibrary.wiley.com/doi/ by ibrahim ragab - Oregon Health & Science Univer , Wiley Online Library on [06/02/2025]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+AI Ethics and Regulation in Finance  285
+mo
+re prevalent in the field of finance, it has brought attention to the urgent 
+requirement for comprehension of the complex integration of ethics and 
+laws controlling its implementation [3].
+This chapter delivers a comprehensive look at the complexities that 
+result from integrating generative AI into financial systems. It empha-sizes the vital significance of ethical principles and legal frameworks in guiding the adoption of this transformative technology. In an era when AI-generated outputs have power over crucial components such as infor -
+mation distribution, market predictions, and algorithmic trading meth-ods, it is critical to understand the direct and far-reaching ramifications for financial stability, consumer protection, and data security [10]. Moreover, it explores the complex concerns surrounding the use of AI in finance, such as biases, accountability, transparency issues, and unexpected out-comes [1]. To address these issues, it presents a system that combines eth-ics and regulations.
+The aforementioned structure stipulates constant monitoring, frequent 
+audits, and a constructive synergy between AI programmers, financial organizations, and regulatory bodies. The main goal is to capitalize on the evident benefits of generative AI while protecting the integrity of finan-cial markets and the interests of all stakeholders. This chapter attempts to traverse the developing landscape of generative AI within the sphere of finance, striking a difficult balance between scientific advancement and ethical responsibility [4].
+Applications of AI in Financial Systems
+The pervasive influence of AI is visible across different industries, includ-ing finance and banking, in today’s rapidly evolving economy. These indus-tries are at the forefront of realizing AI’s transformational power. Whether it is using chatbots to inquire about opening savings accounts or having banks perform proactive credit card activity verification, AI is changing the way customers interact with financial services. This evolution reflects the broader trend of AI transforming established practices, promising improved productivity, safety, and enhanced consumer experiences [20]. According to Insider Intelligence’s AI in Banking research, 80% of banks recognize the significant benefits that AI provides. Furthermore, a large number of institutions are proactively preparing to integrate AI-powered solutions. According to UBS Evidence Lab research, 75% of respondents from banks with assets exceeding US$100 billion are currently implement-ing AI strategies. This figure compared to 46% among banks with less than 
+ Downloaded from https://onlinelibrary.wiley.com/doi/ by ibrahim ragab - Oregon Health & Science Univer , Wiley Online Library on [06/02/2025]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+286 Generative Artificial Intelligence in Finance
+US$100 billion in assets, suggesting a significant discrepancy in the adop-
+tion of AI methods based on financial institution size.
+AI in finance provides numerous advantages:
+§ Per
+sonalization: The process of tailoring services and prod-
+ucts to specific users.
+§ Op
+portunity Generation: Determines new prospects through 
+data analysis.
+§ Ri
+sk and Fraud Management: Enhances security through 
+real-time monitoring.
+§ Tra
+nsparency and Compliance: Ensures regulatory compli-
+ance and transparency.
+§ Cos
+t Reduction: Automates tasks, improving operational 
+efficiency and lowering costs.
+AI has found several uses in the financial industry, transforming how 
+financial institutions function, make selections, and provide customer ser -
+vice. Listed here are key AI applications in the realm of finance [5].
+§ Fra
+ud Detection and Prevention: AI assists financial insti-
+tutions in identifying and preventing fraudulent actions by analyzing transaction data and consumer behavior patterns. Machine learning algorithms can detect abnormalities and flag suspect transactions, lowering financial losses due to fraud.
+§
+ Cu
+stomer Service and Chatbots: AI-powered chatbots and 
+virtual assistants provide 24/7 customer service, answer inquiries, and help with mundane chores, improving the customer experience while lowering operating expenses. HDFC Bank, for example, employs “Eva, ” a virtual assistant that answers customer questions, facilitates transactions, and offers information about account balances and previ-ous transactions via their website and mobile app. Similarly, ICICI Bank uses “iPal” for customer service, answering questions, and assisting with account-related chores. These chatbots improve user experiences and offer clients in India rapid, round-the-clock support.
+§
+ Alg
+orithmic Trading: AI-powered algorithms that ana-
+lyze massive datasets and market circumstances in real time. They execute transactions faster and more effi-ciently than humans, capitalizing on market opportunities 
+ Downloaded from https://onlinelibrary.wiley.com/doi/ by ibrahim ragab - Oregon Health & Science Univer , Wiley Online Library on [06/02/2025]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+AI Ethics and Regulation in Finance  287
+while successfully limiting risks [16]. The National Stock 
+Exchange’s SMART Order Routing system, which optimizes trading execution and risk management, is one example.
+§
+ Cre
+dit Scoring and Underwriting: AI-powered Credit 
+Scoring and Underwriting use a variety of data sources, including social media and online behavior, to improve credit ratings. This improves decision precision and broad-ens credit availability, especially for underprivileged groups, by providing fairer and more equitable lending possibilities to both individuals and enterprises. Companies like Upstart, for example, use AI to assess borrowers beyond FICO rat-ings, democratizing lending and allowing more people, par -
+ticularly those with limited credit history, to access loans at reasonable conditions.
+§
+ Cy
+bersecurity : AI contributes to strengthening financial sys-
+tem vulnerability. AI systems constantly track network traf-fic, employing machine learning algorithms to detect and mitigate cybersecurity risks in real time [16]. In this vein, AI-powered intrusion detection systems (IDSs) are capa-ble of identifying irregular patterns and illicit access and promptly initiate responses by blocking hostile IP addresses. Furthermore, AI assists in fraud detection by analyzing large datasets to spot anomalous transaction behaviors, eliminat-ing financial fraud, and safeguarding sensitive consumer data.
+§
+ Ri
+sk Management: AI has reshaped risk management, 
+including credit, market, and operational risk assessments. JP Morgan, for example, employs advanced AI technology to quickly identify possible hazards in large datasets. This enables them to draw rational decisions as well as effectively deploy resources, thereby enhancing the financial sector’s resilience and stability.
+§
+ Na
+tural Language Processing (NLP): NLP is the process of 
+extracting information from unstructured text data such as news articles and customer comments. NLP , for instance, Bloomberg’s language-processing AI, is used by financial professionals to break down relevant information for sound investment choices. This technique aids in the navigation of large textual databases, hence improving financial decision- making processes [19].
+ Downloaded from https://onlinelibrary.wiley.com/doi/ by ibrahim ragab - Oregon Health & Science Univer , Wiley Online Library on [06/02/2025]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+288 Generative Artificial Intelligence in Finance
+§ Regulatory Compliance: AI has altered regulatory compli-
+a
+nce in the financial sector by streamlining activities such 
+as transaction monitoring, anti-money laundering (AML) inspections, and know your customer (KYC) procedures. For example, HSBC uses AI-powered tools to analyze mas-sive quantities of transactions in real time, detecting suspi-cious transactions and assuring compliance with tough AML laws. These automated solutions reduce compliance risks, improve accuracy, and speed up the ever-changing regula-tory compliance process for financial institutions, resulting in a safer and more efficient industry landscape.
+Ethical Challenges [5, 8, 12]
+The incorporation of AI into financial systems has yielded never-  bef ore-
+seen efficiency and insights. However, technology also raises important ethical quandaries, such as worries regarding the following:
+§
+ Tra
+nsparency and Comprehensibility: The difficulty is that 
+a lack of openness in AI decision-making might impede understanding and responsibility. Many AI algorithms used in financial systems are “black-box” models, which means they make judgments without providing obvious reasons. Because of this lack of transparency, regulators, customers, and even the institutions that use these models may struggle to understand why a certain choice was reached [1]. High-frequency trading algorithms, for example, frequently oper -
+ate as black boxes, making split-second trading decisions with no clear reason. Concerns have been expressed con-cerning market stability and fairness as a result of this lack of openness.
+§
+ Fina
+ncing Bias: Prejudices in training data can be passed 
+on to AI algorithms, resulting in biased lending behaviors. Credit scoring and underwriting algorithms powered by AI frequently rely on historical data, which may contain preconceptions based on ethnic background, sexual orien-tation, or socioeconomic considerations. When AI perpet-uates these biases, it can lead to unfair lending practices. In 2019, it was shown that the credit limits on the Apple Card 
+ Downloaded from https://onlinelibrary.wiley.com/doi/ by ibrahim ragab - Oregon Health & Science Univer , Wiley Online Library on [06/02/2025]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+AI Ethics and Regulation in Finance  289
+were regularly lower for women compared to men with sim-
+ilar financial records. This emphasized the possibility of gen-der bias in AI-driven credit judgments [8].
+§
+ Pr
+ivacy Concerns: The collection and use of sensitive finan-
+cial 
+
+data for AI analysis raises issues about privacy. AI systems in finance require access to massive volumes of per -
+sonal and financial data, such as transaction records, credit scores, and investment portfolios. To avoid unauthorized access and breaches, it is critical to ensure the privacy and security of this data. For instance, the Equifax data breach in 2017 exposed the personal information of millions of peo-ple, including their financial information. This breach high-lighted the importance of strong cybersecurity safeguards in the financial sector.
+§
+ Ma
+rket Manipulation and Algorithmic Trading: High-
+frequency trading algorithms have the potential to influence markets, triggering unethical behavior. Algorithmic trad-ing has emerged as a major force in financial markets, with algorithms executing trades at breakneck speed. While this has the potential to improve market efficiency, it also raises the risk of market manipulation and flash collapses [2]. In the “flash crash” on May 6, 2010, the Dow Jones Industrial Average dropped nearly 1000 points in minutes before recovering. This episode was blamed on algorithmic trading, prompting concerns about market stability.
+§
+ Cu
+stomer Profiling: AI-powered customer profiling may 
+intrude on privacy and personal liberty. Financial institu-tions and technology companies frequently employ AI to generate comprehensive descriptions of customers for tar -
+geted marketing and product suggestions. While this can improve customer experiences, it also raises worries about intrusive data collecting and manipulation [9]. Retailers, for example, employ predictive analytics to identify and target weak consumers with aggressive sales practices, thereby leveraging their personal and financial vulnerabilities.
+§
+ Regu
+latory Compliance: The challenge is that the rapid prog-
+ress of AI may outstrip regulatory frameworks, resulting in compliance gaps. The rapid growth of AI technology fre-quently outpaces authorities’ ability to draught and enforce acceptable regulations and standards. As financial firms nav-igate a shifting regulatory landscape, this can present legal 
+ Downloaded from https://onlinelibrary.wiley.com/doi/ by ibrahim ragab - Oregon Health & Science Univer , Wiley Online Library on [06/02/2025]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+290 Generative Artificial Intelligence in Finance
+and ethical issues. For example, the advent of cryptocurren-
+cies and decentralized finance (DeFi) has generated regu-latory issues for governments and financial institutions all over the world, as they try to figure out how to oversee these new financial innovations [6].
+§
+ Jo
+b Displacement: Automation of financial tasks may result 
+in job displacement and economic inequity. The use of AI and automation in financial services may result in the replacement of human workers, particularly in routine and administrative positions. This raises ethical questions about employment loss and economic injustice. For example, the rise of robo-advisors, who utilize AI to handle investment portfolios, has reduced the need for traditional financial advisors in several areas.
+§
+ Su
+stainable Challenge: The high energy consumption of AI 
+data centers poses environmental issues. AI models, partic-ularly those employed for deep learning, demand a substan-tial amount of computer resources and energy. The carbon footprint of AI data centers, as well as the environmental impact of these operations, have generated worries about their long-term viability. For instance, many tech compa-nies’ data centers, which house AI infrastructure, have been chastised for their high energy use and carbon footprint.
+§
+ Fina
+ncial Inclusion: While AI can improve financial ser -
+vices, it might also eliminate consumers who do not have access to digital technologies. Individuals and communities without Internet or digital devices may be excluded from AI-driven financial advances due to the digital gap. The asymmetrical availability of financial services poses ethical considerations. For example, rural or underprivileged com-munities with low internet access may be excluded from the benefits of AI-driven financial solutions, aggravating finan-cial inequality.
+§
+ Et
+hical Investing: The difficulty is that AI-driven investing 
+judgments may collide with ethical principles. AI-powered investment strategies may prioritize profitability above moral principles, eventually resulting in investments in industries or firms that disagree with the ethical ideals of an individual or organization [18]. For example, some AI-driven invest-ment funds may mistakenly invest in businesses such as 
+ Downloaded from https://onlinelibrary.wiley.com/doi/ by ibrahim ragab - Oregon Health & Science Univer , Wiley Online Library on [06/02/2025]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+AI Ethics and Regulation in Finance  291
+fossil fuels or armament manufacturers, which contradicts 
+investors’ ethical or environmental ideals.
+These ethical issues highlight the significance of confronting the respon-
+sible and ethical usage of AI in financial systems. To properly address these difficulties, financial institutions, regulators, technology developers, and society at large must work together to define clear standards, legislation, and ethical frameworks for AI applications in the financial sector. Here are some of the Ethical and Legal Concerns associated with the use of AI in Finance [11]:
+§
+ Tra
+nsparent AI Decision-Making: To improve understand-
+ing and accountability, AI decision-making procedures must be transparent and comprehensible [1]. In one instance, a financial institution may use AI models to provide extensive explanations for lending decisions, making it clear to con-sumers and regulators why a loan was accepted or denied. This commitment to transparency fosters confidence and alleviates worries regarding hidden biases. Transparency should be a primary priority in AI-driven financial sys-tems to foster stakeholder trust. When AI algorithms make decisions without explicit explanations, it becomes difficult for regulators, customers, and organizations that use these models to understand and manage these systems. This lack of openness can raise issues about justice, accountability, and ethical implications [15].
+§
+ Fa
+ir Financing and Bias Mitigation: It is critical to have 
+methods established to detect and mitigate biases in AI algorithms used for lending decisions, providing fair and equitable access to financial services. As an illustration, a lending platform assesses its AI models for biases regularly and applies retraining strategies to remove biases in credit scoring algorithms. This proactive strategy aids in the pre-vention of unfair lending practices that may arise as a result of distorted training data. When assessing creditworthiness, AI systems frequently rely on past data, which can intro-duce biases due to factors such as ethnicity, age, gender, or social and economic standing. To address this ethical chal-lenge, responsible financial institutions work aggressively to discover and correct flaws in their AI models, ensuring that loan choices are fair and non-discriminatory.
+ Downloaded from https://onlinelibrary.wiley.com/doi/ by ibrahim ragab - Oregon Health & Science Univer , Wiley Online Library on [06/02/2025]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+292 Generative Artificial Intelligence in Finance
+§ Data Privacy and Security: Prioritizing the privacy and secu-
+r
+ity of sensitive financial data used by AI systems is critical 
+to prevent unauthorized access and potential breaches. To protect consumer financial data kept within AI-driven sys-tems, a bank, for example, uses advanced encryption tech-niques, strict access limits, and regular security audits. This strong approach ensures that consumer information is kept private and secure. To power AI systems, financial institu-tions rely largely on massive volumes of personal and finan-cial data. Protecting this data is not just an ethical necessity, but is also a legal requirement in many areas. High-profile data breaches, such as the Equifax hack in 2017, highlight the critical significance of good cybersecurity safeguards in the financial sector.
+§
+ Regu
+lation and Market Integrity: Financial institutions 
+should work with regulatory bodies to develop and imple-ment ethical AI practices, particularly in high-frequency and algorithmic trading. Financial authorities, for exam-ple, collaborate closely with trading businesses to develop norms and standards for algorithmic trading practices that prioritize both market stability and fairness, assuring ethical behavior in the marketplace. Although algorithmic trading has transformed financial markets, it also introduces haz-ards such as market manipulation and volatility. Responsible financial institutions and regulators work together to develop and implement ethical rules to protect market integrity and reduce unethical behavior.
+§
+ Et
+hical Customer Profiling: Ethical customer profiling 
+entails the use of AI-powered approaches to improve inter -
+actions with customers while protecting their privacy and personal liberty. While customer profiling has the potential to improve service and overall experiences, it must be done ethically. Prioritizing privacy and giving clients control over their data is critical for appropriate AI-driven customer pro-filing [14]. A retail bank, for example, uses predictive ana-lytics to construct customer profiles to make personalized product suggestions. They also adhere to strict data privacy regulations and give clients the choice to opt out of data col-lecting if they so desire.
+ Downloaded from https://onlinelibrary.wiley.com/doi/ by ibrahim ragab - Oregon Health & Science Univer , Wiley Online Library on [06/02/2025]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+AI Ethics and Regulation in Finance  293
+§ Robust Regulatory Compliance: Maintaining strict regula-
+t
+ory compliance in AI-powered financial systems is critical. 
+It entails remaining proactive in addressing changing rules and ensuring AI systems adhere to legal norms. For example, a digital lending fintech keeps a specialized compliance staff on hand to constantly monitor and change its AI processes to suit evolving regulatory standards. The aforementioned commitment protects responsible lending practices and bridges the gap between rapid AI technology and dynamic regulatory landscapes, assuring ethical and legal adherence in financial operations [6].
+§
+ Jo
+b Displacement Mitigation: Mitigating job displacement 
+caused by AI adoption requires responsible organizations to engage in worker reskilling and development programs [17]. A financial institution, for instance, provides thorough training to staff impacted by automation, allowing them to shift to different tasks within the organization. These pro-grams address ethical concerns about unemployment and economic inequality, ensuring that employees remain adap-tive and prepared for changing labor environments [7].
+§
+ Gr
+een AI Practices: To reduce the environmental impact 
+of AI operations, responsible organizations prioritize ener -
+gy-efficient AI technology and data centers. For example, a technology business may actively use energy-efficient gear and data centers powered by renewable energy sources for its AI operations, reducing the carbon footprint often asso-ciated with AI technology. These long-term projects are crucial since AI models, particularly those used in deep learning, can be computationally heavy and require signif-icant energy resources, emphasizing the commitment to environmental sustainability.
+§
+ Fina
+ncial Inclusion Projects: These entail responsible finan-
+cial organizations producing AI-powered financial services that emphasize openness for all to bridge the digital gap. A digital bank, for case in point, may collaborate with non-profit organizations to provide AI-powered mobile banking services in areas with poor internet connection, ensuring that underprivileged consumers have access to vital finan-cial services. These activities highlight the dedication to ensuring that AI-driven financial solutions remain inclusive, 
+ Downloaded from https://onlinelibrary.wiley.com/doi/ by ibrahim ragab - Oregon Health & Science Univer , Wiley Online Library on [06/02/2025]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+294 Generative Artificial Intelligence in Finance
+regardless of people’s or communities’ technology resources, 
+encouraging financial inclusion.
+§ Et
+hical Investment Portfolios: Responsible financial institu-
+tions create AI-driven investment tactics that relate to eth-ical and environmental principles and allow investors the ability to invest in investments that adhere to their core val-ues [18]. For example, an asset management business may offer AI-powered investment portfolios that exclude com-panies involved in areas that its clients consider unethical, which might include fossil fuels or arms manufacture. These initiatives represent the growing trend of ethical investing and demonstrate how AI may assist investments that align with investors’ ethical and environmental objectives, foster -
+ing responsible financial practices [7].
+The aforementioned instances demonstrate how the appropriate and 
+ethical use of AI inside financial systems can effectively solve potential ethical concerns while providing consumers with important financial services. Adopting such practices demonstrates financial organizations’ commitment to ethical standards and adds greatly to the development of confidence among their stakeholders [17].
+Ethical AI in Indian Finance: Case Studies and Insights
+§ ICICI Bank, an acclaimed Indian financial institution, dep
+loyed AI-powered chatbots, including IBM’s Watson, 
+to enhance customer care interactions. T
+
+hese chatbots were created to help customers with their inquiries and transac-tions. However, their implementation prompted privacy and security problems. While ICICI Bank tried to improve client experiences through AI adoption, it was also scrutinized for its handling of sensitive customer data. This instance empha-sizes the vital importance of integrating AI use in financial services with severe data protection legislation and ethical considerations to safeguard the security of client informa-tion and the maintenance of trust in AI-powered services [8].
+§
+ Pa
+ytm, a renowned Indian fintech company, has entered the 
+realm of algorithmic trading, aided by AI-powered tools such as proprietary algorithms. While innovative, this venture 
+ Downloaded from https://onlinelibrary.wiley.com/doi/ by ibrahim ragab - Oregon Health & Science Univer , Wiley Online Library on [06/02/2025]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+AI Ethics and Regulation in Finance  295
+sp
+arked regulatory concerns about market integrity and 
+equity. The rapid spread of algorithmic trading heightened 
+concerns about potential market manipulation [13]. The Paytm case emphasizes the importance of having broad and adaptable legislation to supervise AI’s participation in trade. Such rules should address not only market manipulation but also transparency, accountability, and ethical concerns to ensure that AI-driven trading practices are consistent with fair market principles and foster investor confidence.
+§
+ HDFC B
+ank used AI-powered credit scoring methods, 
+including machine learning algorithms, to evaluate loan applicants. However, situations have occurred in which these AI-driven judgments looked to be biased, particularly in lending choices. Such studies generated ethical questions about the objectivity of AI-driven credit ratings. This story starkly demonstrates the vital importance of proactively tackling bias in AI algorithms to guarantee that lending practices are equitable and free of discrimination. It empha-sizes the responsibilities of financial institutions to regularly evaluate and fine-tune their AI models to promote fairness and openness in credit evaluation processes, hence sustain-ing ethical norms in financial services.
+§
+ Adi
+tya Birla Capital uses AI, including NLP algorithms, to 
+give clients personalized investment advice and portfolio management services. While this AI integration promised to improve consumer experiences by providing personalized financial advice, it also highlighted ethical concerns about the privacy and security of sensitive financial data. The case emphasizes the critical need for comprehensive and up-to-date data protection legislation in the financial sector. These legislations should not only protect client information but also create clear guidelines for the ethical use of AI in finan-cial portfolio management, balancing innovation with data protection.
+§
+ Zer
+odha, a renowned Indian brokerage firm, has integrated 
+AI, including machine learning algorithms, into its trading platform, providing traders with AI-powered tools to help them make investing decisions. While the goal of this inno-vation was to empower traders, it also sparked important discussions about accountability, transparency, and mar -
+ket integrity. The use of AI in trading operations generated 
+ Downloaded from https://onlinelibrary.wiley.com/doi/ by ibrahim ragab - Oregon Health & Science Univer , Wiley Online Library on [06/02/2025]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+296 Generative Artificial Intelligence in Finance
+co
+ncerns about the fairness of automated trading and the 
+possibility of market manipulation [2]. It highlights the need 
+for regulatory monitoring and the need for ethical trading practices to guarantee that AI-powered trading platforms run transparently and respect market integrity, hence sus-taining investor and regulator trust.
+Conclusion
+AI is transforming the realm of finance through enhanced accessibility as well as efficacy for individuals and businesses alike. Chatbots and robo-advisors, for example, provide seamless customer experiences, while fraud detection and data analysis enable businesses to make informed decisions. This transforma-tion is changing the way finance is accessed and managed. Finally, the incor -
+poration of generative AI into the financial sector constitutes a significant step forward in technical growth, providing new prospects for efficiency and cre-ativity. This transition, however, brings with it a slew of ethical and legal issues that necessitate careful analysis and proactive responses. The ethical challenges surrounding AI in finance are broad and multifaceted, ranging from transpar -
+ency and bias mitigation to data privacy and market integrity. To appropriately traverse this changing landscape, financial institutions, regulators, technology developers, and society as a whole must work together to define clear norms, robust legislation, and ethical frameworks that regulate AI use in finance. Transparency in AI decision-making, equitable finance, and strong data pri-vacy and security safeguards are critical foundations of responsible AI inte-gration. Furthermore, tackling concerns such as employment displacement, environmental sustainability, financial inclusivity, and ethical investment port-folios helps to guarantee that AI-driven financial services stay inclusive and in line with social values. The instances cited from Indian financial institutions highlight the importance of a balanced strategy that incorporates technology innovation as well as ethical issues. By proactively and transparently address-ing these concerns, the financial sector may reap the benefits of AI while pro-tecting customer interests, market integrity, and responsible finance principles.
+References
+ 1. Chesterman, S., From Ethics to Law: Why, When, and How to Regulate AI, 
+in: F
+orthcoming in The Handbook of the Ethics of AI, edited by David J. Gunkel 
+(Edward Elgar Publishing Ltd.), NUS Law Working Paper No. 2023/014, April 29, 2023, Available at SSRN: https://ssrn.com/abstract=4432941. 
+ Downloaded from https://onlinelibrary.wiley.com/doi/ by ibrahim ragab - Oregon Health & Science Univer , Wiley Online Library on [06/02/2025]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+AI Ethics and Regulation in Finance  297
+ 2. Klenk, M., Ethics of Generative AI and Manipulation: A Design-Oriented 
+R
+esearch Agenda, 2023, Available at: http://dx.doi.org/10.2139/ssrn.4478397.
+ 3. Ali
+bašić, H., Developing an Ethical Framework for Responsible Artificial 
+Intelligence (AI) and Machine Learning (ML) Applications in Cryptocurrency Trading: A Consequentialism Ethics Analysis. FinTech , 2, 3, 430–443, 2023. 
+Available at: https://doi.org/10.3390/fintech2030024.
+ 4. Sh
+absigh, G. and Boukherouaa, E., Generative Artificial Intelligence in 
+Finance, in: Fintech Notes , International Monetary Fund, 2023, 6, pp 1–24, 
+2023, https://doi.org/10.5089/9798400251092.063, ISBN: 9798400251092, ISSN: 2664-5912.
+ 5. Ch
+en, B., Wu, Z., Zhao, R., From fiction to fact: the growing role of gener -
+ative AI in business and finance. J. Chinese Econ. Bus. Stud., 21, 4, 471–496, 2023, https://doi.org/10.1080/14765284.2023.2245279.
+ 6. Li
+an, A., The Legal Implications of AI-Generated Content in Copyright 
+Law. INDIAai, 2023. Available at: https://indiaai.gov.in/article/the-legal- 
+implications-of-ai-generated-content-in-copyright-law.
+ 7. Sc
+haefer, G., The implications of generative AI in Finance. Deloitte , 
+2023. Available at: https://www2.deloitte.com/content/dam/Deloitte/us/Documents/finance-transformation/us-deloitte-the-implications-of-gener -
+ative-ai-in-finance.pdf.
+ 8. Iza
+rd, S., How can generative AI shape the banking industry? PwC, 2023. 
+Available at: https://www.pwc.com/gx/en/news-room/assets/analyst-cita-tions/pac-ai-in-banking-2023.pdf.
+ 9. INDI
+Aai, Impact, Opportunity, and Challenges of Generative AI, 2023, 
+Available at: https://indiaai.s3.ap-south-1.amazonaws.com/docs/generative-ai-  
+report.pdf.
+ 10. Uni
+ted Nation Meetings Coverage and Press Releases, International 
+Community Must Urgently Confront New Reality of Generative, Artificial Intelligence, Speakers Stress as Security Council Debates Risks, Rewards, 2023, Available at: https://press.un.org/en/2023/sc15359.doc.htm.
+ 11. NTT D
+ATA, Ethical considerations of Generative AI, 2023, Available at: 
+https://www.nttdata.com/global/en/-/media/nttdataglobal/1_files/services/data-and-intelligence/ethical_considerations_of_generative_ai.pdf?rev=c-9b22c2626664710a1f0382d962fc3b7.
+ 12. Dilm
+egani, C., Generative AI Ethics: Top 6 Concerns. AIMultiple , 2023. 
+Available at: https://research.aimultiple.com/generative-ai-ethics/.
+ 13. Sh
+arbek, N., How Traditional Financial Institutions have adapted to Artificial 
+Intelligence, Machine Learning and FinTech? Proc. Int. Conf. Bus. Excel., 16, 1, pp.837–848, 2022. Available at: https://doi.org/10.2478/picbe-2022-0078.
+ 14. Vin
+cent, J., The scary truth about AI copyright is that people still deter -
+mine what will happen next. Verge, 2022. Available at: https://www.
+theverge.com/23444685/generative-ai-copyright-infringement-legal-fair-  
+use-training-data.
+ Downloaded from https://onlinelibrary.wiley.com/doi/ by ibrahim ragab - Oregon Health & Science Univer , Wiley Online Library on [06/02/2025]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+298 Generative Artificial Intelligence in Finance
+ 15. OECD, Artificial Intelligence, Machine Learning and Big Data in Finance: 
+O
+pportunities, Challenges, and Implications for Policy Makers, 2021, Available 
+at: https://www.oecd.org/finance/financial-markets/Artificial-intelligence- machine-learning-big-data-in-finance.pdf.
+ 16. Bo
+ukherouaa, E.B. et al., Powering the Digital Economy: Opportunities and 
+Risks of Artificial Intelligence in Finance, in: International Monetary Fund , 
+vol. 2021, 2021, DOI: https://doi.org/10.5089/9781589063952.087.
+ 17. Si
+au, K. and Wang, W ., Artificial Intelligence (AI) Ethics: Ethics of AI 
+and Ethical AI. J. Database Manage., 31, 2, 74–87, 2020. DOI: 10.4018/JDM.2020040105.
+ 18. Eur
+opean Commission, Ethics guidelines for trustworthy AI, European 
+Commission, Brussels, 2019, Available at: https://digitalstrategy.ec.europa.eu/en/library/ethics-guidelines-trustworthy-ai.
+ 19.  Digi
+tal/McKinsey, Driving impact at scale from automation and AI, 2019, 
+Available at: https://www.mckinsey.com/~/media/McKinsey/Business%20Functions/McKinsey%20Digital/Our%20Insights/Driving%20impact%20at%20scale%20from%20automation%20and%20AI/Driving-impact-at-scale-from-automation-and-AI.ashx.
+ 20. Digal
+aki, E., The impact of artificial intelligence in the banking sector & how 
+AI is being used in 2020. Bus. Insider India, 2019. Available at: https://www.
+businessinsider.in/finance/news/the-impact-of-artificial-intelligence-in-the-banking-sector-how-ai-is-being-used-in-2020/articleshow/72860899.cms.
+ Downloaded from https://onlinelibrary.wiley.com/doi/ by ibrahim ragab - Oregon Health & Science Univer , Wiley Online Library on [06/02/2025]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+Part IV
+INDUSTRY-SPECIFIC APPLICATIONS 
+AND INNOV ATIONS
+ Downloaded from https://onlinelibrary.wiley.com/doi/ by ibrahim ragab - Oregon Health & Science Univer , Wiley Online Library on [06/02/2025]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+301Pethuru Raj Chelliah, Pushan Kumar Dutta, Abhishek Kumar, Ernesto D.R. Santibanez Gonzalez, 
+Mohit Mittal and Sachin Gupta (eds.) Generative Artificial Intelligence in Finance: Large Language Models, Interfaces, and Industry Use Cases to Transform Accounting and Finance Processes, (301–326) © 2025 Scrivener Publishing LLC16
+Generative AI Tools for Product 
+Design and Engineering
+Manoj Singh Adhikari*, Y ogesh Kumar Verma,  
+Manoj Sindhwani and Shippu Sachdeva
+School of Electronics and Electrical Engineering, Lovely Professional University, 
+Phagwara, Punjab, India
+Abstract
+Generative artificial intelligence has become a disruptive force in engineering 
+and product design in recent years. This state-of-the-art technology makes use of sophisticated algorithms to produce creative designs, streamline engineering pro -
+cedures, and improve cross-disciplinary team collaboration. Generative artificial intelligence (AI) is transforming the way products are designed, developed, and released into the market by fusing the capabilities of AI with design and engineer -
+ing principles.
+This thorough guide examines the numerous uses of generative AI at different 
+phases of the product development process. This guide offers useful insights into how generative AI can improve productivity, creativity, and innovation in the field of product design and engineering, from concept generation to material selection, simulation testing to environmental impact assessment. The goal of this guide is to enable professionals in the design and engineering industries to fully utilize gener -
+ative AI through case studies, practical considerations, and real-world examples. Businesses that know how to incorporate this technology into their workflows can spur innovation, streamline operations, and provide goods that satisfy the chang -
+ing needs of the markets.
+Keywords
+: Generative AI, optimization, product design, sustainability
+*Corresponding author : manoj.space99@gmail.com
+ Downloaded from https://onlinelibrary.wiley.com/doi/ by ibrahim ragab - Oregon Health & Science Univer , Wiley Online Library on [06/02/2025]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+
+
+</div>
+    </div>
+
+    <div id="vi-content" class="content">
+        <div id="vi-markdown" class="vi-text"></div>
+    </div>
+
+    <div id="slide-tab" class="content">
+        <iframe src="TaiLieu/slideAIAcc/Slide_AIAcc_Day03.pdf" width="100%" height="800px" style="border: none;"></iframe>
+    </div>
+
+    <div id="slide-content" class="content">
+        <iframe src="TaiLieu/slideAIAcc/Slide_AIAcc_Day03.pdf" width="100%" height="800px" style="border: none;"></iframe>
+    </div>
+
+    <script>
+        const viMarkdown = `... từ dữ liệu. Mạng nơ-ron nhân tạo (Artificial neural networks - ANNs) là một tập hợp các nơ-ron nhân tạo (còn được gọi là các đơn vị) nhận dữ liệu làm đầu vào (input), và sau đó logic được áp dụng để tạo ra đầu ra (output). ANNs thường được sử dụng cho nhận dạng mẫu (pattern recognition) như nhận dạng khuôn mặt (facial recognition) trong hình ảnh và video, nhận dạng giọng nói (speech recognition), mạng xã hội, v.v., và thường được tăng tốc bởi quá trình xử lý tensor. Bộ xử lý tensor (Tensor processing unit - TPU) là một mạch chuyên dụng theo ứng dụng do Google phát triển, được sử dụng để tăng tốc độ xử lý cho các ứng dụng học máy (machine learning) và học sâu (deep learning). Trong khi học máy truyền thống phụ thuộc nhiều vào sự hướng dẫn do các lập trình viên con người cung cấp, các mô hình học sâu (DL models) sử dụng ANNs (lấy cảm hứng từ các mạng nơ-ron sinh học có trong não người) để phân tích khối lượng dữ liệu lớn nhằm tự học.
+
+Học sâu (Deep learning) có thể được sử dụng trong nhiều ứng dụng khác nhau, chẳng hạn như nhận dạng khuôn mặt (facial recognition), phân loại hình ảnh (image classification), nhận dạng giọng nói (speech recognition) và dịch văn bản (text translation). Các ứng dụng hiện tại của học sâu bao gồm các phương tiện tự lái giảm tốc độ khi đến gần lối qua đường dành cho người đi bộ, máy ATM từ chối tờ tiền giả, và một ứng dụng điện thoại thông minh dịch hình ảnh của một biển báo đường phố bằng tiếng nước ngoài (The Mathworks & MATLAB, 2018).
+
+EY sử dụng công nghệ học sâu (deep learning) để tái tạo lại các tài liệu (ví dụ: hóa đơn và hợp đồng được sử dụng trong quá trình kiểm toán) đã bị quét (scan) kém chất lượng bằng cách sử dụng phần mềm nhận dạng quang học (Duffy, 2019). Nhà nghiên cứu Sophia Sun (2019) thúc đẩy việc sử dụng học sâu để hỗ trợ ra quyết định kiểm toán trong hai lĩnh vực chính: xác định thông tin và hỗ trợ đánh giá. Các thuật toán học sâu có thể phân tích dữ liệu bán cấu trúc (semi-structured data) (ví dụ: dữ liệu văn bản từ các tài liệu hỗ trợ như hóa đơn, hợp đồng, v.v.) và dữ liệu phi cấu trúc (unstructured data) (chẳng hạn như hình ảnh, âm thanh và video từ internet, mạng xã hội, v.v.), điều này sẽ hỗ trợ trong việc xác định thông tin. Hơn nữa, Sun lưu ý rằng hiệu suất dự đoán của các mô hình học sâu vượt trội so với học máy cổ điển khi khối lượng dữ liệu và số lượng biến số là lớn. Để tối đa hóa việc sử dụng học sâu trong bối cảnh kiểm toán, Sun đề xuất thiết kế và phát triển một kho dữ liệu (data warehouse) để huấn luyện các thuật toán nhằm đưa ra dự đoán và hỗ trợ các thủ tục kiểm toán.
+
+### Xử lý Ngôn ngữ Tự nhiên (Natural Language Processing)
+
+Xử lý ngôn ngữ tự nhiên (NLP) là một lĩnh vực con của AI tập trung vào sự tương tác giữa máy tính và con người bằng cách sử dụng ngôn ngữ của con người. Ứng dụng Siri trên iPhone của Apple và Alexa của Amazon sử dụng NLP để hiểu các yêu cầu nhằm hoàn thành một tác vụ. 
+
+NLP có thể được chia thành hai loại: hiểu ngôn ngữ tự nhiên (natural language understanding) và tạo ngôn ngữ tự nhiên (natural language generation).
+
+Hiểu ngôn ngữ tự nhiên (Natural language understanding - NLU) cho phép máy tính hiểu các hướng dẫn được cung cấp bằng ngôn ngữ của con người. Ví dụ: khi người dùng hỏi iPhone của họ về điều kiện thời tiết bằng cách sử dụng khẩu lệnh sau, “Này Siri, thời tiết mới nhất là gì?”, Siri hiểu lệnh của họ và truy xuất thông tin bằng cách tìm kiếm trên Internet.
+
+Tạo ngôn ngữ tự nhiên (Natural language generation - NLG) cho phép máy tính tạo ra ngôn ngữ của con người để con người có thể hiểu máy tính. Sau khi Siri thực hiện tìm kiếm thời tiết mới nhất, nó sẽ trả lời với một câu trả lời như ví dụ sau: “hiện tại trời quang và 28 độ ở Philadelphia. Dự kiến bầu trời có mây rải rác bắt đầu từ tối nay. Mức nhiệt cao nhất hôm nay sẽ là 33 độ và mức thấp nhất sẽ là 23 độ”. Siri hiểu rằng người dùng đang yêu cầu nó tra cứu điều kiện thời tiết tại một địa điểm và thời gian cụ thể, và sau đó trả về kết quả bằng lời nói tiếng Anh. NLG cũng có thể chuyển đổi các hình ảnh hóa dữ liệu (data visualizations), chẳng hạn như biểu đồ và đồ thị, thành một mô tả bằng lời nói mà con người có thể hiểu được (CPA Canada & AICPA, 2019).
+
+Tiềm năng sử dụng NLP trong kế toán là rất lớn, vì nó có thể được sử dụng để xử lý và phân tích một lượng lớn dữ liệu. NLP đã được sử dụng để phân tích các tài liệu văn bản khác nhau liên quan đến hiệu quả tài chính của công ty và sự tuân thủ các tiêu chuẩn và quy định kế toán (Fisher và cộng sự, 2016). Khai phá văn bản (Text mining) sử dụng NLP để trích xuất ý nghĩa từ dữ liệu văn bản. Các ứng dụng của NLP bao gồm các thành phần khai phá văn bản như phân tích ngữ nghĩa (semantics analysis), phân loại văn bản (text classification), tóm tắt văn bản (text summarization) và dịch văn bản (text translation). Các ứng dụng bổ sung bao gồm nhận dạng giọng nói (speech recognition), hệ thống hỏi đáp (question-answering systems) và chatbot.
+
+### Khai phá Dữ liệu (Data Mining)
+
+Khai phá dữ liệu (Data mining) là quá trình phân tích các tập dữ liệu lớn (tức là “dữ liệu lớn” - big data) để khám phá các mẫu hoặc mối quan hệ chưa được biết đến trước đó. Các công cụ khai phá dữ liệu thường được áp dụng cho dữ liệu có cấu trúc (structured data), tức là dữ liệu có định dạng cao được chứa trong các cơ sở dữ liệu quan hệ (relational databases) chẳng hạn như trong một hệ thống ERP và, do đó, có thể rất hữu ích cho các kế toán viên.
+
+Như được minh họa trong Hình 1.2, khai phá dữ liệu giao thoa với AI nhưng không được coi là một lĩnh vực con của AI. Như nhà khoa học máy tính Xavier Amatriain lưu ý, “học máy có thể được sử dụng cho dữ liệu. Tuy nhiên, khai phá dữ liệu có thể sử dụng các kỹ thuật khác ngoài học máy” (Amatriain, 2016).
+
+<!-- IMAGE_PLACEHOLDER: Figure 1.2 -->
+
+Giống như học máy, khai phá dữ liệu dựa vào việc đọc một lượng lớn dữ liệu để khám phá các mẫu và đi đến kết luận. Tuy nhiên, chuyên gia công nghệ Bernard Marr đã xác định những khác biệt đáng chú ý giữa khai phá dữ liệu và học máy. Đầu tiên, khai phá dữ liệu tìm kiếm các mẫu đã tồn tại trong dữ liệu lịch sử (historical data), trong khi học máy cố gắng dự đoán các kết quả trong tương lai dựa trên dữ liệu nhất định. Thứ hai, các quy tắc hoặc mẫu không được biết đến khi bắt đầu quá trình khai phá dữ liệu, trong khi các quy tắc được lập trình vào máy tính để hiểu dữ liệu bằng học máy. Thứ ba, khai phá dữ liệu dựa vào sự can thiệp của con người trong suốt quá trình, trong khi phần lớn quá trình học tập với học máy là tự động. Cuối cùng, khai phá dữ liệu sử dụng một tập dữ liệu hiện có, chẳng hạn như kho dữ liệu (data warehouse), trong khi học máy học từ một tập dữ liệu huấn luyện (training data set) và sau đó đưa ra dự đoán.
+
+
+các tập dữ liệu mới (Marr, n.d.).
+
+Bằng cách sử dụng các kỹ thuật khai phá dữ liệu trên các giao dịch sổ cái chung (general ledger transactions), các kế toán viên có khả năng khám phá những thông tin chi tiết có giá trị và cải thiện việc ra quyết định. Ví dụ: các kiểm toán viên có thể sử dụng khai phá dữ liệu để giúp phát hiện các giao dịch mua gian lận hoặc các giao dịch ngoại lai (outlier transactions) cần điều tra thêm. Kế toán quản trị có thể sử dụng khai phá dữ liệu để đánh giá rủi ro tài chính của một thực thể kinh doanh, chẳng hạn như “đối tác thương mại, công ty liên kết, đối tác đầu tư và mục tiêu mua lại” (Calderon và cộng sự, 2003, tr. 7).
+
+<!-- IMAGE_PLACEHOLDER: Figure 1.2 Relationship between (big) data mining and AI -->
+
+### Khai phá Văn bản (Text Mining)
+
+Khai phá văn bản (Text mining) là quá trình trích xuất thông tin từ nhiều nguồn văn bản khác nhau (chẳng hạn như tài liệu Word, tệp PDF, bài đăng trên mạng xã hội, email, trang web, bài báo, tệp XML và các nguồn khác) để khám phá các mẫu, xu hướng và chủ đề. Văn bản được tìm thấy trong các tài liệu này thường là phi cấu trúc (unstructured), tức là chúng không ở một định dạng được xác định trước có thể phân tích thông qua phần mềm phân tích dữ liệu như IDEA hoặc ACL. Việc khai phá văn bản được thực hiện theo hai bước: 1) áp đặt cấu trúc lên các nguồn dữ liệu văn bản và sau đó 2) sử dụng các kỹ thuật khai phá dữ liệu để trích xuất thông tin liên quan (Sharda và cộng sự, 2014).
+
+Khai phá văn bản rất hữu ích trong các lĩnh vực có khối lượng dữ liệu văn bản lớn, như trường hợp của kế toán. Ví dụ, các kiểm toán viên xem xét hợp đồng, hóa đơn, thư từ pháp lý, hồ sơ đệ trình SEC, thu nhập, các cuộc gọi hội nghị, bài báo tin tức và nhiều hơn thế nữa.
+
+Giáo sư Aldhizer (2017) của Đại học Wake Forest cho rằng các nghiệp vụ kiểm toán và kế toán pháp y (forensic and audit practices) nên xem xét sử dụng phân tích văn bản (text analytics) cho các hợp đồng có rủi ro cao. Aldhizer lưu ý rằng phân tích văn bản có thể được sử dụng để trích xuất khái niệm (concept extraction) nhằm xác định các từ ngữ buộc tội từ các bài đăng trên mạng xã hội và email. Khai phá văn bản có thể được sử dụng để đảm bảo việc báo cáo hợp lý theo các nguyên tắc ghi nhận doanh thu và hợp đồng thuê tài sản (Đại học Bang Iowa, n.d.).
+
+### Tự động hóa Quy trình Bằng Robot (Robotic Process Automation - RPA) và AI
+
+Mặc dù RPA không được một số chuyên gia coi là một dạng của AI (CPA Canada & AICPA, 2019), công nghệ này cho phép máy móc thực hiện các chức năng thường do con người thực hiện. Các công ty đang sử dụng RPA, kết hợp với khả năng của AI, để tăng năng suất và hiệu suất. Vì vậy, kế toán viên cần hiểu RPA là gì và cách nó có thể kết hợp với công nghệ AI. Tự động hóa quy trình bằng robot (RPA) là một ứng dụng phần mềm (robot hoặc bot) tự động hóa quy trình kinh doanh bằng cách lặp lại các hành động của con người khi thực hiện các tác vụ trong hệ thống kỹ thuật số, chẳng hạn như thao tác hoặc chuyển dữ liệu. Trong nhiều trường hợp, quá trình tự động hóa liên quan đến mã hóa tối thiểu và thường được kích hoạt thông qua việc ghi màn hình thông minh. Hãy nhớ rằng các robot này không phải là cỗ máy thép vật lý có trong các bộ phim khoa học viễn tưởng hay chương trình truyền hình xưa cũ. RPA rất phù hợp với các tác vụ lặp đi lặp lại với khối lượng lớn thường do con người thực hiện. Ví dụ, RPA có thể được sử dụng để xử lý hàng loạt giao dịch, chẳng hạn như xử lý hóa đơn của nhà cung cấp để thanh toán.
+
+Bằng cách sử dụng RPA, các doanh nghiệp có thể đạt được năng suất và độ chính xác cao hơn với chi phí thấp hơn. Sự gia tăng theo cấp số nhân trong việc áp dụng RPA đã được hỗ trợ bởi sự sẵn có của các nhà cung cấp phần mềm như UiPath, Automation Anywhere và BluePrism. Nhiều nhà cung cấp RPA cho phép các cá nhân có phiên bản phần mềm giới hạn để bắt đầu tạo bot. Ví dụ về RPA trong kế toán bao gồm việc thực hiện đối chiếu ngân hàng (bank reconciliations), tự động hóa ứng dụng tiền mặt (cash applications) và theo dõi các khoản phải trả (accounts payable).
+
+### Giao diện Lập trình Ứng dụng (Application Programming Interfaces - API) và AI
+
+Giao diện lập trình ứng dụng (API) là một bộ các hàm hoặc quy tắc tạo điều kiện thuận lợi cho giao tiếp giữa các ứng dụng, cơ sở dữ liệu và thiết bị. Một phép so sánh để hiểu cách thức hoạt động của API là một người phục vụ nhà hàng nhận order, chuyển nó cho nhà bếp và sau đó mang thức ăn đã chuẩn bị cho khách hàng. API giống như những người đưa tin kỹ thuật số – chúng cho phép ứng dụng thời tiết trên điện thoại của bạn truyền và truy xuất thông tin từ một ứng dụng của bên thứ ba như Weather Channel. Ví dụ khác, API cho phép khách hàng mua vé xem phim thông qua các trang web như Fandango bằng cách đăng nhập vào tài khoản Facebook hoặc Google của họ.
+
+API được sử dụng rộng rãi bởi các lập trình viên AI và ML. Ví dụ, API Dự đoán của Google (Google’s Prediction API) cung cấp quyền truy cập dựa trên đám mây (cloud-based) vào học máy, xử lý ngôn ngữ tự nhiên, các công cụ đề xuất (recommendation engines), nhận dạng mẫu và dịch vụ dự đoán (Rizk, 2018). Trong một bài đăng blog có tiêu đề “20 API hàng đầu bạn nên biết trong AI và Học máy”, Oleksii Kharkovyna (2019) lưu ý rằng các API ưa thích của ông phù hợp nhất cho mục đích AI và ML. Chẳng hạn, BigML sử dụng API để tạo tập dữ liệu, mô hình và các dự đoán sử dụng công nghệ ML. Một ví dụ khác, Anaconda Enterprise là một nền tảng khoa học dữ liệu sử dụng API để triển khai các mô hình học máy.
+
+### Các Ngôn ngữ Lập trình Tốt nhất Kế toán viên nên học cho các Ứng dụng Trí tuệ Nhân tạo
+
+Những kế toán viên có nền tảng kỹ thuật vững chắc về các ngôn ngữ lập trình sẽ có vị thế tốt nhất để làm việc với các nhà khoa học dữ liệu trong việc thực hiện các sáng kiến AI. Đối với những kế toán viên theo phong cách tự làm (do-it-yourself), những người có thể muốn tùy chỉnh các công nghệ AI để giải quyết các ứng dụng, việc học một ngôn ngữ lập trình sẽ khá hữu ích. Sự thành thạo các công cụ lập trình mã nguồn mở (open-source) phổ biến cho AI, chẳng hạn như Python và R, sẽ cho phép các kế toán viên tùy chỉnh các ứng dụng AI để phù hợp với nhu cầu kinh doanh riêng biệt của công ty hoặc khách hàng của họ. Các công cụ khác, chẳng hạn như SQL và NoSQL, sẽ hữu ích cho việc truy xuất, chỉnh sửa và thao tác dữ liệu để sử dụng cho các ứng dụng AI.
+
+
+# 15. Đạo đức và Pháp luật: Quản trị Vai trò của AI Tạo sinh trong Hệ thống Tài chính (Ethics and Laws: Governing Generative AI’s Role in Financial Systems)
+
+**Prakriti Dixit Porwal**
+Khoa Nghiên cứu Quản lý, Viện Nghiên cứu Kỹ thuật Geetanjali, Udaipur, Rajasthan, Ấn Độ
+
+> "AI có lẽ là điều quan trọng nhất mà nhân loại từng thực hiện"
+> – Sundar Pichai - CEO của Google và Alphabet
+
+## Tóm tắt (Abstract)
+Kể từ khi Trí tuệ Nhân tạo tạo sinh (Generative Artificial Intelligence - AI) trở nên phổ biến hơn trong các hệ thống tài chính, các mối quan tâm về đạo đức (ethics) và tuân thủ (compliance) đã nổi lên như những thông số quan trọng trong việc triển khai công nghệ này. Chương này thảo luận về mối quan hệ phức tạp giữa các công cụ AI tạo sinh với lĩnh vực tài chính, đặc biệt nhấn mạnh vào nhu cầu về các nguyên tắc đạo đức và cấu trúc pháp lý. Nghiên cứu làm nổi bật các tác động tiềm tàng của các kết quả do AI tạo ra, chẳng hạn như phổ biến thông tin sai lệch, dự báo thị trường (market forecasting) và các chiến lược giao dịch thuật toán (algorithmic trading strategies), tất cả đều có ý nghĩa trực tiếp đối với sự ổn định tài chính, bảo vệ người tiêu dùng và quyền riêng tư dữ liệu.
+
+Hơn nữa, chương này nhấn mạnh những thách thức phức tạp liên quan đến các định kiến (biases) vốn có, sự không rõ ràng trong trách nhiệm giải trình (accountability opacity), sự thiếu hụt tính minh bạch (transparency inadequacies), và những hậu quả không lường trước đã xuất hiện trong các hoàn cảnh thực tế. Để giải quyết những vấn đề này, một khuôn khổ toàn diện được cung cấp, kết hợp hài hòa các nền tảng đạo đức với các quy trình quản lý để thúc đẩy việc tích hợp an toàn và hợp pháp AI tạo sinh vào trong lĩnh vực ngân hàng.
+
+Hệ thống đòi hỏi sự giám sát liên tục, kiểm toán định kỳ và sự hợp lực giữa các lập trình viên AI, các công ty tài chính và các cơ quan quản lý. Nó tìm cách tận dụng các lợi ích của AI tạo sinh trong khi duy trì tính toàn vẹn của thị trường tài chính và bảo vệ lợi ích của tất cả các bên liên quan thông qua một cách tiếp cận cân bằng. Bằng cách đi theo con đường cân bằng này, chương hy vọng sẽ vượt qua địa hình ngày càng phát triển của AI tạo sinh trong tài chính, tập trung vào tiềm năng biến đổi của nó trong khi vẫn tuân thủ các tiêu chuẩn đạo đức và sự tuân thủ quy định (regulatory compliance).
+
+**Từ khóa:** AI tạo sinh (Generative AI), ứng dụng AI tài chính (finance AI applications), nguyên tắc đạo đức (ethical principles), khuôn khổ pháp lý và quy định (legal and regulatory framework)
+
+## Giới thiệu (Introduction)
+Sự tiến bộ của công nghệ trong lĩnh vực tài chính là rất to lớn. Nó bắt đầu với các giao dịch thủ công dựa trên giấy tờ và tiến tới ngân hàng kỹ thuật số (digital banking), giao dịch qua internet (internet trade), phân tích dựa trên trí tuệ nhân tạo (AI-driven analytics), blockchain cho các giao dịch an toàn và những đổi mới công nghệ tài chính (fintech) như thanh toán di động. Trong bối cảnh tài chính đầy biến động này, những tiến bộ công nghệ đã liên tục thay đổi cách chúng ta kinh doanh, quản lý đầu tư và đảm bảo sự bền vững của nền kinh tế. Trong những phát triển gần đây nhất, AI tạo sinh đang khẳng định mình là một động lực mạnh mẽ, ảnh hưởng đáng kể đến phương thức hoạt động của các tổ chức tài chính. Khi AI tạo sinh trở nên
+
+<!-- IMAGE_PLACEHOLDER: Figure 15.1 AI Ethics and Regulation in Finance -->
+
+phổ biến hơn trong lĩnh vực tài chính, nó đã thu hút sự chú ý đến yêu cầu cấp bách trong việc thấu hiểu sự tích hợp phức tạp giữa đạo đức (ethics) và luật pháp (laws) kiểm soát việc triển khai nó.
+
+Chương này mang lại một cái nhìn toàn diện về những phức tạp nảy sinh từ việc tích hợp AI tạo sinh vào các hệ thống tài chính. Nó nhấn mạnh tầm quan trọng thiết yếu của các nguyên tắc đạo đức và khuôn khổ pháp lý trong việc định hướng việc áp dụng công nghệ mang tính chuyển đổi này. Trong một kỷ nguyên mà các đầu ra do AI tạo ra có sức mạnh đối với các thành phần quan trọng như phân phối thông tin, dự đoán thị trường và các phương thức giao dịch thuật toán (algorithmic trading methods), việc thấu hiểu những hệ quả trực tiếp và sâu rộng đối với sự ổn định tài chính, bảo vệ người tiêu dùng và an ninh dữ liệu là điều tối quan trọng. Hơn nữa, nó khám phá các mối quan ngại phức tạp xoay quanh việc sử dụng AI trong tài chính, chẳng hạn như định kiến (biases), trách nhiệm giải trình (accountability), các vấn đề về tính minh bạch (transparency issues) và những kết quả bất ngờ. Để giải quyết những vấn đề này, chương đưa ra một hệ thống kết hợp giữa đạo đức và các quy định (regulations).
+
+Cấu trúc nói trên quy định sự giám sát liên tục (constant monitoring), kiểm toán thường xuyên (frequent audits) và một sự hợp lực mang tính xây dựng giữa các lập trình viên AI, các tổ chức tài chính và các cơ quan quản lý. Mục tiêu chính là tận dụng những lợi ích rõ ràng của AI tạo sinh trong khi vẫn bảo vệ sự toàn vẹn của thị trường tài chính và lợi ích của tất cả các bên liên quan. Chương này nỗ lực để vượt qua bối cảnh đang phát triển của AI tạo sinh trong lĩnh vực tài chính, tạo ra một sự cân bằng khó khăn giữa tiến bộ khoa học và trách nhiệm đạo đức.
+
+## Các ứng dụng của AI trong Hệ thống Tài chính (Applications of AI in Financial Systems)
+Ảnh hưởng sâu rộng của AI có thể thấy rõ trên nhiều ngành công nghiệp khác nhau, bao gồm cả tài chính và ngân hàng, trong nền kinh tế phát triển nhanh chóng ngày nay. Những ngành này đang đi đầu trong việc hiện thực hóa sức mạnh biến đổi của AI. Cho dù đó là sử dụng chatbot để giải đáp việc mở tài khoản tiết kiệm hay yêu cầu các ngân hàng thực hiện xác minh hoạt động thẻ tín dụng chủ động, AI đang thay đổi cách khách hàng tương tác với các dịch vụ tài chính. Sự phát triển này phản ánh xu hướng lớn hơn của việc áp dụng AI.
+
+
+- **Quyền riêng tư Dữ liệu (Data Privacy)**: Việc thu thập dữ liệu để phân tích AI làm dấy lên các vấn đề về quyền riêng tư. Các hệ thống AI trong tài chính yêu cầu quyền truy cập vào khối lượng lớn dữ liệu cá nhân và tài chính, chẳng hạn như hồ sơ giao dịch, điểm tín dụng và danh mục đầu tư. Để tránh việc truy cập trái phép và vi phạm dữ liệu, điều quan trọng là phải đảm bảo quyền riêng tư và bảo mật của dữ liệu này. Ví dụ: vụ vi phạm dữ liệu của Equifax vào năm 2017 đã làm lộ thông tin cá nhân của hàng triệu người, bao gồm cả thông tin tài chính của họ. Sự cố này đã nêu bật tầm quan trọng của các biện pháp bảo vệ an ninh mạng mạnh mẽ trong lĩnh vực tài chính.
+
+- **Thao túng Thị trường và Giao dịch Thuật toán (Market Manipulation and Algorithmic Trading)**: Các thuật toán giao dịch tần suất cao (High-frequency trading algorithms) có khả năng ảnh hưởng đến thị trường, gây ra các hành vi phi đạo đức. Giao dịch thuật toán đã nổi lên như một thế lực lớn trên thị trường tài chính, với các thuật toán thực hiện giao dịch với tốc độ chóng mặt. Mặc dù điều này có khả năng cải thiện hiệu quả thị trường, nhưng nó cũng làm tăng nguy cơ thao túng thị trường và sự sụp đổ chớp nhoáng (flash collapses). Trong "sự cố chớp nhoáng" (flash crash) vào ngày 6 tháng 5 năm 2010, Chỉ số Trung bình Công nghiệp Dow Jones đã giảm gần 1000 điểm trong vài phút trước khi phục hồi. Giao dịch thuật toán bị đổ lỗi cho đợt giảm giá này, làm dấy lên những lo ngại về sự ổn định của thị trường.
+
+- **Lập hồ sơ Khách hàng (Customer Profiling)**: Việc lập hồ sơ khách hàng dựa trên AI có thể xâm phạm quyền riêng tư và quyền tự do cá nhân. Các tổ chức tài chính và các công ty công nghệ thường xuyên sử dụng AI để tạo ra các mô tả toàn diện về khách hàng nhằm mục đích tiếp thị nhắm mục tiêu và đề xuất sản phẩm. Mặc dù điều này có thể cải thiện trải nghiệm của khách hàng, nhưng nó cũng làm dấy lên lo ngại về việc thu thập và thao túng dữ liệu mang tính xâm nhập. Ví dụ, các nhà bán lẻ sử dụng phân tích dự đoán (predictive analytics) để xác định và nhắm mục tiêu vào những người tiêu dùng yếu thế bằng các phương thức bán hàng hung hăng, từ đó lợi dụng những lỗ hổng cá nhân và tài chính của họ.
+
+- **Tuân thủ Quy định (Regulatory Compliance)**: Thách thức nằm ở chỗ sự tiến bộ nhanh chóng của AI có thể vượt xa các khuôn khổ pháp lý, dẫn đến những khoảng trống trong tuân thủ. Sự phát triển nhanh chóng của công nghệ AI thường vượt quá khả năng của các nhà chức trách trong việc soạn thảo và thực thi các quy định và tiêu chuẩn có thể chấp nhận được. Khi các công ty tài chính điều hướng trong bối cảnh pháp lý luôn thay đổi, điều này có thể gây ra các vấn đề về pháp lý và đạo đức. Ví dụ, sự xuất hiện của tiền điện tử (cryptocurrencies) và tài chính phi tập trung (decentralized finance - DeFi) đã tạo ra các vấn đề pháp lý cho các chính phủ và tổ chức tài chính trên toàn thế giới, khi họ cố gắng tìm ra cách giám sát những đổi mới tài chính mới này.
+
+- **Mất việc làm (Job Displacement)**: Việc tự động hóa các tác vụ tài chính có thể dẫn đến tình trạng mất việc làm và bất bình đẳng kinh tế. Việc sử dụng AI và tự động hóa trong các dịch vụ tài chính có thể dẫn đến việc thay thế sức lao động của con người, gây ra những thách thức lớn đối với lực lượng lao động hiện tại. Việc chuyển đổi sang một ngành tài chính được thúc đẩy bởi AI đòi hỏi các chương trình đào tạo và nâng cao kỹ năng để đảm bảo các nhân viên có thể thích ứng với môi trường làm việc mới.
+
+
+## Các Trường hợp Thực tiễn (Case Studies)
+
+- **Ngân hàng ICICI**: Việc sử dụng các chatbot AI (ví dụ: iPal) được tạo ra để giúp khách hàng giải quyết các thắc mắc và giao dịch của họ. Tuy nhiên, việc triển khai chúng đã gây ra các vấn đề về quyền riêng tư và bảo mật. Mặc dù Ngân hàng ICICI đã cố gắng cải thiện trải nghiệm của khách hàng thông qua việc áp dụng AI, nhưng ngân hàng này cũng bị giám sát chặt chẽ về cách xử lý dữ liệu nhạy cảm của khách hàng. Ví dụ này nhấn mạnh tầm quan trọng sống còn của việc kết hợp sử dụng AI trong các dịch vụ tài chính với luật bảo vệ dữ liệu nghiêm ngặt và các cân nhắc đạo đức để bảo vệ an ninh thông tin khách hàng và duy trì niềm tin vào các dịch vụ được hỗ trợ bởi AI.
+
+- **Paytm**: Một công ty công nghệ tài chính (fintech) nổi tiếng của Ấn Độ, đã bước vào lĩnh vực giao dịch thuật toán (algorithmic trading), được hỗ trợ bởi các công cụ dựa trên AI như các thuật toán độc quyền. Mặc dù mang tính đổi mới, nhưng liên doanh này đã làm dấy lên những lo ngại về quy định đối với tính toàn vẹn và công bằng của thị trường. Sự lây lan nhanh chóng của giao dịch thuật toán làm gia tăng mối lo ngại về khả năng thao túng thị trường (market manipulation). Trường hợp của Paytm nhấn mạnh tầm quan trọng của việc có luật pháp rộng rãi và có thể thích ứng để giám sát sự tham gia của AI vào thương mại. Các quy tắc như vậy không chỉ nên giải quyết vấn đề thao túng thị trường mà còn cả tính minh bạch, trách nhiệm giải trình và các mối quan tâm về đạo đức để đảm bảo rằng các hoạt động giao dịch do AI thúc đẩy nhất quán với các nguyên tắc thị trường công bằng và thúc đẩy niềm tin của nhà đầu tư.
+
+- **Ngân hàng HDFC**: Ngân hàng này đã sử dụng các phương pháp chấm điểm tín dụng (credit scoring methods) do AI cung cấp, bao gồm các thuật toán học máy, để đánh giá những người nộp đơn xin vay. Tuy nhiên, đã xảy ra các tình huống trong đó các đánh giá do AI thúc đẩy này có vẻ bị thiên vị (biased), đặc biệt là trong các lựa chọn cho vay. Những nghiên cứu như vậy đã tạo ra các câu hỏi đạo đức về tính khách quan của xếp hạng tín dụng do AI thúc đẩy. Câu chuyện này minh họa một cách rõ ràng tầm quan trọng sống còn của việc chủ động giải quyết sự thiên vị (bias) trong các thuật toán AI để đảm bảo rằng các hoạt động cho vay là công bằng và không có sự phân biệt đối xử. Nó nhấn mạnh trách nhiệm của các tổ chức tài chính trong việc thường xuyên đánh giá và tinh chỉnh các mô hình AI của họ để thúc đẩy sự công bằng và cởi mở trong các quy trình đánh giá tín dụng, từ đó duy trì các chuẩn mực đạo đức trong các dịch vụ tài chính.
+
+- **Aditya Birla Capital**: Sử dụng AI, bao gồm các thuật toán xử lý ngôn ngữ tự nhiên (NLP), để cung cấp cho khách hàng các dịch vụ quản lý danh mục đầu tư và tư vấn đầu tư được cá nhân hóa. Mặc dù sự tích hợp AI này hứa hẹn sẽ cải thiện trải nghiệm của người tiêu dùng bằng cách cung cấp lời khuyên tài chính được cá nhân hóa, nhưng nó cũng làm nổi bật những lo ngại về đạo đức liên quan đến quyền riêng tư và bảo mật của dữ liệu tài chính nhạy cảm. Trường hợp này nhấn mạnh nhu cầu cấp thiết về luật bảo vệ dữ liệu toàn diện và cập nhật trong lĩnh vực tài chính. Những luật này không chỉ nên bảo vệ thông tin khách hàng mà còn tạo ra các hướng dẫn rõ ràng cho việc sử dụng AI một cách có đạo đức.
+
+
+`;
+        
+        document.getElementById('vi-markdown').innerHTML = marked.parse(viMarkdown);
+
+        function switchTab(lang) {
+            document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.content').forEach(content => content.classList.remove('active'));
+
+            if (lang === 'en') {
+                document.querySelector('.tab[onclick*="switchTab(\'en\')"]').classList.add('active');
+                document.getElementById('en-content').classList.add('active');
+            } else if (lang === 'vi') {
+                document.querySelector('.tab[onclick*="switchTab(\'vi\')"]').classList.add('active');
+                document.getElementById('vi-content').classList.add('active');
+            } else if (lang === 'slide') {
+                document.querySelector('.tab[onclick*="switchTab(\'slide\')"]').classList.add('active');
+                document.getElementById('slide-content').classList.add('active');
+            }
+        }
+    </script>
+
+</body>
+</html>

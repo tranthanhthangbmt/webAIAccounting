@@ -1,0 +1,410 @@
+EX 3.7  (LO 3, 6)  Kế toán tài chính   Phân tích xu hướng và mối tương quan Ban kiểm soát công ty 
+yêu cầu nhóm phân tích các khoản phải thu và tuổi thọ của các khoản phải thu so với trước 
+năm. Phân tích mô tả của bạn cho thấy các khoản phải thu tăng so với năm trước, trong khi doanh thu 
+vẫn ổn định. Vì bạn là thực tập sinh tại nơi làm việc nên đồng nghiệp của bạn đã yêu cầu bạn xem xét 
+các câu hỏi phân tích chẩn đoán mà bạn phải hỏi để lập kế hoạch phân tích. Bạn đã được cung cấp dữ liệu 
+từ điển.
+Trường dữ liệu
+Mô tả
+Bán hàngSố thứ tự
+Số đơn đặt hàng được chỉ định duy nhất.
+ID khách hàng
+Mã số khách hàng được chỉ định duy nhất.
+Tên khách hàng
+Một tên khách hàng.
+Tín dụng khách hàng
+Hạn mức tín dụng của khách hàng.
+Địa chỉ khách hàng
+Địa chỉ gửi thư của Bưu điện Hoa Kỳ và tên đường phố.
+Khách HàngThành Phố
+Địa chỉ gửi thư TP.
+Khách hàngTrạng thái
+Trạng thái địa chỉ gửi thư.
+Khách hàngZipcode
+Mã zip địa chỉ gửi thư.
+Khách hàngThanh toánĐiều khoản
+Điều kiện thanh toán được thỏa thuận với khách hàng.
+ngày đặt hàng bán hàng
+Ngày đặt hàng bán hàng.
+ID đơn hàng bán hàng
+Số mặt hàng có thể nhận dạng duy nhất.
+Đơn hàng bán hàngMô tả
+Mô tả mặt hàng.
+Mặt hàngGiá
+Giá bán của mặt hàng theo các điều khoản đã thương lượng với khách hàng.
+Mặt hàngSố lượng
+Tổng số lượng mặt hàng đã bán cho khách hàng.
+Số hóa đơn
+Số hóa đơn được chỉ định duy nhất.
+Hóa đơnSố tiền
+Tổng số tiền trên hóa đơn, bao gồm phí vận chuyển và thuế.
+Số tiền đã trả
+Tổng số tiền thanh toán nhận được từ khách hàng.
+Ngày thanh toán
+Ngày hóa đơn được thanh toán.
+Hoàn thành các câu hỏi mục tiêu chẩn đoán trong biểu đồ.
+Mục tiêu
+Câu hỏi ban đầu
+Câu hỏi phụ
+Các biện pháp khả thi
+Hiểu lý do tại sao 
+khoản phải thu 
+tăng so với 
+đến năm trước.
+1. 
+2. 
+3. 
+EX 3.8  (LO 3, 6)  Dữ liệu   Hệ thống thông tin kế toán   Phân tích xu hướng và tương quan Bạn 
+và nhóm của bạn đã theo dõi số lượng mối đe dọa an ninh mạng được nhân viên báo cáo. Nhân viên có thể 
+báo cáo các mối đe dọa an ninh mạng như các nỗ lực lừa đảo và các chuyên gia CNTT có thể báo cáo các mối đe dọa thông qua 
+kiểm tra báo cáo đăng nhập hàng tháng.
+Phân tích mô tả ban đầu của bạn cho thấy rằng trong ba năm qua, có 313 sự cố mạng đã xảy ra. 
+báo cáo. Có 73 báo cáo vào năm 2023, 111 vào năm 2024 và 129 vào năm 2025. Người quản lý của bạn muốn 
+hiểu tại sao các báo cáo về sự cố mạng lại tăng lên. Bạn đã bắt đầu xác định được những câu hỏi ban đầu, 
+câu hỏi phụ và các biện pháp khả thi cho phân tích của bạn trong biểu đồ sau. Hoàn thành biểu đồ.
+
+Bài tập  3-55
+Mục tiêu
+Câu hỏi ban đầu
+Câu hỏi phụ
+Các biện pháp khả thi
+Xác định lý do tại sao cyber 
+báo cáo sự cố là 
+ngày càng tăng.
+Có thêm mạng không 
+báo cáo sự cố 
+trong một thời gian cụ thể 
+khoảng thời gian?
+Tạo biểu đồ đường của 
+báo cáo sự cố mạng 
+theo thời gian và xem xét 
+cho một xu hướng hoặc mô hình.
+Thực hiện tương quan 
+giữa đào tạo 
+chi phí và mạng 
+sự cố được báo cáo bởi 
+sử dụng CORREL 
+hàm trong Excel.
+	 4. Thực hiện các phân tích có thể.
+EX 3.9  (LO 4, 6)  Dữ liệu   Hệ thống thông tin kế toán   Đường xu hướng Bộ điều khiển của bạn đã yêu cầu 
+bạn chứng minh mối quan hệ giữa chi phí đào tạo an ninh mạng và số lượng hợp lệ 
+các mối đe dọa an ninh mạng được báo cáo bởi nhân viên. Bạn đã thu thập dữ liệu hàng tháng báo cáo hàng tháng 
+chi phí đào tạo an ninh mạng và số lượng các mối đe dọa an ninh mạng hợp lệ được nhân viên báo cáo. Cre-
+đã ăn một biểu đồ đường thể hiện mối quan hệ giữa hai biến này. Bao gồm đường xu hướng, phương trình, 
+và R-bình phương của phân tích của bạn.
+EX 3.10  (LO 5, 6)  Dữ liệu   Kiểm toán   Bán hàng Trả lại Quy trình Phân tích Bạn là thực tập sinh kiểm toán 
+biên chế cho năm tài chính kết thúc ngày 31 tháng 12 năm 2025 kiểm toán báo cáo tài chính của một công ty tư nhân. của bạn 
+chuyên gia kiểm toán rất vui mừng vì bạn vừa hoàn thành khóa học phân tích dữ liệu trong khóa học kế toán và muốn bạn 
+sử dụng kiến thức của bạn về phân tích dự đoán để phát triển kỳ vọng về lợi nhuận bán hàng dựa trên số lượng bán hàng
+năng thực hiện các thủ tục phân tích. Bạn đã tham gia vào tư duy phản biện và phát triển biểu đồ từng phần.
+Hoàn thành biểu đồ:
+Mục tiêu
+Câu hỏi ban đầu
+Câu hỏi phụ
+Các biện pháp khả thi
+Dự đoán lợi nhuận bán hàng.
+Doanh số sẽ là bao nhiêu 
+trả về thay đổi nếu chúng ta 
+có mức tăng 10% 
+số lượng bán hàng?
+Phân tích hồi quy
+	 2. Thực hiện phân tích hồi quy để dự đoán số tiền thu được từ doanh thu bằng cách sử dụng số lượng bán hàng.
+	 3. Viết phương trình hồi quy.
+	 4. R2 cho mô hình hồi quy là bao nhiêu?
+EX 3.11  (LO 5, 6)  Dữ liệu   Kế toán tài chính   Ước tính chi phí bảo hành cho các khoản dồn tích như một 
+kế toán tài chính cho một công ty sản xuất vật dụng công cộng, bạn được cấp một tệp dữ liệu và được yêu cầu 
+để tính toán và ghi sổ nhật ký điều chỉnh cuối tháng. Bạn phải tính toán chi phí bảo hành 
+số tiền cho tháng 1 năm 2025.
+	 1. Thực hiện hồi quy để dự đoán chi phí bảo hành bằng số lượng bán hàng.
+	 2. Viết phương trình hồi quy.
+	 3. Bạn vừa thực hiện truy vấn hệ thống thông tin kế toán của công ty bạn và xác định rằng 
+Số lượng bán hàng tháng 1 năm 2026 là 10.385. Viết nhật ký ghi chi phí bảo hành.
+EX 3.12  (LO 5, 6)  Dữ liệu   Kế toán quản lý   Phân tích xu hướng Bạn là nhà phân tích tài chính hỗ trợ
+chuyển hệ thống điều khiển sang một công ty tư nhân sản xuất đĩa, khay giấy và các vật dụng dùng một lần khác 
+sản phẩm giấy. Công ty này thuộc sở hữu của một nhóm đầu tư cổ phần tư nhân (PE). Bảng PE là liên
+được đánh giá cao trong việc tiết kiệm chi phí và xác định tính hiệu quả trong các quy trình của công ty. Bạn đã thu thập hàng tháng 
+dữ liệu về số lần thay đổi khuôn và chi phí bảo trì hàng tháng. Mục tiêu là dự đoán các 
+chi phí bảo trì cho kỳ tiếp theo.
+	 1. Chạy phân tích hồi quy bằng cách sử dụng các thay đổi cụ thể để dự đoán chi phí bảo trì.
+	 2. Viết phương trình hồi quy.
+	 3. Nếu công ty có kế hoạch thực hiện 650 lần thay đổi khuôn mẫu trong tháng 1 năm 2024, thì giá trị là bao nhiêu? 
+chi phí bảo trì dự kiến của công ty?
+1. 
+2. 
+3. 
+1.
+
+3-56  CHƯƠNG 3  Động cơ và Mục tiêu Phân tích Dữ liệu
+EX 3.13  (LO 4, 6)  Dữ liệu   Kiểm toán   Phân tích dự đoán Công ty Kahn & Williams CPA là bên ngoài
+kiểm toán viên cuối cùng cho Super Scooters. Nhóm kiểm toán đang thực hiện các thử nghiệm cơ bản về doanh thu và 
+đã thiết kế một thử nghiệm sử dụng phân tích dự đoán để đánh giá tính hợp lý của Super Scooters được báo cáo 
+doanh thu. Mục tiêu là đánh giá doanh thu ghi nhận cho hợp lý. Câu hỏi ban đầu là: Liệu 
+doanh thu hàng tháng được báo cáo thay đổi đáng kể so với doanh thu hàng tháng được dự đoán từ hoạt động tương tác 
+mô hình hồi quy của nhóm? Mô hình của nhóm dựa trên dữ liệu hàng tháng của ba năm trước. Hơn nữa, 
+nhóm tin rằng doanh thu được thúc đẩy bởi khối lượng bán hàng và giá trung bình của xe tay ga được bán trong thời gian 
+tháng. Nhóm đã quyết định rằng bất kỳ sự khác biệt nào giữa doanh thu dự đoán và doanh thu thực tế 
+lớn hơn sai số chuẩn (tính bằng đô la tuyệt đối), cần được điều tra thêm.
+Đầu ra tóm tắt được đưa ra ở đây:
+MÔ HÌNH DOANH THU DỰ BÁO
+Nhiều R
+R vuông
+Hình vuông R đã điều chỉnh
+Lỗi chuẩn
+Quan sát
+ANOVA
+0.997170819
+0.994349643
+0.994007197
+27302.53042
+36
+df
+SS
+MS
+F
+4.328.953.815.697,83
+24.599.129.513,81
+Hồi quy
+dư
+Tổng cộng
+2
+33
+35
+4.353.552.945.211,64
+2.164.476.907.848,92
+745.428.167,09
+2.903,67
+0,00
+79141.28598
+7.525920213
+Đánh chặn
+khối lượng
+Giá trung bình
+−597355.3555
+424.0763009
+1453.623412
+208.2682902
+6.97957145
+−7.547961195
+56.34876386
+5.57457E-08
+2.20655E-34
+1.10769E-08
+Ý nghĩa F
+hệ số
+Lỗi chuẩn
+t Thống kê
+giá trị P
+1029.89839
+408.7647011
+−758369.5125
+Thấp hơn 95%
+1029.89839
+408.7647011
+−758369.5125
+Thấp hơn 95,0%
+1877.348434
+439.3879007
+−436341.1985
+Trên 95%
+1877.348434
+439.3879007
+−436341.1985
+Trên 95,0%
+TÓM TẮT ĐẦU RA
+Thống kê hồi quy
+	 1. Biến phụ thuộc trong mô hình (phạm vi y) là gì?
+	 2. Các biến độc lập trong mô hình (phạm vi x) là gì?
+	 3. Phương trình hồi quy cho mô hình này là gì?
+EX 3.14  (LO 5, 6)  Dữ liệu   Kế toán quản lý   Tối ưu hóa Người quản lý sản xuất của bạn có 
+yêu cầu bạn xác định số lượng mặt hàng cần sản xuất để tối đa hóa sự đóng góp của công ty.
+biên lợi nhuận trong kỳ. Công ty của bạn có bốn sản phẩm:
+•  Tiện ích tiêu chuẩn
+•  Vật dụng bay màu xanh
+•  Dụng cụ bơi màu đỏ
+•  Vật dụng nhảy màu vàng
+Bạn đã tạo một bảng tính phác thảo nhu cầu, số giờ máy trên mỗi đơn vị, tỷ lệ đóng góp 
+trên mỗi đơn vị và tổng số giờ máy. Sử dụng Microsoft Solver để xác định số lượng đơn vị được sản xuất 
+cho từng sản phẩm và mức đóng góp tối đa. 
+EX 3.15  (LO 5)  Dữ liệu   Kế toán quản lý   Sử dụng tối ưu hóa tuyến tính để xác định sản phẩm-
+uct Kết hợp và kiếm lợi nhuận Bạn và những người bạn cùng phòng đại học của bạn mở một doanh nghiệp thiết kế và chế tạo chó và mèo 
+dây xích có logo và màu sắc của trường đại học của bạn. Bạn đã quyết định cung cấp dây xích có ba chiều dài: 6, 8 và 12 feet.
+Hơn nữa, bạn có hai loại dây buộc: “tiêu chuẩn” hoặc “trang trí”. Trong khi dây buộc trang trí mất 
+tạo ra lâu hơn, họ có tỷ suất lợi nhuận lớn trên mỗi sản phẩm. Tuy nhiên, dây xích tiêu chuẩn ở mức cao hơn 
+nhu cầu. Bạn và hai người bạn cùng phòng đã cùng nhau lên lịch trình để có thể sắp xếp mọi việc phù hợp. 
+tuần của bạn - điều này bao gồm các lớp học, sự kiện xã hội và thời gian chế tạo. Vì bạn đã đăng ký dữ liệu 
+phân tích trong khóa học kế toán, bạn đã tình nguyện tính toán xem bạn có bao nhiêu loại dây buộc 
+nên sản xuất hàng tuần dựa trên nhu cầu, lợi nhuận gộp cho mỗi sản phẩm và giới hạn về giờ làm việc.
+	 1. Thực hiện tối ưu hóa tuyến tính bằng Excel Solver.
+	 2. Bạn và hai người bạn cùng phòng nên sản xuất bao nhiêu sản phẩm mỗi tuần?
+	 3. Tổng lợi nhuận gộp mà bạn mong đợi kiếm được dựa trên sản lượng chó hàng tuần là bao nhiêu? 
+dây xích?
+	 4. Có bất kỳ hạn chế nào được xác định trong báo cáo câu trả lời là không mang tính ràng buộc không?
+
+Bài tập  3-57
+EX 3.16  (LO 4, 5)  Dữ liệu   Xây dựng bảng tính và xác định các hạn chế cùng với trường đại học của bạn 
+bạn cùng phòng, bạn đang mở cơ sở kinh doanh sản xuất mũ trang trí, áo phông và tất cùng trường đại học của mình 
+màu sắc. Bạn đã quyết định bắt đầu với năm sản phẩm cốt lõi:
+•  Mũ bóng trang trí
+•  Áo thun trang trí “GO Team”
+•  Trang trí “Phòng thủ giành chức vô địch” 
+áo thun
+•  Tất trang trí
+•  Tất trang trí cao đến đầu gối
+Là một phần trong kế hoạch kinh doanh của bạn, bạn muốn tính tổng số lượng của từng sản phẩm để tạo ra mỗi sản phẩm. 
+tuần. Bạn dự định sử dụng Microsoft Solver để xác định số lượng đơn vị tối đa cần tạo cho 
+những hạn chế. Bạn muốn tối đa hóa lợi nhuận của công ty mình do những hạn chế về số giờ làm việc mỗi người
+con trai. Bảng này nêu tổng lợi nhuận và số giờ chế tạo trên mỗi đơn vị cho mỗi mặt hàng.
+sản phẩm
+Lợi nhuận gộp trên mỗi mặt hàng
+Số giờ chế tạo cho mỗi mặt hàng
+Mũ bóng
+5 giờ 00
+4
+Áo thun đội GO
+7 giờ 50
+2,5
+Áo thun phòng thủ giành chức vô địch
+7 giờ 50
+3
+Tất
+3h30
+6
+Vớ cao đến đầu gối
+4,50
+3,5
+Ngoài ra, bạn và bạn cùng phòng đã cam kết làm việc với số giờ sau mỗi tuần:
+•  Bạn: 20
+•  Bạn cùng phòng 1: 20
+•  Bạn cùng phòng 2: 15
+•  Bạn cùng phòng 3: 10
+1. Xây dựng bảng tính mô hình tối ưu hóa tuyến tính.
+2. Tính tổng số đơn vị sản phẩm cần sản xuất mỗi tuần.
+3. Tổng lợi nhuận gộp mà bạn mong đợi kiếm được dựa trên sản lượng hàng tuần là bao nhiêu?
+4. Có bất kỳ hạn chế nào được xác định trong báo cáo câu trả lời là không mang tính ràng buộc không?
+EX 3.17  (LO 5, 6)  Dữ liệu   Kế toán quản lý   Tối ưu hóa tuyến tính Tiana's Jewel Design, Inc. 
+thiết kế và sản xuất đồ trang sức bằng kim loại được sản xuất hàng loạt và đồ trang sức mạ bạc được thiết kế theo yêu cầu. 
+Hiện tại, chủ sở hữu thiết kế và sản xuất ba dòng trang sức theo yêu cầu: dây chuyền, vòng tay và hoa tai. 
+(các biến quyết định). Sau đây là tỷ lệ đóng góp và các yêu cầu về nguồn lực cho từng sản phẩm.
+ $ 12,00
+$8,00
+8
+1
+1
+$ 14,00
+13
+5
+2
+22
+4
+2
+Số giờ gia công trên mỗi đơn vị
+Số giờ thiết kế trên mỗi đơn vị
+Vật liệu trực tiếp, ounce trên mỗi đơn vị
+Yêu cầu về nguồn lực:
+Tỷ lệ đóng góp trên mỗi đơn vị
+dây chuyền
+Vòng tay
+Bông tai
+Họ muốn tối đa hóa tỷ lệ đóng góp (hàm mục tiêu). Tuy nhiên, chủ sở hữu có 
+những hạn chế này:
+•  Hợp đồng sản xuất ít nhất 10 đôi bông tai theo yêu cầu mỗi tháng.
+•  Họ có thể bán tất cả các dây chuyền và bông tai thiết kế riêng được sản xuất 
+•  Nhu cầu về vòng đeo tay theo yêu cầu chỉ là 30 chiếc một tháng.
+•  Mỗi tháng có thể mua được 800 ounce đĩa bạc. 
+•  Hai nhà thiết kế làm việc tổng cộng 120 giờ một tháng.
+•  Ước tính có khoảng 80 giờ gia công mỗi tháng.
+1. Sử dụng Microsoft Excel Solver để tạo mô hình tối ưu tuyến tính.
+2. Mỗi sản phẩm nên được sản xuất bao nhiêu để tối đa hóa lợi nhuận đóng góp?
+3. Có bất kỳ ràng buộc nào mang tính ràng buộc không?
+4. Dựa trên kết quả của báo cáo trả lời, bạn sẽ đưa ra lời khuyên gì cho chủ sở hữu?
+
+3-58  CHƯƠNG 3  Động cơ và Mục tiêu Phân tích Dữ liệu
+Trường hợp ứng tuyển chuyên nghiệp: Công ty dịch vụ chăm sóc sức khỏe
+Kindred Healthcare là công ty dịch vụ chăm sóc sức khỏe hậu cấp tính, vận hành các dịch vụ chăm sóc cấp tính dài hạn và 
+dịch vụ phục hồi chức năng trên khắp Hoa Kỳ. Các bệnh viện của Kindred cung cấp dịch vụ chăm sóc chuyên sâu giống như bệnh viện 
+bệnh nhân sẽ được điều trị tại bệnh viện truyền thống nhưng phải mất thời gian hồi phục kéo dài. Dữ liệu được sử dụng trong này 
+trường hợp này dựa trên dữ liệu thực tế từ Cổng Dữ liệu Mở Dịch vụ Nhân sinh và Y tế California.
+Kindred có 13 bệnh viện chăm sóc cấp tính dài hạn ở California:
+	
+• Công viên Baldwin	
+•  Ven sông
+	
+• Brea	
+•  Sacramento
+	
+• La Mirada	
+•  San Diego
+	
+• Los Angeles	
+•  Khu vực Vịnh San Francisco
+	
+• Ontario	
+•  Vịnh Nam
+	
+• Tối thượng	
+•  Westminster
+	
+• Nông trại	
+Các địa điểm bệnh viện ở California được hợp nhất vào báo cáo tài chính đã được kiểm toán 
+bởi kiểm toán viên bên ngoài và cung cấp cho ban giám đốc, nhà đầu tư chính của công ty và 
+các tổ chức tài chính đã gia hạn các khoản vay ngân hàng. Báo cáo thu nhập trong ba năm trước 
+được cung cấp.
+2019
+(chưa được kiểm toán)
+2018
+(đã kiểm toán)
+2017
+(đã kiểm toán)
+Tổng doanh thu của bệnh nhân
+$2,802,211,999
+$2,515,881,547
+$2,423,431,540
+Các khoản khấu trừ từ 
+Doanh thu
+$2,206,888,182
+$1,940,233,238
+$1,869,518,824
+Doanh thu ròng của bệnh nhân
+$ 595,323,817
+$ 575,648,309
+$ 553,912,716
+Hoạt động khác 
+Doanh thu
+$ 2,262,385
+$ 2,367,007
+$ 2,663,316
+Chi phí hoạt động
+$ 579,928,100
+$523,090,033
+$ 506,521,633
+Doanh thu thuần từ 
+Hoạt động
+$17,658,102
+$ 54,925,283
+$50,054,399
+Không hoạt động 
+Doanh thu
+$ 1,237,718
+970.497 USD
+$763,174
+Không hoạt động 
+chi phí
+$110,477
+200.367 USD
+$ 385,724
+Thuế thu nhập
+$86,442
+73.200 USD
+$ 25,176
+Thu nhập ròng
+$18,698,901
+$55,622,213
+$50,406,673
+Báo cáo tài chính được lập dựa trên số tiền hàng năm từ mỗi địa phương ở California.
+ý kiến. Đơn vị hợp nhất đã cung cấp một tệp dữ liệu chứa dữ liệu hàng năm theo vị trí cho nhiều loại 
+của các trường dữ liệu.
+
+Kiểm toán PAC 3.1 : Xây dựng mục tiêu và câu hỏi cho Kế hoạch kiểm toán
+Dữ liệu   Kiểm toán   Bạn là nhân viên năm thứ hai tại một công ty kế toán công được phân công phụ trách 
+sự tham gia của Bệnh viện Kindred, đây là một sự tham gia mới của công ty. Bạn đã được yêu cầu 
+thực hiện phân tích mô tả, chẩn đoán và dự đoán cho nhóm tương tác của bạn.

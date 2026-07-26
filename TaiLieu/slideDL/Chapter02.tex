@@ -1,0 +1,404 @@
+\documentclass[aspectratio=169]{beamer}
+\usetheme{Madrid}
+\usecolortheme{default}
+\usepackage[utf8]{inputenc}
+\usepackage[T5]{fontenc}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{amsmath}
+
+\setbeamertemplate{caption}[numbered]
+\renewcommand{\figurename}{Hình}
+\renewcommand{\thefigure}{2.\arabic{figure}}
+
+\title[Chương 2: Toán học của NN]{Học Sâu (Deep Learning) \\ \vspace{0.5cm} \Large Chương 2: Nền tảng Toán học của Mạng Nơ-ron}
+\author{Đại học Đông Á}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame}{Nội dung chương}
+    \tableofcontents
+\end{frame}
+
+% ---------------------------------------------
+\section{1. Ví dụ đầu tiên về Mạng Nơ-ron (MNIST)}
+% ---------------------------------------------
+
+\begin{frame}{Ví dụ kinh điển: Tập dữ liệu MNIST}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item \textbf{Bài toán:} Phân loại ảnh các chữ số viết tay (từ 0 đến 9).
+            \item \textbf{Dữ liệu:} $60.000$ ảnh huấn luyện, $10.000$ ảnh kiểm tra.
+            \item Kích thước mỗi ảnh: $28 \times 28$ pixels (ảnh xám đen trắng).
+            \item Trong học máy: 
+            \begin{itemize}
+                \item Phân loại (Category) gọi là \textbf{Lớp (Class)}.
+                \item Dữ liệu đầu vào gọi là \textbf{Mẫu (Sample)}.
+                \item Kết quả của mẫu gọi là \textbf{Nhãn (Label)}.
+            \end{itemize}
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.7\textheight,keepaspectratio]{../../images/ch02/MNIST-sample-digits.3d651e1d.png}
+            \caption{Một số mẫu ảnh từ MNIST}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Xem xét một mẫu dữ liệu (Sample)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Mỗi bức ảnh là một ma trận số nguyên.
+            \item Giá trị từ $0$ (trắng) đến $255$ (đen).
+            \item Ở đây chúng ta hiển thị mẫu thứ 4 trong tập huấn luyện (chữ số '4').
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.7\textheight,keepaspectratio]{../../images/ch02/The-fourth-sample-in-our-dataset.8685ed9a.png}
+            \caption{Biểu diễn ma trận của một ảnh chữ số '4'}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+% ---------------------------------------------
+\section{2. Biểu diễn dữ liệu bằng Tensor}
+% ---------------------------------------------
+
+\begin{frame}{Định nghĩa Tensor (Bộ căng)}
+    Trong học sâu, mọi dữ liệu đều được biểu diễn thông qua các mảng đa chiều gọi là \textbf{Tensor}. Số lượng trục (axes) của tensor được gọi là Hạng (Rank).
+    \begin{itemize}
+        \item \textbf{Vô hướng (Scalar) - Tensor 0D:} Chỉ chứa một con số duy nhất. Ví dụ: $x = 12$.
+        \item \textbf{Vector - Tensor 1D:} Một mảng các con số. Trục duy nhất biểu diễn số chiều của vector.
+        \item \textbf{Ma trận (Matrix) - Tensor 2D:} Một mảng của các vector (có Hàng và Cột).
+        \item \textbf{Tensor 3D:} Xếp các ma trận thành hình hộp.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Tensors trong thực tế: Dữ liệu Chuỗi thời gian}
+    \begin{columns}
+        \column{0.5\textwidth}
+        Dữ liệu chuỗi thời gian (Timeseries) hoặc chuỗi trình tự thường được biểu diễn bằng \textbf{Tensor 3D}.
+        \begin{itemize}
+            \item Chiều 1: Mẫu (Samples)
+            \item Chiều 2: Thời gian (Timesteps)
+            \item Chiều 3: Đặc trưng (Features)
+        \end{itemize}
+        \vspace{0.3cm}
+        \textit{Ví dụ:} Giá cổ phiếu mỗi phút (giá hiện tại, giá cao nhất, giá thấp nhất) thu thập trong 390 phút mỗi ngày.
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.7\textheight,keepaspectratio]{../../images/ch02/timeseries_data.a711cc5a.png}
+            \caption{Tensor 3D cho dữ liệu chuỗi thời gian}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Tensors trong thực tế: Dữ liệu Ảnh}
+    \begin{columns}
+        \column{0.5\textwidth}
+        Ảnh kỹ thuật số thường có 3 chiều: Chiều cao, Chiều rộng và Kênh màu (Color channels).
+        \begin{itemize}
+            \item \textbf{Lô ảnh (Batch of images):} Trở thành một \textbf{Tensor 4D}.
+            \item \textit{Ví dụ:} Một lô 128 bức ảnh màu cỡ $256 \times 256$ có hình dạng (Shape) là $(128, 256, 256, 3)$.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.7\textheight,keepaspectratio]{../../images/ch02/image_data.8accee38.png}
+            \caption{Tensor 4D biểu diễn dữ liệu ảnh màu}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+% ---------------------------------------------
+\section{3. Phép toán Tensor (Tensor Operations)}
+% ---------------------------------------------
+
+\begin{frame}{Tính chất Toán học}
+    \begin{columns}
+        \column{0.5\textwidth}
+        Trong học sâu, mọi phép biến đổi tại layer đều có thể quy về:
+        \begin{equation}
+            \mathbf{output} = \text{relu}(\mathbf{W} \cdot \mathbf{input} + \mathbf{b})
+        \end{equation}
+        Bao gồm 3 phép toán tensor cơ bản:
+        \begin{enumerate}
+            \item Phép nhân ma trận (\textit{dot product}): $\mathbf{W} \cdot \mathbf{input}$
+            \item Phép cộng (\textit{addition}): $+ \mathbf{b}$
+            \item Phép toán trên từng phần tử (\textit{relu}): hàm $f(x) = \max(x, 0)$
+        \end{enumerate}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.7\textheight,keepaspectratio]{../../images/ch02/matrix_dot_box_diagram.3dc0f796.png}
+            \caption{Sơ đồ minh họa phép nhân ma trận (Dot product)}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Ý nghĩa Hình học (1): Hàm số và Tính liên tục}
+    \begin{columns}
+        \column{0.5\textwidth}
+        Mỗi phép toán tensor đều biến đổi không gian hình học.
+        \begin{itemize}
+            \item Một mạng nơ-ron thực chất là một \textbf{hàm toán học (function)}.
+            \item Hàm số này phải \textbf{liên tục (continuous)} và \textbf{trơn (smooth)}.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=0.8\textwidth,height=0.4\textheight,keepaspectratio]{../../images/ch02/function.4b000cb3.png}
+            
+            \vspace{0.2cm}
+            \includegraphics[width=0.8\textwidth,height=0.4\textheight,keepaspectratio]{../../images/ch02/continuity.98fd80b7.png}
+            \caption{Hàm số ánh xạ và tính liên tục trơn}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Ý nghĩa Hình học (2): Tịnh tiến, Phóng to, Quay}
+    \begin{columns}
+        \column{0.33\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth]{../../images/ch02/translation.c123da84.png}
+            \caption{\textbf{Tịnh tiến (Translation):} Cộng vector}
+        \end{figure}
+        
+        \column{0.33\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth]{../../images/ch02/rotation.8f4da7c4.png}
+            \caption{\textbf{Quay (Rotation):} Phép nhân ma trận}
+        \end{figure}
+        
+        \column{0.33\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth]{../../images/ch02/scaling.8cca5e17.png}
+            \caption{\textbf{Thu phóng (Scaling):} Nhân vô hướng}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Ý nghĩa Hình học (3): Phép biến đổi Affine \& Dense layer}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item \textbf{Phép biến đổi Affine} là sự kết hợp của một phép biến đổi tuyến tính (nhân ma trận) và một phép tịnh tiến (cộng vector).
+            \item Đó chính xác là những gì diễn ra bên trong một lớp `Dense`: $y = W \cdot x + b$.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=0.8\textwidth]{../../images/ch02/affine_transform.80be4403.png}
+            
+            \vspace{0.2cm}
+            \includegraphics[width=0.8\textwidth]{../../images/ch02/dense_transform.d8a02328.png}
+            \caption{Biến đổi không gian qua lớp Dense}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Ý nghĩa Hình học (4): Gỡ rối dữ liệu}
+    Học sâu bản chất là chuỗi biến đổi hình học tinh vi để "gỡ rối" (untangle) các lớp dữ liệu đan xen nhau thành dạng có thể phân tách tuyến tính.
+    \begin{figure}
+        \centering
+        \begin{minipage}{0.24\textwidth}
+            \includegraphics[width=\linewidth]{../../images/ch02/geometric_interpretation_1.4c2c1983.png}
+        \end{minipage}
+        \hfill
+        \begin{minipage}{0.24\textwidth}
+            \includegraphics[width=\linewidth]{../../images/ch02/geometric_interpretation_2.e635ec60.png}
+        \end{minipage}
+        \hfill
+        \begin{minipage}{0.24\textwidth}
+            \includegraphics[width=\linewidth]{../../images/ch02/geometric_interpretation_3.b1b80fb9.png}
+        \end{minipage}
+        \hfill
+        \begin{minipage}{0.24\textwidth}
+            \includegraphics[width=\linewidth]{../../images/ch02/geometric_interpretation_4.f8123b83.png}
+        \end{minipage}
+        \caption{Quá trình gỡ rối không gian dữ liệu bằng học sâu giống như việc vuốt phẳng một quả bóng giấy vò nát.}
+    \end{figure}
+\end{frame}
+
+% ---------------------------------------------
+\section{4. Tối ưu hóa Dựa trên Gradient}
+% ---------------------------------------------
+
+\begin{frame}{Khái niệm Đạo hàm (Derivation)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        Để điều chỉnh trọng số (Weights) một cách có định hướng, ta sử dụng \textbf{Đạo hàm}.
+        \begin{itemize}
+            \item Đạo hàm $f'(x)$ thể hiện \textbf{độ dốc (slope)} của tiếp tuyến với hàm số $f(x)$ tại điểm $x$.
+            \item Nếu $f'(x) > 0$, ta giảm $x$ thì $f(x)$ sẽ giảm.
+            \item Nếu $f'(x) < 0$, ta tăng $x$ thì $f(x)$ sẽ giảm.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.7\textheight,keepaspectratio]{../../images/ch02/derivation.306de198.png}
+            \caption{Đạo hàm là hệ số góc của tiếp tuyến cục bộ}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Gradient và Mặt cắt Không gian Đa chiều}
+    \begin{columns}
+        \column{0.45\textwidth}
+        Trong mạng nơ-ron, hàm mất mát (Loss) phụ thuộc vào hàng triệu trọng số. Đạo hàm trong không gian đa chiều gọi là \textbf{Gradient}.
+        \begin{equation}
+            \nabla L(\mathbf{W}) = \left( \frac{\partial L}{\partial w_1}, \frac{\partial L}{\partial w_2}, \dots \right)
+        \end{equation}
+        Vectơ Gradient luông chỉ về hướng làm cho hàm $L$ \textbf{tăng nhanh nhất}.
+        
+        \column{0.55\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.7\textheight,keepaspectratio]{../../images/ch02/gradient_descent_3d.85d77c73.png}
+            \caption{Mặt cong 3D của Loss function và Vector Gradient}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Cực tiểu Toàn cục (Global Minimum)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        Mục tiêu của tối ưu hóa là tìm \textbf{Cực tiểu toàn cục (Global Minimum)}, nơi mà Loss đạt giá trị nhỏ nhất tuyệt đối.
+        \begin{itemize}
+            \item Tại cực tiểu, Gradient bằng 0 ($\nabla L = 0$).
+            \item Tuy nhiên, với hàm phức tạp, rất dễ bị kẹt tại cực tiểu cục bộ (Local Minimum).
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.7\textheight,keepaspectratio]{../../images/ch02/global_minimum.8f000c0a.png}
+            \caption{Local Minimum vs Global Minimum}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Thuật toán Stochastic Gradient Descent (SGD)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \textbf{SGD (Hạ Gradient Ngẫu nhiên):}
+        Thay vì tính chính xác đạo hàm trên toàn bộ dữ liệu, ta dùng 1 lô nhỏ (mini-batch) để ước tính.
+        \begin{equation}
+            W \leftarrow W - \text{step} \times \nabla L_{\text{batch}}(W)
+        \end{equation}
+        \begin{itemize}
+            \item Bước đi ngược hướng Gradient (âm) giúp trượt dần xuống thung lũng của hàm Loss.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.4\textheight,keepaspectratio]{../../images/ch02/sgd_explained_1.0535e152.png}
+            
+            \vspace{0.2cm}
+            \includegraphics[width=\textwidth,height=0.35\textheight,keepaspectratio]{../../images/ch02/deep-learning-in-3-figures-3_alt.40aa865d.png}
+            \caption{Quá trình cập nhật bước SGD}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+% ---------------------------------------------
+\section{5. Đồ thị Tính toán \& Lan truyền ngược}
+% ---------------------------------------------
+
+\begin{frame}{Đồ thị Tính toán (Computation Graph)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        Mạng nơ-ron là một hàm ghép phức tạp. Để máy tính tính đạo hàm dễ dàng, nó được biểu diễn thành \textbf{Đồ thị tính toán}.
+        \begin{itemize}
+            \item Mỗi \textbf{nút (node)} là một phép toán tensor cơ bản (nhân, cộng, relu).
+            \item Các \textbf{cạnh (edges)} dẫn giá trị truyền qua lại.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.7\textheight,keepaspectratio]{../../images/ch02/a_first_computation_graph.90dec1fc.png}
+            \caption{Đồ thị tính toán biểu diễn 1 Layer}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Ví dụ lan truyền thuận (Forward Pass)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        Hãy xem một biểu thức toán học đơn giản:\\
+        $y = (x + b) \times c$\\
+        Cho $x=2, b=3, c=1$.
+        \begin{itemize}
+            \item Thuật toán sẽ tính từng bước từ Input sang Output.
+            \item Lấy $2+3 = 5$, rồi $5 \times 1 = 5$. Kết quả $y=5$.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=0.8\textwidth]{../../images/ch02/basic_computation_graph.f3e3c75a.png}
+            
+            \vspace{0.1cm}
+            \includegraphics[width=0.8\textwidth]{../../images/ch02/basic_computation_graph_with_values.e15cd230.png}
+            \caption{Tính giá trị lan truyền thuận}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Lan truyền ngược (Backpropagation)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        Làm sao để tính đạo hàm của $y$ theo $x$? Dựa vào \textbf{Quy tắc chuỗi (Chain Rule)}:
+        \begin{equation}
+            \frac{df(g(x))}{dx} = f'(g(x)) \cdot g'(x)
+        \end{equation}
+        Trên đồ thị, ta bắt đầu từ Output, lan truyền \textbf{ngược} về Input bằng cách nhân các đạo hàm cục bộ (local gradients) dọc theo đường đi.
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth]{../../images/ch02/basic_computation_graph_backward.9e975200.png}
+            
+            \vspace{0.1cm}
+            \includegraphics[width=\textwidth]{../../images/ch02/path_in_backward_graph.fe91e7d0.png}
+            \caption{Nhân các đạo hàm cục bộ để có Đạo hàm toàn cục}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\section{Tổng kết}
+
+\begin{frame}{Tổng kết Chương 2}
+    \begin{itemize}
+        \item \textbf{Tensors:} Nền tảng cấu trúc dữ liệu của học sâu. Bao gồm các bậc 0D, 1D, 2D, 3D, 4D.
+        \item \textbf{Tensor Operations:} Các phép nhân ma trận, phép cộng, phép biến đổi phi tuyến (ReLU)... là những biến đổi hình học giúp gỡ rối đa diện dữ liệu.
+        \item \textbf{Gradient \& SGD:} Đạo hàm giúp ta định hướng đi xuống dốc của Loss. SGD liên tục trượt theo Gradient để giảm Loss.
+        \item \textbf{Backpropagation:} Sử dụng Đồ thị tính toán và Quy tắc chuỗi (Chain Rule) để phân phối ngược hàm lượng lỗi về từng trọng số, giúp mô hình tự tối ưu.
+    \end{itemize}
+\end{frame}
+
+\end{document}

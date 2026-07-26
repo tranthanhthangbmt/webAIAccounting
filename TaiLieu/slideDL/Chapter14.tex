@@ -1,0 +1,216 @@
+\documentclass[aspectratio=169]{beamer}
+\usetheme{Madrid}
+\usecolortheme{default}
+\usepackage[utf8]{inputenc}
+\usepackage[T5]{fontenc}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{amsmath}
+
+\setbeamertemplate{caption}[numbered]
+\renewcommand{\figurename}{Hình}
+\renewcommand{\thefigure}{14.\arabic{figure}}
+
+\title[Chương 14: Phân loại Văn bản]{Học Sâu (Deep Learning) \\ \vspace{0.5cm} \Large Chương 14: Phân loại Văn bản \\ (Text Classification \& NLP)}
+\author{Đại học Đông Á}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame}{Nội dung chương}
+    \tableofcontents
+\end{frame}
+
+\section{1. Giới thiệu Xử lý Ngôn ngữ Tự nhiên (NLP)}
+
+\begin{frame}{Lịch sử và Bản chất của NLP}
+    \begin{itemize}
+        \item Ngôn ngữ tự nhiên (Tiếng Việt, Tiếng Anh) khác biệt hoàn toàn với ngôn ngữ lập trình (C++, Python). Nó luôn biến động, mập mờ, phức tạp và phá vỡ quy tắc ngữ pháp của chính nó.
+        \item \textbf{Natural Language Processing (NLP)} là lĩnh vực giao thoa giữa AI và Ngôn ngữ học nhằm giúp máy tính có thể "đọc", "hiểu" và "giao tiếp" bằng ngôn ngữ con người.
+        \item Những năm 1950 - 1990: Thống trị bởi các bộ quy tắc gõ tay (Rule-based / Symbolic AI). Rất cứng nhắc và dễ thất bại.
+        \item Cuối 1990 - Nay: Dịch chuyển sang \textbf{Machine Learning \& Statistical NLP} (Mô hình thống kê tự học luật từ dữ liệu).
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Các Bài toán Cốt lõi của NLP}
+    NLP xử lý một lượng lớn các ứng dụng trong đời sống hiện đại:
+    \begin{itemize}
+        \item \textbf{Text Classification (Phân loại văn bản):} Email này có phải là Thư rác (Spam) không? Bình luận này mang cảm xúc Tiêu cực hay Tích cực (Sentiment Analysis)?
+        \item \textbf{Machine Translation (Dịch máy):} Dịch một câu tiếng Anh sang tiếng Việt sao cho hợp ngữ cảnh nhất (Google Translate).
+        \item \textbf{Language Modeling (Mô hình ngôn ngữ):} Cho trước một đoạn văn, hãy dự đoán từ tiếp theo sẽ là gì? (Nền tảng của ChatGPT).
+    \end{itemize}
+\end{frame}
+
+\section{2. Chuỗi Tiền xử lý Văn bản (Text Pipeline)}
+
+\begin{frame}{Tại sao cần Tiền xử lý Văn bản?}
+    \begin{itemize}
+        \item Máy tính không hiểu được các ký tự (Char) hay các từ (Word). Mạng Nơ-ron chỉ hoạt động trên các Ma trận và Tensor gồm các \textbf{Con số (Numbers)}.
+        \item Do đó, ta phải Vector hóa (Vectorize) văn bản, tức là biến đổi chuỗi văn bản thô thành một chuỗi các con số hoặc một ma trận có cấu trúc.
+        \item Quá trình này không thể làm tùy tiện mà phải tuân theo một Chuỗi xử lý (Text Pipeline) nghiêm ngặt gồm 3 bước.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Text Pipeline: 3 Bước Bất di bất dịch}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{enumerate}
+            \item \textbf{Standardization (Chuẩn hóa):} Đưa văn bản về một chuẩn chung. Ví dụ: Chuyển toàn bộ thành chữ thường (lower case), xóa bỏ các dấu câu chấm phẩy dư thừa (Punctuation removal).
+            \item \textbf{Tokenization (Tách từ):} Chẻ câu văn bản thành các đơn vị rời rạc gọi là "Tokens" (Có thể là Từ, Ký tự, hoặc Cụm từ).
+            \item \textbf{Indexing (Đánh chỉ mục):} Chuyển mỗi Token thành một con số duy nhất bằng cách xây dựng Bộ Từ điển (Vocabulary) cho toàn bộ tập dữ liệu.
+        \end{enumerate}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch14/text-pipeline.c09bbad6.png}
+            \caption{Tổng quan Quy trình xử lý Văn bản}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\section{3. Phương pháp Biểu diễn Túi từ (Bag-of-Words)}
+
+\begin{frame}{Phương pháp Túi từ (Bag-of-Words)}
+    \begin{itemize}
+        \item Thuật toán đơn giản nhất để biểu diễn câu: Đếm số lần xuất hiện của từng từ.
+        \item \textbf{Hạn chế chí mạng:} Mất đi hoàn toàn \textbf{Thứ tự thời gian}. 
+        \item Hai câu: "Chó cắn người" và "Người cắn chó" sẽ có chung một vector biểu diễn y hệt nhau, dù ý nghĩa hoàn toàn trái ngược.
+        \item Để vớt vát lại thứ tự cục bộ, người ta dùng khái niệm \textbf{N-grams} (Nhóm 2-3 từ liên tiếp nhau). Ví dụ Bi-grams: "Chó cắn", "cắn người".
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Thuật toán TF-IDF (Term Frequency-Inverse Document Frequency)}
+    \begin{itemize}
+        \item Khi dùng Bag-of-Words, các từ như "the", "a", "is", "và", "nhưng" sẽ xuất hiện cực nhiều nhưng mang rất ít giá trị nội dung. Các từ khóa chuyên ngành lại xuất hiện ít nhưng rất giá trị.
+        \item \textbf{TF (Term Frequency):} Tần suất từ $t$ xuất hiện trong văn bản hiện tại (Càng nhiều càng tốt).
+        \item \textbf{IDF (Inverse Document Frequency):} Nghịch đảo tần suất của từ $t$ trên toàn bộ kho tài liệu (Nói lên độ hiếm có của từ $t$).
+        $$ \text{TF-IDF} = TF \times \log\left(\frac{N}{df_t}\right) $$
+        \item Nhờ TF-IDF, các từ hiếm sẽ được tăng trọng số, trong khi các từ phổ biến vô nghĩa sẽ bị phạt (đưa về $0$).
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Hiệu suất Phân loại của Bag-of-Words}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Thử nghiệm phân loại cảm xúc tích cực / tiêu cực trên tập dữ liệu IMDB (Đánh giá phim).
+            \item Kết hợp Bigrams (N-grams) và mô hình Dense.
+            \item \textbf{Kết quả:} Đạt độ chính xác (Accuracy) lên tới hơn 89\% trên tập Validation.
+            \item Đối với phân loại đơn giản, Bag-of-Words vẫn là một Baseline cực kỳ đáng gờm vì tính nhẹ và nhanh của nó.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch14/bag-of-words-acc.533d9a5b.png}
+            \caption{Độ chính xác của Bag-of-Words}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\section{4. Word Embeddings - Trái tim của NLP Hiện đại}
+
+\begin{frame}{Khuyết điểm của One-hot Encoding}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Trước đây, mỗi từ được biểu diễn bằng One-hot Vector: Một véc-tơ chứa toàn số $0$, chỉ có duy nhất một số $1$.
+            \item \textbf{Tính chất rời rạc:} Mọi từ đều độc lập. Khoảng cách toán học (Dot product) giữa từ "Chó" và "Mèo" bằng chính xác khoảng cách giữa "Chó" và "Cái bàn" (Bằng 0).
+            \item Mô hình không học được tính chất tương đồng ngữ nghĩa.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch14/word-representations.b71fcc82.png}
+            \caption{Biểu diễn Sparse vs Dense}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Sự trỗi dậy của Word Embeddings (Nhúng từ)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item \textbf{Word Embeddings} là biểu diễn Dày đặc (Dense), Liên tục (Continuous) mang số thực. Thay vì $10,000$ chiều $0,1$, ta chỉ dùng $256$ chiều số thực.
+            \item Những từ có \textbf{Ngữ cảnh giống nhau} sẽ nằm \textbf{Gần nhau} trong không gian hình học đa chiều.
+            \item Từ "Dog" và "Wolf" sẽ hội tụ về một góc, khác hoàn toàn với góc của "Car" hay "Bicycle".
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.5\textheight,keepaspectratio]{../../images/ch14/word-embeddings.1bc937b3.png}
+            \caption{Không gian Nhúng (Embedding Space)}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Đại số tuyến tính trong Không gian Ngữ nghĩa}
+    \begin{itemize}
+        \item Nhờ cấu trúc Dense Vector, mạng Nơ-ron có thể làm \textbf{Toán học trên ngôn ngữ}.
+        \item Phép cộng trừ véc-tơ phản ánh chính xác các khái niệm logic của con người:
+        \begin{itemize}
+            \item Véc-tơ(Vua) - Véc-tơ(Nam) + Véc-tơ(Nữ) = Véc-tơ(Nữ hoàng)
+            \item Véc-tơ(Paris) - Véc-tơ(Pháp) + Véc-tơ(Đức) = Véc-tơ(Berlin)
+        \end{itemize}
+        \item Đây là bước nhảy vọt quan trọng nhất trong lịch sử NLP.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Lớp Embedding (Embedding Layer) trong Keras}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Trong mô hình học sâu, lớp Embedding đóng vai trò như một Cuốn từ điển (Dictionary Lookup).
+            \item Đầu vào là một Chỉ mục số nguyên (VD: Từ "Apple" có index là $12$).
+            \item Đầu ra là Véc-tơ mang ngữ nghĩa của từ đó tương ứng với Hàng thứ $12$ trong Ma trận trọng số $W$.
+            \item Ma trận $W$ này được Cập nhật (Huấn luyện) liên tục qua thuật toán Backpropagation.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch14/embedding-dictionary.80faa429.png}
+            \caption{Cơ chế hoạt động của Lớp Embedding}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Kiến trúc học Nhúng: Word2Vec và CBOW}
+    \begin{columns}
+        \column{0.5\textwidth}
+        Làm sao có được bộ trọng số Embedding xịn từ đầu? (Pre-trained Word Embeddings).
+        \begin{itemize}
+            \item Thuật toán **Word2Vec** (Do Tomas Mikolov - Google giới thiệu 2013).
+            \item Sử dụng mô hình **CBOW (Continuous Bag-of-Words)**.
+            \item Nguyên lý: Ép mô hình \textbf{Dự đoán từ ở giữa} dựa trên các từ ngữ cảnh xung quanh nó. Việc này bắt mô hình phải cấu trúc lại Không gian Vector sao cho hợp lý nhất.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch14/cbow.01aaf529.png}
+            \caption{Mô hình dự đoán ngữ cảnh CBOW}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\section{Tổng kết}
+
+\begin{frame}{Tổng kết Chương 14}
+    \begin{itemize}
+        \item Máy tính không hiểu văn bản thô. Cần có **Text Pipeline** (Chuẩn hóa $\rightarrow$ Tách từ $\rightarrow$ Đánh chỉ mục).
+        \item **Bag-of-Words / N-grams + TF-IDF:** Đơn giản, cực nhẹ, hiệu quả cao trong phân loại văn bản nhanh, nhưng không nhớ được cấu trúc thời gian của câu.
+        \item **Word Embeddings (Nhúng từ):** Là bước đệm vĩ đại của NLP. Chuyển từ sang Không gian Vector Ngữ nghĩa liên tục đa chiều (Toán học hóa ngôn ngữ).
+        \item Thuật toán như Word2Vec (CBOW, Skip-gram) giúp khai thác triệt để tài nguyên text khổng lồ trên Internet mà không cần nhãn (Unsupervised learning).
+    \end{itemize}
+\end{frame}
+
+\end{document}

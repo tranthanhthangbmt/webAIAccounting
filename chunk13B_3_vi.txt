@@ -1,0 +1,653 @@
+được so sánh ở mức trung bình cho tất cả các sản phẩm.
+3. Phân tích mô tả: Phân tích thể hiện doanh thu theo tháng hoặc theo quý trong năm của 
+năm khách hàng hàng đầu. Có thể sử dụng biểu đồ thanh hoặc biểu đồ đường.
+
+3.3  Mục tiêu chẩn đoán là gì?  3-13
+3.3  Mục tiêu chẩn đoán là gì?
+MỤC TIÊU HỌC TẬP ➌
+Trình bày cách phát triển các câu hỏi chẩn đoán.
+Khi chúng ta biết điều gì đã xảy ra, bước tiếp theo là xác định lý do. Câu hỏi chẩn đoán 
+xây dựng dựa trên các phân tích mô tả và khám phá thêm dữ liệu để tìm ra nguyên nhân dẫn đến kết quả. Diadiag-
+phân tích hoài cổ thực hiện điều này bằng cách tìm kiếm những điều bất thường, mối tương quan, mô hình hoặc xu hướng.
+Phát triển các câu hỏi chẩn đoán
+Các câu hỏi chẩn đoán xác định một vấn đề hoặc vấn đề để hiểu tại sao một kết quả lại xảy ra. 
+Hình minh họa 3.11 thể hiện các câu hỏi chẩn đoán dựa trên kết quả phân tích mô tả 
+về doanh số của Super Scooters ở phần trước.
+MINH HỌA 3.11  Câu hỏi chẩn đoán về sự sụt giảm doanh số của siêu xe tay ga
+Mục tiêu
+Câu hỏi ban đầu
+Câu hỏi phụ
+Các biện pháp khả thi
+Xác định 
+tại sao doanh số bán hàng lại 
+giảm dần cho 
+Celeritas 
+và những cú đá 
+các mô hình.
+Lái xe là gì 
+khối lượng bán hàng 
+giảm?
+1. Có bất thường không 
+về doanh số bán hàng cho 
+Người mẫu Celeritas?
+2. Có bất thường không 
+về doanh số bán hàng cho 
+Mô hình cú đá?
+3. Có thể nhận dạng được không 
+mô hình về khối lượng bán hàng 
+cho mẫu Celeritas?
+4. Có thể nhận dạng được không 
+mô hình về khối lượng bán hàng 
+cho mô hình Kicks?
+Doanh số bán hàng
+Hiểu 
+cái lớn 
+giảm 
+bán hàng tại 
+Seattle 
+vị trí.
+Những yếu tố nào 
+đang lái xe 
+doanh số bán hàng giảm 
+ở Seattle 
+địa điểm?
+1. Có gì bất thường không  
+mô hình ở Seattle 
+địa điểm bán hàng của 
+Người mẫu Celeritas?
+2. Có gì bất thường không 
+mô hình ở Seattle 
+địa điểm bán hàng của  
+Mô hình cú đá?
+Tổng doanh thu đô la
+Tổng doanh thu trung bình 
+đô la
+Doanh số bán hàng
+Tại sao doanh số bán hàng lại giảm và cụ thể là tại sao địa điểm ở Seattle lại có doanh thu lớn nhất 
+giảm? Các câu hỏi và câu hỏi phụ đi sâu hơn vào việc giảm doanh số bán hàng bằng cách hỏi về 
+sự bất thường và các mô hình bất thường. Bây giờ, hãy xác định dữ liệu và phân tích sẽ trả lời những câu hỏi này 
+câu hỏi.
+
+3-14  CHƯƠNG 3  Động cơ và Mục tiêu Phân tích Dữ liệu
+Ví dụ về phân tích chẩn đoán
+Có bốn loại phân tích chẩn đoán phổ biến: phát hiện bất thường, tương quan, mô hình 
+phát hiện và phân tích xu hướng.
+Sử dụng các câu hỏi về Siêu xe tay ga trong Hình minh họa 3.11, chúng ta hãy xem xét các câu hỏi phụ sau:
+	 1. Có mẫu hình nào có thể xác định được về doanh số bán hàng của mẫu Celeritas không?
+	 2. Có xu hướng bất thường nào trong doanh số bán mô hình Celeritas của địa điểm Seattle không? 
+Biểu đồ đường có thể xác định các mẫu bằng cách tiết lộ các mẫu lặp lại trong dữ liệu. Minh họa 
+3.12 cho thấy doanh số bán hàng của Celeritas theo tháng trong mỗi năm.
+MINH HỌA 3.12  Mô hình khối lượng bán hàng của Celeritas
+2.000
+1.800
+1.600
+1.400
+1.200
+1.000
+800
+600
+400
+200
+0
+Q1
+Q2
+bán hàng
+khối lượng
+Mô hình khối lượng bán hàng của Celeritas: 2023–2025
+Các quý dữ liệu bán hàng
+Q3
+Q4 Q1
+Q2
+Q3
+Q4 Q1
+Q2
+Q3
+Q4
+2023
+2024
+2025
+Biểu đồ đường trong Hình minh họa 3.12 dường như không thể hiện mô hình về khối lượng bán hàng 
+cho mô hình Celeritas. Tuy nhiên, biểu đồ đường hiển thị tất cả các vị trí và các phân tích trước đó 
+tiết lộ địa điểm ở Seattle đã giảm doanh số bán hàng của Celeritas.
+Mô hình bán hàng trong năm 2023 và 2025 cho thấy doanh số bán hàng thường tăng từ 
+quý 1 đến quý 3:
+• Năm 2023 doanh số quý 4 giảm nhưng năm 2024 và 2025 lại tăng 
+trong doanh thu quý IV.
+• Tuy nhiên, doanh số năm 2025 thấp hơn doanh số năm 2024 và có sự sụt giảm lớn trong quý 3.
+Để hiểu lý do tại sao doanh số bán hàng thấp hơn vào năm 2025 và tại sao lại giảm trong quý 3 
+của năm 2025, chúng ta phải phân tích sâu hơn về doanh số bán hàng theo địa điểm.
+Hình minh họa 3.13 cho thấy một phân tích kiểm tra doanh thu hàng tháng của Celeritas tại Seat-
+vị trí đó.
+
+3.3  Mục tiêu chẩn đoán là gì?  3-15
+MINH HỌA 3.13  Seattle 
+Celeritas hàng tháng của địa điểm  
+Bán hàng – 2025
+bán hàng
+khối lượng
+115
+Doanh số bán hàng hàng tháng của Celeritas 2025: Seattle
+105
+95
+85
+75
+65
+55
+45
+35
+25
+15
+tháng Giêng.
+Tháng Hai
+2025 (tháng)
+Tháng ba.
+Tháng Tư.
+tháng 5
+Tháng Sáu.
+Tháng Bảy.
+Tháng 8
+Tháng 9
+Tháng 11
+Tháng 10
+Tháng mười hai
+5
+Biểu đồ cột về doanh số bán hàng của Celeritas trong năm 2025 cho thấy một điều và gợi ý một điều khác:
+• Năm 2025 có vài tháng không có doanh thu.
+• Đây có thể là một yếu tố góp phần làm giảm tổng doanh số bán hàng của Celeritas vào năm 2025.
+Bước tiếp theo sẽ là hỏi ban quản lý điều gì đã xảy ra vào tháng 3 năm 2025 dẫn đến sáu 
+tháng mà không có bất kỳ doanh số bán mẫu Celeritas nào. Điều này cũng đặt ra những câu hỏi bổ sung cho 
+điều tra:
+• Doanh số bán hàng có giảm chỉ ở địa điểm Seattle không?
+• Mẫu Celeritas có phải là sản phẩm duy nhất có doanh số giảm?
+Quá trình điều tra này được gọi là phân tích dữ liệu thăm dò mà bạn sẽ tìm hiểu sau trong phần này. 
+khóa học này
+Áp dụng nó 3.3
+Xác định  
+Rủi ro về vật chất 
+Sai sót về doanh số bán hàng
+Dữ liệu   Kiểm toán   Trong quá trình kiểm toán báo cáo tài chính của Best Bakes Bakery, bạn đã được yêu cầu 
+xác định xem có những thay đổi bất thường nào về doanh thu so với những năm trước có thể ảnh hưởng đến rủi ro trọng yếu 
+sai sót. Bạn đã được cung cấp một đoạn trích các giao dịch trong một tệp Excel để bạn biết 
+dữ liệu có sẵn.
+101
+101
+101
+521121 Quán cà phê Bluebird
+Quán cà phê chim xanh
+Quán cà phê chim xanh
+Quán cà phê chim xanh
+Quán cà phê chim xanh
+Quán cà phê chim xanh
+Kem hải mã
+521121
+101
+521121
+521121
+101
+521121
+101
+521121
+(720) 296–2323
+(720) 296–2323
+(720) 296–2323
+(720) 296–2323
+(720) 296–2323
+(720) 296–2323
+102
+521425
+(303) 674–0930
+Đơn đặt hàng bán hàng
+Số
+Khách hàng
+Số
+80521
+80521
+80521
+80521
+80521
+80521
+80521
+Khách hàng
+Mã Zip
+CO
+CO
+CO
+CO
+CO
+CO
+CO
+Khách hàng
+tiểu bang
+Khách hàng
+Điện thoại
+Khách hàng
+Tên
+524 W đường Laurel
+524 W đường Laurel
+524 W đường Laurel
+524 W đường Laurel
+524 W đường Laurel
+524 W đường Laurel
+Đại lộ núi 125 W
+Pháo đài Collins
+Pháo đài Collins
+Pháo đài Collins
+Pháo đài Collins
+Pháo đài Collins
+Pháo đài Collins
+Pháo đài Collins
+Khách hàng
+Địa chỉ
+Khách hàng
+Thành phố
+853200
+853300
+853600
+Caramen táo
+19/2/2022
+19/2/2022
+19/2/2022
+19/2/2022
+19/2/2022
+19/2/2022
+10/3/2022
+Bánh mì hạt anh túc
+853500
+Miếng bánh phô mai
+Bánh quy sô cô la
+853800
+Bánh nướng việt quất
+853900
+Bánh mâm xôi
+$57,60
+$68,40
+$45,00
+$34,50
+$63,60
+$6,50
+853100
+Bánh quế
+$34,80
+0.160193
+0.333333
+Hàng tồn kho
+Mã
+Hàng tồn kho
+Mô tả
+Lợi nhuận
+Đơn đặt hàng bán hàng
+Ngày
+36
+24
+25
+30
+24
+10
+24
+$3,45
+$4,85
+$3,40
+$3,20
+$4,10
+$4,05
+$4,35
+Đơn đặt hàng bán hàng
+số lượng
+Hàng tồn kho
+Giá
+$124,20
+$116,40
+$85,00
+$ 96,00
+$98,40
+$40,50
+$104,40
+Tổng
+bán hàng
+$1,85
+$ 2,00
+$1,60
+$ 2,05
+$1,45
+$3,40
+$ 2,90
+Hàng tồn kho
+Chi phí
+$66,60
+$48,00
+$40,00
+$61,50
+$34,80
+$ 34,00
+$69,60
+$66,60
+$48,00
+$40,00
+$61,50
+$34,80
+$ 34,00
+$69,60
+0,463768
+0,587629
+0,529412
+0,359375
+0,646341
+Lợi nhuận
+Ký quỹ
+Chi phí
+Hàng đã bán
+
+3-16  CHƯƠNG 3  Động cơ và Mục tiêu Phân tích Dữ liệu
+1. Mục tiêu của việc phân tích là gì?
+2. Xây dựng ba câu hỏi liên quan đến mục tiêu và nêu các biện pháp cần thiết để trả lời 
+họ.
+3. Bạn sẽ sử dụng những phân tích nào để trả lời ba câu hỏi này?
+GIẢI PHÁP
+1. Mục tiêu là phân tích các giao dịch từ năm 2022 đến năm 2025 để phát hiện những thay đổi bất thường. Hậu môn-
+ysis sẽ cung cấp cho kiểm toán viên thông tin để xác định nội dung, thời gian và mức độ của 
+thủ tục kiểm toán.
+2.
+Câu hỏi
+Biện pháp
+	 1. Tổng thể có thay đổi gì bất thường không? 
+doanh thu trong các năm 2022–2025?
+Tổng doanh thu hàng quý
+	 2. Tổng cộng có thay đổi gì bất thường không? 
+doanh thu qua các năm theo địa điểm?
+Tổng doanh thu hàng quý
+	 3. Có sự thay đổi bất thường nào về doanh thu không? 
+theo sản phẩm qua các năm?
+Doanh số bán hàng theo sản phẩm
+3. Có thể chuẩn bị các phân tích bất thường, mô hình và xu hướng để trả lời các câu hỏi.
+3.4  Mục tiêu dự đoán là gì?
+MỤC TIÊU HỌC TẬP ➍
+Trình bày cách phát triển các câu hỏi dự đoán.
+Cho đến nay, bạn đã học cách phát triển các câu hỏi mô tả để tìm hiểu điều gì đã xảy ra trong 
+các câu hỏi về quá khứ và chẩn đoán để hiểu lý do tại sao. Nếu bạn muốn biết điều gì có thể xảy ra 
+trong tương lai? Trong trường hợp này, bạn sẽ đặt câu hỏi mang tính dự đoán.
+Phát triển các câu hỏi dự đoán
+Khi đưa ra quyết định cho vay, ngân hàng sử dụng thông tin lịch sử về việc liệu một khoản vay tiềm năng có 
+người vay thanh toán hóa đơn một cách nhất quán và đúng hạn để dự đoán liệu họ có tiếp tục làm như vậy hay không. trong 
+Tương tự như vậy, phân tích dự đoán sử dụng dữ liệu trong quá khứ và hiện tại để tạo mô hình để doanh nghiệp có thể 
+đưa ra dự đoán.
+Việc sử dụng phân tích dự đoán không phải là mới trong ngành kế toán nhưng là một công cụ sẵn có.
+khả năng của dữ liệu và các công cụ phần mềm để thực hiện phân tích dự đoán đã tăng lên, do đó
+hình thành những phân tích này trong tất cả các lĩnh vực kế toán:
+• Kế toán tài chính có thể xác định xu hướng doanh thu hoặc chi phí.
+• Kế toán chi phí có thể dự đoán chi phí, tạo dự báo và đánh giá các yếu tố thúc đẩy chi phí.
+• Kiểm toán viên xác định những sai sót trọng yếu tiềm ẩn bằng cách sử dụng phân tích dự đoán.
+• Kế toán thuế có thể sử dụng phân tích dự đoán để lập kế hoạch thuế.
+
+3.4  Mục tiêu dự đoán là gì?  3-17
+Giả sử Super Scooters đang chuẩn bị ngân sách cho năm tới:
+• Họ muốn dự đoán doanh thu cho năm 2026 với giả định sản lượng bán hàng tăng 10%.
+• Họ cũng cho rằng chi phí bảo hành sẽ tăng 10%.
+• Cuối cùng, họ đang cân nhắc việc ngừng sản xuất mẫu Celeritas và muốn biết liệu điều đó có 
+sẽ thay đổi doanh thu dự đoán.
+Mục tiêu tổng thể của việc phân tích dữ liệu là gì? Xe Super Scooter nên đặt câu hỏi gì 
+yêu cầu để đạt được mục tiêu đó?
+Khi xác định các câu hỏi mang tính dự đoán, sẽ rất hữu ích nếu bạn hỏi: “Tôi muốn làm gì với 
+câu trả lời?” Hình minh họa 3.14 cho thấy mục tiêu tổng thể của việc dự đoán doanh thu năm 2026, 
+câu hỏi ban đầu, cộng với các câu hỏi phụ cụ thể.
+MINH HỌA 3.14  Dự đoán 
+Câu hỏi dự báo siêu 
+Doanh thu xe tay ga
+Mục tiêu
+Câu hỏi ban đầu
+Câu hỏi phụ
+Dự đoán doanh thu năm 2026
+Doanh thu sẽ là bao nhiêu 
+thay đổi với mức tăng 10% 
+doanh số bán hàng?
+Doanh thu sẽ thay đổi bao nhiêu 
+từng mô hình?
+Doanh thu sẽ thay đổi bao nhiêu tại 
+từng địa điểm?
+Doanh thu sẽ bị ảnh hưởng như thế nào 
+với mức tăng 10% 
+chi phí bảo hành?
+Những yếu tố ảnh hưởng đến bảo hành 
+chi phí?
+Doanh thu sẽ bị ảnh hưởng như thế nào 
+bằng cách ngừng sử dụng Celeritas 
+và/hoặc mô hình Kicks?
+Mỗi lần sẽ có bao nhiêu doanh thu 
+vị trí bị ảnh hưởng bởi việc ngừng 
+Celeritas và/hoặc Kicks 
+người mẫu? 
+Giống như tất cả các câu hỏi, câu hỏi dự đoán phải liên quan đến mục tiêu, cụ thể, có ý nghĩa.
+có thể đảm bảo được, đồng thời nên sử dụng dữ liệu và phân tích thích hợp để trả lời chúng.
+Ví dụ phân tích dự đoán
+Hai phân tích phổ biến trả lời các câu hỏi dự đoán là đường xu hướng và hồi quy 
+phân tích.2
+Đường xu hướng
+Đường xu hướng cho thấy mối quan hệ chức năng cơ bản của dữ liệu:
+• Mối quan hệ hàm số là tác động của một biến độc lập lên một biến phụ thuộc 
+biến.
+• Hàm tuyến tính biểu thị mức tăng hoặc giảm đều đặn trong phạm vi của hàm số độc lập 
+biến.
+Công cụ Đường xu hướng của Excel có thể giúp xác định xem dữ liệu có tuân theo hàm tuyến tính hay không. Hãy nhớ-
+ber rằng Super Scooters tin rằng chi phí bảo hành sẽ tăng 10%. Ngoài ra, chi phí bảo hành còn 
+được cho là được thúc đẩy bởi doanh số bán hàng.
+2Có nhiều phương pháp phân tích dự đoán khác, chẳng hạn như trí tuệ nhân tạo, vượt quá khả năng của 
+phạm vi của chương này.
+
+3-18
+CHƯƠNG 3 Động lực và mục tiêu phân tích dữ liệu
+$0
+$0
+5.000
+10.000
+15.000
+Tổng doanh thu
+20.000
+25.000
+35.000
+30.000
+$200
+$400
+$600
+$800
+1.000 USD
+1.200 USD
+1.400 USD
+1.600 USD
+Tổng chi phí bán hàng và bảo hành
+Bảo hành
+chi phí
+Đường xu hướng
+y = 0,0431x + 18,632
+R2 = 0,9064
+ MINH HỌA 3.15 Đường xu hướng 
+Sử dụng chi phí bán hàng và bảo hành 
+ Đường xu hướng hỗ trợ mối quan hệ tuyến tính:
+• Khi tổng doanh thu tăng lên thì chi phí bảo hành cũng tăng lên. 
+• Phương trình đường xu hướng được thể hiện trên biểu đồ. (y = 0,0431x + 18,632, R² = 0,9064). 
+Phương trình đó có thể được sử dụng để dự đoán chi phí bảo hành trong tương lai dựa trên doanh thu dự kiến 
+trong đó y là số tiền chi phí bảo hành và x là số tiền bán được. Ví dụ, 
+nếu tổng doanh thu là 2.000 USD thì chi phí bảo hành dự kiến sẽ là:
+ ( 0,0431 × 2, 000 ) + 18,632 = 104,83 USD 
+Nếu chi phí bảo hành tăng 10% như Super Scooters mong đợi, mô hình dự đoán có thể 
+được điều chỉnh bằng cách tăng 0,0431 thêm 10%. Tìm công cụ đường xu hướng Chart Elements trong Excel bằng cách 
+nhấn vào biểu đồ rồi nhấn vào dấu cộng (Hình minh họa 3.16). 
+ngoại hối
+1
+E
+B
+C
+D
+A
+F
+G
+H
+tôi
+J
+Trang 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+Tự động Lưu
+Oﬀ
+$0
+$0
+5.000
+10.000
+15.000
+Tổng doanh thu
+20.000
+25.000
+35.000
+30.000
+$200
+$400
+$600
+$800
+1.000 USD
+1.200 USD
+1.400 USD
+1.600 USD
+Tổng chi phí bán hàng và bảo hành
+Bảo hành
+chi phí
+Đường xu hướng
+y = 0,0431x + 18,632
+R2 = 0,9064
+Yếu tố biểu đồ
+Trục
+Tiêu đề trục
+Tiêu đề biểu đồ
+Nhãn dữ liệu
+Thanh lỗi
+Đường lưới
+Truyền thuyết
+Đường xu hướng
+ MINH HỌA 3.16 Lựa chọn đường xu hướng trong các thành phần biểu đồ 
+Hình minh họa 3.15 cho thấy đường xu hướng được tạo trong Excel để xác định xem có mối quan hệ tuyến tính hay không
+mối liên hệ giữa chi phí bán hàng và chi phí bảo hành cho dòng xe Super Scooter.
+
+3.4  Mục tiêu dự đoán là gì?  3-19
+Lưu ý rằng việc nhấp vào dấu cộng ở trên cùng bên trái của biểu đồ sẽ bao gồm tùy chọn để chọn 
+Đường xu hướng và sau đó là Tùy chọn khác. (Minh họa 3.17).
+MINH HỌA 3.17  Tùy chọn đường xu hướng trong Microsoft Excel
+ngoại hối
+1
+A
+B
+C
+D
+E
+Trang 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+Tự động Lưu
+Oﬀ
+Trục
+Tiêu đề trục
+Tiêu đề biểu đồ
+Đường lưới
+Đường xu hướng
+Truyền thuyết
+Nhãn dữ liệu
+Thanh lỗi
+tuyến tính
+hàm mũ
+Dự báo tuyến tính
+Đường trung bình động hai kỳ
+Tùy chọn khác...
+Yếu tố biểu đồ
+hàm mũ
+tuyến tính
+logarit
+Thứ tự đa thức
+quyền lực
+Di chuyển
+trung bình
+Thời kỳ
+tự động
+Tên đường xu hướng
+tùy chỉnh
+Dự báo
+Chuyển tiếp
+Lùi lại
+Đặt phần chặn
+thời kỳ
+thời kỳ
+Tuyến tính (Tổng cộng
+Bảo hành)
+Hiển thị phương trình trên biểu đồ
+Hiển thị giá trị bình phương R trên biểu đồ
+0,0
+0,0
+0,0
+Tùy chọn đường xu hướng
+Định dạng đường xu hướng
+Tùy chọn đường xu hướng
+2
+2
+Hộp Format Trendline mở ra cho phép người dùng chọn các chức năng khác (exponen-
+tiaal, logarit, đa thức, lũy thừa và trung bình động). Điều này có thể hữu ích nếu mẫu 
+của dữ liệu không có vẻ tuyến tính. Ngoài ra, nhấp vào các hộp để hiển thị phương trình và 
+R-vuông trên biểu đồ. Bình phương R là thước đo mức độ phù hợp của đường thẳng với dữ liệu. Càng gần 
+đến 1 thì càng phù hợp. Đường xu hướng trong Hình minh họa 3.16 có R-square rất mạnh là 0,9064. 
+Chúng ta sẽ thảo luận về R-square chi tiết hơn trong phần tiếp theo.
+Hồi quy tuyến tính
+Mặc dù bạn có thể không chuẩn bị một mô hình dự đoán trong suốt sự nghiệp của mình nhưng bạn có thể sẽ sử dụng 
+các mô hình dự đoán hoặc cần giải thích kết quả đầu ra của chúng. Hồi quy tuyến tính là một công cụ để xây dựng 
+mô hình toán học và thống kê để giải thích mối quan hệ giữa một biến phụ thuộc 
+và một hoặc nhiều biến độc lập.
+Phân tích dự đoán xây dựng các mô hình để dự đoán hoặc hiểu rõ hơn về một hiện tượng. Để tìm 
+ra những yếu tố nào ảnh hưởng đến chi phí bảo hành, chúng tôi sẽ xây dựng mô hình dự đoán thời gian bảo hành 
+chi phí.
+
+3-20  CHƯƠNG 3  Động cơ và Mục tiêu Phân tích Dữ liệu
+Xây dựng một mô hình yêu cầu xác định các biến sẽ được đưa vào mô hình:
+• Biến là trường dữ liệu dùng để phân tích.
+• Biến phụ thuộc là thước đo kết quả (chi phí bảo hành).
+• Biến độc lập là các biến ảnh hưởng đến biến phụ thuộc (cụ thể 
+các biến số mà chúng tôi tin rằng sẽ ảnh hưởng đến chi phí bảo hành, chẳng hạn như doanh thu hoặc số lượng chiến tranh-
+những lời tuyên bố thô tục).

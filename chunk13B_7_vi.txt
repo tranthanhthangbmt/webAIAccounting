@@ -1,0 +1,765 @@
+Lĩnh vực:
+Lựa chọn:
+Ký tự đại diện:
+Điều kiện:
+Giới hạn:
+[Mô hình]
+Đã chọn 0 trong 4 giá trị
+Tất cả
+không có
+không có
+Celeritas
+Cú đá
+Lazer
+chung
+Ký tự đại diện
+tình trạng
+hàng đầu
+Chọn từ danh sách
+Danh sách giá trị tùy chỉnh
+Sử dụng tất cả
+Nhập văn bản tìm kiếm
+Chọn hộp Celeritas và nhấp vào OK. Tiếp theo kéo Ngày bán vào Filter rồi chọn Năm 
+từ hộp nhập liệu (Minh họa 3.39).
+BƯỚC 2: Tạo một phép tính để tính sự thay đổi trong doanh số bán hàng từ năm 2024 đến năm 2025. Bởi vì 
+dữ liệu từ năm 2023 là không cần thiết và chúng tôi chỉ quan tâm đến mô hình Celeritas, tạo hai 
+bộ lọc. Đầu tiên, kéo Model vào hộp Filters. Thao tác này sẽ mở ra một hộp nhập liệu (Minh họa 3.38).
+MINH HỌA 3.39  Lựa chọn trường lọc
+Tiếp theo >
+Hủy bỏ
+Bạn muốn lọc theo [Ngày bán] như thế nào?
+Ngày tương đối
+Phạm vi ngày
+Năm
+Khu
+Tháng
+Ngày
+Số tuần
+Các ngày trong tuần
+Tháng / Năm
+Tháng/Ngày/Năm
+Ngày riêng lẻ
+Đếm
+Đếm (Riêng biệt)
+tối thiểu
+Tối đa
+Thuộc tính
+Trường lọc [Ngày bán]
+
+3-38  CHƯƠNG 3  Động cơ và Mục tiêu Phân tích Dữ liệu
+Nhấn Next để xem các lựa chọn hộp nhập sau (Minh họa 3.40).
+MINH HỌA 3.40  Lựa chọn bộ lọc
+Lọc [Năm ngày bán]
+Đặt lại
+Tất cả
+2023
+không có
+Loại trừ
+được rồi
+Hủy bỏ
+Áp dụng
+Tóm tắt
+Lọc giá trị ngày mới nhất khi mở sổ làm việc
+Lĩnh vực:
+Lựa chọn:
+Ký tự đại diện:
+Điều kiện:
+Giới hạn:
+[Năm bán ngày]
+Đã chọn 2 trong 3 giá trị
+Tất cả
+không có
+không có
+2024
+2025
+chung
+tình trạng
+hàng đầu
+Chọn từ danh sách
+Danh sách giá trị tùy chỉnh
+Sử dụng tất cả
+Nhập văn bản tìm kiếm
+Chọn 2024 và 2025 rồi nhấn OK.
+BƯỚC 3: Tạo phép tính. Nhấp vào mũi tên xuống trong viên màu xanh lá cây để tính Tổng (Tổng 
+Bán hàng) trong khu vực Nhãn hiệu tạo ra một số tùy chọn (Minh họa 3.41).
+MINH HỌA 3.41  Tạo bảng tính nhanh
+Điểm
+tự động
+T
+T
+SUM(Tổng doanh thu)
+T
+Màu sắc
+Chi tiết
+Chú giải công cụ
+Kích thước
+văn bản
+Lọc...
+Hiển thị bộ lọc
+Định dạng...
+Đưa vào chú giải công cụ
+Kích thước
+Thuộc tính
+Đo (Tổng)
+rời rạc
+liên tục
+Chỉnh sửa trong Kệ
+Tính toán bảng rõ ràng
+Sử dụng tính toán
+Xóa
+Liên quan đến
+Chỉnh sửa bảng tính...
+Tính bảng nhanh
+Tổng số chạy
+Phần trăm chênh lệch
+Phần trăm của tổng số
+Xếp hạng
+Phần trăm
+Đường trung bình động
+Tốc độ tăng trưởng gộp
+Tăng trưởng hàng năm
+Tổng số đầu năm
+Tăng trưởng đầu năm
+sự khác biệt
+
+Cách đi qua  3-39
+Chọn tùy chọn Tính toán bảng nhanh, sau đó chọn Sự khác biệt. Điều này sẽ thay đổi 
+các cột trong bảng để tìm sự khác biệt (Minh họa 3.42).
+MINH HỌA 3.42  Kết quả tính toán bảng nhanh
+Điểm
+tự động
+T
+T
+Bộ lọc
+SUM(Tổng doanh thu)
+T
+Màu sắc
+Chi tiết
+Chú giải công cụ
+Kích thước
+văn bản
+Model: Celeritas
+NĂM(Ngày bán)
+Tờ 22
+Vị trí
+2024
+Ngày bán
+Boston
+Charlotte
+Chicago
+Dallas
+Miami
+Phượng hoàng
+Thành phố Salt Lake
+Seattle
+‒88,837
+‒94,794
+‒58,619
+‒106,783
+‒57,786
+‒20,787
+‒46,867
+‒140,206
+2025
+MINH HỌA 3.43  Lựa chọn 
+Bảng nổi bật
+123 456
+321 654
+654 321
+456 123
+123 456
+321 654
+654 321
+Cho tôi xem
+BƯỚC 4: Để tạo bảng đánh dấu có màu tối hơn 
+biểu thị số lớn hơn, hãy chọn loại biểu đồ đó từ 
+Tùy chọn Show Me ở góc trên bên phải (Minh họa 3.43).
+Bây giờ bảng trông giống như bảng trong Hình minh họa 3.44.
+MINH HỌA 3.44  Đánh dấu kết quả bảng
+Năm(Ngày bán)
+Vị trí
+Cột
+Hàng
+Điểm
+hình vuông
+T
+Bộ lọc
+Tờ 22
+Trang
+SUM(Tổng doanh thu)
+T
+Màu sắc
+Chi tiết
+Chú giải công cụ
+Kích thước
+Nhãn
+Model: Celeritas
+NĂM(Ngày bán)
+SUM(Tổng doanh thu)
+Vị trí
+2025
+2024
+Ngày bán
+Boston
+Charlotte
+Chicago
+Dallas
+Miami
+Phượng hoàng
+Thành phố Salt Lake
+Seattle
+‒88,837
+‒94,794
+‒58,619
+‒106,783
+‒57,786
+‒20,787
+‒46,867
+‒140,206
+
+3-40  CHƯƠNG 3  Động cơ và Mục tiêu Phân tích Dữ liệu
+BƯỚC 5: Để chỉ hiển thị cột năm 2025, nhấp chuột phải vào cột năm 2024 và chọn 
+Ẩn (Minh họa 3.45).
+MINH HỌA 3.45  Tính năng ẩn cột
+Tờ 22
+Vị trí
+2025
+2024
+Ngày bán
+Boston
+Charlotte
+Chicago
+Dallas
+Miami
+Phượng hoàng
+Thành phố Salt Lake
+Seattle
+‒88,837
+‒94,794
+‒58,619
+‒106,783
+‒57,786
+‒20,787
+‒46,867
+‒140,206
+Chỉ giữ lại
+Loại trừ
+Ẩn
+Đi sâu vào
+Định dạng...
+Xoay nhãn
+Hiển thị tiêu đề
+Hiển thị các giá trị bị thiếu
+Bấm vào Ẩn và không loại trừ. (Chọn Loại trừ có nghĩa là việc tính toán sẽ không còn 
+hoạt động vì dữ liệu năm 2024 sẽ bị xóa.)
+BƯỚC 6: Sắp xếp các vị trí theo mức tổn thất lớn nhất đến tổn thất nhỏ nhất. Để làm điều đó, hãy nhấp vào 2025 ở 
+đầu cột. Hộp sẽ xuất hiện như trong Hình minh họa 3.46.
+MINH HỌA 3.46  Sắp xếp dữ liệu từ nhỏ nhất đến lớn nhất
+Vị trí
+2025
+Ngày bán
+Boston
+Charlotte
+Chicago
+Dallas
+Miami
+Phượng hoàng
+Thành phố Salt Lake
+Seattle
+‒88,837
+‒94,794
+‒58,619
+‒106,783
+‒57,786
+‒20,787
+‒46,867
+‒140,206
+Chỉ giữ lại
+2025
+8 mục được chọn
+Chênh lệch về SUM(Tổng doanh thu): ‒614.679
+Loại trừ
+Nhấp vào biểu tượng sắp xếp hiển thị thanh nhỏ nhất ở trên cùng. Dữ liệu sau đó sẽ sắp xếp từ nhỏ nhất 
+số lớn nhất (Minh họa 3.47).
+MINH HỌA 3.47  Sắp xếp 
+Bảng đánh dấu
+Vị trí
+2025
+Ngày bán
+Seattle
+Dallas
+Charlotte
+Boston
+Chicago
+Miami
+Thành phố Salt Lake
+Phượng hoàng
+‒140,206
+‒106,783
+‒94,794
+‒88,837
+‒58,619
+‒57,786
+‒46,867
+‒20,787
+BƯỚC 7: Định dạng cột chênh lệch thành số đô la nguyên bằng cách nhấp vào Tổng (Tổng) màu xanh lá cây 
+Sale) vào vùng Marks và chọn Format (Minh họa 3.48).
+
+Cách đi qua  3-41
+MINH HỌA 3.48  Tùy chọn định dạng
+Điểm
+hình vuông
+T
+Bộ lọc
+Trang
+SUM(Tổng doanh thu)
+T
+Màu sắc
+Chi tiết
+Chú giải công cụ
+Kích thước
+Nhãn
+Model: Celeritas
+NĂM(Ngày bán)
+SUM(Tổng doanh thu)
+Sự khác biệt về định dạng trong SU...
+Trường
+Phông chữ: Sách Tableau
+tự động
+Căn chỉnh:
+Mặc định
+$123,456
+Số:
+Tổng số
+Phông chữ: Tableau Medium
+tự động
+Căn chỉnh:
+$123,456
+Số:
+Tổng cộng
+Phông chữ: Tableau Medium
+tự động
+Căn chỉnh:
+$123,456
+Số:
+Giá trị đặc biệt (ví dụ: NULL)
+Văn bản: (Trống)
+Trình diễn tại Indic...
+Dấu hiệu:
+Lọc...
+Hiển thị bộ lọc
+Định dạng...
+Đưa vào chú giải công cụ
+Kích thước
+Thuộc tính
+Đo (Tổng)
+rời rạc
+liên tục
+Chỉnh sửa trong Kệ
+Tính toán bảng rõ ràng
+Sử dụng tính toán
+Tính bảng nhanh
+Xóa
+Liên quan đến
+Chỉnh sửa bảng tính...
+A
+ngăn
+Trục
+Ở đây, định dạng mặc định có thể được thay đổi thành tiền tệ.
+BƯỚC 8: Tạo tiêu đề cho hình ảnh trực quan. Tableau sẽ đặt tên trực quan theo trang tính 
+số theo mặc định. Để thay đổi điều đó, nhấp chuột phải vào vùng tiêu đề trang tính rồi chọn Chỉnh sửa 
+Tiêu đề (Minh họa 3.49).
+MINH HỌA 3.49  Chỉnh sửa bảng tính 
+Tiêu đề
+Tờ 22
+Vị trí
+Ngày bán
+2023
+Seattle
+Dallas
+Charlotte
+Boston
+Chicago
+Miami
+$ (‒140,206)
+(-106,783)
+(‒94,794)
+(‒88,837)
+(-58,619)
+(-57,786)
+$
+$
+$
+$
+$
+Chỉnh sửa tiêu đề...
+Đặt lại tiêu đề
+Ẩn tiêu đề
+Định dạng tiêu đề...
+
+3-42  CHƯƠNG 3  Động cơ và Mục tiêu Phân tích Dữ liệu
+Nhập tiêu đề vào ô hiện ra (Minh họa 3.50).
+MINH HỌA 3.50  Chỉnh sửa tiêu đề bảng tính
+Vị trí
+Tờ 22
+Ngày bán
+2025
+Seattle
+Dallas
+Charlotte
+Boston
+Chicago
+Miami
+Thành phố Salt Lake
+Phượng hoàng
+$ (140.206)
+(106.783)
+(94.794)
+(88.837)
+(58.619)
+(57.786)
+(46.867)
+(20.787)
+Chỉnh sửa tiêu đề
+Chèn
+Thay đổi về Tổng doanh thu từ Mô hình 2024-Celeritas
+B
+bạn
+Đặt lại
+được rồi
+Hủy bỏ
+Áp dụng
+$
+$
+$
+$
+$
+$
+$
+Ánh sáng hoạt cảnh
+15
+CÁCH 3.2  Thực hiện hồi quy trong Microsoft Excel
+Hình minh họa 3.18 là hồi quy được thực hiện trên Excel. Bạn có thể tạo nó bằng cách làm theo các bước sau.
+Những gì bạn cần:   Dữ liệu   Tệp dữ liệu How To 3.2.
+BƯỚC 1: Công cụ Phân tích Dữ liệu trong dải băng Dữ liệu có tùy chọn hồi quy. Minh họa 
+3.51 hiển thị hộp thoại mở ra khi chọn Phân tích dữ liệu.
+Làm thế nào để
+MINH HỌA 3.51  Công cụ phân tích dữ liệu Excel - Hồi quy
+được rồi
+Hủy bỏ
+Trợ giúp
+Phân tích dữ liệu
+Công cụ phân tích
+?
+F-Test Hai mẫu cho phương sai
+Phân tích Fourier
+biểu đồ
+Đường trung bình động
+Tạo số ngẫu nhiên
+Thứ hạng và Phần trăm
+Hồi quy
+Lấy mẫu
+t-Test: Ghép hai mẫu cho phương tiện
+t-Test: Hai mẫu giả sử phương sai bằng nhau
+BƯỚC 2: Nhấp vào Hồi quy, sau đó OK. Một hộp thoại Hồi quy sẽ xuất hiện (Minh họa-
+câu chuyện 3.52).
+
+Cách đi qua  3-43
+ngoại hối
+1
+A
+B
+C
+D
+E
+Trang 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+Tự động Lưu
+Oﬀ
+23 tháng 1
+Tháng/Năm
+Máy
+Giờ
+Bảo trì
+Yêu cầu
+Bảo trì
+Chi phí
+23 tháng 2
+23 tháng 3
+23 tháng 4
+23 tháng 5
+23 tháng 6
+23 tháng 7
+23 tháng 8
+23 tháng 9
+23 tháng 10
+23 tháng 11
+23 tháng 12
+24 tháng 1
+24 tháng 2
+24 tháng 3
+24 tháng 4
+24 tháng 5
+24 tháng 6
+24 tháng 7
+24 tháng 8
+24 tháng 9
+3250
+5
+22080
+9
+5
+27360
+18660
+3770
+2470
+4030
+4940
+4290
+5330
+4550
+2600
+4810
+6110
+5460
+3270
+3790
+2490
+4050
+4960
+4310
+5350
+4570
+2620
+được rồi
+Hủy bỏ
+Trợ giúp
+Hồi quy
+đầu vào
+Phạm vi Y đầu vào:
+$D$1:$D$37
+Phạm vi X đầu vào:
+Nhãn
+Mức độ tin cậy:
+Hằng số là số không
+95
+%
+Tùy chọn đầu ra
+dư lượng
+Xác suất bình thường
+Lô xác suất thông thường
+dư lượng
+Dư lượng tiêu chuẩn hóa
+Lô đất dư
+Lô vừa vặn
+Phạm vi đầu ra:
+Sổ làm việc mới
+Lớp bảng tính mới:
+?
+$B$1:$C$37
+$H$3
+MINH HỌA 3.52  Hộp thoại hồi quy
+BƯỚC 3: Phạm vi Y đầu vào dành cho biến phụ thuộc. Biến phụ thuộc là những gì sẽ 
+được dự đoán. Trong ví dụ này, đó là cột D, Chi phí bảo trì ($D$1:$D$37). đầu vào 
+Phạm vi X dành cho các biến độc lập. Trong ví dụ này, có hai biến độc lập– 
+Số giờ máy và yêu cầu bảo trì ($B$1:$C$37). 
+Chọn Nhãn nếu hàng đầu tiên của dữ liệu là tiêu đề cột (hàng 1). Trong ví dụ này, đầu ra 
+sẽ ở trong một bảng tính mới. Cuối cùng, Dư lượng, Dư lượng tiêu chuẩn hóa, Lô đất dư và 
+Các ô xác suất thông thường được chọn. Các tùy chọn phần dư này sẽ được sử dụng để đánh giá 
+giả định hồi quy.
+BƯỚC 4: Nhấn OK để có kết quả hồi quy (Minh họa 3.53).
+MINH HỌA 3.53  Kết quả hồi quy
+Nhiều R
+R vuông
+Hình vuông R đã điều chỉnh
+Lỗi chuẩn
+Quan sát
+ANOVA
+0.978687872
+0.95782995
+0.955274189
+1283.821342
+36
+df
+SS
+MS
+F
+1235399491
+54390508.88
+Hồi quy
+dư
+Tổng cộng
+2
+33
+35
+1289790000
+6.18E+08
+1648197
+374.773
+2.05385E-23
+897.8427419
+0.43769194
+Đánh chặn
+Giờ máy
+Yêu cầu bảo trì
+5252.858452
+3.569202976
+759.8366754
+168.7763028
+4.502034
+5.850533
+8.154601
+7.94E-05
+2.05E-09
+1.5E-06
+Ý nghĩa F
+hệ số
+Lỗi chuẩn
+t Thống kê
+giá trị P
+416.4587054
+2.678712028
+3426.183659
+Thấp hơn 95%
+TÓM TẮT ĐẦU RA
+Thống kê hồi quy
+
+3-44  CHƯƠNG 3  Động cơ và Mục tiêu Phân tích Dữ liệu
+Câu hỏi trắc nghiệm
+1.  (LO 1)  Động lực phân tích dữ liệu trong kế toán là
+một.	 lý do tại sao việc phân tích được thực hiện.
+b.	 việc giải thích kết quả phân tích.
+c.	 chỉ dựa trên các yếu tố bên ngoài phân tích.
+d.	 chỉ dựa trên việc liệu sự nghiệp của bạn có được hưởng lợi từ việc thực hiện-
+tiến hành phân tích.
+2.  (LO 1)  Một nguồn động lực cho việc phân tích dữ liệu trong kế toán 
+liên quan đến cơ hội. Điều nào sau đây là ví dụ về 
+nguồn động lực của cơ hội?
+Một.	 Mong muốn thành công trong tương lai trên con đường sự nghiệp của bạn.
+b.	 Đang cân nhắc xem có nên mở rộng sản xuất một loại sản phẩm mới hay không 
+sản phẩm đã ra mắt.
+c.	 Đảm bảo tuân thủ tuyên bố mới nhất của FASB.
+d.	 Xem xét lý do tại sao doanh số bán hàng của công ty giảm hơn 
+một khoảng thời gian.
+3.  (LO 1)  Động cơ thực hiện phân tích dữ liệu của kế toán viên có thể 
+bắt nguồn từ
+một.	 cơ hội trên thị trường hoặc tổ chức.
+b.	 những thay đổi về pháp luật, quy định và quy chế chuyên môn.
+c.	 dấu hiệu cho thấy một vấn đề cần được giải quyết.
+d.	 cần thực hiện đánh giá về các quy trình hoặc hiệu suất.
+đ.	 Bất kỳ điều nào trong số này có thể kích hoạt động lực để thực hiện phân tích dữ liệu.
+4.  (LO 1)  Tư duy phản biện thông qua động lực thực hiện dữ liệu 
+phân tích bao gồm việc xem xét
+một.	 các bên liên quan, mục đích, các lựa chọn thay thế, rủi ro, kiến thức và 
+sự tự phản ánh.
+b.	 các bên liên quan và mục đích.
+c.	 các bên liên quan, mục đích, quản lý rủi ro và các lựa chọn thay thế.
+d.	 các bên liên quan, thu thập kiến thức, các lựa chọn thay thế và tự 
+sự phản chiếu.
+đ.	 các bên liên quan, quản lý rủi ro, các lựa chọn thay thế và khả năng tự 
+sự phản chiếu.
+5.  (LO 1)  Phân tích các bên liên quan và quan điểm của họ giúp 
+suy nghĩ chín chắn thông qua động lực để thực hiện phân tích dữ liệu bởi vì
+một.	 nó nhắc nhở bạn ai là người trả lương cho bạn.
+b.	 một số có thể ở bên ngoài tổ chức của bạn.
+c.	 xem xét quan điểm của các bên liên quan giúp xác định 
+mục tiêu và phát triển các câu hỏi hay.
+d.	 các bên liên quan nội bộ không bao giờ nên được xem xét.
+đ.	 Tất cả những điều này là lý do để xem xét các bên liên quan trong 
+tư duy phê phán.
+6.  (LO 1)  Xem xét nghiêm túc mục đích thực hiện dữ liệu 
+phân tích 
+một.	 khiến chúng ta tập trung vào lý do tại sao điều gì đó được thực hiện hoặc tạo ra.
+b.	 cung cấp dữ liệu miễn phí để phân tích.
+c.	 tiết lộ quan điểm của các bên liên quan.
+d.	 giúp tránh những thành kiến ​​và giả định.
+đ.	 Không ai trong số này liệt kê những lợi ích của tư duy phản biện khi xem xét 
+mục đích của việc phân tích dữ liệu.
+7.  (LO 1)  Việc thực hiện các phân tích dữ liệu phù hợp nhất sẽ hiệu quả hơn 
+có thể nếu bạn suy nghĩ nghiêm túc về các vấn đề bằng cách
+một.	 sử dụng biểu đồ thanh từ kết quả hoạt động năm ngoái.
+b.	 bắt đầu với kết quả bạn muốn đạt được.
+c.	 trả tiền cho người khác để giúp bạn.
+d.	 tiếp thu và vận dụng kiến ​​thức mới.
+đ.	 Không có điều nào trong số này giúp bạn thực hiện phân tích dữ liệu tốt hơn.
+8.  (LO 1)  Suy nghĩ chín chắn về những rủi ro đối với quan điểm của bạn với tư cách là 
+bạn xác định động lực thực hiện phân tích dữ liệu sẽ giúp bạn 
+giảm thiểu
+một.	 sai sót từ những thành kiến.
+b.	 sai sót do thiếu kinh nghiệm.
+c.	 lỗi từ các giả định của bạn.
+d.	 kết luận sai lầm từ những sai sót hoặc thiếu sót trong dữ liệu của bạn.
+đ.	 Tất cả những điều này đều là lợi ích của việc xem xét rủi ro đối với dữ liệu của bạn 
+phân tích các lựa chọn.
+9.  (LO 1)  Việc xem xét một số phương pháp phân tích thay thế sẽ giúp bạn
+một.	 hãy chọn phương án thay thế đầu tiên nảy ra trong đầu.
+b.	 chọn tùy chọn tốt nhất cho mục đích của dự án.
+c.	 chọn phương án thay thế có chi phí tăng thêm cao nhất.
+d.	 chọn phương án thay thế có khả năng cung cấp thông tin thấp nhất 
+kết quả.
+10.  (LO 2)  Nếu mục tiêu của phân tích dữ liệu là để hiểu thế nào là 
+hiện đang xảy ra hoặc đã xảy ra trong quá khứ thì loại 
+câu hỏi bạn đang hỏi?
+Một.	 mô tả
+b.	 Chẩn đoán
+c.	 Dự đoán
+d.	 mang tính quy định
+11.  (LO 2)  Khi bạn đã nêu rõ một câu hỏi mô tả, điều gì 
+loại phân tích nào là cần thiết để hiểu được sự phân tán của dữ liệu?
+Một.	 trung vị
+b.	 Tần số
+c.	 Độ lệch chuẩn
+d.	 Phần trăm thay đổi
+12.  (LO 2)  Giả sử bạn định thực hiện phân tích mô tả về 
+chi phí bảo trì của đơn vị. Phân tích nào sau đây 
+sẽ giúp hiểu các loại chi phí bảo trì?
+Một.	 Tạo bảng phân phối tần suất dựa trên bảo trì 
+các hạng mục chi phí.
+b.	 Tính toán chi phí bảo trì trung bình và trung bình cho 
+kỳ.
+c.	 Xây dựng mô hình hồi quy sử dụng giờ lao động làm yếu tố dự báo 
+chi phí bảo trì.
+d.	 Tính phần trăm thay đổi trong chi phí bảo trì 
+kể từ năm trước.
+đ.	 Không có điều nào trong số này được coi là phân tích mô tả được sử dụng để 
+hiểu các loại chi phí bảo trì.
+Dữ liệu   Thẻ Dữ liệu xuất hiện khi dữ liệu cần thiết để trả lời một câu hỏi hoặc hoàn thành một câu hỏi. 
+bài tập có sẵn trên nền tảng học tập trực tuyến của Wiley.
+
+Câu hỏi ôn tập  3-45
+13.  (LO 3)  Loại câu hỏi nào là “Điều gì thúc đẩy sự gia tăng 
+chi phí lao động? 
+Một.	 mô tả
+b.	 Chẩn đoán
+c.	 Dự đoán
+d.	 mang tính quy định
+14.  (LO 3)  Câu hỏi phụ “Có giao dịch mua bán bất thường nào không?
+vào năm 2023?” được liên kết tốt nhất với đối tượng nào sau đây
+ý nghĩa của việc phân tích dữ liệu?
+Một.	 Số tiền bán hàng trung bình vào năm 2023 là bao nhiêu?
+b.	 Đâu là yếu tố dự đoán tốt nhất về mức tăng doanh số bán hàng trong thời gian tới?
+c.	 Tại sao doanh số bán hàng giảm trong năm 2023?
+d.	 Số tiền bán hàng tối thiểu và tối đa là bao nhiêu 
+trong năm 2023?
+15.  (LO 4)  Loại câu hỏi nào là “Doanh thu tiếp theo sẽ là bao nhiêu?” 
+năm nếu chúng ta tăng doanh thu lên 10%?”

@@ -1,0 +1,527 @@
+ILLUSTRATION 2.48  University 
+Salary Data Descriptive Statistics
+Mean
+Standard Error
+Median
+Mode
+Standard Deviation
+Sample Variance
+Kurtosis
+Skewness
+Range
+Minimum
+Maximum
+Sum
+Count
+$                40,065.88
+$                      424.02
+$                28,276.00
+$                   3,269.00
+$                44,043.13
+$ 1,939,797,496.92
+$                           8.19
+$                           2.30
+$              468,597.00
+$                         78.00
+$              468,675.00
+$      432,270,823.00
+10,789.00
+Annual Salary
+Statistical software packages typically have a similar feature to calculate multiple descrip-
+tive statistics simultaneously. Whether we use multiple single Excel functions or just one to 
+calculate it, revealing the shape of a data set helps us better understand the data. There is also 
+another important component–understanding relationships within a data set.
+Correlation Analysis
+Correlation analysis can reveal relationships in data by measuring the linear relationship 
+between two variables. The first step is understanding how variables are correlated, and the 
+second step involves calculating the correlation.
+Interpret Correlation Coefficients
+Linear correlation of continuous variables is measured by the correlation coefficient, also 
+known as the Pearson Product Moment Correlation Coefficient. This measure is a numerical 
+value between −1 and +1. The higher the absolute number, the greater the strength of the 
+relationship.
+
+2.4  Which Descriptive Measures Help Us Understand Data? 
+2-35
+A correlation can be negative, zero, or positive (Illustration 2.49):
+•	A negative correlation is an inverse relationship. As one variable increases, the other 
+decreases. There is a negative relationship between soup sales and temperature because 
+as temperatures decrease, the soup sales increase.
+•	No correlation indicates no relationship between the variables. We would not expect the 
+outdoor temperature to have an impact on the sale of cereal, for example.
+•	A positive correlation coefficient indicates that as one variable increases, so does the 
+other variable. We would expect a positive relationship between ice cream sales and out-
+door temperature. As the temperature rises, ice cream sales tend to rise as well.
+ILLUSTRATION 2.49  Correlation 
+Examples
+Temperature
+Soup Sales
+Cereal
+Ice Cream Sales
+Negative
+Zero
+Positive
+We can also consider the strength of a relationship. The higher the correlation coefficient, 
+between a negative 1 and a positive 1, the stronger the correlation. Illustration 2.50 is a guide 
+to determining if a correlation coefficient indicates a weak, moderate, or strong relationship.
+ILLUSTRATION 2.50  Interpreting 
+Correlation Coefficients
+−0.70
+−0.50
+−0.30
+A moderate negative linear relationship
+A weak negative linear relationship
+0
+No linear relationship
+Exactly −1
++0.50
++0.70
+Exactly +1
++0.30
+A perfect negative linear relationship
+A strong negative linear relationship
+A strong positive linear relationship
+A perfect positive linear relationship
+A weak positive linear relationship
+A moderate positive linear relationship
+Interpretation
+Correlation r
+Imagine examining the relationship between ice cream sales and the outdoor tempera-
+ture. If the correlation coefficient of sales and temperature was positive 0.75, then there is a 
+strong positive relationship between sales and temperature. As temperatures rise, sales of ice 
+cream increase and vice versa. (Illustration 2.51)
+ILLUSTRATION 2.51  Positive 
+Correlation Example
+Temperatures Rise
+Correlation Coeﬀicient of Ice Cream
+Sales and Temperature
+Sales Rise
+$
+
+2-36 
+CHAPTER 2  Foundational Data Analysis Skills
+$
+Heating Costs Rise
+Temperatures Fall
+Correlation Coeﬀicient of Heating
+Costs and Temperature
+ILLUSTRATION 2.52  Negative 
+Correlation Example
+ILLUSTRATION 2.53  University 
+Salary and Hours Data
+fx
+1
+F
+G
+Sheet1
+2
+3
+4
+6
+10789
+10790
+Program Coordinator
+Eminent Scholar
+Eminent Scholar
+Network Administrator
+Professor
+Associate Professor
+$   94,626.00
+$ 141,939.00
+5
+Assistant Professor
+$   87,454.00
+$   48,874.00
+7
+Student Program Coordinator
+$   42,630.00
+612
+918
+1,530
+2,040
+2,040
+$   23,998.00
+$   59,196.00
+387.6
+306
+$   57,633.00
+2,040
+Title
+AnnualSalary
+H
+HoursWorked
+AutoSave
+Oﬀ
+University Salary and Hours Data
+Illustration 2.54 shows the correlation dialog box that opens after clicking Correlation 
+and selecting OK in the Data Analysis Tools dropdown menu. The input range in the dialog 
+In this case, there is a strong negative correlation between heating costs and temperature. 
+As the temperature decreases, the cost of heating a home increases and vice versa.
+Perform Correlation Analysis
+Correlation can be visually assessed by preparing a scatterplot, like those in Illustration 2.49, 
+and then plotting a line. This will indicate if a correlation exists and whether it is positive or 
+negative.
+The correlation coefficient can be calculated by hand with a formula or with software. All 
+statistical software can calculate a correlation coefficient, including Microsoft Excel, which is 
+used in this example. Regardless of the software used, the interpretation of the results is the 
+same. There are two ways to perform correlation analysis in Excel:
+•	Using the CORREL function.
+•	Using the Correlation option in the Data Analysis tool.
+The benefit of using the Correlation option in the Data Analysis tool is that a correlation table 
+for more than one variable can be created at the same time.  Data   We use the university pay-
+roll data to illustrate the correlation option in Excel and then interpret the results.
+In the Salary Hours tab in the data file (Illustration 2.53), perform a correlation analysis 
+to see if there is a correlation between annual salary and hours worked.
+Suppose instead we are examining the relationship between heating costs and tempera-
+ture, and the correlation coefficient is a negative 0.70 (Illustration 2.52)
+
+2.4  Which Descriptive Measures Help Us Understand Data? 
+2-37
+box contains the columns being tested for correlation. This example is testing for correlation 
+between column G (Annual Salary) rows 1 – 10790, and column H (Hours Worked) rows 1 
+– 10790.
+ILLUSTRATION 2.54  Data 
+Analysis Tool and Correlation 
+Dialog Box
+OK
+Cancel
+Help
+Data Analysis
+Analysis Tools
+?
+Anova: Single Factor
+Anova: Two-Factor With Replication
+Anova: Two-Factor Without Replication
+Correlation
+Covariance
+Descriptive Statistics
+Exponential Smoothing
+F-Test Two-Sample for Variances
+Fourier Analysis
+Histogram
+OK
+Cancel
+Help
+Correlation
+Input
+Columns
+Rows
+Input Range:
+Grouped By:
+Output options
+Output Range:
+New Workbook
+New Worksheet Ply:
+$G$1:$H$10790
+$J$3
+?
+Labels in First row
+The dialog box in Illustration 2.54 shows the inputs necessary to run the correlation anal-
+ysis. The result of the correlation analysis is shown in Illustration 2.55:
+•	The correlation coefficient is 0.552.
+•	There is a moderate positive correlation between annual salary and hours worked.
+In other words, as hours worked increases so does annual salary.
+ILLUSTRATION 2.55  University 
+Salary Correlation Analysis
+Annual Salary
+1
+0.552
+Hours Worked
+1
+Annual Salary
+Hours Worked
+Why is there not a stronger correlation? A strong correlation between the hours worked 
+and the amount of annual salary paid seems to make sense. However, if employees are paid a 
+fixed annual salary rather than hourly that would reduce the correlation to hours.
+Correlation analysis can help uncover relationships in the data and understand their 
+strength. But never assume that one variable causes a change in the other because there is 
+correlation between the two. It is possible to find a correlation between two variables that have 
+nothing to do with one another. This is a spurious correlation, which occurs when there is a 
+mathematical, but not a logical, relationship between two variables. Always ensure correla-
+tions make sense before using one to make decisions.
+
+2-38 
+CHAPTER 2  Foundational Data Analysis Skills
+Apply It 2.4
+Use Descriptive 
+Statistics to Audit 
+Warranty Expense
+Data   Auditing   As an external auditor, you have been assigned to the audit engagement for Super 
+Scooters. One of your responsibilities is to review warranty expense. As the illustration shows, average 
+warranty expense for Super Scooters has been rising over the last three years.
+2023
+$0
+$50
+$100
+$150
+$200
+$250
+$300
+$350
+$400
+$450
+Average Warranty Expense
+Average
+ Warranty
+Expense
+Year
+2024
+2025
+To analyze the warranty expense, you have decided to use descriptive statistics. Perform the following 
+analyses and interpret your results.
+	 1.	 Use the Descriptive Statistics option in the Data Analysis tool to calculate the descriptive statis-
+tics for warranty expense from 2023 to 2025. Interpret the following measures:
+•  Mean
+•  Median
+•  Standard deviation
+•  Kurtosis
+•  Skewness
+	 2.	 Perform descriptive statistics for warranty expense in 2025. Interpret the following measures:
+•  Mean
+•  Median
+•  Kurtosis
+•  Skewness
+	 3.	 Prepare a histogram of 2025 Warranty Expense with the following bins: 200, 400, 600, 800, 1000, 
+1200, and 1,400.
+•  Chart the data.
+•  Does the shape and distribution of your histogram support the kurtosis and skewness 
+measures?
+
+2.4  Which Descriptive Measures Help Us Understand Data? 
+2-39
+SOLUTION
+	 1.	 Descriptive statistics for warranty expense from 2023 to 2025:
+	
+343.57
+4.06
+300
+240
+244.90
+59,977.92
+1.54
+1.23
+1,493
+7
+1,500
+1,252,326
+3,645
+Mean
+Standard Error
+Median
+Mode
+Standard Deviation
+Sample Variance
+Kurtosis
+Skewness
+Range
+Minimum
+Maximum
+Sum
+Count
+Total Warranty
+	 	
+Measure Interpretation:
+Measure
+Result
+Interpretation
+Mean
+The mean warranty cost for 
+the 3-year period was $343.57.
+The average warranty cost for all 3,645 sales 
+over the 3-year period is $343.57.
+Median
+The median warranty cost for 
+the 3-year period was $300.00.
+The middle value of warranty expense for 
+the 3-year period, when ranking warranty 
+expense from high to low, is $300.
+Standard 
+deviation
+The standard deviation over 
+the 3-year period was $244.90.
+This is a high standard deviation compared 
+to the mean and median. It indicates a wide 
+dispersion of the warranty costs.
+For any given sale, the warranty cost could 
+be + or − $244.90 from the mean.
+Kurtosis
+The coefficient of kurtosis  
+is 1.54.
+This is less than 3, indicating that the shape 
+of the distribution is somewhat flat with a 
+wide degree of dispersion.
+Skewness
+The coefficient of skewness is 
+a positive 1.23.
+This is greater than 1, indicating that the 
+data peaks around the mean and then tails 
+off to the right.
+	 2.	 Descriptive statistics for warranty expense in 2025: 
+414.18
+7.551634
+330
+330
+276.13
+76,245.34
+0.93
+1.18
+1,460
+40
+1,500
+553,759
+1,337
+Mean
+Standard Error
+Median
+Mode
+Standard Deviation
+Sample Variance
+Kurtosis
+Skewness
+Range
+Minimum
+Maximum
+Sum
+Count
+Total Warranty–2025
+
+2-40 
+CHAPTER 2  Foundational Data Analysis Skills
+Measure Interpretation:
+Measure
+Result
+Interpretation
+Mean
+The mean warranty cost for 
+2025 was $414.18.
+This is higher than the three year average 
+found in question 1.
+Median
+The median warranty cost for 
+2025 was $330.00.
+This represents the exact middle of the 
+distribution if the data is arranged from 
+lowest to highest.
+Kurtosis
+The coefficient of kurtosis  
+is 0.93.
+This is less than three, indicating that the 
+shape of the distribution is somewhat flat 
+with a wide degree of dispersion.
+Skewness
+The coefficient of skewness is 
+a positive 1.18.
+This is greater than one, indicating the data 
+peaks around the mean and then tails off 
+to the right.
+	 3.	 Histogram:
+0
+100
+Bins
+Frequency
+200
+300
+400
+500
+200
+400
+600
+800
+1,000
+1,200
+1,400
+More
+Histogram
+Yes, the kurtosis indicates a wide dispersion. The warranty expense is spread out from $200 to $1,200:
+•	 There are three peaks versus one high peak. The skewness indicates the data peaks around 
+the mean and then tails off to the right.
+•	 The highest peak is around the mean of $414 and then tails off to the right.
+2.5  How is Visualization Used in 
+Data Analysis?
+LEARNING OBJECTIVE ➎
+Summarize how data visualization explores and explains data.
+Data visualization is the graphical presentation of data and information. Businesses are 
+increasingly focused on data visualization due to the combination of increased data availabil-
+ity and easy-to-use software tools. In today’s workplace, employers expect accounting gradu-
+ates to know how to use data visualization to understand, explain, and communicate answers 
+to data questions.
+
+2.5  How is Visualization Used in Data Analysis? 
+2-41
+There are two types of data visualization:
+•	Exploratory data visualization uses data visualization tools and techniques to explore 
+data to find insights. Exploratory data visualization helps understand the data and iden-
+tify underlying patterns, trends, or anomalies.
+•	Explanatory data visualization uses data visualization tools and techniques to com-
+municate the results of an analysis. It is used to explain the results of an analysis, show 
+relationships in the data, and communicate insights.
+This course will eventually cover both in greater detail. This discussion introduces how visu-
+alizations make sense of large data sets, identifies common visualizations and when to use 
+them, and explains how to create them in Microsoft Excel. Many accounting professionals 
+prefer more powerful visualization software such as Power BI and Tableau because Microsoft 
+Excel has limited data visualization capabilities. However, creating visualizations in Excel is 
+an efficient and simple introduction. 
+Making Sense of Large Data Sets
+Visualization is powerful because it can quickly and efficiently reveal insights buried in raw 
+data. Illustration 2.56 is a tabular summary of sales for an electronics store for the years 
+2023–2025. Compare the table to its visualization in column chart.
+ILLUSTRATION 2.56  Visualizing 
+Sales Data
+Appliances
+Cameras
+Computers
+Computer Accessories
+TVs
+Grand Total
+$     627,417,576
+$     931,975,979
+$     589,356,617
+$ 1,255,786,672
+$ 4,760,213,442
+$     434,358,182
+$ 1,355,676,598
+Annual Sales
+Product Category
+FY 2024
+Grand Total
+ FY 2023
+$     217,276,947
+$     434,363,120
+$     327,140,700
+$     216,412,502
+$     432,403,786
+$     217,491,906
+$     323,513,274
+$     215,524,232
+$     434,187,852
+$ 1,625,075,446
+$     486,955,296
+FY 2025
+$     192,648,723
+$     281,322,005
+$     157,419,883
+$     389,195,034
+$ 1,507,540,941
+$ 1,627,597,055
+0
+$200,000,000
+$100,000,000
+$300,000,000
+$400,000,000
+$500,000,000
+$600,000,000
+Appliances
+Cameras
+Computers
+Computer
+Accessories
+TVs
+Annual Sales
+Product
+FY 2023
+FY 2024
+FY 2025
+The graph of sales is easier to interpret:
+•	It is immediately clear that appliances and TVs have the highest sales in all three years, 
+and only appliances had an increase in sales in 2025.
+•	All other product categories had lower sales in 2025 than the prior two years.

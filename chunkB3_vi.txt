@@ -1,0 +1,45 @@
+– Phân loại (Classification) là một bài toán trong đó biến mục tiêu mang tính định tính (hai hoặc nhiều danh mục). Bài toán nợ quá hạn của khoản vay là một ví dụ về bài toán phân loại nhị phân (binary classification problem) với hai lớp dự đoán là "Nợ quá hạn" (Delinquent) và "Không nợ quá hạn" (Non-delinquent). Các ví dụ khác bao gồm việc dự đoán xem một email có phải là thư rác (spam) hay không và nhận dạng ký tự viết tay.
+– Hồi quy (Regression) là một bài toán trong đó biến mục tiêu là một giá trị định lượng (dạng số), chẳng hạn như dự đoán số tiền vỡ nợ của khoản vay (loan default amount) cho mỗi khách hàng. Các ví dụ điển hình bao gồm dự báo doanh số bán hàng, dự đoán giá và dự đoán số tiền vỡ nợ của khoản vay.
+– Học không giám sát (Unsupervised learning) liên quan đến việc học từ dữ liệu đầu vào mà không có bất kỳ mục tiêu nào. Trong trường hợp này, thuật toán cố gắng sử dụng một cấu trúc tiềm ẩn (underlying structure) của dữ liệu để tìm ra các mối liên kết (associations) và mô hình (patterns) hữu ích. Phần lớn dữ liệu thô trên thế giới không có một biến mục tiêu được định nghĩa rõ ràng; do đó, các kỹ thuật học không giám sát có thể áp dụng cho rất nhiều bài toán. Các bài toán điển hình bao gồm phân cụm (clustering) và liên kết (association):
+  – Phân cụm (Clustering) là bài toán chia dữ liệu thành các nhóm đồng nhất (homogenous groups) tương tự nhau. Các ví dụ điển hình của phân cụm bao gồm việc xác định những khách hàng tương tự dựa trên hành vi mua hàng (phân khúc khách hàng - customer segmentation), các tài liệu tương tự, và phân cụm các bài báo tin tức tương tự nhau.
+  – Liên kết (Association) là bài toán tìm kiếm các mối liên kết giữa các biến khác nhau có thể mô tả các đặc điểm của dữ liệu. Các ví dụ phổ biến bao gồm phân tích giỏ hàng (market basket analysis) để tìm các sản phẩm được đóng gói chung vì chúng thường được mua cùng nhau—điện thoại di động kèm theo ốp lưng, sữa và bơ, bia và tã lót.
+
+## Lựa chọn các Mô hình (Choice of Models)
+Nhiều mô hình học máy đã được phát triển để phục vụ cho các bài toán khác nhau trong thế giới thực. Để áp dụng một mô hình học máy, việc xác định loại tác vụ là điều cốt yếu: học có giám sát (phân loại, hồi quy) và học không giám sát (phân cụm, liên kết). Bảng 6.7 tóm tắt một số thuật toán mô hình hóa.
+
+<!-- IMAGE_PLACEHOLDER: Table 6.7: Supervised and Unsupervised Learning Models -->
+
+Mỗi mô hình này đều có công dụng, ưu điểm và nhược điểm riêng. Một trong những thuật toán phổ biến là hồi quy tuyến tính (linear regression) hoặc hồi quy logistic (logistic regression) khi có sự liên kết tuyến tính (linear association) của các đặc trưng (features) với mục tiêu, nghĩa là mục tiêu tăng hoặc giảm tuyến tính cùng với sự thay đổi của các đặc trưng. Trong nhiều ứng dụng công nghiệp, các mô hình tuyến tính được áp dụng vì chúng đơn giản và khá dễ diễn giải. Tuy nhiên, các mô hình này có thể có những hạn chế về sức mạnh dự đoán do các mối liên kết trong thế giới thực giữa các đặc trưng và mục tiêu có thể là phi tuyến tính (nonlinear). Trong những trường hợp như vậy, các mô hình phi tuyến tính, chẳng hạn như cây quyết định (decision trees), bagging, boosting, mạng nơ-ron (neural networks) và máy vectơ hỗ trợ (support vector machines - SVMs), nên được sử dụng.
+
+## Xây dựng Mô hình (Model Building)
+Một mô hình chỉ là một hàm toán học có thể được sử dụng để biểu diễn mối quan hệ giữa các đặc trưng trong dữ liệu. Về mặt thực tế, không có mô hình nào hoàn hảo. Người ta chỉ có thể cố gắng tạo ra các mô hình tốt có thể đáp ứng nhu cầu kinh doanh. Xây dựng một mô hình có thể là một quá trình lặp đi lặp lại (iterative process): người ta có thể thử nghiệm một vài mô hình, một sự kết hợp khác nhau của các đặc trưng, và các kỹ thuật mô hình hóa khác nhau trước khi tìm ra một mô hình đáp ứng được yêu cầu.
+
+Có nhiều cách để xây dựng một mô hình học máy có giám sát, nhưng thông thường, các mô hình bao gồm quá trình huấn luyện (training), xác thực (validation) và kiểm thử (testing), được phản ánh trong các bước tiêu chuẩn sau:
+1. Chia dữ liệu một cách ngẫu nhiên thành hai tập, cụ thể là dữ liệu huấn luyện (training data) và dữ liệu xác thực (validation data). Một điểm khởi đầu tốt là tỷ lệ 80/20 (80 phần trăm dữ liệu huấn luyện và 20 phần trăm dữ liệu xác thực).
+2. Dữ liệu huấn luyện được sử dụng để huấn luyện hoặc dạy cho mô hình dự đoán mục tiêu bằng cách sử dụng các đặc trưng. Ở bước này, một mô hình thích hợp nên được lựa chọn dựa trên tác vụ học.
+3. Dữ liệu xác thực được sử dụng để đánh giá hiệu suất của mô hình. Tại bước này, các lỗi trong mô hình nên được phân tích và sử dụng để thực hiện một số điều chỉnh đối với các mô hình, chẳng hạn như tinh chỉnh (tuning) mô hình, lựa chọn các đặc trưng và đưa ra các quyết định khác liên quan đến thuật toán học.
+4. Cuối cùng, mô hình cuối cùng thu được sau quá trình huấn luyện và xác thực được áp dụng cho một tập dữ liệu hoàn toàn mới được gọi là tập dữ liệu kiểm thử (test dataset) mà mô hình chưa từng được tiếp xúc trước đó. Hiệu suất trên tập kiểm thử cho biết hiệu suất thực tế của mô hình cuối cùng, hoặc hiệu suất được mong đợi khi sử dụng mô hình trong thế giới thực.
+
+Xin lưu ý rằng các bước nêu trên không cố định và có thể thay đổi tùy thuộc vào bài toán, dữ liệu và phương pháp tiếp cận. Có nhiều cách khác nhau để chia dữ liệu thành dữ liệu huấn luyện và dữ liệu xác thực, tạo các tập kiểm thử và thực hiện các bước bổ sung để đảm bảo tính ổn định của mô hình. Hình 6.7 tóm tắt cách tiếp cận phân chia tập dữ liệu và mô hình hóa.
+
+<!-- IMAGE_PLACEHOLDER: Figure 6.7: The modeling process -->
+
+Việc xây dựng một mô hình học không giám sát thường nhiều thách thức hơn so với mô hình học có giám sát. Các mô hình học không giám sát không có biến mục tiêu; do đó, không có cách nào để kiểm tra xem mô hình đang hoạt động tốt hay kém vì không có câu trả lời đúng một cách rõ ràng. Thông thường hiệu suất cần được đánh giá bằng cách sử dụng kinh nghiệm trong quá khứ và kiến thức chuyên môn (domain knowledge). Điều này làm cho việc xây dựng mô hình trở thành một quá trình mang tính chủ quan.
+
+## Đánh giá Mô hình (Model Evaluation)
+Như đã mô tả ở trên, không có mô hình nào hoàn hảo. Mọi mô hình đều gặp phải một số lỗi (errors). Quá trình để đánh giá các lỗi dự đoán của một mô hình học máy được gọi là phân tích lỗi (error analysis). Lý tưởng nhất, mỗi kết quả dự đoán của một mô hình nên được kiểm tra để xem xét lỗi và hiểu nguyên nhân cốt lõi của nó. Tuy nhiên, việc thực hiện các kiểm tra này theo cách thủ công tốn rất nhiều thời gian, đặc biệt là với các tập dữ liệu lớn. Do đó, cần có các số đo đánh giá (evaluation metrics) để đo lường hiệu suất dự đoán tổng thể của mô hình.
+
+Học máy cung cấp một lượng lớn sự lựa chọn về các số đo đánh giá tùy thuộc vào tác vụ liên quan. Đối với các bài toán phân loại (classification tasks), các so sánh có thể được thực hiện giữa các dự đoán đúng và sai đối với mục tiêu thực (true target) bằng cách sử dụng một ma trận lỗi thường dùng gọi là ma trận nhầm lẫn (confusion matrix). Đối với các tác vụ hồi quy (regression tasks), sai số có thể được đo lường giữa mục tiêu được dự đoán và mục tiêu thực. Bảng 6.8 cho thấy một số các số đo đánh giá thường được sử dụng cho các bài toán phân loại và hồi quy.
+
+<!-- IMAGE_PLACEHOLDER: Table 6.8: Evaluation Metrics for Different Tasks -->
+
+## Phân tích Lỗi (Error Analysis)
+Để đánh giá hiệu suất của bất kỳ mô hình học máy nào, các lỗi cần được đo lường và phân tích. Về cơ bản, có ba nguồn gây ra lỗi trong bất kỳ mô hình học máy nào: lỗi không thể khử (irreducible errors), độ lệch (bias) và phương sai (variance).
+
+Lỗi không thể khử (lỗi Bayes hoặc độ lệch không thể tránh khỏi) là một sai số không thể làm giảm đi được bất kể sử dụng thuật toán mô hình hóa nào. Loại lỗi này có thể được đưa vào do mục tiêu của bài toán, nhiễu (noise) và các lỗi trong việc thu thập dữ liệu; các biến chưa biết (unknown variables) có thể ảnh hưởng lẫn nhau và ảnh hưởng tới biến mục tiêu; cùng các yếu tố khác. Không có mô hình nào hoàn hảo, vì vậy kỳ vọng đạt được độ chính xác 100 phần trăm là điều đơn giản không thực tế. Do đó, mục tiêu của việc mô hình hóa là tạo ra một mô hình tiến càng gần càng tốt đến hiệu suất mong muốn.13
+
+Độ lệch (Bias) là một lỗi khác được đưa vào do các giả định sai lầm trong mô hình trong khi phương sai (variance) là một lỗi do sự biến thiên trong các dự đoán của mô hình. Nói một cách đơn giản, khái niệm này được giải thích thông qua biểu đồ bia bắn (bulls-eye diagram) trong Hình 6.8.14 Tâm của vòng tròn đồng tâm đại diện cho một mô hình hoàn hảo dự đoán chính xác tất cả các mục tiêu, và mỗi dấu chấm đại diện cho một mô hình. Đôi khi dự đoán của mô hình gần sát với dự đoán của mô hình lý tưởng, trong khi đôi khi nó lại đi chệch rất xa.
+
+<!-- IMAGE_PLACEHOLDER: Figure 6.8: Understanding bias and variance -->
+
+Trong khi độ lệch đo lường mức độ đi chệch của các dự đoán mô hình này

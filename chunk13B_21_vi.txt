@@ -1,0 +1,339 @@
+nhóm kiểm toán nội bộ trong tổ chức của bạn và người giám sát của bạn đã yêu cầu bạn phân tích dữ liệu thẻ p. 
+Mục tiêu của phân tích là tìm hiểu chi tiêu thẻ p trong năm hiện tại. Các câu hỏi liên quan
+đạt được mục tiêu bao gồm:
+•  Công ty chi nhiều tiền nhất khi sử dụng thẻ p với ba nhà cung cấp nào?
+•  Nhân viên nào chi số tiền nhiều nhất khi sử dụng thẻ p?
+Xem lại dữ liệu và hoàn thành biểu đồ để ghi lại các lựa chọn chiến lược phân tích và dữ liệu của bạn. 
+Mục tiêu và câu hỏi
+Chiến lược phân tích và dữ liệu
+Rủi ro
+Điều khiển
+Mục tiêu: Tìm hiểu thẻ p 
+chi tiêu trong năm hiện hành.
+Câu hỏi:
+• Ba địa-
+dors nơi Công ty 
+tiêu nhiều tiền nhất 
+sử dụng thẻ p?
+• Nhân viên nào chi tiêu 
+số tiền đô la cao nhất 
+tiền bằng cách sử dụng thẻ p?
+Dữ liệu: Sử dụng dữ liệu được cung cấp trong  
+tệp Excel.
+Phân tích: Sử dụng Excel để tạo 
+PivotTable cho phép nhóm các 
+dữ liệu chi tiêu thẻ p theo nhà cung cấp 
+và sắp xếp theo nhà cung cấp cao nhất.
+Sử dụng Excel để tạo PivotTable để 
+số tiền chi tiêu thẻ p nhóm theo 
+nhân viên và sắp xếp theo thứ tự cao nhất 
+số tiền đô la của nhân viên.
+1. Dữ liệu: 
+2. Phân tích:
+3. Dữ liệu: 
+4. Phân tích:
+	 5. Thực hiện các phân tích được gợi ý trong biểu đồ. Tóm tắt kết quả của bạn.
+PR 4.2  (LO 1, 2, 3)  Dữ liệu   Kế toán tài chính   Kế toán quản trị   Hoàn thành các bước 2 
+và 3 của Kế hoạch dự án và thực hiện phân tích. Bạn là nhà phân tích tài chính tại Thẩm mỹ viện Sihrya. 
+Chủ sở hữu đã yêu cầu bạn thực hiện phân tích dữ liệu để hiểu các sản phẩm đóng góp cho 
+lợi nhuận của cửa hàng bán lẻ của thẩm mỹ viện. Người chủ đã đưa cho bạn một cuốn từ điển dữ liệu được trình bày ở đây, mô tả-
+nhập dữ liệu mà bạn có thể cân nhắc sử dụng trong phân tích của mình.
+Nhãn trường
+Tên trường trong cơ sở dữ liệu
+Mô tả trường
+Số biên nhận
+Biên laiKhông
+Số biên nhận được chỉ định POS 
+xác định duy nhất mỗi lần bán hàng.
+Ngày bán hàng
+Saledate
+Ngày bán trên mỗi POS.
+Mã hàng tồn kho
+mã mời
+Nhận dạng hàng tồn kho duy nhất 
+số lượng cho từng sản phẩm 
+cửa hàng bán lẻ của salon.
+Số lượng đã bán
+Không bán
+Số lượng mặt hàng đã bán.
+Mô tả khoảng không quảng cáo
+InvDesc
+Mô tả mặt hàng tồn kho.
+Giá hàng tồn kho
+giá đầu tư
+Giá bán gộp của hàng tồn kho 
+mục.
+Chi phí tồn kho
+Chi phí đầu tư
+Chi phí bình quân gia quyền của 
+mục hàng tồn kho.
+Giả sử mục tiêu phân tích của bạn là xác định các sản phẩm đóng góp nhiều nhất cho doanh thu bán lẻ của tiệm. 
+lợi nhuận của cửa hàng. Câu hỏi cụ thể của bạn là: Sản phẩm nào có số lượng bán ra cao nhất? sản phẩm nào-
+ucts có tỷ suất lợi nhuận gộp dương? Sử dụng thông tin được cung cấp để trả lời các câu hỏi sau:
+	 1. Xác định các trường dữ liệu để đưa vào chiến lược dữ liệu của bạn.
+	 2. Xác định chiến lược dữ liệu có thể được sử dụng để trả lời các câu hỏi khách quan.
+	 3. Xác định chiến lược phân tích có thể được sử dụng để trả lời các câu hỏi khách quan.
+	 4. Xem lại dữ liệu được cung cấp để thực hiện phân tích. Sau khi thực hiện phân tích, hãy xác định hai điểm hàng đầu 
+sản phẩm góp phần mang lại lợi nhuận cho tiệm.
+
+Trường hợp ứng dụng chuyên nghiệp: Vận tải tự động, Inc. (ATI) 4-55
+ Dữ liệu PR 4.3 (LO 1-4)
+Kế toán quản trị
+Hoàn thành kế hoạch dự án và thực hiện 
+Phân tích Là nhà phân tích tài chính tại một công ty ngành khách sạn, bạn được yêu cầu thiết kế một bảng dữ liệu 
+chiến lược phân tích để hiểu các yếu tố ảnh hưởng đến đánh giá chất lượng của khách. Quản trị viên nhóm của bạn-
+đã thực hiện một cuộc khảo sát về khách lưu trú tại cơ sở lưu trú của bạn trong tháng 6. Nhóm cơ sở dữ liệu có 
+liên kết các câu trả lời khảo sát về đánh giá chất lượng của kỳ lưu trú với vị trí của khách, quá trình nhận phòng và trả phòng 
+ngày và số tiền chi tiêu. Họ chỉ ra rằng họ chỉ bao gồm dữ liệu liên quan đến các cuộc khảo sát đã hoàn thành 
+Ngày 1 tháng 9 đến ngày 10 tháng 9. 
+  1. Thang đo dữ liệu nào được bao gồm trong các trường dữ liệu có nhãn Vị trí, Xếp hạng chất lượng và 
+Số tiền chi tiêu? 
+  2. Xem lại tập dữ liệu, xác định các rủi ro dữ liệu có trong tập dữ liệu và đề xuất các biện pháp kiểm soát đối với những rủi ro này. 
+  3. Giả sử một thành viên trong nhóm của bạn đề nghị bạn sử dụng dữ liệu để dự đoán xếp hạng chất lượng của 
+lưu trú trong tương lai. Để thực hiện phân tích dự đoán này, bạn sẽ phải sử dụng dữ liệu xếp hạng chất lượng theo cách dự đoán.
+chiến lược phân tích tích cực. Bạn sẽ phản ứng thế nào với thành viên trong nhóm của mình về sự phù hợp của 
+sử dụng loại phân tích này? 
+  4. Sử dụng bộ dữ liệu này để thiết kế và thực hiện một chiến lược dữ liệu nguyên bản, khác biệt và một chiến lược phân tích nhằm 
+thỏa mãn câu hỏi khách quan. Ghi lại chiến lược dữ liệu, chiến lược phân tích, rủi ro và biện pháp kiểm soát của bạn và 
+trình bày kết quả phân tích của bạn. 
+Dữ liệu PR 4.4 (LO 1-4)
+Kế toán thuế
+Hoàn thành kế hoạch dự án và thực hiện phân tích
+Beautiful Bites là một chuỗi tiệm bánh nằm ở Colorado. Chủ sở hữu của nó cam kết duy trì xã hội-
+giá trị khả năng và muốn tập trung hoạt động từ thiện của họ ở các thành phố nơi họ đang thu thập 
+thuế bán hàng nhiều nhất. Mục tiêu của việc phân tích dữ liệu là xác định nơi hầu hết khách hàng của họ sống. các 
+câu hỏi cụ thể là: Phần lớn khách hàng của chúng ta cư trú ở cộng đồng nào? 
+1. Chuẩn bị kế hoạch dự án phân tích dữ liệu.
+2. Thực hiện phân tích và tổng hợp kết quả. 
+ Trường hợp ứng dụng chuyên nghiệp: Vận tải tự động, Inc. (ATI)
+ Automated Transportation, Inc. là nhà sản xuất cỡ trung bình về ô tô, thuyền và thiết bị điều khiển từ xa. 
+máy bay không người lái. Công ty được thành lập cách đây 5 năm khi hai anh em quyết định xây dựng và bán remote 
+điều khiển ô tô cho những người đam mê. Khi công ty phát triển, họ mở rộng danh mục sản phẩm của mình để bao gồm 
+ô tô, thuyền và máy bay không người lái điều khiển từ xa. Hai anh em giữ chức chủ tịch và giám đốc điều hành của công ty, và 
+bây giờ họ có hơn 70 nhân viên. 
+ Họ có hai nhóm khách hàng chính, những người có sở thích và doanh nghiệp quan tâm đến việc kết hợp máy bay không người lái 
+vào quá trình kinh doanh và chuỗi cung ứng của họ. Hai cơ sở khách hàng này mang lại nhiều cơ hội 
+cho sự tăng trưởng.  Ban quản lý coi trọng kiểm soát nội bộ, nhưng vì họ bận điều hành công ty nên họ có 
+tuyển dụng nhân viên kế toán để giúp thiết kế các quy trình, chính sách và kiểm soát nội bộ của công ty:
+• Công ty không bắt buộc phải có báo cáo về kiểm soát nội bộ và kiểm toán viên bên ngoài không 
+cần thiết để chứng thực cho hệ thống kiểm soát nội bộ của công ty. 
+• Tuy nhiên, người chủ muốn chắc chắn rằng nhân viên công ty đang thiết kế và tuân thủ các chính sách 
+điều đó sẽ giúp họ duy trì hoạt động hiệu quả và hiệu quả. 
+• Các chủ sở hữu cũng rất quan tâm đến dữ liệu và chỉ đưa ra nhiều quyết định kinh doanh sau khi đã cân nhắc-
+thực hiện các dữ liệu được thu thập và phân tích. 
+ Sau đây là trích đoạn từ điển dữ liệu do hệ thống thông tin của công ty thiết kế 
+nhân viên kế toán và hệ thống thông tin kế toán.
+ Nhãn trường dữ liệu 
+ Tên trường trong cơ sở dữ liệu 
+ Mô tả trường 
+ Số hóa đơn 
+ Hóa đơnKHÔNG 
+ Số hoá đơn được viết tay 
+được thư ký AP nhập vào AIS từ 
+một hóa đơn thủ công được gửi đến công ty 
+bởi nhà cung cấp. 
+ Số tiền hóa đơn 
+ Hóa đơnSố tiền 
+ Số tiền của hóa đơn là
+được nhân viên AP tự tay nhập vào AIS 
+từ một hóa đơn thủ công được gửi đến 
+công ty bởi nhà cung cấp. 
+ Ngày giao hàng 
+ Ngày gửi hàng 
+ Ngày sản phẩm được vận chuyển từ 
+địa điểm vận chuyển. 
+(Tiếp theo)
+
+4-56  CHƯƠNG 4  Lập kế hoạch chiến lược phân tích và dữ liệu
+Nhãn trường dữ liệu
+Tên trường trong cơ sở dữ liệu
+Mô tả trường
+Ngày hóa đơn
+Ngày hóa đơn
+Ngày lập hóa đơn được giao tận tay
+được thư ký AP nhập vào AIS từ 
+một hóa đơn thủ công được gửi đến công ty 
+bởi nhà cung cấp.
+Nhận dạng nhà cung cấp 
+con số
+ID nhà cung cấp
+Số nhận dạng nhà cung cấp duy nhất.
+Tên nhà cung cấp
+Tên nhà cung cấp
+Tên của nhà cung cấp.
+Sản phẩm đã mua
+ID sản phẩm
+Mã sản phẩm của sản phẩm đã mua 
+từ nhà cung cấp. Mã sản phẩm này được 
+phù hợp với catalog từ nhà cung cấp.
+Đơn giá
+Đơn vịChi phí
+Chi phí cho một đơn vị sản phẩm 
+mua từ nhà cung cấp.
+Chi phí vận chuyển
+Chi phí vận chuyển
+Tổng chi phí vận chuyển.
+nhiệm vụ cố định
+Nhiệm vụ phẳng
+Thuế suất cố định áp dụng cho mặt hàng 
+phải chịu thuế.
+Thuế quan
+Biểu thuế Amt
+Tổng số tiền của một mức thuế 
+áp dụng cho hàng hóa được vận chuyển.
+Địa điểm vận chuyển
+Vị trí tàu
+Quốc gia nơi hàng hóa được vận chuyển 
+được vận chuyển từ.
+Nhận chất lượng 
+đánh giá
+Tỷ lệ chất lượng
+Đây là sự đánh giá chất lượng được đưa vào 
+AIS bởi đội tiếp nhận khi họ 
+nhận hàng. Thang điểm là 1 = kém 
+đến 5 = chất lượng tuyệt vời. Việc nhận 
+nhóm đánh giá lô hàng trên bao bì, 
+chất lượng vật liệu và giao hàng tổng thể.
+điều khoản thanh toán
+Điều khoản thanh toán
+Các điều khoản thanh toán đã được thỏa thuận với 
+người bán hàng. Các điều khoản này được đàm phán 
+bởi người quản lý mua hàng và khóa 
+vào tập tin chính của nhà cung cấp bởi 
+người giám sát mua hàng.
+điều kiện vận chuyển
+Điều khoản vận chuyển
+Điều kiện vận chuyển – thường là FOB 
+điểm đến hoặc vận chuyển FOB.
+Địa chỉ thanh toán
+Địa chỉ thanh toán
+Địa chỉ nhà cung cấp nơi thanh toán 
+để được gửi đi.
+Đơn đặt hàng 
+con số
+số PON
+Số nhận dạng duy nhất được gán 
+cho mỗi đơn đặt hàng do cơ quan ban hành 
+công ty.
+Ngày đặt hàng
+PODate
+Ngày đơn đặt hàng được phát hành bởi 
+công ty.
+Đang nhận báo cáo 
+con số
+Số nhận
+Số nhận dạng duy nhất được gán 
+tới mỗi báo cáo nhận được tạo bởi 
+nhóm tiếp nhận của công ty
+Ngày nhận báo cáo
+Ngày nhận
+Ngày sản phẩm được nhận bởi 
+bộ phận tiếp nhận của công ty.
+Số lượng nhận được
+Số lượng đã nhận
+Tổng số lượng mặt hàng nhận được.
+Số lượng mua
+Số lượng đã mua
+Tổng số lượng mặt hàng trên 
+Đơn đặt hàng.
+Số lượng hóa đơn
+Số lượngHóa đơn
+Tổng số lượng mặt hàng trên hoá đơn 
+số tiền này được nhập thủ công vào AIS 
+bởi nhân viên AP từ hóa đơn thủ công 
+được nhà cung cấp gửi đến công ty.
+Thủ quỹ phê duyệt
+Đã được phê duyệt
+Tên viết tắt của Thủ quỹ thể hiện 
+sự chấp thuận của họ nếu hóa đơn lớn hơn 
+hơn 10.000 USD.
+
+Trường hợp ứng dụng chuyên nghiệp: Vận tải tự động, Inc. (ATI)  4-57
+Hệ thống thông tin kế toán PAC 4.1 : Đánh giá hệ thống kiểm soát nội bộ của AIS 
+Hệ thống thông tin kế toán   Với tư cách là một kế toán viên hệ thống thông tin, các chủ sở hữu đã yêu cầu 
+giúp bạn thiết kế các biện pháp kiểm soát nội bộ liên quan đến hệ thống thanh toán cho nhà cung cấp của công ty. Nhớ từ 
+hệ thống thông tin kế toán của bạn hiểu rằng có một số biện pháp kiểm soát quan trọng trong quá trình thực hiện
+chu kỳ thanh toán, bao gồm phê duyệt mua hàng và phê duyệt hóa đơn của nhà cung cấp. Bạn đã triển khai 
+điều khiển sau:
+• Thư ký kế toán lập bộ chứng từ trong đó có chứng từ giải ngân, nhà cung cấp 
+hóa đơn, đơn đặt hàng và chứng từ nhận hàng cho mỗi lần thanh toán được thực hiện.
+• Hóa đơn có khoản thanh toán vượt quá 10.000 USD có cấp độ phê duyệt thứ hai, được ghi chú trong 
+hệ thống thông tin bằng tên viết tắt của thủ quỹ.
+Bạn muốn kiểm tra tính hiệu quả trong hoạt động của biện pháp kiểm soát này bằng cách phân tích dữ liệu do kế toán thu thập. 
+hệ thống thông tin trong quá trình này. Giả sử mục tiêu phân tích của bạn là để hiểu liệu 
+kiểm soát nội bộ đang hoạt động như thiết kế. Thiết kế chiến lược phân tích dữ liệu của bạn để giải quyết mục tiêu này. 
+Hãy chắc chắn ghi lại các thành phần sau:
+	 1. Câu hỏi mà phân tích dữ liệu của bạn nên giải quyết là gì?
+	 2. Sử dụng từ điển dữ liệu, bạn nên biết trường dữ liệu thô nào được đo lường và trường dữ liệu thô không được đo lường nào 
+yêu cầu?
+	 3. Bạn sẽ thực hiện những lựa chọn phân tích nào để phân tích dữ liệu? Cụ thể trường dữ liệu được tính toán là gì 
+bạn sẽ tạo ra trong phân tích của mình chứ?
+	 4. Rủi ro dữ liệu đối với chiến lược phân tích dữ liệu của bạn là gì?
+	 5. Rủi ro phân tích trong chiến lược của bạn là gì?
+	 6. Bạn nên đưa những biện pháp kiểm soát nào vào chiến lược phân tích và dữ liệu của mình để giảm thiểu rủi ro mà bạn đã nêu?
+Kiểm tra PAC 4.2 : Chọn các giao dịch mua lớn và bất thường
+Dữ liệu   Kiểm toán   Bạn là nhân viên năm thứ hai làm việc tại một công ty kế toán công được giao cho ATI 
+sự tham gia, đó là một sự tham gia mới cho công ty. Chuyên gia kiểm toán cấp cao của bạn đã cung cấp cho bạn một bản chuyển đổi
+tệp hành động chứa tất cả các khoản thanh toán của công ty cho nhà cung cấp trong tháng Giêng. bạn đã từng 
+được yêu cầu xác định xem công ty có ghi lại thông tin hóa đơn một cách chính xác hay không bằng cách thiết kế một hệ thống phân tích dữ liệu.
+chiến lược sis để chọn giao dịch mua hàng để thử nghiệm thêm. Bạn phải thiết kế một chiến lược phân tích dữ liệu để 
+chọn giao dịch mua để thử nghiệm thêm. Cấp trên của bạn yêu cầu bạn xác định các giao dịch có thể 
+ngoài hành vi mua hàng thông thường. Vì vậy, bạn phải thực hiện phân tích mô tả. Cấp trên của bạn 
+đã cung cấp cho bạn kế hoạch phân tích dữ liệu một phần này.
+Hoàn thành biểu đồ bằng cách xác định rủi ro và các biện pháp kiểm soát liên quan đối với các lựa chọn dữ liệu và phân tích 
+được xác định trong kế hoạch phân tích dữ liệu.
+Mục tiêu và 
+Câu hỏi
+Chiến lược phân tích và dữ liệu
+Rủi ro
+Điều khiển
+Mục tiêu: Xác định  
+giao dịch mua bán  
+để thử nghiệm thêm.
+Câu hỏi: Có phải  
+mua hàng ở đó  
+giao dịch mà  
+có thể được xem xét  
+sự bất thường?
+Chiến lược dữ liệu: Hóa đơnKhông, 
+Ngày hóa đơn, số lượng hóa đơn, 
+Hóa đơnAmt, ID nhà cung cấp, 
+Mô tả nhà cung cấp
+Chiến lược phân tích: Thực hiện 
+thống kê mô tả để hiểu 
+tổng số tiền và số lượng 
+mua hàng được thực hiện cho mỗi nhà cung cấp.
+Thực hiện thống kê chẩn đoán và 
+tạo ra một biểu đồ phân tán trong đó 
+InvoiceDate nằm trên trục X và 
+InvoiceAmount nằm trên trục Y 
+để xác định bất kỳ giao dịch mua ngoại lệ nào.
+1. Dữ liệu: 
+2. Phân tích: 
+3. Dữ liệu: 
+4. Phân tích: 
+	 5. Thực hiện phân tích thống kê mô tả để xác định tổng số tiền và số lần mua hàng 
+thực hiện cho mỗi nhà cung cấp.
+	 6. Sử dụng bộ dữ liệu được cung cấp để thực hiện phân tích thống kê chẩn đoán nhằm tạo biểu đồ phân tán trong đó 
+InvoiceDate nằm trên trục X và InvoiceAmt nằm trên trục Y để xác định các giao dịch mua ngoại lệ.
+
+4-58  CHƯƠNG 4  Lập kế hoạch chiến lược phân tích và dữ liệu
+PAC 4.3  Kế toán tài chính: Kế hoạch xác định các nhà cung cấp có hoạt động cao
+Kế toán tài chính   Chủ sở hữu công ty muốn biết nhà cung cấp nào sẽ mua 
+nhóm đang sử dụng và mỗi người trả bao nhiêu để đàm phán các điều khoản hợp đồng tốt hơn với các 
+các nhà cung cấp. Bạn đang thực hiện phân tích dữ liệu để xác định các nhà cung cấp được sử dụng nhiều nhất. Trả lời từng câu hỏi bằng 
+tôn trọng phân tích dữ liệu của bạn.
+	 1. Câu hỏi mà phân tích dữ liệu của bạn nên giải quyết là gì?
+	 2. Sử dụng từ điển dữ liệu, bạn nên biết những trường dữ liệu thô nào được đo lường và trường dữ liệu thô không được đo lường nào 
+yêu cầu?
+	 3. Bạn sẽ thực hiện những lựa chọn phân tích nào để phân tích dữ liệu? Hãy cụ thể, những trường dữ liệu được tính toán 
+bạn sẽ tạo ra trong phân tích của mình chứ?
+	 4. Rủi ro dữ liệu đối với chiến lược phân tích dữ liệu của bạn là gì?
+	 5. Rủi ro phân tích trong chiến lược của bạn là gì?
+	 6. Bạn nên đưa những biện pháp kiểm soát nào vào phân tích của mình để giảm thiểu rủi ro mà bạn đã nêu ra?
+PAC 4.4  Kế toán quản trị: Xếp hạng chất lượng nhà cung cấp
+Dữ liệu   Kế toán quản trị   Vì công ty đang phát triển quá nhanh nên các chủ sở hữu muốn chắc chắn 
+rằng họ đang hợp tác với các nhà cung cấp nguyên liệu thô phù hợp. Họ đã yêu cầu đội tiếp nhận 
+đưa ra đánh giá cho mỗi biên nhận để ghi lại chất lượng của bao bì, chất liệu bên ngoài và 
+giao hàng tổng thể. Đối với mỗi lần nhận, nhóm nhận sẽ ghi lại đánh giá chất lượng trong thông tin kế toán.
+hệ thống giao phối. Chủ sở hữu đã yêu cầu bạn xác định xem xếp hạng chất lượng của nhà cung cấp đã thay đổi như thế nào

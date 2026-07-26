@@ -1,0 +1,1660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tài liệu Buổi 5 - AI Accounting</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .tab-container {
+            display: flex;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #ccc;
+        }
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-size: 16px;
+            font-weight: bold;
+            color: #555;
+            outline: none;
+        }
+        .tab:hover {
+            color: #000;
+        }
+        .tab.active {
+            color: #007bff;
+            border-bottom: 2px solid #007bff;
+            margin-bottom: -2px;
+        }
+        .content-area {
+            display: none;
+        }
+        .content-area.active {
+            display: block;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 15px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1 style="text-align: center; color: #333;">Tài liệu Buổi 5: AI trong Quản lý & Ra Quyết Định</h1>
+    
+    <div class="tab-container">
+        <button class="tab active" onclick="openTab('en-tab', this)">English (Bản gốc)</button>
+        <button class="tab" onclick="openTab('vi-tab', this)">Tiếng Việt (Bản dịch)</button>
+        <button class="tab" onclick="openTab('slide-tab', this)">Slide Bài Giảng</button>
+    </div>
+
+    <div id="en-tab" class="content-area active"></div>
+    <div id="vi-tab" class="content-area"></div>
+      <div id="slide-tab" class="content-area">
+          <iframe src="TaiLieu/slideAIAcc/Slide_AIAcc_Day05.pdf" width="100%" height="800px" style="border: none;"></iframe>
+      </div>
+</div>
+
+<script>
+    // Raw Markdown contents
+    const enMarkdown = `12 MANAGING DECISION UNCERTAINTY USING
+RANDOM FORESTS
+12.1 Decision-Making Under Uncertainty
+12.2 Features of Decision Uncertainty
+12.3 Backorder and Its Implications
+12.4 Machine-Learning Options to Aid in Decision-Making Under Uncertainty
+12.4.1  Components of a Decision Tree Model
+12.4.2  Classification Trees
+12.4.3  Advantages, Disadvantages, and W ays to Improve Classification Trees
+12.5 Random Forest
+12.6 Backorder Prediction Using Random Forests
+12.6.1  Data Import and Selection
+12.6.2  Imbalance in the Data
+12.6.3  Hyperparameter Tuning
+12.6.4  Testing the Performance of Our Random Forest Model
+12.6.4.1  Accuracy and ROC V alues
+12.6.4.2  Confusion Matrix, Sensitivity , and Specificity
+12.6.4.3  Role of Downsampling
+12.7 Business Insights and Summary
+12.8 Implementation Using R: Backorder Prediction
+12.9 Understanding the Chapter
+LEARNING OBJECTIVES
+1. Understand the importance of ef ficient business decisions, anticipating demand
+2. Learn decision-making under uncertainty
+3. Apply decision tree models to predict uncertain decisions
+4. Review the advantages and limitations of tree models
+5. Employ boosted decision trees to predict stocking decisions
+12.1 DECISION-MAKING UNDER UNCERTAINTY
+Decision-making under uncertainty has been studied as a continuum of decisions that are made when
+information is missing or is available only in probabilistic form (e.g., the likelihood of success is 80%).1
+Consider the following two scenarios that highlight the inherent uncertainty in business decision-
+making.
+In the first scenario, a major airline, considered a dominant player at one of its hub airports, is faced
+with a new challenge: the entry of a low-cost, no-frills competitor . It has to decide whether to react to
+the new entrant (action) or not do anything (inaction). Both decisions carry inherent uncertainties. If it
+decides to take an action and reduce price, there are several uncertain outcomes. First, will a price
+reduction deter customers from flocking to the new entrant? Second, will it actually increase market
+share, or will it erode profits? Third, will the price drop strengthen its brand image, or will it be seen as
+a sign of weakness? Fourth, actions like price reductions can sometimes lead to price wars, which
+might hurt the industry as a whole. Alternatively , the airline can maintain the status quo, but this
+inaction has its own uncertainties. First, how many existing customers might be persuaded away by
+the competitor ’s lower prices or novel of ferings. Second, staying the course might be perceived by
+stockholders as either a confident move, showcasing the brand’ s strength, or indicating an
+unwillingness to adapt to changing market dynamics. Third, by not adjusting to the changing market
+dynamics, there’ s a potential loss of opportunities that the new entrant might exploit. Fourth, will the
+business be able to recover its position if it realizes too late that a response was necessary?
+In the second scenario, an electronics retailer is preparing to stock a new smartphone. Due to supply
+chain issues from the manufacturer , the retailer learns that they will receive only half of the originally
+ordered units triggering the following decision dilemma: Should the retailer accept backorders, allowing
+customers to reserve now and receive the product later when more stock arrives, or should they sell
+only the available stock and potentially lose sales to competitors? Both decisions have their inherent
+uncertainties.
+First, it is unclear how many customers will prefer immediate purchase compared to those willing to
+wait for a backordered item. Second, of fering backorders might be seen as a service, but extended
+wait times can negatively af fect customer satisfaction, leading to refunds and poor customer reviews.
+Third, if the timeline for additional shipments from the manufacturer is not clear , it adds to the
+uncertainty . A short delay may be acceptable to customers, but longer ones can af fect sales and
+customer trust. Fourth, information (or lack of information) about the stock availability at competitor
+outlets can add to the uncertainty . If competitors also do not have suf ficient stock, not of fering
+backorders might result in lost sales.
+These scenarios highlight business decisions with inherent uncertainty . Other decisions fraught with
+uncertainty include, for instance, (1) deciding between of fering price discounts to encourage growth or
+increasing prices to increase profitability , (2) decisions about allocating resources to retain current
+customers versus recruit new ones, (3) whether to invest in an immediate profitable venture or focus
+on long-term projects that might yield larger returns later , or (4) projecting the impact of weather and
+other natural events on the supply chain that can disrupt transportation, delay deliveries, and af fect
+raw material availability .
+12.2 FEATURES OF DECISION UNCERTAINTY
+Uncertain decisions have several important features that need to be considered.2 First, what is the
+value in taking a decision under uncertainty versus gathering more information before proceeding?
+Let’s take the example of a pharmaceutical company that is performing drug trials for a new cancer
+treatment. It will use randomized controlled trials (RCT s) to control for all factors and find the influence
+of the focal drug on cancer treatment; this is generally referred to as internal validity . However , the
+uncertainty that the company has to face is how the drug will fare when patients with dif ferent
+comorbidities, of dif ferent races, or with any other characteristics that makes them respond to the drug
+differently , actually take the drug after it has been introduced in the market; this is generally referred to
+as external validity . Therefore, the company has to weigh the value of introducing a beneficial drug
+against the risk associated with such an introduction.
+A second feature of uncertain decisions is to determine when and how to respond. Consider the earlier
+example of a major airline when a low-cost competitor enters the scene. The airline must decide when
+and by how much to modify its fares and whether to introduce new of fers. The decision resembles a
+balancing act between ensuring profitability and incurring costs from strategy changes. To determine
+the best course of action, companies often conduct sensitivity analyses. This involves tweaking
+different decision variables and observing the potential impact on outcomes at dif ferent points in time.
+By doing so, the airline can gauge which factors, when and to what degree, might necessitate a
+change in their initial decision.
+A third feature of uncertain decisions is to determine which options to follow: Should the business stick
+to conventional options or explore new ones? For instance, in our earlier example when an electronics
+retailer is confronted with a backorder situation for a popular new smartphone, the conventional
+approaches are to either sell the available stock or continue accepting backorders. However , given the
+uncertainties and potential customer dissatisfaction, they might consider a new strategy: of fering
+discounts to those customers willing to backorder and wait for delivery . While this strategy might entail
+a short-term reduction in profit, it has the potential to increase long-term customer loyalty and mitigate
+dissatisfaction from extended wait times.
+To reduce decision uncertainty , prediction models are used that simulate dif ferent potential situations
+and how these situations will impact dif ferent aspects of the business. In this chapter , we will examine
+how machine-learning algorithms can be used to solve problems in supply chain management,
+especially when decisions need to be made with uncertain information. One such decision-making
+under uncertainty is identifying products that will be backordered.
+12.3 BACKORDER AND ITS IMPLICATIONS
+Beginning in 2020, the microchip industry faced supply chain issues because of the pandemic, labor
+shortages, and geopolitical unrest. This resulted in many technological products going out of stock.
+Consumers who placed orders were left waiting, sometimes indefinitely , because the firms were not
+sure when they would receive the chips to fulfill these orders. The Defense Logistics Agency of the
+U.S. Department of Defense, which manages the global defense supply chain, faces similar
+challenges. It routinely takes steps to maximize combat readiness by minimizing backorders.3
+Backorder  can be defined as an order of a product that a firm cannot fill due to the product’ s
+unavailability but expects to fill at a future date. Backorders result in disappointed consumers and
+reduced profitability for firms as backorders can deter consumers from purchasing the product. Recent
+research has demonstrated that consumers whose products were backordered are far less likely to
+purchase the product in the future compared to consumers whose products were not backordered.4
+The longer the backorder lasts, the greater the drop in future purchases. Hence, businesses try their
+level best to avoid the situation of backorders piling up because of its long-term impact on customer
+satisfaction, ability to retain customers, and firm profitability . One commonly recommended way to
+avoid backorders is to accurately forecast demand. However , that is easier said than done because
+several factors outside the influence of the business introduce uncertainties in forecasting, such as
+changing customer tastes that make demand uncertain, economic upturns and downturns, gross
+domestic product (GDP), geopolitical conflicts, unrest, or a pandemic. Firms do not want to lose
+customers or lose their trust by not being able to fulfill an order on time. However , the enormous
+pressure that firms face to ensure timely delivery of products, especially when the firm itself is reliant
+on other suppliers for parts, is not trivial. This pressure can result in increased labor and production
+costs, overstocking to prevent shortages, and high shipment expenses.
+Backorders also cause the bullwhip  effect, which occurs when a small change in demand is
+overestimated and communicated through the supply chain to retailers, wholesalers, distributors, and
+eventually manufacturers. However , if the demand is temporary , it dies out, causing an oversupply of
+some products. W e witnessed this during the pandemic when people staying home started remodeling
+and a huge demand for furniture ensued, resulting in furniture being severely backordered. To make up
+for the increased demand, firms manufactured more furniture. However , with the easing of the
+pandemic restrictions, the demand for furniture went down, resulting in an oversupply of furniture. This
+is a classic example of the bullwhip ef fect depicted in Figure 12.1 .
+Description
+Figure 12.1  Bullwhip Ef fect
+However , we need to keep in mind one important factor when considering backorders. Although
+estimating which products are likely to be backordered may be one of the most uncertain situations to
+predict and can cause a high level of disruption for the business and its customers, it is not an issue
+that businesses face routinely or at predictable intervals. It is possible that a business may not have
+faced a backorder issue for several years. Hence, the data the business needs to predict backorders
+may be imbalanced. That is, businesses may not have a very good method to predict why and when
+they might face a backorder issue. W e know that the predictive model is only as good as the data it is
+trained on. Hence, having imbalanced data can af fect the quality of predictions. Machine-learning
+methods are now routinely used to tackle the problem of backorder forecasting, given their ability to
+analyze large structured and unstructured datasets that are unbalanced.
+We next present a tree-based machine-learning method that has been used to estimate backorders so
+that strategies can be devised to address this supply chain issue.
+12.4 MACHINE-LEARNING OPTIONS TO AID IN DECISION-
+MAKING UNDER UNCERTAINTY
+Machine learning, especially tree-based models, of fer businesses a structured way to make decisions
+under uncertainty . These models segment data based on dif ferent conditions, providing insight into
+complex scenarios. For instance, the airline faced with competition from a low-cost carrier could use
+decision trees to analyze historical data on passenger preferences, price sensitivities, and other
+factors to predict potential outcomes. Similarly , the electronics retailer uncertain about how to manage
+stock for a new smartphone could deploy tree-based models to evaluate previous product launches
+and understand customer behavior patterns in the face of backorders. Through these models,
+businesses can simulate various decision pathways, assess probable outcomes, and make more
+informed choices even in the presence of uncertainty .
+12.4.1 Components of a Decision Tree Model
+Decision trees are supervised algorithms  that require labeled data (i.e., data where the relationship
+between the predictor and the outcome variable is available). Decision trees can be used for both
+regression tasks and classification depending on whether the outcome variable is continuous or
+categorical. The term classification and regression tree  (CAR T) captures this ability of tree models (we
+will use the terms decision tree  and tree model  interchangeably , but they mean the same thing). For
+backorder predictions, we will focus on classification trees.
+Before we discuss how classification trees make predictions, let’ s understand the dif ferent components
+of a decision tree as depicted in Figure 12.2 .
+Figure 12.2  Components of a Decision Tree
+The root node  is the first node in a decision tree. This also represents the predictor variable or
+feature that is split first to divide the entire data into two sets.
+The terminal node  or leaf is the final node of a decision tree that cannot be divided further . These
+terminal nodes contain the mean value of the outcome variable (if the outcome is a continuous
+variable) or the majority class (if the outcome is a classification task).
+The internal/decision node  is a subnode of the tree between the root node and the terminal node.
+At an internal or decision node, the data are further divided into new internal nodes or into leaf
+nodes.
+A branch  represents the connection or relationship between a root node and an internal node,
+between internal nodes, or between an internal node and a leaf node.
+The depth  of a tree is the longest distance between the root node and any terminal node (leaf).
+The tree in Figure 12.2  has a depth of 2.
+12.4.2 Classification Trees
+Consider a simple illustration of backorder prediction. Assume our dataset has two predictor variables:
+forecasted sales  and transit time for the product to arrive . Both are categorical variables with two
+levels: low and high. That is, the forecasted sales for a product can be low or high, and the transit time
+
+
+for the product to arrive from the manufacturer to a retailer can also be low or high. The outcome
+variable is whether the product was backordered ( yes or no). Our goal is to come up with a simple
+prediction model that tells us if a product will be backordered based on its forecasted sales and transit
+time. The data are presented in Table 12.1 .
+Forecasted sales Transit time Backordered
+Low Low No
+High Low Yes
+Low Low No
+High High Yes
+Low Low Yes
+High High No
+High Low Yes
+Low High No
+High High Yes
+The first challenge in building a classification tree is to choose a variable that first splits the root node.
+Let’s consider Figure 12.3 . The dark circles represent when the product was backordered, and the light
+circles represent when it was not backordered. W e see that the variable of forecasted sales performs
+better at classifying whether a product was backordered. In the low-forecast group, three out of the
+four data points are not backordered, and in the high-forecast group, four out of the five data points are
+backordered. In an intuitive way , high- and low-forecast groups are able to segregate backordered and
+not-backordered data points more ef fectively than high- and low-transit-time groups. But this is just a
+visual assessment. How can we quantify which variable is a better classifier? Gini impurity provides us
+with one way to do this. Each predictor variable at each level is 1 – (fraction of backordered = “Y es”
+datapoints)2 − (fraction of backordered = “No”  datapoints)2. Lower values of Gini impurity are preferred
+over higher values. Let’ s understand how to calculate the Gini index for the example we are working
+with.
+Description
+Figure 12.3  Gini Index Calculation
+For forecasted sales as shown in Figure 12.3 , we have five data points with high-forecast sales and
+four data points with low-forecast sales. Among the five data points in the high-forecast group, four are
+for backorders, and one is not. The fraction of items backordered in this group is 4
+5, and the fraction of
+items not backordered is 1
+5. The Gini impurity for this group is 1−(4
+5)2
+−(1
+5)2=0.32. Among
+the four data points in the low-forecast group, one was backordered, and three were not. The fraction
+of items backordered in this group is 1
+4, and the fraction of items not backordered is 3
+4. The Gini
+impurity for this group is 1−(1
+4)2
+−(3
+4)2
+=0.375. Now we can calculate Gini weighted
+impurity for forecasted sales. Since there are nine data points, the weighted Gini impurity for the low-
+forecast group will be 5
+9, and for the high-forecast group it will be 4
+9. The weighted average will be
+(5
+9)0.32+(4
+9)0.375=0.34.
+Similarly , we can calculate weighted Gini impurity for the transit time variable (as depicted in Figure
+12.4).
+Description
+Figure 12.4  Gini Impurity for Forecasted Sales and Transit Time
+We find that Gini impurity is lower with forecasted sales; hence, it becomes the variable to split the root
+node. The resulting decision tree will look like Figure 12.5 , in which it splits further based on the transit
+time.
+Description
+Figure 12.5  Decision Tree Splits
+Since we have only two predictor variables, this will not be split further , and the final nodes will be the
+terminal nodes or leaves. Predictions associated with each leaf will reflect the majority class. As an
+example, if the majority class in the leftmost leaf is no (2) and the minority class is yes (1), then the
+prediction associated with this leaf will be no.
+12.4.3 Advantages, Disadvantages, and Ways to Improve
+Classification Trees
+Classification trees of fer many advantages. First, several types of predictor variables (numeric or
+categorical in nature) can be included in the analysis, and they don’t need to be scaled or
+standardized. Second, outliers don’t influence classification tree predictions; therefore, no outlier
+removal is necessary before analysis. Third, trees are not af fected by the presence of irrelevant
+predictors. If an irrelevant predictor is included in the analysis, the analysis is not af fected even when
+the user is uncertain which predictors have a significant influence. Classification trees can also handle
+the presence of correlated predictors (multicollinearity), which is very common in real-world data since
+many of the predictors that users might identify as being important for the analysis could be correlated
+with one another . Fourth, interactions among predictor variables are automatically incorporated in the
+analysis; therefore, there is no need to prespecify interactions, which is necessary in methods such as
+ordinary least squares (OLS) regression and logistic regression.
+However , there are some disadvantages  of using classification trees. Individual trees do not have as
+much predictive power as many other methods such as logistic regression or neural nets. Trees are
+also very sensitive to variations in the training data. In other words, if we divide the training data
+randomly into two parts and train two dif ferent trees, then there is a high likelihood that both trees will
+fail to make similar predictions.
+One way to improve the predictive power of trees and reduce their sensitivity to variations in the
+training data is to combine the predictions of many trees. The intuition behind combining various trees
+can be understood through the example of measuring temperature. Imagine we have a thermometer
+that has some random error . Every time we measure temperature, it gives slightly dif ferent readings.
+One way to obtain a more stable and reliable estimate of temperature is to take several measurements
+of temperature and then average them. In a similar vein, when we combine predictions of various
+trees, we reduce variation in their predictions and improve their predictive power . The combination of
+several trees is known as an ensemble of trees; since an ensemble of trees is a forest, the method that
+creates this ensemble is called random forest.
+12.5 RANDOM FOREST
+The first step builds multiple distinct trees by using bootstrap samples of training data. Bootstrapping  is
+a process of sampling data points from the original dataset with replacement. Imagine we have 30
+balls in a box and each of them has a distinct number written on it. In sampling with replacement, we
+first randomly pick a ball, write down the number written on the ball, and put it back in the box. W e
+again pick a ball, write down the number , and put it back in the box. W e are allowed to randomly pick
+the same ball more than once. Repeating this process 30 times will give us our first bootstrap sample.
+For a dataset, bootstrap samples are formed by sampling rows with replacement from the original
+dataset. Since we are replacing each row , there is a possibility that some rows will be picked up more
+than once, that our bootstrap sample will have duplicate rows of data, and that some rows from the
+original dataset will be missing in our bootstrap sample. This is exactly what we want because this will
+help us build diverse trees. This process of building trees from several bootstrap samples and
+combining their prediction is called bagging  (short for bootstrap aggregation ).
+In a regular decision tree, all the predictor variables are considered at each split; however , this leads to
+a problem. If there is a predictor variable that is very good at predicting the outcome variable, then
+regardless of how many bootstrap samples we use, there is a very high chance that all the trees will
+look the same and their predictions will be very correlated. In other words, we will fail to build diverse
+trees. The second step of random forest, therefore, goes beyond simple bagging. It combines bagging
+with an idea known as subspace sampling  (also referred to as feature bagging ). At each split, it
+randomly selects a subset of predictor variables that are the only ones considered; then a new subset
+of predictors is considered at the next split from the remaining predictors. So if there are 20 predictor
+variables, then 5 are randomly chosen at each split. Their performance on a criterion like Gini impurity
+is compared, and the best-performing variable splits the data. At the next split, a new random sample
+of 5 predictors from the remaining set of 19 predictors is chosen. This method ensures that if a strong
+predictor exists, then it is not always chosen to split the data. This way , we get diverse trees from
+bootstrap samples.
+In the third step of random forest, each tree makes its prediction, and the final prediction is based on
+the consensus value. The outcome that receives the most votes is the final prediction. As an example,
+if we build 100 trees for a new product where the outcome is unknown, and out of these 100 trees 65
+trees predict that the product will be backordered and 35 predict that the product will not be
+backordered, then the final prediction of the random forest will be yes.
+As can be noticed, we have not discussed any method to find the optimum number of predictor
+variables randomly sampled in the second step. There is no way to estimate the optimum number from
+the dataset. Therefore, this becomes a hyperparameter that needs to be tuned using cross-validation.
+Another hyperparameter is the number of trees we want to grow . This also needs to be tuned using
+cross-validation.
+12.6 BACKORDER PREDICTION USING RANDOM FORESTS
+Let’s assume that a manufacturer of small machines has set up an inventory system to ensure that it
+can keep track of obtaining machined parts from its suppliers so it can build its machines and deliver
+them on time to its customers. However , recently , the manufacturer has noticed some backorder
+issues, leading to dissatisfied customers. To prevent such backorder issues from occurring in the
+future, the manufacturer uses random forests to build a model for predicting (and hence addressing)
+backorders. Let’ s understand the process and perform the analysis ourselves. W e will refer to the
+business as the manufacturer , and the machines it manufactures as products.
+12.6.1 Data Import and Selection
+The variables in our analysis include the following.5 The outcome variable indicated whether a product
+was backordered ( yes vs. no). The random forest was provided with 16 predictor variables such as the
+current level of inventory; usual and current transit time; sales forecasts for the next 3, 6, and 9
+months; sales in the past 3, 6, and 9 months; minimum recommended stock; and machined parts due
+from the manufacturer ’s suppliers.
+We begin our analysis by importing the data and checking the class of nonnumeric variables. W e want
+to ensure that nonnumeric or categorical variables are recognized as factors in the analysis.
+As we discussed earlier , backorder data tend to have a class imbalance, where the number of items
+that were backordered is proportionately less than the number of items that were not backordered.
+Let’s check this in our data through a simple plot ( Figure 12.6 ).
+Figure 12.6  Data Imbalance
+The plot shows that products that were backordered (i.e., when the outcome variable was yes)
+represented approximately 1
+5 of the data. This makes the times the product was not backordered (i.e.,
+when the outcome variable was no) a majority level (also referred to as majority class). Yes becomes a
+minority level. It is necessary to use a sampling method that provides an appropriate representation to
+the minority level. Next we discuss one such sampling method.
+12.6.2 Imbalance in the Data
+To handle the issue of class imbalance, we use a downsampling method that samples rows from the
+training data in such a way that the majority level (when the products were not backordered—i.e.,
+when outcome variable = no) is sampled less. This increases the proportion of the minority level (when
+the products were backordered) in model training. W e set the train data in such a way that the
+backorders are at most 1.5 times as many rows as minority levels. If we compare this situation to our
+base situation when no sampling is applied, we will have majority levels with 4 times as many rows as
+minority levels.
+However , having corrected for the imbalance in the training data so that the model has enough data
+points from which to learn how backorders are af fected by the predictors, we need to ensure that the
+model is tested on a dataset that captures the real world. The real world has a data imbalance, where
+backorders are fewer in number; therefore, we need to have test data that reflect this smaller number
+of backorders compared to all orders so that the ef ficacy of the model in the real world can be tested.
+Thus, in the test data, no undersampling is used, and the imbalance is retained.
+12.6.3 Hyperparameter Tuning
+We formulate the model with backorder as the outcome variable and all other variables as predictors.
+We then specify the random forest algorithm and also the hyperparameters—such as the number of
+predictors randomly sampled at each split when a tree is created, the number of trees contained in a
+random forest, and the minimum number of data points in a node required for the node to be split
+further (please see the Technical Appendix for a detailed description of hyperparameters). Each
+hyperparameter is then tuned through a grid search. Since our outcome variable is categorical ( yes
+and no), we need to ensure that our model type is specified as a classification model.
+We use fivefold cross-validation, indicating that there will be five partitions of the training dataset and
+that the performance of each hyperparameter combination will be assessed using this cross-validation
+procedure. Moreover , we specify 50 dif ferent hyperparameter combinations. For each of the 50
+hyperparameter combinations, a model is fit on the four partitions, and its performance is assessed on
+the fifth partition. The AUC ROC (area under the curve receiver operating characteristics) curve and
+overall accuracy of the model are computed (please refer to Chapter 9  on logistic regression, which
+provides a detailed description of interpreting AUC ROC values for a model).
+We then pick the best hyperparameter combination.
+The analysis reveals that the best hyperparameter combinations are the following: the number of
+predictors randomly sampled at each split when a tree is created = 5, the number of trees contained in
+a random forest = 69, and the minimum number of data points in a node that is required for the node to
+be split further = 31.
+12.6.4 Testing the Performance of Our Random Forest Model
+We fit the model using the best hyperparameter combination on the entire training set and then
+validate its performance on the test data. The accuracy and ROC values ( Table 12.2 ), along with the
+confusion matrix for the test data ( Table 12.3 ), are reported.
+12.6.4.1  Accuracy and ROC V alues
+.metric .estimator .estimate .config
+accuracy binary 0.8223553 Preprocessor1_Model1
+roc_auc binary 0.9076335 Preprocessor1_Model1
+ No Yes
+No 329 16
+Yes73 83
+The results show that the accuracy is 82.2%, and the AUC is 0.908. Given the imbalance in levels of
+
+
+the outcome variable and the fact that the minority level (when the products were backordered) is more
+important for the prediction task, we need to estimate the sensitivity as well as the specificity of this
+prediction.
+12.6.4.2  Confusion Matrix, Sensitivity , and Specificity
+A quick recap from Chapter 9  on logistic regression explains the confusion matrix. Let’ s work with the
+following example to understand the process of calculating sensitivity and specificity .
+ Truth
+Prediction NoYes
+No iiii
+Yes iiiv
+Given the confusion matrix in Table 12.4 , sensitivity and specificity are as follows:
+Sensitivity=iv
+iii+ivandSpecificity=i
+i+ii
+Intuitively , sensitivity is the true positive rate and represents the ability of our model to correctly classify
+products that were backordered. Specificity is the true negative rate and represents the ability of our
+model to correctly classify products that were not backordered. If sensitivity of our model is low , then
+we will not be able to identify ahead of time products that are likely to be backordered. On the other
+hand, if specificity is low , then we will end up overordering products that are less likely to be
+backordered. For our model, sensitivity is 83
+83+16=0.838, and specificity is 329
+329+73=0.818.
+12.6.4.3  Role of Downsampling
+In the preceding analysis, we used downsampling  to handle the issue of class imbalance. This
+downsampling method sampled rows from training data in such a way that the majority level (i.e., when
+the products were not backordered) is sampled less. But let’ s check how the results would change if
+we didn’t downsample. The results when downsampling is not used are represented in Table 12.5 ,
+along with the confusion matrix in Table 12.6 .
+.metric .estimator .estimate .config
+accuracy binary 0.8602794 Preprocessor1_Model1
+roc_auc binary 0.9038896 Preprocessor1_Model1
+ No Yes
+No 393 61
+Yes9 38
+We notice that both accuracy and AUC values are high and comparable to the earlier analysis when
+we did downsampling. However , when we estimate sensitivity and specificity , we observe a very
+different picture. Without downsampling, sensitivity is 38
+38+61=0.384, and specificity is
+393
+393+9=0.978. There is a big drop in sensitivity from 0.838 to 0.384 and an increase in specificity
+from 0.818 to 0.978. This shows that in the absence of downsampling, our model is not able to
+identify products that will eventually be backordered. Downsampling addresses this weakness, and the
+cost we pay is a drop in specificity . Downsampling ensures that without compromising on AUC and
+accuracy values, we can make sensitivity and specificity very comparable. Note that downsampling is
+one of the many subsampling methods that are available in analysis packages (see
+www .tidymodels.org/learn/models/sub-sampling/ for other subsampling methods that can be used).
+12.7 BUSINESS INSIGHTS AND SUMMARY
+In this chapter , we examined backorders, a major supply chain topic that can cause multiple issues
+such as dissatisfaction, reduced purchase probability , and reduced profitability . In order to predict
+potential backorder issues, we used random forests to build a predictive model. Random forests
+belong to the larger set of decision tree models that are sometimes preferred over opaque predictive
+models because they allow some transparency about model working. They also are preferred since
+they have the ability to work well with dif ferent types of categorical and continuous predictor variables,
+multicollinear data, and outliers.
+The random forest model includes 16 predictor variables to predict whether or not a product is likely to
+be backordered. Since we relied on a categorical variable ( yes vs. no) as the outcome variable, we use
+a confusion matrix to examine the accuracy , specificity , and sensitivity of the random forest model. W e
+also learned that products that are likely to be backordered form a smaller proportion of the dataset
+than those that will not be backordered. W e then understood how the downsampling method can be
+used to address the issue of imbalanced data. In addition, we discussed how we can check for
+whether the accuracy of the model is changed because of downsampling.
+12.8 IMPLEMENTATION USING R: BACKORDER PREDICTION
+The outcome variable was whether the product went on backorder or not. The random forest was
+provided with 16 predictor variables such as the following:
+went_on_backorder = the outcome variable of whether a product was backordered or not and
+could take the value of yes or no
+national_inv = indicates the current level of inventory
+lead_time = measures the transit time for the product
+in_transit_qty = indicates how much of the product is currently in transit
+forecast_3_month, forecast_6_month, forecast_9_month = three dif ferent predictors capturing the
+sales forecast for the coming 3, 6, and 9 months
+sales_1_month, sales_3_month, sales_6_month, sales_9_month = four variables indicating sales
+of the product in the last 1, 3, 6, and 9 months
+min_bank = the minimum amount of product that is recommended to keep in stock
+pieces_past_due = captures whether any parts are overdue from the supplier
+perf_6_month_avg, perf_12_month_avg = two variables representing the product performance in
+the past 6 and 12 months
+local_bo_qty = captures the amount of orders overdue
+deck_risk, ppap_risk = two dif ferent types of risk in delivery represented in a binary form of yes
+and no
+We first read in the data and the libraries such as readxl ,6 tidymodels ,7 dplyr ,8 ranger ,9 and
+themis .10
+After loading the required packages, we import the data and check the class of nonnumeric variables.
+We want to ensure that nonnumeric variables such as deck_risk , ppap_risk , and
+went_on_backorder  are categorical variables and will be recognized as factor  by R.
+set.seed(12345)
+library(readxl)
+library(tidymodels)
+library(dplyr)
+library(ranger)
+library(themis)
+library(ggplot2)
+library(doParallel)
+ 
+back_order_data <-read.csv(url
+("http://data.mishra.us/files/chapter_decision_uncertainty/backorder.csv"))
+ 
+sapply(back_order_data,class)
+##national_inv                           
+lead_timein_transit_qty forecast_3_month
+##                    "integer"                     "integer"                     "integer"                     "integer"
+##forecast_6_month forecast_9_month sales_1_month sales_3_month
+##                    "integer"                     "integer"                     "integer"                     "integer"
+##sales_6_month sales_9_month min_bank pieces_past_due
+##                    "integer"                     "integer"                     "integer"                     "integer"
+##perf_6_month_avg perf_12_month_avg local_bo_qty deck_risk
+##                    "numeric"                     "numeric"                     "integer"                     "character"
+##                         ppap_risk went_on_backorder
+##                    "character"                     "character"
+Since these categorical variables are appearing as characters, we convert them into factors and check
+again their class assignment.
+back_order_data <- as.data.frame(unclass(back_order_data),
+                                                                        stringsAsFactors = TRUE)
+sapply(back_order_data,class)
+##national_inv lead_time in_transit_qty forecast_3_month
+##                    "integer"                     "integer"                     "integer"                     "integer"
+##forecast_6_month forecast_9_month sales_1_month sales_3_month
+##                    "integer"                     "integer"                     "integer"                     "integer"
+##sales_6_month sales_9_month min_bank pieces_past_due
+##                    "integer"                     "integer"                     "integer"                     "integer"
+##perf_6_month_avg perf_12_month_avg local_bo_qty deck_risk
+##                    "numeric"                     "numeric"                     "integer"                     "factor"
+##ppap_risk went_on_backorder
+##                    "factor"                     "factor"
+As we discussed earlier , backorder data tend to have a class imbalance, where the number of items
+that were backordered is proportionately less than the number of items that were not backordered.
+Let’s check this in our data through a simple plot, shown in Figure 12.6 .
+ggplot(back_order_data, aes(went_on_backorder))+
+   xlab("Backorder")+ylab("Number of data points")+
+   geom_bar()+
+   theme_minimal()
+The plot shows that items that were backordered (i.e., when the outcome variable
+went_on_backorder = yes) represented approximately 1
+5 of the data. This makes
+went_on_backorder = no the majority level (also referred to as majority class) and
+went_on_backorder = yes a minority level. It is necessary to use a sampling method that provides
+appropriate representation to minority level.
+As the first step to build a model to predict backorder , we split the data into train and test groups. Let’ s
+use 75% data for training and 25% for testing the model.
+backorder_split <- initial_split(back_order_data, strata =
+went_on_backorder,
+ prop = 0.75)
+backorder_train <- training(backorder_split)
+backorder_test <- testing(backorder_split)
+Next we define the model formulation in recipe  and indicate that went_on_backorder  is the
+outcome variable and all other variables are predictors.
+To handle the issue of class imbalance, we use step_downsample() . This function samples rows
+from training data in such a way that the majority level (i.e., went_on_backorder = no) is sampled
+less. This increases the proportion of the minority level (i.e., went_on_backorder = yes) in model
+training. However , it is important to note that such undersampling does not occur in the test data,
+which ensures that model performance is tested in data that closely represent the real world (i.e.,
+where one class is overrepresented). under_ratio = 1.5  implies that majority levels will have at
+most 1.5 times more rows than minority levels. If we compare this situation to our base situation when
+no sampling is applied, we will have majority level with 4 times as many rows as minority levels.
+backorder_recipe <- recipe(went_on_backorder ~ ., data =
+backorder_train)%>%
+    step_downsample(went_on_backorder,under_ratio = 1.5)
+Using rand_forest(),  we specify the random forest algorithm and also the hyperparameters such
+as mtry  (the number of predictors randomly sampled at each split when a tree is created), trees  (the
+number of trees contained in a random forest), and min_n  (the minimum number of data points in a
+node that is required for the node to be split further). tune()  specifies that each hyperparameter
+needs to be tuned though grid search. set_engine("ranger")  specifies that our computational
+engine is ranger , a fast implementation of random forests. Since our outcome variable is categorical
+(yes vs. no), set_mode("classification")  specifies that our model type is a classification
+model.
+model_backorder <- rand_forest(
+     mtry = tune(),
+     trees = tune(),
+     min_n = tune()) %>%
+     set_mode("classification") %>%
+      set_engine("ranger")
+ 
+backorder_folds <- vfold_cv(backorder_train, v = 5)
+Next, we aggregate the recipe and model using workflow(). add_model  adds the
+model_backorder  specified in the last step with backorder_recipe , which contains information
+about predictor and outcome variables and dummy coding.
+backorder_wf <- workflow() %>%
+    add_model(model_backorder) %>%
+    add_recipe(backorder_recipe)
+We next specify the cross-validation process using vfold_cv(). V = 5  specifies that there will be
+five partitions of the training dataset and that each hyperparameter combination’ s performance will be
+assessed using this cross-validation procedure. doParallel:: registerDoParallel(cores =
+10) registers that 10 cores will be used for parallel execution of the model. W e can change the values
+of the cores depending on the computational resources available.
+grid = 50  in tune_grid()  specifies that 50 dif ferent hyperparameter combinations should be
+created. resamples = backorder_folds  uses cross-validation specified in vfold_cv()  and
+helps to avoid overfitting the training data. For each of the 50 combinations of hyperparameters, a
+model will be fit on the four partitions, and its performance will be assessed on the fifth partition.
+backorder_folds <- vfold_cv(backorder_train, v = 5)
+doParallel::registerDoParallel(cores = 10)
+backorder_tune <-
+     backorder_wf %>%
+     tune_grid(
+            resamples = backorder_folds,
+            grid = 50
+     )
+We use select_best("roc_auc")  to pick the best hyperparameter combination.
+best_model <- backorder_tune %>%
+                    select_best("roc_auc")
+ 
+best_model
+## # A tibble: 1 × 4
+##                     mtrytrees min_n                    .config
+##<int> <int> <int>                    <chr>
+## 1                                  5                             69                             31Preprocessor1_Model20
+The analysis reveals that the best hyperparameter combination is mtry  = 5, tree  = 69, and min_n  =
+31. Now we will use these hyperparameter values to update the workflow using
+finalize_workflow . finalize_workflow  adds the best model to the workflow backorder_wf
+created earlier . This gives us the final_workflow  that captures all the information about the model,
+hyperparameters, outcome variable, and predictors.
+final_workflow <-
+   backorder_wf %>%
+   finalize_workflow(best_model)
+We fit the model using the best hyperparameter combination on the entire training set and then
+validate its performance on the test data. last_fit  helps us accomplish this. split =
+backorder_split  specifies that backorder_split  contains information about the test and train
+split performed earlier . Using collect_metrics , we report the accuracy and ROC AUC values.
+Finally using conf_mat(),  we produce a confusion matrix.
+final_fit <-
+    final_workflow %>%
+    last_fit(split = backorder_split)
+ 
+final_fit %>%
+    collect_metrics()
+## # A tibble: 2 × 4
+##.metric .estimator .estimate .config
+##<chr> <chr>                                 <dbl><chr>
+## 1accuracy binary                                 0.822Preprocessor1_Model1
+## 2roc_auc binary                                 0.908Preprocessor1_Model1
+final_fit %>%
+    collect_predictions()%>%
+    conf_mat(truth = went_on_backorder, estimate = .pred_class)
+##                          Truth
+##Prediction                    NoYes
+##No 329 16
+##Yes                     7383
+The results show that the accuracy is 82.2% and AUC is 0.908. Given the imbalance in levels of the
+outcome variable and the fact that the minority level (i.e., went_on_backorder = yes) is more
+important for the prediction task, we estimate sensitivity as well as specificity of this prediction. W e use
+Table 12.4  and the formula for sensitivity and specificity defined earlier for our calculations.
+For our model, sensitivity is 83
+83+16=0.838, and specificity is 329
+
+
+329+73=0.818.
+12.9 UNDERSTANDING THE CHAPTER
+1. Given a dataset where instances of backorders are vastly outnumbered by regular orders,
+hyperparameter tuning in Random Forest, such as the number of trees or minimum data points
+per node, can be used. How might adjusting these parameters specifically aid or not aid in
+improving prediction accuracy for the minority class (backorders)?
+2. Consider a predictive modeling task involving a Random Forest classifier . Explain the role and
+significance of employing k-fold cross-validation (CV) in the model evaluation process. How does
+k-fold CV work, and in what ways does it attempt to provide a robust estimate of the model’ s
+performance? Moreover , discuss the trade-of fs involved in choosing a specific k value (e.g., k = 5
+vs. k = 10).
+3. Decisions that are made with some information missing are called which of the following?
+a. Risky decisions
+b. Decisions under certainty
+c. No decision can be made
+d. Binary decisions
+4. From the options provided, which are features of decisions made under uncertainty? (Choose all
+that apply .)
+a. Weighing the risks of making the decision versus the benefits of the decision
+b. Weighing the risks versus the costs of making the decision
+c. Weighing the benefits of the decision versus profits from the sales
+d. Evaluating existing options versus new ones
+5. Which of the following statements is true about the bullwhip ef fect?
+a. It occurs when a small change in demand is overestimated, resulting in oversupply .
+b. It occurs when a small change in supply is underestimated.
+c. It occurs when demand matches supply .
+d. It occurs when inflation causes demand to fall.
+6. For decision trees, the metric used to find which variable is a better classifier is which of the
+following?
+a. Gini impurity
+b. Coef ficient of determination
+c. Variance inflation factor (VIF)
+d. Cophenetic correlation coef ficient
+7. Which of the following statements about bagging is false ?
+a. Bagging is bootstrap aggregation.
+b. Bagging involves sampling with replacement.
+c. Bagging involves sampling without replacement.
+d. Bagging helps build diverse trees.
+8. Which of the following statements about downsampling is false ?
+a. It addresses the issue of data imbalance.
+b. It allows the model to better learn the features of the minority class.
+c. It severely reduces accuracy of the model.
+d. It slightly decreases specificity but improves sensitivity significantly .
+9. Let’s assume that we are using a decision tree to find out which predictor variable(s) can better
+classify the outcome variable: whether or not customers will buy a product. Given the following
+Gini impurity values for the three predictor variables—Predictor A = 0.55, Predictor B = 0.24, and
+Predictor C = 0.76—which of the following options would be considered the optimal classifier of
+the buy/no buy decision?
+a. Predictor A
+b. Predictor B
+c. Predictor C
+d. Both Predictor A and Predictor C
+ENDNOTES
+1. Heath, Chip, and Amos Tversky , “Preference and Belief: Ambiguity and Competence in Choice
+Under Uncertainty ,” Journal of Risk and Uncertainty  4, no. 1 (1991): 5–28.
+2. Fischhof f, Baruch, and Alex L. Davis, “Communicating Scientific Uncertainty ,” Proceedings of the
+National Academy of Sciences  111, Suppl. 4 (2014): 13664–13671.
+3. IBM Corporation, “Scientific and Technical Report: Backorder Prediction,” for Defense Logistics
+Agency Research and Development (Contract No. SP4701-20-C-0052), submitted February 26, 2021,
+https://apps.dtic.mil/sti/pdfs/AD1141471.pdf.
+4. Bhan, Hyung Sup, and Eric T. Anderson, “Multiyear Impact of Backorder Delays: A Quasi-
+experimental Approach,” Marketing Science  22, no. 2 (2022): 314–335.
+5. The data for the analysis is a subset of data adopted from Santis et al. (2017). It was made available
+as a Kaggle competition and is posted at https://github.com/rodrigosantis1/backorder_prediction.
+Santis, Rodrigo B., Eduardo Pestana de Aguiar , and Leonardo Goliatt, “Predicting Material Backorders
+in Inventory Management Using Machine Learning,” Fourth IEEE Latin American Conference on
+Computational Intelligence, Arequipa, Peru (2017).
+6. Wickham, Hadley , and Jennifer Bryan, “readxl: Read Excel Files,” R package version 1.4.3 (July 6,
+2023), https://CRAN.R-project.org/package=readxl.
+7. Kuhn, Max, et al., “T idymodels: A Collection of Packages for Modeling and Machine Learning Using
+tidyverse Principles” (2020), https://www .tidymodels.org.
+8. Wickham, Hadley , Romain François, Lionel Henry , and Kirill Müller , “dplyr: A Grammar of Data
+Manipulation,” R package version 1.1.3 (September 3, 2023), https://CRAN.R-
+project.org/package=dplyr .
+9. Wright, Marvin N., and Andreas Ziegler , “ranger: A Fast Implementation of Random Forests for High
+Dimensional Data in C++ and R,” Journal of Statistical Software  77, no. 1 (2017): 1 ‒ 17,
+https://doi.org/10.18637/jss.v077.i01.
+10. Hvitfeldt, Emil, “themis: Extra Recipes Steps for Dealing With Unbalanced Data,” R package
+version 1.0.0 (2022), https://CRAN.R-project.org/package=themis.
+Descriptions of Images and Figures
+Back to Figure
+The figure consists of images from left to right as follows: image for human, house, industry and
+vehicles for construction. Above human is the description CUST OMER DEMAND INCREASE; above
+house is the description RET AILER OVERORDERING; above industry is the description OVER
+MANUF ACTURING; above the vehicle is the description SUPPL Y. In the figure, from left to right is a
+dotter wave enclosing the image and the description is present above each peak.
+Back to Figure
+The figure has a horizontal line on the left and above the line is a vertical line. On the left of the line are
+four circular nodes of which first three are grey and the last is black in colour and this region is labeled
+Low. On the right are five nodes of which first four are black and the last is grey in color and this region
+is labeled High. The left image is labeled Forecasted Sales at the bottom. On the right is an image with
+a horizontal line and vertical line above the horizontal line labeled Transit Time. On the left is the region
+Low with five circular nodes of which first two nodes are grey and last three nodes are black. On the
+right is the region for high with four nodes of which first two nodes are black and last two nodes are
+grey.
+Back to Figure
+The figure has two images. On the top is an image for Forecasted Sales, which has a horizontal line
+and a vertical dotted line on the top. The left side is a region for Low with three grey nodes on the left
+and a black node on the right, and on the right is the region for high with four black nodes on the left
+and a grey node on the right. At the bottom is the equation Weighted Average Impurity  = (5/9) 0.32 +
+(4/9) 0.375 = 0.34. On the top left is the 1−(1/4)2−(3/4)2 = 0.375 and on the right is the equation 1–
+(4/5)2−(1/5)2 = 0.32. At the bottom is an image for Transit Time, which has a horizontal line and a
+vertical dotted line on the top. The left side is a region for Low with two grey nodes on the left and
+three black node on the right, and on the right is the region for high with two blacks nodes on the left
+and two grey node on the right. At the bottom is the equation Weighted Average Impurity  = (5/9) 0.48 +
+(4/9) 0.5 = 0.48. On the top left is the equation 1−(2/5)2−(3/5)2 = 0.48 and on the right is the equation
+1–(2/4)2−(2/4)2 = 0.5.
+Back to Figure
+The figure is a flow diagram consisting of rectangular blocks and circular nodes in the box. On top is a
+block with four black nodes on the top and five grey nodes at the bottom. On the left is a block labeled
+Low with a black node on the top and three grey nodes at the bottom. This block is again divided into
+two blocks labeled Low on the left and High on the right, and the term Transit Time is at the center . On
+the left is a block with a black node on the top and two grey nodes on the right. On the right is a block
+for high with four black nodes on the top and a grey node at the bottom. This block is divided as Low
+with two black nodes on the left and High on the right with two black nodes on the top and a grey node
+at the bottom and at the center is the term Transit Time.
+OceanofPDF .com
+
+
+
+14 NEW PRODUCT DEVELOPMENT WITH A/B
+TESTING
+14.1 Innovations in the Marketplace
+14.2 New Product Development Stages
+14.2.1  Idea Generation
+14.2.2  Idea Screening
+14.2.3  Concept Development and Testing
+14.2.4  Business Analysis
+14.2.5  Product Development and Design
+14.2.6  Test Marketing
+14.2.7  Commercialization
+14.2.8  Evaluation and Control
+14.3 The Importance of Testing and Market Research
+14.3.1  For Design Evaluation
+14.3.2  For Engaging Customers in an Omnichannel W orld
+14.3.3  For Incorporating Feedback and Customer Experience
+14.4 The Intricacies of A/B Testing
+14.5 Using A/B Testing to Test Gaming Prototypes
+14.5.1  Experimental Design
+14.5.2  Analyzing the Data and Presenting the Results
+14.5.3  F Test
+14.5.4  Testing Statistical Dif ference
+14.6 Using the A/B Test in New Product Development
+14.6.1  Insights Derived From the A/B Test
+14.7 Implementation Using R: The A/B Test
+14.8 Understanding the Chapter
+LEARNING OBJECTIVES
+1. Introduce new products in the marketplace
+2. Recall the steps in the new product development process
+3. Support new product development with machine learning
+4. Use A/B testing for new product development
+5. Introduce a digital product
+14.1 INNOVATIONS IN THE MARKETPLACE
+Chase introduced its new credit card, the Chase Sapphire Reserve, in 2016, which of fered users
+100,000 sign-up bonus points for the first year and led to Chase exceeding its annual sales target in the
+first few weeks. The enthusiasm with which millennials adopted the card because of the free points was
+a key factor in its success. However , Chase needed to see beyond the first year of product introduction
+to assess how the card would do in the next years after the promotional of fer expired and annual fees
+kicked in. Despite high annual fees of $550, it is considered the best travel card around because of the
+perks it of fers—including airport lounge access and application fee credit for Global Entry and TSA
+PreCheck.1 This is one example of a product launch that was designed and launched well, and the right
+strategies are helping Chase sustain its success.
+Nintendo released the Switch in 2017, which sold 2.74 million units in the first month. Its design allowed
+for handheld and console gaming that appealed to a broad user base. The launch titles, such as The
+Legend of Zelda: Breath of the W ild, captured people’ s attention. The Switch was priced competitively ,
+and its features such as local multiplayer gaming and portability helped it perform successfully in the
+marketplace.
+The concept of a product has evolved in the digital age. Technological advances in artificial intelligence,
+cloud computing, 3D printing, and wireless sensor networks have now made it possible to build products
+that do not have a physical presence but that live entirely on the web, such as health monitoring apps
+on smartphones and facial recognition apps for fraud detection; even in automobiles much of the driving
+is controlled by algorithms, such as with self-driving technology . Netflix is a good example of how
+algorithmic power has been harnessed for new product of ferings. Netflix began algorithmic
+recommendation as early as 2010. Gradually algorithms helped it decide which movies to show , how to
+display them on screens, and which pictures should be used to advertise them. Today the company’ s
+algorithms are not just used for providing recommendations to users; user interactions with the Netflix
+platform inform the company , for example, what content to develop next and what type of show is likely
+to garner the most viewership. As early as 2013, Netflix was using predictive analytics to determine what
+type of new content needed to be included in its show House of Cards  to ensure a specific size of
+viewership.
+14.2 NEW PRODUCT DEVELOPMENT STAGES
+How can we define a new product? Is it something entirely new that customers have never seen before,
+such as the microwave oven that was introduced as a substitute for the conventional gas/electric range?
+Or is it a product that is merely an extension of an existing product, or a newer model with enhanced
+features, such as a new version of the iPhone that has more memory or functionality than an earlier
+version? New products get categorized broadly as breakthrough or incremental depending on whether
+they completely disrupt the existing marketplace or of fer newer benefits to consumers. Breakthrough
+innovations are relatively rare, accounting for less than 10% of all products that get introduced in the
+marketplace. Many product launches are merely extensions of existing products or me-too products with
+barely any innovation that are introduced at a lower cost. Moreover , the failure rate for new products is
+quite high. Many ideas never culminate in a viable product. Even among those new products that do get
+developed, more than 50% are not profitable. Before we see a product in the marketplace—be it a
+biotechnology , pharmaceutical, automotive, or digital product—it has gone through a long process of
+being designed and introduced. What are the steps in new product development? They commonly are
+the following, with many of these steps being iterative. Next, we will go through the steps in the new
+product development (NPD) process (see Figure 14.1 ) in the context of creating an entertaining game
+with various levels of dif ficulty .
+Description
+Figure 14.1  New Product Development Process
+14.2.1 Idea Generation
+The first step of any project is idea generation (this is Step 1 in Figure 14.1 ). This can be a structured
+process in some businesses where regular brainstorming involves discussing what consumers need and
+what type of (as well as whether) new products can be developed. For instance, in some industries, new
+models or brand extensions are an outcome of such a structured process. Alternatively , new product
+ideas can emerge as a by-product or even accidentally while working on other projects. In the context of
+game development, this step could involve generating ideas for a puzzle-adventure game in which
+players travel dif ferent worlds where each world represents a unique level of dif ficulty . Such a game can
+be developed in the realm of fantasy , science fiction, or history .
+14.2.2 Idea Screening
+The second step involves the rigorous evaluation of product ideas with each idea undergoing a
+comprehensive assessment to determine its viability , innovation, and market appeal.
+Viability:  This considers whether the idea is technically feasible and economically sustainable,
+ensuring that the product can be developed as well as marketed successfully .
+Innovation:  An important criterion is to determine the product idea’ s uniqueness or substantial
+improvement over existing products. It ensures that the product features are indeed novel to the
+market.
+Market Appeal:  The idea is evaluated for its potential attractiveness to the intended target segment,
+determining whether it meets customer needs and preferences ef fectively .
+The aim of this step is to filter and retain only those ideas that show potential for success.
+For game development, after careful consideration, the idea of a multilevel, puzzle-adventure game
+rooted in medieval history was chosen for its engaging concept and scalability .
+14.2.3 Concept Development and Testing
+In this step, the ideas start to take shape. W e can think of it like a sketch turning into a detailed
+blueprint. The designers start defining the product’ s features, how the product functions, and what
+makes it unique. It is possible that more than one version of the product is built to find the best-
+performing one. This could involve the shape, size, or weight of a physical product or the seamless
+connectivity of a digital product. At this step the designers may use surveys or focus groups to test the
+product with potential users. Consumers’  feedback is helpful in tweaking the product, making sure it is
+something people will find valuable.
+For the puzzle-adventure game, detailed features such as the game rules, objectives, and varying levels
+of dif ficulty are established at this step, ensuring that the game is well structured, engaging, immersive,
+and challenging. To ensure that the developed concept aligns with user expectations and preferences,
+testing can also be conducted with users in this step.
+14.2.4 Business Analysis
+The aim of this step is to figure out the business or market viability of the developed concepts. Dif ferent
+types of comprehensive business analysis such as cost estimation, sales projections, and profitability
+analysis are conducted to assess the potential business impact and commercial success of the new
+product.
+For game development, this step will involve analyzing the costs associated with developing the game,
+the product price, and estimating potential revenues based on market research.
+14.2.5 Product Development and Design
+In this step, the developed concepts are further developed into tangible products. The product design is
+finalized, incorporating all the necessary features and functionalities, ensuring it’ s user-friendly and
+aesthetically appealing. Prototypes or samples are developed, getting the product ready for market
+introduction.
+This step for our game development example would involve probably programming the game
+mechanics, designing unique worlds for each dif ficulty level, and ensuring that the user interface is
+intuitive and engaging.
+14.2.6 Test Marketing
+Before the product is launched in the market, it is tested in select markets to obtain user reactions to
+both design and cost. W e can think of this to be a dress rehearsal before the main performance, in
+which a select audience is invited to provide their review of the performance. This allows for any last-
+minute adjustments or improvements. The arrow pointing back from Step 6 to Step 5 in Figure 14.1
+indicates the possibility of such feedback. Any necessary corrections can be made at this stage based
+on test market results.
+Step 6 for game launch could include the game being soft-launched in select markets or platforms to
+gather user feedback, analyze gameplay data, and make any needed improvements.
+14.2.7 Commercialization
+After adjustments or improvements are included in the product following the test marketing step, the
+product is of ficially launched in the market. In this step, several marketing strategies are deployed,
+aiming for a successful launch and a wide market adoption.
+When the game is launched in the market, it is likely to involve launching the fully optimized puzzle-
+adventure game globally , implementing a comprehensive marketing strategy to maximize visibility and
+downloads.
+14.2.8 Evaluation and Control
+The new product development process does not conclude after the product launch. The business will
+closely monitor the product’ s market performance. This step involves evaluating the product’ s success
+against the company’ s expectations regarding sales as well as customer reviews. It could also include
+assessment of how well the product performs in comparison to any other competitor that was introduced
+in the market.
+For the game, its performance is continuously monitored postlaunch, and updates are made to improve
+the game, fix bugs, and keep the content fresh and engaging based on user feedback and evolving
+gaming trends.
+14.3 THE IMPORTANCE OF TESTING AND MARKET RESEARCH
+As we just learned through the dif ferent processes of ideating, designing, and launching a new product,
+the role of continuously getting feedback from potential users is very important since the process can
+include many uncertainties. This includes how consumers and competitors will react; if any external
+factors in the economic or social environment will change before, during, or immediately after the
+launch; what the price of the product should be; through which channel the product should be launched;
+and how the product should be promoted. Even before launching a new product in the market, the
+manager needs to weigh the cost of designing the new product: Will the design be financially viable?
+How long will it take to move from design, to production, to launch stage? What does the company have
+to give up to invest in this new product? In order to answer these questions and reduce some of the
+uncertainty , companies sometimes conduct surveys to find out which features of the product or launch
+environment result in greater acceptance by consumers.
+14.3.1 For Design Evaluation
+Whether the product is digital or physical, it is important to incorporate user experience and feedback
+into the product during the design stage. A commonly used method to gather user feedback is through
+A/B testing to find out which product design will attract the most interest. For instance, for digital
+products like apps that people view online, click rate is used to determine interest (and eventual
+purchase). As we discussed in Chapter 7 , a multi-armed-bandit-based algorithm is now being deployed
+by large firms to determine quickly which combination of product features will result in the highest
+interest and purchase.
+14.3.2 For Engaging Customers in an Omnichannel World
+When the product is ready for launch, algorithms again are used to determine the best way to engage
+customers in today’ s omnichannel world. This has both benefits and shortcomings. Traditionally , people
+gained product information through one channel such as television or in- store behavior . Today ,
+however , people can be reached through multiple interconnected channels, which makes the task
+challenging because businesses need to find the optimal channels as well as to customize the message
+depending on the channel. Hence, a one-message/one-channel policy may not be successful.
+14.3.3 For Incorporating Feedback and Customer Experience
+Just as user feedback is gathered during the design stage, once the new product is launched it again
+becomes essential to find out how customers are reacting to it. In the design stage, the feedback is
+probably gathered from a smaller sample of people, while in the postlaunch stage, a larger set of
+customers can be reached to find out what they like (or don’t like) about the product. This feedback now
+happens on an ongoing basis, building a continuous chain from users to designers and back.
+14.4 THE INTRICACIES OF A/B TESTING
+As we discussed in Chapter 7  on advertising, there are several steps that need to be followed to
+develop a sound A/B test. This includes ensuring that the experimental design is causal (an A/B test is
+really another name for causal experimentation) and not correlational. For this, we need to ensure that
+we are keeping all features of the A/B test constant and only varying the feature(s) whose influence we
+want to examine. Second, we need to create groups (also called conditions or treatments) that vary
+different levels of the feature that we want to examine. Finally , we should be careful that participants are
+randomly assigned  to the various groups and that there is no issue of self-selection. What exactly is self-
+
+
+selection? Self-selection occurs if participants are allowed to choose which group (or treatment) they
+want to be part of. For instance, if we design an A/B test for video games to find out which color of the
+visual interface is more immersive (e.g., blue vs. green) and let participants choose to play using their
+choice of color , then the experimental design is not randomized because we are allowing participants to
+self-select  their experimental group based on color preference.
+14.5 USING A/B TESTING TO TEST GAMING PROTOTYPES
+For this chapter let’ s use the example of a video game company . GameV has been working on a new
+game idea that its designers believe will be more immersive and engaging than other games that
+GameV currently has developed. However , before they launch the game, GameV designers have
+generated several prototypes of the game so they can launch the version that is likely to retain the most
+players. They know from previous data in the gaming industry that every point of engagement in the
+game results in players who will return. For instance, many players don’t return after the first session
+because of glitchy install or because of game features that are less than immersive. Therefore, GameV
+wants to use A/B testing to assess specific features. The game lets players earn an extra life by
+performing some tasks. GameV has determined three levels of dif ficulty: 25, 35, and 45. They want to
+find out which level of dif ficulty results in greater engagement. It is possible that if players have earned a
+life by performing a dif ficult task, it could result in their feeling more engaged. Alternatively , it is possible
+that earning a life with a more dif ficult task results in players giving up. Hence, GameV wants to find out
+which dif ficulty level engages more players in this game environment. One can think of the three levels
+of dif ficulty as low , medium, and high.
+GameV believes that a good outcome metric to figure out the success of the prototype is the time
+players spend playing. Since the game is a prototype, players have never played it before, and the time
+they spend playing the game will help GameV determine which of the prototypes results in greatest
+engagement and immersion. The outcome variable (unlike in Chapter 7 ) is continuous in nature.
+Therefore, we will use an F test to find out which level of dif ficulty results in highest immersiveness.
+14.5.1 Experimental Design
+GameV has developed the three prototypes in such a way that each prototype is designed with one of
+the three levels of dif ficulty . Each prototype of fers unique game features that correspond to its specific
+difficulty level, providing players with a variety of experiences. In the experimental design, the level of
+difficulty is the only factor that varies across the three prototypes, with specific levels set at 25, 35, and
+45. Every other feature of the game stays the same; only the features associated with the level of
+difficulty are dif ferent. Moreover , during A/B testing, a player who plays prototype-25 will not be playing
+prototype-35 or prototype-45. That is, one player will see and play only one game prototype. Such a
+design is called a one-factor , between-participants design . GameV followed the usual steps to run its
+A/B test:
+1. It recruited 1,200 video game players who agreed to test the game in return for free games from
+GameV . Hence, the sample for the A/B test is 1,200.
+2. It randomly assigned about 400 players to each of the three groups: prototype-25, prototype-35,
+and prototype-45.
+3. Players played the game for 10 rounds, during which they were presented with the dif ficulty level
+specific to their group. They could continue to play after 10 rounds for another 2 rounds, or they
+could quit and leave.
+4. Time played was recorded for each participant and served as a measure (also called a proxy) for
+immersiveness and engagement with the game.
+5. The null hypothesis would be that changing the dif ficulty level would not influence the
+immersiveness, resulting in no dif ference in the time spent playing among players in the three
+groups.
+14.5.2 Analyzing the Data and Presenting the Results
+Before we determine what analysis needs to be run, we first should examine the nature of the data. If
+the data are normally distributed , then we can go ahead and use parametric tests such as an F test or t
+test. However , if the data are not normally distributed, this failure of the normality assumption might
+require the use of nonparametric tests like the Mann-Whitney .
+14.5.3 F Test
+The F test, also called the F statistic, is used to describe tests that use the F distribution to determine
+whether a factor has a significant  influence on the outcome variable. When we use an F test for A/B
+testing, we want to examine whether the intervention we have used in each of the groups results in
+different values of the outcome. In our A/B test, we want to examine whether the three levels of dif ficulty
+result in dif ferent levels of immersion as measured through time spent playing the game prototype. The
+null hypothesis states that there is no dif ference in time spent playing across the three levels of dif ficulty .
+We can reject the null hypothesis only if there is a dif ference in playing time. When we use an F test, we
+are comparing the groups to test whether there are variances among the groups. Hence, an F test is
+frequently used for analysis of variance (ANOV A) testing, which is a common test for causal
+experimentation.
+The F test can be performed if the data follow an F distribution and the group data are independent. In
+A/B testing, group data are obtained independently because the intervention for one group is dif ferent
+from the intervention for the other groups. Note, when we use an F test for correlational analysis, the
+assumption is that the predictors have an independent influence on the outcome variable. For our
+example, we have three levels of one factor—that is, three independent groups with no interaction (we
+will discuss interactions later). Hence, our A/B test design will examine the main ef fect, which is the
+effect of each of the groups on the outcome.
+The three main ef fects for prototype-25, prototype-35, and prototype-45 constitute the model equation.
+SSM=SS25+SS35+SS45
+The sum of squares  (SSM) captures how much variance is explained by each of the factors. For
+instance, SS25 indicates how much variation in the immersiveness experienced by players is captured
+by a dif ficulty level of 25. Here, we have only one factor but with three levels. However , along with SS
+we need something called degrees of freedom  (df) to calculate the F test.
+dfM=k−1wherek= number of experimental groups (herek= 3)
+14.5.4 Testing Statistical Difference
+Imagine we ran the A/B test and obtained data for each of the three conditions. Assume that mean
+(average) time spent with prototype-35 is higher than the averages of time spent with prototype-25 and
+prototype-45. How can we quantify that prototype-35 is indeed more immersive? The only way we can
+answer this is by testing if the averages are statistically dif ferent. The testing process begins with the
+hypothesis that there is no dif ference in the averages across conditions; this serves as the null
+hypothesis. It implies that all prototypes are equally immersive. Now our goal is to test this hypothesis. A
+one-way ANOV A makes it possible to simultaneously compare the averages of more than two conditions
+and determine if they are statistically dif ferent. ANOV A is a generalization of the t test that compares the
+means of two conditions.
+Traditional ANOV A (also known as the ANOV A F test) makes the following assumptions.
+Independence : The observations should be independent of each other . This implies that
+participants providing responses in each condition are unique and that no participant is included in
+more than one condition. The assumption of independence is related to the design of the study . If
+participants are randomly assigned to only one of the conditions and do not influence or get
+influenced by other participants, then this assumption is met.
+Homogeneity of V ariance : This assumption requires that variance (spread of values around the
+average) among groups should be similar . In our case, the variance of the outcome variable, time
+spent on the app, should be similar in each of the conditions.
+Normal Distribution : The population of all the respondents (players) from which the sample was
+drawn is normally distributed. In the context of GameV’ s A/B test, this assumption implies that the
+time spent by all the users ( note:  all users, not only those in our sample) of the game follows a bell-
+shaped distribution. Some users will spend a lot of time and some less time, but the majority of
+users’  time will spread around the average.
+The use of an ANOV A is not recommended if the independence assumption is violated, although
+sometimes an ANOV A is used despite violation of the normality assumption since an ANOV A can still
+perform reasonably well if a large sample size is used. However , the assumption of homogeneity of
+variance tends to be frequently violated in many real-world datasets. In fact, assuming unequal
+variances might be a more realistic approach when working with real-world datasets.2 Therefore,
+assuming unequal variance, it is advisable to use W elch’s ANOV A as it does not assume homogeneity
+of variance.
+The output of W elch’s ANOV A will provide an estimate of p value. Let’ s understand what p value means.
+It is the probability of observing the obtained results if the null hypothesis was actually true. In the
+context of our A/B test, it is the probability of wrongly concluding that the group means are not the same
+(i.e., rejecting the null hypothesis) when they are actually the same (i.e., the null hypothesis is true). W e
+want to reduce the probability of such wrong conclusions; thus, smaller p values are preferred. The
+convention is to set the threshold p value at 0.05; if the estimated p value is less than 0.05, then we can
+conclude that the averages are statistically dif ferent.
+If the results of W elch’s ANOV A show that the averages across all conditions are not the same, then the
+next step is to ask the following questions: Which conditions are dif ferent, and how do they dif fer? Post
+hoc pairwise comparisons help us answer these questions. Given the frequent violation of the
+homogeneity of variance assumption, it is advisable to use the Games-Howell method for pairwise
+comparison, which allows unequal variance in pairwise comparisons.
+We will follow these steps closely in the next sections when we analyze the A/B test for GameV .
+14.6 USING THE A/B TEST IN NEW PRODUCT DEVELOPMENT
+We first import data and create a boxplot. The data are hypothetical and created for the purposes of this
+chapter .
+We see from Table 14.1  and Figure 14.2  that the average time players spent with prototype-35 is higher
+than with either prototype-25 or prototype-45. Having obtained this result, we need to determine if the
+average time spent is statistically dif ferent across conditions.
+condition count mean min sd
+Prototype_25 195 46.52970 11.174987 15.06432
+Prototype_35 175 51.23371      9.062043 16.61373
+condition count mean min sd
+Prototype_45 185 47.41703 18.099590 10.65673
+Description
+Figure 14.2  A Boxplot of Time Spent With Dif ferent Prototypes
+The first step is to test if our data satisfies the normality assumption by performing the Shapiro–Wilk
+normality test.
+Across all the conditions, we see that the p value is more than 0.05 (see Table 14.2 ). This shows that
+our data do not violate the assumption of normality .
+condition variable statistic p
+Prototype_25 time 0.9922398 0.3874756
+Prototype_35 time 0.9895805 0.2286476
+Prototype_45 time 0.9913752 0.3363401
+The second step tests the homogeneity of variance assumption. W e use Levene’ s test for homogeneity
+of variance across groups. The null hypothesis of this test states that variances in the three groups are
+the same (i.e., they are not significantly dif ferent).
+The obtained p value is less than 0.05, so the null hypothesis is rejected (see Table 14.3 ). We can
+conclude that our data do not meet the assumption of homogeneity of variance. As we discussed earlier ,
+the ideal method when the assumption of homogeneity of variance is violated is Welch’s ANOV A. W e
+implement it next.
+df1 df2 statistic p
+2 552 14.29075 9e-07
+The p value of W elch’s ANOV A is less than 0.05 (see Table 14.4 ). This shows that the means across the
+three conditions are not the same. In order to find out how they dif fer across conditions, we use the
+Games-Howell test. It compares means across all possible combinations of conditions and tests if the
+differences between conditions are statistically significant or not.
+.y.n statistic DFn DFd p method
+time 555 4.51 2 350.8273 0.012 Welch ANOV A
+The results show that prototype-35 players spent statistically more time with the game than both
+prototype-25 and prototype-45 players (see Table 14.5 ).
+.y.group1 group2 estimate conf.low conf.high p.adj p.adj.signif
+time Prototype_25 Prototype_35    4.7040084    0.8073325    8.6006842 0.013 *
+time Prototype_25 Prototype_45    0.8873367 -2.2508397    4.0255130 0.784 ns
+time Prototype_35 Prototype_45 -3.8166717 -7.3036038 -0.3297396 0.028 *
+14.6.1 Insights Derived From the A/B Test
+Given the finding that prototype-35 results in greater immersiveness than prototype-25 and prototype-
+45, the insights we can draw are quite informative. The results indicate that for lower levels of dif ficulty
+(prototype-25), players do not find the game immersive. However , as the dif ficulty level increases to
+prototype-35, immersiveness increases. At this point, GameV might have wrongfully concluded that
+increasing dif ficulty will always increase immersiveness since players feel a greater sense of
+achievement when they win more dif ficult games. Hence, including prototype-45 was informative since it
+indicated that its increased level of dif ficulty resulted in lowered immersiveness. The results clearly
+indicate that as dif ficulty increases, immersiveness increases initially , peaks at a certain level, and then
+starts to decrease. In other words, the results seem to follow an inverted- U shape. Therefore, GameV
+can now identify what level of dif ficulty should be retained to obtain the maximum immersiveness.
+The A/B test we ran had one factor with multiple levels and no interactions. Interaction occurs when an
+experimental design has two factors (or independent variables) and we want to find the combined (or
+interactive) influence of the two factors on the outcome variable. Of course, there can be more than two
+factors; in that case, we would be examining the interactive influence of three or four factors on the
+outcome. However , the more factors we include in an experimental design, the larger and more
+complicated the design becomes, requiring that each factor ’s interactive influence be examined on the
+
+
+outcome variable. For instance, if we had an experimental design with three factors and each of them
+had two levels, then the model equation would include three main ef fects, three two-factor interactions,
+and one three-factor interaction, indicating that the experimental design should include 2 * 2 * 2 = 8
+groups. Assuming a sample size of 50 participants per group, we would need a sample of 400
+participants.
+14.7 IMPLEMENTATION USING R: THE A/B TEST
+First, we import the data and the libraries rstatix,3 dplyr ,4 and ggplot2 .5 We then summarize the
+data by creating a boxplot as shown in Figure 14.2 .
+library(rstatix)
+library(dplyr)
+ 
+data_game <-
+ read.csv(url("http://data.mishra.us/files/chapter_NPD/data_game.csv"))
+ 
+ 
+data_game %>%
+ group_by(condition) %>%
+ summarise(
+  count = n(),
+  mean = mean(time),
+  min = min(time),
+  sd = sd (time)
+                               )
+###A tibble: 3 × 5
+## condition count                    mean                        min                           sd
+## <chr> <int> <dbl> <dbl> <dbl>
+##1Prototype_25                         195                     46.511.2                    15.1
+##2Prototype_35                         175                     51.2                    9.06                    16.6
+##3Prototype_45                         185                     47.418.1                    10.7
+library(ggplot2)
+p <- ggplot(data_game, aes(condition,time))
+p + geom_boxplot()+theme_minimal()
+The average time spent with prototype-35 is higher than that with both prototype-25 and prototype-45.
+Next, we determine if average time spent is statistically dif ferent across the three groups.
+We perform the Shapiro–Wilk normality test to test for the normality assumption.
+data_game %>%
+ group_by(condition) %>%
+ shapiro_test(time)
+###A tibble: 3 × 4
+## condition variable statistic                                 p
+## <chr> <chr> <dbl> <dbl>
+##1Prototype_25 time 0.992 0.387
+##2Prototype_35 time 0.990 0.229
+##3Prototype_45 time 0.991 0.336
+Across all conditions, we see that the p value is more than 0.05. This shows that our data do not violate
+the assumption of normality .
+We next use Levene’ s test for homogeneity of variance across groups. The null hypothesis of this test
+states that the variances across the three groups is similar .
+levene_test(time ~ condition,data = data_game)
+###A tibble: 1 × 4
+##                        df1df2 statistic                                                            p
+## <int> <int> <dbl>                                          <dbl>
+##1                                2                       552                     14.30.000000889
+The obtained p value is less than 0.05; hence, we conclude that our data do not meet the assumption of
+homogeneity of variance. W e implement W elch’s ANOV A next.
+welch_anova_test(time ~ condition, data=data_game)
+###A
+tibble:                               
+1× 7     
+## .y.                                
+nstatistic                        DFn                        
+DFd                             p
+method
+##*<chr> <int>                                  
+<dbl><dbl> <dbl> <dbl> <chr>
+##1time 555                                     
+4.51                                
+2                    
+351.0.012Welch
+ANOVA
+The p value of W elch’s ANOV A is less than 0.05. This shows that the means across the three conditions
+are not the same. In order to find out how they dif fer across conditions, we use the Games-Howell test.
+games_howell_test(time ~ condition,data=data_game)
+###Atibble: 3 × 8
+## .y.group1group2 estimate conf.low conf.high p.adjp.adj.sign
+##*<chr><chr><chr> <dbl> <dbl> <dbl> <dbl><chr>
+##1time
+Prototype_25Prototype_35                    
+4.70                   
+0.807                   
+8.600.013*
+##2time
+Prototype_25Prototype_45                    
+0.887-2.25                    
+4.030.784ns
+##3time
+Prototype_35Prototype_45 -3.82 -7.30 -0.330 0.028*
+The results show that with prototype-35 players spent statistically more time than with either prototype-
+25 or prototype-45.
+14.8 UNDERSTANDING THE CHAPTER
+1. What is the dif ference between causal testing and correlational testing? Is A/B testing causal or
+correlational?
+2. What is the dif ference between a null hypothesis and an alternate hypothesis in an A/B test?
+3. What is the primary purpose of an A/B test?
+a. To compare two dif ferent advertisement designs
+b. To determine the ef fectiveness of an intervention between groups
+c. To test the ef fectiveness of a new medication
+d. To find correlations between variables
+4. Which statistical test would you use to compare the means of three or more groups?
+a. t test
+b. F test
+c. chi-square test
+d. Pearson correlation
+5. What is the null hypothesis in an A/B test?
+a. There is a significant dif ference between the groups.
+b. There is no significant dif ference between the groups.
+c. The intervention causes the observed dif ference.
+d. The observed dif ference is due to chance.
+6. What is the main advantage of using W elch’s ANOV A over the standard F test (ANOV A)?
+a. It is more powerful when the variances are equal.
+b. It is less sensitive to unequal variances.
+c. It has a higher Type I error rate.
+d. It requires fewer assumptions.
+7. When should you use a post hoc test after an F test (ANOV A)?
+a. When the null hypothesis is rejected
+b. When the null hypothesis is not rejected
+c. Always after an F test
+d. Only when the sample sizes are unequal
+8. In which situation would you choose to use W elch’s ANOV A over the standard F test?
+a. When the data are normally distributed
+b. When the variances within each group are equal
+c. When the variances within each group are unequal
+d. When the groups are dependent
+ENDNOTES
+1. Saks-Frankel, Robin, and Kelly-Ann Franklin, “Chase Sapphire Reserve Card Review 2023,” Forbes
+Advisor , August 31, 2023, https://www .forbes.com/advisor/credit-cards/reviews/chase-sapphire-reserve/.
+2. Delacre, Marie, Daniël Lakens, and Christophe Leys, “Why Psychologists Should by Default Use
+Welch’s t-Test Instead of Student’ s t-Test,” International Review of Social Psychology  30, no. 1 (2017).
+3. Kassambara, Alboukadel, “rstatix: Pipe-Friendly Framework for Basic Statistical Tests,” R package
+version 0.7.2 (February 1, 2023), https://CRAN.R-project.org/package=rstatix.
+4. Wickham, Hadley , Romain François, Lionel Henry , and Kirill Müller , “dplyr: A Grammar of Data
+Manipulation,” R package version 1.1.3 (September 3, 2023), https://CRAN.R-
+project.org/package=dplyr .
+5. Wickham, Hadley , ggplot2:Elegant Graphics for Data Analysis  (New York: Springer-V erlag, 2016).
+Descriptions of Images and Figures
+Back to Figure
+The figure consists of numerals 1 to 8 enclosed in a circle. On the left are the odd variables 1, 3, 5, 7
+and on the right are even variables. The numerals are connected by downward arrows. From numeral 6
+to 5 is an upward arrow . The numerals 1 to 8 have the descriptions Idea Generation, Idea Screening,
+Concept Development and testing, Business Analysis, Product Development and Design, Test
+Marketing, Commercialization and Evaluation and Control, respectively .
+Back to Figure
+The figure is a graph with 30, 60 and 90 on y-axis labeled time. On the x-axis are three criteria
+Prototype_25, Prototype_35 and Prototype_45 labeled condition. Within the graph is a rectangular block
+with a horizontal line dividing the block into two regions and a vertical line on top and bottom of the block
+on the left. In the middle is a block with vertical lines and two circular nodes on the top and bottom. On
+the right is a block with a circular node on top and two circular nodes at the bottom.
+OceanofPDF .com
+PART V BUSINESS ETHICS AND
+ANALYTICS
+OceanofPDF .com
+
+
+
+`;
+    const viMarkdown = `# 12 QUẢN LÝ SỰ KHÔNG CHẮC CHẮN TRONG RA QUYẾT ĐỊNH BẰNG RANDOM FORESTS (MANAGING DECISION UNCERTAINTY USING RANDOM FORESTS)
+
+12.1 Ra quyết định Dưới sự Không chắc chắn (Decision-Making Under Uncertainty)
+12.2 Các đặc điểm của Sự không chắc chắn trong Ra quyết định
+12.3 Tình trạng Chậm giao hàng (Backorder) và Hệ quả của nó
+12.4 Các Tùy chọn Học máy Hỗ trợ Ra quyết định Dưới sự Không chắc chắn
+12.4.1 Các thành phần của Mô hình Cây Quyết định (Decision Tree Model)
+12.4.2 Cây Phân loại (Classification Trees)
+12.4.3 Ưu điểm, Nhược điểm và Cách Cải thiện Cây Phân loại
+12.5 Rừng ngẫu nhiên (Random Forest)
+12.6 Dự đoán Tình trạng Chậm giao hàng Bằng Random Forests (Backorder Prediction Using Random Forests)
+12.6.1 Nhập và Chọn Dữ liệu
+12.6.2 Sự mất cân bằng trong Dữ liệu
+12.6.3 Tinh chỉnh Siêu tham số (Hyperparameter Tuning)
+12.6.4 Kiểm tra Hiệu suất của Mô hình Random Forest
+12.6.4.1 Giá trị Độ chính xác và ROC
+12.6.4.2 Ma trận Nhầm lẫn (Confusion Matrix), Độ nhạy (Sensitivity) và Độ đặc hiệu (Specificity)
+12.6.4.3 Vai trò của Việc Giảm mẫu (Downsampling)
+12.7 Thông tin Kinh doanh và Tóm tắt
+12.8 Thực hành bằng R: Dự đoán Tình trạng Chậm giao hàng
+12.9 Hiểu rõ Chương học
+
+### MỤC TIÊU HỌC TẬP (LEARNING OBJECTIVES)
+1. Hiểu tầm quan trọng của các quyết định kinh doanh hiệu quả, dự báo nhu cầu.
+2. Tìm hiểu việc ra quyết định dưới sự không chắc chắn.
+3. Áp dụng mô hình cây quyết định để dự đoán các quyết định không chắc chắn.
+4. Đánh giá các ưu điểm và hạn chế của mô hình cây.
+5. Sử dụng cây quyết định tăng cường (boosted decision trees) để dự đoán quyết định lưu kho.
+
+## 12.1 RA QUYẾT ĐỊNH DƯỚI SỰ KHÔNG CHẮC CHẮN (DECISION-MAKING UNDER UNCERTAINTY)
+
+Ra quyết định dưới sự không chắc chắn đã được nghiên cứu như một chuỗi liên tục các quyết định được đưa ra khi thiếu thông tin hoặc thông tin chỉ có sẵn ở dạng xác suất (ví dụ: khả năng thành công là 80%). Hãy xem xét hai kịch bản sau đây để làm nổi bật sự không chắc chắn vốn có trong việc ra quyết định kinh doanh.
+
+Trong kịch bản đầu tiên, một hãng hàng không lớn, được coi là công ty thống trị tại một trong những sân bay trung tâm của mình, đang phải đối mặt với một thách thức mới: sự gia nhập của một đối thủ cạnh tranh giá rẻ, không rườm rà. Họ phải quyết định xem có nên phản ứng với người mới tham gia (hành động) hay không làm gì cả (không hành động). Cả hai quyết định đều mang những sự không chắc chắn vốn có. Nếu họ quyết định thực hiện một hành động và giảm giá, sẽ có một số kết quả không chắc chắn. Thứ nhất, việc giảm giá có ngăn cản khách hàng đổ xô đến người mới tham gia hay không? Thứ hai, liệu nó thực sự làm tăng thị phần, hay sẽ làm xói mòn lợi nhuận? Thứ ba, liệu việc giảm giá có củng cố hình ảnh thương hiệu của hãng, hay sẽ bị coi là dấu hiệu của sự yếu kém? Thứ tư, các hành động như giảm giá đôi khi có thể dẫn đến cuộc chiến giá cả, điều này có thể gây tổn hại cho toàn bộ ngành. Thay vào đó, hãng hàng không có thể duy trì hiện trạng, nhưng sự không hành động này lại có những điều không chắc chắn riêng. Thứ nhất, có bao nhiêu khách hàng hiện tại có thể bị thuyết phục bởi mức giá thấp hơn hoặc các dịch vụ mới lạ của đối thủ cạnh tranh. Thứ hai, việc giữ nguyên hướng đi có thể được các cổ đông coi là một bước đi tự tin, thể hiện sức mạnh của thương hiệu, hoặc chỉ ra sự không sẵn lòng thích ứng với động lực thị trường đang thay đổi. Thứ ba, bằng cách không điều chỉnh theo động lực thị trường đang thay đổi, có khả năng mất đi các cơ hội mà người mới tham gia có thể khai thác. Thứ tư, liệu doanh nghiệp có thể phục hồi vị thế của mình nếu họ nhận ra quá muộn rằng cần phải có một phản ứng?
+
+Trong kịch bản thứ hai, một nhà bán lẻ hàng điện tử...
+
+
+thời gian sản phẩm vận chuyển từ nhà sản xuất đến nhà bán lẻ cũng có thể thấp hoặc cao. Biến kết quả là liệu sản phẩm có bị chậm giao hàng (backordered) hay không (có hoặc không). Mục tiêu của chúng ta là đưa ra một mô hình dự đoán đơn giản cho biết liệu một sản phẩm có bị chậm giao hay không dựa trên doanh số dự báo và thời gian vận chuyển. Dữ liệu được trình bày trong Bảng 12.1.
+
+| Doanh số dự báo (Forecasted sales) | Thời gian vận chuyển (Transit time) | Bị chậm giao (Backordered) |
+|---|---|---|
+| Thấp (Low) | Thấp (Low) | Không (No) |
+| Cao (High) | Thấp (Low) | Có (Yes) |
+| Thấp (Low) | Thấp (Low) | Không (No) |
+| Cao (High) | Cao (High) | Có (Yes) |
+| Thấp (Low) | Thấp (Low) | Có (Yes) |
+| Cao (High) | Cao (High) | Không (No) |
+| Cao (High) | Thấp (Low) | Có (Yes) |
+| Thấp (Low) | Cao (High) | Không (No) |
+| Cao (High) | Cao (High) | Có (Yes) |
+
+Thách thức đầu tiên trong việc xây dựng cây phân loại (classification tree) là chọn một biến để phân chia nút gốc (root node) đầu tiên. Hãy xem xét Hình 12.3. Các vòng tròn tối đại diện cho khi sản phẩm bị chậm giao và các vòng tròn sáng đại diện cho khi nó không bị chậm giao. Chúng ta thấy rằng biến doanh số dự báo thực hiện phân loại liệu một sản phẩm có bị chậm giao hàng hay không tốt hơn. Trong nhóm dự báo thấp, ba trong số bốn điểm dữ liệu không bị chậm giao và trong nhóm dự báo cao, bốn trong số năm điểm dữ liệu bị chậm giao. Bằng trực giác, các nhóm dự báo cao và thấp có thể tách biệt các điểm dữ liệu bị chậm giao và không bị chậm giao hiệu quả hơn so với các nhóm thời gian vận chuyển cao và thấp. Nhưng đây chỉ là đánh giá trực quan. Làm thế nào chúng ta có thể định lượng xem biến nào là công cụ phân loại (classifier) tốt hơn? 
+
+Độ vẩn đục Gini (Gini impurity) cung cấp cho chúng ta một cách để làm điều này. Mỗi biến dự báo ở mỗi cấp độ là $1 - \\text{(tỷ lệ điểm dữ liệu bị chậm giao = "Có")}^2 - \\text{(tỷ lệ điểm dữ liệu bị chậm giao = "Không")}^2$. Các giá trị Gini impurity thấp hơn được ưu tiên so với các giá trị cao hơn. Hãy tìm hiểu cách tính chỉ số Gini (Gini index) cho ví dụ mà chúng ta đang làm việc.
+
+<!-- IMAGE_PLACEHOLDER: Figure 12.3 Tính toán Chỉ số Gini -->
+
+Đối với doanh số dự báo như thể hiện trong Hình 12.3, chúng ta có năm điểm dữ liệu có dự báo doanh số cao và bốn điểm dữ liệu có dự báo doanh số thấp. Trong số năm điểm dữ liệu thuộc nhóm dự báo cao, có bốn điểm bị chậm giao và một điểm thì không. Tỷ lệ các mặt hàng bị chậm giao trong nhóm này là $4/5$ và tỷ lệ các mặt hàng không bị chậm giao là $1/5$. Gini impurity cho nhóm này là $1 - (4/5)^2 - (1/5)^2 = 0.32$. Trong số bốn điểm dữ liệu thuộc nhóm dự báo thấp, một mặt hàng bị chậm giao và ba mặt hàng thì không. Tỷ lệ các mặt hàng bị chậm giao trong nhóm này là $1/4$ và tỷ lệ các mặt hàng không bị chậm giao là $3/4$. Gini impurity cho nhóm này là $1 - (1/4)^2 - (3/4)^2 = 0.375$. Bây giờ chúng ta có thể tính toán Gini impurity có trọng số (weighted Gini impurity) cho doanh số dự báo. Vì có chín điểm dữ liệu, Gini impurity có trọng số cho nhóm dự báo cao sẽ là $5/9$, và đối với nhóm dự báo thấp, nó sẽ là $4/9$. Trung bình có trọng số sẽ là $(5/9)0.32 + (4/9)0.375 = 0.34$.
+
+Tương tự, chúng ta có thể tính toán Gini impurity có trọng số cho biến thời gian vận chuyển (được mô tả trong Hình 12.4).
+
+<!-- IMAGE_PLACEHOLDER: Figure 12.4 Gini Impurity cho Doanh số dự báo và Thời gian vận chuyển -->
+
+Chúng ta thấy rằng Gini impurity thấp hơn khi sử dụng doanh số dự báo; do đó, nó trở thành biến dùng để chia nút gốc (root node). Cây quyết định kết quả sẽ giống như Hình 12.5.
+
+
+biến kết quả (outcome variable) và thực tế là mức thiểu số (minority level) (khi sản phẩm bị chậm giao) quan trọng hơn đối với nhiệm vụ dự đoán, chúng ta cần ước tính độ nhạy (sensitivity) cũng như độ đặc hiệu (specificity) của dự đoán này.
+
+### 12.6.4.2 Ma trận Nhầm lẫn (Confusion Matrix), Độ nhạy (Sensitivity) và Độ đặc hiệu (Specificity)
+Một phần ôn tập nhanh từ Chương 9 về hồi quy logistic giải thích về ma trận nhầm lẫn. Hãy làm việc với ví dụ sau để hiểu quá trình tính toán độ nhạy và độ đặc hiệu.
+
+| | Dự đoán (Prediction) | |
+|---|---|---|
+| **Sự thật (Truth)** | **Không (No)** | **Có (Yes)** |
+| **Không (No)** | i | ii |
+| **Có (Yes)** | iii | iv |
+
+Dựa vào ma trận nhầm lẫn trong Bảng 12.4, độ nhạy và độ đặc hiệu như sau:
+- Độ nhạy (Sensitivity) = $\\frac{iv}{iii + iv}$
+- Độ đặc hiệu (Specificity) = $\\frac{i}{i + ii}$
+
+Bằng trực giác, độ nhạy là tỷ lệ dương tính thật (true positive rate) và thể hiện khả năng mô hình của chúng ta phân loại chính xác các sản phẩm bị chậm giao. Độ đặc hiệu là tỷ lệ âm tính thật (true negative rate) và đại diện cho khả năng mô hình của chúng ta phân loại chính xác các sản phẩm không bị chậm giao. Nếu độ nhạy của mô hình thấp, thì chúng ta sẽ không thể xác định trước các sản phẩm có khả năng bị chậm giao. Mặt khác, nếu độ đặc hiệu thấp, chúng ta sẽ kết thúc bằng việc đặt hàng quá mức (overordering) những sản phẩm ít có khả năng bị chậm giao. Đối với mô hình của chúng ta, độ nhạy là $\\frac{83}{83+16} = 0.838$, và độ đặc hiệu là $\\frac{329}{329+73} = 0.818$.
+
+### 12.6.4.3 Vai trò của Việc Giảm mẫu (Downsampling)
+Trong phân tích trước đó, chúng ta đã sử dụng kỹ thuật giảm mẫu (downsampling) để xử lý vấn đề mất cân bằng lớp (class imbalance). Phương pháp giảm mẫu này lấy mẫu các hàng từ dữ liệu huấn luyện theo cách mà mức đa số (tức là khi sản phẩm không bị chậm giao) được lấy mẫu ít hơn. Nhưng hãy kiểm tra xem kết quả sẽ thay đổi như thế nào nếu chúng ta không giảm mẫu. Các kết quả khi không sử dụng giảm mẫu được trình bày trong Bảng 12.5, cùng với ma trận nhầm lẫn trong Bảng 12.6.
+
+\`\`\`R
+.metric    .estimator .estimate .config
+accuracy   binary     0.8602794 Preprocessor1_Model1
+roc_auc    binary     0.9038896 Preprocessor1_Model1
+\`\`\`
+
+| | Không (No) | Có (Yes) |
+|---|---|---|
+| **Không (No)** | 393 | 61 |
+| **Có (Yes)** | 9 | 38 |
+
+Chúng ta nhận thấy rằng cả độ chính xác (accuracy) và giá trị AUC đều cao và có thể so sánh được với phân tích trước đó khi chúng ta thực hiện giảm mẫu. Tuy nhiên, khi ước tính độ nhạy và độ đặc hiệu, chúng ta quan sát thấy một bức tranh rất khác. Nếu không giảm mẫu, độ nhạy là $\\frac{38}{38+61} = 0.384$, và độ đặc hiệu là $\\frac{393}{393+9} = 0.978$. Có sự sụt giảm lớn về độ nhạy từ 0.838 xuống 0.384 và sự gia tăng về độ đặc hiệu từ 0.818 lên 0.978. Điều này cho thấy trong trường hợp không có giảm mẫu, mô hình của chúng ta không thể xác định các sản phẩm cuối cùng sẽ bị chậm giao. Giảm mẫu giải quyết điểm yếu này và cái giá phải trả là sự sụt giảm về độ đặc hiệu. Giảm mẫu đảm bảo rằng không làm tổn hại đến giá trị AUC và độ chính xác, chúng ta có thể làm cho độ nhạy và độ đặc hiệu rất tương đồng nhau. Lưu ý rằng giảm mẫu chỉ là một trong nhiều phương pháp lấy mẫu con (subsampling) có sẵn trong các gói phân tích.
+
+## 12.7 THÔNG TIN KINH DOANH VÀ TÓM TẮT (BUSINESS INSIGHTS AND SUMMARY)
+Trong chương này, chúng ta đã xem xét tình trạng chậm giao hàng (backorders), một chủ đề lớn trong chuỗi cung ứng có thể gây ra nhiều vấn đề như sự không hài lòng của khách hàng.
+
+
+mãn của khách hàng, doanh số bị mất và giảm uy tín thương hiệu. Chúng ta đã thảo luận về cách phân tích dữ liệu và các thuật toán học máy, đặc biệt là Random Forest, có thể giúp các tổ chức chủ động dự đoán và quản lý sự không chắc chắn này. Chúng ta đã khám phá các khái niệm như ma trận nhầm lẫn (confusion matrix), độ nhạy (sensitivity), độ đặc hiệu (specificity) và tầm quan trọng của việc xử lý dữ liệu mất cân bằng thông qua các kỹ thuật như giảm mẫu (downsampling).
+
+## 12.8 THỰC HÀNH BẰNG R: DỰ ĐOÁN TÌNH TRẠNG CHẬM GIAO HÀNG
+(Phần này bao gồm các đoạn mã R đã được trình bày trong các phần trước để dự đoán tình trạng chậm giao hàng bằng Random Forest, vui lòng xem mã nguồn trong sách).
+
+## 12.9 HIỂU RÕ CHƯƠNG HỌC
+
+1. Tại sao tính chính xác (accuracy) không phải là số đo (metric) duy nhất hoặc tốt nhất để đánh giá mô hình học máy khi dữ liệu bị mất cân bằng (imbalanced)? Nêu ví dụ từ bài toán dự đoán chậm giao hàng.
+2. Hãy xem xét một nhiệm vụ lập mô hình dự đoán liên quan đến bộ phân loại Random Forest. Giải thích vai trò và tầm quan trọng của việc sử dụng kiểm chứng chéo k-fold (k-fold CV) trong quá trình đánh giá mô hình.
+3. Các quyết định được đưa ra khi thiếu một số thông tin được gọi là gì?
+a. Quyết định rủi ro (Risky decisions)
+b. Quyết định chắc chắn (Decisions under certainty)
+c. Không thể đưa ra quyết định (No decision can be made)
+d. Quyết định nhị phân (Binary decisions)
+4. Trong các tùy chọn được cung cấp, đâu là đặc điểm của các quyết định được đưa ra trong sự không chắc chắn? (Chọn tất cả những phương án đúng.)
+a. Cân nhắc rủi ro của việc ra quyết định với lợi ích của quyết định đó
+b. Cân nhắc rủi ro so với chi phí của việc ra quyết định
+c. Cân nhắc lợi ích của quyết định so với lợi nhuận từ bán hàng
+d. Đánh giá các tùy chọn hiện có so với các tùy chọn mới
+5. Câu nào sau đây đúng về hiệu ứng cái roi da (bullwhip effect)?
+a. Nó xảy ra khi một thay đổi nhỏ về nhu cầu bị đánh giá quá cao, dẫn đến dư thừa nguồn cung.
+b. Nó xảy ra khi một thay đổi nhỏ về nguồn cung bị đánh giá thấp.
+c. Nó xảy ra khi cung cầu gặp nhau.
+d. Nó xảy ra khi lạm phát khiến nhu cầu giảm.
+6. Đối với cây quyết định, số đo (metric) nào được sử dụng để tìm biến nào là công cụ phân loại (classifier) tốt hơn?
+a. Độ vẩn đục Gini (Gini impurity)
+b. Hệ số xác định (Coefficient of determination)
+c. Hệ số lạm phát phương sai (Variance inflation factor - VIF)
+d. Hệ số tương quan đồng thế hệ (Cophenetic correlation coefficient)
+7. Câu nào sau đây về bagging là sai?
+a. Bagging là kết hợp bằng cách tái lấy mẫu (bootstrap aggregation).
+b. Bagging bao gồm lấy mẫu có hoàn lại.
+c. Bagging bao gồm lấy mẫu không hoàn lại.
+d. Bagging giúp xây dựng các cây đa dạng.
+8. Câu nào sau đây về việc giảm mẫu (downsampling) là sai?
+a. Nó giải quyết vấn đề mất cân bằng dữ liệu.
+b. Nó cho phép mô hình tìm hiểu tốt hơn các tính năng của lớp thiểu số.
+c. Nó làm giảm nghiêm trọng độ chính xác của mô hình.
+d. Nó làm giảm một chút độ đặc hiệu nhưng cải thiện đáng kể độ nhạy.
+9. Giả sử chúng ta đang sử dụng cây quyết định để tìm ra (các) biến dự đoán nào có thể phân loại tốt hơn biến kết quả: liệu khách hàng có mua sản phẩm hay không. Cho các giá trị Gini impurity sau đối với ba biến dự đoán—Predictor A = 0.55, Predictor B = 0.24, và Predictor C = 0.76—lựa chọn nào sau đây sẽ được coi là bộ phân loại tối ưu cho quyết định mua/không mua?
+a. Predictor A
+b. Predictor B
+c. Predictor C
+d. Cả Predictor A và Predictor C
+
+### CHÚ THÍCH (ENDNOTES)
+(Các tài liệu tham khảo trong sách, ví dụ: bài viết của Heath và Amos Tversky về sự không chắc chắn, báo cáo kỹ thuật của IBM, các gói R như tidymodels, dplyr, ranger, themis, v.v.)
+
+### MÔ TẢ CÁC HÌNH ẢNH (Descriptions of Images and Figures)
+<!-- IMAGE_PLACEHOLDER: Figure mô tả sự gia tăng nhu cầu khách hàng, nhà bán lẻ đặt hàng quá nhiều, sản xuất quá mức và nguồn cung (Bullwhip effect) -->
+<!-- IMAGE_PLACEHOLDER: Figure mô tả Doanh số Dự báo (Forecasted Sales) với các node Cao/Thấp -->
+<!-- IMAGE_PLACEHOLDER: Figure mô tả tính toán Chỉ số Gini -->
+<!-- IMAGE_PLACEHOLDER: Figure mô tả sơ đồ khối của Cây phân loại với Doanh số Dự báo và Thời gian vận chuyển -->
+
+
+# 14 PHÁT TRIỂN SẢN PHẨM MỚI VỚI THỬ NGHIỆM A/B (NEW PRODUCT DEVELOPMENT WITH A/B TESTING)
+
+14.1 Những đổi mới trên Thị trường (Innovations in the Marketplace)
+14.2 Các Giai đoạn Phát triển Sản phẩm Mới
+14.2.1 Hình thành Ý tưởng (Idea Generation)
+14.2.2 Sàng lọc Ý tưởng (Idea Screening)
+14.2.3 Phát triển và Thử nghiệm Khái niệm (Concept Development and Testing)
+14.2.4 Phân tích Kinh doanh (Business Analysis)
+14.2.5 Thiết kế và Phát triển Sản phẩm
+14.2.6 Thử nghiệm Thị trường (Test Marketing)
+14.2.7 Thương mại hóa (Commercialization)
+14.2.8 Đánh giá và Kiểm soát (Evaluation and Control)
+14.3 Tầm quan trọng của Thử nghiệm và Nghiên cứu Thị trường
+14.3.1 Dành cho Đánh giá Thiết kế
+14.3.2 Dành cho Tương tác Khách hàng trong Thế giới Đa kênh (Omnichannel)
+14.3.3 Dành cho Tích hợp Phản hồi và Trải nghiệm Khách hàng
+14.4 Sự phức tạp của Thử nghiệm A/B (The Intricacies of A/B Testing)
+14.5 Sử dụng Thử nghiệm A/B để Thử nghiệm Nguyên mẫu Trò chơi (Gaming Prototypes)
+14.5.1 Thiết kế Thử nghiệm (Experimental Design)
+14.5.2 Phân tích Dữ liệu và Trình bày Kết quả
+14.5.3 Kiểm định F (F Test)
+14.5.4 Kiểm định Sự khác biệt Thống kê
+14.6 Sử dụng Thử nghiệm A/B trong Phát triển Sản phẩm Mới
+14.6.1 Thông tin chi tiết (Insights) Rút ra Từ Thử nghiệm A/B
+14.7 Thực hành bằng R: Thử nghiệm A/B
+14.8 Hiểu rõ Chương học
+
+### MỤC TIÊU HỌC TẬP (LEARNING OBJECTIVES)
+1. Giới thiệu sản phẩm mới trên thị trường.
+2. Ghi nhớ các bước trong quy trình phát triển sản phẩm mới.
+3. Hỗ trợ phát triển sản phẩm mới bằng học máy (machine learning).
+4. Sử dụng thử nghiệm A/B để phát triển sản phẩm mới.
+5. Giới thiệu một sản phẩm kỹ thuật số.
+
+## 14.1 NHỮNG ĐỔI MỚI TRÊN THỊ TRƯỜNG (INNOVATIONS IN THE MARKETPLACE)
+
+Chase đã giới thiệu thẻ tín dụng mới của mình, Chase Sapphire Reserve, vào năm 2016, cung cấp cho người dùng 100.000 điểm thưởng đăng ký cho năm đầu tiên và đưa Chase vượt mục tiêu doanh số hàng năm trong vài tuần đầu tiên. Sự nhiệt tình của những người thuộc thế hệ millennial khi sử dụng thẻ do số điểm miễn phí là một yếu tố chính tạo nên thành công của nó. Tuy nhiên, Chase cần nhìn xa hơn năm đầu tiên giới thiệu sản phẩm để đánh giá thẻ sẽ hoạt động như thế nào trong những năm tiếp theo sau khi hết ưu đãi khuyến mãi và phí hàng năm bắt đầu. Mặc dù phí hàng năm cao là $550, nó được coi là thẻ du lịch tốt nhất nhờ những đặc quyền mà nó mang lại—bao gồm cả quyền ra vào phòng chờ sân bay và tín dụng phí đăng ký cho Global Entry và TSA PreCheck. Đây là một ví dụ về việc ra mắt sản phẩm được thiết kế và triển khai tốt, và các chiến lược phù hợp đang giúp Chase duy trì thành công của mình.
+
+Nintendo phát hành Switch vào năm 2017, bán được 2,74 triệu máy trong tháng đầu tiên. Thiết kế của nó cho phép chơi trò chơi cầm tay và bảng điều khiển (console) thu hút được lượng lớn người dùng. Các tựa game ra mắt, chẳng hạn như *The Legend of Zelda: Breath of the Wild*, đã thu hút sự chú ý của mọi người. Switch có giá cả cạnh tranh, và các tính năng như chơi trò chơi nhiều người chơi cục bộ và tính di động đã giúp nó đạt hiệu suất thành công trên thị trường.
+
+Khái niệm về một sản phẩm đã phát triển trong thời đại kỹ thuật số. Những tiến bộ công nghệ về trí tuệ nhân tạo, điện toán đám mây, in 3D và mạng cảm biến không dây giờ đây đã giúp cho việc chế tạo các sản phẩm không có sự hiện diện vật lý nhưng tồn tại hoàn toàn trên web trở nên khả thi, chẳng hạn như ứng dụng theo dõi sức khỏe trên điện thoại thông minh và ứng dụng nhận dạng khuôn mặt để phát hiện gian lận; thậm chí trong ô tô, phần lớn việc lái xe được điều khiển bằng thuật toán, chẳng hạn như với xe tự lái...
+
+
+chọn? Tự chọn xảy ra nếu những người tham gia được phép chọn nhóm (hoặc phương pháp điều trị) mà họ muốn tham gia. Ví dụ, nếu chúng ta thiết kế một thử nghiệm A/B cho các trò chơi điện tử để tìm ra màu sắc nào của giao diện trực quan sống động hơn (ví dụ: xanh dương so với xanh lục) và để người tham gia chọn chơi bằng màu sắc họ muốn, thì thiết kế thử nghiệm không được ngẫu nhiên hóa vì chúng ta đang cho phép người tham gia tự chọn nhóm thử nghiệm của họ dựa trên sở thích về màu sắc.
+
+## 14.5 SỬ DỤNG THỬ NGHIỆM A/B ĐỂ THỬ NGHIỆM NGUYÊN MẪU TRÒ CHƠI
+Trong chương này, hãy sử dụng ví dụ về một công ty trò chơi điện tử. GameV đang làm việc trên một ý tưởng trò chơi mới mà các nhà thiết kế của họ tin rằng sẽ sống động và hấp dẫn hơn các trò chơi khác mà GameV hiện đã phát triển. Tuy nhiên, trước khi ra mắt trò chơi, các nhà thiết kế của GameV đã tạo ra một số nguyên mẫu (prototypes) của trò chơi để họ có thể tung ra phiên bản có khả năng giữ chân nhiều người chơi nhất. Từ dữ liệu trước đây trong ngành công nghiệp trò chơi, họ biết rằng mọi điểm tương tác (engagement) trong trò chơi đều dẫn đến việc người chơi sẽ quay lại. Ví dụ, nhiều người chơi không quay lại sau phiên đầu tiên do quá trình cài đặt bị lỗi hoặc do các tính năng trò chơi kém hấp dẫn. Do đó, GameV muốn sử dụng thử nghiệm A/B để đánh giá các tính năng cụ thể. Trò chơi cho phép người chơi kiếm thêm mạng (extra life) bằng cách thực hiện một số nhiệm vụ. GameV đã xác định ba mức độ khó: 25, 35 và 45. Họ muốn tìm xem mức độ khó nào dẫn đến sự tương tác (engagement) lớn hơn. Có khả năng nếu người chơi kiếm được một mạng sống bằng cách thực hiện một nhiệm vụ khó khăn, điều đó có thể dẫn đến việc họ cảm thấy gắn bó hơn. Ngoài ra, cũng có khả năng việc kiếm được một mạng sống bằng một nhiệm vụ khó khăn hơn sẽ khiến người chơi bỏ cuộc. Do đó, GameV muốn tìm xem mức độ khó nào thu hút nhiều người chơi hơn trong môi trường trò chơi này. Có thể nghĩ ba mức độ khó là thấp (low), trung bình (medium) và cao (high).
+
+GameV tin rằng một số đo kết quả (outcome metric) tốt để tìm ra mức độ thành công của nguyên mẫu là thời gian người chơi dành để chơi. Vì trò chơi là một nguyên mẫu, người chơi chưa bao giờ chơi nó trước đây và thời gian họ chơi trò chơi sẽ giúp GameV xác định nguyên mẫu nào mang lại sự tương tác và sự nhập tâm (immersion) lớn nhất. Biến kết quả (outcome variable - không giống như trong Chương 7) có bản chất là liên tục (continuous). Do đó, chúng ta sẽ sử dụng kiểm định F (F test) để tìm ra mức độ khó nào dẫn đến mức độ nhập tâm cao nhất.
+
+### 14.5.1 Thiết kế Thử nghiệm (Experimental Design)
+GameV đã phát triển ba nguyên mẫu theo cách mà mỗi nguyên mẫu được thiết kế với một trong ba mức độ khó. Mỗi nguyên mẫu cung cấp các tính năng trò chơi độc đáo tương ứng với mức độ khó cụ thể của nó, mang đến cho người chơi nhiều trải nghiệm khác nhau. Trong thiết kế thử nghiệm, mức độ khó là yếu tố duy nhất khác biệt giữa ba nguyên mẫu, với các mức cụ thể được đặt ở 25, 35 và 45. Mọi tính năng khác của trò chơi đều giữ nguyên; chỉ các tính năng liên quan đến mức độ khó là khác nhau. Hơn nữa, việc phân bổ người chơi cho một trong ba nguyên mẫu là hoàn toàn ngẫu nhiên. Bằng cách thiết kế ngẫu nhiên hóa (randomization) vào quá trình thiết lập, GameV đảm bảo rằng mọi biến phụ (chẳng hạn như sở thích của người chơi, mức độ quen thuộc của họ với các trò chơi trước đây hoặc thời gian trong ngày) đều có cùng cơ hội tác động đến cả ba nguyên mẫu, có nghĩa là bất kỳ sự khác biệt nào về thời gian chơi giữa các nguyên mẫu đều có thể được gán một cách tự tin cho mức độ khó.
+
+
+biến kết quả (outcome variable). Ví dụ, nếu chúng ta có một thiết kế thử nghiệm với ba yếu tố (factors) và mỗi yếu tố có hai cấp độ (levels), thì phương trình mô hình sẽ bao gồm ba hiệu ứng chính, ba tương tác hai yếu tố và một tương tác ba yếu tố, chỉ ra rằng thiết kế thử nghiệm nên bao gồm 2 * 2 * 2 = 8 nhóm. Giả sử cỡ mẫu là 50 người tham gia mỗi nhóm, chúng ta sẽ cần một mẫu gồm 400 người tham gia.
+
+## 14.7 THỰC HÀNH BẰNG R: THỬ NGHIỆM A/B
+(Phần này bao gồm các đoạn mã R đã được trình bày để kiểm tra tính chuẩn xác (Shapiro-Wilk), tính đồng nhất phương sai (Levene's test), Welch's ANOVA, và bài kiểm tra hậu hoc Games-Howell, vui lòng xem mã nguồn trong sách).
+
+## 14.8 HIỂU RÕ CHƯƠNG HỌC
+
+1. Sự khác biệt giữa kiểm tra nhân quả (causal testing) và kiểm tra tương quan (correlational testing) là gì? Thử nghiệm A/B là nhân quả hay tương quan?
+2. Sự khác biệt giữa giả thuyết không (null hypothesis) và giả thuyết thay thế (alternate hypothesis) trong một thử nghiệm A/B là gì?
+3. Mục đích chính của một thử nghiệm A/B là gì?
+a. Để so sánh hai thiết kế quảng cáo khác nhau
+b. Để xác định hiệu quả của một sự can thiệp giữa các nhóm
+c. Để kiểm tra hiệu quả của một loại thuốc mới
+d. Để tìm mối tương quan giữa các biến
+4. Kiểm định thống kê nào bạn sẽ sử dụng để so sánh giá trị trung bình của ba hoặc nhiều nhóm?
+a. Kiểm định t (t test)
+b. Kiểm định F (F test)
+c. Kiểm định chi bình phương (chi-square test)
+d. Tương quan Pearson (Pearson correlation)
+5. Giả thuyết không (null hypothesis) trong một thử nghiệm A/B là gì?
+a. Có sự khác biệt đáng kể giữa các nhóm.
+b. Không có sự khác biệt đáng kể giữa các nhóm.
+c. Sự can thiệp gây ra sự khác biệt quan sát được.
+d. Sự khác biệt được quan sát là do ngẫu nhiên.
+6. Ưu điểm chính của việc sử dụng Welch's ANOVA so với kiểm định F tiêu chuẩn (ANOVA) là gì?
+a. Nó mạnh hơn khi các phương sai bằng nhau.
+b. Nó ít nhạy cảm hơn với các phương sai không bằng nhau.
+c. Nó có tỷ lệ lỗi Loại I cao hơn.
+d. Nó yêu cầu ít giả định hơn.
+7. Khi nào bạn nên sử dụng kiểm tra hậu định (post hoc test) sau kiểm định F (ANOVA)?
+a. Khi giả thuyết không bị bác bỏ
+b. Khi giả thuyết không không bị bác bỏ
+c. Luôn luôn sau kiểm định F
+d. Chỉ khi kích thước mẫu không bằng nhau
+8. Trong tình huống nào bạn sẽ chọn sử dụng Welch's ANOVA thay vì kiểm định F tiêu chuẩn?
+a. Khi dữ liệu được phân phối chuẩn
+b. Khi các phương sai trong mỗi nhóm bằng nhau
+c. Khi phương sai trong mỗi nhóm không bằng nhau
+d. Khi các nhóm bị phụ thuộc
+
+### CHÚ THÍCH (ENDNOTES)
+(Các tài liệu tham khảo trong sách, ví dụ: bài viết đánh giá thẻ Chase Sapphire Reserve, bài báo về Welch's t-Test, các gói R như rstatix, dplyr, ggplot2, v.v.)
+
+### MÔ TẢ CÁC HÌNH ẢNH (Descriptions of Images and Figures)
+<!-- IMAGE_PLACEHOLDER: Figure mô tả sơ đồ 8 bước trong Quy trình phát triển sản phẩm mới -->
+<!-- IMAGE_PLACEHOLDER: Figure mô tả đồ thị hộp (boxplot) thời gian chơi theo từng điều kiện nguyên mẫu -->
+
+
+`;
+
+    // Render Markdown to HTML
+    document.getElementById('en-tab').innerHTML = marked.parse(enMarkdown);
+    document.getElementById('vi-tab').innerHTML = marked.parse(viMarkdown);
+
+    // Tab switching logic
+    function openTab(tabId, element) {
+        const contents = document.querySelectorAll('.content-area');
+        contents.forEach(content => content.classList.remove('active'));
+
+        const tabs = document.querySelectorAll('.tab');
+        tabs.forEach(tab => tab.classList.remove('active'));
+
+        document.getElementById(tabId).classList.add('active');
+        element.classList.add('active');
+    }
+</script>
+
+</body>
+</html>

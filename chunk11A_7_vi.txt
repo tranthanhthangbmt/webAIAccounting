@@ -1,0 +1,544 @@
+Mặc dù có thể đi đến kết luận tương tự bằng cách sử dụng bảng nhưng việc phát hiện không dễ dàng 
+sự khác biệt hoặc so sánh. Khả năng nhìn thấy nhanh các mô hình và mối quan hệ trong 
+các tập dữ liệu lớn là lý do tại sao kỹ năng trực quan hóa dữ liệu lại quan trọng đến vậy.
+
+2-42 
+CHƯƠNG 2  Kỹ năng phân tích dữ liệu cơ bản
+Hình dung và thời điểm sử dụng chúng
+Có rất nhiều loại trực quan có sẵn. Việc xác định sử dụng cái nào được thúc đẩy bởi 
+loại dữ liệu có sẵn và những gì bạn đang cố gắng hiển thị trong hình ảnh trực quan. Trực quan hóa dữ liệu 
+được đề cập chi tiết hơn trong các chương phân tích, giải thích và truyền thông, nhưng 
+tiếp theo là bản tóm tắt một số hình ảnh trực quan phổ biến và cách chọn chúng.
+Hình dung chung
+Dữ liệu phân loại là dữ liệu được dán nhãn hoặc đặt tên có thể được sắp xếp thành các nhóm theo đặc điểm.
+đặc điểm cific. Dữ liệu không có giá trị định lượng. Dữ liệu phân loại được sử dụng trong 
+trực quan hóa để mô tả các nhóm dữ liệu. Hình dung trong Hình 2.56 là một ví dụ 
+sử dụng dữ liệu phân loại. Các loại sản phẩm là các nhóm tóm tắt doanh số bán hàng. giống nhau 
+trực quan hóa cũng bao gồm dữ liệu định lượng dưới dạng số tiền bán hàng. Đặt chúng 
+cùng nhau thể hiện mối quan hệ giữa chủng loại sản phẩm và doanh số bán hàng. Cũng chú ý đến biểu đồ 
+có nhiều năm. Các thanh đại diện cho các năm 2023–2025.
+Luôn xem xét liệu dữ liệu đang được phân tích có thể được sử dụng theo một cách trực quan cụ thể hay không.
+chuyện. Ví dụ: việc hiển thị mối quan hệ trong dữ liệu bằng biểu đồ phân tán yêu cầu ít nhất một 
+thước đo định lượng. Hiển thị xu hướng theo thời gian đòi hỏi thước đo thời gian (ngày) cộng với số lượng
+biện pháp chuẩn độ.
+Hình minh họa 2.57 liệt kê một số cách trực quan hóa dữ liệu phổ biến cùng với mô tả, tốt nhất 
+thực tiễn và các loại dữ liệu cần thiết để tạo trực quan hóa.
+MINH HỌA 2.57  Trực quan hóa dữ liệu chung
+Trực quan hóa
+sử dụng
+Thực tiễn tốt nhất
+Dữ liệu cần thiết
+Biểu đồ khu vực
+Biểu thị những thay đổi trong 
+khối lượng theo thời gian.
+• Không sử dụng nếu dữ liệu có nhiều hơn bốn loại 
+tránh nhầm lẫn, lộn xộn.
+• Bắt đầu trục y ở mức 0 hoặc cao hơn.
+• Đặt dữ liệu có tính biến đổi cao lên trên cùng và dữ liệu có mức độ thay đổi thấp 
+sự biến thiên ở phía dưới.
+• Trường ngày.
+• Ít nhất một định lượng 
+đo lường.
+Thanh và cột 
+Biểu đồ
+So sánh các bộ phận với một 
+toàn bộ, làm nổi bật 
+danh mục hoặc hiển thị 
+thay đổi theo thời gian.
+• So sánh từ hai đến bảy loại bằng thanh dọc.
+• Sử dụng thanh ngang nếu có nhiều hơn bảy 
+danh mục hoặc nhãn danh mục dài.
+• Sử dụng nhãn ngang để dễ đọc.
+• Thanh dấu cách nên được sử dụng hợp lý và 
+một cách nhất quán.
+• Sử dụng màu sắc một cách tiết kiệm hoặc làm điểm nhấn.
+• Luôn có đường cơ sở bằng 0.
+• Thanh ngang: (thanh 
+biểu đồ) bằng không hoặc nhiều hơn 
+danh mục, một hoặc nhiều 
+biện pháp.
+• Thanh dọc: (cột 
+biểu đồ) một hoặc nhiều 
+danh mục, một hoặc nhiều 
+các biện pháp định lượng.
+Biểu đồ bong bóng
+So sánh độc lập 
+những giá trị có sự khác biệt 
+khoảng trống hoặc ngoại lệ.
+• Dán nhãn bong bóng và đảm bảo chúng có thể nhìn thấy được.
+• Chia kích thước bong bóng theo diện tích chứ không phải theo đường kính.
+• Không sử dụng bong bóng nếu chúng có kích thước tương tự nhau.
+• Một hoặc nhiều danh mục.
+• Một hoặc nhiều định lượng 
+biện pháp.
+Biểu đồ biểu đồ
+Hiển thị tần số 
+phân phối.
+• Sử dụng đường cơ sở bằng 0.
+• Chọn số lượng thùng thích hợp:
+• Thùng là những con số đại diện cho khoảng thời gian 
+dữ liệu nào sẽ được nhóm lại. 
+• Các thùng xác định các nhóm được sử dụng cho tần số 
+phân phối.
+• Sử dụng từ 5 đến 15 thùng.
+• Dữ liệu số
+(Tiếp theo)
+
+2.5  Trực quan hóa được sử dụng như thế nào trong Phân tích dữ liệu? 
+2-43
+Trực quan hóa
+sử dụng
+Thực tiễn tốt nhất
+Dữ liệu cần thiết
+Biểu đồ đường
+Hiển thị một hoặc nhiều 
+chuỗi dữ liệu. Cho phép 
+việc sử dụng nhiều dữ liệu 
+chuỗi và điểm dữ liệu.
+• Thời gian chạy từ trái sang phải.
+• Hãy nhất quán vẽ các mốc thời gian.
+• Dùng nét liền, không chấm.
+• Sử dụng đường cơ sở bằng 0.
+• Không vẽ quá bốn dòng. Sử dụng nhiều biểu đồ 
+thay vào đó.
+• Đường liên tục yêu cầu 
+một ngày, không hoặc nhiều hơn 
+các danh mục và một 
+hoặc nhiều hơn về số lượng 
+đo lường.
+Biểu đồ hình tròn
+Minh họa phần đơn giản
+các mối quan hệ tổng thể.
+Không phù hợp để làm 
+những so sánh chính xác
+• Có tác động mạnh mẽ nhất với các tập dữ liệu nhỏ.
+• Tốt nhất để thể hiện sự khác biệt trong các nhóm dựa trên 
+một biến.
+• Đảm bảo dữ liệu cộng lại lên tới 100%.
+• Giới hạn tối đa năm phân đoạn.
+• Bắt đầu phân đoạn đầu tiên ở vị trí 12 giờ.
+• Một hoặc nhiều danh mục.
+• Một hoặc hai định lượng 
+biện pháp.
+Biểu đồ thanh xếp chồng lên nhau
+So sánh nhiều phần-
+các mối quan hệ tổng thể.
+• Có thể theo chiều dọc hoặc chiều ngang.
+• Thực hiện theo các phương pháp hay nhất tương tự như biểu đồ thanh.
+• Một hoặc nhiều danh mục.
+• Một hoặc nhiều định lượng 
+biện pháp.
+biểu đồ phân tán 
+(Biểu đồ phân tán)
+Làm nổi bật mối tương quan 
+và phân phối lớn 
+lượng dữ liệu.
+• Tập dữ liệu phải đi theo cặp với một tập dữ liệu độc lập 
+biến (trục x) và biến phụ thuộc (trục y).
+• Sử dụng nếu thứ tự không liên quan – nếu không thì sử dụng một dòng 
+đồ thị.
+• Không sử dụng nếu chỉ có một vài dữ liệu hoặc nếu 
+không có sự tương quan.
+• Không hoặc nhiều danh mục.
+• Một hoặc nhiều định lượng 
+biện pháp.
+Bản đồ cây
+ 
+Hình dung một phần-to-
+toàn bộ mối quan hệ giữa 
+nhiều hạng mục.
+• Thích hợp khi không thể so sánh chính xác 
+quan trọng.
+• Sử dụng màu sắc tươi sáng, tương phản để mỗi hộp dễ dàng 
+được xác định.
+• Dán nhãn hộp bằng văn bản hoặc số.
+• Một hoặc nhiều danh mục.
+• Một hoặc hai định lượng 
+biện pháp.
+MINH HỌA 2.57  (Tiếp theo)
+Khi bạn phát triển kỹ năng phân tích dữ liệu của mình, bạn sẽ làm việc với các tập hợp dữ liệu lớn và 
+sẽ cần sử dụng trực quan hóa dữ liệu để phân tích chúng và truyền đạt các phát hiện. Biểu đồ này có thể 
+là tài liệu tham khảo hữu ích khi bạn khám phá dữ liệu và truyền đạt những phát hiện của mình.
+Chọn hình ảnh trực quan
+Làm thế nào để bạn biết hình ảnh nào là tốt nhất cho phân tích? Bắt đầu bằng việc xem xét 
+mục tiêu của dự án. Có một số mục tiêu phân tích chung:
+• Hiển thị bố cục
+• Biểu thị mối quan hệ
+• Hiển thị phân phối
+• Tìm kiếm xu hướng
+• So sánh
+
+2-44 
+CHƯƠNG 2  Kỹ năng phân tích dữ liệu cơ bản
+Hình minh họa 2.58 chia nhỏ các lựa chọn trực quan nếu mục tiêu là thể hiện bố cục, mối liên hệ
+quyền sở hữu hoặc phân phối.
+Hình minh họa 2.59 xác định các hình ảnh trực quan hữu ích để hiển thị xu hướng hoặc thực hiện 
+so sánh.
+MINH HỌA 2.59  
+Hướng dẫn hiển thị trực quan 
+Xu hướng hoặc so sánh
+Biểu đồ đường
+Biểu đồ cột
+Biểu đồ thanh
+Biểu đồ cột
+Biểu đồ đường
+Biểu đồ cột
+Mục tiêu là gì
+của việc phân tích?
+Chỉ ra xu hướng
+So sánh
+Mặt hàng
+Theo thời gian
+Bạn có thể sử dụng cả hướng dẫn trực quan, cùng với các mô tả và cách thực hành tốt nhất trong 
+Hình minh họa 2.57, nhằm tạo ra hình ảnh trực quan tốt nhất nhằm giải quyết mục đích phân tích.
+Trực quan hóa Microsoft Excel
+Nhiều công cụ có thể tạo ra hình ảnh trực quan. Khóa học này tập trung vào bộ ba phần mềm, Tableau, Power 
+BI và Microsoft Excel, là những công cụ phổ biến nhất (nhưng chắc chắn không phải duy nhất) được sử dụng trong 
+kinh doanh ngày hôm nay.
+MINH HỌA 2.58  
+Hướng dẫn trực quan hóa hiển thị 
+Thành phần, mối quan hệ và 
+Phân phối
+Biểu đồ vùng
+Biểu đồ hình tròn
+Biểu đồ thanh xếp chồng
+Biểu đồ bong bóng
+Biểu đồ tán xạ
+Biểu đồ biểu đồ
+Biểu đồ đường
+Biểu đồ tán xạ
+Hiển thị
+thành phần
+Hiển thị
+mối quan hệ
+Hiển thị
+sự phân phối
+Mục tiêu là gì
+của việc phân tích?
+
+2.5  Trực quan hóa được sử dụng như thế nào trong Phân tích dữ liệu? 
+2-45
+Microsoft Excel có thể tạo trực quan hóa dữ liệu cơ bản. Các công cụ trực quan trong Microsoft Excel 
+nằm trong ribbon Insert (Minh họa 2.60)
+MINH HỌA 2.60  Chèn một 
+Trực quan hóa trong Excel
+Được đề xuất
+Biểu đồ
+Biểu đồ
+Bản đồ
+Biểu đồ Pivot
+Thêm-
+trong
+Bố cục trang
+Công thức
+dữ liệu
+Xem lại
+Xem
+Chèn
+phát triển
+Để sử dụng công cụ Biểu đồ:
+• Đánh dấu dữ liệu vào biểu đồ.
+• Chọn một biểu đồ cụ thể hoặc nhấp vào Biểu đồ được đề xuất để xem các đề xuất.
+Biểu đồ cũng có thể được tạo từ PivotTable Excel. Hãy tạo PivotTable trước hoặc 
+tạo PivotTable và biểu đồ cùng lúc bằng cách sử dụng PivotChart. Hình minh họa 2.61 cho thấy 
+hộp thoại khi chọn Tạo PivotChart. Lưu ý rằng nó giống với PivotTable 
+hộp thoại.
+MINH HỌA 2.61  PivotChart 
+Hộp thoại
+được rồi
+Hủy bỏ
+Chọn kết nối...
+Tên kết nối:
+Tạo PivotChart
+Chọn dữ liệu bạn muốn phân tích
+Chọn nơi bạn muốn đặt PivotChart
+Chọn xem bạn có muốn phân tích nhiều bảng không
+Bảng tính hiện có
+Sử dụng Mô hình Dữ liệu của sổ làm việc này
+Bảng tính mới
+Vị trí:
+Chọn một bảng hoặc dải ô
+Sử dụng nguồn dữ liệu ngoài
+Bảng/Phạm vi:
+Thêm dữ liệu này vào Mô hình Dữ liệu
+'Giao dịch bán hàng'!$A$1:$Z$3646
+?
+Dữ liệu   Ví dụ này sử dụng tệp dữ liệu Super Scooters để tạo PivotTable và Piv-
+otBiểu đồ tổng doanh thu theo năm và theo model (Minh họa 2.62). Để thực hiện việc này, hãy chọn: 
+• Trường Model cho Legend (Series).
+• Năm dành cho Trục (Danh mục).
+• Tổng doanh thu gộp theo giá trị.
+Hình minh họa 2.63 hiển thị PivotTable và PivotChart thu được, là biểu đồ thanh ở dạng 
+màu thanh đại diện cho các mô hình.
+
+2-46 
+CHƯƠNG 2  Kỹ năng phân tích dữ liệu cơ bản
+MINH HỌA 2.63  Siêu xe tay ga đã hoàn thành PivotTable và PivotChart
+MINH HỌA 2.62  PivotTable và PivotChart Canvas
+ngoại hối
+1
+A
+B
+C
+D
+E
+F
+G
+H
+tôi
+J
+K
+Trang 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+Tự động Lưu
+Oﬀ
+Trường PivotTable
+Chọn các trường để thêm vào báo cáo:
+Số thứ tự
+Năm
+Số đơn đặt hàng bán hàng
+người mẫu
+Ngày bán
+Khối lượng bán hàng
+Màu sắc
+Vị trí
+tiểu bang
+Quốc gia
+Số ngày tồn kho
+Đơn giá bán
+Tổng doanh thu
+Tiếp thị biến đổi
+Tìm kiếm
+PivotTable7
+Để xây dựng một báo cáo, hãy chọn các trường
+từ Danh sách trường PivotTable
+Để xây dựng PivotChart, hãy chọn các trường từ PivotChart
+ngoại hối
+1
+A
+B
+C
+D
+E
+F
+G
+tờ
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+Tự động Lưu
+Oﬀ
+Trường PivotTable
+Chọn các trường để thêm vào báo cáo
+Số thứ tự
+Năm
+Số đơn đặt hàng bán hàng
+người mẫu
+Ngày bán
+Khối lượng bán hàng
+Màu sắc
+Kéo các trường giữa các khu vực bên dưới:
+Bộ lọc
+Cột
+người mẫu
+Tìm kiếm
+Hàng
+Trì hoãn cập nhật bố cục
+Giá trị
+∑
+cập nhật
+Tổng doanh thu gộp
+Năm
+Tổng doanh thu gộp
+Nhãn hàng
+Nhãn cột
+thuyền trưởng
+Celeritas
+cú đá
+Lazer
+Tổng cộng
+2023
+2024
+2025
+Tổng cộng
+$ 1,893,384
+$ 4,578,593
+$ 5,850,804
+$12,322,781
+$ 1,132,873
+$ 2,081,584
+$ 1,577,881
+$4,792,338
+$ 585,415
+$ 279,848
+$ 242,920
+$ 1,108,183
+862.887 USD
+$ 3,566,309
+$4,493,557
+$8,922,753
+$4,474,559
+$10,506,334
+$12,165,162
+$ 27,146,055
+thuyền trưởng
+2023
+$0
+1.000.000 USD
+2.000.000 USD
+3.000.000 USD
+4.000.000 USD
+5.000.000 USD
+6.000.000 USD
+7.000.000 USD
+2024
+2025
+Celeritas
+cú đá
+Lazer
+người mẫu
+Tổng doanh thu gộp
+Năm
+
+2.5  Trực quan hóa được sử dụng như thế nào trong Phân tích dữ liệu? 
+2-47
+Trong sự nghiệp kế toán của mình, bạn sẽ gặp nhiều loại phần mềm trực quan hóa dữ liệu.
+các chương trình kho. Tuy nhiên, việc học cách sử dụng bất kỳ chương trình phần mềm nào sẽ giúp chuẩn bị 
+bạn sử dụng và học hỏi công nghệ mới.  (  Dữ liệu   Cách thực hiện 2.2 là phần hướng dẫn cách tạo 
+biểu đồ thanh sử dụng Tableau.)
+Áp dụng nó 2.5
+Phân tích sản phẩm 
+Chi phí với dữ liệu 
+Trực quan hóa
+Kế toán quản lý   Người quản lý tại Super Scooters đã yêu cầu bạn chuẩn bị một bản phân tích về 
+chi phí sản phẩm. Cụ thể, bộ điều khiển muốn có câu trả lời cho bốn câu hỏi:
+	 1. Tổng chi phí cho mỗi mô hình mỗi năm là bao nhiêu?
+	 2. Chi phí biến đổi nào cao nhất?
+	 3. Chi phí nhân công, vật liệu và chi phí chung tăng hay giảm theo thời gian?
+	 4. Tổng chi phí có liên quan đến khối lượng bán hàng không?
+Đối với mỗi câu hỏi:
+• Xác định một hình dung thích hợp và giải thích lý do của bạn.
+• Liệt kê các cách thực hành tốt nhất cho việc trực quan hóa.
+• Xác định loại dữ liệu cần thiết cho việc trực quan hóa.
+GIẢI PHÁP
+	 1. Biểu đồ vùng là lựa chọn tốt nhất vì nó thể hiện những thay đổi về khối lượng theo thời gian. Vì điều này 
+câu hỏi, nó sẽ cho thấy những thay đổi trong tổng chi phí theo thời gian.
+	
+	 Thực tiễn tốt nhất:
+•  Không sử dụng dữ liệu có nhiều hơn bốn loại để tránh nhầm lẫn và lộn xộn. Ở đó 
+có bốn mô hình, vì vậy yêu cầu này được đáp ứng.
+•  Bắt đầu trục y ở mức 0 hoặc cao hơn.
+•  Đặt dữ liệu có độ biến thiên cao ở trên cùng và dữ liệu có độ biến thiên thấp ở phía dưới.
+	
+	 Dữ liệu:
+•  Trường ngày (năm sử dụng)
+•  Ít nhất một thước đo định lượng (sử dụng tổng chi phí)
+	 2. Biểu đồ thanh là cách trực quan thích hợp nhất vì nó so sánh các bộ phận với tổng thể, cao cấp.
+danh mục đèn hoặc hiển thị các thay đổi theo thời gian.
+	
+	 Thực tiễn tốt nhất:
+•  So sánh hai đến bảy danh mục bằng các thanh dọc.
+•  Sử dụng thanh ngang nếu có nhiều hơn bảy danh mục hoặc nhãn danh mục dài.
+•  Sử dụng nhãn ngang để dễ đọc hơn.
+•  Thanh cách phù hợp và nhất quán.
+•  Sử dụng màu sắc một cách tiết kiệm hoặc làm điểm nhấn.
+•  Luôn có đường cơ sở bằng 0.
+	
+	 Dữ liệu:
+•  Một hoặc nhiều danh mục (chi phí nhân công, vật liệu, chi phí chung)
+•  Một hoặc nhiều thước đo định lượng (chi phí)
+	 3. Biểu đồ đường thích hợp vì nó hiển thị một hoặc nhiều chuỗi dữ liệu và cho phép sử dụng 
+của nhiều chuỗi dữ liệu và điểm dữ liệu.
+	
+	 Thực tiễn tốt nhất:
+•  Thời gian chạy từ trái sang phải.
+•  Hãy nhất quán trong việc vẽ các điểm thời gian.
+•  Sử dụng đường nét liền, không chấm.
+•  Sử dụng đường cơ sở bằng 0.
+•  Không vẽ nhiều hơn bốn dòng. Thay vào đó, hãy sử dụng nhiều biểu đồ.
+Làm cách nào để
+
+2-48 
+CHƯƠNG 2  Kỹ năng phân tích dữ liệu cơ bản
+❶  Mô tả cách dữ liệu được lưu trữ và trích xuất từ 
+cơ sở dữ liệu quan hệ.
+Dữ liệu được sử dụng trong phân tích dữ liệu kế toán thường được lưu trữ dưới dạng quan hệ 
+cơ sở dữ liệu. Lấy dữ liệu từ cơ sở dữ liệu đòi hỏi sự hiểu biết 
+cách các bảng trong cơ sở dữ liệu quan hệ được cấu trúc: 
+•  Dữ liệu được lưu trữ trong các bảng bao gồm các trường và 
+hồ sơ. Các trường là các cột thể hiện các đặc điểm 
+về từng bản ghi được lưu trữ trong các cột của tập dữ liệu. Hồ sơ 
+là dữ liệu trong các hàng biểu thị các trường hợp của hiện tượng 
+được ghi lại trong tập dữ liệu.
+•  Bảng có khóa chính, là giá trị duy nhất cho mỗi hàng 
+trong bảng. Thông thường, một bảng sẽ có khóa ngoại. Một khóa ngoại 
+là cột khóa chính được lặp lại từ một bảng khác. nước ngoài 
+các phím giúp có thể nối dữ liệu được lưu trữ trong các bảng khác nhau.
+•  Để phân tích dữ liệu được lưu trữ trong nhiều bảng, hãy nối dữ liệu từ 
+nhiều bảng. Có các phép nối trong, nối phải, nối trái hoặc 
+các phép nối đầy đủ, mỗi phép nối truy xuất dữ liệu theo những cách khác nhau. các 
+phép nối được chọn phải phù hợp với các câu hỏi phân tích dữ liệu-
+câu hỏi đang được hỏi.
+❷  Giải thích cách các hàm giúp trả lời việc phân tích dữ liệu 
+câu hỏi
+Phân tích dữ liệu bao gồm thực hiện các phép tính: 
+•  Hàm là các công thức được xác định trước và thực hiện các thao tác được sử dụng thường xuyên 
+tính toán.
+•  Các hàm phổ biến nhất bao gồm AVERAGE, AVERAGEIF, 
+TRUNG BÌNH, ĐẾM, COUNTIF, COUNTIFS, SUM, SUMIF, 
+và SUMIFS.
+❸  Minh họa cách tổ chức và lọc dữ liệu của bảng tổng hợp.
+Tổ chức dữ liệu là quá trình sắp xếp lại dữ liệu sao cho dễ dàng hơn 
+để hiểu hoặc để trả lời một câu hỏi cụ thể:
+•  Sắp xếp, lọc và cắt là các công cụ phổ biến để sắp xếp lại dữ liệu trong một 
+bảng tính để trả lời câu hỏi. 
+•  Bảng tổng hợp sắp xếp lại dữ liệu trong bảng tính một cách hiệu quả để tạo 
+tóm tắt tùy chỉnh các thông tin quan trọng.
+❹  Xác định các biện pháp mô tả được sử dụng để thực hiện dữ liệu 
+phân tích
+Các kỹ năng phân tích dữ liệu cốt lõi cho phân tích mô tả là mô tả 
+thống kê và phân tích tương quan:
+•  Các thước đo vị trí bao gồm giá trị trung bình, trung vị và mốt.
+•  Các thước đo phân phối bao gồm phương sai và độ lệch chuẩn.

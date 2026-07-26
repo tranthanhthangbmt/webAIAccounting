@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <title>AI trong Kế toán và Tài chính - Đại học Đông Á</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="Tài liệu môn học AI trong Kế toán và Tài chính">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Theme: Modern UI using Docsify Themeable -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css">
+
+  <style>
+    :root {
+      --theme-color: #1a73e8;
+      --base-font-size: 16px;
+      --sidebar-width: 300px;
+      /* Custom docsify-tabs colors */
+      --docsifytabs-border-color: #eaeaea;
+      --docsifytabs-tab-highlight-color: var(--theme-color);
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+    }
+
+    .markdown-section {
+      max-width: 1000px;
+      padding: 2rem 15px;
+    }
+
+    /* ===== DOCSIFY TABS: MOBILE OPTIMIZATION ===== */
+    .docsify-tabs {
+      display: grid !important;
+      grid-auto-columns: max-content;
+      grid-auto-flow: column;
+      overflow-x: auto !important;
+      -webkit-overflow-scrolling: touch;
+      margin-top: 0 !important;
+      margin-bottom: 5px !important;
+      border-bottom: none !important;
+      scrollbar-width: none;
+      container-type: inline-size;
+      justify-content: start;
+    }
+
+    .docsify-tabs::-webkit-scrollbar {
+      display: none;
+    }
+
+    .docsify-tabs__tab {
+      grid-row: 1 !important;
+      order: 1 !important;
+      text-align: center;
+      padding: 10px 16px !important;
+      font-size: 14px !important;
+      font-weight: 500 !important;
+      transition: all 0.2s ease-in-out !important;
+      border: 1px solid var(--docsifytabs-border-color) !important;
+      border-radius: 20px !important;
+      color: #555 !important;
+      background: #fff !important;
+      cursor: pointer;
+      margin: 0 8px 5px 0 !important;
+    }
+
+    .docsify-tabs__tab:hover {
+      background-color: #f8faff !important;
+      border-color: var(--theme-color) !important;
+      color: var(--theme-color) !important;
+    }
+
+    .docsify-tabs__tab--active {
+      color: #fff !important;
+      background-color: var(--theme-color) !important;
+      border-color: var(--theme-color) !important;
+      box-shadow: 0 4px 6px rgba(26, 115, 232, 0.2);
+    }
+
+    .docsify-tabs__content {
+      grid-row: 2 !important;
+      grid-column: 1 / 999 !important;
+      width: 100cqw !important;
+      position: sticky !important;
+      left: 0 !important;
+      order: 99 !important;
+      padding-top: 5px;
+    }
+
+    /* Style for iframe PDF to ensure it scales correctly */
+    .pdf-container, object {
+      width: 100%;
+      height: 85vh;
+      border: 1px solid #eee;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      background: #fafafa;
+    }
+    
+    img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 20px auto;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    @media (max-width: 600px) {
+      .markdown-section {
+        padding: 10px 5px !important;
+      }
+      .docsify-tabs {
+        margin-top: 0 !important;
+      }
+      .pdf-container, object {
+        border: none !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        height: 85vh !important;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+  <div id="app">Đang tải nội dung môn học...</div>
+
+  <script>
+    window.$docsify = {
+      name: 'AI trong Kế toán và Tài chính',
+      repo: '',
+      loadSidebar: true,
+      subMaxLevel: 2,
+      auto2top: true,
+      search: {
+        paths: 'auto',
+        placeholder: 'Tìm kiếm',
+        noData: 'Không tìm thấy kết quả!',
+        depth: 3
+      },
+      tabs: {
+        persist: true,
+        sync: false,
+        theme: 'classic',
+        tabComments: true,
+        tabHeadings: true
+      }
+    }
+  </script>
+
+  <!-- Docsify v4 -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4"></script>
+
+  <!-- Plugins -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
+
+  <!-- Code Highlighting -->
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-python.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-markdown.min.js"></script>
+
+  <!-- Tabs Plugin -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify-tabs@1"></script>
+
+</body>
+
+</html>

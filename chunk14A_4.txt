@@ -1,0 +1,580 @@
+then it is likely that the sales for the same product also increase. There are two key features to 
+consider with these relationships. The first is direction:
+•	The direction is positive if both variables move in the same direction.
+•	The direction is negative if both variables move in opposite directions.
+The second feature is the strength of the correlation. Strength indicates the degree of cor-
+relation between the two variables, ranging from no correlation to perfect correlation. 
+­Illustration 7.27 shows the exploration structure of a correlation data relationship between 
+numeric variables.
+ILLUSTRATION 7.27  Exploration 
+Structure for a Correlation Data 
+Relationship
+Numeric
+Variable
+Numeric
+Variable
+The variables
+for which the
+correlation data
+relationship is
+being explored.
+Visualizations
+The most common visualization for exploring correlation is the scatterplot, which is also 
+referred to as a scatter chart. It plots the coordinates for two variables for each data point.
+Let’s illustrate a scatterplot with an example from a new company. Buzz Cut is a landscap-
+ing business with two owners. These small business owners continuously face tough strategic, 
+financial, and operational decisions, such as price estimates for properties. Data They have a 
+spreadsheet that contains data about the size and average cutting time, in minutes, for all their 
+properties (Illustration 7.28).
+Price estimation is a critical decision for all landscape businesses. Buzz Cut uses the fol-
+lowing decision model to make price estimates:
+•	It takes one minute to mow 1,000 square feet, and Buzz Cut charges a dollar per minute 
+($60 per hour). They would charge $50 for mowing a 50,000 square foot property.
+•	The minimum price per cut is $25.
+•	Reduced rates are offered for large lots.
+All prices are rounded up: $25, $30, $35, and so on. In some cases, Buzz Cut’s owners negotiate 
+with the customers. Price estimation decisions rely on two assumptions:
+	 1.	 The size of a lawn determines the time needed to cut it.
+	 2.	 Time determines the cost and thus price.
+ILLUSTRATION 7.28  First Ten 
+Rows of the Property Data Size 
+Time Spreadsheet
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+9
+6
+50
+45
+8
+18
+17
+55
+120
+25
+Property
+Time
+4500
+3000
+50000
+25000
+4000
+18000
+21000
+22000
+100000
+23000
+Size
+
+7.2  How are Data Relationships Visualized for Exploration?  7-21
+The first assumption can be rephrased: “There is a strong positive correlation between lawn 
+size and time: the bigger the lawn, the more time it will take to mow it.”
+Correlation is a data relationship. Strong correlation and positive direction are assump-
+tions regarding the data relationship made by Buzz Cut. The scatterplot in Illustration 7.29 
+explores the validity of these assumptions.
+ILLUSTRATION 7.29  Scatterplot 
+Showing Correlation Between Size 
+and Time
+0
+0
+20,000
+40,000
+60,000
+80,000
+100,000
+20
+40
+60
+80
+100
+120
+140
+Time
+Lawn Size and Time Correlation
+Size
+This scatterplot was created in Power BI (Illustration 7.30).
+ILLUSTRATION 7.30  Creating a 
+Scatterplot in Power BI
+Details
+Property
+Add data fields here
+Legend
+X Axis
+Size
+Y Axis
+Time
+Unique
+Identifier
+The data 
+points being
+represented.
+Numeric
+Variable
+Numeric
+Variable
+The
+variables
+for which
+the correlation
+data
+relationship
+is being
+explored.
+Exploration and Insights
+Scatterplots are created by dragging and dropping numeric variables from a data set into the 
+two areas shown in Illustration 7.30. Several insights could be collected once the scatterplot is 
+created. For instance, there is a strong, positive correlation between lawn size and time. There 
+are also two additional insights:
+	 1.	 The data point with a yellow background shows an outlier. Talking to the owners of Buzz 
+Cut reveals this is the result of a data entry issue. It takes 18 minutes to cut the property, 
+but “118 minutes” was recorded.
+	 2.	 The chart indicates that there might be other factors than just size influencing time. 
+The data points with a green background in Illustration 7.29 indicate properties that are 
+approximately the same size but require different amounts of time, with times ranging 
+between 17 and 55 minutes (ignore the outlier here).
+
+7-22  CHAPTER 7  Analysis: Data Exploration
+To display a time series, a visualization requires a time unit such as a minute, hour, day, or 
+week, and a variable that changes over time. 
+Visualizations
+A line chart is the most common visualization for time series, but bar charts, column charts, 
+area charts, waterfall charts, and sparkline charts can also be used. Let’s go back to the Honda 
+Motors North America (HNA) example. Illustration 7.32 is a Power BI line chart that explores 
+how HNA’s unit sales changed during the 2021–2025 period. 
+While the data do not indicate what the other factor or factors might be, the owners men-
+tion that properties with many trees, plants, and corners take more time to mow. This means 
+that difficulty, or complexity, is another factor that influences time and cost, and the decision 
+model should be adjusted to reflect this.
+APPLYING CRITICAL THINKING 7.3: Evaluate Your 
+Assumptions
+The Buzz Cut scatterplot example shows that critical thinking is an integral part of data 
+exploration:
+•	 Unrealistic assumptions might result in insights that pose a significant risk. Underpricing 
+might result in losses (Risks).
+•	 These insights could negatively affect all stakeholders. If there are other factors that drive 
+time, employees could be evaluated unfairly, and underpricing might mean that Buzz Cut 
+cannot pay creditors (Stakeholders).
+Data Exploration Pattern 7: Time Series
+A time series data relationship defines the values of a variable at sequential points in time 
+(Illustration 7.31).
+ILLUSTRATION 7.31  Exploration 
+Structure for a Time Series Data 
+Relationship
+Nominal
+Variable
+The values of this
+variable are used to
+compare time series.
+Numeric
+Variable
+The variable
+being analyzed.
+The time unit used
+for analysis.
+Time Unit
+Variable
+
+7.2  How are Data Relationships Visualized for Exploration?  7-23
+ILLUSTRATION 7.32  Line Chart Showing Changes in HNA’s Unit Sales During the 2021–2025 Period
+2021
+2022
+2023
+2024
+2025
+0
+1,000,000
+2,041,879
+2,225,138
+2,000,000
+3,000,000
+Units Sold
+Changes in Units Sold: 2021‒2025
+Year
+1,774,263
+1,723,765
+1,782,692
+It was created in Power BI by using year as the time unit and total unit sales as the numeric 
+variable (Illustration 7.33).
+ILLUSTRATION 7.33  Creating a Line Chart in Power BI
+Axis
+Year
+Legend
+Add data fields here
+Values
+UnitsSold
+The variable
+being analyzed.
+The time unit used
+for analysis.
+Time Unit
+Variable
+Numeric
+Variable
+Exploration and Insights
+Look for trends, cycles, and irregularities when exploring time series:
+•	A trend indicates the general direction (upward or downward) in which a variable moves 
+over time.
+•	A cycle indicates a pattern of changes, which can vary in length and intensity over time. 
+Seasonality refers to intra-year cycles with a fixed nature.
+•	Irregularities are unsystematic, typically short-term, fluctuations.
+The time series in Illustration 7.32 shows a strong upward trend for HNA’s unit sales starting 
+from 2023. Dragging and dropping can explore this trend in more detail by comparing the 
+trends for Canada and the USA. This new line chart (A) and how it was made (B) are shown in 
+Illustration 7.34. This chart shows a very different picture: U.S. sales are flat, and growth is a 
+result of increasing sales in Canada. Additional insights might be generated by also comparing 
+trends for units sold by model or type.
+
+7-24  CHAPTER 7  Analysis: Data Exploration
+ILLUSTRATION 7.34  Trend Analysis Units Sold by Country
+0
+500,000
+646,777
+1,127,486
+648,999
+1,074,766
+721,717
+1,060,975
+1,000,000
+1,500,000
+Units
+Sold
+USA Vs. Canadian Sales Trends: 2021‒2025 
+(A) Trend Analysis:
+Units Sold by Country
+(B) Creating a Line Chart
+with Multiple Time Series
+Year
+2021
+2022
+2023
+2024
+2025
+870,418
+1,171,461
+1,053,935
+1,171,203
+Axis
+Year
+Values
+UnitsSold
+The variable
+being analyzed.
+The time unit used
+for analysis.
+Time Unit
+Variable
+Numeric
+Variable
+Nominal
+Variable
+The values of this
+variable are used to
+compare time series.
+Legend
+Country
+USA
+Canada
+Data Exploration Pattern 8: Geospatial
+In a geospatial data relationship, numeric values are assigned to locations and encoded through 
+coloring or shading and the size of the bubbles within the visualization (Illustration 7.35).
+Encoding
+Coloring
+Size
+The location to
+which the quantitative
+variable applies.
+Location
+Variable
+The quantitative
+variable used for
+analysis purposes.
+Numeric
+Variable
+ILLUSTRATION 7.35  Exploration 
+Structure for Geospatial Data 
+Relationships
+
+7.2  How are Data Relationships Visualized for Exploration?  7-25
+Visualizations
+Geospatial relationships are defined using maps:
+•	A choropleth map uses color intensity to represent data values. In Illustration 7.36, color 
+intensity differentiates among the combined state and average local sales tax rates for 
+U.S. states. In this map, state is the location variable, tax rate is the numeric variable, and 
+encoding is based on color intensity.
+•	A proportional symbol map uses symbols—often bubbles/circles—and the size of the 
+symbol represents the data value. The larger the symbol, the higher the value. A business 
+could create a map that shows the total revenue (numeric variable) per city (location 
+variable) for a specific state. The larger the bubble representing the city, the higher the 
+revenue for that city.
+ILLUSTRATION 7.36  Choropleth Map for Tax Rates 
+MA
+6.25%
+#35
+CT
+6.35%
+#33
+RI
+7.00%
+#24
+NJ
+6.60%
+#30
+DE
+MD
+6.00%
+#38
+DC
+6.00%
+(#38)
+Lower
+Higher
+Combined State & Average Local Sales Tax Rates
+NH
+6
+VT
+6.24%
+#36
+How High are Sales Taxes in Your State?
+Combined State & Average Local Sales Tax Rates, January 2021
+WA
+9.23%
+#4
+MT
+ID
+6.03%
+#37
+ND
+6.96%
+#27
+MN
+7.46%
+#17
+ME
+5.50%
+#42
+MI
+6.00%
+#38
+WI
+5.43%
+#43
+OR
+SD
+6.40%
+#32
+NY
+8.52%
+#10
+WY
+5.33%
+#44
+IA
+6.94%
+#28
+NE
+6.94%
+#29
+IL
+8.82%
+#7
+PA
+6.34%  #34
+CA
+8.68%
+#9
+UT
+7.19%
+#21
+NV
+8.23%
+#13
+OH
+7.23%
+#20
+IN
+7.00%
+#24
+CO
+7.72%
+#16
+WV
+6.50%
+#31
+MO
+8.25%
+#12
+KS
+8.69%
+#8
+VA
+5.73%
+#41
+KY
+6.00% #38
+AZ
+8.40%
+#11
+OK
+8.95%
+#6
+NM
+7.83%
+#15
+TN
+9.55% #1
+NC
+6.98% #26
+TX
+8.19%
+#14
+AR
+9.51%
+#3
+SC
+7.46%
+#18
+AL
+9.22%
+#5
+GA
+7.32%
+#19
+MS
+7.07%
+#23
+LA
+9.52% #2
+FL
+7.08%
+#22
+HI
+4.44%
+#45
+AK
+1.76%
+#46
+Source: Janelle Cammenga, State and Local Sales Tax Rates, 2021, Tax Foundation. Available at https://files.taxfoundation.org/ 
+20210106094117/State-and-Local-Sales-Tax-Rates-2021.pdf
+Exploration and Insights
+Like the other data relationships, exploration of geospatial relationships depends on dragging 
+and dropping. Location choices are limited to addresses, cities, states or provinces, and coun-
+tries, and the location information must be formatted so that a map service, Google Maps or 
+Bing Maps, for example, can recognize it.
+
+7-26  CHAPTER 7  Analysis: Data Exploration
+Apply It 7.2
+Visualize Part-To-
+Whole Relationships 
+with Excel
+Data   Managerial Accounting   The CEO at Happy Colors needs to understand the relative impor-
+tance of the company’s different product types, Low, High, and Premium quality paint, in terms of the 
+total units, or cans, being produced. Complete these three steps to perform this analysis:
+1.	 Determine what data relationship underlies this question.
+2.	 Identify and create a visual that could explore the data relationship.
+3.	 Describe the insights generated by the visual.
+SOLUTION
+1.	 A part-to-whole relationship is being explored.
+2.	 Several visualizations can be used to explore part-to-whole relationships, including pie charts, 
+donut charts, stacked bar charts, stacked column charts, and treemap charts. The Illustration 
+shows a pie chart (A) and the dialog box of the Excel PivotTable used for its creation (B).
+Part-to-Whole Relationship with Pie Chart
+PivotTable Fields
+Choose fields to add to report:
+Search
+Drag fields between areas below:
+Filters
+Columns
+Rows
+Values
+∑
+Total UnitsSold
+Product
+(A)
+(B)
+ID
+Month
+Employee
+Product
+NumberOfDefectiveItems
+Total
+Cost
+More Tables...
+Product Type Share
+The whole, or the
+number to be broken
+down.
+The variable that
+determines how the
+whole is broken down
+in parts.
+High
+40%
+Low
+51%
+Premium
+9%
+3.	 The pie chart shows that more than half of the production is for cans of Low product type, 
+while Premium cans have a relatively small share–lower than 10%.
+On the other hand, a variety of numeric variables can be used for exploration. A map 
+created for the HNA example could show the total revenue generated per dealership and use 
+color intensity for encoding. That same map could display the new-to-used car sales ratio, 
+which is an important key performance indicator (KPI) for car dealerships, and use size for 
+encoding purposes.
+
+7.3  How are Data Explored by Integrating Data Relationships?  7-27
+7.3  How are Data Explored by Integrating 
+Data Relationships?
+LEARNING OBJECTIVE ❸
+Explore data by integrating foundational relationships.
+While patterns one to eight explore a single, foundational data relationship with one visualiza-
+tion, data exploration often requires integrating two or more data relationships. Integrated data 
+relationships can be represented with a single visualization or by using different visualizations 
+as part of a report. Composite trends and Pareto analysis are two examples of combined data 
+relationships that can be represented in one chart, both of which are discussed next.
+Data Exploration Pattern 9: Composite Trends
+A composite trend data relationship, or the change in a part-to-whole relationship over 
+time, is an integrated data relationship that is often analyzed. One example is an analysis of 
+how a business’ sales mix changes over time:
+•	Sales mix is the relative proportion of each product in a business’ total sales, which means 
+that it is a part-to-whole relationship.
+•	Change over time is a time series.
+We explore HNA’s sales mix to illustrate this relationship, but keep in mind that there are 
+many other business and accounting examples of composite trends, such as the changes in 
+the structure of an investment portfolio or how the different accounts in an income statement 
+change over time.
+The exploration structure for composite trends has three variables and combines the 
+exploration structures of the time series data relationship and part-to-whole data relationship 
+(Illustration 7.37).
+ILLUSTRATION 7.37  Exploration 
+Structure for Composite Trend 
+Data Relationships
+Time Unit
+Variable
+The time unit used for
+analysis.
+Numeric
+Variable
+The variable that determines
+how the whole is broken
+down in parts.
+Nominal
+Variable
+The variable
+being
+analyzed
+The whole, or the
+number to be
+broken down.
+Time Series Exploration Structure
+Part-to-Whole Exploration Structure
+
+7-28  CHAPTER 7  Analysis: Data Exploration
+Visualizations
+Several visualizations, all of which rely on the exploration structure shown in Illustration 7.37, 

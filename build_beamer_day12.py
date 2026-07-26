@@ -1,0 +1,456 @@
+import os
+
+def create_beamer_day12():
+    content = r"""\documentclass[aspectratio=169,12pt]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T5]{fontenc}
+\usepackage[vietnamese]{babel}
+\usepackage{lmodern}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{multicol}
+\usepackage{tikz}
+
+\usetheme{Madrid}
+\usefonttheme{professionalfonts}
+
+% --- Custom Colors & Settings ---
+\definecolor{UBrandBlue}{RGB}{0, 71, 155}
+\definecolor{UBrandGold}{RGB}{255, 184, 28}
+\setbeamercolor{palette primary}{bg=UBrandBlue,fg=white}
+\setbeamercolor{palette secondary}{bg=UBrandGold,fg=black}
+\setbeamercolor{palette tertiary}{bg=UBrandBlue!80!black,fg=white}
+\setbeamercolor{title}{bg=UBrandBlue,fg=white}
+\setbeamercolor{item}{fg=UBrandBlue}
+
+% --- Title Page Info ---
+\title[AI trong Kế toán - Buổi 12]{Thực hành AI Nhận thức và AI Tạo sinh trong Kế toán}
+\subtitle{Generative AI \& Web-Enhanced ChatGPT}
+\author[Giảng viên]{Trí tuệ Nhân tạo cho Kế toán (AI in Accounting)}
+\institute[Đại học]{Khoa Kế toán - Kiểm toán}
+\date{Buổi học 12}
+
+\begin{document}
+
+% Slide 1: Title
+\begin{frame}
+    \titlepage
+\end{frame}
+
+% Slide 2: Mục tiêu
+\begin{frame}{Mục tiêu Bài học (Learning Objectives)}
+    \begin{itemize}
+        \item \textbf{Sự Dịch Chuyển Cốt Lõi:} Hiểu rõ cách AI thay đổi vai trò kế toán từ ghi chép thụ động sang dự báo chiến lược.
+        \item \textbf{Cơ Chế Khác Biệt:} Phân biệt giữa hệ thống phần mềm cũ (dò từ khóa) và GenAI (phân tích ngữ nghĩa).
+        \item \textbf{Ảo Giác AI (Hallucination):} Nhận diện điểm yếu của AI và áp dụng tư duy phản biện.
+        \item \textbf{GPT Store \& RAG:} Cách tận dụng Custom GPTs và cơ chế RAG để tối ưu hóa hiệu suất an toàn.
+        \item \textbf{Quản Trị Rủi Ro \& HITL:} Đảm bảo bảo mật cấp doanh nghiệp và kiểm soát với "Con người trong vòng lặp".
+    \end{itemize}
+\end{frame}
+
+% Slide 3: Agenda
+\begin{frame}{Nội dung Chính (Agenda)}
+    \tableofcontents
+\end{frame}
+
+% ==========================================
+\section{Khởi động \& Sự dịch chuyển cốt lõi}
+% ==========================================
+\begin{frame}
+    \tableofcontents[currentsection]
+\end{frame}
+
+% Slide 5
+\begin{frame}{Ẩn dụ: Chiếc Ô tô \& Kính Chắn Gió}
+    \textbf{Kế toán Truyền thống:}
+    \begin{itemize}
+        \item Thử tưởng tượng bạn đang \textbf{lái xe trên cao tốc với tốc độ 120km/h}.
+        \item Nhưng... kính chắn gió bịt kín bưng! 
+        \item Bạn chỉ có thể điều hướng bằng cách \textit{nhìn chằm chằm vào gương chiếu hậu}.
+        \item \textbf{Ý nghĩa:} Đó chính là nghề kế toán cũ! Chỉ cặm cụi đối chiếu những giao dịch đã xảy ra trong quá khứ.
+    \end{itemize}
+\end{frame}
+
+% Slide 6
+\begin{frame}{Cuộc lột xác với Trí tuệ Nhân tạo Tạo sinh (GenAI)}
+    \begin{itemize}
+        \item \textbf{Sự can thiệp của AI:} Gỡ phăng tấm màn che kính chắn gió mù mịt đó đi.
+        \item \textbf{Hệ thống GPS Chiến lược:} AI lắp đặt một hệ thống định vị dự báo rủi ro theo \textit{thời gian thực}.
+        \item Bạn không chỉ nhìn thấy quá khứ, mà còn nhìn xuyên thấu các mối nguy cơ trước mắt.
+        \item \textbf{Đó là sự chuyển đổi:} Từ "Tư duy ghi chép" sang "Tư duy cố vấn".
+    \end{itemize}
+\end{frame}
+
+% Slide 7
+\begin{frame}{Sự tiến hóa từ "Máy tính sơ khai"}
+    \begin{quote}
+        "Nó chậm, nhiều lỗi, nó không làm tốt nhiều việc, nhưng những thứ đầu tiên cũng vậy: máy tính."\\
+        \vspace{0.2cm}
+        -- \textbf{Sam Altman}, CEO OpenAI
+    \end{quote}
+    \begin{itemize}
+        \item Thế hệ AI đầu tiên cũng có vẻ ngô nghê như cỗ máy tính khổng lồ hàng chục năm trước (chỉ biết cộng trừ).
+        \item Nhưng GenAI ngày nay không chỉ tính toán thụ động; chúng có khả năng \textbf{hiểu ngôn ngữ} và \textbf{tạo ra nội dung}.
+    \end{itemize}
+\end{frame}
+
+
+% ==========================================
+\section{Cơ chế khác biệt của AI \& Machine Learning}
+% ==========================================
+\begin{frame}
+    \tableofcontents[currentsection]
+\end{frame}
+
+% Slide 9
+\begin{frame}{Case Study: Tập đoàn Global Tech Enterprises}
+    \begin{itemize}
+        \item \textbf{Bối cảnh:} Tập đoàn đa quốc gia, quản lý hàng tỷ giao dịch nội bộ.
+        \item \textbf{Thách thức:} Hệ thống luật thuế đan chéo nhau, quy định liên tục thay đổi.
+        \item Nếu dùng phần mềm kế toán tự động kiểu cũ (Rule-based) thì chuyện gì sẽ xảy ra?
+    \end{itemize}
+\end{frame}
+
+% Slide 10
+\begin{frame}{Phần mềm cũ: Cỗ máy Dò Từ Khóa cứng nhắc}
+    \begin{itemize}
+        \item \textbf{Keyword Matching:} Hoạt động dựa trên IF-THEN.
+        \item Luật thuế viết một kiểu, nhưng hóa đơn nhà cung cấp viết chệch đi một chút xíu -> Hệ thống \textbf{Báo lỗi}.
+        \item Kết quả: Hệ thống liên tục réo gọi con người vào can thiệp. Năng suất chững lại.
+    \end{itemize}
+\end{frame}
+
+% Slide 11
+\begin{frame}{GenAI: Sự thấu hiểu Ngữ nghĩa sâu sắc}
+    \begin{itemize}
+        \item Khác biệt nằm ở chữ \textbf{HOW (Cách xử lý thông tin)}.
+        \item Mạng Neural sâu phân tích \textit{hàng tỷ tham số} để hiểu mối quan hệ ngữ nghĩa.
+        \item \textbf{Kết quả:} Nó không tìm từ khóa. Nó \textbf{hiểu mục đích} của điều khoản pháp lý y hệt như một chuyên gia thuế lão làng.
+        \item Xử lý hàng triệu hóa đơn đa ngôn ngữ với độ chính xác gần như tuyệt đối.
+    \end{itemize}
+\end{frame}
+
+% Slide 12
+\begin{frame}{Phân tích Dự báo (Predictive Analytics)}
+    \begin{itemize}
+        \item Không chỉ dọn dẹp mớ bòng bong của quá khứ.
+        \item \textbf{Mô hình hóa dòng tiền:} Đừng đợi đến cuối quý mới hốt hoảng báo âm dòng tiền.
+        \item AI cảnh báo: "Với biến động tỷ giá hiện tại, tháng tới công ty sẽ thiếu thanh khoản".
+        \item \textbf{Giải phóng nhân lực:} Đội ngũ tài chính thoát khỏi đống sổ sách để tập trung vào dự báo.
+    \end{itemize}
+\end{frame}
+
+% Slide 13
+\begin{frame}{Cố vấn Chiến lược Thực thụ}
+    \begin{itemize}
+        \item Kế toán viên có thời gian nhìn vào đống dự báo và trả lời các \textbf{câu hỏi sống còn}:
+        \item "Công ty nên cắt giảm chi phí ở phòng ban nào?"
+        \item "Năm tới nên thâu tóm đối thủ nào?"
+        \item Tự động hóa không lấy đi công việc, nó nâng cấp công việc!
+    \end{itemize}
+\end{frame}
+
+% Slide 14
+\begin{frame}{Kỹ năng Sinh tồn: Hiểu biết Dữ liệu (Data Literacy)}
+    \begin{itemize}
+        \item Kế toán trưởng có cần học code Python không? \textbf{KHÔNG!}
+        \item Nhưng bắt buộc phải hiểu \textbf{Cơ chế của Mô hình}.
+        \item Biết được nạp dữ liệu đầu vào (Input) gì, thì máy sẽ phun ra kết quả (Output) tương ứng.
+    \end{itemize}
+\end{frame}
+
+% Slide 15
+\begin{frame}{Năng lực Diễn giải Dữ liệu (Data Storytelling)}
+    \begin{itemize}
+        \item Nhìn vào một Dashboard chi chít các chỉ số do AI vẽ ra...
+        \item Con người phải biết \textbf{dịch} nó thành một \textit{câu chuyện kinh doanh} mạch lạc.
+        \item Để Ban Giám đốc có thể hiểu và chốt phương án cuối cùng.
+    \end{itemize}
+\end{frame}
+
+
+% ==========================================
+\section{Tư duy phản biện \& Ảo giác AI (Hallucination)}
+% ==========================================
+\begin{frame}
+    \tableofcontents[currentsection]
+\end{frame}
+
+% Slide 17
+\begin{frame}{Nghịch lý Niềm tin vào Máy tính}
+    \begin{itemize}
+        \item Chúng ta luôn được dạy: "Máy tính thì làm sao biết nói dối. Máy móc luôn khách quan và chính xác."
+        \item Vậy tại sao các chuyên gia tài chính lại nói: \textbf{Không bao giờ được tin tưởng AI 100\%?}
+    \end{itemize}
+\end{frame}
+
+% Slide 18
+\begin{frame}{Bản chất của LLMs}
+    \begin{itemize}
+        \item Mô hình ngôn ngữ lớn (LLM) không "suy nghĩ" như con người.
+        \item Nó hoạt động bằng cách \textbf{dự đoán từ tiếp theo} dựa trên xác suất từ kho dữ liệu huấn luyện lịch sử.
+        \item Nếu dữ liệu đầu vào chứa thiên kiến, hoặc quy định tài chính chưa được cập nhật mới nhất... 
+        \item AI sẽ vẫn tự tin đưa ra kết luận \textbf{sai bét}.
+    \end{itemize}
+\end{frame}
+
+% Slide 19
+\begin{frame}{Căn bệnh "Ảo giác AI" (Hallucination)}
+    \begin{itemize}
+        \item \textbf{Ảo giác (Hallucination):} Là khi AI bịa ra một thông tin không có thật (điều khoản luật giả, số liệu ma) nhưng lại trình bày nó một cách cực kỳ mạch lạc và thuyết phục.
+        \item Đây là rủi ro cực lớn trong ngành cần sự chính xác tuyệt đối như Kế toán.
+    \end{itemize}
+\end{frame}
+
+% Slide 20
+\begin{frame}{Ẩn dụ: Cậu Chuyên viên Phân tích Sơ cấp}
+    \begin{itemize}
+        \item Hãy coi AI như một cậu Junior Analyst \textbf{siêu phàm}.
+        \item Cậu ta có thể soi báo cáo tài chính của 10.000 công ty trong 1 giây! 
+        \item Chỉ ra ngay lập tức các điểm bất thường.
+        \item \textbf{Nhưng:} Cậu ta thiếu hẳn sự \textit{nhạy bén thực tế} của một Giám đốc Tài chính lão làng (Thiếu bối cảnh thương trường).
+    \end{itemize}
+\end{frame}
+
+% Slide 21
+\begin{frame}{Báo động đỏ "Mù quáng"}
+    \begin{itemize}
+        \item Cậu AI có thể báo động đỏ inh ỏi về một khoản chi khổng lồ bất thường, đề xuất chặn hạn mức tín dụng của đối tác.
+        \item Kế toán trưởng nhìn vào biết ngay: "Đó là thương vụ sáp nhập chiến lược đã chốt từ nửa năm trước!"
+        \item Sự thật hiển nhiên với con người, nhưng máy thì hoàn toàn \textbf{mù tịt}.
+    \end{itemize}
+\end{frame}
+
+% Slide 22
+\begin{frame}{Ẩn dụ: Bếp trưởng và Phụ bếp}
+    \begin{itemize}
+        \item \textbf{AI (Phụ bếp):} Người sơ chế, băm chặt nguyên liệu cực kỳ nhanh chóng.
+        \item \textbf{Kế toán viên (Bếp trưởng):} Người nắm giữ công thức tổng thể, nếm thử xem món ăn có xài được không trước khi mang lên cho thực khách.
+        \item Máy móc làm việc nặng, con người kiểm soát chất lượng.
+    \end{itemize}
+\end{frame}
+
+% Slide 23
+\begin{frame}{Yếu tố Chốt hạ: Tư duy Phản biện}
+    \begin{itemize}
+        \item Đứng trước mọi kết quả do AI trả về, con người phải luôn đặt câu hỏi: "Kết quả này có hợp lý với bối cảnh kinh doanh thực tế không?"
+        \item \textbf{Trách nhiệm giải trình (Accountability):} Rốt cuộc, trách nhiệm pháp lý không thuộc về thuật toán.
+        \item Nó thuộc về \textbf{người đặt bút ký duyệt} báo cáo đó!
+    \end{itemize}
+\end{frame}
+
+
+% ==========================================
+\section{Kỷ nguyên Cá nhân hóa với Cửa hàng GPT (GPT Store)}
+% ==========================================
+\begin{frame}
+    \tableofcontents[currentsection]
+\end{frame}
+
+% Slide 25
+\begin{frame}{Sự phẫn nộ với Tìm kiếm}
+    \begin{quote}
+        "Mọi người ghét tìm kiếm."\\
+        \vspace{0.2cm}
+        -- \textbf{Sam Altman}
+    \end{quote}
+    \begin{itemize}
+        \item Chẳng ai rảnh để lặn ngụp qua chục cái menu của các phần mềm khác nhau chỉ để trích xuất một con số luật thuế.
+        \item Chúng ta muốn một công cụ \textbf{hiểu ngay lập tức} cái mình đang cần.
+    \end{itemize}
+\end{frame}
+
+% Slide 26
+\begin{frame}{Sự kiện Dân chủ hóa Trí tuệ Nhân tạo}
+    \begin{itemize}
+        \item Ngày xưa: Để có một AI nội bộ, công ty phải thuê đội kỹ sư, mua server đắt đỏ, huấn luyện mất hàng tháng.
+        \item Ngày nay: Bất kỳ Kế toán viên nào cũng có thể trở thành \textbf{Kiến trúc sư AI} mà không cần gõ một dòng code nào.
+        \item Chỉ bằng cách \textit{trò chuyện bằng ngôn ngữ tự nhiên}.
+    \end{itemize}
+\end{frame}
+
+% Slide 27
+\begin{frame}{App Store vs. GPT Store}
+    \begin{itemize}
+        \item \textbf{App Store:} Bạn tải về những phần mềm thụ động (một cái máy tính, một bản đồ).
+        \item \textbf{GPT Store:} Bạn đang tải về \textbf{Những bộ não Kỹ thuật số} đã được huấn luyện sẵn cho từng vị trí!
+        \item Tải về: Trợ lý thuế quốc tế, Chuyên viên CSKH 24/7, Nhà phân tích rủi ro hợp đồng...
+    \end{itemize}
+\end{frame}
+
+% Slide 28
+\begin{frame}{Xây dựng Custom GPTs (GPT Tùy chỉnh)}
+    \begin{itemize}
+        \item Yêu cầu AI đóng vai một chuyên gia tài chính.
+        \item \textbf{Nạp dữ liệu nội bộ:} Ném vào sổ tay kế toán công ty, quy chế nội bộ, lịch sử giao dịch.
+        \item GPT lập tức sở hữu đặc thù và "tính cách" nghiệp vụ của riêng doanh nghiệp bạn.
+    \end{itemize}
+\end{frame}
+
+% Slide 29
+\begin{frame}{Cơ chế RAG: Khắc tinh của Ảo giác AI}
+    \begin{itemize}
+        \item \textbf{RAG (Retrieval-Augmented Generation - Thế hệ tăng cường truy xuất):}
+        \item Thay vì để AI "chém gió" bừa mỗi khi có câu hỏi khó...
+        \item Nó sẽ phải \textbf{chạy đi tìm kiếm, đối chiếu} với chính đống tài liệu nội bộ (Sổ tay doanh nghiệp) mà bạn vừa nạp.
+        \item Sau đó mới được phép đưa ra câu trả lời dựa trên căn cứ đó.
+    \end{itemize}
+\end{frame}
+
+% Slide 30
+\begin{frame}{Sức mạnh của Cửa sổ Ngữ cảnh (Context Window)}
+    \begin{itemize}
+        \item Các bản AI đời cũ bị "mất trí nhớ" sau 15 phút chat. Rất ức chế!
+        \item AI hiện đại có một \textbf{Context Window} (Cửa sổ bộ nhớ) khổng lồ.
+        \item Nó duy trì mạch lạc xuyên suốt phiên làm việc, nhớ rõ mồn một các quy định bạn setup lúc đầu.
+        \item Xử lý cả chuỗi nghiệp vụ tài chính phức tạp mà không bị vấp.
+    \end{itemize}
+\end{frame}
+
+% Slide 31
+\begin{frame}{Hiệu suất trong Thực tế}
+    \begin{itemize}
+        \item Một nhà cung cấp viễn thông thiết lập Custom GPT để xử lý mọi thắc mắc hóa đơn tự động.
+        \item \textbf{Kết quả:} Chi phí hoạt động giảm sập sàn, tốc độ phản hồi khách hàng tăng vọt.
+        \item Kế toán nội bộ có thể giao Custom GPT tự động rà soát báo cáo công tác phí hàng tháng để tìm ra các khoản chi sai quy chế chỉ trong 3 phút.
+    \end{itemize}
+\end{frame}
+
+
+% ==========================================
+\section{Bảo mật Dữ liệu \& Quản trị Rủi ro}
+% ==========================================
+\begin{frame}
+    \tableofcontents[currentsection]
+\end{frame}
+
+% Slide 33
+\begin{frame}{Gắn não AI vào "Tủy sống" Doanh nghiệp}
+    \begin{itemize}
+        \item Nghe như viễn cảnh trong mơ: Hàng chục "nhân viên AI" làm việc 24/7 không cần nghỉ phép.
+        \item Nhưng thế giới tài chính không có màu hồng.
+        \item Thách thức lớn nhất: \textbf{Bảo mật và Quyền riêng tư Dữ liệu}.
+    \end{itemize}
+\end{frame}
+
+% Slide 34
+\begin{frame}{Dữ liệu là Tính mạng Chiến lược}
+    \begin{itemize}
+        \item Dữ liệu tài chính không phải là những con số vô tri. Nó là \textit{chiến lược kinh doanh}, là \textit{tính mạng của tổ chức}.
+        \item Hàng rào pháp lý khắt khe: Luật GDPR (Châu Âu), CCPA (Hoa Kỳ)...
+        \item Bảo vệ thông tin nhận dạng cá nhân (PII) của khách hàng.
+    \end{itemize}
+\end{frame}
+
+% Slide 35
+\begin{frame}{Thảm họa Rò rỉ Thông tin}
+    \begin{itemize}
+        \item Điều gì xảy ra nếu bạn ném Bản kế hoạch sáp nhập đối thủ, Báo cáo dòng tiền nhạy cảm vào Custom GPT để nhờ nó phân tích?
+        \item Lỡ ngày mai, đống bí mật đó biến thành \textbf{mồi huấn luyện} cho AI đại chúng?
+        \item Công ty đối thủ chat hỏi AI và nhận được trọn vẹn kế hoạch của bạn!
+        \item \textbf{Hậu quả:} Lãnh đạo đi tù, doanh nghiệp sụp đổ.
+    \end{itemize}
+\end{frame}
+
+% Slide 36
+\begin{frame}{Giải pháp: Phiên bản Enterprise}
+    \begin{itemize}
+        \item Trong ngành Tài chính, bắt buộc phải sử dụng các phiên bản \textbf{AI Doanh nghiệp (Enterprise)}.
+        \item Các nhà cung cấp có cam kết pháp lý đàng hoàng (Chuẩn SOC 2).
+        \item \textbf{Bong bóng dữ liệu:} Dữ liệu nội bộ bị cô lập hoàn toàn, không bao giờ bị sử dụng để huấn luyện ngược lại cho mô hình AI cộng đồng.
+    \end{itemize}
+\end{frame}
+
+% Slide 37
+\begin{frame}{Chiến lược Phòng thủ Nội bộ}
+    \begin{itemize}
+        \item Luôn \textbf{Mã hóa} (Encrypt) hoặc làm mờ dữ liệu nhạy cảm (Tên khách hàng, mã số thẻ) trước khi nạp vào AI.
+        \item Thực hiện các vòng \textbf{Kiểm toán Hệ thống liên tục} để dò tìm lỗ hổng rò rỉ.
+    \end{itemize}
+\end{frame}
+
+% Slide 38
+\begin{frame}{Quy tắc Vàng: Human-in-the-Loop (HITL)}
+    \begin{itemize}
+        \item Con người trong vòng lặp - Không bao giờ để máy tự làm 100\%.
+        \item KHÔNG BAO GIỜ cấp quyền cho AI tự động chốt hạ các quyết định tài chính trọng yếu.
+        \item AI chỉ đóng vai trò rà soát, đề xuất và tạo bản nháp.
+        \item Mọi luồng tiền đi, mọi báo cáo thuế gửi ra ngoài phải qua cửa \textbf{Kiểm duyệt cuối cùng của con người}.
+    \end{itemize}
+\end{frame}
+
+
+% ==========================================
+\section{Tương lai Kiểm toán Liên tục \& Tổng kết}
+% ==========================================
+\begin{frame}
+    \tableofcontents[currentsection]
+\end{frame}
+
+% Slide 40
+\begin{frame}{Cẩm nang Sinh tồn}
+    \begin{itemize}
+        \item Những kiến thức trên không phải là lý thuyết viển vông của 10 năm sau.
+        \item Nó là \textbf{Cẩm nang sinh tồn} hiện tại.
+        \item Nắm bắt AI ngay lúc này không còn là lựa chọn, mà là \textit{lợi thế cạnh tranh quyết định} ai sẽ dẫn dắt thị trường, ai sẽ bị đào thải.
+    \end{itemize}
+\end{frame}
+
+% Slide 41
+\begin{frame}{Sự Định nghĩa Lại Nghề Kế toán}
+    \begin{itemize}
+        \item Kế toán viên không còn là "thợ ghi chép".
+        \item Nhờ năng lực xử lý khổng lồ của LLMs, kế toán viên chính thức lột xác thành \textbf{Đối tác Chiến lược (Business Partner)}.
+    \end{itemize}
+\end{frame}
+
+% Slide 42
+\begin{frame}{Chân trời mới: Kiểm toán Liên tục (Continuous Auditing)}
+    \begin{itemize}
+        \item Hiện nay: Chúng ta dự báo rủi ro theo chu kỳ (hàng tháng, hàng quý).
+        \item \textbf{Tương lai cực gần:} AI âm thầm bám sát từng giao dịch đơn lẻ ngay tại mốc \textbf{1/1000 giây} sau khi nhấn nút gửi.
+        \item Hệ thống tự động rà soát, tự bắt lỗi Real-time!
+    \end{itemize}
+\end{frame}
+
+% Slide 43
+\begin{frame}{Hệ thống Tài chính Tự chữa lành (Self-healing)}
+    \begin{itemize}
+        \item Những vụ đại án gian lận tài chính tỷ USD...
+        \item Sẽ bị AI bóp nghẹt ngay từ trong trứng nước.
+        \item Kịp thời ngăn chặn trước khi đồng tiền bẩn kịp nhảy khỏi tài khoản!
+        \item Kế toán/Kiểm toán viên không biến mất, họ đứng trên đài quan sát để điều khiển toàn bộ mạng lưới tự chữa lành đó.
+    \end{itemize}
+\end{frame}
+
+% Slide 44
+\begin{frame}{Tổng kết Buổi học}
+    \begin{itemize}
+        \item \textbf{GenAI \& Tương lai:} Từ kính chiếu hậu mù mịt sang hệ thống Radar dự báo thời gian thực.
+        \item \textbf{GPT Store \& RAG:} Tự xây dựng cộng sự AI nội bộ mà không cần viết code, chống ảo giác bằng tài liệu chuẩn.
+        \item \textbf{Tư duy Phản biện \& HITL:} Rào cản sinh tử để bảo vệ doanh nghiệp trước rủi ro bảo mật và AI ảo giác.
+        \item \textbf{Kiểm toán liên tục:} Kỷ nguyên của những hệ thống tự bắt lỗi 1/1000 giây.
+    \end{itemize}
+\end{frame}
+
+% Slide 45
+\begin{frame}{Hỏi đáp (Q\&A)}
+    \begin{center}
+        \Large \textbf{Cảm ơn các bạn đã lắng nghe!}\\
+        \vspace{1cm}
+        Bạn có câu hỏi nào về Custom GPTs, RAG, Ảo giác AI hay cơ chế bảo mật Enterprise không?
+    \end{center}
+\end{frame}
+
+\end{document}
+"""
+    tex_path = os.path.join("TaiLieu", "slideAIAcc", "Slide_AIAcc_Day12.tex")
+    os.makedirs(os.path.dirname(tex_path), exist_ok=True)
+    with open(tex_path, 'w', encoding='utf-8') as f:
+        f.write(content)
+        
+    print(f"Generated {tex_path} successfully.")
+
+if __name__ == '__main__':
+    create_beamer_day12()

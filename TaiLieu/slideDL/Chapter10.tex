@@ -1,0 +1,271 @@
+\documentclass[aspectratio=169]{beamer}
+\usetheme{Madrid}
+\usecolortheme{default}
+\usepackage[utf8]{inputenc}
+\usepackage[T5]{fontenc}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{amsmath}
+
+\setbeamertemplate{caption}[numbered]
+\renewcommand{\figurename}{Hình}
+\renewcommand{\thefigure}{10.\arabic{figure}}
+
+\title[Chương 10: Trực quan hóa ConvNets]{Học Sâu (Deep Learning) \\ \vspace{0.5cm} \Large Chương 10: Diễn dịch và Trực quan hóa Mạng Tích chập \\ (Interpreting what ConvNets learn)}
+\author{Đại học Đông Á}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame}{Nội dung chương}
+    \tableofcontents
+\end{frame}
+
+\section{1. Vấn đề "Hộp Đen" trong Deep Learning}
+
+\begin{frame}{Deep Learning có phải là Hộp Đen (Black Box)?}
+    \begin{itemize}
+        \item Định kiến phổ biến cho rằng Mạng nơ-ron là những chiếc "Hộp đen", không thể giải thích được lý do nó đưa ra quyết định.
+        \item Khả năng diễn dịch (\textbf{Interpretability}) là yêu cầu bắt buộc trong các lĩnh vực rủi ro cao:
+        \begin{itemize}
+            \item \textbf{Y tế:} "Tại sao AI lại chẩn đoán bệnh nhân này bị ung thư?"
+            \item \textbf{Xe tự lái:} "Tại sao AI lại không nhận ra chiếc xe tải phía trước?"
+        \end{itemize}
+        \item Thực tế: Định kiến "Hộp đen" \textbf{KHÔNG} đúng với Mạng Tích chập (ConvNets).
+        \item ConvNets học các biểu diễn hình ảnh không gian 2D, do đó chúng ta có thể \textbf{trực quan hóa} những gì nó đang "nhìn" thấy bằng 3 kỹ thuật cốt lõi.
+    \end{itemize}
+\end{frame}
+
+\section{2. Trực quan hóa Biểu diễn Trung gian}
+
+\begin{frame}{Kỹ thuật 1: Trực quan hóa Bản đồ Đặc trưng (Feature Maps)}
+    \begin{itemize}
+        \item \textbf{Mục tiêu:} Hiểu cách các lớp Tích chập liên tiếp (Successive Layers) biến đổi và bóc tách một hình ảnh đầu vào.
+        \item \textbf{Khái niệm Kích hoạt (Activations):} Đầu ra của một lớp Tích chập (bao gồm cả chiều không gian và số kênh) được gọi là Activation.
+        \item Mỗi kênh (Channel) trong bản đồ đặc trưng hoạt động như một bộ dò mẫu (Pattern Detector) tương đối độc lập. Do đó ta sẽ xuất hình ảnh của từng Kênh ra màn hình để phân tích.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Ví dụ Đầu vào}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Ta đưa một bức ảnh con mèo (hoàn toàn mới, không có trong tập huấn luyện) vào một mạng CNN đã được train.
+            \item Hãy xem cách các lớp Tích chập phản ứng (Activate) với bức ảnh này.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.7\textheight,keepaspectratio]{../../images/ch10/cat.135f6a4b.png}
+            \caption{Hình ảnh con mèo thử nghiệm}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Kích hoạt của các Bộ lọc Đơn lẻ (Single Filter)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Quan sát một kênh ở \textbf{Lớp đầu tiên} của mô hình.
+            \item Lớp này giữ lại gần như toàn bộ thông tin không gian chi tiết của con mèo.
+            \item Bộ lọc này đang hoạt động như một công cụ \textbf{Dò tìm Cạnh (Edge Detector)}, đặc biệt phản ứng mạnh với đôi tai mèo và mắt mèo.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.7\textheight,keepaspectratio]{../../images/ch10/single_filter.8d2772d6.png}
+            \caption{Đặc trưng Kênh số 4 (Lớp Conv đầu tiên)}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Kích hoạt Kênh đặc biệt (Mắt mèo)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Một kênh khác ở cùng lớp đầu tiên lại có nhiệm vụ khác.
+            \item Kênh số 5 này đặc biệt nhạy cảm với những \textbf{đốm sáng hình tròn} (như con ngươi của mắt mèo) và bỏ qua hầu hết các thông tin về lông hoặc cạnh tai.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.7\textheight,keepaspectratio]{../../images/ch10/fifth_activation.3dac2691.png}
+            \caption{Đặc trưng Kênh số 5 (Bắt dính Mắt mèo)}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Trực quan hóa Toàn bộ Các Lớp Sâu (Deep Layers)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Khi tiến sâu hơn vào mạng, các bản đồ đặc trưng trở nên \textbf{thưa thớt (Sparse)} và \textbf{trừu tượng (Abstract)}.
+            \item Chúng không còn chứa hình dáng vật lý của con mèo nữa, mà chuyển sang lưu giữ các Khái niệm (Ví dụ: "Có tai mèo trong vùng không gian này hay không?").
+            \item Các ô trống đen xì nghĩa là bộ lọc đó hoàn toàn không tìm thấy mẫu mà nó cần.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{../../images/ch10/all_activations.7a8d82cd.png}
+            \caption{Kích hoạt của toàn bộ các tầng trong mô hình}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\section{3. Trực quan hóa Bộ lọc bằng Gradient Ascent}
+
+\begin{frame}{Kỹ thuật 2: Gradient Ascent trên Không gian Ảnh}
+    \begin{itemize}
+        \item \textbf{Mục tiêu:} Thay vì xem Bộ lọc phản ứng với ảnh thật như thế nào, ta hãy \textbf{tự tạo ra một bức ảnh ảo} (từ mảng nhiễu trắng ngẫu nhiên) sao cho Bộ lọc đó phản ứng cực đại.
+        \item Bức ảnh ảo sinh ra chính là hiện thân cho "Mẫu lý tưởng" mà Bộ lọc đó đang khát khao tìm kiếm.
+        \item Đây là thuật toán \textbf{Gradient Ascent (Leo đồi Gradient)}.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Toán học của Gradient Ascent trên Pixel}
+    Trong huấn luyện thông thường (Gradient Descent): Cập nhật Trọng số (Weights) để giảm thiểu Loss.
+    \begin{equation}
+        W_{new} = W_{old} - \alpha \cdot \nabla_W L(W)
+    \end{equation}
+    
+    Trong Trực quan hóa Bộ lọc (Gradient Ascent): Cố định Trọng số, \textbf{Cập nhật Pixel ảnh ($X$)} để tối đa hóa Kích hoạt của Bộ lọc (Activation $A$).
+    \begin{equation}
+        X_{new} = X_{old} + \alpha \cdot \nabla_X A(X)
+    \end{equation}
+    
+    Ta tính Đạo hàm của Đầu ra Bộ lọc theo Đầu vào Ảnh, sau đó cộng thêm đạo hàm đó vào Ảnh để làm nó rõ nét hơn.
+\end{frame}
+
+\begin{frame}{Quần thể các Mẫu Đặc trưng lý tưởng}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Kết quả của Gradient Ascent là những họa tiết kỳ ảo giống như ảo giác (Psychedelic).
+            \item Các lớp nông (Shallow): Học màu sắc, vân gỗ, sóng nước.
+            \item Các lớp giữa (Middle): Học kết cấu phức tạp hơn (chấm bi, sọc vằn, mạng nhện).
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{../../images/ch10/allfilters.8d050d97.png}
+            \caption{64 bộ lọc ở các tầng sâu khác nhau}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Lớp Sâu - Các Khái niệm Đời thực}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Đối với các khối ở cực sâu (như \texttt{block5\_conv1} của VGG16), các họa tiết bắt đầu mang hình thù của vật thể thực.
+            \item Chẳng hạn, bộ lọc này tổng hợp nên họa tiết hình elip đan chéo, rất giống nan hoa xe đạp (Bicycles) hoặc vảy bò sát.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.7\textheight,keepaspectratio]{../../images/ch10/bicycles.c7a8501c.png}
+            \caption{Họa tiết bộ lọc siêu sâu (Xe đạp / Vảy)}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\section{4. Bản đồ Kích hoạt Lớp (Grad-CAM)}
+
+\begin{frame}{Kỹ thuật 3: Class Activation Map (CAM)}
+    \begin{itemize}
+        \item \textbf{Mục tiêu:} Trả lời câu hỏi "Phần nào của bức ảnh đã khiến Mạng CNN đưa ra quyết định phân loại này?".
+        \item Rất hữu ích cho \textbf{Phân tích lỗi (Error Analysis)} (Tại sao nhận diện sai?) và \textbf{Khám phá Y khoa} (Chỉ ra khối u nằm ở đâu trên ảnh X-Quang).
+        \item Phương pháp SOTA (State-of-the-art) là \textbf{Grad-CAM} (Gradient-weighted Class Activation Mapping).
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Toán học của Grad-CAM}
+    \begin{enumerate}
+        \item Tính Đạo hàm của xác suất Lớp dự đoán (Vd: African elephant $y^c$) theo toàn bộ Bản đồ đặc trưng (Feature Maps $A^k$) ở Lớp Tích chập \textbf{cuối cùng}.
+        \item Lấy Trung bình không gian (Global Average Pooling) của Đạo hàm này để ra Trọng số độ quan trọng $\alpha_k^c$ của Kênh $k$:
+        \begin{equation}
+            \alpha_k^c = \frac{1}{Z} \sum_i \sum_j \frac{\partial y^c}{\partial A_{i,j}^k}
+        \end{equation}
+        \item Nhân chập Trọng số với Feature Maps tương ứng, rồi bọc qua hàm ReLU (chỉ lấy phần dương - Positive influence):
+        \begin{equation}
+            L_{\text{Grad-CAM}}^c = \text{ReLU} \left( \sum_k \alpha_k^c A^k \right)
+        \end{equation}
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}{Đầu vào bài toán Phân tích Lỗi}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Ta đưa bức ảnh chụp hai con Voi châu Phi và con cái của chúng vào mô hình VGG16.
+            \item VGG16 dự đoán: Voi châu Phi (African elephant) với xác suất cực cao.
+            \item Câu hỏi: Nó nhìn vào Voi mẹ hay Voi con để ra quyết định?
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.7\textheight,keepaspectratio]{../../images/ch10/elephant.6abc731a.jpg}
+            \caption{Ảnh Voi châu Phi đầu vào}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Bản đồ Nhiệt (Heatmap) Grad-CAM}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Áp dụng công thức Grad-CAM ở lớp \texttt{block5\_conv3} của VGG16.
+            \item Kết quả là một mảng Numpy 2D. Điểm có giá trị càng cao (Vùng sáng) thì càng tác động lớn đến quyết định "Đây là con voi".
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.7\textheight,keepaspectratio]{../../images/ch10/cam.b66fff28.png}
+            \caption{Bản đồ nhiệt Grad-CAM}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Bản đồ Nhiệt Chồng chập (Superimposed Heatmap)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Dùng OpenCV để chồng bản đồ nhiệt lên ảnh gốc, chuyển sang phổ màu JET.
+            \item \textbf{Kết luận đột phá:} Vùng đỏ rực tập trung chính xác vào \textbf{Đôi tai} của Voi con. Tai là đặc điểm sinh học định danh duy nhất phân biệt Voi châu Phi và Voi Ấn Độ.
+            \item Mạng VGG16 hoàn toàn không bị ngốc! Nó đã học đúng đặc điểm nhận dạng cốt lõi!
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.7\textheight,keepaspectratio]{../../images/ch10/elephant_cam.73b7f8e0.jpg}
+            \caption{Bản đồ Grad-CAM hiển thị tai Voi con}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\section{Tổng kết}
+
+\begin{frame}{Tổng kết Chương 10}
+    \begin{itemize}
+        \item Mạng Tích chập \textbf{KHÔNG} phải là Hộp đen. Ta có thể "Nội soi" chúng dễ dàng.
+        \item \textbf{Intermediate Activations:} Phân tích tính trừu tượng tăng dần của Feature Maps.
+        \item \textbf{Filter Visualization (Gradient Ascent):} Đạo hàm ngược lên Pixel ảnh để tìm hiểu xem mỗi Bộ lọc yêu thích mẫu họa tiết (Pattern) nào nhất.
+        \item \textbf{Grad-CAM (Bản đồ Kích hoạt Lớp):} Truy vết Đạo hàm của Lớp để xác định vùng Đóng góp lớn nhất, tạo thành công cụ đắc lực cho Phân tích lỗi và Diễn dịch mô hình.
+    \end{itemize}
+\end{frame}
+
+\end{document}

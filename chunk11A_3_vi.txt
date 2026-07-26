@@ -1,0 +1,664 @@
+để giúp trả lời nhiều câu hỏi kinh doanh quan trọng. Nhớ lại lời nói mở đầu chương
+hiểu biết chuyên sâu mà Josh cần sử dụng để sắp xếp lại bảng tính với 450.000 hàng dữ liệu. 
+Josh khó có thể phân tích dữ liệu bảng tính một cách hiệu quả nếu không có bảng tổng hợp.
+Các ví dụ ở đây sử dụng Microsoft Excel để minh họa cách tạo và lọc một trục
+cái bàn. (Lưu ý rằng các bảng tổng hợp được tạo trong phần mềm này thường được gắn nhãn là PivotTable.) 
+Mặc dù phần trình diễn sử dụng Excel PivotTable nhưng những kỹ thuật này cũng được sử dụng trong các 
+phần mềm phân tích dữ liệu. Ví dụ: chúng rất hữu ích khi tạo hình ảnh trực quan. Dù thế nào đi nữa 
+công cụ phân tích dữ liệu bạn sử dụng, hiểu chức năng cơ bản của việc tạo các bảng tổng hợp hữu ích 
+và cách lọc chúng là điều cần thiết.
+Sử dụng bảng tổng hợp
+Vừa mạnh mẽ vừa dễ sử dụng, bảng tổng hợp cũng là một trong những công cụ phổ biến nhất mà bạn sẽ sử dụng 
+trong sự nghiệp kế toán của bạn. Nó có năm thành phần chính:
+	 1. Trường: Các thành phần dữ liệu có sẵn để sử dụng trong bảng tổng hợp. 
+	 2. Cột: Khi một trường được chọn cho vùng cột, chỉ các giá trị duy nhất của trường 
+được liệt kê ở trên cùng.
+	 3. Hàng: Khi một trường được chọn cho vùng hàng, trường đó sẽ được điền làm cột đầu tiên. Tất cả hàng 
+giá trị là giá trị duy nhất và các giá trị trùng lặp sẽ bị loại bỏ.
+	 4. Giá trị: Mỗi giá trị được giữ trong một ô của bảng tổng hợp và hiển thị thông tin tóm tắt. 
+Ví dụ như tổng, trung bình hoặc đếm.
+	 5. Bộ lọc: Áp dụng hạn chế cho toàn bộ bảng.
+Khi bạn biết những điều cơ bản về tạo bảng tổng hợp trong Microsoft Excel, bạn có thể sử dụng công cụ này để 
+giải đáp thắc mắc kế toán.
+Tạo một PivotTable Microsoft Excel
+Thực hiện theo các bước sau:
+	 1. Mở bảng tính có dữ liệu cần tóm tắt.
+	 2. Nhấp vào bất kỳ ô nào trong dữ liệu (ô đầu tiên ở hàng A trong Hình minh họa 2.17).
+	 3. Nhấp vào tùy chọn Chèn trên dải băng menu trên cùng.
+	 4. Tùy chọn hộp nhập PivotTable sẽ xuất hiện ở phía trên bên trái màn hình (Minh họa 2.17).
+
+2-14
+CHƯƠNG 2 Kỹ năng phân tích dữ liệu cơ bản
+Tự động Lưu
+Bảng
+Bàn
+ngoại hối
+A2
+1
+B
+A
+D
+E
+F
+2
+3
+4
+5
+6
+7
+8
+ID thẻ nội dung
+Mô tả tài sản
+C
+ID danh mục
+15
+15
+15
+15
+1
+6
+1
+Danh mục
+Số tiền
+28.628,01 USD
+$ 28.344,00
+$ 33,573,00
+$13,720.00
+13.552,65 USD
+$17,068.00
+$7,826.00
+Ngày mua lại 
+Trang 1
+Biểu tượng
++
+Khuyến nghị-
+sửa chữa
+Biểu đồ
+Hình ảnh
+Hình dạng
+Mô hình 3D
+Minh họa
+SmartArt
+Ảnh chụp màn hình
+Nhận phần bổ trợ
+Tiện ích bổ sung của tôi
+Phần bổ trợ
+Biểu đồ
+Xoay bản đồ
+Biểu đồ
+Đường lấp lánh
+Cột Dòng Thắng/
+Mất mát
+3D
+Bản đồ
+Chuyến tham quan
+tập tin
+Trang chủ
+Chèn
+Bố cục trang
+Công thức
+dữ liệu
+Xem lại
+Xem
+Nhà phát triển
+Trợ giúp
+Power Pivot
+Tab mới
+U000009
+Khuyến nghị-
+sửa chữa
+PivotTable
+Bảng
+Biểu tượng
++
+Khuyến nghị-
+sửa chữa
+Biểu đồ
+Hình ảnh
+Hình dạng
+Mô hình 3D
+Minh họa
+SmartArt
+Ảnh chụp màn hình
+Nhận phần bổ trợ
+Tiện ích bổ sung của tôi
+Phần bổ trợ
+Biểu đồ
+Xoay bản đồ
+Biểu đồ
+Đường lấp lánh
+Cột Dòng Thắng/
+Mất mát
+3D
+Bản đồ
+Chuyến tham quan
+Khuyến nghị-
+sửa chữa
+PivotTable
+Xoay vòng
+Bảng
+Thiết bị thí nghiệm
+Thiết bị thí nghiệm
+Thiết bị thí nghiệm
+Máy móc nông nghiệp và nông nghiệp
+Máy móc nông nghiệp và nông nghiệp
+Thiết bị liên lạc, nghe nhìn, báo động và tín hiệu
+Thiết bị thí nghiệm
+Máy bơm
+Máy bơm
+Bonder
+Hệ thống thủy lợi
+khoan
+Máy quay video
+Hệ thống siêu âm
+U000010
+U000015
+U000016
+U000018
+U000020
+U000022
+U000009
+4/9/2015
+13/9/2015
+1/10/2015
+29/10/2015
+9/9/2015
+24/9/2015
+9/9/2015
+4
+2
+3
+  MINH HỌA 2.17 
+ Bảng tính Excel dữ liệu tài sản của trường đại học 
+Khi tùy chọn này được chọn, một hộp thoại mới sẽ mở ra có tên PivotTable từ bảng hoặc 
+phạm vi ( Minh họa 2.18 ). 
+  5. Đảm bảo Bảng/Phạm vi trong hộp Chọn bảng hoặc phạm vi phản ánh tất cả dữ liệu cần thiết. 
+được bao gồm. (Hãy nhớ bao gồm các tiêu đề cột.) Chọn Bảng tính mới và 
+nhấn OK (Minh họa 2.18). 
+PivotTable từ bảng hoặc phạm vi
+Bảng/Phạm vi:
+Chọn một bảng hoặc dải ô
+?
+Hủy bỏ
+được rồi
+Bảng tính mới
+Bảng tính hiện có
+Vị trí:
+‘Dữ liệu kiểm kê của trường đại học’!$A$1:$F$13127
+Chọn nơi bạn muốn đặt báo cáo PivotTable
+Chọn xem bạn có muốn phân tích nhiều bảng không
+Thêm dữ liệu này vào Mô hình Dữ liệu
+5
+  MINH HỌA 2.18 Hộp thoại Tạo PivotTable trong Excel 
+  6. Thao tác này sẽ mở một bảng tính mới. Một khung vẽ PivotTable trống sẽ xuất hiện ở bên trái và 
+ Hộp Trường PivotTable tạo PivotTable sẽ ở bên phải (Hình minh họa 2.19).
+
+2.3  Chúng tôi tổ chức các tập dữ liệu để phân tích như thế nào? 
+2-15
+ngoại hối
+1
+A
+B
+C
+D
+E
+Xoay Q1 & Q2
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+Tự động Lưu
+Oﬀ
+Trường PivotTable
+Chọn các trường để thêm vào báo cáo:
+ID thẻ nội dung
+Mô tả tài sản
+ID danh mục
+Danh mục
+Số tiền
+Ngày mua lại
+Khu
+Năm
+Thêm bàn..
+Kéo các trường giữa các khu vực bên dưới:
+Bộ lọc
+Cột
+Tìm kiếm
+Hàng
+Trì hoãn cập nhật bố cục
+Giá trị
+∑
+cập nhật
+PivotTable1
+Để xây dựng một báo cáo, hãy chọn các trường
+từ Danh sách trường PivotTable
+1
+2
+6
+MINH HỌA 2.19 
+Canvas PivotTable trống
+Sử dụng hộp Trường PivotTable để chọn nội dung sẽ xuất hiện trong PivotTable. Kéo cột 
+đặt tên cho hàng, cột, giá trị hoặc bộ lọc.
+Dữ liệu   Hãy sử dụng PivotTable để trả lời các câu hỏi về dữ liệu về dữ liệu tài sản của trường đại học. Nếu 
+bạn đang xác minh tổng chi phí cho từng loại tài sản, bạn có thể muốn trả lời câu hỏi 
+những câu hỏi sau:
+• Câu 1: Tổng số dư tài sản theo từng loại là bao nhiêu?
+• Câu hỏi 2: Tổng số tài sản ở mỗi loại là bao nhiêu?
+Tìm Tổng số dư theo Danh mục
+Trả lời câu hỏi đầu tiên bằng cách tìm tổng số dư theo danh mục.
+	 1. Kéo Danh mục vào khu vực Hàng.
+	 2. Kéo Số tiền vào vùng Giá trị. Sau đó, các giá trị Σ trong Cột sẽ được tự động tạo ra
+được xử lý bằng Excel.
+	 3. Excel sẽ điền các giá trị cho từng danh mục vào cột thứ hai của bảng tính.
+
+2-16 
+CHƯƠNG 2  Kỹ năng phân tích dữ liệu cơ bản
+Hình minh họa 2.20 hiển thị kết quả PivotTable.
+Câu hỏi 1
+Nhãn hàng
+Máy móc nông nghiệp và nông nghiệp
+$ 3,838,203,58
+129.924,35 USD
+1.047.971,77 USD
+$ 2,458,319,00
+4.242.923,45 USD
+1.210.703,93 USD
+3.060.781,37 USD
+2.287.996,49 USD
+2.449.781,57 USD
+1.270.121,50 USD
+6.467.000,41 USD
+Tổng cộng
+$ 225.069.282,74
+1.587.495,45 USD
+$ 1.865.573,30
+43.294.238,92 USD
+147.343.867,13 USD
+$18,033.00
+$51,825.00
+$90,332.00
+$47,239.00
+$88,248.00
+530.673,88 USD
+278.233,02 USD
+650.212,23 USD
+146.953,15 USD
+102.458,55 USD
+$ 279.665,97
+230.506,72 USD
+Thiết bị nghệ thuật
+Thiết bị thể thao và giải trí
+Thuyền, động cơ thuyền và thiết bị hàng hải
+Thiết bị vệ sinh và bảo trì
+Thiết bị liên lạc, nghe nhìn, báo động và tín hiệu
+Thiết bị máy tính
+Thiết bị vẽ và khảo sát
+Thiết Bị Điện
+Thiết bị điện tử
+Thiết bị chuẩn bị và phục vụ thực phẩm
+Nội Thất Và Nội Thất
+Dụng cụ cầm tay và điện (Di động)
+Thiết bị công nghiệp, cửa hàng và xây dựng
+Thiết bị thí nghiệm
+Thiết bị xử lý vật liệu
+Thiết bị y tế
+Thiết bị khác
+Phương tiện cơ giới và thiết bị vận tải
+Nhạc cụ
+Máy văn phòng và kinh doanh và vật tư không tiêu hao
+Thiết bị kiểm soát đỗ xe
+Thiết bị chụp ảnh
+Thiết bị cấp nước, sưởi ấm, điều hòa không khí và thông gió
+Thiết bị cảnh sát, chữa cháy và an toàn
+Thiết bị in ấn và đóng sách
+Thiết bị điện lạnh
+Tổng số tiền
+3
+MINH HỌA 2.20  Excel PivotTable cho Câu hỏi 1: Tổng số dư là gì  
+theo danh mục?
+MINH HỌA 2.21  Hộp thoại Cài đặt Trường Giá trị PivotTable trong Excel
+Kéo các trường giữa
+được rồi
+Hủy bỏ
+Cài đặt trường giá trị
+Bộ lọc
+Hàng
+Di chuyển lên
+Di chuyển xuống
+Di chuyển đến cuối
+Chuyển đến phần đầu 
+Di chuyển đến Bộ lọc Báo cáo
+Di chuyển đến nhãn hàng
+Di chuyển đến nhãn cột
+Di chuyển đến giá trị
+∑
+Xóa trường
+Cài đặt trường giá trị...
+Tên nguồn: AssetTagID
+Tên tùy chỉnh:
+Tóm tắt các giá trị theo
+Chọn loại phép tính mà bạn muốn sử dụng để tóm tắt dữ liệu
+trường đã chọn
+Tổng
+trung bình
+Tối đa
+tối thiểu
+sản phẩm
+Định dạng số
+Tóm tắt trường giá trị bằng
+?
+Số lượng AssetTagID
+Đếm
+Hiển thị giá trị dưới dạng
+tôi
+Danh mục
+Trì hoãn cập nhật bố cục
+Số lượng tài sản_T...
+cập nhật
+4
+	 4. Excel sẽ mặc định tính tổng của giá trị. Loại phép đo có thể được thay đổi bằng cách 
+nhấp vào mũi tên xuống trong trường Tổng số tiền và chọn số đo mong muốn 
+(Minh họa 2.21).
+
+2.3  Chúng tôi tổ chức các tập dữ liệu để phân tích như thế nào? 
+2-17
+Một tính năng hữu ích khác của hộp thoại Cài đặt Trường Giá trị là khả năng thay đổi số-
+định dạng ber trong PivotTable. (  Cách thực hiện dữ liệu 2.1 ở cuối chương này giải thích về Hiển thị 
+Khả năng định giá bằng các tính toán dựng sẵn.)
+Xác định tổng số tài sản
+Để xác định tổng số tài sản trong mỗi danh mục (Câu hỏi 2), hãy sử dụng hàm Excel đầu tiên 
+PivotTable:
+	 1. Kéo AssetTagID vào vùng Giá trị.
+	 2. Nhấp vào mũi tên xuống, chọn Cài đặt trường giá trị và chọn Đếm.
+	
+	 Dữ liệu có thể được tóm tắt bằng một số tính toán khác nhau. Câu hỏi hỏi về 
+số lượng nội dung cho mỗi danh mục, vì vậy hãy chọn Đếm.
+	 3. Excel điền vào cột bảng tiếp theo số lượng theo danh mục tài sản.
+Kết quả được thể hiện ở hình minh họa 2.22.
+Câu hỏi 1
+Câu hỏi 2
+Trường PivotTable
+Nhãn hàng
+Số lượng AssetTagID
+Máy móc nông nghiệp và nông nghiệp
+$ 3,838,203,58
+171
+Chọn các trường để thêm vào báo cáo
+ID thẻ nội dung
+Mô tả tài sản
+ID danh mục
+Danh mục
+Danh mục
+Số tiền
+Ngày mua lại
+Khu
+Năm
+Thêm bàn..
+Kéo các trường giữa các khu vực bên dưới:
+Bộ lọc
+Cột
+7
+80
+37
+182
+271
+2543
+2
+5
+29
+112
+185
+5
+154
+8057
+47
+113
+4
+75
+7
+83
+12
+143
+17
+12
+19
+754
+129.924,35 USD
+1.047.971,77 USD
+ $ 2,458,319,00
+4.242.923,45 USD
+1.210.703,93 USD
+3.060.781,37 USD
+2.287.996,49 USD
+2.449.781,57 USD
+1.270.121,50 USD
+6.467.000,41 USD
+Tổng cộng
+$ 225.069.282,74
+13126
+1.587.495,45 USD
+$ 1.865.573,30
+43.294.238,92 USD
+147.343.867,13 USD
+$18,033.00
+$51,825.00
+$90,332.00
+$47,239.00
+$88,248.00
+530.673,88 USD
+278.233,02 USD
+650.212,23 USD
+146.953,15 USD
+102.458,55 USD
+$ 279.665,97
+230.506,72 USD
+Thiết bị nghệ thuật
+Thiết bị thể thao và giải trí
+Thuyền, động cơ thuyền và thiết bị hàng hải
+Thiết bị vệ sinh và bảo trì
+Thông tin liên lạc, Nghe nhìn, Báo động,
+   và thiết bị tín hiệu
+Thiết bị máy tính
+Thiết bị vẽ và khảo sát
+Thiết Bị Điện
+Thiết bị điện tử
+Thiết bị chuẩn bị và phục vụ thực phẩm
+Nội Thất Và Nội Thất
+Dụng cụ cầm tay và điện (Di động)
+Thiết bị công nghiệp, cửa hàng và xây dựng
+Thiết bị thí nghiệm
+Thiết bị xử lý vật liệu
+Thiết bị y tế
+Thiết bị khác
+Phương tiện cơ giới và thiết bị vận tải
+Nhạc cụ
+Máy móc văn phòng và kinh doanh và
+   Vật tư không tiêu hao
+Thiết bị kiểm soát đỗ xe
+Thiết bị chụp ảnh
+Hệ thống nước, sưởi ấm, điều hòa không khí,
+   và thiết bị thông gió
+Thiết bị cảnh sát, chữa cháy và an toàn
+Thiết bị in ấn và đóng sách
+Thiết bị điện lạnh
+Tổng số tiền
+Tìm kiếm
+Hàng
+Trì hoãn cập nhật bố cục
+Giá trị
+∑
+Giá trị
+Tổng số tiền
+Số lượng AssetTagID 
+∑
+cập nhật
+2
+1
+3
+MINH HỌA 2.22  Bảng tổng hợp Excel cho câu hỏi 2: Tổng số tài sản trong mỗi danh mục là bao nhiêu?
+Làm cách nào để
+
+2-18 
+CHƯƠNG 2  Kỹ năng phân tích dữ liệu cơ bản
+Lọc bảng tổng hợp
+Một cách để tập trung vào một khía cạnh cụ thể của dữ liệu trong PivotTable là sử dụng bộ lọc. Áp dụng một 
+bộ lọc có nghĩa là chỉ những dữ liệu phù hợp với tiêu chí của nó mới được hiển thị. Có ba cách để lọc 
+trong Excel:
+• Áp dụng tiêu chí lọc cho vùng trường Lọc.
+• Sử dụng Bộ lọc Tự động trong trường Hàng của PivotTable.
+• Chèn một hoặc nhiều máy thái.
+Dữ liệu Trả lời câu hỏi dữ liệu nội dung thứ ba sẽ hiển thị từng tùy chọn lọc:
+Câu 3: Tổng số lượng mua hàng theo danh mục thực hiện trong năm 2022 là bao nhiêu?
+Áp dụng tiêu chí lọc cho hộp trường bộ lọc
+Để khám phá tổng số lượng mua hàng theo danh mục trong năm 2022, hãy tạo PivotTable 
+hiển thị tài sản được mua vào năm 2022 theo danh mục:
+	 1. Kéo Danh mục vào Hàng và kéo Số lượng vào Giá trị.
+	 2. Trọng tâm là tài sản được mua vào năm 2022, vì vậy hãy đưa Năm vào khu vực Bộ lọc.
+	 3. Từ Năm ở cột đầu tiên và từ ALL ở cột thứ hai bây giờ sẽ 
+xuất hiện ở đầu PivotTable.
+	 4. Nhấp vào mũi tên xuống bên cạnh TẤT CẢ kết quả trong hộp thả xuống để chọn năm cần lọc 
+(Minh họa 2.23).
+Tổng số tiền
+Câu hỏi 1
+Nhãn hàng
+Năm
+Máy móc nông nghiệp và nông nghiệp
+Tổng cộng
+Thiết bị thể thao và giải trí
+Thuyền, động cơ thuyền và thiết bị hàng hải
+Thiết bị liên lạc, nghe nhìn, báo động và tín hiệu
+Thiết bị máy tính
+Thiết bị chuẩn bị và phục vụ thực phẩm
+Nội Thất Và Nội Thất
+Dụng cụ cầm tay và điện (Di động)
+Thiết bị công nghiệp, cửa hàng và xây dựng
+Thiết bị thí nghiệm
+Thiết bị xử lý vật liệu
+Thiết bị y tế
+Thiết bị khác
+Phương tiện cơ giới và thiết bị vận tải
+Máy văn phòng và kinh doanh và vật tư không tiêu hao
+Thiết bị kiểm soát đỗ xe
+Thiết bị in ấn và đóng sách
+Thiết bị điện lạnh
+TẤT CẢ
+$258.409.17
+188.366,29 USD
+389.043,31 USD
+20.869.919,66 USD
+103.113,50 USD
+$8,045.00
+$89,889.00
+$ 23.274,20
+2016
+2017
+2018
+2019
+2020
+2021
+2022
+2023
+2024
+Chọn nhiều mục
+được rồi
+Hủy bỏ
+Tìm kiếm
+Kéo các trường giữa các khu vực bên dưới:
+Bộ lọc
+Cột
+Năm
+Danh mục
+Tổng số tiền
+Hàng
+Giá trị
+∑
+Trì hoãn cập nhật bố cục
+cập nhật
+Thiết bị vệ sinh và bảo trì
+2
+1
+3
+3
+4
+MINH HỌA 2.23  Cách lọc trong PivotTable Excel
+Hình minh họa 2.24 cho thấy kết quả lọc tài sản được mua vào năm 2022.
+
+2.3  Chúng tôi tổ chức các tập dữ liệu để phân tích như thế nào? 
+2-19
+MINH HỌA 2.24  PivotTable 
+Trả lời câu hỏi 3: Thế nào là 
+Tổng nguyên giá tài sản mua vào 
+2022?
+Tổng số tiền
+Nhãn hàng
+Năm
+Máy móc nông nghiệp và nông nghiệp
+Tổng cộng
+Thiết bị thể thao và giải trí
+Thuyền, động cơ thuyền và thiết bị hàng hải
+Thiết bị vệ sinh và bảo trì
+Thiết bị liên lạc, nghe nhìn, báo động và tín hiệu
+Thiết bị máy tính
+Thiết bị chuẩn bị và phục vụ thực phẩm
+Nội Thất Và Nội Thất
+Dụng cụ cầm tay và điện (Di động)
+Thiết bị công nghiệp, cửa hàng và xây dựng
+Thiết bị thí nghiệm
+Thiết bị xử lý vật liệu
+Thiết bị y tế
+Thiết bị khác
+Phương tiện cơ giới và thiết bị vận tải
+Máy văn phòng và kinh doanh và vật tư không tiêu hao
+Thiết bị kiểm soát đỗ xe
+Thiết bị in ấn và đóng sách
+Thiết bị điện lạnh
+2022
+$258.409.17
+514.343,81 USD
+$ 144.999,00
+108.637,41 USD
+234.398,94 USD
+523.934,69 USD
+8.141.730,27 USD
+77.915,86 USD
+64.795,95 USD
+$ 49.665,00
+117.352,04 USD
+9.825.228,22 USD
+$6,778.00
+188.366,29 USD
+389.043,31 USD
+20.869.919,66 USD
+103.113,50 USD
+$8,045.00
+$89,889.00
+$ 23.274,20
+Tổng số tiền
+Sử dụng Bộ lọc tự động hàng
+Bộ lọc cũng có thể được tạo trong PivotTable Excel bằng chức năng Lọc tự động cho các hàng. trong 
+Trong ví dụ này, câu hỏi đặt ra là chi bao nhiêu cho thiết bị máy tính vào năm 2022.

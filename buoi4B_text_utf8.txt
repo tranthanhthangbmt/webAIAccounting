@@ -1,0 +1,750 @@
+10 FORECASTING THE FINANCIAL HEALTH OF A
+BUSINESS USING PENALIZED REGRESSION
+10.1 Financial Health of a Business
+10.2 Importance of Forecasting Financial Health of the Business
+10.2.1  The Influence of Borrowing on Financial Health
+10.2.2  Debt Ratio and Borrowing Ability
+10.3 Importance of Knowing Financial Health for Lenders
+10.3.1  Poor Financial Health: Bankruptcy
+10.4 Importance of Knowing a Business’ s Financial Health for Investors
+10.5 Forecasting Financial Health
+10.5.1  Financial Ratios
+10.6 Multicollinearity
+10.6.1  Testing for Multicollinearity
+10.7 Using Penalized Regression for Evaluating Financial Health
+10.7.1  Predicting Financial Health Using LASSO
+10.7.2  Business Insights and Other Applications
+10.8 Implementation Using R: Evaluating the Health of a Business
+10.9 Appendix: Glossary of Financial Terms
+10.10  Understanding the Chapter
+LEARNING OBJECTIVES
+1. Gauge the financial health of a business
+2. Understand the importance of bankruptcy forecasting for investors, lenders, and businesses
+3. Use penalized regression for forecasting financial health
+4. Determine multicollinearity and feature selection with LASSO
+10.1 FINANCIAL HEALTH OF A BUSINESS
+In any firm, the finance department serves the important functions of control, planning, decision-making,
+and ensuring regulatory compliance. The department provides a backward look at how the business
+performed by examining many financial reports, including balance sheets, income statements, and cash
+flow statements that indicate to the business where its strengths and weaknesses lie. It also provides an
+important forward look in the form of many forecasts, including cash flow forecasts, scenario planning,
+and sensitivity analysis. Forecasting (or prediction) models are very commonly used in finance to inform
+lenders, the business itself, and several dif ferent types of investors where they need to invest their
+resources in the coming time periods. These forecasts also consider credit ratings, market conditions,
+and the broader economic outlook. Where should a business invest? Should it increase prices or of fer
+promotions? Can it provide employee raises, or is it time to cut costs? Can it invest in a new location or
+a new product? Financial management provides an overall look at the financial health of a firm, helping
+in strategic decision-making across various departments. Therefore, financial forecasting helps provide
+business leadership with an overall picture to develop strategies that avoid decision-making silos. Such
+forecasting also helps lenders determine whether to of fer a loan and helps business borrowers
+determine how much they should borrow .
+10.2 IMPORTANCE OF FORECASTING FINANCIAL HEALTH OF
+THE BUSINESS
+Different entities in the firm need to determine the financial health of the business since it is a critical
+input in their decisions. Owners and management need to know how the business is performing its main
+functions to determine which areas need further investment versus which areas might need to be
+divested. Incorrect forecasts or erroneously ambitious ventures can result in resources running out and
+ventures having to be terminated midstream at great financial, organizational, and human cost. General
+Electric started more than 100 years ago as an electric and electronic product manufacturing company
+but was able to grow into many dif ferent areas—including GE Capital, a financial services branch.
+However , after the financial crisis of 2008, regulatory pressures, and the unprofitable acquisition of
+French transportation company Alstom’ s power business in 2015, GE had to divest its financial division
+after management determined that further investment in this division would be problematic for GE’ s
+other divisions.
+Employees also need to be aware of their organization’ s financial health for a variety of reasons.
+Knowledge of the company’ s financial standing helps in assessing job security and in making informed
+career planning decisions. Awareness of organizational finances also fosters motivation and can align
+individual objectives with the organization’ s goals. Transparent communication about financial health
+also nurtures an environment of trust, facilitating better understanding of management decisions,
+including those concerning incentives, compensation, and organizational changes.
+10.2.1 The Influence of Borrowing on Financial Health
+Determining financial health is important for a business so that it can understand whether it needs to
+borrow money , how much to borrow , and at what interest rate; it also needs to identify which areas are
+growth areas that merit further investment. Many businesses cannot operate without borrowing.
+Borrowing helps grow the business, but it also adds costs in terms of interest payments. The interest
+payable on debt provides a tax shield on the taxable amount. For instance, if the tax rate is 30% and the
+interest expense is $1,000, then a business receives a tax shield of $300 (interest expense × tax rate).
+In fact, trade-off theory  in finance suggests that there is a trade-of f between the tax shield provided by
+debt and the financial distress of not being able to repay the debt. If we avoid the extremes, trade-of f
+theory will predict that risky businesses focused on intangible assets, such as technology startups, will
+have less debt compared to businesses that own tangible assets such as hotels. Companies want to
+maintain an optimal debt ratio to ensure that lenders and investors don’t lose faith in them. Therefore,
+one way to assess the value of a business is to consider its market value as dependent on its equity and
+debt.
+Market value = Equity + tax shield from debt – cost of financial distress
+The trade-of f theory can be illustrated as shown in Figure 10.1 .
+Description
+Figure 10.1  Tax Shield Provided by Debt V ersus the Financial Distress
+10.2.2 Debt Ratio and Borrowing Ability
+As can be seen from Figure 10.1 , a business that operates just on equity and is not dependent on debt
+is not influenced either by the tax shield or by the chance of financial distress because of debt. It can
+face distress for other reasons but not because of its inability to pay back debt. Let’ s look at the curve
+and the straight line. The curve shows a leveraged business—that is, one that has taken a loan and
+owes a debt to its lenders. W e can see that initially , when the debt amount is low , the business gets a
+tax shield for the debt. Given the low debt, the business may not be facing a huge amount of debt
+servicing (i.e., paying back the principal and interest for each period of the loan). Please refer to Section
+10.9: Glossary of Financial Terms for definitions. If the business goes to the market to borrow , the
+lenders will use the debt ratio of the business to evaluate its financial health. A low debt ratio can help
+the business borrow at a lower rate of interest. This reduced interest can help it grow and do well, which
+in turn can increase its market value. The business can also borrow more. The more its debt increases,
+the more its tax shield will grow initially . Everything is fine as long as the tax shield is able to of fset the
+probability of financial distress because of the firm’ s debt servicing costs. However , the probability of
+financial distress becomes quite high when the debt servicing crosses a threshold where the tax shield
+is not able to match the level of borrowing. Borrowing beyond this point results in greater likelihood not
+only of financial distress but also of bankruptcy .
+Consider Sears, which declared bankruptcy after being in business for 125 years and having at one time
+enjoyed the title of the largest retailer in the United States. Over the years, Sears accumulated
+significant debt, which, coupled with operational inef ficiencies and strategic missteps, led to financial
+distress. While debt can sometimes of fer leverage and tax shields, in Sears’ s case, it became a burden,
+reducing its financial health. Sears tried to raise cash by closing hundreds of its stores as a cost-cutting
+measure. This laid of f thousands of workers and caused distress to its employees. The inability to keep
+up with the technological changes resulted in Sears slowly falling behind. Several post hoc theories
+have been suggested for its demise, including lack of investment to modernize of fline stores and not
+investing in a strong online presence. The demise of this previously formidable retailer shows that
+knowing the financial health of a business and strategically basing its borrowing on its ability to pay of f
+the debt in a timely manner is important for all company stakeholders.
+10.3 IMPORTANCE OF KNOWING FINANCIAL HEALTH FOR
+LENDERS
+Lenders can be banks or any financial institution that lends money to businesses for dif ferent activities.
+Lenders need to evaluate the financial health of a business before they determine whether to lend to a
+business, ensuring that the business will remain solvent and pay of f its debt. Lenders need to
+continuously evaluate the creditworthiness of the borrower over the period of the loan. Usually , a lender
+evaluates the total assets of a business against its total liabilities, as stated in the balance sheet, to
+determine its financial health. As we discuss in detail later , several financial and operating ratios are
+used for this purpose. Businesses with good financial health are considered more creditworthy and are
+likely to qualify for a loan, while businesses with poor financial health may be denied a loan or may
+obtain it only at a significantly higher interest rate. A good credit rating—for example, a triple-A  rating—
+allows a business to borrow from lenders at a lower rate. Conversely , a higher interest rate indicates that
+the lender does not consider the business to be particularly creditworthy and is charging the higher rate
+as insurance against the possibility that the business will default on its loan payment. In extreme cases,
+as we discuss in Section 10.4.1 on private equity , a business in financial distress can borrow only at
+very high interest rates.
+It is not surprising that lenders take these precautions because businesses can start experiencing
+financial dif ficulties through factors unfolding in their macroenvironment (e.g., the financial crisis of 2008)
+or because of their own past decisions (e.g., GE deciding to buy Alstom or Toys “R” Us having
+accumulated significant debt while facing increased competition from online retailers and changing
+consumer preferences). When a business continues to experience financial dif ficulties, bankruptcy
+looms as a possibility .
+10.3.1 Poor Financial Health: Bankruptcy
+If the business continues to experience financial dif ficulties, such as those we can see in Figure 10.1 , it
+will start to default on its loan payments, resulting in increased financial distress. Such distress is a
+cause of concern for lenders, who have to decide whether additional investment is warranted in an
+attempt to reverse the distress or to allow further defaults by the business. In such cases, businesses
+can declare bankruptcy . Bankruptcy is the legal acknowledgment by the business that it is unable to pay
+off its debts. Businesses file for either Chapter 7  or Chapter 11 . In a Chapter 11  filing, a business can be
+restructured in such a way that it gets another chance. If it subsequently does well, it can pay of f its
+debts and work its way out of bankruptcy . For instance, Toys “R” Us filed for Chapter 11  in 2017, hoping
+that it would be able to restructure the company and pay of f its debts. However , it was not able to do so
+and had to file for Chapter 7  in 2018. Chapter 7  filing does not allow the business to continue to operate;
+in such cases the business will cease to exist. One form of Chapter 7  bankruptcy occurs when all assets
+of the business are liquidated so that some of its debts can be paid of f. In situations where the business
+owners cannot pay back their debts, then the lenders step in and take over whatever is left of the
+business.
+There are numerous examples of companies that were successful at one time later experiencing
+financial distress. For example, David’ s Bridal, a large wedding dress retailer with a presence in several
+states, found that changing tastes and focus on nontraditional dresses by millennials resulted in lowered
+profits and an inability to pay their debt. Mattress Firm filed for Chapter 11 , shutting down approximately
+900 stores in 2018. It struggled with adapting to changes introduced in mattress manufacture and
+competition from startups such as Tuft & Needle, Casper , and Purple. Online mattress purchases have
+seen a huge spike, even though mattresses were touted as a product that consumers need to physically
+feel and experience prior to purchase. This resulted in Mattress Firm needing to reconsider how it of fers
+its product to consumers who no longer feel the need to try out a mattress before purchasing it.
+All lenders do not face the same decision of whether to let a business file for bankruptcy . It depends on
+the type of business. For example, consider lenders to two businesses: a restaurant versus a biotech
+startup. Initially , both need the same level of investment from the lenders. If a few years later both
+companies file for bankruptcy , the situation from the point of view of the lender will dif fer. In the case of
+the restaurant, the entire setup is still functional, and an easy option for the lender is to get someone
+else to run the restaurant. However , in the case of the biotech startup, the space or the setting is
+unimportant; the investment is in human capital and what it can produce—the ideas and innovations that
+are generated by the employees. If the biotech does not do well, then what can the lender salvage?
+Unfortunately , not much.
+10.4 IMPORTANCE OF KNOWING A BUSINESS’S FINANCIAL
+HEALTH FOR INVESTORS
+A business can have dif ferent types of investors. For instance, it might have venture capitalists investing
+in it during the initial stage of development. In later stages, several financial institutions, including private
+equity firms, may invest or buy stakes in the business. This allows them to have a say in the working of
+the business—for example, which divisions to identify for growth versus divestment. Finally , if the
+company is traded on the stock market, individual investors also are interested in knowing the financial
+health of a business to determine whether and how much to invest in it. Depending on the level of
+investment—for example, a financial institution investing millions versus an individual investor
+purchasing one share of stock for a few dollars—investors can utilize dif ferent means to understand
+whether and how much to invest. Again, the financial health of a business, assessed by using dif ferent
+types of financial ratios, becomes the means to determine the level of investment. In certain
+circumstances, when investors might assess that a business has potential but is not performing
+optimally , they might buy a major stake to have a greater say in operations. Private equity is one such
+type of investor . Private equity firms tend to invest in businesses that have unrealized potential but are
+struggling financially , possibly because of high debt; make them grow rapidly; and—if (as predicted) the
+business does have unrealized potential—reap the benefits.
+Hence, it is important for the business, lenders, and investors to accurately identify whether a business
+does have the potential to grow or whether the trajectory of financial distress is likely to continue. An
+entire area in finance is devoted to understanding and predicting what variables can be used to predict
+whether a business is going to experience financial distress or , in extreme cases, go bankrupt.
+10.5 FORECASTING FINANCIAL HEALTH
+Several predictors have been considered that can help predict creditworthiness. Let’ s understand this
+using an example from the perspective of a lender such as a bank. When a business approaches a
+bank asking for a loan, the bank is likely to utilize several criteria to first determine the financial health of
+the business and then decide whether or not to give a loan. Let’ s assume that a bank wants to
+determine variables that can help it assess the financial health of the business. Let’ s also assume that
+the bank is being conservative in its estimate and defines creditworthiness in terms of future financial
+distress or possibility of bankruptcy . It can focus on financial as well as nonfinancial predictors, but many
+times lenders prefer to look at financial predictors to understand the financial health of a business.
+10.5.1 Financial Ratios
+Businesses report several financial ratios that help lenders evaluate their financial health, such as debt ‒
+equity ratio, current ratio, earnings ratio, and operating ratio. These ratios are commonly available on
+the balance sheet of a business’ s financial statements. Please see the detailed definitions of these
+ratios in the glossary provided in Section 10.9  of this chapter .
+For any type of forecasting, businesses tend to use a process of variable selection  to sort the relevant
+from the irrelevant variables. If a business knows which variables are relevant, it can use only those
+variables in its forecasting models. Another reason for variable selection is to improve the accuracy of
+predictions; better predictions result in less costly mistakes. Similarly , when predicting financial health, it
+is important to perform variable selection to find the relevant predictors to use in prediction models.
+Moreover , many financial predictors tend to be correlated, some of them quite highly; this causes some
+predictors to appear significant when they are not—that is, the presence of collinear predictors results in
+incorrect predictions. Let’ s understand what multicollinearity is.
+10.6 MULTICOLLINEARITY
+Collinearity occurs when two predictor variables are highly correlated. Multicollinearity occurs when
+several such variables are present in the dataset. Multicollinearity can occur for a variety of reasons in
+business data, such as when predictors are dependent on the same underlying cause or when data
+collection is observational. In our case, since financial ratios are based on financial indicators, the
+likelihood of multicollinearity is high. Multicollinearity causes the following issues. First, when
+multicollinearity exists in a regression model, it may not be appropriate to use ordinary least squares
+(OLS) regression. This is because OLS assumes that the predictor variables are independent—that is,
+uncorrelated (in fact, predictor variables are called independent variables  for this reason). The presence
+of multicollinearity makes it dif ficult to interpret the coef ficient estimates of individual predictors. Recall
+from Chapter 2  in which we discussed linear regression that we used beta coef ficients to determine
+whether a predictor variable had a significant influence on the outcome variable. If several of the
+predictors are highly correlated, the influence of a specific predictor on the outcome (e.g., significance
+level) will change depending on which predictors are included in the regression model, resulting in
+incorrect assessments from the analysis. Second, one of the assumptions of OLS is that we examine
+the change in the outcome variable for a unit change in the predictor , holding all other predictors
+constant. However , if two predictors are highly correlated, such an assumption would not be fulfilled.
+Moreover , if our aim is to find which predictors are the most versus least influential, multicollinearity will
+make the task dif ficult. Third, as the correlation among predictors increases, standard errors also
+increase because it becomes dif ficult to determine whether the variation in the outcome is caused
+because of predictor 1 or predictor 2. Therefore, the standard error of both predictors increases. High
+incidents of standard error make it dif ficult to reject the null hypothesis even though the null may be
+false. Therefore, the likelihood of Type I error increases (i.e., the inability to reject a false null
+hypothesis). Finally , multicollinearity can result in an overfitted model because of the inclusion of two
+predictors that are very similar in the way they relate to the output. An overfit model would be quite
+inaccurate and poorly generalizable while making predictions on a new dataset. This occurs because
+the model has learned spurious relations given the multicollinearity present in the original dataset that
+may not be present in the new dataset on which the model is asked to predict. A bit needs to said about
+the bias ‒ variance trade-of f to understand the problem caused by overfit models (please refer to the
+Technical Appendix for a detailed discussion of the bias–variance trade-of f). When we have an overfit
+model, the bias of the model is low because it fits the training data really well; however , the variance of
+the model is high because it doesn’t predict well on the new data.
+10.6.1 Testing for Multicollinearity
+Given the possibility of multicollinearity occurring when using financial variables to determine the
+financial health of a business, we need a method that can address multicollinearity as well as help in the
+selection of variables. The first step is to have a method to detect whether a dataset has multicollinear
+predictors. The simplest way to test for multicollinearity is by looking at the scatterplot between dif ferent
+predictor variables. A linear relationship between any two predictors indicates a high degree of
+correlation between them. Similarly , a correlation matrix between all the predictors would quantify the
+level of correlation among the predictors. Large changes in beta coef ficient estimate values depending
+on when one or the other predictor is or is not included in the regression could be another indication of
+multicollinearity . For instance, if earnings ratio had a high coef ficient estimate value when current ratio
+was not included but the coef ficient value was reduced significantly in magnitude when current ratio was
+included in the regression, this would indicate a high correlation between earnings ratio and current
+ratio.
+Finally , the variance inflation factor (VIF)  is used to quantify the level of multicollinearity . VIF is a metric
+that helps in determining inflated variance of the beta coef ficient for a specific predictor variable because
+of multicollinearity with other predictor variables. Stated dif ferently , VIF tells us how much the variance
+(the spread of predictor values) is inflated due to these correlations. Since VIFs capture the relationship
+among predictor variables, the VIF is calculated by regressing each predictor against every other
+predictor . Such a regression will provide an R2 value, which is then put into the following equation for
+the ith predictor:
+1/(1−R2
+i)
+As you may recall, R2 is the coef ficient of determination in an OLS regression model that informs us
+how well the predictor(s) is(are) able to predict the outcome variable. In this case, R2 indicates how well
+other predictors are able to predict the ith predictor .
+Hence, we can calculate the value of VIF for each predictor variable. There are some cutof fs that help
+us evaluate whether the correlation between the predictors is very high. For instance, a VIF of 1.7 for a
+predictor indicates that the variance of that predictor ’s estimate is 1.7 times what it would have been in
+the absence of multicollinearity . A VIF of 3.5 indicates 3.5 times more variation. A simple rule of thumb is
+that VIF values of more than 5 indicate high multicollinearity .
+One way to address multicollinearity is through the use of stepwise regression. However , this can get
+computationally inef ficient. Hence, in this chapter we discuss the use of penalized regression, which
+provides an ef ficient way to handle multicollinearity through variable selection.
+10.7 USING PENALIZED REGRESSION FOR EVALUATING
+FINANCIAL HEALTH
+One type of regression that can address issues of multicollinearity is called penalized regression. It
+introduces a penalty that penalizes the model for having too many predictor variables. Either the
+predictors may be less relevant, or they may be correlated. Penalized models shrink the beta-coef ficient
+estimates of the less relevant predictors so that they can either be removed or have very little impact in
+predicting the outcome variable.
+The functional/mathematical formulation of penalized regression allows it to work dif ferently than OLS
+regression. For example, we use a set of predictor variables in the OLS model to predict an outcome.
+We then compare the predicted value to the actual value (ground truth) to examine the quality of the
+OLS model’ s predictions. If the dif ference is high, the quality is poor; if the dif ference is low , the quality is
+good. Therefore, we try to minimize the dif ference between the actual and predicted values. As
+explained earlier , one issue with multicollinearity is that it results in a model that is overfit; it explains the
+training data well, but its predictions on test (i.e., new) data are quite poor .
+Penalized regression addresses this situation by adding a shrinkage penalty to the beta-coef ficient
+estimates of the predictors. The shrinkage penalty fits a new prediction model that introduces a small
+amount of bias but greatly reduces the variance. With the addition of the shrinkage, the output intuitively
+becomes less sensitive to changes in the value of the predictor; hence, there is less variance when the
+model is used to make predictions on a new dataset. For the purposes of this chapter , we will focus on a
+specific type of penalized regression—LASSO (Least Absolute Shrinkage and Selection Operator)1—
+which not only helps to address multicollinearity but also allows for variable selection. The other form of
+penalized regression is ridge regression, which does not help in variable selection. Specifically , the
+penalty term used in the LASSO helps shrink the coef ficient estimates of the less important predictors to
+zero. When the beta coef ficients of some predictor variables have been shrunk to zero, they are no
+longer included in the prediction model. Hence, this process serves as a variable selection method for
+LASSO.
+Let’s assume that we have i = 1 to n observations and j = 1 to p predictors and their corresponding beta
+coefficients.
+Linear regression minimizes the dif ference between the observed outcome values and predicted
+outcome values as captured in the following equation:
+n
+∑
+i=1(yi−p
+∑
+j=1βjxij)2
+In LASSO, we add the penalty term
+λ|βj|
+to the minimization equation of the linear regression. Hence, in LASSO we minimize:
+n
+∑
+i=1(yi−p
+∑
+j=1βjxij)2
++λp
+∑
+j=1|βj|
+When λ = 0, LASSO converts to OLS. As the value of λ increases, the penalty increases, and the value
+of the coef ficient estimates shrinks to zero. That is, λ controls the value of the penalty that is applied to
+the regression. The value of λ can vary from 0 to positive infinity .
+Another intuitive way to think about the shrinkage penalty is to think of c(β) as the cost applied by
+penalized regression on the size of the β coef ficients. β coef ficients determine how much the estimated
+outcome values deviate from the observed values (i.e., the deviance between the data and the model).
+Adding a penalty on the size of the β coef ficients and forcing them to be near zero improves prediction.
+LASSO is especially useful when a model includes several predictor variables and the business is not
+able to decide which of these are relevant and which are not. Consider a grocery store with outlets
+across several geographic regions. There are many predictors that can af fect the sale of fresh baked
+goods, including the presence of local bakeries, the cost of eggs (which could change by region), the
+cost of milk, the cost of transportation, the nearness of farms, population density around a specific store,
+income level, regionally popular flavors—and the list can keep going. Which of these are the most
+important predictors of sales for a specific store? By using LASSO for variable selection, the grocery
+store can determine which sales predictors are important and can focus its resources on these relevant
+predictors. LASSO can also solve the problem of one form of Big Data—when there are more predictors
+than observations. In such an instance, OLS regression will not converge because it needs at least as
+many observations as predictors. If the data have two predictors, then the OLS needs at least two
+observations or data points to converge (provide a solution). In instances when firms are not sure about
+which predictors are most relevant, they may include tens of predictors and would need at least as many
+observations for the OLS to work.
+Let’s use a specific example to understand how LASSO can help in predicting the financial health of
+businesses from the perspective of a lender .
+10.7.1 Predicting Financial Health Using LASSO
+Let’s consider the example of Altra Bank, a made-up example for the purposes of this chapter that lends
+to several businesses and, hence, needs to know the financial health of each so that it can determine
+whether the business will be able to pay back the debt amount or whether it is likely to default on its
+payments. Having information about the financial health of a business allows Altra Bank to decide
+whether to give a loan and how much interest to charge. During its more than 50 years in this business,
+Altra Bank has determined that the financial health of a business rarely changes overnight and that any
+changes for the worse can be detected through certain predictors. Moreover , Altra Bank has observed
+that the financial ratios of a business, as calculated from the balance sheet, are good predictors of
+financial health.
+In the past, Altra Bank has used these financial ratios to find out which businesses it has lent to need to
+be monitored more closely . However , recently it has learned that ratios including operating variables
+such as sales are also worth considering when forecasting the financial health of a business. Therefore,
+it obtained data containing 16 dif ferent ratios for 665 businesses that have good versus poor financial
+health. The metric in the data for assessing financial health is whether a business has or has not gone
+bankrupt. The data contain information on several financial ratios such as debt–equity ratio, current
+ratio, and operating ratio for businesses that did or did not go bankrupt. Similar to other lenders, Altra
+Bank also uses data on these ratios to build a model that can help it make predictions about the
+financial health of the businesses it is determining whether to lend to or not. Altra Bank also wants to
+determine whether some ratios are better predictors than others; hence, having data with labels of
+whether a business went bankrupt is very useful in building the model. (The data used in this example
+are hypothetical.)
+The data have the following 16 financial ratios, some of which are operational ratios, marketing ratios, or
+accounting ratios.
+current_ratio_1 = current assets / short-term liabilities
+earning_ratio_1 = EBIT  (earnings before interest and taxes) / total assets
+debt_equity_ratio_1 = book value of equity / total liabilities
+accounting_ratio_1 = total assets / total liabilities
+operating_ratio_1 = (inventory * 365) / sales
+marketing_ratio_1 = net profit / sales
+operating_ratio_2 = profit on operating activities / financial expenses
+marketing_ratio_2 = (total liabilities − cash) / sales
+current_ratio_2 = (current assets − inventories) / long-term liabilities
+current_ratio_3 = (current assets − inventory − receivables) / short-term liabilities
+operating_ratio_3 = profit on operating activities / sales
+current_ratio_4 = (current assets − inventory) / short-term liabilities
+earning_ratio_2 = EBITDA  (earnings before interest, taxes, depreciation, and amortization—i.e.,
+[profit on operating activities − depreciation] / total assets)
+current_ratio_5 = current assets / total liabilities
+debt_equity_ratio_2 = long-term liabilities / equity
+operating_ratio_4 = total costs / total sales
+Using the data, we can begin to do several tests and then build the model. The first test we will conduct
+is to examine whether the data include collinear predictors (i.e., whether a high correlation, either
+positive or negative, exists among some of the 16 predictors). W e obtain a correlation plot as shown in
+Figure 10.2 . As expected of financial ratios, the plot shows that quite a few ratios are correlated more
+than 0.5 with one another . For example, marketing_ratio_1 and earnings_ratio_2 are correlated −0.97
+with each other .
+Figure 10.2  Correlation Plot
+Next we can check for multicollinearity using the VIF for each of the predictors.
+##current_ratio_1 debt_equity_ratio_1 accounting_ratio_1      
+operating_ratio
+##4.565160 614.931070 624.345293      1.969324
+##marketing_ratio_1 operating_ratio_2 marketing_ratio_2      current_ratio_
+##11.756341 1.083820 2.825103      1.338527
+##current_ratio_3 operating_ratio_3 current_ratio_4      earning_ratio_
+##2.346815 27.912590 3.912966      2.240309
+##earning_ratio_2 current_ratio_5 debt_equity_ratio_2      
+operating_ratio
+##24.330196 3.678511 2.641648      1.019840
+The VIF of some of the financial ratios is very high (e.g., debt_equity_ratio_1 = 614.93 and
+accounting_ratio_1 = 624.34).
+Now that we have established that some of the financial ratio predictors that we plan to use in our model
+are highly correlated, we can use penalized regression. W e use LASSO to first perform a variable
+selection as to which are the best predictors of financial health.
+We next define the outcome variable: yes, a business will go bankrupt  versus no, a business will not go
+bankrupt . We use penalized logistic regression  because the dependent variable is binary in nature
+(yes/no).
+Since the outcome is binary , we will use the AUC ROC (area under the curve receiver operating
+characteristics) curve to examine the quality of predictions of the LASSO model. AUC is the ratio
+between a false positive (firms that did not go bankrupt but are identified by the model as having gone
+bankrupt) and a true positive (firms that went bankrupt and are identified by the model as having gone
+bankrupt). Higher values of AUC are better because they indicate whether the model is able to
+distinguish between the yes and no outcomes. AUC = 1 indicates that the model is able to correctly
+classify yes as yes and no as no. AUC = 0.8 means that 80% of the time the model will classify yes and
+no correctly . AUC = 0.5 means that the model cannot distinguish between yes and no and is considered
+random in its predictions. AUC = 0 means that the model is reversing its predictions completely and
+classifying yes as no and no as yes.
+In the training dataset, we can also plot the AUC values for dif ferent values of log( λ). In Figure 10.3 , we
+can see that the best values of AUC are those of log( λ) between −8 and about −9. The values on top of
+the graph indicate the number of dummy-coded predictors being used.
+Figure 10.3  AUC V alues for Dif ferent V alues of Log( λ)
+In order to run a penalized regression prediction model, we split the data into train and test sets. W e
+then run a LASSO on the train set to perform variable selection. W e also standardize the data to ensure
+that they are easy to interpret. It is important to note that if we don’t standardize values, LASSO can
+result in extreme values and dif ficulty in comparing predictors that may be measured on dif ferent units.
+We then run LASSO, which outputs beta coef ficient values for all 16 predictors but shrinks the beta
+coefficients of predictors it considers less relevant to zero.
+From the output, we can see that the LASSO model we ran using 16 predictors has shrunk the beta-
+coefficient values of 4 predictors to zero. In other words, it has selected  12 predictors as being relevant
+for predicting the outcome variable: financial health.
+## [1] 8.837698e-05
+## 17 x 1 sparse Matrix of class "dgCMatrix"
+##                                                            s1
+## (Intercept)                     1.346913e+01
+## current_ratio_1                     9.231917e-02
+## debt_equity_ratio_1                     1.297786e+01
+## accounting_ratio_1 -1.416379e+01
+## operating_ratio_1                    .
+## marketing_ratio_1                     3.031253e+00
+## operating_ratio_2                     3.493792e-03
+## marketing_ratio_2                    .
+## current_ratio_2 -1.985339e-05
+## current_ratio_3                     2.416489e+00
+## operating_ratio_3 -4.810050e+00
+## current_ratio_4 -2.503380e+00
+## earning_ratio_1                     4.965877e-01
+## earning_ratio_2                    .
+## current_ratio_5                     7.127187e-01
+## debt_equity_ratio_2                    .
+## operating_ratio_4                     9.021487e-03
+We have trained our penalized regression model. But the important part is seeing how useful it is for
+prediction. W e next use the model and examine how well it performs on data in a separate test.
+To evaluate the quality of the LASSO model’ s predictions and because the outcome is binary , we
+consider the AUC ROC curve ( Figure 10.4 ). The AUC ROC curve is calculated (and plotted) as the ratio
+between false positives (firms that did not go bankrupt but are identified as having gone bankrupt) on
+the x-axis and true positives (firms that went bankrupt and are identified as having gone bankrupt) on
+the y-axis. If the model predicts poorly , then the value of AUC will be low since AUC increases as the
+predictive ability of the model improves. That is, higher values indicate better prediction.
+Description
+Figure 10.4  AUC ROC Curve
+Now that we have developed a model with the most relevant predictor variables (i.e., ratios), let’ s see
+how Altra Bank can use this model to determine the financial health of a business that has requested a
+loan. If the financial ratio values for the business are as shown in the following table, Altra Bank can use
+the predictive LASSO model to determine whether the business is likely to go bankrupt. Note, since the
+model was trained using a yes/no outcome, it will predict in a similar manner: Given these ratios, it will
+predict that yes, the business will go bankrupt  or no, the business will not go bankrupt .
+##      lambda.min
+##  [1,]  "0"
+current_ratio_1 debt_equity_ratio_1 accounting_ratio_1 operating_ratio_1
+1.65 0.85 1.79 17.31
+marketing_ratio_1 operating_ratio_2 marketing_ratio_2 current_ratio_2
+0.084 22.81 0.269 0.517
+current_ratio_3 operating_ratio_3 current_ratio_4 earning_ratio_1
+0.179 0.205 1.75 0.198
+earning_ratio_2 current_ratio_5 debt_equity_ratio_2 operating_ratio_4
+0.09 1.27 0.75 0.075
+We provide the trained LASSO model with the financial ratios of the new firm and ask the model to
+generate a prediction. The prediction value of 0 means that our model is predicting that this business
+will go bankrupt. Given this prediction, Altra Bank can now decide whether to go ahead with a loan.
+10.7.2 Business Insights and Other Applications
+Therefore, using a penalized regression model, we can build predictive models even if the data are
+collinear—a common problem when using financial ratios as predictors. Note that linear and logistic
+regression’ s estimates are af fected by the presence of multicollinearity—resulting, for example, in the
+model’ s inability to reject a false null hypothesis. However , penalized regression can provide estimates
+even in the presence of multicollinearity . It handles correlation among predictors through the inclusion of
+the shrinkage penalty that helps find the model of best fit even in the presence of multicollinearity . In
+terms of business insights, using LASSO, in this chapter we developed a penalized regression model
+that can help lenders allocate loans and businesses determine their financial health.
+In addition to selecting which variables are the most important to determine the financial health of an
+organization, LASSO can be used in other areas of finance such as assets optimization by selecting the
+critical assets that can result in an optimal asset portfolio. It can also be used for fraud detection in
+financial transactions—by finding the variables that help financial organizations identify which
+transactions do not appear regular and could, hence, be fraudulent. Moving beyond the financial sector ,
+LASSO can be used to identify the most important variables to predict employee satisfaction or for
+optimal inventory management or ef fective campaigns that maximize customer engagement.
+10.8 IMPLEMENTATION USING R: EVALUATING THE HEALTH
+OF A BUSINESS
+The data contain 16 financial ratios, some of which are marketing related and some accounting related
+as mentioned earlier . First we read in the data on the 16 predictor variables and the libraries: ROCR,2
+glmnet ,3 psycho ,4 tidyverse ,5 ggplot2 ,6 and car.7
+library(ROCR)
+library(glmnet)
+ 
+trainData <-
+read.csv(url("http://data.mishra.us/files/train_bankruptcy.csv"))
+testData <-
+read.csv(url("http://data.mishra.us/files/test_bankruptcy.csv"))
+ 
+predictors <- trainData[,c(1:16)]
+bankruptcy <- trainData$class
+We then check for the correlation among the 16 predictor variables. R provides the correlation plot as
+shown in Figure 10.2 . As we can see from the plot, there are quite a few ratios that are correlated more
+than 0.5 with one another .
+library(psycho)
+library(tidyverse)
+library(ggcorrplot)
+ 
+correl <- cor(predictors)
+ggcorrplot(correl,hc.order=FALSE,
+ type="lower",lab=TRUE,lab_size = 5,
+ outline.color = "black",tl.cex = 17,
+ colors = c("white", "white"))+
+ theme(legend.position = "none")
+Next we can check for multicollinearity using VIF for each of the predictors.
+library(ggplot2)
+library(car)
+predictionModel <- glm(as.factor(trainData$class) ~ .,
+ data = trainData,family=binomial(link='logit'))
+vif(predictionModel)
+##current_ratio_1 debt_equity_ratio_1 accounting_ratio_1      
+operating_ratio
+##4.565160 614.931070 624.345293      1.969324
+##marketing_ratio_1 operating_ratio_2 marketing_ratio_2      current_ratio_
+##11.756341 1.083820 2.825103      1.338527
+##current_ratio_3 operating_ratio_3 current_ratio_4      earning_ratio_
+##2.346815 27.912590 3.912966      2.240309
+##earning_ratio_2 current_ratio_5 debt_equity_ratio_2      
+operating_ratio
+##24.330196 3.678511 2.641648      1.019840
+The VIF of some of the financial ratios is very high (e.g., debt_equity_ratio_1 = 614.93 and
+accounting_ratio_1 = 624.34). Because some financial ratios are highly correlated and we are dealing
+with a binary outcome ( yes, a business will go bankrupt  versus no, a business will not go bankrupt ), we
+use penalized logistic regression.
+The model.matrix  function helps to dummy code the categorical (yes/no) variable so that the glmnet
+function can use the values. The function also helps create a matrix of the predictor variables.
+To examine the quality of predictions of the LASSO model, we look at the AUC ROC curve. AUC is the
+ratio between false positive and true positive. Higher values of AUC are better because in our case they
+indicate whether the model is able to distinguish between the yes and no outcomes. In the training
+dataset, we can also plot the AUC values for dif ferent values of log( λ). From the plot in Figure 10.3 , we
+can see that the best values of AUC are those of log( λ) between −12 and about −9. The values on top
+of the graph indicate the number of dummy-coded predictors used.
+predictors <-data.matrix(predictors)
+set.seed(1287994)
+ 
+cv.binomial <- cv.glmnet(x = predictors, y = as.factor(bankruptcy),
+ alpha=1, family="binomial",
+ nfolds=4, standardize = TRUE, type.measure = "auc")
+plot(cv.binomial)
+We then use the glmnet  function to run the penalized regression. Since we are running a penalized
+logistic regression, we specify that it is binomial. The term alpha  helps us specify whether we want to
+run a LASSO or ridge regression: alpha  = 1 will execute a LASSO while alpha  = 0 will run a ridge
+regression. Since in this case we are interested in variable selection, we will run a LASSO. Remember
+that although we do shrink predictor coef ficient estimates to near zero with ridge, it still uses all
+predictors, which makes it dif ficult to choose variables with ridge regression.
+Recall that the shrinkage parameter λ can vary between zero and infinity . To find the optimal value of λ,
+we use cross-validation. Here we conducted a four-fold cross-validation. W e also standardize the data
+to ensure that they are easy to interpret; more important, the developers of LASSO suggest that not
+standardizing can result in extreme values and dif ficulty in comparing predictors that may be measured
+on dif ferent units. Finally , we also ask R to output the optimal value of λ, which is called lambda.min .
+We can then find out which predictors LASSO shrunk to 0 using the lambda.min  parameter . We see
+that it has shrunk the β parameters of 4 of the predictors to zero and, hence, selected 12 from the initial
+16 predictors.
+(best.lambda <- cv.binomial$lambda.min)
+## [1] 8.837698e-05
+y4<- coef(cv.binomial, s="lambda.min", exact=FALSE)
+print(y4)
+## 17 x 1 sparse Matrix of class "dgCMatrix"
+##                                                            s1
+## (Intercept)                     1.346913e+01
+## current_ratio_1                     9.231917e-02
+## debt_equity_ratio_1                     1.297786e+01
+## accounting_ratio_1 -1.416379e+01
+## operating_ratio_1                    .
+## marketing.ratio_1                     3.031253e+00
+## operating_ratio_2                     3.493792e-03
+## marketing_ratio_2                    .
+## current_ratio_2 -1.985339e-05
+## current_ratio_3                     2.416489e+00
+## operating_ratio_3 -4.810050e+00
+## current_ratio_4 -2.503380e+00
+## earning_ratio_1                     4.965877e-01
+## earning_ratio_2                    .
+## current_ratio_5                     7.127187e-01
+## debt_equity_ratio_2                    .
+## operating_ratio_4                     9.021487e-03
+We have trained our penalized regression model. But the important part is seeing how well it can be
+used in prediction. W e now use the trained model with the optimal value of λ and evaluate how it
+performs on a separate test dataset.
+test_predictors <- testData[,c(1:16)]
+test_predictors <- data.matrix(test_predictors)
+pred = predict(cv.binomial, newx = test_predictors,
+ type = "response",s ="lambda.min")
+pred <- prediction(pred, testData$class)
+ 
+perf <- performance(pred,"tpr","fpr")
+auc_ROCR<- performance(pred,measure ="auc")
+We again use the AUC ROC curve to examine the prediction of the LASSO model on the test dataset.
+This is calculated (and plotted) as the ratio between false positives on the x-axis and true positives on
+the y-axis. Higher AUC values indicate better model prediction. Figure 10.4  plots this curve.
+plot(perf,colorize=FALSE, col="black") # plot ROC curve
+lines(c(0,1),c(0,1),col = "gray", lty = 4 )
+text(1,0.15,labels=paste("AUC = ", round(auc_ROCR@y.values[[1]],
+ digits=2), sep=""),adj=1)
+Using the trained model, we can now use it to predict whether a business will go bankrupt. If we provide
+the values of the 16 financial ratios of a new business to the model, it will provide a prediction of 0 ( will
+go bankrupt ) or 1 ( will not go bankrupt ).
+current_ratio_1 debt_equity_ratio_1 accounting_ratio_1 operating_ratio_1
+1.65 0.85 1.79 17.31
+marketing_ratio_1 operating_ratio_2 marketing_ratio_2 current_ratio_2
+0.084 22.81 0.269 0.517
+current_ratio_3 operating_ratio_3 current_ratio_4 earning_ratio_1
+0.179 0.205 1.75 0.198
+earning_ratio_2 current_ratio_5 debt_equity_ratio_2 operating_ratio_4
+0.09 1.27 0.75 0.075
+We enter these data as new_data . Since for glmnet  the data have to be in the form of a matrix, we
+convert it to a matrix with one row ( nrow = 1 ) and 16 columns ( ncol = 16 ). For the predict
+function, we use type = class  so that the output is in the form of a class ( will face bankruptcy
+= 0 versus will not face bankruptcy = 1) with the highest predicted probability .
+new_data = c(1.65,0.85,  1.79,
+17.31,0.084,22.81,0.269,.517,0.179,0.205,
+ 1.75,0.198,0.09,1.27,0.75,0.075)
+ 
+new_data <- matrix(new_data,  nrow = 1,  ncol = 16,   byrow = TRUE)
+ 
+pred = predict(cv.binomial,  newx = new_data, 
+ type = "class", s ="lambda.min")
+ 
+pred 
+##        lambda.min
+##  [1,]  "0"
+The value 0 means that our model predicts that this business will eventually go bankrupt. Altra Bank can
+use the model’ s predictions to determine whether to of fer the business a loan.
+10.9 APPENDIX: GLOSSARY OF FINANCIAL TERMS
+Balance Sheets:  Financial statements that provide an overview of a company’ s assets, liabilities,
+and shareholders’  equity at a certain point in time.
+Bankruptcy:  A legal process in which a person or business declares the inability to repay
+outstanding debts. It can of fer some protection from creditors and provide a way to reorganize or
+liquidate assets.
+Borrow Money:  To obtain funds from a lender with the promise of repaying it in the future, usually
+with interest. The person borrowing money is also called a debtor .
+Chapter 7:  A type of bankruptcy under U.S. Bankruptcy Code that involves the liquidation or selling
+of a debtor ’s nonexempt assets to pay of f creditors.
+Chapter 11:  A type of bankruptcy under U.S. Bankruptcy Code that allows businesses to continue
+operating while they restructure their debt obligations and business af fairs and plan for the future
+under the guidance of the bankruptcy court.
+Credit Ratings:  A rating given to a business or individual that indicates their creditworthiness or
+ability to repay borrowed funds. One credit rating agency is Standard and Poor ’s (S&P).
+Current Ratio:  This ratio considers the relationship between current assets (the assets that can be
+easily converted into cash, such as inventory) and current liabilities (e.g., short-term debts, dividend
+payments, and taxes). It is a measure of the liquidity  of a business (defined as the ease with which
+an asset can be converted into cash without af fecting its market value). Current ratio helps lenders
+determine how equipped the business is in terms of repaying its debts, especially its short-term
+debt payments. A higher current ratio (current assets to current liabilities) indicates higher liquidity . A
+current ratio of 2 is said to indicate sound financial health, while anything less than 1 can constitute
+a warning sign.
+Debt–Equity Ratio:  This ratio evaluates the relationship between liabilities of the business (what it
+owes; specifically long-term debts, which appear on the right side of the balance sheet) and
+shareholder equity (total assets minus total liabilities). It is one of the most common ratios used to
+evaluate the health of a business. What is considered a good debt–equity ratio depends on the
+industry—values nearer 1 are generally considered better . As the value of the debt–equity ratio
+increases beyond 1, it indicates that the business is more dependent on debt financing than on its
+own equity . Problems arise when the reliance on debt keeps increasing, meaning the likelihood of
+financial distress increases.
+Debt Ratio:  A financial metric that compares a company’ s total debt to its total assets, used to
+evaluate financial risk.
+Debt Servicing:  The process of making principal and interest payments on borrowed funds over
+time.
+Default:  Failure to fulfill the repayment of a loan, including interest or principal, at the agreed-upon
+terms and time.
+Earnings ratio:  This ratio is the current earnings of a firm and captures the financial performance
+of a business before taking into account taxes and other liabilities. It allows investors to look at how
+the business is performing every year because of the operating decisions made for that year; it
+does not take into account financial decisions that carry over from previous years such as interest
+and taxes. Thus, it provides a good picture of a business’ s net income or profit in a given year .
+Economic Outlook:  An analysis or opinion regarding the future state of the economy or economic
+conditions.
+Equity:  The value of ownership interest in a business, calculated by deducting liabilities from
+assets.
+Financial Distress:  A condition in which a company faces dif ficulties in meeting its financial
+obligations, such as paying of f debt.
+Financial Health:  The overall economic status of a business, including its income, expenses,
+debts, and long-term sustainability .
+Financial and Operating Ratios:  Metrics used to evaluate a business’ s financial health and
+operational ef ficiency .
+Growth Areas:  Parts or aspects of a business showing potential for expansion or development.
+Intangible Assets:  Nonphysical assets like patents, copyrights, and brand reputation or image that
+add value to a business.
+Interest Payments:  Money paid to a lender by a borrower as compensation for the use of
+borrowed funds, usually calculated as a percentage of the principal amount.
+Interest Rate:  The percentage charged by a lender to a borrower for using their money . The
+borrower pays this in addition to repaying the borrowed amount (the principal).
+Lenders:  Individuals or institutions that give a temporary loan or credit to borrowers with the
+expectation it will be paid back with interest.
+Leveraged Business:  A company that has used borrowed capital (debt) to increase the potential
+return on equity .
+Leveraged Buyout (LBO):  A financial transaction where a company is purchased using a
+combination of equity and significant amounts of borrowed money , often using the company’ s
+assets as collateral.
+Market V alue:  The estimated amount for which a business or asset could be sold by a willing buyer
+to a willing seller .
+Operating Costs:  Expenses related to the business’ s primary operations, such as the costs of
+materials, labor , and overhead. These costs are deducted from a company’ s revenue to calculate
+its operating profit.
+Operating Efficiency:  The performance of a business in terms of its use of resources to produce
+goods and services. A high operating ef ficiency means that a business utilizes its resources wisely ,
+resulting in higher profits.
+Operating Ratio:  This indicates the operating ef ficiency of a business by considering the
+relationship between operating costs (the costs incurred in the day-to-day operations of the
+business) and sales (the amount earned by selling products and services). In other words, it
+examines whether the business has been able to keep costs low compared to how much it is
+selling. A lower operating ratio is considered better and indicates greater ef ficiency .
+Optimal Debt Ratio:  A balance of debt and equity that maximizes a company’ s value while
+minimizing its cost of capital.
+Regulatory Compliance:  Adhering to laws, regulations, guidelines, and specifications relevant to
+the business’ s processes and operations.
+Scenario Planning:  A strategic planning method used by organizations to make flexible long-term
+plans that can take into account possible future scenarios or events.
+Solvency:  Describes a business’ s ability to meet its long-term financial obligations by having more
+assets than liabilities.
+Tangible Assets:  Physical assets such as machinery , buildings, and land that a business owns and
+uses in its operations.
+Tax Shield:  A reduction in taxable income for an individual or corporation achieved through
+claiming allowable deductions such as interest on debt.
+Trade-Off Theory in Finance:  A theory that suggests companies manage and balance the benefits
+and costs of debt financing, considering aspects such as tax shields and financial distress.
+10.10 UNDERSTANDING THE CHAPTER
+1. Can a business keep taking loans because it provides a tax shield? Is there a problem that may
+arise if the loan amount because too high?
+2. Why should we not use OLS regression when there is multicollinearity in the data?
+3. Penalized regression is used to address which of the following issues?
+a. Autocorrelation
+b. Heteroscedasticity
+c. Homoscedasticity
+d. Multicollinearity
+e. Lagged variables
+4. Which of the following statements regarding multicollinearity among predictors is false ?
+a. Variance inflation factor (VIF) values of more than 5 indicate multicollinearity .
+b. Variance inflation factor (VIF) values of less than 5 indicate multicollinearity .
+c. Bar charts cannot test for multicollinearity .
+d. Variance inflation factor (VIF) can test for multicollinearity .
+e. Scatterplots can indicate multicollinearity .
+5. Which of the following statements is true about filing for Chapter 7  bankruptcy?
+a. The business can be restructured and turned around.

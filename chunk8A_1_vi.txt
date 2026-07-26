@@ -1,0 +1,235 @@
+
+
+--- Trang 124 ---
+
+101
+Pethuru Raj Chelliah, Pushan Kumar Dutta, Abhishek Kumar, Ernesto D.R. Santbanez Gonzalez, 
+Mohit Mittal và Sachin Gupta (eds.) Trí tuệ nhân tạo sáng tạo trong tài chính: Ngôn ngữ lớn 
+Mô hình, giao diện và trường hợp sử dụng trong ngành để chuyển đổi quy trình tài chính và kế toán, 
+(101–124) © 2025 Scrivener Publishing LLC
+6
+Đi sâu vào gian lận tài chính thông qua 
+Nhấp chuột quảng cáo, Quản lý thẻ tín dụng 
+và phân phát tài liệu ở 
+Giao dịch thương mại điện tử
+Bhupinder Singh1*, Pushan Kumar Dutta2 và Christian Kaunert3
+1Đại học Sharda, Greater Noida, Ấn Độ
+2Phòng Kỹ thuật Điện tử và Truyền thông tại ASETK, 
+Đại học Amity Kolkata, Tây Bengal, Kolkata, Ấn Độ
+3Đại học Thành phố Dublin, Dublin, Ireland
+Tóm tắt
+Gian lận tài chính gây ra mối nguy hiểm đáng kể cho ngành tài chính ngân hàng, 
+tác động tiêu cực đến các cá nhân, doanh nghiệp và toàn bộ nền kinh tế. Gần đây 
+năm, sự tích hợp của trí tuệ nhân tạo (AI) và học máy (ML) 
+kỹ thuật đã nổi lên như một vũ khí mạnh mẽ chống lại các hình thức tài chính đa dạng 
+lừa đảo. Ngành tài chính ngân hàng - nền tảng của nền kinh tế hiện đại 
+đang trải qua một sự chuyển đổi sâu sắc do sự phát triển vượt bậc của chuyển đổi kỹ thuật số
+hành động. Sự thay đổi này đã dẫn đến sự gia tăng các gian lận tài chính, buộc một mô hình 
+thay đổi các giao thức bảo mật. Việc tích hợp các phân tích nâng cao, bao gồm cả anom
+phát hiện và nhận dạng mẫu aly, được xem xét kỹ lưỡng để tiết lộ một biện pháp bảo vệ mạnh mẽ 
+cơ chế chống lại các chiến thuật ngày càng phát triển được sử dụng bởi những kẻ lừa đảo trong 
+tên miền nhấp vào quảng cáo. Quản lý thẻ tín dụng, mục tiêu lâu năm của Mali
+hoạt động quan trọng, đòi hỏi một cách tiếp cận phức tạp để phát hiện gian lận. chương này 
+khám phá các hệ thống xác minh tài liệu dựa trên AI nhằm nhấn mạnh quan điểm của họ
+vai trò quan trọng trong việc đảm bảo các giao dịch xoay quanh các tài liệu xác thực như 
+*Tác giả tương ứng: bhupindersinghlaw19@gmail.com; 
+ORCID: https://orcid.org/0009-0006-4779-2553
+Pushan Kumar Dutta: ORCID: https://orcid.org/0000-0002-4765-3864
+Christian Kaunert: ID Orcid: https://orcid.org/0000-0002-4493-2235
+
+--- Trang 125 ---
+
+102  Trí tuệ nhân tạo sáng tạo trong tài chính
+tài liệu giả mạo, được giải quyết thông qua các giải pháp sáng tạo bao gồm
+tích hợp công nghệ blockchain với AI không chỉ nâng cao 
+bảo mật mà còn thiết lập một sổ cái giao dịch bất biến, giảm thiểu rủi ro 
+liên quan đến gian lận dựa trên tài liệu.
+Từ khóa:  Lượt click quảng cáo, trí tuệ nhân tạo, quản lý thẻ tín dụng, tài liệu 
+phân phối, gian lận tài chính, giao dịch thương mại điện tử
+6.1 Giới thiệu và bối cảnh
+Bối cảnh hiện nay của ngành tài chính ngân hàng là 
+được đánh dấu bằng sự kết hợp của các công nghệ tiên tiến và luôn-
+phát triển sự phức tạp, nhấn mạnh nhu cầu cấp thiết về đổi mới 
+giải pháp chống lại sự gia tăng các hoạt động lừa đảo tinh vi [1]. Cái này 
+chương bắt tay vào một cuộc khám phá đầy tham vọng vào lĩnh vực nhân tạo
+trí tuệ xã hội (AI) và máy học (ML) đang thăm dò sự phức tạp của chúng 
+giao diện để vạch ra các chiến lược nhằm nắm bắt và ngăn chặn gian lận [2]. 
+Trọng tâm được đặc biệt tập trung vào ba khía cạnh then chốt: lượt nhấp vào quảng cáo 
+gian lận, gian lận quản lý thẻ tín dụng và gian lận phân phối tài liệu 
+trong phạm vi mở rộng của giao dịch thương mại điện tử [3]. đường đi
+câu chuyện của nghiên cứu này được gắn chặt với sự phát triển lịch sử của tài chính
+gian lận chính thức làm sáng tỏ câu chuyện phức tạp về cách các hoạt động này 
+đã phát triển cùng với những tiến bộ công nghệ [4]. Một nền văn học mạnh mẽ 
+đánh giá sẽ đóng vai trò như một chiếc la bàn, hướng dẫn việc khám phá theo lộ trình
+tiền lệ lịch sử và những thách thức đương đại [5].
+Sau đó, hành trình sẽ đi sâu vào các khía cạnh cụ thể của gian lận nhấp chuột vào quảng cáo, 
+gian lận quản lý thẻ tín dụng và gian lận phân phối tài liệu. Mỗi 
+phần mổ xẻ những thách thức đặc biệt do những gian lận và giám sát này đặt ra
+nhấn mạnh vai trò của AI và ML trong việc giảm thiểu những thách thức này [6]. Nó 
+xem xét kỹ lưỡng các kỹ thuật phát hiện bất thường được hỗ trợ bởi máy học, 
+chứng tỏ là công cụ hữu ích trong việc xác định những sai lệch tinh tế so với những gì đã được thiết lập 
+mô hình chi tiêu [7]. Chương này không chỉ đơn thuần là một bài tập lý thuyết mà còn là một 
+nghiên cứu sâu sắc về ứng dụng thực tế của công nghệ tiên tiến 
+để bảo vệ tính toàn vẹn tài chính của thời đại kỹ thuật số [8]. Tiếp theo 
+các phần của chương toàn diện này mở ra một câu chuyện vượt qua 
+chỉ là những giả thuyết mang tính lý thuyết, nhằm mục đích trình bày một kế hoạch thực tế cho 
+việc triển khai AI và ML làm lính gác bảo vệ các cổng của 
+ngành tài chính ngân hàng trước sự xâm nhập ngấm ngầm của gian lận
+hoạt động cho vay [9].
+
+--- Trang 126 ---
+
+Đi sâu vào gian lận tài chính  103
+6.1.1 Mục tiêu của Chương
+Khung này dùng để phân tích toàn diện sự tương tác giữa 
+gian lận tài chính và giải pháp AI/ML [10]. Nghiên cứu nhằm mục đích góp phần 
+vào khối kiến thức trong lĩnh vực an ninh tài chính bằng cách cung cấp 
+những hiểu biết sâu sắc có thể hành động và các chiến lược đổi mới để tăng cường phát hiện gian lận 
+và phòng ngừa trong ngành tài chính ngân hàng nhằm:
+--
+Rà soát toàn diện các loại và phương pháp khác nhau 
+gian lận tài chính, tập trung cụ thể vào gian lận nhấp chuột vào quảng cáo, 
+gian lận quản lý thẻ tín dụng và phân phối tài liệu 
+gian lận trong giao dịch thương mại điện tử.
+--
+hiểu rõ hơn về động thái của gian lận tài chính, 
+Chương này nhằm mục đích xác định và phân tích các lỗ hổng trong 
+lĩnh vực tài chính ngân hàng mà những kẻ lừa đảo khai thác.
+--
+đánh giá bối cảnh hiện tại của các ứng dụng AI và ML trong 
+ngành tài chính ngân hàng, đặc biệt là trong lĩnh vực
+văn bản phát hiện và ngăn chặn gian lận.
+--
+những hiểu biết thu được từ cuộc điều tra, nghiên cứu nhằm mục đích 
+đề xuất các mô hình AI và ML tiên tiến dành riêng cho 
+được thiết kế để chống gian lận tài chính.
+6.1.2 Ý nghĩa của chương
+Chương này có ý nghĩa quan trọng nhất trong bối cảnh của một bài rap
+số hóa hệ sinh thái tài chính một cách nhàn rỗi [11]. Ngành tài chính ngân hàng
+try đứng ở mối liên hệ giữa đổi mới công nghệ và các mối đe dọa mới nổi, 
+và những phát hiện của nghiên cứu sẵn sàng đóng góp đáng kể vào sức mạnh
+định vị của lĩnh vực này để chống lại các hoạt động gian lận ngày càng gia tăng [12, 13]. các 
+tập trung cụ thể vào gian lận nhấp chuột vào quảng cáo, gian lận quản lý thẻ tín dụng và tài liệu
+gian lận phân phối không chỉ phản ánh mức độ liên quan của những vấn đề này mà còn 
+cũng nhấn mạnh sự cấp thiết của các giải pháp có mục tiêu [14, 15]. Dấu hiệu
+Ý nghĩa của chương này nằm ở khả năng cung cấp thông tin cho các khung chính sách, 
+hướng dẫn các hoạt động thực tiễn của ngành và truyền cảm hứng cho những tiến bộ hơn nữa trong AI và ML 
+ứng dụng cho an ninh tài chính [16]. Khi hệ thống tài chính trở nên 
+ngày càng được kết nối với nhau trên toàn cầu, kết quả của nghiên cứu này có thể có 
+ý nghĩa sâu rộng trong việc bảo vệ lợi ích kinh tế và các chính
+duy trì sự tin cậy và tính toàn vẹn của các giao dịch tài chính kỹ thuật số [17].
+
+--- Trang 127 ---
+
+104  Trí tuệ nhân tạo sáng tạo trong tài chính
+6.2 Phát hiện gian lận nhấp vào quảng cáo trong ngân hàng 
+và lĩnh vực tài chính
+Phát hiện gian lận nhấp chuột vào quảng cáo là một khía cạnh quan trọng trong việc bảo vệ tính toàn vẹn 
+và hiệu quả của hệ sinh thái quảng cáo trực tuyến. Nhà quảng cáo đầu tư phụ
+nguồn lực quan trọng trong các chiến dịch kỹ thuật số để tiếp cận đối tượng mục tiêu của họ,
+khiến họ dễ bị thực hiện các hoạt động gian lận làm ảnh hưởng đến lợi nhuận 
+về đầu tư. Lừa đảo nhấp chuột vào quảng cáo đòi hỏi thao tác nhấp chuột lừa đảo 
+trên các quảng cáo trực tuyến, thường được điều phối bởi các bot tự động hoặc indi
+các video hướng tới khai thác mô hình trả tiền cho mỗi lần nhấp chuột (PPC). Để đếm
+Để giải quyết mối đe dọa này, các giải pháp AI tiên tiến là rất cần thiết [18]. Thuật toán ML 
+phân tích tỉ mỉ các bộ dữ liệu mở rộng, kiểm tra các mẫu hành vi của người dùng, 
+tỷ lệ nhấp và số liệu tương tác để xác định dấu hiệu bất thường
+của các hoạt động gian lận. Các mô hình AI sử dụng giám sát thời gian thực để 
+xác định mức tăng đột biến về số lượng nhấp chuột hoặc các mô hình địa lý bất thường. các 
+sự phát triển liên tục của các cơ chế phát hiện này đảm bảo tính năng động 
+và tính chất thích ứng của việc ngăn chặn gian lận nhấp chuột vào quảng cáo, cung cấp cho nhà quảng cáo 
+với sự bảo vệ mạnh mẽ chống lại các hành vi lừa đảo và thúc đẩy 
+môi trường quảng cáo kỹ thuật số đáng tin cậy [19].
+6.2.1 Định nghĩa và các loại gian lận nhấp chuột vào quảng cáo
+Lừa đảo nhấp chuột vào quảng cáo là hoạt động không trung thực nhằm tạo ra các nhấp chuột giả trên liên
+quảng cáo ròng với mục đích thao túng phân tích quảng cáo hoặc lấy 
+lợi thế của mô hình thu nhập PPC. Được thực hiện bởi bot tự động 
+hoặc cá nhân, hoạt động lừa đảo này cố gắng tăng số lượt nhấp một cách giả tạo 
+đếm, làm cạn kiệt ngân sách của nhà quảng cáo và làm suy yếu tính hiệu quả của 
+chiến dịch quảng cáo kỹ thuật số [20]. Hình thức gian lận này thể hiện bản chất
+thách thức lớn đối với hệ sinh thái quảng cáo trực tuyến, ảnh hưởng đến nhà quảng cáo, 
+nhà xuất bản cũng như mạng quảng cáo.
+Các loại gian lận nhấp chuột vào quảng cáo:
+Bot tự động:
+Định nghĩa: Các bot hoặc tập lệnh tự động được lập trình để mô phỏng
+mô phỏng hành vi của con người bằng cách tương tác với quảng cáo. Đã triển khai ở 
+số lượng đáng kể, những bot này tạo ra một khối lượng đáng kể
+rất nhiều nhấp chuột lừa đảo.
+
+--- Trang 128 ---
+
+Đi sâu vào các vụ lừa đảo tài chính  105
+Những thách thức trong việc phát hiện: Bot đang phát triển ngày càng phức tạp, 
+gây khó khăn trong việc phân biệt giữa hợp pháp và 
+nhấp chuột tự động.
+Bấm vào trang trại:
+Định nghĩa: Các trang trại nhấp chuột sử dụng các nhóm cá nhân, thường 
+ở những khu vực có chi phí lao động thấp hơn, hãy nhấp vào quảng cáo theo cách thủ công. 
+Những hoạt động này có thể được cấu trúc để tạo ra số lượng lớn
+mối liên hệ của các nhấp chuột gian lận.
+Những thách thức trong việc phát hiện: Việc xác định các trang trại nhấp chuột liên quan đến việc phân tích
+phân tích các mẫu hành vi nhấp chuột và địa chỉ IP, với 
+độ phức tạp bổ sung mà các hoạt động này thường đạt đến mức độ lớn 
+độ dài để có vẻ xác thực.
+Số nhấp chuột của đối thủ cạnh tranh:
+Định nghĩa: Các đối thủ cạnh tranh có thể tham gia vào hành vi gian lận nhấp chuột để làm cạn kiệt 
+ngân sách quảng cáo của đối thủ, làm giảm hiệu quả của chiến dịch, 
+hoặc đạt được lợi thế cạnh tranh.
+Những thách thức trong việc phát hiện: Phân biệt giữa người dùng chính hãng 
+sự can thiệp vào lợi ích và cạnh tranh là phức tạp, đòi hỏi 
+phân tích nâng cao.
+Nhà xuất bản lừa đảo:
+Định nghĩa: Các nhà xuất bản vô đạo đức có thể nhấp vào quảng cáo trên trang web của họ 
+sở hữu các trang web để tăng doanh thu một cách giả tạo.
+Thách thức trong việc phát hiện: Xác định sự thông đồng giữa các quán rượu
+những cú nhấp chuột gian lận và lừa đảo liên quan đến việc xem xét kỹ lưỡng dữ liệu lưu lượng truy cập
+các phép đo và số liệu tương tác.
+Xếp chồng quảng cáo:
+Định nghĩa: Việc xếp chồng quảng cáo xảy ra khi nhiều quảng cáo được xếp lớp 
+trong một vị trí quảng cáo duy nhất. Mặc dù người dùng chỉ có thể nhìn thấy phần trên cùng 
+quảng cáo, tất cả quảng cáo trong ngăn xếp sẽ đăng ký dưới dạng lượt nhấp chuột.
+Những thách thức trong việc phát hiện: Việc phát hiện việc xếp chồng quảng cáo đòi hỏi phải có
+phân tích tỷ lệ nhấp và mức độ tương tác của người dùng để khám phá 
+sự khác biệt.
+
+--- Trang 129 ---
+
+106  Trí tuệ nhân tạo sáng tạo trong tài chính
+Gian lận quảng cáo trên thiết bị di động:
+Định nghĩa: Các nhấp chuột gian lận vào quảng cáo trên thiết bị di động có thể xảy ra thông qua 
+bằng nhiều cách khác nhau, bao gồm chèn nhấp chuột, spam nhấp chuột hoặc 
+việc sử dụng các ứng dụng độc hại.
+Những thách thức trong việc phát hiện: Việc phát hiện gian lận quảng cáo trên thiết bị di động đòi hỏi 
+giám sát hành vi ứng dụng và phân tích các mẫu nhấp chuột
+cific cho thiết bị di động.
+Giải quyết hiệu quả gian lận nhấp chuột vào quảng cáo đòi hỏi phải sàng lọc liên tục 
+cơ chế phát hiện, sử dụng AI và ML để xác định các mẫu, bất thường
+đồng minh và các dấu hiệu khác của hoạt động lừa đảo. Cách tiếp cận chủ động này là 
+không thể thiếu để duy trì tính toàn vẹn của hệ sinh thái quảng cáo kỹ thuật số 
+và đảm bảo tính công bằng, hiệu quả của các chiến dịch tiếp thị trực tuyến [21].
+6.2.2 Nguồn dữ liệu và tính năng
+Nguồn dữ liệu và tính năng là các yếu tố cơ bản trong phân tích dựa trên dữ liệu
+chị và ML. Nguồn dữ liệu đề cập đến nguồn gốc của dữ liệu, có thể bao gồm 
+một loạt các kho lưu trữ như cơ sở dữ liệu, quét web, cảm biến hoặc 
+nội dung do người dùng tạo [22]. Những nguồn này cung cấp nguyên liệu cho 
+phân tích và phát triển mô hình. Những đặc điểm này là những thuộc tính cụ thể 
+hoặc các biến được trích xuất từ các nguồn dữ liệu. Họ gói gọn thông tin
+được thuật toán ML sử dụng để đưa ra dự đoán hoặc phân loại. Cẩn thận 
+việc lựa chọn và thiết kế các tính năng là rất quan trọng vì chúng tác động trực tiếp đến 
+hiệu suất của mô hình, nhấn mạnh tầm quan trọng của cả hai nguồn dữ liệu 
+và kỹ thuật tính năng trong quy trình làm việc của khoa học dữ liệu [23].
+6.2.3 Thuật toán AI và ML để phát hiện gian lận khi nhấp vào quảng cáo
+Thuật toán AI và ML đã cách mạng hóa việc phát hiện gian lận khi nhấp vào quảng cáo 
+bằng cách cung cấp các công cụ mạnh mẽ để giải quyết vấn đề phổ biến này trong thời đại kỹ thuật số 
+cảnh quảng cáo. Các thuật toán này phân tích các tập dữ liệu lớn trong thực tế 
+thời gian, xác định các mô hình phức tạp và sự bất thường trong hành vi của người dùng, nhấp chuột
+thông qua tỷ lệ và số liệu tương tác [24]. Các mô hình ML, chẳng hạn như quyết định 
+cây cối, rừng ngẫu nhiên và mạng lưới thần kinh sâu đóng vai trò then chốt trong 
+học hỏi từ dữ liệu nhấp chuột lịch sử và thích ứng với công nghệ gian lận đang phát triển
+niques. Hoạt động bất thường, chẳng hạn như mức tăng đột biến bất thường về số lượng hoặc kiểu nhấp chuột 
+đi chệch khỏi các quy chuẩn đã được thiết lập, có thể được phát hiện nhanh chóng, gây ra tình trạng đỏ mặt 
+cờ để điều tra thêm. Các thuật toán điều khiển bằng AI là công cụ trong 
+phân biệt các tương tác của người dùng thực sự với các tương tác lừa đảo, từ đó
+
+--- Trang 130 ---
+

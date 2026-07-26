@@ -1,0 +1,327 @@
+yêu cầu thực tập sinh xem lại tập dữ liệu và chuẩn bị thảo luận. Một đoạn trích của dữ liệu sau đây.
+	 1. Thực tập sinh cho biết: “Xem lại tập dữ liệu, tôi đã phân loại VendorID là trường dữ liệu thô được đo lường 
+nguồn.” Giải thích lý do tại sao VendorID nên được coi là dữ liệu thô không được đo lường.
+	 2. Thực tập sinh nêu: “Trường dữ liệu Chất lượng nhà cung cấp phải được coi là dữ liệu tỷ lệ vì chúng tôi có thể 
+hãy phân tích điều này như một biến số trong phân tích của chúng tôi.” Giải thích tại sao trường dữ liệu Chất lượng nhà cung cấp không nên 
+dữ liệu tỷ lệ được xem xét.
+	 3. Thực tập sinh cho biết: “Các trường dữ liệu ItemCost và ItemQty có thể được kết hợp để tạo ra một dữ liệu được tính toán 
+lĩnh vực.” Giải thích tại sao điều này đúng.
+	 4. Dựa trên việc xem xét đoạn trích của tập dữ liệu, bạn mong muốn thực tập sinh xác định những rủi ro dữ liệu nào?
+	 5. Giả sử bạn yêu cầu thực tập sinh xác minh tính chính xác của số PO 2006. Thực tập sinh sẽ làm gì 
+xem xét để xác định xem dữ liệu trong cơ sở dữ liệu có chính xác không?
+
+Bài tập ngắn  4-49
+BE 4.6  (LO 2)  Đối với mỗi trường sau đây, hãy xác định xem trường dữ liệu có phải là trường dữ liệu thô được đo (MRD) hay không, một 
+(NRD) trường dữ liệu thô không được đo lường hoặc trường được tính toán (CAL).
+	___ 1.  Mã nhận dạng sản phẩm
+___ 2.  Đơn giá cho mỗi mặt hàng tồn kho
+___ 3.  Tổng chi phí
+___ 4.  Lợi nhuận gộp
+___ 5.  Danh mục sản phẩm
+___ 6.  NumberOnHand trong kho từng sản phẩm
+BE 4.7  (LO 3)  Xác định mục tiêu của từng chiến lược phân tích sau đây như
+mô tả, chẩn đoán, dự đoán hoặc kê đơn.
+Chiến lược
+Mục tiêu
+	 1. Tuổi hóa đơn mở cuối năm của các khoản phải thu vào số ngày chưa thanh toán 
+để hiểu những gì đang xảy ra trong các khoản phải thu.
+	 2. Ước tính mức tiết kiệm chi phí và tăng năng suất từ AIS mới 
+đầu tư.
+	 3. Tạo kế hoạch lấy mẫu phân tầng theo giá trị đồng đô la cho tài sản đầu tư 
+tài khoản.
+	 4. Đếm và xếp hạng các sự cố bảo mật máy chủ web theo tuần.
+	 5. Ước tính mức tăng doanh thu sản phẩm theo sản phẩm từ hoạt động tiếp thị 
+các chiến dịch.
+	 6. Ước tính dòng tiền trong tương lai từ hoạt động hiện tại đang diễn ra 
+chiến lược.
+	 7. Tính toán mức giảm chi phí trước sau khi đầu tư hệ thống.
+	 8. Thử nghiệm các chiến lược lập kế hoạch thuế khác nhau bằng cách đánh giá số tiền tiết kiệm được trong tương lai.
+	 9. Ước tính số lượng hàng tồn kho cuối năm bằng cách lấy mẫu một số cửa hàng 
+và đưa ra những suy luận về dân số.
+	10. Tần suất đếm các đơn hàng bán chưa được thực hiện hoặc mở một phần để chúng 
+có thể được giải quyết.
+BE 4,8  (LO 3)  Đối với mỗi cấu trúc dữ liệu và phân tích được liệt kê cho các mục tiêu mô tả và chẩn đoán,
+xác định liệu phân tích có thể được thực hiện với câu trả lời “Có” hay “Không”.
+___ 1.  Việc tính toán chế độ trên dữ liệu phân loại.
+___ 2.  Sự phân tán phương sai của dữ liệu thứ tự.
+___ 3.  Việc tính toán trung vị trên dữ liệu khoảng.
+___ 4.  Phân phối tần số tích lũy trên dữ liệu phân loại.
+___ 5.  Trực quan hóa các xu hướng dữ liệu phân loại.
+___ 6.  Mối tương quan giữa các bảng dữ liệu tỷ lệ.
+BE 4.9  (LO 3)  Đối với mỗi cấu trúc dữ liệu và phân tích được liệt kê cho các mục tiêu dự đoán và quy định, chỉ số
+xác định liệu phân tích có thể được thực hiện với câu trả lời “Có” hay “Không”.
+___ 1.  Đường xu hướng trên dữ liệu phân loại.
+___ 2.  Phân tích hồi quy dữ liệu thứ tự.
+___ 3.  Mô hình hóa tối ưu hóa dữ liệu theo khoảng thời gian.
+___ 4.  Phân tích hồi quy dữ liệu phân loại.
+___ 5.  Phân tích giả định của dữ liệu tỷ lệ.
+___ 6.  Đường xu hướng trên dữ liệu tỷ lệ.
+BE 4.10  (LO 4)  Kiểm toán   Đối với mỗi chiến lược dữ liệu sau đây được kiểm toán viên sử dụng, hãy cung cấp ít nhất 
+một rủi ro cần được kiểm soát dựa vào kết quả phân tích.
+	 1. Lấy mẫu các giao dịch của khách hàng theo quy mô của các giao dịch ảnh hưởng đến tài khoản.
+	 2. So sánh các ước tính và giả định được ban quản lý sử dụng năm nay với năm ngoái.
+	 3. Yêu cầu xác nhận tất cả tài khoản ngân hàng cuối năm, khoản phải thu, khoản phải trả 
+số dư.
+
+4-50  CHƯƠNG 4  Lập kế hoạch chiến lược phân tích và dữ liệu
+BE 4.11  (LO 4)  Hệ thống thông tin kế toán   Đối với mỗi chiến lược phân tích sau đây dành cho 
+dự án AIS, xác định xem mục tiêu của dự án là mô tả hay chẩn đoán (D) hay dự đoán hay dự đoán trước.
+chữ viết (P):
+Chiến lược
+Mục tiêu
+	 1. Tính thời gian trung bình mỗi bộ phận trong doanh thu 
+chu trình thực hiện chức năng của nó theo từng đơn hàng.
+	 2. Tính toán mức tiết kiệm chi phí dự kiến từ việc chuyển sang RFID (không có sóng vô tuyến) 
+nhận dạng) công nghệ để nhận dạng hàng tồn kho, định giá và 
+tính chi phí.
+	 3. Ước tính cần bao nhiêu dung lượng máy chủ cho AIS nếu doanh số bán hàng 
+doanh thu sẽ tăng 10% mỗi năm trong 5 năm tới.
+	 4. Phát hiện vào thời điểm nào trong ngày và theo kênh nào trái phép 
+truy cập đang xảy ra vào mô-đun quản lý quan hệ khách hàng.
+BE 4.12  (LO 4)  Kế toán tài chính   Giả sử bạn là một kế toán tài chính được giao nhiệm vụ lựa chọn 
+giải pháp thay thế tài chính tốt nhất cho tổ chức của bạn. Đề xuất chiến lược dữ liệu và chiến lược phân tích cho 
+mục tiêu này.
+Bài tập
+EX 4.1  (LO 1)  Khớp các thành phần của kế hoạch dự án Khớp thành phần kế hoạch dự án phân tích dữ liệu với 
+mỗi phát biểu sau:
+	 một.	 Mục tiêu và câu hỏi của dự án
+	 b.	 Chiến lược dữ liệu
+	 c.	 Chiến lược phân tích
+	 d.	 Rủi ro nghiêm trọng
+	 đ.	 Điều khiển nhúng
+	___ 1.  Xác minh tính hợp lý của các giá trị dữ liệu.
+	___ 2.  Định dạng dữ liệu phải được chuyển đổi trước khi phân tích.
+	___ 3.  Dự đoán doanh số năm tới.
+	___ 4.  Dữ liệu về doanh số bán hàng.
+	___ 5.  Sử dụng phân tích hồi quy để dự đoán doanh số bán hàng của năm tới.
+	___ 6.  Chẩn đoán nguyên nhân gây ra chi phí vượt mức trong quá trình sản xuất.
+	___ 7.  Sử dụng các tỷ lệ khác nhau trên trục y và trục x trong các hình ảnh trực quan.
+EX 4.2  (LO 1)  Kế toán quản trị   Kế toán tài chính   Thiết kế chiến lược dữ liệu và kế hoạch 
+Chiến lược phân tích Giả sử động lực thực hiện phân tích dữ liệu của bạn là để tối đa hóa doanh thu bán hàng. 
+Các câu hỏi khách quan cụ thể của bạn là để xác định xem doanh số bán hàng đang tăng, ổn định hay giảm 
+cho từng dòng sản phẩm của công ty bạn năm nay so với năm ngoái. Mô tả một chiến lược dữ liệu có thể
+chiến lược và chiến lược phân tích cho mục tiêu này.
+EX 4.3  (LO 1)  Kế toán quản trị   Hệ thống thông tin kế toán   Chiến lược dữ liệu phù hợp-
+egy Choices Hãy ghép từng mục tiêu với các lựa chọn dữ liệu sau.
+	 Một.	 Dữ liệu chi phí lao động
+	 b.	 Dữ liệu vận hành sản xuất
+	 c.	 Dữ liệu chiến lược tiếp thị trong quá khứ
+	 d.	 Dữ liệu khảo sát sự hài lòng về dịch vụ CNTT
+	 đ.	 Dữ liệu bán hàng thị trường trực tuyến
+	 f.	 Dữ liệu hợp đồng mua bán
+	___ 1.  Điều gì gây ra sự khác biệt trong việc sử dụng nguyên liệu sản xuất lớn của chúng tôi?
+	___ 2.  Chiến lược tiếp thị nào có khả năng tăng thị phần của chúng ta nhất?
+	___ 3.  Chúng ta có tuân thủ các quy trình GAAP của Hoa Kỳ về ghi nhận doanh thu không?
+	___ 4.  Dòng sản phẩm nào của chúng tôi có thể được bán trực tuyến cũng như tại cửa hàng?
+	___ 5.  Việc luân chuyển nhân viên CNTT của chúng tôi có ảnh hưởng đến dịch vụ của họ đối với các bộ phận chức năng khác không?
+	___ 6.  Chi phí trả lương của chúng ta có tăng lên không?
+
+Bài tập  4-51
+EX 4.4  (LO 2)  Kế toán quản trị   Chiến lược dữ liệu thiết kế Sau đây là danh sách sẵn có-
+các trường có thể có trong tập dữ liệu từ cửa hàng cung cấp vật nuôi.
+Trường dữ liệu
+Mô tả
+	 1. POKhông
+Số đơn đặt hàng được chỉ định duy nhất
+	 2. ID nhà cung cấp
+Số nhà cung cấp được chỉ định duy nhất
+	 3. Tên nhà cung cấp
+Tên nhà cung cấp
+	 4. Chất lượng nhà cung cấp
+Xếp hạng chất lượng từ 1 - 6 trong đó 1 = kém và 6 = đặc biệt
+	 5. Địa chỉ nhà cung cấp
+Địa chỉ gửi thư qua bưu điện Hoa Kỳ và tên đường phố
+	 6. Thành phố nhà cung cấp
+Địa chỉ gửi thư thành phố
+	 7. Nhà cung cấp
+Trạng thái địa chỉ gửi thư
+	 8. Nhà cung cấpZip
+Mã zip địa chỉ gửi thư
+	 9. Điều khoản thanh toán của nhà cung cấp
+Điều kiện thanh toán được thỏa thuận với nhà cung cấp
+	10. PODate
+Ngày đặt hàng
+	11. POItemID
+Số mặt hàng có thể nhận dạng duy nhất
+	12. Mô tả POItem
+Mô tả mặt hàng
+	13. Chi phí vật phẩm
+Chi phí của mặt hàng tồn kho theo điều khoản đã thương lượng với nhà cung cấp
+	14. Số lượng mặt hàng
+Tổng số lượng mặt hàng đã mua
+Đối với mỗi mục tiêu sau (a, b, c), hãy xác định các trường dữ liệu tối thiểu (1-14) bạn sẽ chọn cho 
+chiến lược dữ liệu của bạn:
+	 một.	 Mục tiêu của bạn là giảm lượng khí thải carbon khi mua hàng, vì vậy bạn muốn xác định những gì 
+nhà cung cấp đã vận chuyển hàng mua của bạn đi nhiều km nhất vào năm ngoái.
+	 b.	 Mục tiêu của bạn là xác định mặt hàng tồn kho nào có mức tăng chi phí lớn nhất trong quá khứ 
+năm năm.
+	 c.	 Mục tiêu của bạn là xác định năm nhà cung cấp mà bạn đã thực hiện mua hàng có giá trị cao nhất 
+năm ngoái.
+EX 4.5  (LO 2)  Chuẩn bị kế hoạch dự án Bạn tốt nghiệp chương trình đại học của mình sau một tháng. 
+Mục tiêu của bạn là ứng tuyển thành công vào cả công việc chuyên môn và trường sau đại học. Trong ứng dụng của bạn-
+tài liệu, bạn muốn cho thấy điểm số của bạn được cải thiện như thế nào khi bạn chuyển từ chương trình giáo dục phổ thông sang 
+các khóa học cho các khóa học trong chuyên ngành của bạn. Mô tả chiến lược dữ liệu, chiến lược phân tích của bạn và ba khả năng-
+Những rủi ro bạn cần kiểm soát bằng cách đưa ra các đề xuất kiểm soát.
+EX 4.6  (LO 2)  Kế toán quản lý   Rủi ro và biện pháp kiểm soát chiến lược dữ liệu Giả sử dữ liệu của bạn được phân tích-
+Mục tiêu của ysis là giảm lượng khí thải carbon khi bạn mua hàng từ nhà cung cấp. Chiến lược phân tích của bạn là 
+để xác định nhà cung cấp nào đã vận chuyển hàng mua của bạn đi nhiều km nhất vào năm ngoái. Bạn đã chọn 
+các trường dữ liệu sau cho chiến lược dữ liệu của bạn.
+Trường dữ liệu
+Mô tả
+POKhông
+Số đơn đặt hàng được chỉ định duy nhất
+ID nhà cung cấp
+Số nhà cung cấp được chỉ định duy nhất
+Tên nhà cung cấp
+Tên nhà cung cấp
+Địa chỉ nhà cung cấp
+Địa chỉ gửi thư qua bưu điện Hoa Kỳ và tên đường phố
+Nhà Cung CấpThành Phố
+Địa chỉ gửi thư thành phố
+Nhà cung cấpNhà nước
+Trạng thái địa chỉ gửi thư
+Nhà cung cấpZip
+Mã zip địa chỉ gửi thư
+PODate
+Ngày đặt hàng
+Xác định ba rủi ro dữ liệu và biện pháp kiểm soát dữ liệu mà bạn có thể sử dụng cho những rủi ro đó.
+
+4-52  CHƯƠNG 4  Lập kế hoạch chiến lược phân tích và dữ liệu
+EX 4.7  (LO 3)  Kiểm toán   Kế toán quản trị   Lập kế hoạch dự án Bạn là nhân viên nội bộ 
+kiểm toán viên làm việc với bộ phận bán hàng thiết bị ngoài trời của công ty bạn để đưa ra chiến lược bán hàng mới 
+hoa hồng khuyến khích lợi nhuận cao hơn chiến lược hoa hồng cố định hiện tại của bạn. Mô tả một dữ liệu 
+chiến lược, chiến lược phân tích và ba rủi ro có thể xảy ra mà bạn cần kiểm soát bằng cách đưa ra các đề xuất kiểm soát.
+EX 4.8  (LO 3)  Kế toán quản lý   Lập kế hoạch dự án Bạn là kế toán quản lý 
+cho Cửa hàng cung cấp sản phẩm làm đẹp của Sihrya. Bạn đã được yêu cầu dự đoán mức đóng góp của năm tới. Một sam-
+nhiều dữ liệu có sẵn cho phân tích của bạn được bao gồm ở đây.
+Nhãn trường
+Tên trường trong cơ sở dữ liệu
+Số biên nhận
+BánBiên nhậnKhông
+Ngày bán hàng
+Saledate
+Mã hàng tồn kho
+mã mời
+Số lượng đã bán
+Không bán
+Mô tả khoảng không quảng cáo
+InvDesc
+Giá hàng tồn kho
+giá đầu tư
+Chi phí tồn kho
+Chi phí đầu tư
+Mô tả chiến lược dữ liệu, chiến lược phân tích và ba rủi ro có thể xảy ra mà bạn cần kiểm soát bằng cách cung cấp 
+đề xuất kiểm soát.
+EX 4.9  (LO 3)  Kế toán tài chính   Kế toán quản trị   Lập kế hoạch dự án Bạn làm việc 
+là nhà phân tích tài chính cho một chuỗi cửa hàng cà phê lớn như Starbucks. Mục tiêu của bạn là chẩn đoán cái nào 
+cửa hàng có doanh số bán hàng ngày càng tăng. Chiến lược dữ liệu của bạn là sử dụng dữ liệu hàng tháng về doanh số bán hàng tại cửa hàng từ hai năm trước 
+năm. Thiết kế một chiến lược phân tích, bao gồm những rủi ro bạn nên xem xét và kiểm soát những rủi ro có thể xảy ra. 
+giúp hạn chế những rủi ro đó.
+EX 4.10  (LO 1- 4)  Kiểm toán   Hệ thống thông tin kế toán   Lập kế hoạch dự án Bạn là 
+đang làm việc trong nhóm hệ thống thông tin kế toán tại công ty bạn. Bạn đã được yêu cầu đánh giá 
+kiểm soát nội bộ gắn với việc xác thực người dùng vào hệ thống thông tin. Người quản lý của bạn 
+đã yêu cầu bạn thực hiện phân tích mô tả về những lần đăng nhập thất bại. Người quản lý của bạn đã cung cấp cho bạn 
+với mục tiêu và câu hỏi phân tích. Sử dụng biểu đồ, ghi lại dữ liệu và các lựa chọn phân tích của bạn và 
+rủi ro và biện pháp kiểm soát đối với từng loại.
+Mục tiêu và câu hỏi
+Dữ liệu và  
+Chiến lược phân tích
+Rủi ro
+Điều khiển
+Mục tiêu: Đánh giá nội bộ 
+điều khiển liên quan đến 
+xác thực người dùng
+Các câu hỏi: Ý nghĩa là gì, 
+trung vị, độ lệch chuẩn, 
+và phân phối đăng nhập thất bại 
+nỗ lực trong năm hiện tại?
+1. Dữ liệu:
+2. Phân tích:
+3. Dữ liệu:
+4. Phân tích:
+5. Dữ liệu:
+6. Phân tích:
+
+Bài tập  4-53
+EX 4.11  (LO 1-4)  Kế toán tài chính   Kế toán quản lý Lập kế hoạch dự án Bạn 
+là nhà phân tích tài chính tại Thẩm mỹ viện Sihrya. Chủ sở hữu công ty đã yêu cầu bạn thực hiện phân tích dữ liệu
+vâng để hiểu các sản phẩm góp phần mang lại lợi nhuận cho cửa hàng bán lẻ của thẩm mỹ viện. Chủ sở hữu ủng hộ
+đã cung cấp cho bạn một từ điển dữ liệu, được trình bày ở đây, mô tả dữ liệu mà bạn có thể cân nhắc sử dụng trong phân tích của mình.
+Nhãn trường
+Tên trường trong cơ sở dữ liệu
+Mô tả trường
+Số biên nhận
+Biên laiKhông
+Số biên nhận được chỉ định POS duy nhất 
+xác định từng lần bán hàng.
+Ngày bán hàng
+Ngày bán hàng
+Ngày bán trên mỗi POS.
+Mã hàng tồn kho
+mã mời
+Số nhận dạng hàng tồn kho duy nhất 
+cho từng sản phẩm tại cửa hàng bán lẻ của salon.
+Số lượng đã bán
+Không bán
+Số lượng mặt hàng đã bán.
+Mô tả khoảng không quảng cáo
+InvDesc
+Mô tả mặt hàng tồn kho.
+Giá hàng tồn kho
+giá đầu tư
+Tổng giá bán của mặt hàng tồn kho.
+Chi phí tồn kho
+Chi phí đầu tư
+Giá vốn bình quân gia quyền của hàng tồn kho 
+mục.
+	 1. Nêu rõ mục tiêu của chủ sở hữu đối với dự án phân tích dữ liệu của bạn.
+	 2. Giả sử câu hỏi phân tích của bạn là xác định những sản phẩm có lợi nhuận gộp cao nhất. Xác định 
+các trường dữ liệu bạn nên đưa vào phân tích của mình. Xác định các lựa chọn phân tích dữ liệu để trả lời câu hỏi này 
+câu hỏi phân tích.
+	 3. Xác định rủi ro và các lựa chọn kiểm soát liên quan đến câu hỏi phân tích.
+EX 4.12  (LO 1-4)  Dữ liệu   Kế toán quản lý   Chọn chiến lược dữ liệu và thực hiện phân tích-
+sis Bạn là kế toán quản lý làm việc tại một công ty bán lẻ chăm sóc thú cưng có nhiều địa điểm. Người giám sát của bạn 
+đã yêu cầu bạn so sánh số tiền mua hàng được thực hiện từ mỗi nhà cung cấp vào tháng 12 năm 2024 
+so với tháng 12 năm 2025. Sau khi thảo luận với người giám sát của mình, bạn đã xác định được những điều sau:
+Mục tiêu: So sánh tổng số lượt mua hàng của nhà cung cấp trong tháng 12 năm 2024 và tháng 12 năm 2025.
+Câu hỏi: Vào năm 2024 và 2025, nhà cung cấp nào có nhiều giao dịch mua hàng nhất (bằng đô la)? 
+Dữ liệu: Bạn có quyền truy cập vào dữ liệu sau.
+Trường dữ liệu
+Mô tả
+POKhông
+Số đơn đặt hàng được chỉ định duy nhất.
+ID nhà cung cấp
+Số nhà cung cấp được chỉ định duy nhất.
+Tên nhà cung cấp
+Tên nhà cung cấp.
+Nhà cung cấpChất lượng
+Xếp hạng chất lượng từ 1 - 6 trong đó 1 = kém và 6 = đặc biệt.
+Địa chỉ nhà cung cấp
+Địa chỉ gửi thư qua bưu điện Hoa Kỳ và tên đường phố.
+Nhà Cung CấpThành Phố
+Địa chỉ gửi thư TP.
+Nhà cung cấpNhà nước
+Trạng thái địa chỉ gửi thư.
+Nhà cung cấpZip
+Mã zip địa chỉ gửi thư.
+Điều khoản thanh toán của nhà cung cấp
+Điều kiện thanh toán được thương lượng với nhà cung cấp.
+PODate
+Ngày đặt mua hàng.
+ID mục
+Số mặt hàng có thể nhận dạng duy nhất.
+POItemMô tả
+Mô tả mặt hàng.
+Sản phẩmChi phí
+Chi phí của mặt hàng theo các điều khoản đã thương lượng với nhà cung cấp.
+Số lượng mặt hàng
+Tổng số lượng mặt hàng đã mua.
+	 1. Bạn sẽ sử dụng mục dữ liệu nào trong chiến lược dữ liệu của mình?
+	 2. Thiết kế chiến lược phân tích để xác định nhà cung cấp hoặc các nhà cung cấp mà công ty có mức giá cao hơn 
+số đô la mua vào năm 2025 so với năm 2024.
+	 3. Thực hiện phân tích theo chiến lược phân tích của bạn. Xác định các nhà cung cấp mà công ty có 
+số tiền mua hàng bằng đô la cao hơn vào năm 2025 so với năm 2024.
+
+4-54  CHƯƠNG 4  Lập kế hoạch chiến lược phân tích và dữ liệu
+Vấn đề
+PR 4.1  (LO 1- 4)  Dữ liệu   Kiểm toán   Kế toán quản trị   Hoàn thành kế hoạch dự án Bạn làm việc trong

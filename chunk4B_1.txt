@@ -1,0 +1,173 @@
+10 FORECASTING THE FINANCIAL HEALTH OF A
+BUSINESS USING PENALIZED REGRESSION
+10.1 Financial Health of a Business
+10.2 Importance of Forecasting Financial Health of the Business
+10.2.1  The Influence of Borrowing on Financial Health
+10.2.2  Debt Ratio and Borrowing Ability
+10.3 Importance of Knowing Financial Health for Lenders
+10.3.1  Poor Financial Health: Bankruptcy
+10.4 Importance of Knowing a Business’ s Financial Health for Investors
+10.5 Forecasting Financial Health
+10.5.1  Financial Ratios
+10.6 Multicollinearity
+10.6.1  Testing for Multicollinearity
+10.7 Using Penalized Regression for Evaluating Financial Health
+10.7.1  Predicting Financial Health Using LASSO
+10.7.2  Business Insights and Other Applications
+10.8 Implementation Using R: Evaluating the Health of a Business
+10.9 Appendix: Glossary of Financial Terms
+10.10  Understanding the Chapter
+LEARNING OBJECTIVES
+1. Gauge the financial health of a business
+2. Understand the importance of bankruptcy forecasting for investors, lenders, and businesses
+3. Use penalized regression for forecasting financial health
+4. Determine multicollinearity and feature selection with LASSO
+10.1 FINANCIAL HEALTH OF A BUSINESS
+In any firm, the finance department serves the important functions of control, planning, decision-making,
+and ensuring regulatory compliance. The department provides a backward look at how the business
+performed by examining many financial reports, including balance sheets, income statements, and cash
+flow statements that indicate to the business where its strengths and weaknesses lie. It also provides an
+important forward look in the form of many forecasts, including cash flow forecasts, scenario planning,
+and sensitivity analysis. Forecasting (or prediction) models are very commonly used in finance to inform
+lenders, the business itself, and several dif ferent types of investors where they need to invest their
+resources in the coming time periods. These forecasts also consider credit ratings, market conditions,
+and the broader economic outlook. Where should a business invest? Should it increase prices or of fer
+promotions? Can it provide employee raises, or is it time to cut costs? Can it invest in a new location or
+a new product? Financial management provides an overall look at the financial health of a firm, helping
+in strategic decision-making across various departments. Therefore, financial forecasting helps provide
+business leadership with an overall picture to develop strategies that avoid decision-making silos. Such
+forecasting also helps lenders determine whether to of fer a loan and helps business borrowers
+determine how much they should borrow .
+10.2 IMPORTANCE OF FORECASTING FINANCIAL HEALTH OF
+THE BUSINESS
+Different entities in the firm need to determine the financial health of the business since it is a critical
+input in their decisions. Owners and management need to know how the business is performing its main
+functions to determine which areas need further investment versus which areas might need to be
+divested. Incorrect forecasts or erroneously ambitious ventures can result in resources running out and
+ventures having to be terminated midstream at great financial, organizational, and human cost. General
+Electric started more than 100 years ago as an electric and electronic product manufacturing company
+but was able to grow into many dif ferent areas—including GE Capital, a financial services branch.
+However , after the financial crisis of 2008, regulatory pressures, and the unprofitable acquisition of
+French transportation company Alstom’ s power business in 2015, GE had to divest its financial division
+after management determined that further investment in this division would be problematic for GE’ s
+other divisions.
+Employees also need to be aware of their organization’ s financial health for a variety of reasons.
+Knowledge of the company’ s financial standing helps in assessing job security and in making informed
+career planning decisions. Awareness of organizational finances also fosters motivation and can align
+individual objectives with the organization’ s goals. Transparent communication about financial health
+also nurtures an environment of trust, facilitating better understanding of management decisions,
+including those concerning incentives, compensation, and organizational changes.
+10.2.1 The Influence of Borrowing on Financial Health
+Determining financial health is important for a business so that it can understand whether it needs to
+borrow money , how much to borrow , and at what interest rate; it also needs to identify which areas are
+growth areas that merit further investment. Many businesses cannot operate without borrowing.
+Borrowing helps grow the business, but it also adds costs in terms of interest payments. The interest
+payable on debt provides a tax shield on the taxable amount. For instance, if the tax rate is 30% and the
+interest expense is $1,000, then a business receives a tax shield of $300 (interest expense × tax rate).
+In fact, trade-off theory  in finance suggests that there is a trade-of f between the tax shield provided by
+debt and the financial distress of not being able to repay the debt. If we avoid the extremes, trade-of f
+theory will predict that risky businesses focused on intangible assets, such as technology startups, will
+have less debt compared to businesses that own tangible assets such as hotels. Companies want to
+maintain an optimal debt ratio to ensure that lenders and investors don’t lose faith in them. Therefore,
+one way to assess the value of a business is to consider its market value as dependent on its equity and
+debt.
+Market value = Equity + tax shield from debt – cost of financial distress
+The trade-of f theory can be illustrated as shown in Figure 10.1 .
+Description
+Figure 10.1  Tax Shield Provided by Debt V ersus the Financial Distress
+10.2.2 Debt Ratio and Borrowing Ability
+As can be seen from Figure 10.1 , a business that operates just on equity and is not dependent on debt
+is not influenced either by the tax shield or by the chance of financial distress because of debt. It can
+face distress for other reasons but not because of its inability to pay back debt. Let’ s look at the curve
+and the straight line. The curve shows a leveraged business—that is, one that has taken a loan and
+owes a debt to its lenders. W e can see that initially , when the debt amount is low , the business gets a
+tax shield for the debt. Given the low debt, the business may not be facing a huge amount of debt
+servicing (i.e., paying back the principal and interest for each period of the loan). Please refer to Section
+10.9: Glossary of Financial Terms for definitions. If the business goes to the market to borrow , the
+lenders will use the debt ratio of the business to evaluate its financial health. A low debt ratio can help
+the business borrow at a lower rate of interest. This reduced interest can help it grow and do well, which
+in turn can increase its market value. The business can also borrow more. The more its debt increases,
+the more its tax shield will grow initially . Everything is fine as long as the tax shield is able to of fset the
+probability of financial distress because of the firm’ s debt servicing costs. However , the probability of
+financial distress becomes quite high when the debt servicing crosses a threshold where the tax shield
+is not able to match the level of borrowing. Borrowing beyond this point results in greater likelihood not
+only of financial distress but also of bankruptcy .
+Consider Sears, which declared bankruptcy after being in business for 125 years and having at one time
+enjoyed the title of the largest retailer in the United States. Over the years, Sears accumulated
+significant debt, which, coupled with operational inef ficiencies and strategic missteps, led to financial
+distress. While debt can sometimes of fer leverage and tax shields, in Sears’ s case, it became a burden,
+reducing its financial health. Sears tried to raise cash by closing hundreds of its stores as a cost-cutting
+measure. This laid of f thousands of workers and caused distress to its employees. The inability to keep
+up with the technological changes resulted in Sears slowly falling behind. Several post hoc theories
+have been suggested for its demise, including lack of investment to modernize of fline stores and not
+investing in a strong online presence. The demise of this previously formidable retailer shows that
+knowing the financial health of a business and strategically basing its borrowing on its ability to pay of f
+the debt in a timely manner is important for all company stakeholders.
+10.3 IMPORTANCE OF KNOWING FINANCIAL HEALTH FOR
+LENDERS
+Lenders can be banks or any financial institution that lends money to businesses for dif ferent activities.
+Lenders need to evaluate the financial health of a business before they determine whether to lend to a
+business, ensuring that the business will remain solvent and pay of f its debt. Lenders need to
+continuously evaluate the creditworthiness of the borrower over the period of the loan. Usually , a lender
+evaluates the total assets of a business against its total liabilities, as stated in the balance sheet, to
+determine its financial health. As we discuss in detail later , several financial and operating ratios are
+used for this purpose. Businesses with good financial health are considered more creditworthy and are
+likely to qualify for a loan, while businesses with poor financial health may be denied a loan or may
+obtain it only at a significantly higher interest rate. A good credit rating—for example, a triple-A  rating—
+allows a business to borrow from lenders at a lower rate. Conversely , a higher interest rate indicates that
+the lender does not consider the business to be particularly creditworthy and is charging the higher rate
+as insurance against the possibility that the business will default on its loan payment. In extreme cases,
+as we discuss in Section 10.4.1 on private equity , a business in financial distress can borrow only at
+very high interest rates.
+It is not surprising that lenders take these precautions because businesses can start experiencing
+financial dif ficulties through factors unfolding in their macroenvironment (e.g., the financial crisis of 2008)
+or because of their own past decisions (e.g., GE deciding to buy Alstom or Toys “R” Us having
+accumulated significant debt while facing increased competition from online retailers and changing
+consumer preferences). When a business continues to experience financial dif ficulties, bankruptcy
+looms as a possibility .
+10.3.1 Poor Financial Health: Bankruptcy
+If the business continues to experience financial dif ficulties, such as those we can see in Figure 10.1 , it
+will start to default on its loan payments, resulting in increased financial distress. Such distress is a
+cause of concern for lenders, who have to decide whether additional investment is warranted in an
+attempt to reverse the distress or to allow further defaults by the business. In such cases, businesses
+can declare bankruptcy . Bankruptcy is the legal acknowledgment by the business that it is unable to pay
+off its debts. Businesses file for either Chapter 7  or Chapter 11 . In a Chapter 11  filing, a business can be
+restructured in such a way that it gets another chance. If it subsequently does well, it can pay of f its
+debts and work its way out of bankruptcy . For instance, Toys “R” Us filed for Chapter 11  in 2017, hoping
+that it would be able to restructure the company and pay of f its debts. However , it was not able to do so
+and had to file for Chapter 7  in 2018. Chapter 7  filing does not allow the business to continue to operate;
+in such cases the business will cease to exist. One form of Chapter 7  bankruptcy occurs when all assets
+of the business are liquidated so that some of its debts can be paid of f. In situations where the business
+owners cannot pay back their debts, then the lenders step in and take over whatever is left of the
+business.
+There are numerous examples of companies that were successful at one time later experiencing
+financial distress. For example, David’ s Bridal, a large wedding dress retailer with a presence in several
+states, found that changing tastes and focus on nontraditional dresses by millennials resulted in lowered
+profits and an inability to pay their debt. Mattress Firm filed for Chapter 11 , shutting down approximately
+900 stores in 2018. It struggled with adapting to changes introduced in mattress manufacture and
+competition from startups such as Tuft & Needle, Casper , and Purple. Online mattress purchases have
+seen a huge spike, even though mattresses were touted as a product that consumers need to physically
+feel and experience prior to purchase. This resulted in Mattress Firm needing to reconsider how it of fers
+its product to consumers who no longer feel the need to try out a mattress before purchasing it.
+All lenders do not face the same decision of whether to let a business file for bankruptcy . It depends on
+the type of business. For example, consider lenders to two businesses: a restaurant versus a biotech
+startup. Initially , both need the same level of investment from the lenders. If a few years later both
+companies file for bankruptcy , the situation from the point of view of the lender will dif fer. In the case of
+the restaurant, the entire setup is still functional, and an easy option for the lender is to get someone
+else to run the restaurant. However , in the case of the biotech startup, the space or the setting is
+unimportant; the investment is in human capital and what it can produce—the ideas and innovations that
+are generated by the employees. If the biotech does not do well, then what can the lender salvage?
+Unfortunately , not much.
+10.4 IMPORTANCE OF KNOWING A BUSINESS’S FINANCIAL
+HEALTH FOR INVESTORS
+A business can have dif ferent types of investors. For instance, it might have venture capitalists investing
+in it during the initial stage of development. In later stages, several financial institutions, including private
+equity firms, may invest or buy stakes in the business. This allows them to have a say in the working of
+the business—for example, which divisions to identify for growth versus divestment. Finally , if the
+company is traded on the stock market, individual investors also are interested in knowing the financial
+health of a business to determine whether and how much to invest in it. Depending on the level of
+investment—for example, a financial institution investing millions versus an individual investor
+purchasing one share of stock for a few dollars—investors can utilize dif ferent means to understand
+whether and how much to invest. Again, the financial health of a business, assessed by using dif ferent
+types of financial ratios, becomes the means to determine the level of investment. In certain
+circumstances, when investors might assess that a business has potential but is not performing

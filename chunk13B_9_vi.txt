@@ -1,0 +1,363 @@
+lợi nhuận bán hàng của khách hàng trong 30 ngày đầu tiên sau khi kết thúc năm. Phân tích mô tả cho thấy lợi nhuận bán hàng 
+giảm đáng kể so với năm trước. Hơn nữa, bạn lưu ý rằng mức giảm lớn nhất liên quan đến 
+lợi nhuận bán hàng là ở khu vực phía tây bắc. Bạn phải thực hiện phân tích chẩn đoán để hiểu tại sao lại có 
+là sự sụt giảm lợi nhuận bán hàng.
+Tiếp theo là tóm tắt về mục tiêu phân tích dữ liệu, câu hỏi ban đầu, câu hỏi phụ và các biện pháp khả thi. 
+Hoàn thành dàn ý bằng cách ghép câu phát biểu thích hợp với ô vuông trống tương ứng. Nhà nước-
+các lựa chọn có thể được sử dụng một lần, nhiều lần hoặc không sử dụng lần nào.
+	 Một.	 Điều gì đang làm giảm lợi nhuận bán hàng?
+	 b.	 Có mô hình bất thường nào về lợi nhuận bán hàng ở khu vực Tây Bắc đối với một số dòng sản phẩm nhất định không?
+
+Bài tập ngắn  3-49
+	 c.	 Tạo phân tích xu hướng hiển thị lợi nhuận theo ngày cho từng dòng sản phẩm trong năm hiện tại được so sánh 
+đến năm trước.
+	 d.	 Lọc dữ liệu để tách biệt lợi nhuận bán hàng ở khu vực Tây Bắc và kiểm tra tổng lợi nhuận bán hàng, doanh thu trung bình 
+hàng bán bị trả lại và số lượng hàng bán bị trả lại.
+	 đ.	 Tạo một mô hình tối ưu hóa để xác định số lượng bán hàng trả lại phù hợp nhất với điều kiện 
+hạn chế về doanh số và số lượng sản xuất.
+	 f.	 Tính độ lệch chuẩn của doanh thu và so sánh với độ lệch chuẩn của nhân viên 
+chi phí trong kỳ.
+	 g.	 Tính toán tổng chi tiêu của công ty cho dịch vụ khách hàng để xác định xem lợi nhuận bán hàng có 
+liên quan đến chất lượng sản xuất.
+Mục tiêu
+Câu hỏi ban đầu
+Câu hỏi phụ
+Các biện pháp khả thi
+Tại sao việc bán hàng 
+lợi nhuận giảm 
+từ năm trước?
+Có bất thường không 
+trong lợi nhuận bán hàng cho bất kỳ 
+sản phẩm cụ thể 
+công ty bán?
+Có nhận dạng được không 
+xu hướng lợi nhuận bán hàng 
+cho bất kỳ cụ thể 
+sản phẩm?
+Tạo một biểu đồ phân tán 
+so sánh số lượng 
+trở về giá bán 
+để xác định vật phẩm 
+sự bất thường trong lợi nhuận.
+Tạo một biểu đồ phân tán 
+so sánh doanh số bán hàng 
+đô la trên lợi nhuận bán hàng 
+để xác định vật phẩm 
+sự bất thường trong lợi nhuận. 
+Tại sao lại có một 
+giảm lớn 
+lợi nhuận bán hàng trong 
+vùng Tây Bắc?
+Những yếu tố nào là 
+thúc đẩy sự giảm sút 
+trong lợi nhuận bán hàng trong 
+vùng Tây Bắc?
+BE 3,9  (LO 4)  Hãy ghép kết quả phân tích với mô tả của nó. Mỗi thuật ngữ có thể được sử dụng một lần, nhiều lần hoặc 
+không hề.
+Phân tích: 
+	 một.	 Biến độc lập
+	 b.	 hàm tuyến tính
+	 c.	 Thống kê hồi quy
+	 d.	 Hệ số tương quan
+	 đ.	 Biến phụ thuộc
+	 f.	 R2 đã điều chỉnh
+Mô tả
+Phân tích
+1. Các thước đo thống kê dùng để đánh giá mô hình hồi quy.
+2. Biến kết quả trong mô hình hồi quy.
+3. Biến hoặc các biến ảnh hưởng đến biến kết quả.
+4. Loại mối quan hệ này có mức độ tăng hoặc giảm đều đặn 
+trong phạm vi của biến độc lập.
+5. Thống kê này đo lường sức mạnh của mối quan hệ giữa 
+các biến phụ thuộc và biến độc lập.
+6. Thống kê này giải thích mức độ phù hợp của đường hồi quy với dữ liệu.
+1. 
+2. 
+3. 
+4.
+
+3-50  CHƯƠNG 3  Động cơ và Mục tiêu Phân tích Dữ liệu
+BE 3.10  (LO 4)  Mục tiêu là tham gia vào các phân tích dự đoán. Đối với mỗi chữ cái đầu hoặc chữ sau đây 
+câu hỏi phụ, xác định biến độc lập và biến phụ thuộc.
+	 1. Doanh thu sẽ thay đổi bao nhiêu khi doanh số bán hàng tăng 15%?
+	 2. Doanh thu sẽ tăng bao nhiêu khi khối lượng sản xuất tăng 10%?
+	 3. Chi phí bảo trì sẽ thay đổi bao nhiêu nếu chúng ta tăng khối lượng sản xuất lên 5%?
+	 4. Khi tỷ lệ thất nghiệp tăng, khối lượng bán hàng sẽ giảm bao nhiêu?
+	 5. Khi số lượng nhân viên tăng lên, chi phí bảo mật thông tin sẽ tăng bao nhiêu?
+BE 3.11  (LO 4, 6)  Hệ thống thông tin kế toán   Giả sử bạn là người cung cấp thông tin kế toán 
+kế toán hệ thống được yêu cầu xem xét sự thành công của chương trình đào tạo mạng của công ty bạn. Bạn đồng-
+dữ liệu được thảo luận về số giờ đào tạo an ninh mạng hàng tháng được cung cấp cho nhân viên và số lượng-
+số lượng các mối đe dọa mạng được báo cáo. Bạn đã tạo biểu đồ đường xu hướng sau.
+0
+2
+0,8
+0
+6.0
+6.3
+8,0
+10.3
+11.0
+12,4
+14.3
+14.6
+16,5
+18,4
+18,8
+19.6
+22,6
+22,9
+23,8
+28,8
+4
+6
+8
+10
+12
+14
+16
+Các mối đe dọa mạng
+Đã báo cáo
+Số giờ đào tạo trên mạng được cung cấp
+Đào tạo và báo cáo về an ninh mạng
+y = 0,2387x + 5,1176
+R2 = 0,8137
+Sử dụng thông tin được cung cấp trong biểu đồ đường và phương trình để trả lời các câu hỏi sau:
+	 1. Nếu công ty cung cấp 9 giờ đào tạo về mạng trong một khoảng thời gian, số lượng đào tạo dự kiến là bao nhiêu? 
+các mối đe dọa an ninh mạng được nhân viên báo cáo?
+	 2. Nếu công ty cung cấp 35 giờ đào tạo về mạng trong một khoảng thời gian, số lượng đào tạo dự kiến là bao nhiêu? 
+các mối đe dọa an ninh mạng được nhân viên báo cáo?
+BE 3.12  (LO 5)  Ghép thuật ngữ thích hợp với mỗi định nghĩa. Các điều khoản có thể được sử dụng một lần, nhiều lần, 
+hoặc không hề.
+	 Một.	 Ràng buộc
+	 b.	 Hàm mục tiêu
+	 c.	 Biến quyết định
+	 d.	 Tối ưu hóa
+	 đ.	 Hồi quy tuyến tính
+	 f.	 Biến phụ thuộc
+	 g.	 Biến độc lập
+Định nghĩa
+kỳ hạn
+1. Quá trình lựa chọn giá trị của các biến để cực tiểu hóa hoặc cực đại hóa một số 
+số lượng quan tâm.
+2. Các giá trị chưa biết mà mô hình muốn xác định.
+3. Phương trình toán học mô tả mục tiêu đầu ra mà chúng ta hướng tới 
+giảm thiểu hoặc tối đa hóa.
+4. Những hạn chế, yêu cầu hoặc hạn chế khác phải được áp dụng đối với 
+bất kỳ giải pháp nào.
+
+Bài tập ngắn  3-51
+BE 3.13  (LO 5, 6)  Kế toán quản trị   Là kế toán quản lý cho một công ty sản xuất
+Pany, bạn được yêu cầu xác định số lượng đơn vị tối ưu phải được sản xuất để tối đa hóa 
+tỷ lệ đóng góp của công ty (CM). Công ty của bạn sản xuất bốn loại đơn vị khác nhau:
+•  Tiện ích tiêu chuẩn
+•  Vật dụng bay màu xanh
+•  Dụng cụ bơi màu đỏ
+•  Vật dụng nhảy màu vàng
+Để thực hiện phân tích theo quy tắc, người quản lý của bạn đã xây dựng một bảng tính để bạn thực hiện một Microsoft 
+Chức năng giải Excel.
+Tiêu chuẩn
+Bay xanh
+Bơi màu đỏ
+Nhảy vàng
+Tổng cộng
+Số lượng sản xuất
+1
+CM trên mỗi đơn vị
+Tổng CM
+Số giờ máy trên mỗi đơn vị
+Tổng số giờ máy
+Ràng buộc
+Giờ máy
+Nhu cầu
+17,87
+17,87
+6
+6
+1.200
+1
+15h20
+15h20
+8
+8
+1.750
+1
+21:00
+21:00
+12
+12
+1.670
+1
+19,87
+19,87
+11
+11
+73,94
+0
+37
+1.250
+50.000
+	 1. Biến quyết định trong mô hình là gì?
+	 2. Những hạn chế trong mô hình là gì?
+	 3. Hàm mục tiêu là gì?
+BE 3,14  (LO 5, 6)  Kế toán tài chính   Công ty tư nhân của bạn muốn mở rộng và phát triển thành một công ty mới 
+dòng sản phẩm; tuy nhiên, sự tăng trưởng đó đòi hỏi phải tăng vốn và đầu tư vào tài sản vật chất, con người, 
+và vật liệu. Bạn được yêu cầu xem xét chiến lược phù hợp nhất để có được số vốn cần thiết. bạn 
+tình nguyện tham gia phân tích dữ liệu để cung cấp cái nhìn sâu sắc cho cuộc thảo luận. 
+	 1. Mục tiêu của việc phân tích là gì?
+	 2. Xây dựng hai câu hỏi liên quan đến việc phân tích.
+	 3. Bạn sẽ sử dụng những phân tích nào để trả lời mỗi câu hỏi?
+BE 3.15  (LO 6)  Xác định liệu chuyên gia đã phát triển một câu hỏi cụ thể và có thể đo lường được hay chưa 
+phù hợp với lĩnh vực thực tập.
+	 1. Kiểm toán viên báo cáo tài chính hỏi: “Giá trị dự kiến của khách hàng phát hành cổ phiếu dựa trên 
+giá thị trường hiện tại?”
+	 2. Một kế toán viên hệ thống thông tin kế toán hỏi: “Công ty nên sản xuất bao nhiêu đơn vị?
+giảm để tối ưu hóa tỷ lệ đóng góp của công ty?
+	 3. Kế toán thuế đặt câu hỏi: “Dựa trên tờ khai thuế năm ngoái, năm nay sẽ như thế nào? 
+những thay đổi trong luật thuế có ảnh hưởng đến nghĩa vụ thuế của khách hàng không?”
+	 4. Kế toán quản trị xem xét “Sản phẩm nào sử dụng nhiều nguyên vật liệu nhất trong 
+sản xuất?”
+	 5. Một kế toán tài chính cân nhắc “Số tiền của khoản phải thu được phân loại trong 
+danh mục chưa thanh toán trên 90 ngày?”
+
+3-52  CHƯƠNG 3  Động cơ và Mục tiêu Phân tích Dữ liệu
+BE 3.16  (LO 6)  Hãy ghép mỗi câu phát biểu với lĩnh vực hành nghề kế toán phù hợp nhất. 
+Mỗi hành nghề kế toán có thể được sử dụng một lần, nhiều lần hoặc không sử dụng lần nào.
+	 Một.	 Hệ thống thông tin kế toán
+	 b.	 Kế toán tài chính
+	 c.	 Kế toán quản trị
+	 d.	 Kiểm toán
+	 đ.	 Kế toán thuế
+Tuyên bố
+Khu vực luyện tập
+1. Simone và nhóm công nghệ thông tin đang điều tra khả năng 
+của việc đầu tư vào các công nghệ mới.
+2. Chung muốn cải thiện hiệu suất hệ thống thông tin của công ty 
+và đang đánh giá thời gian xử lý để chuẩn bị báo cáo quản lý cuối tháng.
+3. Christine muốn xác định các giao dịch bán hàng bất thường có thể đã góp phần 
+đến sự gia tăng bất ngờ về doanh thu của khách hàng so với năm ngoái.
+4. Daniel hiện đang sử dụng chức năng Scenario Manager trong Excel để xác định 
+lãi suất, điều khoản thanh toán và thời hạn của khoản vay để đánh giá các nguồn vốn khác nhau 
+các chiến lược yêu cầu.
+5. Ellis đang phân tích cách tính nghĩa vụ thuế của khách hàng để xác định liệu có 
+những chi phí không được tính vào các khoản khấu trừ một cách hợp lý.
+6. Pierre hiện đang kiểm tra mối quan hệ giữa giờ máy và 
+chi phí bảo trì để dự đoán những sửa đổi sản xuất trong tương lai.
+7. Mica đang thực hiện phân tích hồi quy để ước tính dự đoán hàng tháng 
+doanh thu cho một khách hàng bán lẻ. Sau đó anh ta sẽ so sánh dự đoán hàng tháng 
+doanh thu trên số tiền được ghi nhận của khách hàng.
+Bài tập
+EX 3.1  (LO 2, 6)  Dữ liệu   Kế toán tài chính   Phân tích các biện pháp Là người kiểm soát công ty 
+Đối với một công ty cung cấp sản xuất sợi, bạn được yêu cầu điều tra doanh số bán hàng theo khách hàng trong tháng 
+của tháng 6 năm 2025. Bạn đã đánh giá nghiêm túc mục tiêu và các câu hỏi trong phân tích của mình và ghi lại 
+chúng như sau:
+Mục tiêu
+Câu hỏi ban đầu
+Câu hỏi phụ
+Các biện pháp khả thi
+Hiểu 
+bán hàng bởi 
+khách hàng 
+cho 
+tháng của 
+Tháng Sáu.
+Chuyện gì đã xảy ra với 
+doanh số trong tháng 
+của tháng Sáu?
+Tổng doanh số bán hàng là bao nhiêu?
+Mức trung bình là bao nhiêu 
+số tiền bán hàng?
+Tổng doanh số bán hàng là bao nhiêu 
+bởi khách hàng?
+Khách hàng nào đã có 
+doanh số cao nhất?
+	 1. Tổng số tiền bán hàng (tổng cộng 
+đo).
+	 2. Số tiền bán hàng bình quân 
+(thước đo vị trí).
+	 3. Tổng doanh số bán hàng theo khách hàng.
+	 4. Tổng doanh thu cách nhau bởi 
+khách hàng sử dụng bảng đánh dấu.
+Sử dụng dữ liệu có sẵn để thực hiện các phân tích được đề xuất trong phần biện pháp khả thi của kế hoạch phân tích.
+EX 3.2  (LO 2, 6)  Dữ liệu   Kế toán quản lý   Phân tích các biện pháp Công ty của bạn sản xuất
+sản xuất sợi chất lượng cao để bán tại các cửa hàng thủ công và các cửa hàng sợi và đặc sản trên toàn quốc. cụ thể-
+Cụ thể, cơ sở của bạn sản xuất sợi len merino với nhiều màu sắc khác nhau và có hai trọng lượng: dai và 
+Trọng lượng DK. Người quản lý sản phẩm muốn hiểu sự khác biệt về số lượng sản xuất theo sản phẩm 
+từ năm 2025 đến năm 2024 trong giai đoạn sản xuất tháng 7 và đã cung cấp cho bạn dữ liệu sản xuất cho 
+chọn sản phẩm. Sử dụng bảng tính để xác định dữ liệu có sẵn và hoàn thành các mục sau:
+	 1. Mục tiêu của việc phân tích là gì?
+	 2. Hai câu hỏi ban đầu bạn có thể hỏi về dữ liệu là gì?
+	 3. Tạo biểu đồ cột mô tả số lượng sản xuất theo Mô tả sản phẩm và Năm.
+	 4. Tính toán và xác định một số biện pháp mô tả:
+một.	 Tính Số lượng sản xuất trung bình theo Mô tả sản phẩm năm 2024 so với năm 2025.
+b.  Xác định số lượng đơn vị do ProductionDescription sản xuất vào năm 2024 thấp nhất so với năm 2025.
+c.	 Xác định số lượng đơn vị do ProductionDescription sản xuất cao nhất vào năm 2024 so với năm 2025.
+
+Bài tập  3-53
+EX 3.3  (LO 2, 6)  Dữ liệu   Kế toán tài chính   Bảng đánh dấu Tableau Bộ điều khiển của bạn sẽ 
+muốn hiểu rõ hơn những thay đổi trong khoản thanh toán của nhà cung cấp cụ thể từ năm 2025 đến năm 2024 đã được thực hiện 
+bởi thành phố nơi bạn làm việc. Kiểm soát viên đặc biệt quan tâm đến việc tìm hiểu các khoản thanh toán được thực hiện cho 
+các nhà cung cấp sau:
+•  Ống & Cung cấp 4 Sao
+•  Dịch vụ Kỹ thuật Aecom, Inc.
+•  WRG, LLC
+•  Công ty TNHH Máy làm mát nước Winston
+•  Zoetis Inc.
+Bạn đã tải xuống tệp thanh toán của nhà cung cấp và tải nó lên Tableau để phân tích. Tạo điểm nhấn 
+table trong Tableau để xác định những thay đổi trong thanh toán cho từng nhà cung cấp trong số năm nhà cung cấp này trong khoảng thời gian từ năm 2024 đến năm 2025.
+EX 3.4  (LO 2, 6)  Dữ liệu   Hệ thống thông tin kế toán   Phân tích các biện pháp Là một phần trong kế hoạch của bạn 
+chương trình an ninh mạng mới của công ty, mỗi nhân viên phải tham gia khóa đào tạo hàng năm. Chuyến tàu-
+được thực hiện theo nhiều phương thức khác nhau (trực tiếp, đồng bộ trực tuyến và không đồng bộ trực tuyến). 
+Bạn và nhóm của bạn đã theo dõi chi phí đào tạo mỗi tháng cũng như số lượng an ninh mạng 
+các mối đe dọa được báo cáo bởi nhân viên. Nhân viên có thể báo cáo các mối đe dọa an ninh mạng như các nỗ lực lừa đảo hoặc 
+Các chuyên gia CNTT có thể báo cáo các mối đe dọa thông qua việc kiểm tra báo cáo đăng nhập hàng tháng. Bạn đã được yêu cầu 
+điều tra chi phí đào tạo an ninh mạng trong khoảng thời gian từ tháng 1 năm 2023 đến tháng 12 năm 2025.
+Xem xét và hoàn thiện biểu đồ bằng cách xác định các câu hỏi phụ và các biện pháp khả thi được sử dụng để giải quyết 
+câu hỏi phụ được xác định của bạn. 
+Mục tiêu
+Câu hỏi ban đầu
+Câu hỏi phụ
+Các biện pháp khả thi
+Hiểu 
+đào tạo an ninh mạng 
+chi phí.
+cái gì là 
+tổng số tiền 
+đào tạo an ninh mạng 
+chi phí cho năm 2023, 2024 
+và 2025?
+1. 
+2. 
+cái gì là 
+phần trăm thay đổi của 
+đào tạo an ninh mạng 
+chi phí giữa 
+2023 và 2024 và 
+giữa năm 2024 và 
+2025?
+3. 
+4. 
+	 5. Sau đó, tiến hành phân tích mô tả bằng cách sử dụng tệp dữ liệu được cung cấp.
+EX 3.5  (LO 3, 6)  Dữ liệu   Kiểm toán   Biện pháp chẩn đoán Giả sử bạn là nhân viên kiểm toán được giao nhiệm vụ 
+kiểm toán báo cáo tài chính của một khách hàng phân phối là tổ chức tư nhân cho năm kết thúc ngày 31 tháng 12 năm 2025. 
+Khách hàng không sản xuất các mặt hàng mà mua thành phẩm và bán cho nhiều nhà bán lẻ. 
+Cấp trên trong nhóm kiểm toán yêu cầu bạn thực hiện các thủ tục phân tích về lợi nhuận bán hàng. của bạn 
+phân tích mô tả cho thấy lợi nhuận bán hàng tăng lên theo tỷ lệ phần trăm của doanh thu. Sử dụng bảng tính để 
+thực hiện như sau:
+	 1. Tính tổng số tiền bán hàng, số tiền trả lại, số lượng bán hàng và số lượng trả lại cho mỗi năm 2024 
+và 2025.
+	 2. Tính phần trăm thay đổi về số tiền bán hàng, số tiền trả lại, số lượng bán hàng và số lượng trả lại 
+giữa năm 2024 và 2025.
+	 3. Tạo một biểu đồ phân tán trong đó số tiền bán hàng nằm trên trục x và tiền lãi bán hàng nằm trên trục y.
+	 4. Những tháng nào trong năm 2025 có lợi nhuận bán hàng mà bạn có thể coi là bất thường?
+EX 3.6  (LO 3, 6)  Dữ liệu   Kế toán quản lý   Phân tích xu hướng bằng biểu đồ đường Bạn là một 
+thực tập sinh cho một công ty sản xuất và người quản lý công ty của bạn đã biết rằng bạn đã hoàn thành một 
+khóa học phân tích dữ liệu với trọng tâm là kế toán. Bộ điều khiển đã thực hiện mô tả cơ bản 
+phân tích doanh số bán hàng của công ty trong tháng 6 năm 2025 nhưng muốn hiểu lý do tại sao doanh số bán hàng lại tăng 
+5,14%. Sử dụng tập dữ liệu để hoàn thành các mục sau:
+	 1. Câu hỏi ban đầu cho phân tích này là gì?
+	 2. Xác định hai câu hỏi phụ để phân tích.
+	 3. Xác định các biện pháp tiềm năng mà bạn có thể tính toán để trả lời hai câu hỏi phụ này.
+	 4. Tạo biểu đồ đường thể hiện xu hướng doanh số tháng 6 năm 2024 so với năm 2025.
+	 5. Tạo biểu đồ thanh cột hiển thị doanh số bán hàng cho từng khách hàng trong tháng 6 năm 2024 so với tháng 6 năm 2025.
+
+3-54  CHƯƠNG 3  Động cơ và Mục tiêu Phân tích Dữ liệu

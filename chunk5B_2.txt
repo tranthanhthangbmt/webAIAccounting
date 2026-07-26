@@ -1,0 +1,180 @@
+selection? Self-selection occurs if participants are allowed to choose which group (or treatment) they
+want to be part of. For instance, if we design an A/B test for video games to find out which color of the
+visual interface is more immersive (e.g., blue vs. green) and let participants choose to play using their
+choice of color , then the experimental design is not randomized because we are allowing participants to
+self-select  their experimental group based on color preference.
+14.5 USING A/B TESTING TO TEST GAMING PROTOTYPES
+For this chapter let’ s use the example of a video game company . GameV has been working on a new
+game idea that its designers believe will be more immersive and engaging than other games that
+GameV currently has developed. However , before they launch the game, GameV designers have
+generated several prototypes of the game so they can launch the version that is likely to retain the most
+players. They know from previous data in the gaming industry that every point of engagement in the
+game results in players who will return. For instance, many players don’t return after the first session
+because of glitchy install or because of game features that are less than immersive. Therefore, GameV
+wants to use A/B testing to assess specific features. The game lets players earn an extra life by
+performing some tasks. GameV has determined three levels of dif ficulty: 25, 35, and 45. They want to
+find out which level of dif ficulty results in greater engagement. It is possible that if players have earned a
+life by performing a dif ficult task, it could result in their feeling more engaged. Alternatively , it is possible
+that earning a life with a more dif ficult task results in players giving up. Hence, GameV wants to find out
+which dif ficulty level engages more players in this game environment. One can think of the three levels
+of dif ficulty as low , medium, and high.
+GameV believes that a good outcome metric to figure out the success of the prototype is the time
+players spend playing. Since the game is a prototype, players have never played it before, and the time
+they spend playing the game will help GameV determine which of the prototypes results in greatest
+engagement and immersion. The outcome variable (unlike in Chapter 7 ) is continuous in nature.
+Therefore, we will use an F test to find out which level of dif ficulty results in highest immersiveness.
+14.5.1 Experimental Design
+GameV has developed the three prototypes in such a way that each prototype is designed with one of
+the three levels of dif ficulty . Each prototype of fers unique game features that correspond to its specific
+difficulty level, providing players with a variety of experiences. In the experimental design, the level of
+difficulty is the only factor that varies across the three prototypes, with specific levels set at 25, 35, and
+45. Every other feature of the game stays the same; only the features associated with the level of
+difficulty are dif ferent. Moreover , during A/B testing, a player who plays prototype-25 will not be playing
+prototype-35 or prototype-45. That is, one player will see and play only one game prototype. Such a
+design is called a one-factor , between-participants design . GameV followed the usual steps to run its
+A/B test:
+1. It recruited 1,200 video game players who agreed to test the game in return for free games from
+GameV . Hence, the sample for the A/B test is 1,200.
+2. It randomly assigned about 400 players to each of the three groups: prototype-25, prototype-35,
+and prototype-45.
+3. Players played the game for 10 rounds, during which they were presented with the dif ficulty level
+specific to their group. They could continue to play after 10 rounds for another 2 rounds, or they
+could quit and leave.
+4. Time played was recorded for each participant and served as a measure (also called a proxy) for
+immersiveness and engagement with the game.
+5. The null hypothesis would be that changing the dif ficulty level would not influence the
+immersiveness, resulting in no dif ference in the time spent playing among players in the three
+groups.
+14.5.2 Analyzing the Data and Presenting the Results
+Before we determine what analysis needs to be run, we first should examine the nature of the data. If
+the data are normally distributed , then we can go ahead and use parametric tests such as an F test or t
+test. However , if the data are not normally distributed, this failure of the normality assumption might
+require the use of nonparametric tests like the Mann-Whitney .
+14.5.3 F Test
+The F test, also called the F statistic, is used to describe tests that use the F distribution to determine
+whether a factor has a significant  influence on the outcome variable. When we use an F test for A/B
+testing, we want to examine whether the intervention we have used in each of the groups results in
+different values of the outcome. In our A/B test, we want to examine whether the three levels of dif ficulty
+result in dif ferent levels of immersion as measured through time spent playing the game prototype. The
+null hypothesis states that there is no dif ference in time spent playing across the three levels of dif ficulty .
+We can reject the null hypothesis only if there is a dif ference in playing time. When we use an F test, we
+are comparing the groups to test whether there are variances among the groups. Hence, an F test is
+frequently used for analysis of variance (ANOV A) testing, which is a common test for causal
+experimentation.
+The F test can be performed if the data follow an F distribution and the group data are independent. In
+A/B testing, group data are obtained independently because the intervention for one group is dif ferent
+from the intervention for the other groups. Note, when we use an F test for correlational analysis, the
+assumption is that the predictors have an independent influence on the outcome variable. For our
+example, we have three levels of one factor—that is, three independent groups with no interaction (we
+will discuss interactions later). Hence, our A/B test design will examine the main ef fect, which is the
+effect of each of the groups on the outcome.
+The three main ef fects for prototype-25, prototype-35, and prototype-45 constitute the model equation.
+SSM=SS25+SS35+SS45
+The sum of squares  (SSM) captures how much variance is explained by each of the factors. For
+instance, SS25 indicates how much variation in the immersiveness experienced by players is captured
+by a dif ficulty level of 25. Here, we have only one factor but with three levels. However , along with SS
+we need something called degrees of freedom  (df) to calculate the F test.
+dfM=k−1wherek= number of experimental groups (herek= 3)
+14.5.4 Testing Statistical Difference
+Imagine we ran the A/B test and obtained data for each of the three conditions. Assume that mean
+(average) time spent with prototype-35 is higher than the averages of time spent with prototype-25 and
+prototype-45. How can we quantify that prototype-35 is indeed more immersive? The only way we can
+answer this is by testing if the averages are statistically dif ferent. The testing process begins with the
+hypothesis that there is no dif ference in the averages across conditions; this serves as the null
+hypothesis. It implies that all prototypes are equally immersive. Now our goal is to test this hypothesis. A
+one-way ANOV A makes it possible to simultaneously compare the averages of more than two conditions
+and determine if they are statistically dif ferent. ANOV A is a generalization of the t test that compares the
+means of two conditions.
+Traditional ANOV A (also known as the ANOV A F test) makes the following assumptions.
+Independence : The observations should be independent of each other . This implies that
+participants providing responses in each condition are unique and that no participant is included in
+more than one condition. The assumption of independence is related to the design of the study . If
+participants are randomly assigned to only one of the conditions and do not influence or get
+influenced by other participants, then this assumption is met.
+Homogeneity of V ariance : This assumption requires that variance (spread of values around the
+average) among groups should be similar . In our case, the variance of the outcome variable, time
+spent on the app, should be similar in each of the conditions.
+Normal Distribution : The population of all the respondents (players) from which the sample was
+drawn is normally distributed. In the context of GameV’ s A/B test, this assumption implies that the
+time spent by all the users ( note:  all users, not only those in our sample) of the game follows a bell-
+shaped distribution. Some users will spend a lot of time and some less time, but the majority of
+users’  time will spread around the average.
+The use of an ANOV A is not recommended if the independence assumption is violated, although
+sometimes an ANOV A is used despite violation of the normality assumption since an ANOV A can still
+perform reasonably well if a large sample size is used. However , the assumption of homogeneity of
+variance tends to be frequently violated in many real-world datasets. In fact, assuming unequal
+variances might be a more realistic approach when working with real-world datasets.2 Therefore,
+assuming unequal variance, it is advisable to use W elch’s ANOV A as it does not assume homogeneity
+of variance.
+The output of W elch’s ANOV A will provide an estimate of p value. Let’ s understand what p value means.
+It is the probability of observing the obtained results if the null hypothesis was actually true. In the
+context of our A/B test, it is the probability of wrongly concluding that the group means are not the same
+(i.e., rejecting the null hypothesis) when they are actually the same (i.e., the null hypothesis is true). W e
+want to reduce the probability of such wrong conclusions; thus, smaller p values are preferred. The
+convention is to set the threshold p value at 0.05; if the estimated p value is less than 0.05, then we can
+conclude that the averages are statistically dif ferent.
+If the results of W elch’s ANOV A show that the averages across all conditions are not the same, then the
+next step is to ask the following questions: Which conditions are dif ferent, and how do they dif fer? Post
+hoc pairwise comparisons help us answer these questions. Given the frequent violation of the
+homogeneity of variance assumption, it is advisable to use the Games-Howell method for pairwise
+comparison, which allows unequal variance in pairwise comparisons.
+We will follow these steps closely in the next sections when we analyze the A/B test for GameV .
+14.6 USING THE A/B TEST IN NEW PRODUCT DEVELOPMENT
+We first import data and create a boxplot. The data are hypothetical and created for the purposes of this
+chapter .
+We see from Table 14.1  and Figure 14.2  that the average time players spent with prototype-35 is higher
+than with either prototype-25 or prototype-45. Having obtained this result, we need to determine if the
+average time spent is statistically dif ferent across conditions.
+condition count mean min sd
+Prototype_25 195 46.52970 11.174987 15.06432
+Prototype_35 175 51.23371      9.062043 16.61373
+condition count mean min sd
+Prototype_45 185 47.41703 18.099590 10.65673
+Description
+Figure 14.2  A Boxplot of Time Spent With Dif ferent Prototypes
+The first step is to test if our data satisfies the normality assumption by performing the Shapiro–Wilk
+normality test.
+Across all the conditions, we see that the p value is more than 0.05 (see Table 14.2 ). This shows that
+our data do not violate the assumption of normality .
+condition variable statistic p
+Prototype_25 time 0.9922398 0.3874756
+Prototype_35 time 0.9895805 0.2286476
+Prototype_45 time 0.9913752 0.3363401
+The second step tests the homogeneity of variance assumption. W e use Levene’ s test for homogeneity
+of variance across groups. The null hypothesis of this test states that variances in the three groups are
+the same (i.e., they are not significantly dif ferent).
+The obtained p value is less than 0.05, so the null hypothesis is rejected (see Table 14.3 ). We can
+conclude that our data do not meet the assumption of homogeneity of variance. As we discussed earlier ,
+the ideal method when the assumption of homogeneity of variance is violated is Welch’s ANOV A. W e
+implement it next.
+df1 df2 statistic p
+2 552 14.29075 9e-07
+The p value of W elch’s ANOV A is less than 0.05 (see Table 14.4 ). This shows that the means across the
+three conditions are not the same. In order to find out how they dif fer across conditions, we use the
+Games-Howell test. It compares means across all possible combinations of conditions and tests if the
+differences between conditions are statistically significant or not.
+.y.n statistic DFn DFd p method
+time 555 4.51 2 350.8273 0.012 Welch ANOV A
+The results show that prototype-35 players spent statistically more time with the game than both
+prototype-25 and prototype-45 players (see Table 14.5 ).
+.y.group1 group2 estimate conf.low conf.high p.adj p.adj.signif
+time Prototype_25 Prototype_35    4.7040084    0.8073325    8.6006842 0.013 *
+time Prototype_25 Prototype_45    0.8873367 -2.2508397    4.0255130 0.784 ns
+time Prototype_35 Prototype_45 -3.8166717 -7.3036038 -0.3297396 0.028 *
+14.6.1 Insights Derived From the A/B Test
+Given the finding that prototype-35 results in greater immersiveness than prototype-25 and prototype-
+45, the insights we can draw are quite informative. The results indicate that for lower levels of dif ficulty
+(prototype-25), players do not find the game immersive. However , as the dif ficulty level increases to
+prototype-35, immersiveness increases. At this point, GameV might have wrongfully concluded that
+increasing dif ficulty will always increase immersiveness since players feel a greater sense of
+achievement when they win more dif ficult games. Hence, including prototype-45 was informative since it
+indicated that its increased level of dif ficulty resulted in lowered immersiveness. The results clearly
+indicate that as dif ficulty increases, immersiveness increases initially , peaks at a certain level, and then
+starts to decrease. In other words, the results seem to follow an inverted- U shape. Therefore, GameV
+can now identify what level of dif ficulty should be retained to obtain the maximum immersiveness.
+The A/B test we ran had one factor with multiple levels and no interactions. Interaction occurs when an
+experimental design has two factors (or independent variables) and we want to find the combined (or
+interactive) influence of the two factors on the outcome variable. Of course, there can be more than two
+factors; in that case, we would be examining the interactive influence of three or four factors on the
+outcome. However , the more factors we include in an experimental design, the larger and more
+complicated the design becomes, requiring that each factor ’s interactive influence be examined on the

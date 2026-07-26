@@ -1,0 +1,30 @@
+gần đây ngân hàng cũng nhận ra rằng các chỉ số (ratios) bao gồm các biến hoạt động (operating variables) như doanh số bán hàng (sales) cũng đáng được xem xét khi dự báo sức khỏe tài chính của một doanh nghiệp. Do đó, ngân hàng đã thu thập dữ liệu chứa 16 tỷ lệ khác nhau của 665 doanh nghiệp có sức khỏe tài chính tốt so với kém. Số liệu trong dữ liệu để đánh giá sức khỏe tài chính là liệu một doanh nghiệp có bị phá sản hay không. Dữ liệu chứa thông tin về một số chỉ số tài chính như tỷ lệ nợ trên vốn chủ sở hữu (debt–equity ratio), tỷ lệ thanh toán hiện hành (current ratio) và tỷ lệ hoạt động (operating ratio) đối với các doanh nghiệp đã hoặc chưa phá sản. Tương tự như những người cho vay khác, Ngân hàng Altra cũng sử dụng dữ liệu về các tỷ lệ này để xây dựng một mô hình có thể giúp đưa ra các dự đoán về sức khỏe tài chính của các doanh nghiệp mà ngân hàng đang xem xét có nên cho vay hay không. Ngân hàng Altra cũng muốn xác định liệu một số tỷ lệ có phải là biến dự báo tốt hơn những tỷ lệ khác hay không; do đó, việc có dữ liệu kèm theo nhãn về việc một doanh nghiệp có bị phá sản hay không là rất hữu ích trong việc xây dựng mô hình. (Dữ liệu được sử dụng trong ví dụ này là giả định.)
+
+Dữ liệu có 16 chỉ số tài chính sau đây, một số trong đó là chỉ số hoạt động, chỉ số tiếp thị hoặc chỉ số kế toán:
+
+- current_ratio_1 = tài sản lưu động / nợ ngắn hạn
+- earning_ratio_1 = EBIT (thu nhập trước lãi vay và thuế) / tổng tài sản
+- debt_equity_ratio_1 = giá trị sổ sách của vốn chủ sở hữu / tổng nợ phải trả
+- accounting_ratio_1 = tổng tài sản / tổng nợ phải trả
+- operating_ratio_1 = (hàng tồn kho * 365) / doanh thu
+- marketing_ratio_1 = lợi nhuận ròng / doanh thu
+- operating_ratio_2 = lợi nhuận từ hoạt động kinh doanh / chi phí tài chính
+- marketing_ratio_2 = (tổng nợ phải trả − tiền mặt) / doanh thu
+- current_ratio_2 = (tài sản lưu động − hàng tồn kho) / nợ dài hạn
+- current_ratio_3 = (tài sản lưu động − hàng tồn kho − khoản phải thu) / nợ ngắn hạn
+- operating_ratio_3 = lợi nhuận từ hoạt động kinh doanh / doanh thu
+- current_ratio_4 = (tài sản lưu động − hàng tồn kho) / nợ ngắn hạn
+- earning_ratio_2 = EBITDA (thu nhập trước lãi vay, thuế, khấu hao và khấu hao vô hình—tức là [lợi nhuận từ hoạt động kinh doanh − khấu hao] / tổng tài sản)
+- current_ratio_5 = tài sản lưu động / tổng nợ phải trả
+- debt_equity_ratio_2 = nợ dài hạn / vốn chủ sở hữu
+- operating_ratio_4 = tổng chi phí / tổng doanh thu
+
+Sử dụng dữ liệu này, chúng ta có thể bắt đầu thực hiện một số thử nghiệm và sau đó xây dựng mô hình. Thử nghiệm đầu tiên chúng ta sẽ tiến hành là kiểm tra xem dữ liệu có bao gồm các biến dự báo cộng tuyến hay không (tức là, liệu có tồn tại sự tương quan cao, cả tích cực hoặc tiêu cực, giữa một số trong 16 biến dự báo hay không). Chúng ta thu được một biểu đồ tương quan như thể hiện trong Hình 10.2. Đúng như kỳ vọng đối với các chỉ số tài chính, biểu đồ cho thấy khá nhiều tỷ lệ có tương quan hơn 0.5 với nhau. Ví dụ, `marketing_ratio_1` và `earnings_ratio_2` có tương quan −0.97 với nhau.
+
+<!-- IMAGE_PLACEHOLDER: Figure 10.2 Correlation Plot -->
+
+Tiếp theo, chúng ta có thể kiểm tra đa cộng tuyến (multicollinearity) bằng cách sử dụng VIF cho từng biến dự báo.
+```R
+## current_ratio_1 debt_equity_ratio_1 accounting_ratio_1 operating_ratio
+## 4.565160        614.931070          624.345
+```

@@ -1,0 +1,226 @@
+Instead of trying to determine the segment of customers that is most likely to
+purchase a brand by a study based on attitudes (e.g., how much do customers
+like this brand?), a product can be introduced via small samples, and actual
+purchase behavior can be monitored. Also, based on sales data, products can be
+modified in real time based on which features customers most prefer . Hence,
+data-driven markets allow a feedback loop by which businesses can observe
+actual customer purchases and fine-tune market segments.
+5.4.2 Dynamic Segmentation
+Another outcome of rich data about customers allows a business to keep
+updating its customer segments. Rather than segmenting all customers once and
+assuming that their tastes are not going to change, dynamic segmentation
+assumes that tastes will change and keeps updating what of fering would be best
+preferred by a specific customer segment. Many aspects in an individual’ s life can
+change. For example, a chocolate manufacturer cannot assume that just because
+a customer has purchased dark chocolate in the past they will continue to do so.
+Their personal, family , or health needs could change, causing them to move to
+buying sugar-free or nut-free chocolates. Dynamic segmentation takes into
+account the possibility that customer tastes change and, hence, that the segment
+they belong to is not static. Again, it is important that businesses hone their ability
+to sift through the wealth of information available to them and use the most recent
+information, whether behavioral or otherwise, to segment customers.
+5.4.3 Microsegments
+As mentioned earlier , it has now become possible to cater to very small segments
+of customers by understanding their preferences in depth and customizing
+products accordingly . This also leads to hyperpersonalization, where each of fering
+uniquely targets a specific customer based on both demographic and behavioral
+data gathered about that customer . For instance, insurance companies can
+augment existing data such as age, gender , and current product portfolio with
+online behavior such as time spent on their website to better segment customers
+and of fer the customer a very customized product.
+As important as data are for segmentation, the algorithm chosen to perform the
+segmentation is equally important. Many times we just have dif ferent types of data
+about customers without information about a business outcome such as sales or
+whether or not such a customer is loyal. That is, the data tend to be unlabeled.
+Because we do not have any outcome labels, we do not have the ability to
+compare model performances. The most common task of unsupervised learning
+is exploratory analysis, which uses visualization methods (the simplest being
+clustering) to examine the data and gather insights.
+Let’s go over what algorithms are commonly used for segmentation.
+5.5 CLUSTERING ALGORITHMS FOR
+SEGMENTATION
+Clustering is frequently used to segment customers into groups with similar need
+sets. For instance, if we want to find out which of our customers are most likely to
+recommend our product or our business, we can cluster them by similarity of
+attributes and try to gather insights from the clusters formed. Clustering is the
+process of grouping together data points that share some similarity , such that data
+points within a cluster are more similar to one another as well as more dissimilar
+to data points in a dif ferent cluster . Hence, clustering does exploratory data
+analysis and is considered an unsupervised algorithm because it explores data
+patterns rather than confirms a specific relationship. Clustering algorithms are
+used when the data lacks labels.
+Several clustering algorithms exist, such as k-means, k-nearest neighbors,
+hierarchical and Gaussian mixture models, and so on; there are several types and
+subtypes of clustering algorithms as depicted in Figure 5.1 . Clustering mainly
+occurs either by partitioning a large set of observations into smaller sets or by
+creating a treelike structure to depict the relationship between observations. In
+clustering, the process of dividing is called partition clustering, and k-means, k-
+nearest neighbors, and mixture models fall into this category . Clustering by
+creating a treelike structure, also called a dendrogram, involves relating each
+observation to another observation. Such hierarchical clustering can build up from
+one observation, find the nearest next observation, and so on to create a tree
+structure (agglomerative clustering), or it can begin by considering all
+observations to be in one cluster and then break down the cluster using the
+distance metric (divisive clustering).
+Description
+Figure 5.1  Clustering Methods
+We will use k-means, as well as a slight improvement— k-medoid—as clustering
+methods for segmentation.
+5.5.1 The Relationship Between Distance and
+Similarity
+The k-means algorithm is based on the intuitive notion that similar observations
+are likely to be clustered together . The distance between observations is a way to
+measure similarity: Less distance between observations implies that the
+observations are likely to be similar , and more distance indicates dissimilar
+observations. Thus, if the distance between two observations is less, it implies
+that the observations are similar and can be clustered together within the same
+cluster . If the distance between two observations is large, it implies that they are
+dissimilar and probably cannot be clustered together .
+We next discuss how distance is used as the metric to measure similarity of the
+observations.
+Let’s understand how distance is calculated between two observations. Assume
+that the two observations are from two customers and that we have information
+about two variables— age and income. W e can use these two variables to assess
+the level of similarity between these two customers. If we call the two customers A
+and B, then the two variables can be depicted as follows for customer A:
+xA1=age,xA2=income
+And for customer B:
+xB1=age,xB2=income
+The distance between two customers ( A→B) is calculated using the following
+formula, which is also called the Euclidean distance formula.
+distanceA→B=√(xA1−xB1)2+(xA2−xB2)2
+We use the two dif ferent attributes x1 and x2 for both A and B to find the distance
+between A and B. If we had information on a third customer , let’s say C, then we
+could determine distance measures between customers A and B, B and C, and A
+and C. Using this distance, we could state whether A was more similar to B or to
+C since less distance indicates more similarity . Clustering algorithms utilize
+distance as a way to group observations together . Observations that are more
+similar are clustered together but separately from observations that are less
+similar . We next discuss the most commonly used clustering algorithm, k-means.
+5.5.2 The k-Means Algorithm
+For any clustering algorithm, the goal is to find groups of similar observations
+among all the observations in the given dataset. To accomplish this goal, the k-
+means algorithm uses Euclidean distance to find out which observations are more
+versus less similar . But this would become a very inef ficient task if we needed to
+find distance estimates between each observation and every other observation.
+Therefore, the first step in a k-means algorithm is to decide how many clusters
+we, the user , want the algorithm to output. This is an issue with many clustering
+algorithms, where the number of clusters has to be provided by the user , and the
+algorithm accordingly clusters observations into the specified number of groups.
+For instance, if we ask the algorithm to cluster 100 observations into 5 groups, it
+will go ahead and do so, and if we ask it to cluster the same 100 observations into
+20 groups, it will do that also. W e will discuss the issue of choosing the
+appropriate number of clusters later .
+We illustrate the steps of the k-means algorithm as follows:
+1. Randomly select k points as initial centroids
+2. repeat
+3. Assign data points to the closest centroid
+4. Recalculate the centroid of each cluster
+5. until  Centroids do not change
+Now let’ s visually understand these steps using a figure. Figure 5.2 (a) shows
+observations, with each point representing a customer ’s age (x-axis) and income
+(y-axis). W e set k=3, which means we want the algorithm to assign
+observations to one of the three clusters. Once we provide the number of
+clusters, the k-means algorithm randomly selects k locations as center points or
+centroids . Figure 5.2 (b) shows these randomly selected centroids. The distance
+from each observation to each of the k centroids is measured, and then each
+observation is assigned to the centroid closest to it. At the end of the first iteration,
+each observation has been assigned to one of the k clusters. The color of the
+points in Figure 5.2 (b) indicates their cluster membership.
+Description
+Figure 5.2  k-Means
+The k-means algorithm next finds the new centroids of the newly formed k
+clusters. Recall that a centroid is nothing but the central point of a cluster . Since
+the initial centroids were randomly chosen, we can see that the location of the
+new centroid changes (see Figure 5.3 (a)). Again, the distance of each
+observation to these new k centroids is calculated, and the observations are
+reassigned to the centroid closest to it.
+Description
+Figure 5.3  k-Means After Iteration
+In this next iteration, k clusters are again formed. In the subsequent iteration,
+centroids are calculated for these k clusters, and the process is repeated till the
+centroids do not change (see Figure 5.3 (b)). The stability of the centroids
+indicates that this is the optimal allocation of observations to k clusters. If we ask
+for a dif ferent number of clusters, then the k-means algorithm will go through the
+same process until it finds the optimal allocation of observations to the number of
+clusters that we have specified.
+5.5.3 The k-Medoid Algorithm
+One of the issues with k-means is that outliers can influence the clusters that are
+generated. An improvement over the k-means algorithm is k-medoid, which
+modifies k-means to take care of this issue. While k-means randomly chooses
+centroids of various clusters, k-medoid first chooses data points as centers of
+clusters. Then instead of using Euclidean distance, it uses Manhattan distance to
+find the closest cluster center to a point. Manhattan distance is calculated by
+measuring the absolute distance between any two points and uses the following
+formula:
+dmanhattan=n
+∑
+i=1|xi−yi|
+By using Manhattan distance to calculate the proximity of a point to a cluster
+center , k-medoid is less influenced by outliers and noise in the data.
+An example of using k-means and k-medoid to segment customers will help us
+understand how the algorithm can be used for segmentation.
+5.5.4 Using k-Means to Segment Customers
+We pick an example with just two variables because it is easy to visualize,
+although k-means can be used for a large number of variables. (The data for this
+example are hypothetical.) A common query of most retail stores is whether they
+should target customers who spend more or customers who have been their
+patrons for longer (i.e., is amount of money spent or duration more important?).
+Therefore, we have two input variables: amount spent  and duration of patronage .
+We first scale the data by subtracting the means and dividing by the standard
+deviation (details of scaling and standardization are provided in the Technical
+Appendix). Scaling the data prevents data distortions that would occur in
+clustering if the input variables are on dif ferent scales; the variable with a bigger
+unit would be overrepresented.
+Then we tell the k-means algorithm how many clusters we want it to output. This
+is an important consideration for most clustering algorithms, which require that the
+user specify the number of clusters into which the observations need to be
+segmented. Here we ask it to output three clusters. Figure 5.4  illustrates the three
+clusters.
+Description
+Figure 5.4  k-Means Segmentation Plot
+Along with the cluster , we can also instruct the algorithm to output the value of the
+cluster center . This information is useful for interpreting the output because it
+provides the average characteristics of a customer in that cluster or segment.
+##length amount_spent
+## 1-1.0092435 1.38324959
+## 2-1.0058705 -1.39737047
+## 30.7424104 0.00520243
+We can then interpret that members of cluster 1 have an average patronage
+duration of −1.009 months and have spent $1.383,2 whereas members of cluster
+2 have a similar patronage length to those in cluster 1 (−1.006 months) but have
+spent substantially more (−$1.397). One insight that the business can derive from
+these two segments is that customers in cluster 2 seem to spend more and might
+be more profitable for the business to target. It would also be important for the
+business to find out what features of customers in cluster 1 make them stay for
+the same duration but not spend as much. W ould some form of incentive such as
+coupons for loyal customers motivate them to spend more?
+An important question (some even call it a challenge) in any clustering analysis is
+knowing the best number of clusters to choose. Since we must specify the
+number of clusters for the algorithm, how do we know whether three or seven will
+be the best number of clusters? Many times it depends on the question we are
+trying to answer . Or we can use past information that shows the number of
+clusters obtained when we used similar data. A silhouette  helps us answer the
+question of choosing the optimal number of clusters. A silhouette analysis is
+based on the simple intuition that if an observation is in a cluster , then that
+observation should be closer to those in the same cluster than to those in other
+clusters. A silhouette coef ficient for each observation is calculated and varies
+between −1 and +1, with +1 indicating the best and −1 being the worst allocation
+to a cluster . The average silhouette coef ficient for all observations is known as the
+average silhouette width . An average silhouette width near 1 indicates a tight
+cluster , with observations in the cluster close together rather than spread all over .
+For instance, if a four-cluster solution gives a silhouette value of 0.7, and a seven-
+cluster solution gives a silhouette value of 0.3, it means that the four-cluster
+solution is better .
+Description
+Figure 5.5  Silhouette Width: k-Means
+In our case, we find that with a three-cluster solution the average silhouette width
+is 0.61, as shown in Figure 5.5 . We can try dif ferent values of k and see how the
+average silhouette width changes. W e can next run the same analysis using k-
+medoid and instruct the algorithm to output three clusters (see Figure 5.6 ).
+Description
+Figure 5.6  k-Medoid Segmentation Plot
+Description
+Figure 5.7  Silhouette Width: k-Medoid
+In this case we see that the average silhouette width using k-medoid is 0.62 (see
+Figure 5.7 ) and not much dif ferent from a k-means solution. This could be

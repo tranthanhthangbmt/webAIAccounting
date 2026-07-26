@@ -1,0 +1,436 @@
+\documentclass[aspectratio=169]{beamer}
+\usetheme{Madrid}
+\usecolortheme{default}
+\usepackage[utf8]{inputenc}
+\usepackage[T5]{fontenc}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{amsmath}
+
+\setbeamertemplate{caption}[numbered]
+\renewcommand{\figurename}{Hình}
+\renewcommand{\thefigure}{5.\arabic{figure}}
+
+\title[Chương 5: Nền tảng Học máy]{Học Sâu (Deep Learning) \\ \vspace{0.5cm} \Large Chương 5: Nền tảng của Học máy (Fundamentals of ML)}
+\author{Đại học Đông Á}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame}{Nội dung chương}
+    \tableofcontents
+\end{frame}
+
+\section{1. Tối ưu hóa (Optimization) và Khái quát hóa (Generalization)}
+
+\begin{frame}{Sự giằng co cốt lõi trong Học máy}
+    \begin{itemize}
+        \item \textbf{Tối ưu hóa (Optimization):} Quá trình điều chỉnh mô hình để đạt hiệu suất tốt nhất trên tập huấn luyện (\textit{Training data}).
+        \item \textbf{Khái quát hóa (Generalization):} Khả năng mô hình dự đoán chính xác trên dữ liệu hoàn toàn mới chưa từng thấy (\textit{Test data}).
+        \item \textbf{Mục tiêu:} Đạt được Generalization. Nhưng ta chỉ có thể điều khiển Optimization!
+        \item Làm quá mức Optimization sẽ dẫn đến \textbf{Overfitting} (Quá khớp).
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Hiện tượng Underfitting và Overfitting}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item \textbf{Underfitting (Chưa khớp):} Mô hình quá đơn giản, không học được quy luật trong dữ liệu. (Ví dụ: Dùng đường thẳng để khớp dữ liệu parabol).
+            \item \textbf{Overfitting (Quá khớp):} Mô hình quá phức tạp, học thuộc lòng cả các "nhiễu" (noise) của dữ liệu huấn luyện, mất đi tính tổng quát.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.7\textheight,keepaspectratio]{../../images/ch05/the_cartoon_of_fitting.096e7b07.png}
+            \caption{Mô phỏng Underfitting, Robust Fit và Overfitting}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Vòng đời điển hình của mô hình (Universal Overfitting)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Ở giai đoạn đầu, Loss trên tập Train và Validation cùng giảm $\rightarrow$ Underfitting.
+            \item Sau một số epoch nhất định, Validation Loss bắt đầu tăng vọt trở lại, dù Training Loss vẫn tiếp tục giảm $\rightarrow$ \textbf{Bắt đầu Overfitting}.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.7\textheight,keepaspectratio]{../../images/ch05/typical_overfitting.8bd4c216.png}
+            \caption{Hành vi Overfitting kinh điển}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\section{2. Tác động của Dữ liệu Nhiễu (Noisy Data)}
+
+\begin{frame}{Dữ liệu không hợp lệ (Invalid Inputs)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Trong thực tế, dữ liệu thường không hoàn hảo.
+            \item Ví dụ: Tập dữ liệu ảnh số viết tay MNIST có chứa những hình ảnh không thể nhận diện được ngay cả bằng mắt người.
+            \item Nếu mạng cố gắng "học thuộc" những hình này, nó sẽ lãng phí dung lượng và làm giảm hiệu suất tổng quát.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.7\textheight,keepaspectratio]{../../images/ch05/weird_mnist.84598aa0.png}
+            \caption{Các ảnh bị nhiễu nặng trong tập MNIST}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Dữ liệu bị gán nhãn sai (Mislabeled Data)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Do sai sót của con người, dữ liệu có thể bị gán nhãn sai hoàn toàn.
+            \item Ví dụ: Số 4 nhưng lại gán nhãn là số 9.
+            \item Nếu mô hình cố gắng uốn cong ranh giới quyết định (decision boundary) để khớp đúng nhãn sai này, nó sẽ dự đoán sai các mẫu tương tự trong tương lai.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.7\textheight,keepaspectratio]{../../images/ch05/mislabeled_mnist.e7a71e65.png}
+            \caption{Dữ liệu gán nhãn sai trong MNIST}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Sự phình to của Kênh Nhiễu (Noise Channels)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Thí nghiệm: Thêm các kênh (channels) toàn nhiễu trắng (white noise) hoặc toàn số 0 vào dữ liệu MNIST.
+            \item Kết quả: Validation Accuracy của bộ dữ liệu chứa Noise Channels giảm đáng kể (~1.5\%).
+            \item Mô hình vô tình tìm ra các mẫu (patterns) giả trong nhiễu và sử dụng chúng để dự đoán $\rightarrow$ Suy giảm Generalization.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.7\textheight,keepaspectratio]{../../images/ch05/mnist_with_added_noise_channels_or_zeros_channels.0d1878dc.png}
+            \caption{Tác động của kênh nhiễu đến Accuracy}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Ngoại lai (Outliers) và Sự quá khớp}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Việc cố gắng phân loại đúng 100\% tập huấn luyện buộc mô hình phải vươn ra (over-extend) để bao trùm các điểm ngoại lai.
+            \item Kết quả: Ranh giới quyết định trở nên gồ ghề (phi thực tế) thay vì là một đường cong mượt mà, mạnh mẽ (robust fit).
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.7\textheight,keepaspectratio]{../../images/ch05/outliers_and_overfitting.919c6421.png}
+            \caption{Robust fit (trái) vs. Overfitting ngoại lai (phải)}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Đặc trưng mơ hồ (Ambiguous features)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Đôi khi ranh giới giữa các lớp bị chồng lấn, mang tính xác suất (uncertainty).
+            \item Việc mô hình quá cố gắng chia rẽ tuyệt đối vùng giao thoa này sẽ dẫn đến Overfitting. Thay vào đó, nó nên biểu diễn một đường cắt ngang thể hiện sự xác suất.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.7\textheight,keepaspectratio]{../../images/ch05/overfitting_with_uncertainty.7eace2a5.png}
+            \caption{Overfitting trên vùng dữ liệu bất định}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\section{3. Các phương pháp Đánh giá Mô hình}
+
+\begin{frame}{Tách tập Validation (Hold-out Validation)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Tách một phần dữ liệu (vd: 20\%) từ tập Training để làm tập Validation.
+            \item Mục đích: Đánh giá mô hình đang học tốt hay đang học vẹt trong quá trình huấn luyện.
+            \item \textbf{Cảnh báo Information Leak:} Nếu bạn điều chỉnh siêu tham số quá nhiều lần dựa trên tập Validation, bạn đang gián tiếp làm Overfit chính tập Validation đó! (Cần tập Test hoàn toàn tách biệt).
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.7\textheight,keepaspectratio]{../../images/ch05/holdout_validation.55d20cbc.png}
+            \caption{Quy trình Hold-out Validation}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Đánh giá chéo K-Lần (K-Fold Validation)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Khi dữ liệu quá nhỏ, việc chia Hold-out sẽ gây sai số đánh giá lớn.
+            \item \textbf{K-Fold Validation:} Chia dữ liệu thành K phần bằng nhau. Lặp lại K lần, mỗi lần dùng 1 phần làm Validation và K-1 phần làm Training.
+            \item Điểm đánh giá cuối cùng là trung bình của K lần. Độ chính xác cao hơn nhiều nhưng tốn gấp K lần thời gian huấn luyện.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.7\textheight,keepaspectratio]{../../images/ch05/k_fold_validation.1fd60660.png}
+            \caption{Quy trình K-Fold Validation (với K=3)}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\section{4. Dung lượng Mô hình (Model Capacity)}
+
+\begin{frame}{Dung lượng Mô hình (Model Capacity) là gì?}
+    \begin{itemize}
+        \item Dung lượng của mô hình tỷ lệ thuận với số lượng tham số (trọng số) mà nó sở hữu.
+        \item \textbf{Dung lượng quá nhỏ:} Không đủ khả năng "ghi nhớ" các quy luật phức tạp $\rightarrow$ Underfitting.
+        \item \textbf{Dung lượng quá lớn:} Quá thừa thãi, mạng dễ dàng học vẹt (như một cuốn từ điển) $\rightarrow$ Overfitting cực nhanh.
+        \item Cuộc chơi Học Sâu là cuộc chơi tìm kiếm Dung lượng vừa đủ.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Khi Dung lượng Mô hình Không Đủ (Insufficient)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Thử nghiệm dùng mạng quá nhỏ (ví dụ chỉ có 1-2 nơ-ron).
+            \item Kết quả: Validation Loss không bao giờ xuống tới mức thấp mong muốn. Loss chững lại ở mức cao.
+            \item Mô hình không đủ sức mạnh để khái quát bài toán.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.7\textheight,keepaspectratio]{../../images/ch05/effect_of_insufficient_model_capacity_on_val_loss.3a003173.png}
+            \caption{Loss khi Model Capacity quá yếu}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Khi Dung lượng Mô hình Quá Lớn (Excessive)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Thử nghiệm dùng mạng khổng lồ (ví dụ 512 nơ-ron cho bài toán dễ).
+            \item Kết quả: Validation Loss chạm đáy rất nhanh chỉ sau vài epochs, sau đó vọt lên mạnh mẽ.
+            \item Mô hình học vẹt quá nhanh (Overfit gần như ngay lập tức).
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.7\textheight,keepaspectratio]{../../images/ch05/effect_of_excessive_model_capacity_on_val_loss.8defeb2b.png}
+            \caption{Loss khi Model Capacity quá lớn}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Dung lượng Mô hình Lý Tưởng (Correct Capacity)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Validation Loss giảm từ từ và duy trì ở mức tối thiểu trước khi bắt đầu có dấu hiệu tăng nhẹ.
+            \item Đây là thiết kế mạng (Architecture) cân bằng được giữa Optimization và Generalization.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.7\textheight,keepaspectratio]{../../images/ch05/effect_of_correct_model_capacity_on_val_loss.1b765d5c.png}
+            \caption{Loss khi Model Capacity phù hợp}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{So sánh Trực quan: Mạng Gốc vs Mạng Nhỏ Hơn}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item So sánh trên tập IMDb: Mạng gốc (16 nơ-ron) vs Mạng thu nhỏ (4 nơ-ron).
+            \item Mạng nhỏ (đường liền) mất nhiều epochs hơn mới bắt đầu Overfit. Khi Overfit, Loss của nó cũng tăng chậm hơn.
+            \item Giảm số tham số là cách dễ nhất để chống Overfit.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.7\textheight,keepaspectratio]{../../images/ch05/original_model_vs_smaller_model_imdb.906f7067.png}
+            \caption{Mạng nhỏ (Solid) vs Mạng gốc (Dots)}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{So sánh Trực quan: Mạng Gốc vs Mạng Lớn Hơn}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Mạng gốc (16 nơ-ron) vs Mạng mở rộng (512 nơ-ron).
+            \item Mạng lớn (đường liền) Overfit ngay tại epoch thứ 1 hoặc thứ 2, với Loss Validation tăng rất đột ngột và dữ dội.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.7\textheight,keepaspectratio]{../../images/ch05/original_model_vs_larger_model_imdb.7d1bbc06.png}
+            \caption{Mạng lớn (Solid) vs Mạng gốc (Dots)}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\section{5. Các Phương pháp Regularization}
+
+\begin{frame}{Weight Regularization (L2 - Phạt Trọng Số)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Ockham's razor: Giữa hai cách giải thích, cách đơn giản hơn thường đúng.
+            \item \textbf{L2 Regularization (Weight Decay):} Cộng thêm một khoản phạt tỷ lệ với bình phương của trọng số vào hàm Loss.
+            \begin{equation}
+                L = L_{data} + \lambda \sum W_i^2
+            \end{equation}
+            \item Việc này ép các trọng số duy trì giá trị rất nhỏ, ngăn mạng học thuộc các điểm dữ liệu cá biệt. Overfitting bị đẩy lùi rõ rệt.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.7\textheight,keepaspectratio]{../../images/ch05/original_model_vs_l2_regularized_model_imdb.2b413ef1.png}
+            \caption{Hiệu quả của L2 Regularization (Solid)}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Kỹ thuật Dropout (Ngắt Nơ-ron Ngẫu nhiên)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Do \textbf{Geoffrey Hinton} và cộng sự phát triển. 
+            \item Cơ chế: Trong mỗi vòng huấn luyện, tự động đưa ngẫu nhiên (vd 50\%) các nơ-ron trong lớp về giá trị 0.
+            \item Ngăn chặn hiện tượng "đồng thích nghi" (co-adaptation). Các nơ-ron không thể ỷ lại vào nhau, buộc chúng phải tự học ra các đặc trưng mạnh mẽ.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.7\textheight,keepaspectratio]{../../images/ch05/dropout.8e0a70b8.png}
+            \caption{Quá trình Dropout tại thời điểm Training}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Toán học của Dropout}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item \textbf{Khi Training:} Ngắt 50\% nơ-ron ($rate = 0.5$).
+            \item \textbf{Khi Testing:} KHÔNG Dropout. Mạng tận dụng toàn bộ nơ-ron. 
+            \item Để đảm bảo kỳ vọng toán học (Expected value) không đổi, đầu ra lúc Testing phải nhân với $0.5$ (hoặc đầu ra lúc Training phải chia cho $0.5$).
+            \item Khả năng chống Overfit của Dropout cực kỳ xuất sắc và là tiêu chuẩn công nghiệp hiện nay.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.7\textheight,keepaspectratio]{../../images/ch05/original_model_vs_dropout_regularized_model_imdb.58acc10b.png}
+            \caption{Hiệu quả của Dropout (Solid)}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\section{6. Giả thuyết Đa tạp (The Manifold Hypothesis)}
+
+\begin{frame}{Tại sao Deep Learning hoạt động? (Giả thuyết Đa tạp)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Tất cả dữ liệu thực tế (ảnh, chữ) nằm trong một không gian cực lớn (ví dụ: ảnh $28\times 28$ có không gian $2^{784}$).
+            \item \textbf{Manifold Hypothesis:} Tuy nhiên, những dữ liệu có ý nghĩa (vd ảnh chữ số) chỉ tập trung tại những không gian con phẳng mịn, gọi là \textbf{Đa tạp (Manifold)}.
+            \item Học Sâu chính là quá trình vuốt phẳng (unrolling) các đa tạp rối rắm này.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.7\textheight,keepaspectratio]{../../images/ch05/clock_diagram.3cbff177.png}
+            \caption{Vuốt phẳng Đa tạp là bản chất của Học sâu}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Nội suy Tuyến tính vs Nội suy Đa tạp}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Khi mô hình dự đoán một điểm chưa từng thấy, nó thực hiện \textbf{Nội suy (Interpolation)}.
+            \item Nội suy tuyến tính (đường thẳng) giữa 2 điểm trên Đa tạp thường văng ra khỏi Đa tạp $\rightarrow$ Dự đoán sai.
+            \item Học sâu học được hình dạng của Đa tạp, cho phép nó nội suy dọc theo mặt phẳng cong (Manifold Interpolation), mang lại Generalization.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.7\textheight,keepaspectratio]{../../images/ch05/linear_interpolation_vs_manifold_interpolation.75960718.png}
+            \caption{Linear Interpolation (sai) vs Manifold (đúng)}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Mật độ Lấy mẫu (Dense Sampling)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Để học được đường cong của Đa tạp, chúng ta phải cần rất nhiều dữ liệu (Dense Sampling).
+            \item Càng nhiều dữ liệu lấp đầy các khoảng trống trên Đa tạp, mô hình khái quát hóa càng mạnh mẽ.
+            \item Trực quan Không gian ẩn của MNIST (bên phải): Các chữ số tụ tập thành các đảo (clusters) trên không gian Manifold 2 chiều.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.45\textheight,keepaspectratio]{../../images/ch05/dense_sampling.c8a0767c.png} \\
+            \vspace{0.2cm}
+            \includegraphics[width=\textwidth,height=0.45\textheight,keepaspectratio]{../../images/ch05/mnist_manifold.665acfb1.png}
+            \caption{Dense Sampling \& MNIST Manifold}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\section{Tổng kết}
+
+\begin{frame}{Tổng kết Chương 5}
+    \begin{itemize}
+        \item Cốt lõi của ML là giải quyết sự đánh đổi giữa \textbf{Optimization (Khớp dữ liệu tập Train)} và \textbf{Generalization (Tự suy ra luật cho dữ liệu Test)}.
+        \item Hiện tượng \textbf{Overfitting} luôn luôn xảy ra do dữ liệu nhiễu, ngoại lai, hoặc khi dung lượng mô hình vượt quá mức cần thiết.
+        \item Khắc phục bằng các chiến lược kỹ thuật:
+        \begin{itemize}
+            \item Ngừng sớm (Early Stopping) dựa trên tập Validation.
+            \item Thu nhỏ mạng (Reduce Network Size).
+            \item Bổ sung Phạt Trọng số (\textbf{L2 Regularization}).
+            \item Bổ sung Nhiễu triệt tiêu (\textbf{Dropout}).
+        \end{itemize}
+        \item Sức mạnh thần kỳ của mạng Nơ-ron sâu đến từ việc nó học cách biểu diễn chính xác Không gian \textbf{Đa tạp (Manifold)} của thế giới thực.
+    \end{itemize}
+\end{frame}
+
+\end{document}

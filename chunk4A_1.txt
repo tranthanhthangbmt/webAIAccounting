@@ -1,0 +1,221 @@
+5 MARKET SEGMENTATION USING
+CLUSTERING ALGORITHMS
+5.1 Segmenting Customers
+5.1.1  Basis of Segmentation
+5.2 Targeting Potential Customers
+5.3 Positioning the Product in Customers’  Minds
+5.4 Data-Driven Segmentation
+5.4.1  Behavioral Segmentation
+5.4.2  Dynamic Segmentation
+5.4.3  Microsegments
+5.5 Clustering Algorithms for Segmentation
+5.5.1  The Relationship Between Distance and Similarity
+5.5.2  The k-Means Algorithm
+5.5.3  The k-Medoid Algorithm
+5.5.4  Using k-Means to Segment Customers
+5.6 Implementation Using R: Segmentation Using k-Means and k-Medoid
+5.7 Understanding the Chapter
+LEARNING OBJECTIVES
+1. Understand the STPs of marketing
+2. Decide how to segment customers
+3. Learn the dif ferent bases of segmentation
+4. Cluster to segment customers with k-means and k-medoid
+5. Use k-means for finding customer segments to target
+6. Interpret the output of clustering analysis
+5.1 SEGMENTING CUSTOMERS
+Vegan-Always is a new restaurant opening in Phoenix. It wants to send out
+coupons to customers who enjoy vegan food. Should it send these coupons to all
+residents of Phoenix? While this can be done, not only would such extensive
+coupon distribution become very expensive, but not everyone would be interested
+in the restaurant’ s offerings. Since not all customers are alike or share the same
+tastes, sending the same marketing message to everyone is not ef ficient or
+profitable. The best strategy for V egan-Always is to divide the entire population of
+Phoenix in such a way that it can send the coupons only to those who are likely to
+visit the restaurant. One way the restaurant can do this is by using
+psychographics or lifestyle factors. People who are more environmentally
+conscious have turned to veganism and might be more interested in such a
+restaurant.
+Similarly , demographics can be another way to find groups of customers who
+would be relevant for the restaurant. Such a process of dividing the market into
+groups of customers with similar characteristics and selecting the most
+appropriate group(s) for the business to target is called market segmentation.
+One way to think of segmentation is as a comprise between mass marketing
+(which assumes that all customers are the same) and individual-level
+customization (which assumes that all customers are unique). Instead of targeting
+each customer , segmentation allows a business to target groups of customers
+who are similar in the way they respond to the product. In today’ s data-driven
+markets, it is now possible to segment at a deeper level; hence, microsegmenting
+is becoming popular . For example, based on past buying behavior and similarity
+to other customers, Amazon has the ability to create microsegments and
+recommend very specific products to each of its customers.
+The first step in market segmentation is to know why customers are buying a
+product. What benefits is the product of fering that a customer may be interested
+in? The business needs to identify all customer needs that a product or service
+can fulfill. For instance, an automobile can be purchased to satisfy transportation
+needs or status needs. Knowing exactly which need is being satisfied for which
+group of customers can help in more accurate messaging and targeting.
+Identifying product-related needs can run the gamut from using traditional
+methods such as focus groups and surveys to the recent natural language
+processing (NLP) methods that can be used to mine customer opinions and
+reviews. Customer needs may not be restricted to just product features but may
+also include the company reputation. In the 1990s, Nike lost sales because of
+news that it was using child labor in its manufacturing units. The company had to
+change its working conditions because customers also wanted Nike to use the
+right practices. Once customers’  needs are identified, customers can be
+categorized into groups with similar needs that form the dif ferent segments  for
+that business. Developing a market with an imaginary buyer whose
+characteristics are inaccurate is a recipe for failure. Many products have failed not
+because they were bad but because they were marketed to the wrong set of
+customers.
+After businesses have grouped customers with similar characteristics in terms of
+how they respond to product benefits, they can then decide which of these
+customer groups are most profitable to target. The process of determining which
+of the segments of fer good market opportunities is called targeting . Finally , when
+businesses have segmented customers and decided which of these segments to
+target, they need to determine how they want to position their products in the
+minds of their customers. Positioning  can be described as instilling a meaning in
+customers’  minds that is unique to that product. W e will first understand
+segmentation in detail before moving on to targeting and positioning.
+Segmentation, targeting, and positioning are generally known as the STPs of
+marketing  since these three steps tend to be conducted together .
+An initial step in segmentation is to group customers by similarities in their
+characteristics. Customers may seek similar benefits from a product because they
+live in the same region. For instance, customers who share geographic similarity
+may face the same weather conditions; people living in colder climes may need
+heavier jackets that can provide warmth compared to those living in warmer
+places where such jackets may not be necessary .
+We next discuss the dif ferent basis on which customers could be grouped
+together in terms of similar characteristics.
+5.5.1 Basis of Segmentation
+Geographic . Customers can be segmented based on where they live. For
+instance, an insurance company might of fer dif ferent types of insurance based on
+whether customers are located in regions prone to tornadoes, floods, or
+earthquakes.
+Demographic.  A very common way to segment customers is by demographic
+features such as age, education, gender , income, and occupation. For example,
+businesses may target millennials dif ferently from baby boomers. Baby boomers
+account for a large share of the market currently because they control a major
+portion of the disposable income in the United States, which makes them a very
+attractive segment of the market. Hence, it is important that a business planning
+to target baby boomers understand the features of this segment. Are they health
+conscious? Are they tech savvy? W ould they be willing to buy online? Are they
+philanthropic compared to other segments? Businesses also need to keep in
+mind that features defining a group change with time. W omen now purchase
+repair tools as often as men.
+Psychological.  Customers can be segmented based on their dif ferent
+psychological factors, such as motivation, personality , and perceptions.
+Customers can purchase a brand to satisfy a prestige motive or for a functional
+motive. Rolex and Timex both manufacture watches, but people might be buying
+them for dif ferent motives. Personality can also be used to segment customers.
+Companies could consider the Big 5 personality traits1 such as whether an
+individual is extroverted, disinhibited, neurotic, conscientious, or open to
+experience. Or a business could focus on personality traits that have been shown
+to affect marketplace decisions, such as impulsivity , loyalty , frugality ,
+innovativeness, variety seeking, and risk aversion. Despite psychological factors
+being very informative of how customers may behave in the marketplace, it is
+difficult to obtain this information. Until recently , one way has been through the
+use of surveys, but this cannot be done for all customers and may be
+inconvenient and expensive. Some work has demonstrated that digital footprints
+of customers can be used to predict their personality . Digital footprints can be in
+the form of text, messages in online forums, number of likes, size of the networks
+frequented, and so on. Knowing the personality of customers allows for deeper
+customization of messages and recommendations targeting these individuals.
+Sociocultural.  This could include stages in the life cycle, such as whether one is
+single, married, or an empty nester , or social class, such as whether one belongs
+to the upper , lower , middle, or working class. It also could include cultural values,
+a very personal way that individuals define their core beliefs. Since cultural
+segmentation maps onto core beliefs and values, it can help the business or
+brand connect with a customer at a more meaningful level. In this age of
+globalization, with products marketed across the world, being able to connect to
+unique cultures is a challenge and yet a big asset if it can be done successfully .
+Psychographic.  The psychographic basis of segmentation includes activities,
+interests, and opinions of customers. Customers who like to vacation in
+Yellowstone are likely to share similar interests and require dif ferent messaging
+tactics than those who prefer a Disneyland vacation. Customers with dif ferent
+political opinions (e.g., conservative versus liberal) may respond to dif ferent
+marketing strategies. Those who are risk averse may not be open to buying a
+product that is positioned as adventurous.
+Benefit Sought.  What kind of benefits are people likely to look for when buying a
+product? Let’ s take the example of running shoes. They could provide more than
+one benefit, such as durability , comfort, speed, and appearance. They could even
+be used for some form of social signaling to inform others that one is a runner .
+Multivitamins are another example of a product that could convey dif ferent
+benefits for dif ferent segments of customers—such as strength, prevention of
+illness, and boosting of immunity .
+Usage V olume.  Customers can be segmented based on how often they buy a
+product and how often they use it (i.e., whether they are heavy , medium, or light
+users). It is possible that heavy users form a smaller percentage of the total users
+of a product but may actually buy a substantial share of the product. Hence, they
+are an important segment to focus on.
+Product Attitude.  Having information about the type of attitude customers hold
+about a brand can help determine how they will react to a new or modified of fering
+by the brand. Some customers may have extremely favorable or extremely
+unfavorable brand attitudes. For example, some PC users would not think of
+using a Mac, and vice versa. Such potentially nonconvertible customer segments
+may not be worth targeting.
+5.2 TARGETING POTENTIAL CUSTOMERS
+Segmentation reveals specific market opportunities. Once customers have been
+segmented based on how they respond to product features, the business needs
+to evaluate the customer segments and decide which to target. It rarely happens
+that a product has mass appeal. Therefore, finding the segments that are likely to
+purchase the product is important. W e can understand the process of selecting
+viable segments to target through the following questions that a business needs
+to ask.
+Are there enough segments in the market worth targeting? Having a product
+that is liked by a very small group of customers indicates that the business
+may have a niche product, which may not be profitable on a broader level.
+Is the segment stable, and will it remain stable for some time? It’ s not ideal if
+the target segments are comprised of people who are interested in fads.
+Growing and stable segments are more attractive and more likely to be
+profitable in the long term.
+Are the segments accessible? For instance, a large segment of customers
+may be interested in the product but may be in a place where it cannot be
+accessed easily .
+How well does this product compare with the competition in the chosen target
+segments? If the product is not the innovator or the first entrant in the market,
+chances are there are one or more businesses already catering to the
+segments that the business finds attractive. The business needs to find out
+how their product compares to existing products. If the business already has
+very strong competitors catering to a segment and the segment is also very
+brand loyal, it may be very hard to break into such a market.
+5.3 POSITIONING THE PRODUCT IN
+CUSTOMERS’ MINDS
+Positioning is defined as an ef fort by a business to identify a unique selling
+proposition that allows its product to occupy a clear , distinctive, and attractive
+position in the minds of target customers relative to competing products in the
+market. Successful positioning includes communicating the benefits of the
+product as well as communicating a unique selling proposition.
+Many examples exist of businesses and their brands occupying a unique position
+in the minds of their customers. Some are so successful that the brands have
+become synonymous with the product category . For instance, one says Kleenex
+to mean facial tissue, FedEx to mean shipping, or Xerox to mean photocopying.
+Oral-B realized that if it wanted customers to change their toothbrushes rather
+than keep using worn-out ones, the company needed to communicate this to the
+customer . The company introduced a patented dye on the brush head that fades
+with usage and indicates that it is time to get a new toothbrush. Lay’ s tries to
+position itself on taste through its slogan of Betcha can’t eat just one , and
+Volkswagen positions itself by focusing on driving pleasure with its tagline Drivers
+wanted .
+A brand can position itself based on a specific product attribute, or it can position
+itself in comparison to a competitor ’s offering. Some automobile brands position
+their vehicles using product attributes; for example, Honda and Toyota focus on
+durability , reliability , and functional benefits while V olvo focuses on safety and
+Volkswagen focuses on drivability . Other automobile brands position themselves
+versus other brands, such as Hyundai against Toyota, to show that they of fer the
+same or greater benefits.
+We next discuss how segmentation has changed in a data-rich marketplace.
+5.4 DATA-DRIVEN SEGMENTATION
+As mentioned earlier , the higher volume of data available to businesses makes
+the following types of segmentation feasible: segmentation based on behavioral
+data, dynamic segmentation, and microsegmentation.
+5.4.1 Behavioral Segmentation
+In the world of Big Data, an abundance of information, including click-through and
+search data, is available about people’ s behavior: which products they are buying,
+where they are buying these products, how much they are paying, whether a
+product is more likely to sell in specific packaging, and so on. Behavioral data can
+be used to extrapolate demographic and psychographic information. Many times
+it is dif ficult to find out the specific personality traits of consumers that result in
+their purchasing a brand (e.g., is a customer more or less frugal?). However ,
+behavioral data, even from social media, can be used to predict the general
+personality of customers. Moreover , with the proliferation of online retailers, it has
+become easy to conduct ongoing studies to figure out customer preferences.

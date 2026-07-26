@@ -1,0 +1,75 @@
+Chào mừng các bạn sinh viên đến với bài giảng môn trí tuệ nhân tạo ứng dụng trong kếê toán. Hôm nay chúng ta sẽ học buổi bốn với nội dung phân khúc thị trường và dự báo sức khỏe tài chính doanh nghiệp. Tài liệu tham khảo gồm chương 5 và chương 10 file buổi 04A và buổi 04.
+Vâng, chào chị và chào tất cả mọi người. Hôm nay chúng ta có một khối lượng kiến thức ừ khá là đồ sộ nhưng cực kỳ hấp dẫn.
+Chắc chắn rồi. Ờ trước khi đi sâu vào chi tiết, tôi nghĩ chúng ta cần xác định rõ một mục tiêu của buổi đào show này. Rất nhiều người vẫn nghĩ AI trong kế toán chỉ là kiểu tự động hóa nhập liệu đúng không anh?
+À đúng, một định kiến rất phổ biến. Mọi người hay nghĩ nó chỉ là một cỗ máy scan hóa đơn.
+Chuẩn luôn. Nhưng hôm nay qua các tài liệu này, chúng ta sẽ thấy AI thực sự là một bộ não phân tích. Nó giúp kế toán và nhà quản lý nhìn thấy những khuôn mẫu vô hình ẩn sâu trong dữ liệu.
+Chính xác. Chúng ta sẽ khám phá hai cuột mốc lớn. Thứ nhất là làm sao để tìm ra đúng tệp khách hàng tiềm năng. bằng một thứ gọi là học không giám sát. Và thứ hai, phần này khá gây cấn là làm cách nào để cứu một doanh nghiệp khỏi bờ vực phá sản bằng các mô hình dự báo tài chính tiên tiến.
+Nghe như một bộ phim trinh thám tài chính vậy.
+Ồ, thực ra thì nó còn kịch tính hơn thế nữa.
+Vậy thì hãy bắt đầu với bài toán đầu tiên ở chương 5. Tài liệu có đưa ra một ví dụ mà tôi thấy rất thực tế đó là nhà hàng Vegan Always chuẩn bị khai trương ở Phoenix. Rõ ràng nếu họ cứ kiểu in hàng nghìn vure rồi phát giải thảm khắp thành phố thì thật là lãng phí đúng không?
+Quá lãng phí.
+Vâng. Họ cần phân khúc thị trường để tìm đúng nhóm người quan tâm đến đồ ch nhưng thay vì đoán mò, tài liệu lại nói đến thuật toán học không giám sát. Unsupervised learning. Nghe từ không giám sát, tôi lại có cảm giác như chúng ta cứ ném bừa dữ liệu vào một cái hộp đen rồi mặc kệ nó, tự tung tự tác.
+Ầm, nghe thì có vẻ vô kỷ luật nhưng thực ra khái niệm không giám sát ở đây mang ý nghĩa kỹ thuật thôi. Nó có nghĩa là bộ dữ liệu của chị hoàn toàn không có nhãn.
+Không có nhãn. Ý anh là không có phân loại sẵn kiểu người này thích. ăn chay, người kia thích ăn thịt.
+Đúng rồi, chị chỉ có những con số thô ví dụ như độ tuổi, thu nhập hay tần suất mua sắm. Từ cái đống hỗn độn đó, thuật toán mà cụ thể ở đây là phương pháp phân cụm hay clasering, phải tự nó mò mẫm tìm ra cấu trúc ẩn. Điều thú vị ở đây là thuật toán Camin sử dụng khoảng cách để đo lường sự tương đồng giữa các khách hàng.
+Khoảng cách, anh đang nói đến khoảng cách vật lý á,
+trong toán học, hãy tưởng tượng mỗi người khách là một điểm trên trục ngoại độ. Cái đoạn thẳng nối hai điểm đó càng ngắn thì tức là hành vi tiêu dùng của hai người đó càng giống nhau.
+Được rồi, chúng ta hãy cùng mổ sẻ vấn đề này một chút để tôi thử hình dung nhé. Cái K means này nó có giống như việc tôi tổ chức một bữa tiệc khổng lồ rất lộn xộm không?
+Ồ, một sự so sánh thú vị đấy. Chị kể tiếp đi.
+Vâng, kiểu như ban đầu tôi chọn một số lượng bàn tiệc nhất định gọi là ca đi. Tôi đặt ngẫu nhiên ca chiếc bàn giữa phòng. Những chiếc bàn này là các tâm cụm. Xong rồi, khách mời tức là dữ liệu sẽ tự động chạy đến cái bàn nào gần họ nhất.
+Đúng, rất chính xác. Và sau khi khách bu quanh các bàn đó rồi thì sao?
+Thì tôi nhận ra cái bàn lúc này bị lệch, nó không nằm ở chính giữa nhóm khách đó nữa nên tôi phải hì hục khiêng cái bàn rời vào đúng trung tâm của nhóm.
+À hiểu ý chị.
+Và khi tôi rời bàn, một số người ở rìa sẽ thấy ô cái bàn khác giờ lại gần mình hơn. Thế là họ chạy sang nhóm khác rồi. Tôi lại phải rời bàn tiếp. Cứ lặp đi lặp lại cho đến khi không ai muốn chuyển bàn nữa.
+Chổn luôn. Trực quan tuyệt vời. Đó chính xác là cách cây min soạt động. Nó hội tụ lại khi các cụm đã đạt trạng thái ổn định nhất. Wow, một quy trình tưởng như máy móc nhưng lại rất tự nhiên. Vậy nếu áp dụng vào thực tế nó hoạt động thế nào?
+Lấy ví dụ với hai biến đơn giản thôi nhỉ. Biến thứ nhất là số tiền chi tiêu. Biến thứ hai là thời gian gắn bó với thương hiệu. Khi chạy cây means kết quả có thể chỉ ra hai nhóm hoàn toàn trái ngược.
+Nghĩa là sao?
+Ừ ví dụ cụm một là những người gắn bó rất lâu nhưng họ lại tiêu rất ít tiền. Còn cụm hai thì vừa tiêu nhiều tiền lại vừa gắn bó lâu. Nhìn vào đó doanh nghiệp lập tức biết mình phải dồn lực chăm sóc cụm hai để tối ưu hóa lợi nhuận.
+Dạ. Vậy nhưng khoan đã có một lỗ hổng trong ví dụ bữa tiệc của tôi. Làm sao tôi biết ngay từ đầu mình nên đặt bao nhiêu chiếc bán, tức là chọn số lượng ca ái?
+À đây là một câu hỏi kinh điển. K means không tự biết K bằng bao nhiêu đâu. Nhưng chúng ta có một công cụ đo lường gọi là hệ số silhouet.
+Silouet nó chấm điểm dựa trên tiêu chí gì vậy?
+Nó xem xét độ chặt chẽ của cụm. Ờ nếu điểm số càng gần một thì chứng tổ các cụm rất gắn kết bên trong và tách biệt rõ ràng với bên ngoài. Lý tưởng luôn.
+Rất hợp lý. Việc phân tích hành vi mua sắm rõ ràng giúp chúng ta tìm đúng khách hàng để tăng doanh thu. Nhưng ư tăng trưởng doanh thu sẽ vô nghĩa nếu bản thân doanh nghiệp đang rỉ mão tài chính từ bên trong đúng không?
+Chắc chắn rồi. Bán được nhiều hàng không có nghĩa là công ty không thể phá sản.
+Vâng. Vậy chúng ta sẽ chuyển hướng một chút. Từ việc tìm kiếm khách hàng chúng ta bước sang việc bảo vệ sinh mệnh của doanh nghiệp. Cụ thể là đánh giá sức khỏe tài chính và dự báo phá sản.
+Đây là lúc chúng ta bước vào bối cảnh của một tổ chức cho vay trong chương 10. Ví dụ như ngân hàng Ultrabank. Khi đánh giá cho vay, họ phải dùng hàng loạt các tỉ số tài chính nào là tỉ số nợ trên vốn chủ sở hữu, thanh toán, hiện hành, đại loại vậy.
+Vâng, những chỉ số kinh điển mà bất cứ sinh viên kế toán nào cũng phải học.
+Đúng vậy. Nhưng vấn đề là các tỉ số này thường có môi tương quan cực kỳ chặt chẽ với nhau và điều đó tạo ra một hiện tượng trong thống kê gọi là đa cộng tuyến multicolinarity.
+Đến đây thì mọi thứ bắt đầu thực sự thú vị rồi. Ờ đa cộng tuyến. Ý anh là có quá nhiều dữ liệu tài chính, đôi khi lại làm hỏng các mô hình thống kê truyền thống.
+Chính xác là như vậy.
+Nó giống như anh tưởng tượng nhá. Anh năng l xe và có đến năm cái máy GPS cùng lúc hết lên các chỉ dẫn. Chúng chỉ hơi khác nhau một chút thôi. Thay vì giúp anh đến đích an toàn, sự nhiễu loạn đó lại làm anh hoảng loạn và đâm xe.
+Ồ, một sự ví von không thể chuẩn xác hơn. Năm cái GPS đó chính là các tỉ số tài chính đang lặp lại cùng một thông tin. Mô hình hồi quy bình phương tối thiểu thông thường, tức là mô hình OLS truyền thống ấy, nó sẽ thất bại thảm hại trong trường hợp này.
+Tại sao OLS lại yếu đối trước đa cộng tuyến như vậy?
+Bởi vì OLS giải định rằng các biến độc lập không được tương quan với nhau. Khi đa cộng tuyến xảy ra, cái gọi là sai số chuẩn standard error nó sẽ tăng vọt lên.
+Và hậu quả là gì?
+Nó gây ra sai lầm loại một, tức là mô hình không thể bác bỏ giả thuyết nun. Mặc dù giả thuyết đó sai. Nói ngôn ngữ dễ hiểu thì nó sẽ bỏ qua những cảnh báo nguy hiểm thực sự.
+Nguy hiểm thật. Kiểu như chuông báo cháy kêu mà nó lại bóp nghẹt âm thanh nó đi vậy.
+Đúng. Chưa kể mô hình lúc này sẽ bị hiện tượng quá khớp. Overfeitted, tức là độ trệch thì thấp vì nó học v bẹt dữ liệu cũ quá kỹ nhưng khi mang đi dự báo dữ liệu mới thì phương sai lạng cức cao, nó sẽ dự báo sai bẹt.
+Vậy chúng ta làm thế nào để thoát khỏi cái bẫy đa cộng tuyến này? Ultraank cần một giải pháp chứ?
+Chắc chắn rồi. Và giải pháp từ AI ở đây không dùng OLS nữa mà chuyển sang hồi quy có phạt, Panalized Regress. Cụ để là thuật toán LEL.
+Hồi quy có phạt nghe cứ như là nó đi trừng phạt dữ liệu vậy.
+Nếu chúng ta kết nối điều này với bức tranh toàn cảnh thì nó thực sự là một sự trừng phạt đấy. Lê một thuật ngữ phạt ký hiệu là lamda vào phương trình.
+Và cái lamda này làm gì?
+Khi giá trị lamda tăng lên, l sẽ trừng phạt các hệ số bị ta của những biến số không mấy quan trọng. Nó ép các hệ số đó teo nhỏ lại, thậm chí là ép về đúng bằng số luôn.
+O, vậy là nó trực tiếp loại bỏ các biến vô dụng ra khỏi mô hình.
+Chuẩn luôn. Thuật ngữ chuyên môn gọi đây là tự động thực hiện lựa chọn biến. Variable selection. Chị không cần phải tự ngồi đoán xem biến nào quan trọng nữa.
+Quá tuyệt. Vậy trong vụ của Anch Bank thì kết quả cụ thể thế nào? Ờ họ có 665 doanh nghiệp và đo lường tới 16 tỷ số tài chính. Nhiều tỉ số trong đó có hệ số phóng đại phương sai VIIF lên tới hơn 600, tức là đa cộng tuyến cực kỳ khủng khiếp.
+Hơn 600 cơ ạ.
+Vâng. Nhưng nhờ dùng lo mô hình đã tự động ép bốn tỷ số về không. Nó gạt bỏ hoàn toàn sự nhiễu loạn đó và chỉ giữ lại 12 tỷ số thực sự cốt lõi để dự báo rủi ro phá sản.
+Một sự tối ưu hóa đáng kinh ngạc. Nhưng làm sao ngân hàng biết được cái mô hình loô này hoạt động đủ tốt để họ tin tưởng giao tiền? Để đánh giá, chúng ta dùng một công cụ gọi là đường cong AUC ROC. AUC ở đây là tỉ lệ giữa true positive, tức là đoán đúng công ty phá sản và false positive tức là báo động nhầm.
+Vậy điểm số tính như thế nào là tốt?
+Ờ nếu AUC bằng 0.5 thì mô hình của chị đoán bừa không khác gì tung đồng xu. Còn nếu bằng 1 thì nó là hoàn hảo. Trong ví dụ này, mô hình lá xô đạt mức AUC khoảng 0.8.
+0.8 là một con số rất tốt đúng không?
+Vâng, khá là ấn. tượng. Với mức này ngân hàng hoàn toàn tự tin nhập dữ liệu của một doanh nghiệp mới vào, mô hình sẽ trả về không tức là sắp phá sản, đừng cho vay. Hoặc một, an toàn, duyệt khoản vay.
+Wow, thật sự là công nghệ đã thay đổi hoàn toàn cuộc trời. Vậy là hôm nay chúng ta đã đi một chặng đường khá giải từ việc dùng K Means để gom nhóm những tệp dữ liệu hỗn loạn, tìm ra khách hàng vàng.
+Vâng, bà đến việc dùng LO để vượt qua đám sương mù đa cộng tuyến, tìm ra đúng những chỉ số sống còn của một doanh nghiệp.
+Vậy tất cả những điều này có có ý nghĩa gì đối với chúng ta? Tôi có một suy nghĩ thế này. Kế toán vốn từ xưa đến nay luôn dựa trên các nguyên tắc và sự phán đoán truyền thống của con người.
+Ừ, đúng vậy.
+Nhưng bây giờ thuật toán lô lại có khả năng gạch bỏ ép về không luôn những chỉ số tài chính mà sách giáo khoa kinh điển coi là quan trọng. Đơn giản vì nó nhìn thấy những khuôn mẫu phức tạp hơn trong Big Dra.
+Một sự va chạm giữa con người và máy móc.
+Chính xác. Vậy câu hỏi đặt ra là nếu dự báo của một hệ thống AI mâu thuẫn hoàn toàn với trực xác của một kế toán trưởng có 20 năm kinh nghiệm Chúng ta nên nghe ai?
+Ồ, một câu hỏi hóc búa đấy.
+Liệu tương lai của ngành kế toán là phục tùng AI hay là chúng ta phải học cách diễn dịch và tranh luận với nó? Đó là điều mà tôi muốn các bạn suy ngẫm sau buổi hôm nay.
+Rất đáng để đào sâu thêm.
+Cảm ơn chuyên gia đã đồng hành cùng tôi hôm nay. Chúc tất cả mọi người có một buổi học và nghiên cứu thật hiệu quả nhé.
+Chúc mọi người nghiên cứu tốt. Chào tạm biệt.

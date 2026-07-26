@@ -1,0 +1,365 @@
+tổng hợp theo tháng. Sau đó, với mỗi đồ chơi trong mỗi tháng, 
+tổng chi phí sản xuất hàng tháng nên được chia cho 
+tổng số đồ chơi được sản xuất để tính giá trị trung bình 
+chi phí đồ chơi mỗi tháng cho từng loại đồ chơi. Kết quả sẽ là 
+36 điểm dữ liệu về chi phí trung bình hàng tháng cho từng loại 
+của đồ chơi.
+	 3. Chiến lược phân tích
+• Doanh số bán hàng tháng 12 theo đơn vị có thể được ước tính bằng cách chạy 
+một sự hồi quy về doanh số bán hàng của mỗi tháng. 
+• Một biến tính toán phải được tạo cho mỗi tháng 
+các đơn vị tồn kho cuối cùng cho mỗi loại đồ chơi, kết quả là 36 
+điểm dữ liệu cho mỗi đồ chơi. Công thức của biến này là: bắt đầu-
+Đơn vị tồn kho + đồ chơi được sản xuất hàng tháng − hàng tháng 
+đơn vị đã bán. (Bạn có thể cho rằng doanh nghiệp này bắt đầu 
+ba năm trước mà không có hàng tồn kho ban đầu.)
+• Hàng tồn kho cuối tháng 12 theo số đơn vị có thể được 
+được ước tính bằng cách chạy hồi quy vào cuối tháng 
+đơn vị tồn kho cho từng loại đồ chơi. 
+• Chi phí trung bình cuối tháng 12 cho mỗi món đồ chơi có thể được ước tính
+được kết hợp bằng cách chạy hồi quy trung bình hàng tháng 
+chi phí cho mỗi món đồ chơi 
+• Để tính tổng giá trị hàng tồn kho cuối tháng 12-
+cuối cùng, số đơn vị hàng tồn kho cuối tháng 12 cho mỗi 
+đồ chơi nên được nhân với ước tính tương ứng của nó 
+Chi phí trung bình tháng 12 Khi đó tổng chi phí cho mỗi món đồ chơi phải 
+được cộng vào tổng giá trị hàng tồn kho cuối tháng 12. 
+(Tiếp theo)
+
+4.4  Các chiến lược phân tích và dữ liệu khác nhau như thế nào giữa các lĩnh vực thực hành?  4-25
+	 4. Rủi ro đối với chiến lược dữ liệu 
+	
+	 Rủi ro đối với chiến lược phân tích 
+• Có thể có dữ liệu bị thiếu, trùng lặp hoặc sai sót trong 
+trường được chọn để phân tích.
+• Chi phí có thể thay đổi trong ba năm do vận chuyển đường biển
+tính âm thanh, những thay đổi về nhà cung cấp và lạm phát. 
+• Các phép tính có thể có sai sót.
+	 5. Kiểm soát chiến lược dữ liệu
+	
+	 Kiểm soát chiến lược phân tích
+• Thực hiện các bài kiểm tra làm sạch dữ liệu để tìm và sửa các dữ liệu bị thiếu 
+dữ liệu, trùng lặp và lỗi dẫn đến dữ liệu ngoại lệ 
+điểm. 
+• So sánh giá thành đơn vị và doanh thu mỗi tháng để xác định 
+nếu yếu tố lạm phát, tính thời vụ hoặc những thay đổi khác xảy ra 
+đã xảy ra. Nếu sự thay đổi dữ liệu được nhận thấy, nguyên nhân và hiệu quả của chúng
+Nence cần được xác minh bằng cách nói chuyện với nhân viên 
+ai sẽ biết câu trả lời. 
+• Mỗi phép tính được thực hiện phải được xác minh, vì 
+cũng như các phép tính trung bình.
+• Phân tích hồi quy có thể được xác minh bằng cách thực hiện trực quan
+sự phân bổ các điểm dữ liệu hàng tháng trong ba năm và 
+kiểm tra trực quan để phù hợp với hồi quy 
+ước tính.
+4.4  Chiến lược phân tích và dữ liệu như thế nào 
+Khác biệt giữa các lĩnh vực thực hành?
+MỤC TIÊU HỌC TẬP ❹
+Tóm tắt dữ liệu và phân tích các chiến lược trong lĩnh vực thực hành chuyên môn.
+Là bước cuối cùng của giai đoạn lập kế hoạch phân tích dữ liệu, các chuyên gia kế toán thực hành 
+các khu vực thiết kế dữ liệu và chiến lược phân tích dựa trên mục tiêu dự án của họ. Ở đây, chúng tôi cung cấp 
+ví dụ về chiến lược phân tích và dữ liệu phổ biến cho hệ thống thông tin kế toán 
+(AIS), kiểm toán, kế toán tài chính, kế toán quản trị và kế toán thuế 
+các khu vực thực hành.
+Hệ thống thông tin kế toán
+Bởi vì hệ thống thông tin kế toán của công ty liên quan đến việc lập kế hoạch, thực hiện, 
+kiểm soát và báo cáo hoạt động kinh doanh, các dự án phân tích dữ liệu trong lĩnh vực này thường 
+liên quan đến dữ liệu và kiến thức liên ngành. Các mục tiêu dự án này có thể nằm trong phạm vi 
+từ việc chỉ tác động đến một hoặc hai nhân viên đến việc liên quan đến hầu hết tổ chức. Tất cả bốn 
+các loại mục tiêu phân tích (mô tả, chẩn đoán, dự đoán và quy định)
+chỉ được sử dụng.
+
+4-26  CHƯƠNG 4  Lập kế hoạch chiến lược phân tích và dữ liệu
+MINH HỌA 4.20  Số lượng yêu cầu dịch vụ mỗi tháng
+Số lượng yêu cầu dịch vụ
+Dịch vụ 
+Yêu cầu
+Tháng
+0
+tháng Giêng.
+Tháng Hai
+Tháng ba.
+Tháng Tư.
+tháng 5
+Tháng Sáu.
+Tháng Bảy.
+Tháng 8
+Tháng 9
+Tháng 10
+Tháng 11
+Tháng mười hai
+20
+40
+60
+80
+120
+140
+160
+180
+100
+99
+153
+118
+100
+46
+98
+98
+72
+92
+72
+153
+72
+92
+72
+77
+64
+Các dự án phân tích dữ liệu AIS cũng có thể chọn chiến lược dữ liệu sử dụng khoảng thời gian định lượng và 
+dữ liệu tỷ lệ:
+• Các chi phí như cài đặt và cập nhật thiết bị, phần mềm và nhân công CNTT.
+• Chênh lệch ngân sách cho bất kỳ chi phí nào trong số này.
+Điều quan trọng là chọn dữ liệu nắm bắt được hiệu suất, lỗ hổng và khả năng hoạt động của hệ thống AIS. 
+lỗi. Ví dụ: để phân tích hiệu suất, chúng tôi có thể phân tích số lượng email spam 
+(dữ liệu tỷ lệ) trước và sau khi đầu tư vào tường lửa mới.
+Các kế toán viên thiết kế chiến lược phân tích cho các dự án AIS tập trung vào việc nâng cao hiệu quả
+lợi thế cạnh tranh và cải thiện hoạt động của tổ chức. Họ thường sử dụng số liệu thống kê để 
+hiểu được yếu tố nào của hệ thống kế toán mà họ nên tập trung vào. Toán học-
+hình thức chính thức của các công cụ thống kê có thể giúp thuyết phục ban quản lý thực hiện những điều cần thiết 
+đầu tư.
+Có những rủi ro liên quan đến việc lựa chọn và phân tích dữ liệu AIS. Một số thông dụng 
+rủi ro chiến lược và quan trọng cũng như các biện pháp kiểm soát được đề xuất đối với dữ liệu và phân tích AIS được liệt kê trong 
+Minh họa 4.21.
+Dữ liệu được phân tích trong các dự án này có thể bao gồm nhiều loại dữ liệu vận hành CNTT với các mức độ khác nhau.
+mức độ toàn vẹn dữ liệu và tài liệu kiểm soát khác nhau. Nhiều dữ liệu kế toán truyền thống hơn 
+thường được phân tích với dữ liệu phân loại và thứ tự định tính:
+• Số lượng phiếu trợ giúp và sự cố.
+• Số lượng lỗi và thời gian trễ.
+• Vấn đề đăng nhập.
+• Sự hài lòng về hệ thống và sự hài lòng về dịch vụ CNTT.
+Ví dụ, Hình minh họa 4.20 là một ví dụ minh họa số lượng hàng tháng 
+các yêu cầu dịch vụ liên quan đến hệ thống thông tin kế toán của công ty. Mục tiêu là 
+để xác định có bao nhiêu và tháng nào nhân viên IT vượt quá năng lực 90 người 
+các yêu cầu dịch vụ.
+
+4.4  Các chiến lược phân tích và dữ liệu khác nhau như thế nào giữa các lĩnh vực thực hành?  4-27
+MINH HỌA 4.21  Rủi ro và biện pháp kiểm soát đối với chiến lược phân tích và dữ liệu AIS
+Phân tích
+dữ liệu
+Rủi ro
+Điều khiển
+• Hành vi của con người không bị nắm bắt.
+• Thao tác dữ liệu trái phép
+   tiếp cận hoặc nhân viên chưa được đào tạo.
+• Nhật ký chặt chẽ và phân chia nhiệm vụ trong lĩnh vực CNTT.
+• Sao lưu hiệu quả và xuống cấp nhẹ nhàng.
+• Thủ tục rõ ràng.
+• Làm sạch dữ liệu kỹ lưỡng và tam giác hóa để
+   xác minh việc thu thập dữ liệu.
+• Dấu vết kiểm toán chặt chẽ.
+• Kiểm soát quản lý dữ liệu và thay đổi.
+• Chính sách lưu giữ và tiêu hủy dữ liệu.
+• Kiểm soát truy cập mạnh mẽ.
+• Mất dữ liệu do vi phạm an ninh,
+   ransomware hoặc thiên tai.
+• Khó khăn trong việc thu thập dữ liệu tốc độ cao.
+• Khó khăn trong việc đo lường liên ngành
+   sự phụ thuộc vào phần mềm quy trình.
+• Dữ liệu bẩn và các dữ liệu ngoại lệ.
+• Lỗi trong các phép biến đổi biến.
+• Kiểm tra các bước phân tích và tính toán.
+• Sai sót trong tính toán.
+• Thực hiện phân tích độ nhạy cho các kết quả quan trọng.
+• Khoảng thời gian sẵn có của dữ liệu quá ngắn để
+   nắm bắt được nhiều xu hướng và vấn đề chiến lược hơn.
+• Tạo hình ảnh trực quan và giải thích hiệu quả.
+Kiểm toán
+Sự phản đối lịch sử của kiểm toán viên đối với sự thay đổi do rủi ro kiện tụng cao và Kế toán công 
+Việc xem xét của Ủy ban Giám sát (PCAOB) về các quy trình kiểm toán đang biến mất khi các công nghệ mới trợ giúp 
+họ thực hiện các cuộc kiểm toán chất lượng cao hơn, rủi ro thấp hơn và hiệu quả hơn. Các công ty kiểm toán ngày càng tăng
+đầu tư tích cực vào công nghệ và cách thức mới để sử dụng nó. Họ đang tổ chức lại để cung cấp dịch vụ mới
+tệ nạn để cung cấp thêm thông tin kinh doanh và giá trị kinh tế cho khách hàng của họ.
+Kiểm toán viên sử dụng số liệu thống kê để xác định rủi ro đối với số dư tài khoản và các giao dịch bất thường, 
+đặc biệt là trong các mục nhật ký liên quan đến ước tính và giả định. Họ thường làm việc 
+với các loại nguồn dữ liệu khác nhau, từ tài liệu quy trình, mục nhật ký, thông tin chung 
+và sổ cái phụ, số dư thử, các tỷ số tài chính. Kiểm toán viên sử dụng các chiến lược phân tích để:
+• Các mô-đun kiểm tra liên tục để kiểm tra các quần thể dữ liệu lớn thay vì kiểm tra mẫu 
+với rủi ro suy luận.
+• Tự động nhận dạng dữ liệu bẩn, giao dịch bất thường và các mẫu bất thường để 
+giảm thiểu rủi ro kiểm toán và rủi ro gian lận tốt hơn.
+• Kiểm tra kiểm soát nội bộ của toàn bộ chu trình giao dịch bằng cách khai thác quy trình và theo dõi mục đích
+theo đuổi các luồng thanh toán, việc sử dụng thẻ P (mua thẻ tín dụng) và tài liệu trả lương-
+tation. Kiểm tra chu kỳ doanh thu từ đơn hàng đến thu tiền.
+• Sử dụng tự động hóa quy trình bằng robot (RPA) để loại bỏ con người (và thường không nhất quán) 
+yếu tố của các nhiệm vụ kiểm toán lặp đi lặp lại, giúp kiểm toán viên có thể tập trung vào các lĩnh vực đòi hỏi phải suy nghĩ kỹ
+tư duy phê phán và phán đoán đầy đủ. (Các ứng dụng và lợi ích của RPA đối với kế toán viên là 
+được giải thích trong chương đề cập đến sự phát triển dữ liệu và phân tích trong kế toán.)
+• Kiểm tra các giả thuyết về hàng tồn kho và tài sản cố định bằng cách lấy mẫu, kiểm tra thống kê và 
+suy luận về dân số của những tài sản này.
+
+4-28  CHƯƠNG 4  Lập kế hoạch chiến lược phân tích và dữ liệu
+Hình minh họa 4.22 là một ví dụ về kiểm toán viên sử dụng chiến lược phân tích khai thác quy trình để tìm hiểu 
+liệu tất cả các giao dịch mua hàng có tuân thủ đúng quy trình từ yêu cầu đến việc ghi chép hay không 
+hoá đơn cho việc mua hàng. Hình ảnh trực quan cho thấy rằng lượng mua hàng nhiều hơn dự kiến 
+(308 mua hàng) bỏ qua bước quy trình yêu cầu mua hàng được ủy quyền cũng như quyền tự động
+các bước xác nhận đơn hàng, nhận hàng và lập hoá đơn cho nhà cung cấp. Những sai lệch này so với 
+quy trình được ủy quyền có liên quan đến kiểm toán viên. Các hộp màu xanh cho biết quá trình diễn ra ở đâu 
+cho phép nhận đơn đặt hàng mà không cần yêu cầu mua hàng và cho phép đặt hàng với-
+ra các bước cần thiết tiếp theo. Kiểm toán viên sau đó sẽ muốn theo dõi những trường hợp ngoại lệ này 
+theo quy trình được ủy quyền.
+MINH HỌA 4.22  Quy trình kết quả khai thác để mua hàng 
+Phân tích
+Bắt đầu quá trình
+8,864
+Tạo mặt hàng yêu cầu mua hàng
+8,556
+Tạo mặt hàng đặt mua
+8,864
+In và gửi đơn đặt hàng (giấy)
+8,864
+Nhận xác nhận đơn hàng
+8,556
+Ghi nhận hàng hóa
+8,556
+3,556
+3,556
+Nhà cung cấp tạo hóa đơn
+8,556
+Ghi biên lai hóa đơn
+8,556
+Quá trình kết thúc
+8,864
+3,556
+3,556
+3,556
+3,556
+3,556
+8,864
+3,556
+8,556
+8,556
+8,556
+8,556
+8,556
+8,864
+8,556
+5,308
+308
+5,308
+308
+
+4.4  Các chiến lược phân tích và dữ liệu khác nhau như thế nào giữa các lĩnh vực thực hành?  4-29
+Bất kể dữ liệu và chiến lược phân tích được sử dụng là gì, kiểm toán viên phải xác định rủi ro và các biện pháp phòng ngừa.
+những điều cần thiết để đảm bảo rằng họ có thể dựa vào kết quả phân tích của mình (Minh họa 4.23).
+MINH HỌA 4.23  Rủi ro và biện pháp kiểm soát đối với chiến lược phân tích và dữ liệu kiểm tra
+Phân tích
+dữ liệu
+Rủi ro
+Điều khiển
+• Thiếu dữ liệu.
+• Dữ liệu bẩn.
+• Các cuộc kiểm tra chặt chẽ về kiểm soát nội bộ đối với
+   nhập, lưu trữ, xử lý và báo cáo dữ liệu.
+• Kiểm tra ủy quyền và kiểm soát truy cập.
+• Dữ liệu giao dịch giả mạo.
+• Sai sót trong giả định.
+• Xác minh tất cả các bước kiểm tra và tính toán.
+• Sai sót trong tính toán và kết luận.
+• Kiểm tra việc xác thực và phê duyệt.
+• Phân tích độ nhạy cho các kết quả quan trọng.
+Kế toán tài chính
+Kế toán tài chính chịu trách nhiệm chính trong việc thu thập, ghi chép, xử lý, lưu trữ, 
+và báo cáo thông tin kế toán. Tính chính xác, kỹ lưỡng và tài liệu là điều cần thiết
+tiaal. Dữ liệu kế toán họ sử dụng để phân tích đều được hướng dẫn và hạn chế bởi các cơ quan kế toán. 
+quy định và sự tuân thủ của cơ quan chính phủ. Do thang đo của các biến thể
+khả năng họ cần để phân tích, kế toán tài chính có thể phải chuyển đổi dữ liệu tùy thuộc vào 
+những câu hỏi khách quan của họ. Những dữ liệu này thường bao gồm dữ liệu phân loại, khoảng thời gian và tỷ lệ.
+Mục đích của chiến lược phân tích dữ liệu có thể là mô tả và chẩn đoán dựa trên
+đáp ứng các quy định, quy định về kế toán tài chính:
+• Bản chất, thời gian và ủy quyền của các giao dịch (và chẩn đoán các vấn đề) được tính cho mỗi giao dịch 
+tài khoản.
+• Hiệu quả và điểm yếu của kiểm soát nội bộ.
+• Tính đầy đủ và hợp lý của các bút toán điều chỉnh cuối kỳ.
+Kế toán tài chính cũng sử dụng các chiến lược phân tích được thiết kế để dự đoán và đưa ra quy định.
+mục tiêu quan trọng liên quan đến kết quả tài chính cho các nhà quản lý và thành viên hội đồng quản trị. Một ví dụ 
+đang ước tính các thông tin bổ sung sẽ được trình bày cùng với báo cáo tài chính của họ, 
+chẳng hạn như:
+• Xếp hạng các nguồn vốn thay thế và chi phí vốn theo mức độ thuận lợi.
+• Thu nhập ròng trong tương lai và dòng tiền từ hoạt động kinh doanh, đầu tư và hoạt động tài chính.
+• Tác động của chiến lược mới đến báo cáo tài chính.
+• Chi phí dự kiến trong tương lai liên quan đến nợ tiềm ẩn, chi phí lương hưu, hoạt động kinh doanh mới 
+đơn vị hoặc sự ngừng hoạt động của các đơn vị kinh doanh.
+Kế toán tài chính sử dụng số liệu thống kê để xác định các cơ hội và vấn đề về lợi nhuận, 
+thanh khoản và định giá doanh nghiệp. Họ phân tích các mã ngành được phân loại từ khách hàng của họ 
+các nhóm tài sản đầu tư nắm giữ đến ngày đáo hạn, đang kinh doanh và sẵn sàng để bán 
+đảm bảo rủi ro đa dạng hóa mong muốn và chiến lược nắm giữ.
+
+4-30  CHƯƠNG 4  Lập kế hoạch chiến lược phân tích và dữ liệu
+Hình minh họa 4.24 là biểu đồ thác nước thể hiện kết quả phân tích của một dự án với 
+nhằm mục đích hiểu rõ hơn về dòng tiền ròng hàng tháng của một tổ chức theo tháng. Một nước-
+biểu đồ mùa thu là một hình ảnh trực quan hữu ích để hiển thị các thành phần tích cực và tiêu cực của một sự thay đổi.
+MINH HỌA 4.24  Trực quan hóa dòng tiền ròng
+8.000 USD
+7.000 USD
+6.000 USD
+5.000 USD
+4.000 USD
+3.000 USD
+2.000 USD
+1.000 USD
+$0
+Tháng 1 Tháng 2 Tháng 3 Tháng 4 Tháng 5 Tháng 6 Tháng 7 Tháng 8 Tháng 9 Tháng 10 Tháng 11 Tháng 12 Tổng cộng
+Dòng tiền ròng
+2.600 USD
+$2,350
+$(900)
+$(1.400)
+$(700)
+$800
+2.400 USD
+$(500)
+$(800)
+$2,350
+1.300 USD
+$(2.900)
+4.600 USD
+tăng
+Giảm
+Hình ảnh thác nước này cho thấy sự thay đổi của dòng tiền mỗi tháng. Ví dụ, trong 
+Dòng tiền tháng 2 tăng 2.350 USD nhưng sau đó giảm 900 USD trong tháng 3. Mạng của tất cả 
+những thay đổi hàng tháng đồng ý với tổng số. Cũng như các kế toán viên khác, kế toán tài chính phải 
+xác định những rủi ro tiềm ẩn trong chiến lược phân tích và dữ liệu của họ (Minh họa 4.25).
+MINH HỌA 4.25  Rủi ro và Kiểm soát đối với Chiến lược Phân tích và Dữ liệu Kế toán Tài chính
+Phân tích
+dữ liệu
+Rủi ro
+Điều khiển
+• Thiếu các bút toán vận hành và điều chỉnh.
+• Dữ liệu bẩn.
+• Các bước chu kỳ kế toán mạnh mẽ.
+• Kiểm soát nội bộ mạnh mẽ đối với việc nhập dữ liệu,
+  lưu trữ, xử lý và báo cáo.
+• Dữ liệu giao dịch giả mạo.
+• Kiểm soát ủy quyền và truy cập.
+• Kiểm tra và sửa chữa những thiếu sót,
+  dữ liệu trùng lặp và dữ liệu ngoại lệ.
+• Định giá sai.
+• Tài khoản không chính xác.
+• Khoảng thời gian không chính xác.
+• Thiếu dữ liệu.
+• Lỗi tính toán.
+• Xác minh tất cả các bước chu trình và tính toán.
+• Thành kiến ​​và tư lợi.
+• Kiểm tra xác thực và phê duyệt.
+• Phân tích độ nhạy cho các kết quả quan trọng.
+• Tính toán sai.
+• Xác minh hướng dẫn GAAP hiện hành.
+• Không tuân theo hướng dẫn phân tích GAAP.
+Kế toán quản trị
+Kế toán quản lý tăng thêm giá trị cho tổ chức của họ bằng các chiến lược phân tích dữ liệu khác nhau. 
+Mục đích của hầu hết các phân tích dữ liệu kế toán quản trị là cải thiện việc lập kế hoạch, vận hành 
+kiểm soát và ra quyết định để hỗ trợ sứ mệnh và chiến lược của tổ chức. Loại này 
+phân tích dữ liệu có giá trị để cải thiện việc lựa chọn, thực hiện và đánh giá các tổ chức
+chiến lược zational. Những loại phân tích này cũng có thể dẫn đến những quyết định mang lại cho nhân viên nhiều lợi ích hơn. 
+tiếp cận thông tin, giúp cải thiện hiệu suất và cuối cùng là văn hóa tổ chức 
+và hoạt động.
+
+4.4  Các chiến lược phân tích và dữ liệu khác nhau như thế nào giữa các lĩnh vực thực hành?  4-31

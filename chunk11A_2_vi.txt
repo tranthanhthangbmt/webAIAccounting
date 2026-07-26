@@ -1,0 +1,543 @@
+thông tin trùng khớp từ bảng Đơn hàng:
+• CustomerID = 1003 được liệt kê trong liên kết này, nhưng vì không có thứ tự phù hợp nên 
+kết quả cho các trường đơn hàng là null.
+• OrderID = 50016 không được phản ánh trong kết quả của bảng đã nối. Không có ID khách hàng = 102 
+trong bảng Khách hàng, do đó bản ghi đó không được chọn khi tham gia.
+Phép nối phải trả về tất cả các hàng từ bảng bên phải và sẽ hiển thị mọi dữ liệu khớp từ bảng 
+bảng bên trái (Minh họa 2.8).
+
+2.1  Hiểu cách lưu trữ dữ liệu giúp trả lời các câu hỏi như thế nào? 
+2-7
+MINH HỌA 2.10  Câu hỏi phân tích dữ liệu mẫu và cách tham gia phù hợp 
+Câu hỏi
+Tham gia
+Có hóa đơn nào của khách hàng mà không có biên lai không?
+Tham gia trái
+Có bất kỳ giao dịch nào được tính vào các tài khoản không tồn tại không?
+Tham gia trái
+Có bất kỳ séc trả lương nào được phát hành cho nhân viên giả mạo không?
+Tham gia trái
+Có khoản lợi nhuận bán hàng nào cho khách hàng không tồn tại không?
+Tham gia trái
+Có mặt hàng tồn kho nào chưa được bán không? (Bảng đơn hàng bên trái)
+Tham gia ngay
+Có khách hàng nào chưa mua hàng không? (Bảng đơn hàng bên trái)
+Tham gia ngay
+Có nhà cung cấp nào chưa được gửi đơn đặt hàng không? 
+(Bảng Mua hàng ở bên trái)
+Tham gia ngay
+Có hóa đơn nhà cung cấp nào chưa được thanh toán không? (Bảng thanh toán bên trái)
+Tham gia ngay
+Có địa chỉ nhân viên nào khớp với địa chỉ nhà cung cấp không?
+Tham gia nội bộ
+Có số điện thoại của nhân viên nào khớp với số điện thoại của nhà cung cấp không?
+Tham gia nội bộ
+Việc bán hàng đã được thực hiện ở một khu vực cụ thể chưa?
+Tham gia nội bộ
+Áp dụng nó 2.1
+Xác định chính và 
+Khóa ngoại
+Hệ thống thông tin kế toán   Super Scooters, nhà sản xuất xe tay ga có động cơ, vừa 
+chuyển đổi sang hệ thống cơ sở dữ liệu quan hệ. Bạn làm việc trong lĩnh vực hệ thống thông tin kế toán của 
+công ty và đã giúp chuyển đổi sang hệ thống cơ sở dữ liệu mới. Sau đây 
+các bảng đã được thiết lập. 
+Địa điểm
+Vị tríSố
+Vị tríMô tả
+Đơn đặt hàng bán hàng
+Bán hàngSố thứ tự
+Số đơn hàng
+người mẫu
+Ngày bán
+Doanh số bán hàng
+Màu sắc
+Vị tríSố
+Khu vựcSố
+tiểu bang
+Quốc gia
+Đơn VịBánGiá
+Số hạng mục
+Số khách hàng
+Mã Số Nhân Viên
+nhân viên
+Mã Số Nhân Viên
+Tên đầu tiên
+Họ
+Địa chỉ
+Thành phố
+tiểu bang
+Mã Zip
+Khu vựcSố
+Khách hàng
+Số khách hàng
+Tên khách hàng
+Địa chỉ khách hàng
+Khách HàngThành Phố
+Khách hàngTrạng thái
+Tên liên hệ
+Khách hàngZipCode
+Tên liên hệ
+Số điện thoại
+Khu vực
+Khu vựcSố
+Khu vựcMô tả
+Hàng tồn kho
+Số hạng mục
+MụcMô tả
+Màu sắc
+Số lượng trên tay
+Chi phí đặt hàng bán hàng
+Số đơn hàng
+Tiếp thị biến đổi
+Lao động
+Tổng sốBảo hành
+Tổng số khấu hao
+Thuế bán hàng
+Vật liệu
+Chi phí chung
+
+2-8 
+CHƯƠNG 2  Kỹ năng phân tích dữ liệu cơ bản
+GIẢI PHÁP
+Bảng
+Khóa chính
+Khóa ngoại
+Đơn đặt hàng bán hàng
+Bán hàngSố thứ tự
+Số đơn hàng
+Vị tríSố
+Khu vựcSố
+Số khách hàng
+Mã Số Nhân Viên
+Địa điểm
+Vị tríSố
+không có
+Vùng
+Khu vựcSố
+không có
+Hàng tồn kho
+Số hạng mục
+không có
+Chi phí đặt hàng bán hàng
+Số đơn hàng
+không có
+nhân viên
+Mã Số Nhân Viên 
+Khu vựcSố
+Khách hàng
+Số khách hàng
+không có
+2.2  Cách phân tích các hàm bảng tính 
+Lượng dữ liệu lớn?
+MỤC TIÊU HỌC TẬP ➋
+Giải thích cách các hàm giúp trả lời các câu hỏi phân tích dữ liệu.
+Phân tích dữ liệu thường bao gồm việc thực hiện các phép tính như cộng số lượng, đếm dữ liệu 
+nhập và tính điểm trung bình. Các phép tính thường được sử dụng thường được tích hợp vào phần mềm phân tích
+kho dưới dạng hàm, là các công thức được xác định trước để thực hiện các phép tính. Một ví dụ là 
+Hàm SUM trong Microsoft Excel có tác dụng cộng một dãy số theo hàng hoặc cột.
+Các chức năng giúp bạn có thể nhanh chóng phân tích lượng lớn dữ liệu mà không cần viết com.
+công thức phức tạp. Trên thực tế, một số thuộc tính mạnh mẽ nhất của Microsoft Excel là tính năng tích hợp sẵn. 
+các hàm thực hiện tính toán. Hãy nhớ rằng các chức năng phổ biến nhất và logic 
+đằng sau chúng cũng áp dụng cho các phần mềm khác ngoài Microsoft Excel. Ví dụ, các chức năng có thể 
+được sử dụng trong các công cụ phân tích và trực quan hóa như Power BI và Tableau. Hiểu cách những điều này 
+các hàm hoạt động và quan trọng hơn là khi nào nên sử dụng chúng là kỹ năng phân tích dữ liệu cốt lõi.
+Các hàm cơ bản để phân tích dữ liệu
+Hình minh họa 2.11 mô tả một số hàm Excel cơ bản dùng trong phân tích dữ liệu:
+• Tên hàm xuất hiện ở cột đầu tiên.
+• Cột thứ hai hiển thị đối số của hàm, đây là cú pháp cần thiết để gọi 
+chức năng, phạm vi và tiêu chí để áp dụng cho nó. Tất cả các hàm Excel đều bắt đầu bằng một 
+dấu bằng, theo sau là loại hàm đang được thực hiện và sau đó là dấu ngoặc đơn 
+chỉ định các đối số cho hàm. Ví dụ: để tính tổng một cột số trong col-
+umn C và các hàng từ 2 đến 245, hàm sẽ là: =SUM(C2:C245).
+• Việc tính toán hàm được mô tả ở cột thứ ba.
+Sếp của bạn yêu cầu bạn xác định tất cả các khóa chính và khóa ngoại cho các bảng trong cơ sở dữ liệu để các phép nối có thể 
+được tạo ra. Đối với mỗi bảng, liệt kê khóa chính và bất kỳ khóa ngoại nào.
+
+2.2  Các hàm bảng tính phân tích lượng lớn dữ liệu như thế nào? 
+2-9
+MINH HỌA 2.11  Các hàm Microsoft Excel cơ bản
+chức năng
+Đối số hàm
+Tính toán hàm
+NẾU
+=IF(kiểm tra logic, giá trị nếu đúng, 
+giá trị nếu sai)
+Trả về một giá trị nếu điều kiện đúng và 
+một cái khác nếu nó sai.
+TRUNG BÌNH
+=TRUNG BÌNH(Phạm vi)
+Trả về giá trị trung bình số học của phạm vi, 
+mảng hoặc số.
+TRUNG BÌNH
+=AVERAGEIF (Phạm vi,  
+Tiêu chí, Phạm vi trung bình)
+Tìm giá trị trung bình số học của các ô 
+được xác định bởi một điều kiện hoặc tiêu chí nhất định.
+TRUNG BÌNH
+=AVERAGEIFS(Phạm vi tổng, 
+Phạm vi tiêu chí1, Tiêu chí1, 
+Phạm vi tiêu chí2, Tiêu chí2)
+Tìm giá trị trung bình số học của các ô 
+được xác định bởi một tập hợp các điều kiện hoặc tiêu chí nhất định.
+Phạm vi bổ sung, phạm vi tiêu chí và 
+có thể thêm tiêu chí
+ĐẾM
+=COUNT(Phạm vi)
+Đếm số ô trong một phạm vi 
+chứa số.
+QUẬN
+=COUNTIF(Phạm vi, Tiêu chí)
+Đếm số ô trong một phạm vi 
+đáp ứng được các tiêu chí đã cho.
+QUẬN
+=COUNTIFS(Phạm vi 1, 
+Tiêu chí1, Phạm vi2, Tiêu chí2)
+Đếm số ô được chỉ định bởi một 
+bộ tiêu chí đã cho.
+Phạm vi bổ sung, phạm vi tiêu chí và 
+có thể thêm tiêu chí
+QUẬN
+=COUNTA(Phạm vi)
+Đếm số ô chứa văn bản 
+trong một phạm vi.
+QUỐC GIA
+=COUNTBLANK(Phạm vi)
+Đếm số ô trống trong một phạm vi.
+TỔNG
+=SUM(Phạm vi)
+Thêm các ô trong một phạm vi.
+SUMIF
+=SUMIF(Phạm vi, Tiêu chí, 
+phạm vi tổng)
+Thêm các ô được chỉ định bởi một ô được chỉ định 
+điều kiện hoặc tiêu chí.
+TÓM TẮT
+=SUMIFS(Phạm vi tổng, 
+Phạm vi tiêu chí1, Tiêu chí1, 
+Phạm vi tiêu chí2, Tiêu chí2)
+Thêm các ô được chỉ định bởi một tập hợp nhất định 
+điều kiện hoặc tiêu chí.
+Phạm vi bổ sung, phạm vi tiêu chí và 
+có thể thêm tiêu chí
+Quay lại ví dụ dữ liệu trường đại học, Hình minh họa 2.12 cho thấy hàm đối số
+hộp bổ sung cho hàm COUNTIF dùng để xác định số lượng máy bơm mà trường đại học sở hữu. 
+Có hai tùy chọn đầu vào để thực hiện các chức năng được minh họa:
+• Nhập đối số hàm trực tiếp vào một ô trên bảng tính, hoặc
+• sử dụng hộp Đối số hàm.
+MINH HỌA 2.12  Hộp đối số hàm COUNTIF dữ liệu tài sản của trường đại học
+Phạm vi
+Tiêu chí
+= {"BƠM";"BONDER";"HỆ THỐNG Tưới tiêu";"DRI...
+= "Máy bơm"
+B2:B13127
+"Bơm"
+= 92
+Đối số hàm
+QUẬN
+Đếm số ô trong một phạm vi thỏa mãn điều kiện đã cho.
+Phạm vi là phạm vi ô mà bạn muốn đếm các ô không trống.
+?
+Kết quả công thức = 92
+Trợ giúp về chức năng này
+Hủy bỏ
+được rồi
+
+2-10 
+CHƯƠNG 2  Kỹ năng phân tích dữ liệu cơ bản
+Để mở:
+• Bấm vào fx bên cạnh công thức ô, phía trên bảng tính (xem fx màu xanh lá cây 
+trong hình minh họa 2.13).
+• Tiếp theo, hộp nhập Đối số hàm trong Hình minh họa 2.12 xuất hiện trên màn hình. 
+• Điền vào phạm vi và tiêu chí rồi chọn OK. Công thức của hàm sau đó xuất hiện 
+(Minh họa 2.13). Lưu ý rằng tiêu chí (trong ví dụ này là “Bơm”) phải được nhập theo nguyên tắc
+các khẩu phần. Điều này đúng với mọi tiêu chí không phải là tham chiếu ô hoặc số.
+MINH HỌA 2.13  Tìm 
+Biểu tượng đối số hàm
+=COUNTIF(B2:B13127,"Bơm")
+ngoại hối
+Công thức
+Các hàm Excel này có thể giúp phân tích nhanh các tập dữ liệu, đặc biệt khi chúng rất phức tạp. 
+lớn. Bây giờ hãy áp dụng các hàm này để trả lời các câu hỏi từ tập dữ liệu về tài sản cố định.
+Áp dụng các hàm cơ bản của Excel
+Dữ liệu   Chúng tôi sẽ sử dụng bộ dữ liệu tài sản của trường đại học (Minh họa 2.14) để minh họa cách hoạt động
+tions có thể giúp làm cho dữ liệu có ý nghĩa.
+MINH HỌA 2.14  Dữ liệu tài sản trường đại học
+ngoại hối
+B
+A
+C
+D
+E
+F
+Trang 1
+3
+4
+5
+13126
+13127
+Tự động Lưu
+Oﬀ
+1
+2
+ID thẻ nội dung
+Mô tả tài sản
+ID danh mục
+Dữ liệu tài sản của trường đại học
+Danh mục
+Số tiền
+Ngày mua lại
+15
+15
+1
+U000009
+U000010
+U000015
+U000016
+U102879
+U204391
+Máy bơm
+Bonder
+Hệ thống thủy lợi
+khoan
+Máy chủ
+Lò nướng
+1
+7
+11
+Thiết bị thí nghiệm
+Thiết bị thí nghiệm
+Máy móc nông nghiệp và nông nghiệp
+Máy móc nông nghiệp và nông nghiệp
+Thiết bị máy tính
+Thiết bị chuẩn bị và phục vụ thực phẩm
+$7,826.00
+28.628,01 USD
+$17,068.00
+$ 28.344,00
+53.008,90 USD
+7.255,53 USD
+2/9/2021
+11/9/2021
+29/9/2020
+27/10/2019
+9/10/2021
+6/5/2023
+Tập dữ liệu được tạo từ tệp Dữ liệu tài sản của trường đại học:
+• Mỗi hàng trong tập dữ liệu đại diện cho một tài sản duy nhất thuộc sở hữu của trường đại học.
+• Các cột thể hiện thuộc tính của từng nội dung.
+Có 13.127 hàng dữ liệu trong bảng tính này, vì vậy việc quét chúng một cách trực quan là không thể.
+có thể. Thay vào đó, hãy tận dụng các hàm Excel có sẵn. Hãy tưởng tượng bạn chịu trách nhiệm 
+để xem xét tài sản cố định cho trường đại học. Bạn có thể muốn hỏi những câu hỏi được liệt kê trong 
+Minh họa 2.15. Mỗi câu hỏi có thể được trả lời bằng cách sử dụng hàm Excel.
+
+2.2 Các hàm bảng tính phân tích lượng lớn dữ liệu như thế nào? 
+2-11
+ MINH HỌA 2.15 Câu hỏi, Chức năng và Câu trả lời Sử dụng Dữ liệu Tài sản Đại học 
+ Câu hỏi 
+ chức năng 
+ Trả lời 
+ Tổng chi phí cố định là bao nhiêu 
+tài sản? 
+ =SUM(E2:E13127) 
+ $225.069.282,74 
+ Có bao nhiêu tài sản cố định 
+trường đại học có tổng cộng? 
+ =COUNTA(A2:A13127) 
+ 13.126 
+ Có bao nhiêu tài sản 
+mua lại sau năm 2022? 
+ =COUNTIF(F2:F13127,”>31/12/2022”) 
+ 1.388 
+ Tổng giá trị tài sản là gì 
+mua lại sau năm 2022? 
+ =SUMIF(F2:F13127,”>31/12/2022”,E2:E13127) 
+ $27.653.067,52 
+ Có bất kỳ mô tả nào bị thiếu không? 
+ =COUNTBLANK(D2:D13127) 
+ 0 
+ Hình minh họa 2.15 sử dụng hàm SUM, COUNTA, COUNTIF, SUMIF và COUNTBLANK
+ý kiến. SUMIFS hoặc COUNTIFS có thể được sử dụng không? 
+ Nếu câu hỏi là trường đại học đã mua bao nhiêu máy tính vào năm 2023 thì hãy sử dụng 
+Hàm COUNTIFS vì có hai tiêu chí. Hãy nhớ lại rằng hàm COUNTIFS yêu cầu 
+chỉ định phạm vi ô áp dụng cho tiêu chí đầu tiên (thiết bị máy tính). Tiêu chí tiếp theo 
+là các giao dịch mua được thực hiện vào năm 2023 và phạm vi sẽ là cột có ngày mua.  Minh họa-
+Phần 2.16 hiển thị hộp Đối số hàm cho hàm COUNTIFS và kết quả. 
+ MINH HỌA 2.16 Đối số hàm cho hàm COUNTIFS 
+Tiêu chí_range1
+= {“Thiết bị thí nghiệm”;”Labora
+D2:D13127
+= 283
+Đối số hàm
+QUẬN
+Đếm số ô được chỉ định bởi một tập hợp các điều kiện hoặc tiêu chí nhất định.
+Criteria_range4: là phạm vi ô bạn muốn đánh giá cho điều kiện cụ thể.
+?
+Kết quả công thức = 283
+Trợ giúp về chức năng này
+Tiêu chí1
+Tiêu chí_range2
+= “Thiết bị máy tính”
+= {44441;44450;44103;43765;44446;4446
+“Thiết bị máy tính”
+F2:F13127
+Tiêu chí2
+= “> 31/12/2022”
+“> 31/12/2022”
+Tiêu chí_range3
+Tiêu chí3
+= {44441;44450;44103;43765;44446;4446
+= “< 1/1/2024”
+F2:F13127
+“< 1/1/2024”
+Tiêu chí_range4
+= tham khảo
+Hủy bỏ
+được rồi
+ Hộp chức năng tạo ra một công thức: 
+=COUNTIFS(D2:D13127,”Thiết bị máy tính”,F2:F13127,”>31/12/2022”,
+F2:F13127,”<1/1/2024”) 
+ Để chỉ truy xuất dữ liệu năm 2023, hãy tạo hai tiêu chí trong đối số hàm:
+• Đầu tiên, ngày phải lớn hơn ngày 31 tháng 12 năm 2022 (Tiêu chí2). 
+• Thứ hai, ngày phải nhỏ hơn ngày 1 tháng 1 năm 2024 (Tiêu chí3).
+
+2-12 
+CHƯƠNG 2  Kỹ năng phân tích dữ liệu cơ bản
+Bằng cách đưa các tiêu chí đó vào đối số, chỉ kết quả của năm 2023 mới được hiển thị.
+Các hàm Excel cơ bản rất hữu ích khi trả lời các câu hỏi bằng một câu trả lời duy nhất hoặc một câu trả lời. 
+trả lời với một chiều. Thứ nguyên là các biến hoặc các trường khác có thể được sử dụng để 
+đi sâu hoặc phân chia các biện pháp phân tích. Nói cách khác, kích thước được sử dụng khi 
+có một câu hỏi cụ thể về một khía cạnh cụ thể của dữ liệu.
+Ví dụ: câu hỏi về số lượng máy tính được mua vào năm 2023 chỉ có một 
+máy tính-thứ nguyên vào năm 2023. Còn một câu hỏi có nhiều thứ nguyên thì sao? cái gì 
+nếu chúng ta muốn biết tổng chi phí cho từng loại tài sản thay vì chỉ máy tính 
+trong một năm cụ thể? Câu hỏi đó có nhiều hơn một chiều vì nó liên quan đến mọi tài sản 
+loại và tất cả các năm. Tiếp theo chúng ta sẽ thảo luận cách giải quyết các câu hỏi đa chiều.
+Áp dụng nó 2.2
+Phân tích doanh số bán hàng 
+Giao dịch với  
+Hàm Excel
+Dữ liệu   Kế toán tài chính   Kế toán quản lý   Super Scooters sản xuất và bán 
+bốn mẫu xe tay ga đứng: Celeritas, Captain, Lazer và Kicks. Khách hàng của họ bao gồm từ lớn 
+công ty chia sẻ xe tay ga cho đến các nhà bán lẻ nhỏ. Người giám sát của bạn đã giao cho bạn một nhân viên kế toán cho công ty
+pany, danh sách các câu hỏi cần trả lời bằng cách sử dụng bộ dữ liệu Super Scooters. Phần tiếp theo là một phần của Super 
+Giao dịch bán xe tay ga trong giai đoạn 2023–2025. Có 3.645 giao dịch trong cơ sở dữ liệu bán hàng.
+Giải thích những hàm Microsoft Excel nào phù hợp nhất để trả lời các câu hỏi sau về 
+Dữ liệu bán hàng của Super Scooters.
+	 1. Tổng doanh số bán hàng là bao nhiêu?
+	 2. Tổng doanh thu năm 2023 là bao nhiêu?
+	 3. Có bao nhiêu giao dịch bán hàng đối với mô hình Lazer?
+	 4. Tổng doanh thu trung bình của mẫu Celeritas vào năm 2023 là bao nhiêu?
+	 5. Đã bán được bao nhiêu mẫu Captain màu xanh lá cây?
+	 6. Nếu Super Scooters muốn thêm một cột cho biết số ngày trên lô có lớn hơn không 
+50 ngày, chức năng nào sẽ phù hợp?
+GIẢI PHÁP
+	 1. TỔNG
+	 2. SUMIF
+	 3. ĐếmIF
+	 4.IFS trung bình
+	 5. ĐếmIFS
+	 6. NẾU
+ngoại hối
+1
+B
+C
+D
+A
+E
+F
+G
+H
+tôi
+J
+Trang 1
+2
+3
+4
+5
+3645
+3646
+3647
+Số đơn hàng
+người mẫu
+Ngày bán
+Doanh số bán hàng
+Số ngàyTrong khoĐơn vịbánGiá
+Tổng doanh thu
+13684
+13685
+13682
+13683
+10957
+10960
+31/12/2025
+31/12/2025
+30/12/2025
+30/12/2025
+22/12/2023
+31/12/2023
+20
+20
+20
+38
+18
+35
+83
+52
+29
+22
+17
+24
+$ 342,00
+$414,00
+$679,00
+$376,00
+$330
+$357
+$6,840
+8.280 USD
+$13,580
+$14,288
+$5,940
+$12,495
+Celeritas
+Lazer
+thuyền trưởng
+Lazer
+Lazer
+Lazer
+Màu sắc
+Vị trí
+tiểu bang
+màu vàng
+Màu xanh
+màu xanh lá cây
+màu xanh lá cây
+màu vàng
+màu đỏ
+Dallas
+Seattle
+Seattle
+Miami
+Phượng hoàng
+Phượng hoàng
+TX
+WA
+WA
+FL
+AZ
+AZ
+Tự động Lưu
+Oﬀ
+
+2.3  Chúng tôi tổ chức các tập dữ liệu để phân tích như thế nào? 
+2-13
+2.3  Chúng tôi tổ chức các tập dữ liệu như thế nào 
+để phân tích?
+MỤC TIÊU HỌC TẬP ➌
+Minh họa cách tổ chức và lọc dữ liệu của bảng tổng hợp.
+Bạn vừa học cách sử dụng các hàm để trả lời các câu hỏi có một chiều. 
+Mặc dù bạn có thể sử dụng một số hàm để trả lời các câu hỏi liên quan đến nhiều chiều, 
+sẽ hiệu quả hơn nếu trước tiên sử dụng kỹ thuật tổ chức dữ liệu trên tập dữ liệu.
+Tổ chức dữ liệu là quá trình sắp xếp lại dữ liệu để dễ hiểu hơn. A 
+bảng tổng hợp là công cụ tóm tắt và sắp xếp lại các cột và hàng dữ liệu đã chọn trong một 
+bảng tính, cơ sở dữ liệu hoặc chương trình kinh doanh thông minh. Bảng tổng hợp có thể sắp xếp lại dữ liệu nhanh chóng

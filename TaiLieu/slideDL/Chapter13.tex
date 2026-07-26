@@ -1,0 +1,300 @@
+\documentclass[aspectratio=169]{beamer}
+\usetheme{Madrid}
+\usecolortheme{default}
+\usepackage[utf8]{inputenc}
+\usepackage[T5]{fontenc}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{amsmath}
+
+\setbeamertemplate{caption}[numbered]
+\renewcommand{\figurename}{Hình}
+\renewcommand{\thefigure}{13.\arabic{figure}}
+
+\title[Chương 13: Timeseries Forecasting]{Học Sâu (Deep Learning) \\ \vspace{0.5cm} \Large Chương 13: Dự báo Chuỗi thời gian \\ (Timeseries Forecasting)}
+\author{Đại học Đông Á}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame}{Nội dung chương}
+    \tableofcontents
+\end{frame}
+
+\section{1. Giới thiệu Chuỗi thời gian và Bài toán Dự báo}
+
+\begin{frame}{Chuỗi thời gian (Timeseries) là gì?}
+    \begin{itemize}
+        \item Chuỗi thời gian là tập hợp các điểm dữ liệu được ghi nhận theo những khoảng thời gian đều đặn.
+        \item Yếu tố \textbf{"Thứ tự"} (Temporal Order) mang tính quyết định. Quá khứ ảnh hưởng đến tương lai.
+        \item Bài toán phổ biến nhất: \textbf{Dự báo (Forecasting)} - Dự đoán điều gì sẽ xảy ra tiếp theo.
+        \item Ứng dụng: Dự báo tiêu thụ điện năng, dự báo doanh thu, dự báo thời tiết, hoặc giao dịch chứng khoán.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Khảo sát Dữ liệu Thời tiết Jena (Dài hạn)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Bộ dữ liệu từ Viện Max Planck, Đức. Ghi nhận 14 thông số thời tiết mỗi 10 phút.
+            \item Trực quan hóa Biểu đồ Nhiệt độ trong khoảng thời gian nhiều năm.
+            \item \textbf{Đặc điểm:} Có tính chu kỳ (Seasonality) rất rõ rệt theo các năm (Mùa đông lạnh, mùa hè nóng).
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch13/temperature_over_several_years.365f2e2e.png}
+            \caption{Nhiệt độ thay đổi qua nhiều năm}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Khảo sát Dữ liệu Thời tiết Jena (Ngắn hạn)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Trực quan hóa chi tiết trong vòng 10 ngày (1440 điểm dữ liệu đầu tiên).
+            \item Vẫn quan sát được tính chu kỳ theo ngày (Ngày ấm, đêm lạnh).
+            \item Tuy nhiên, dữ liệu rất nhiễu và biến động mạnh do các yếu tố ngẫu nhiên.
+            \item \textbf{Mục tiêu:} Dựa vào dữ liệu quá khứ, dự báo nhiệt độ của 24 giờ tiếp theo.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch13/temperature_over_several_days.975eb51a.png}
+            \caption{Nhiệt độ biến động trong vài ngày}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\section{2. Sự thất bại của các Mạng truyền thống}
+
+\begin{frame}{Thử nghiệm với Baseline Densely-connected Model}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Trải phẳng (Flatten) chuỗi thời gian và đưa qua các lớp \texttt{Dense}.
+            \item \textbf{Kết quả:} Loss trên tập Validation (Đường liền) bị bão hòa nhanh chóng và Overfit.
+            \item \textbf{Nguyên nhân:} Mạng Dense loại bỏ hoàn toàn khái niệm "Thời gian". Nó xem mọi điểm dữ liệu trong chuỗi là độc lập (IID).
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch13/dense_model_metrics.8448f47a.png}
+            \caption{Training Loss của Dense Model}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Thử nghiệm với Mạng 1D Convolution}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Dùng Conv1D để trượt một "cửa sổ" qua chuỗi dữ liệu (Giống Conv2D trên ảnh).
+            \item \textbf{Kết quả:} Tệ hơn cả Baseline cơ bản.
+            \item \textbf{Lý do:} Conv1D giả định ranh giới Dịch chuyển Bất biến (Translation Invariance). Nghĩa là một khuôn mẫu ở thứ 2 có ý nghĩa giống hệt thứ 5. Điều này sai lầm trong Timeseries vì thời gian càng gần hiện tại càng mang thông tin quan trọng.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch13/conv_model_metrics.fe487977.png}
+            \caption{Training Loss của 1D Conv}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\section{3. Mạng Nơ-ron Truyền hồi (Recurrent Neural Networks - RNN)}
+
+\begin{frame}{Khái niệm Mạng Nơ-ron Truyền hồi (RNN)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Trái ngược với mạng Feed-forward, RNN duy trì một \textbf{Trạng thái (State)} đóng vai trò như "Bộ nhớ".
+            \item Nó duyệt qua từng bước thời gian $t$, tính toán Đầu ra (Output) tại $t$, và cập nhật lại Trạng thái để dùng cho $t+1$.
+            \item RNN lưu giữ thông tin về những gì nó đã thấy cho đến nay.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch13/simplernn.822d53ed.png}
+            \caption{Vòng lặp trong mạng SimpleRNN}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Vấn đề cốt lõi: Vanishing Gradients (Triệt tiêu Đạo hàm)}
+    \begin{itemize}
+        \item \textbf{SimpleRNN} hoạt động tốt về mặt lý thuyết, nhưng thất bại trong thực tế.
+        \item Khi độ dài chuỗi tăng lên, Đạo hàm (Gradient) từ tương lai phải nhân liên tục qua hàng trăm ma trận trọng số để quay ngược về quá khứ.
+        \item Nếu trọng số $< 1$, đạo hàm sẽ tiến về $0$ cực nhanh (Triệt tiêu).
+        \item Hậu quả: SimpleRNN bị "mất trí nhớ" ngắn hạn, quên mất các thông tin đầu chuỗi.
+    \end{itemize}
+\end{frame}
+
+\section{4. Kiến trúc LSTM - Long Short-Term Memory}
+
+\begin{frame}{Giải pháp LSTM: Bổ sung Trạng thái Tế bào (Cell State)}
+    \begin{itemize}
+        \item Được phát minh năm 1997, LSTM bổ sung một đường chuyền dữ liệu song song gọi là \textbf{Cell State ($C_t$)}.
+        \item Tưởng tượng $C_t$ như một băng chuyền chạy dọc qua toàn bộ chuỗi. Thông tin có thể dễ dàng chảy xuyên suốt mà không bị thay đổi quá nhiều (Giải quyết hoàn toàn Vanishing Gradients).
+        \item Các \textbf{Cổng (Gates)} sẽ quyết định thêm/bớt thông tin gì vào dải băng chuyền này.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{LSTM (Phần 1): Trạng thái mang theo}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Tại thời điểm $t$, ta có Đầu vào $X_t$ và Trạng thái ẩn từ quá khứ $H_{t-1}$.
+            \item Thay vì chỉ đưa ra $H_t$ như RNN thông thường, LSTM truyền thêm $C_{t-1}$ vào ô tế bào hiện tại.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch13/unrolled_lstm_1.d9bee30c.png}
+            \caption{Giai đoạn khởi nhập của LSTM}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{LSTM (Phần 2): Forget Gate và Input Gate}
+    \begin{columns}
+        \column{0.5\textwidth}
+        Tính toán Tế bào trạng thái mới $C_t$:
+        \begin{enumerate}
+            \item \textbf{Forget Gate ($f$):} Quên bớt thông tin cũ không còn quan trọng. Hàm Sigmoid xuất giá trị $0$ (Xóa) đến $1$ (Giữ lại).
+            $$ f = \sigma(W_f \cdot [X_t, H_{t-1}] + b_f) $$
+            \item \textbf{Input Gate ($i$ và $k$):} Tạo thông tin mới để cập nhật vào băng chuyền.
+            $$ i = \sigma(W_i \cdot [X_t, H_{t-1}] + b_i) $$
+            $$ k = \tanh(W_k \cdot [X_t, H_{t-1}] + b_k) $$
+            \item $C_t = C_{t-1} * f + i * k$
+        \end{enumerate}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch13/unrolled_lstm_2.4145ecdf.png}
+            \caption{Cập nhật Cell State $c_t$}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{LSTM (Phần 3): Output Gate}
+    \begin{columns}
+        \column{0.5\textwidth}
+        Cuối cùng, tính Trạng thái ẩn $H_t$ (Cũng chính là Output):
+        \begin{itemize}
+            \item \textbf{Output Gate ($o$):} Quyết định phần nào của Cell State sẽ được xuất ra.
+            $$ o = \sigma(W_o \cdot [X_t, H_{t-1}] + b_o) $$
+            \item Tính toán $H_t$:
+            $$ H_t = o * \tanh(C_t) $$
+            \item Trạng thái ẩn $H_t$ mang thông tin tinh lọc nhất để chuẩn bị bước sang thời điểm $t+1$.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch13/unrolled_lstm_3.1f68b33f.png}
+            \caption{Xuất giá trị $h_t$}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Hiệu suất Đột phá của LSTM}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Thay thế Baseline Dense bằng LSTM.
+            \item \textbf{Kết quả:} Validation Loss thấp hơn hẳn, độ chính xác vượt qua Baseline suy luận thông thường (Common-sense baseline).
+            \item Khả năng bắt được chuỗi giá trị và ghi nhớ cấu trúc thời tiết trong dài hạn đã phát huy tác dụng.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch13/lstm_model_metrics.ae01dd09.png}
+            \caption{Biểu đồ Loss của LSTM}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\section{5. Các Kỹ thuật Nâng cao cho RNN}
+
+\begin{frame}{Kỹ thuật 1: Recurrent Dropout (Chống Overfitting)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item LSTM cơ bản bị Overfit (Đường Validation và Training phân kì nhanh).
+            \item Sử dụng \texttt{recurrent\_dropout} để tắt ngẫu nhiên một số kết nối "bên trong" tế bào LSTM thay vì chỉ tắt dữ liệu đầu vào.
+            \item \textbf{Kết quả:} Mô hình duy trì độ ổn định tuyệt vời, Validation Loss giảm sâu hơn nữa và không bị dội ngược (Overfit).
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch13/lstm_dropout_model_metrics.a624dc88.png}
+            \caption{Sức mạnh của Recurrent Dropout}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Kỹ thuật 2: Xếp chồng RNN (Stacked GRU)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Khi mô hình không còn Overfit, làm sao để tăng hiệu năng tiếp? $\rightarrow$ Tăng độ phức tạp.
+            \item Xếp chồng nhiều lớp RNN lên nhau (Stacked RNN).
+            \item \textbf{Lưu ý:} Các lớp bên dưới phải thiết lập \texttt{return\_sequences=True} để trả về toàn bộ chuỗi $t$ thay vì chỉ kết quả cuối cùng.
+            \item GRU (Gated Recurrent Unit) là một phiên bản rút gọn, nhẹ hơn và chạy nhanh hơn LSTM.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{../../images/ch13/stacked_gru_dropout_model_metrics.5bfbf251.png}
+            \caption{Xếp chồng GRU + Dropout}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Kỹ thuật 3: Mạng truyền hồi Hai chiều (Bidirectional RNN)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item RNN thông thường chỉ đọc dữ liệu theo chiều thời gian (Từ quá khứ tới hiện tại).
+            \item Bidirectional RNN dùng 2 lớp RNN độc lập: 1 đọc xuôi, 1 đọc ngược (từ tương lai về quá khứ), sau đó gộp kết quả lại.
+            \item Vô cùng hữu ích trong xử lý ngôn ngữ tự nhiên (NLP) khi ý nghĩa của một từ phụ thuộc vào những từ phía sau nó.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.5\textheight,keepaspectratio]{../../images/ch13/bidirectional_rnn.a38aaba4.png}
+            \caption{Kiến trúc Bidirectional RNN}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\section{Tổng kết}
+
+\begin{frame}{Tổng kết Chương 13}
+    \begin{itemize}
+        \item \textbf{Timeseries (Chuỗi thời gian)} khác biệt hoàn toàn với dữ liệu thông thường vì thứ tự cấu thành nên ý nghĩa. Dense và Conv1D không phù hợp.
+        \item \textbf{Mạng truyền hồi (RNN)} duy trì "Trạng thái" bộ nhớ, nhưng vướng phải lỗi Triệt tiêu đạo hàm (Vanishing Gradients).
+        \item \textbf{LSTM / GRU} giải quyết triệt để lỗi trên bằng hệ thống Cổng (Gates) và Trạng thái Tế bào (Cell State $C_t$).
+        \item Các kĩ thuật nâng cao như \textbf{Recurrent Dropout}, \textbf{Stacked RNN}, và \textbf{Bidirectional RNN} giúp tối ưu hóa hiệu suất tối đa.
+    \end{itemize}
+\end{frame}
+
+\end{document}

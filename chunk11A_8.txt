@@ -1,0 +1,675 @@
+•  Measures of shape include skewness and kurtosis.
+•  Correlation measures can help identify relationships among the 
+data. Correlation for continuous variables is measured using the 
+correlation coefficient. This measure is a numerical value between 
+−1 and +1. The closer the value is to the absolute value of 1, the 
+stronger the correlation.
+Chapter Review and Practice
+Learning Objectives Review
+	
+	 Data:
+•  Continuous lines need one date, zero or more categories, and one or more quantitative 
+measures.
+•  For this question there are years, three categories of expenses, and the costs of those expenses.
+	 4.	 A scatterplot is the best choice because it highlights correlation and distribution of large 
+amounts of data.
+	
+	 Best Practices:
+•  Data set should be in pairs with an independent variable (x-axis) and a dependent variable 
+(y-axis).
+•  Use only if order is irrelevant, otherwise use a line graph.
+•  Avoid if there are only a few pieces of data or if there is no correlation.
+	
+	 Data:
+•  Zero or more categories
+•  One or more quantitative measures
+
+How To Walk-Throughs 
+2-49
+Source Name: Revenue
+Value Field Settings
+?
+Custom Name:
+Sum of Revenue
+Summarize  value field by
+Product
+Count Numbers
+StdDev
+StdDevp
+Var
+Varp
+OK
+Cancel
+Choose the type of calculation that you want to use to summarize
+data from the selected field
+Format Cells
+?
+OK
+Cancel
+Category:
+Number
+Accounting formats line up the currency symbols and
+decimal points in a column.
+Decimal places:
+Symbol:
+$4,089,159.47
+2
+$
+Summarize Values By
+Show Values As
+Sample
+General
+Number
+Currency
+Accounting
+Date
+Time
+Percentage
+Fraction
+Scientific
+Text
+Special
+Custom
+Number Format
+2
+1
+ILLUSTRATION 2.64  Format Values in a PivotTable
+❺  Summarize how data visualization explores and 
+explains data.
+Data visualization is one of the fastest growing areas of data analysis 
+in the accounting profession: 
+•  Data visualization is the graphical presentation of data and 
+information. Visualizing data can help quickly understand large 
+sets of data.
+•  Exploratory data visualization examines data to uncover pat-
+terns, trends, or anomalies. Explanatory data visualization uses 
+data visualization tools and techniques to communicate the 
+results of data analysis. 
+•  Choosing the right visualization is a combination of considering the 
+purpose of the analysis and deciding whether the goal is to show 
+composition, relationships, distributions, trends, or comparisons.
+HOW TO 2.1 
+Format and Show Values As Options in  
+PivotTables
+Values in an Excel PivotTable can be formatted with the Value Field Settings dialog box.
+What You Need:  Data   The How To 2.1 data file.
+STEP 1: Click Number Format. The same Format Cells dialog available in the Home tool 
+ribbon will appear (Illustration 2.64).
+How To
+Attributes  2-2
+Categorical data  2-42
+Coefficient of kurtosis (CK)  2-30
+Coefficient of skewness (CS)  2-30
+Correlation analysis  2-34
+Correlation coefficient  2-34
+Data organization  2-13
+Slicing  2-22
+Data visualization  2-40
+Dimensions  2-12
+Explanatory data visualization  2-41
+Exploratory data visualization  2-41
+Foreign key  2-3
+Frequency distribution 2-30
+Functions  2-8
+Histogram  2-30
+Join  2-4
+Kurtosis  2-30
+Mean  2-26
+Measures of central tendency  2-26
+Measures of dispersion  2-28
+Measures of location  2-26
+Measures of shape  2-29
+Median  2-26
+Mode  2-26
+Null value  2-4
+Pivot table  2-13
+Primary key  2-3
+Query  2-4
+Relational database  2-2
+Skewness  2-29
+Slicers  2-22
+Standard deviation  2-28
+Structured Query Language (SQL)  2-4
+Table  2-2
+Variance  2-28
+Key Terms Review
+How To Walk-Throughs
+
+2-50 
+CHAPTER 2  Foundational Data Analysis Skills
+STEP 2: It is also possible to use the Show Values As option in the Value Field Settings 
+dialog box to add a quick calculation of the values:
+•	 Clicking on Show Values As reveals a dropdown list of built-in calculations.
+•	 Illustration 2.65 displays values as a percentage of a grand total.
+Row Labels
+Sum of Revenue
+2023
+2024
+2025
+$      1,827,384.78
+$      4,086,546.19
+$      4,745,563.32
+$ 10,659,494.29
+Grand Total
+Row Labels
+Sum of Revenue
+2023
+2024
+2025
+17.14%
+38.34%
+44.52%
+100.00%
+Grand Total
+This pivot table shows 
+three years of revenue 
+This pivot table shows the
+same data but as a percentage
+of total revenue 
+ILLUSTRATION 2.65  Show Values as Options
+STEP 3: The Sum of Revenue can quickly be changed to the Percent of Total Revenue by 
+­selecting % of Grand Total in the dialog box (Illustration 2.66).
+HOW TO 2.2 
+Create a Bar Chart Using Tableau
+The same visualization from Illustration 2.63 can be created using Tableau.
+What You Need:  Data   The How To 2.2 data file. 
+How To
+ILLUSTRATION 2.66  Show Values As Options
+Summarize Values By
+Source Name: Revenue
+Value Field Settings
+?
+Custom Name:
+Sum of Revenue
+Show values as
+No Calculation
+Show Values As
+No Calculation
+% of Grand Total
+% of Column Total
+% of Row Total
+% Of
+% of Parent Row Total
+OK
+Cancel
+Number Format
+3
+
+How To Walk-Throughs 
+2-51
+ILLUSTRATION 2.67  Tableau Visualization Canvas
+File Data
+Tableau - Super Scooters How To 2.2
+Worksheet Dashboard Story Analysis Map Format Server Window Help
+Color
+Country, State
+Country
+Abc
+Abc
+Abc
+Abc
+Sales Transactions (Super...
+Data
+Tables
+State
+Location
+Abc Model
+Order Number
+Sales Order Number
+Sold Date
+Year
+Dimensions
+The list of tables. In this file
+there is only one.
+Measures
+Measure Names
+Latitude (generated)
+Contribution Margin
+Days in Inventory
+Gross Sales
+Labor
+Materials
+Overhead
+Revenue
+Sales Tax
+Sales Tax Rate
+Sales Volume
+Total Allocated Fixed Costs
+Total Depreciation
+Total Fixed Costs
+Total Variable Costs
+Total Warranty
+Unit Sale Price
+Variable Marketing
+Total Costs
+Longtitude (generated)
+Sales Transactions (Count)
+Measure Values
+Drop
+field
+here
+Automatic
+T
+T
+Color
+Detail Tooltip
+Size
+Text
+Columns
+Sheet 1
+Rows
+Analytics
+Filters
+Pages
+Marks
+Search
+All the fields above the line are
+considered dimensions. All
+the fields below the line are
+measures. Measures are continuous
+numeric fields. Dimensions
+are fields that are not measures.
+STEP 1: Add the fields for the visualization to the canvas:
+•	 Open the file and click Sheet 1 along the bottom of the screen (Illustration 2.67).
+•	 This will open a new worksheet for a visualization. Click on the field to visualize and drag 
+it to the column or row line:
+•  Drag Sold Date to Columns, Model to Rows, and Gross Sales to Text.
+•  You could also drag it to the desired spot in the canvas in the area labeled Drop field 
+here.
+
+2-52
+CHAPTER 2 Foundational Data Analysis Skills
+ ILLUSTRATION 2.68  Tableau Visualization Canvas: Step 1 
+Automatic
+T
+T
+SUM(Gross Sale)
+T
+Color
+Detail
+Tooltip
+Size
+Text
+Gross Sales by Model
+Captain
+Celeritas
+Kicks
+Lazer
+$ 1,893,384
+$ 1,132,873
+$     585,415
+$    862,887
+Model
+2023
+Sold Date
+$ 4,570,481
+$ 2,081,584
+$     279,848
+$ 3,566,309
+2024
+$ 5,850,804
+$ 1,577,881
+$     242,920
+$ 4,493,557
+2025
+Year(Sold Date)
+Model
+Columns
+Rows
+Filters
+Pages
+Marks
+ STEP 2:  Create a bar chart.  Notice Tableau defaulted to a Table format. 
+•  Click Show Me at the top right corner of the screen. 
+•  Choose the side-by-side column chart. Note that any of the highlighted visualizations can 
+be chosen ( Illustration 2.69 ).
+ ILLUSTRATION 2.69  Tableau Show Me Options 
+123 456
+321 654
+654 321
+456 123
+123 456
+321 654
+654 321
+Measures
+Dimensions
+For lines (discrete) try
+1 date
+0 or more
+1 or more
+Show Me
+Visualizations that are
+greyed out indicate you do
+not have the appropriate
+data for that visualization
+2
+Illustration 2.68 shows the result when  Year is dragged to  Columns, Model to  Rows , 
+and  Gross Sales to  Text . 
+
+How To Walk-Throughs 
+2-53
+STEP 3: Title the visualization:
+•	 Double-click on the Sheet 1 title and choose Edit Title.
+•	 Change the title by typing “Gross Sales by Model” (Illustration 2.71).
+Illustration 2.70 is the result of selecting the column bar chart visualization option.
+ILLUSTRATION 2.70  Tableau Bar 
+Chart Visualization
+Gross
+Sales
+2023
+$6,000K
+Captain
+Celeritas
+Kicks
+Model/Sold Date
+Gross Sales by Model
+Lazer
+$5,500K
+$5,000K
+$4,500K
+$4,000K
+$3,500K
+$3,000K
+$2,500K
+$1,500K
+$2,000K
+$1,000K
+$500K
+$0K
+2024
+2025
+2023
+2024
+2025
+2023
+2024
+2025
+2023
+2024
+2025
+Format SUM(Gross Sales)
+Automatic
+T
+T
+Color
+Detail Tooltip
+Size
+Text
+Columns
+Sheet 1
+Rows
+A
+Fields
+Axis
+Font:
+Shading:
+Default
+Ticks:
+Scale
+Edit Title...
+Reset Title
+Hide Title
+Format Title...
+Pane
+Filters
+Pages
+Marks
+ILLUSTRATION 2.71  Tableau Bar 
+Chart: Add a Title
+STEP 4: Format the axis:
+•	 To format the Gross sales axis and dollars in thousands, click the down arrow in the SUM 
+(Gross Sales).
+•	 Choose Format and click the Axis Tab (Illustration 2.72).
+
+2-54 
+CHAPTER 2  Foundational Data Analysis Skills
+STEP 5: Change currency display to thousands:
+•	 Once in the Format box, choose Numbers and Currency (Custom).
+•	 Select Display Units to change the numbers to be shown in thousands.
+•	 Note, we have also changed the decimal places to zero (Illustration 2.73).
+Gross Sales E
+Model/Sold Date
+$5,500K
+$6,000K
+$5,000K
+$4,500K
+$4,000K
+$3,500K
+Columns
+Rows
+Model
+SUM(Gross Sales)
+YEAR(Sold Date)
+Filter...
+Show Filter
+Format...
+Show Header
+Include in Tooltip
+Dimension
+Attribute
+Measure (sum)
+Discrete
+Continuous
+Edit in Shelf
+Add Table Calculation...
+Quick Table Calculation
+Remove
+ILLUSTRATION 2.72  Tableau Bar 
+Chart: Format the Axis 
+Format SUM(Gross Sales)
+Columns
+Rows
+Gross Sales
+Axis
+A
+Fields
+Tableau Book..
+Shading:
+Ticks:
+Alignment:
+Numbers:
+Default
+Scale
+$6,000K
+$5,500K
+Bar
+Color
+Size
+Label
+$5,000K
+$2,000K
+T
+Automatic
+Number (Standard)
+Number (Custom)
+Currency (Standard)
+Currency (Custom)
+Scientific
+Percentage
+Custom
+Currency (Custom)
+Decimal places:
+0
+Display Units:
+Prefix/Suffix:
+$
+Include thousands separators
+Negative values:
+($1,234)
+Thousands (K)
+$123K
+Pane
+Marks
+Font:
+Pages
+Filters
+ILLUSTRATION 2.73  Tableau Bar 
+Chart: Change Currency Display
+
+Multiple Choice Questions 
+2-55
+Multiple Choice Questions
+1.  (LO 1)  A collection of logically related data that can be retrieved, 
+manipulated, and updated to meet users’ needs is called a
+a.	 table.
+b.	 relational database.
+c.	 data set.
+d.	 data warehouse.
+2.  (LO 1)  In a relational database table, a primary key 
+a.	 is not always needed.
+b.	 is the same as a foreign key.
+c.	 is a unique value.
+d.	 can be repeated in the table if needed.
+3.  (LO 1)  Tables in a database may be in which of the following 
+elements?
+a.	 Assets, liabilities, expenses
+b.	 Resources, expenses, employees
+c.	 Revenue, events, agents
+d.	 Resources, events, agents
+4.  (LO 1)  Columns in a database reflect
+a.	 attributes.
+b.	 events.
+c.	 resources.
+d.	 agents.
+5.  (LO 1)  A request for data from a database in order to retrieve or 
+manipulate it is called
+a.	 data analysis.
+b.	 a query.
+c.	 a question.
+d.	 a join.
+6.  (LO 1)  When performing a join between two tables, if a null value 
+is returned, that indicates
+a.	 a value of zero.
+b.	 the join was incorrect.
+c.	 a value does not exist in the database.
+d.	 an inner join was performed.
+7.  (LO 1)  A join that results in retrieving all the records from the left 
+table and the matching records from the right table is which type of 
+join?
+a.	 Inner
+b.	 Left
+c.	 Right
+d.	 Full 
+8.  (LO 1)  A join that returns all rows from both tables that have 
+matching values is which type of join?
+a.	 Inner
+b.	 Left
+c.	 Right
+d.	 Full 
+9.  (LO 1)  A join that returns all the records from the right table as 
+well as all the matched records from the left table is which type of 
+join?
+a.	 Inner
+b.	 Left
+c.	 Right
+d.	 Full 
+10.  (LO 1)  A join that returns all records when there is a match in 
+either the left or right table is which type of join?
+a.	 Inner
+b.	 Left
+c.	 Right
+d.	 Full 
+11.  (LO 2)  Which of the following Microsoft Excel functions returns 
+the arithmetic mean for a range or array of numbers?
+a.	 AVERAGE
+b.	 MEAN
+c.	 AVERAGEIF
+d.	 SUM
+12.  (LO 2)  Which of the following Microsoft Excel functions counts 
+the number of cells specified by a given set of criteria?
+a.	 COUNT
+b.	 COUNTIF
+c.	 COUNTIFS
+d.	 COUNTA
+13.  (LO 2)  This function adds the cells specified by a given set of con-
+ditions or criteria.
+a.	 SUM
+b.	 SUMIF
+c.	 SUMIFS
+d.	 SUMPRODUCT
+14.  (LO 3)  This function adds the cells specified by a condition or 
+criteria.
+a.	 SUM
+b.	 SUMIF
+c.	 SUMIFS
+d.	 SUMPRODUCT
+15.  (LO 3)  Which tool in Microsoft Excel will reorganize spreadsheet 
+data into custom summaries of key information?
+a.	 Sort
+b.	 Filter
+c.	 PivotTable
+d.	 Developer
+16.  (LO 3)  A PivotTable displays sales by product type, year of sale, 
+and the total dollar amount of sale. You would like to only see three 
+of the 15 specific product types. The best way to focus only on the 
+specific product types you are interested in is to use
+a.	 the SORT function.
+b.	 the SUMIG function.
+c.	 a filter.
+d.	 cut and paste.
+17.  (LO 3)  Auto filter functionality in a PivotTable can be accessed by
+a.	 using the filter box in the PivotTable fields.
+b.	 clicking on the dropdown arrow in the row labels.
+c.	 clicking on the dropdown arrow in the filter box.
+d.	 dragging a field to the field filter box.
+18.  (LO 3)  Slicing refers to
+a.	 removing decimal places.
+b.	 eliminating data.
+c.	 sorting data.
+d.	 breaking down the data into smaller parts.
+Data   The Data tag appears when the data required to answer a question or complete an 
+exercise are available on Wiley’s online learning platform. 
+
+2-56 
+CHAPTER 2  Foundational Data Analysis Skills
+Review Questions
+1.  (LO 1)  Identify and describe the four types of joins that can query 
+a data set.
+2.  (LO 2)  For each scenario, match the best basic Excel function that 
+could be used to address it. Each function can be used once, more 
+than once, or not at all.
+	 a.	 AVERAGE
+	 b.	 AVERAGEIF
+	 c.	 COUNT
+	 d.	 COUNTIF
+	 e.	 COUNTA
+	 f.	 COUNTBLANK
+	 g.	 SUM
+	 h.	 SUMIF
+Scenario
+Function
+1. Count the number of cells in 
+an Excel file that have inventory 
+quantities.
+2. Count the number of cells in an 
+Excel file that have an inventory 
+quantity of 1,150 items.
+3. Calculate the arithmetic mean of 
+the commission amounts paid to sales 
+personnel during the fourth quarter.
+19.  (LO 4)  The sum of all observations in a data set divided by the 
+total number of observations is called the
+a.	 mean.
+b.	 median.
+c.	 mode.
+d.	 range.
+20.  (LO 4)  The middle value when the data in a data set are arranged 
+from smallest to largest is called the
+a.	 mean.
+b.	 median.
+c.	 mode.
+d.	 range.
+21.  (LO 4)  Measures of dispersion show
+a.	 central tendency.
+b.	 shape.
+c.	 variation.
+d.	 location.
+22.  (LO 4)  If the coefficient of skewness is -1.5, the data distribution 
+will have a
+a.	 high degree of skewness and tail to the right.
+b.	 high degree of skewness and tail to the left.
+c.	 moderate degree of skewness and tail the right.
+d.	 moderate degree of skewness and tail to the left.
+23.  (LO 4)  A negative correlation means
+a.	 as one variable decreases, the other variable decreases.
+b.	 as one variable increases, the other variable increases.

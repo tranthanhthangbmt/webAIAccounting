@@ -1,0 +1,448 @@
+\documentclass[aspectratio=169, 12pt]{beamer}
+
+% Packages for Vietnamese language and font
+\usepackage[T5]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[vietnamese]{babel}
+\usepackage{lmodern}
+
+% Beamer theme settings
+\usetheme{Madrid}
+\usecolortheme{whale}
+\usefonttheme{professionalfonts}
+
+% Additional packages for tables and graphics
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{multicol}
+\usepackage{hyperref}
+\usepackage{tikz}
+
+% Remove navigation symbols
+\setbeamertemplate{navigation symbols}{}
+
+% Standardize slide numbering
+\setbeamertemplate{footline}[frame number]
+
+% Title page information
+\title[Buổi 9: AI \& Tài sản Số]{Buổi 9: AI trong Tài chính Cá nhân và Thị trường Tài sản Số}
+\subtitle{Crypto Assets, DeFi \& Robo-Advisors}
+\author[Giảng viên]{Giảng viên: TS. Nguyễn Văn A}
+\institute[Đông Á]{Đại học Đông Á}
+\date{Năm học 2024-2025}
+
+\begin{document}
+
+% Slide 1: Title Page
+\begin{frame}
+    \titlepage
+\end{frame}
+
+% Slide 2: Mục tiêu bài học
+\begin{frame}{Mục tiêu bài học Buổi 9}
+    \begin{itemize}
+        \item \textbf{1. Hiểu về Sự đứt gãy Kiến tạo:} Nắm bắt sự dịch chuyển từ tổ chức tài chính tập trung (CeFi) sang nền tảng phi tập trung (DeFi).
+        \item \textbf{2. Phân tích Hợp đồng Thông minh:} Nắm rõ cơ chế tự thực thi không cần trung gian.
+        \item \textbf{3. Nhận thức Rủi ro Tài sản Số:} Đánh giá bài toán định giá NFTs và cơ chế thanh lý trên thị trường biến động.
+        \item \textbf{4. Nhận diện Tội phạm Tài chính Số:} Cách Crypto bị lợi dụng để rửa tiền và cách AI (Clustering) truy vết dòng tiền.
+        \item \textbf{5. Đánh giá Robo-Advisors:} Hiểu về tính kinh tế, tâm lý nhà đầu tư và rủi ro Flash Crash.
+    \end{itemize}
+\end{frame}
+
+% Slide 3: Mục lục chính
+\begin{frame}{Nội dung chính}
+    \tableofcontents
+\end{frame}
+
+% ==========================================
+% PHẦN 1: TÀI CHÍNH PHI TẬP TRUNG (DeFi) & SỰ ĐỨT GÃY (Slides 4 - 15)
+% ==========================================
+\section{Tài chính Phi tập trung (DeFi) \& Hợp đồng Thông minh}
+
+\begin{frame}{Nội dung}
+    \tableofcontents[currentsection]
+\end{frame}
+
+\begin{frame}{Sự Đứt gãy Kiến tạo của Dòng tiền Toàn cầu}
+    \begin{itemize}
+        \item Hệ thống tài chính toàn cầu đang trải qua sự đứt gãy mang tính kiến tạo.
+        \item Trọng tâm dịch chuyển từ các Tổ chức tập trung (Centralized Institutions) sang các mạng lưới ngang hàng (Peer-to-Peer Networks).
+        \item \textbf{Sự thay đổi về bản chất:} Quyền lực xác thực giao dịch được chuyển giao từ con người (ngân hàng) sang các thuật toán và hệ thống đồng thuận mã nguồn mở.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Bài toán Kế toán trong "Ngân hàng Vô hình"}
+    \begin{block}{Giả định: Kiểm toán một Ngân hàng Vô hình}
+        Hãy tưởng tượng việc kiểm toán một ngân hàng mà:
+        \begin{itemize}
+            \item \textbf{Kho tiền:} Là một chuỗi mã lệnh nguồn mở phi tập trung.
+            \item \textbf{Tài sản thế chấp:} Là một bức tranh kỹ thuật số (NFT) hình một nhân vật hoạt hình pixel.
+            \item \textbf{Nhân viên xét duyệt vay:} Là một thuật toán hoàn toàn vô cảm.
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Thách thức mới của nghề Kế toán}
+    \begin{itemize}
+        \item Trong nhiều thế kỷ, kế toán \& kiểm toán viên truy xuất dòng tiền qua tổ chức CeFi. Luôn có một "Pháp nhân chịu trách nhiệm".
+        \item Giờ đây, bài toán không chỉ dừng lại ở đối soát sổ cái kế toán kép truyền thống.
+        \item Kế toán phải ghi nhận tài sản, định giá theo giá thị trường (mark-to-market), và quản lý rủi ro trên không gian số với quy tắc thay đổi tính bằng giây!
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{CeFi - Tài chính Tập trung là gì?}
+    \begin{itemize}
+        \item \textbf{Centralized Finance (CeFi):} Giao dịch được thực hiện qua các trung gian tin cậy.
+        \item Ví dụ: Ngân hàng thương mại, Tổ chức phát hành thẻ (Visa/Mastercard), Sàn giao dịch chứng khoán (HOSE).
+        \item \textit{Ẩn dụ:} CeFi giống như một \textbf{Nhà hàng sang trọng}. Có đầu bếp chế biến, bồi bàn phục vụ tận răng, và quan trọng nhất: Có người quản lý chịu trách nhiệm bồi thường nếu thức ăn bị hỏng.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{DeFi - Tài chính Phi tập trung là gì?}
+    \begin{itemize}
+        \item \textbf{Decentralized Finance (DeFi):} Loại bỏ hoàn toàn người trung gian (Middlemen).
+        \item Mọi giao dịch được xử lý qua Blockchain và Smart Contracts.
+        \item \textit{Ẩn dụ:} DeFi giống như một \textbf{Căn bếp Tự động hóa hoàn toàn}. Khách hàng tự đi vào, tự chọn và ráp các nguyên liệu với nhau mà không cần bồi bàn, không cần xin phép người quản lý.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Mảnh ghép Lego Tiền tệ (Money Legos)}
+    \begin{block}{Khái niệm Composability (Tính Lắp ghép)}
+        Trong DeFi, các giao thức (protocols) hoạt động giống hệt như những khối Lego có thể xếp chồng lên nhau tự do để tạo ra sản phẩm tài chính phức tạp.
+    \end{block}
+    \begin{itemize}
+        \item Bạn có thể dùng 1 khối Lego để đi vay.
+        \item Chồng khối thứ 2 lên để lấy tài sản vay đi cung cấp thanh khoản.
+        \item Chồng khối thứ 3 để tối ưu hóa năng suất (Yield farming).
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Ví dụ Vòng lặp Lego Tiền tệ}
+    \begin{itemize}
+        \item \textbf{Bước 1:} Gửi 1000 USDC vào nền tảng A (Lego 1) để lấy Token Biên lai.
+        \item \textbf{Bước 2:} Dùng Token Biên lai thế chấp vào nền tảng B (Lego 2) để vay 500 DAI.
+        \item \textbf{Bước 3:} Mang 500 DAI gửi vào nền tảng C (Lego 3) để hưởng lãi.
+        \item \textbf{Sự thật kinh ngạc:} Toàn bộ quá trình diễn ra mà không có bất kỳ một "nhân viên tín dụng" nào duyệt hồ sơ của bạn! Mọi thứ ghi chuỗi trên blockchain.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Hợp đồng Thông minh (Smart Contracts)}
+    \begin{itemize}
+        \item Để các "Lego" gắn kết, cần có \textbf{Hợp đồng thông minh}.
+        \item Là một đoạn mã máy tính chứa các quy tắc giao dịch (logic lập trình) đặt trên blockchain.
+        \item Cơ chế: tự động thực thi (Self-executing) khi các điều kiện được đáp ứng.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Cỗ máy Bán hàng Tự động không thể phá vỡ}
+    \begin{block}{Ẩn dụ Vending Machine}
+        Hợp đồng thông minh giống như một chiếc máy bán nước tự động hoàn hảo.
+    \end{block}
+    \begin{itemize}
+        \item Máy hoạt động theo logic tuyệt đối: \textbf{IF condition A, THEN action B}.
+        \item Nếu bạn đưa đúng số tiền (Condition A), chai nước sẽ tự rơi xuống (Action B).
+        \item Không có nhân viên bán hàng đứng cạnh máy. Không thể thương lượng "Bán thiếu cho tôi, mai tôi trả tiền". Máy lạnh lùng tuyệt đối.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Vay Tiền trong DeFi: Không chứng minh thu nhập}
+    \begin{itemize}
+        \item Đi vay ngân hàng: Cần Hợp đồng lao động, Sao kê 3 tháng, Sổ đỏ, CMND... (KYC cực kỳ chặt chẽ).
+        \item Đi vay DeFi: \textbf{Không cần bất cứ giấy tờ gì!} Bạn hoàn toàn không cần chứng minh thu nhập.
+        \item Tại sao? Vì hệ thống dựa vào \textbf{Quỹ Ký quỹ Tự động (Escrow)}. Bạn phải khóa tài sản Crypto vào hợp đồng thông minh vượt quá giá trị bạn muốn vay (Thế chấp vượt mức - Over-collateralization).
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Điểm chết của Thế chấp trong Không gian Ảo}
+    \begin{itemize}
+        \item Ưu điểm: Nhanh, mở ra cơ hội tài chính toàn cầu.
+        \item Nhưng điểm chết nằm ở chỗ: \textbf{Tài sản đem ra thế chấp là gì?}
+        \item Khi người ta dùng Bitcoin, Ethereum, hoặc thậm chí là các vật phẩm ảo (NFT) để thế chấp vay ra Đồng tiền ổn định (Stablecoin, neo theo USD).
+        \item Điều này dẫn thẳng đến vấn đề hóc búa về \textit{Định giá}.
+    \end{itemize}
+\end{frame}
+
+% ==========================================
+% PHẦN 2: NFT, THANH LÝ & TỘI PHẠM (Slides 16 - 29)
+% ==========================================
+\section{Tài sản Số (NFT), Rủi ro Thanh lý \& Rửa tiền Kỹ thuật số}
+
+\begin{frame}{Nội dung}
+    \tableofcontents[currentsection]
+\end{frame}
+
+\begin{frame}{NFT - Non-Fungible Tokens}
+    \begin{itemize}
+        \item \textbf{Token Không thể thay thế (NFT):} Là chứng chỉ xác thực quyền sở hữu kỹ thuật số duy nhất trên Blockchain.
+        \item NFTs đang định nghĩa lại khái niệm \textit{Sở hữu} thông qua Nguyên tắc khan hiếm trên không gian ảo (Metaverse).
+        \item Khác với tiền mặt (Fungible - 1 tờ 100k đổi 1 tờ 100k khác), NFT là duy nhất (như một bức tranh độc bản).
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Thế chấp bằng một Sấp Vé số?}
+    \begin{block}{Sự vô lý của định giá}
+        Việc định giá một bức tranh ảo để vay tiền thật có giống như xây lâu đài trên cát?
+    \end{block}
+    \begin{itemize}
+        \item Giá trị của NFT hoàn toàn phụ thuộc vào: "Có người sẵn sàng trả bao nhiêu cho nó vào một khoảnh khắc nhất định".
+        \item Việc dùng một tài sản kỹ thuật số có độ biến động cực cao làm thế chấp chẳng khác nào mang một \textbf{sấp vé số} đến ngân hàng đòi vay tiền.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Margin Call (Ngân hàng) vs Liquidation (DeFi)}
+    \begin{itemize}
+        \item \textbf{Trong truyền thống (Margin Call):} Nếu tài sản thế chấp (nhà, đất, cổ phiếu) giảm giá. Ngân hàng gọi điện yêu cầu nộp thêm tài sản. Khách hàng có \textit{thời gian ân hạn} để xử lý.
+        \item \textbf{Trong DeFi (Liquidation):} Hợp đồng thông minh thiết lập ngưỡng thanh lý tự động cực kỳ khắt khe! Không có gọi điện, không có ân hạn!
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Sự phán xét tàn khốc của Oracle}
+    \begin{itemize}
+        \item \textbf{Oracle (Tiên tri dữ liệu):} Là cầu nối đưa dữ liệu giá từ thế giới thực (Sàn giao dịch) vào Blockchain.
+        \item Khi giá của NFT hoặc Crypto sụt giảm vượt tỷ lệ cho phép, Oracle báo tin cho Hợp đồng thông minh.
+        \item \textbf{Hệ quả:} Lệnh code ngay lập tức \textit{Tước quyền sở hữu} NFT của bạn, \textit{Bán tháo} trực tiếp vào thị trường để thu hồi vốn cho người cho vay. 
+        \item Sự trừng phạt của thuật toán là tức thời và máu lạnh!
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Lầm tưởng lớn về Blockchain: Ẩn danh tuyệt đối?}
+    \begin{itemize}
+        \item Nhiều người nghĩ Blockchain là nơi trốn tránh lý tưởng vì ẩn danh tuyệt đối.
+        \item \textbf{Sự thật:} Blockchain chỉ \textbf{Bán ẩn danh (Pseudonymous)}.
+        \item Cuốn sổ cái (Ledger) thì công khai minh bạch 100\% cho toàn thế giới. Dòng tiền chảy từ ví nào sang ví nào đều được ghi lại vĩnh viễn.
+        \item Tuy nhiên, Không có "nhãn dán" nào ghi \textit{Tên thật của chủ nhân} trên chiếc ví đó cả!
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Kênh rửa tiền và tài trợ tội phạm xuyên biên giới}
+    \begin{block}{Thực tế báo động (Nghiên cứu của John M. Griffin)}
+        Dòng chảy Crypto phi tập trung đang tài trợ trực tiếp cho các tội ác nghiêm trọng.
+    \end{block}
+    \begin{itemize}
+        \item Các mạng lưới lừa đảo tình cảm trực tuyến (Pig Butchering).
+        \item Đường dây buôn bán người, nô lệ thời hiện đại.
+        \item Việc di chuyển hàng chục triệu đô la xuyên biên giới chỉ mất vài phút, lọt hoàn toàn qua hệ thống giám sát Swift của ngân hàng truyền thống.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Nghệ thuật Rửa tiền Kỹ thuật số bằng NFT}
+    \begin{itemize}
+        \item Tại sao lại dùng NFT để rửa tiền? Vì chúng \textit{thiếu cơ chế định giá chuẩn hóa}. Không ai quy định nghệ thuật phải giá bao nhiêu!
+        \item Tội phạm dùng kỹ thuật \textbf{Giao dịch Tự chéo (Wash Trading)} - tức là hành vi tự mua, tự bán.
+        \item NFT trở thành "Cỗ máy rửa tiền" hoàn hảo, biến tiền bẩn thành doanh thu bán nghệ thuật hợp pháp.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Case Study: Các bước rửa tiền qua NFT}
+    \begin{enumerate}
+        \item Kẻ xấu lập \textbf{Ví A}, tự vẽ một bức tranh NFT hoàn toàn vô giá trị (Ví dụ: Một nét nghuệch ngoạc).
+        \item Kẻ đó lập \textbf{Ví B} và nạp \textit{Tiền bẩn} (từ ma túy, lừa đảo) vào Ví B dưới dạng Crypto.
+        \item \textbf{Wash Trade:} Kẻ đó dùng Ví B mua lại chính bức NFT ở Ví A với giá "trên trời" là \textbf{1 triệu USD}.
+        \item \textbf{Kết quả:} Tiền bẩn 1 triệu USD giờ đây đã nằm hợp pháp ở Ví A, với lý do: "Doanh thu hợp pháp từ việc bán tác phẩm nghệ thuật!".
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}{Bơm \& Xả (Pump and Dump) trên Không gian Số}
+    \begin{itemize}
+        \item Chiêu trò lũng đoạn thị trường truyền thống được "Tái sinh" mạnh mẽ trên Crypto.
+        \item Nhóm chủ mưu gom một đồng token ít tên tuổi (vốn hóa cực thấp).
+        \item Dùng \textbf{Telegram, Discord} (kênh liên lạc ngoại chuỗi) phát tán tin đồn thất thiệt để tạo Cơn sốt ảo (Bơm giá).
+        \item Đám đông F0 nhảy vào mua vì Sợ bỏ lỡ (FOMO).
+        \item \textbf{Xả hàng:} Chủ mưu lập tức xả khối lượng lớn, giá sập 90\%, đám đông chết chìm.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Sự Bất đối xứng Thông tin (Information Asymmetry)}
+    \begin{itemize}
+        \item Nhóm chủ mưu biết \textit{chính xác từng giây} khi nào chúng sẽ xả hàng.
+        \item Đám đông bên dưới chỉ hành động dựa trên cảm xúc, tin đồn, và biểu đồ màu xanh giả tạo.
+        \item Làm thế nào cơ quan quản lý (SEC, Kiểm toán) có thể theo dấu những bất thường này trên một hệ thống vô chủ?
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Pháp y Tài chính: Dùng AI đánh bại tội phạm AI}
+    \begin{block}{Ma thuật đánh bại ma thuật}
+        Các cơ quan điều tra không thể dùng sức người để đọc tỷ tỷ giao dịch mã hóa. Họ phải dùng \textbf{Trí tuệ nhân tạo (AI)} để theo dấu thời gian thực (Real-time).
+    \end{block}
+    \begin{itemize}
+        \item AI sẽ vẽ ra một \textbf{Biểu đồ mạng lưới (Network Graph)}.
+        \item Phân tích tốc độ quay vòng của dòng tiền, tìm kiếm mẫu hình luân chuyển khác thường.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Thuật toán Gom cụm (Clustering Algorithms)}
+    \begin{itemize}
+        \item AI Gom cụm không nhìn vào 1 giao dịch đơn lẻ, nó quét cả hệ sinh thái.
+        \item AI phát hiện ra sự thật: \textbf{Ví A và Ví B (trong vụ rửa tiền NFT) dù cố ngụy trang nhưng thực chất lại có chung một Nguồn cấp vốn ban đầu!}
+        \item Hoặc chúng thường thực hiện \textit{cùng một mẫu hình giao dịch chuyển tiền} vào cùng 1 khung giờ.
+        \item Lập tức AI \textbf{Gắn cờ đỏ (Red Flag)} báo cáo điều tra viên!
+    \end{itemize}
+\end{frame}
+
+% ==========================================
+% PHẦN 3: ROBO-ADVISORS & TÂM LÝ (Slides 30 - 39)
+% ==========================================
+\section{Robo-Advisors \& Tâm lý Hành vi Đầu tư}
+
+\begin{frame}{Nội dung}
+    \tableofcontents[currentsection]
+\end{frame}
+
+\begin{frame}{Bước ngoặt Tự động hóa: Robo-Advisors}
+    \begin{itemize}
+        \item Rời xa sự hỗn loạn vô pháp của DeFi, chúng ta bước vào kỷ nguyên \textbf{Tự động hóa tư vấn tài chính} được quản lý.
+        \item \textbf{Robo-Advisors:} Là các nền tảng kỹ thuật số cung cấp dịch vụ lập kế hoạch tài chính và quản lý danh mục đầu tư bằng \textit{Thuật toán AI}, với rất ít hoặc không có sự can thiệp của con người.
+        \item Các ông lớn triển khai: Wealthfront, Betterment, Vanguard.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Bài toán Kinh tế theo Quy mô (Economies of Scale)}
+    \begin{itemize}
+        \item Thuê một chuyên gia quản lý quỹ con người chi phí rất đắt đỏ (Phí \% cao, yêu cầu vốn tối thiểu hàng trăm ngàn USD).
+        \item Robo-Advisors giải quyết bài toán quy mô: Một thuật toán có thể quản lý \textbf{hàng triệu tài khoản} cùng lúc!
+        \item \textbf{Chi phí biên (Marginal Cost) gần như bằng 0.} Giúp phá vỡ rào cản, đem dịch vụ tài chính chuyên nghiệp đến nhà đầu tư bán lẻ chỉ với vài trăm USD.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Robo-Advisors hoạt động như thế nào?}
+    \begin{itemize}
+        \item Chúng \textbf{KHÔNG} dự đoán thị trường để "mua đáy, bán đỉnh" (Market Timing).
+        \item Chúng dựa vào nền tảng khoa học: \textbf{Lý thuyết Danh mục Đầu tư Hiện đại (Modern Portfolio Theory - Markowitz)}.
+        \item Phân bổ tài sản vào các quỹ chỉ số (ETFs) chi phí thấp dựa trên khẩu vị rủi ro của người dùng.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Tự động Tái cân bằng (Auto-Rebalancing)}
+    \begin{block}{Kỷ luật tuyệt đối}
+        Nếu cổ phiếu tăng giá mạnh, làm tỷ trọng cổ phiếu trong danh mục vượt mức mục tiêu (VD: từ 60\% vọt lên 70\%). Thuật toán sẽ tự động bán bớt cổ phiếu, mua thêm trái phiếu để đưa tỷ lệ về 60:40.
+    \end{block}
+    \begin{itemize}
+        \item Cực kỳ kỷ luật, lạnh lùng.
+        \item \textbf{Lợi ích tâm lý:} Cắt đứt hoàn toàn sự hoảng loạn sợ hãi (bán tháo lúc sập) hay hưng phấn quá đà (mua đuổi lúc đỉnh) của nhà đầu tư con người.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Tâm lý Hành vi: Hội chứng "Sợ Thuật toán"?}
+    \begin{itemize}
+        \item \textbf{Bước nhảy vọt niềm tin:} Giao toàn bộ tiền tiết kiệm cả đời cho một chiếc "Hộp đen thuật toán".
+        \item \textbf{Suy nghĩ logic thông thường:} Con người có xu hướng \textit{Sợ thuật toán (Algorithm Aversion)}.
+        \item Nghĩa là: Nếu thị trường sập, người ta muốn "chửi" một chuyên viên tài chính bằng xương thịt hơn là ngồi nhìn một màn hình báo lỗi vô cảm. Đúng không?
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Sự Thật Bất Ngờ từ Nghiên cứu}
+    \begin{itemize}
+        \item Các nghiên cứu thực chứng mới nhất (VD: German \& Merkel) chỉ ra điều ngược lại hoàn toàn!
+        \item \textbf{Thực tế:} Nhà đầu tư \textbf{KHÔNG HỀ} có hội chứng sợ thuật toán khi dùng Robo-Advisors.
+        \item Động lực cốt lõi chi phối họ không phải là \textit{"Tôi đang giao tiếp với máy hay người?"} mà là \textbf{"Hiệu suất sinh lời của tôi là bao nhiêu?"}.
+        \item Miễn là danh mục Báo Màu Xanh (Có lãi), họ hoàn toàn thoải mái để thuật toán tự động cầm lái.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Điểm mù Nhận thức (Cognitive Blindspot)}
+    \begin{block}{Khi Hộp Đen báo MÀU ĐỎ (Thua Lỗ)}
+        Chuyện gì xảy ra nếu Robo-Advisor ra quyết định sai và làm mất tiền của họ?
+    \end{block}
+    \begin{itemize}
+        \item Nhà đầu tư có xu hướng gặp khó khăn trong việc phân biệt giữa \textit{Kỹ năng thực sự của thuật toán} và \textit{Sự may mắn do thị trường đang Up-trend}.
+        \item Khi thua lỗ: Thay vì nghi ngờ tính chính xác của thuật toán, nhà đầu tư lại có xu hướng \textbf{Đổ lỗi cho kinh tế vĩ mô} (Chiến tranh, lạm phát, Fed tăng lãi suất...).
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Tin tưởng mù quáng vào Hộp Đen}
+    \begin{itemize}
+        \item Chính sự "Đổ lỗi cho hoàn cảnh" này khiến nhà đầu tư chậm trễ trong việc rút tiền cắt lỗ khỏi hệ thống AI.
+        \item Tính chất "Mù mờ" (Black box) của thuật toán vô tình tạo ra sự "Khoan dung phi lý" từ nhà đầu tư.
+        \item Điều này dẫn tới một mối đe dọa hệ thống khổng lồ ở tầng vĩ mô!
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Rủi ro Hệ thống: Sự kiện Thiên Nga Đen}
+    \begin{block}{Giả thuyết thảm họa}
+        Điều gì xảy ra nếu 80\% thị trường giao phó cho Robo-Advisors, và hàng triệu đoạn mã đó lại được huấn luyện từ \textbf{cùng một tập dữ liệu lịch sử?}
+    \end{block}
+    \begin{itemize}
+        \item Khi xuất hiện một sự kiện \textit{Thiên Nga Đen (Black Swan)} - cực hiếm, chưa từng có trong dữ liệu huấn luyện.
+        \item Tất cả các thuật toán sẽ đưa ra \textbf{Một kết luận giống hệt nhau, vào cùng một Mili-giây!}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Flash Crash (Cú Sập Chớp Nhoáng)}
+    \begin{itemize}
+        \item Chúng sẽ đồng loạt \textbf{Kích hoạt lệnh BÁN THÁO khẩn cấp}.
+        \item Thanh khoản của toàn bộ thị trường bị hút cạn ngay lập tức.
+        \item Không có bất kỳ \textit{Bộ đệm cảm xúc (Emotional Buffer)} hay sự đánh giá định tính (Human Judgement) nào của con người để dừng sự sụp đổ đó lại.
+        \item Máy móc xả hàng điên cuồng tạo ra thảm họa dây chuyền, phá hủy hàng tỷ USD trong vài phút!
+    \end{itemize}
+\end{frame}
+
+% ==========================================
+% PHẦN 4: LUẬT PHÁP & KIỂM TOÁN TƯƠNG LAI (Slides 40 - 43)
+% ==========================================
+\section{Tương lai Kiểm toán \& Khoảng trống Pháp lý}
+
+\begin{frame}{Nội dung}
+    \tableofcontents[currentsection]
+\end{frame}
+
+\begin{frame}{Câu hỏi Hóc búa về Pháp lý \& Đạo đức}
+    \begin{itemize}
+        \item Khi một hệ thống DeFi bị lỗi, hoặc một Robo-Advisor bán tháo sai logic làm bay màu tài sản triệu USD... \textbf{AI LÀ NGƯỜI ĐỀN BÙ?}
+        \item Lập trình viên viết ra những dòng code đầu tiên?
+        \item Sàn giao dịch / Ngân hàng mua lại và phân phối nền tảng đó?
+        \item Hay chính nhà đầu tư phải tự chịu trách nhiệm vì đã bấm nút "Chấp nhận điều khoản" để ủy thác cho máy móc?
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Khoảng trống Pháp lý khổng lồ}
+    \begin{itemize}
+        \item Hiện tại, ranh giới trách nhiệm pháp lý khi máy móc (AI) gây thiệt hại trực tiếp là \textbf{Rất mờ nhạt}.
+        \item Luật pháp luôn đi sau công nghệ.
+        \item Xây dựng các chuẩn mực về Bồi thường rủi ro AI chính là một bài toán lịch sử dành cho giới lập pháp, tài chính và kiểm toán.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Trọng trách Kế toán - Kiểm toán viên Tương lai}
+    \begin{block}{Biên giới nghề nghiệp đã mở rộng xa khỏi cuốn sổ cái!}
+        \begin{itemize}
+            \item Không chỉ là đếm tiền và cộng trừ bảng cân đối kế toán.
+            \item Phải đánh giá \textbf{Rủi ro của Hợp đồng thông minh} (Kiểm toán bảo mật Code).
+            \item \textbf{Định giá Tài sản Ảo} trong Metaverse.
+            \item \textbf{Giám sát tính minh bạch} và độ chệch thuật toán (Algorithmic Bias) của các Robo-Advisors.
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Sự Chuyển mình Bắt buộc}
+    \begin{itemize}
+        \item Sự trỗi dậy của AI không giết chết nghề Kế toán, mà \textbf{Tiến hóa} nó.
+        \item Kế toán viên tương lai phải là sự giao thoa giữa: \textit{Một chuyên gia tài chính}, \textit{Một kiểm định viên dữ liệu}, và \textit{Một thám tử công nghệ} trên không gian số.
+    \end{itemize}
+\end{frame}
+
+% ==========================================
+% TỔNG KẾT (Slides 44 - 45)
+% ==========================================
+\section{Tổng kết}
+
+\begin{frame}{Tổng kết Buổi học}
+    \begin{itemize}
+        \item Sự chuyển đổi từ \textbf{CeFi sang DeFi} loại bỏ trung gian, dùng Smart Contract (Máy bán hàng tự động), nhưng đưa đến bài toán rủi ro thanh lý khốc liệt.
+        \item Tội phạm lợi dụng Blockchain bán ẩn danh, dùng NFT để \textbf{Wash Trade} rửa tiền, trong khi AI dùng \textbf{Gom cụm} quét mạng lưới truy dấu tích.
+        \item \textbf{Robo-Advisors} bùng nổ, phá rào cản chi phí. Nhà đầu tư không hề "sợ thuật toán" mà lại mù quáng tin hộp đen, dẫn tới rủi ro \textbf{Thiên Nga Đen \& Flash Crash}.
+        \item Nghề Kế toán tương lai là quản trị rủi ro thuật toán.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \begin{center}
+        \Huge \textbf{HỎI ĐÁP \& THẢO LUẬN}
+        
+        \vspace{1cm}
+        \large Xin trân trọng cảm ơn các bạn sinh viên đã lắng nghe!
+    \end{center}
+\end{frame}
+
+\end{document}

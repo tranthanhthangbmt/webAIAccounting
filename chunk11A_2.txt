@@ -1,0 +1,543 @@
+matching information from the Order table:
+•	CustomerID = 1003 is listed in this join, but because there is not a matching order, the 
+results for the order fields are null.
+•	OrderID = 50016 is not reflected in the joined table results. There is no ­CustomerID = 102 
+in the Customer table, so that record is not picked up in the join.
+A right join returns all the rows from the right table and will show any matching data from the 
+left table (Illustration 2.8).
+
+2.1  How Does Understanding Data Storage Help Answer Questions? 
+2-7
+ILLUSTRATION 2.10  Sample Data Analysis Questions and Appropriate Join 
+Questions
+Join
+Are there any customer invoices with out receipts?
+Left join
+Have any transactions been charged to accounts that do not exist?
+Left join
+Have any payroll checks been issued to false employees?
+Left join
+Are there any sales returns to customers that do not exist?
+Left join
+Are there any inventory items that have not been sold? (Orders table on left)
+Right join
+Are there any customers that have not made a purchase? (Orders table on left)
+Right join
+Are there any vendors that have not been sent a purchase order? 
+(PurchaseOrder table on left)
+Right join
+Are there any vendor invoices that have not been paid? (Payments table on left)
+Right join
+Do any employee addresses match vendor addresses?
+Inner join
+Do any employee phone numbers match vendor phone numbers?
+Inner join
+Have sales been made in a specific region?
+Inner join
+Apply It 2.1
+Identify Primary and 
+Foreign Keys
+Accounting Information Systems   Super Scooters, a manufacturer of motorized scooters, has just 
+converted to a relational database system. You work in the accounting information systems area of 
+the company and have been helping with the conversion to the new database system. The following 
+tables have been established. 
+Locations
+LocationNumber
+LocationDescription
+SalesOrders
+SalesOrderNumber
+OrderNumber
+Model
+SoldDate
+SalesVolume
+Color
+LocationNumber
+RegionNumber
+State
+Country
+UnitSalePrice
+ItemNumber
+CustomerNumber
+EmployeeNumber
+Employee
+EmployeeNumber
+FirstName
+LastName
+Address
+City
+State
+ZipCode
+RegionNumber
+Customer
+CustomerNumber
+CustomerName
+CustomerAddress
+CustomerCity
+CustomerState
+ContactFirstName
+CustomerZipCode
+ContactLastName
+PhoneNumber
+Regions
+RegionNumber
+RegionDescription
+Inventory
+ItemNumber
+ItemDescription
+Color
+QuantityOnHand
+SalesOrderExpenses
+OrderNumber
+VariableMarketing
+Labor
+TotalWarranty
+TotalDepreciation
+SalesTax
+Materials
+Overhead
+
+2-8 
+CHAPTER 2  Foundational Data Analysis Skills
+SOLUTION
+Table
+Primary Key
+Foreign Key
+SalesOrders
+SalesOrderNumber
+OrderNumber
+LocationNumber
+RegionNumber
+CustomerNumber
+EmployeeNumber
+Locations
+LocationNumber
+None
+Region
+RegionNumber
+None
+Inventory
+ItemNumber
+None
+SalesOrderExpenses
+OrderNumber
+None
+Employee
+EmployeeNumber 
+RegionNumber
+Customer
+CustomerNumber
+None
+2.2  How Do Spreadsheet Functions Analyze 
+Large Amounts of Data?
+LEARNING OBJECTIVE ➋
+Explain how functions help answer data analysis questions.
+Data analysis usually includes performing calculations such as adding amounts, counting data 
+entries, and calculating averages. Frequently used calculations are often built into analysis soft-
+ware as functions, which are predefined formulas that perform calculations. One example is the 
+SUM function in Microsoft Excel that adds a range of numbers in rows or columns.
+Functions make it possible to quickly analyze large amounts of data without writing com-
+plex formulas. In fact, some of the most powerful attributes of Microsoft Excel are the built-in 
+functions that perform calculations. Keep in mind that the most common functions and the logic 
+behind them also apply to software other than Microsoft Excel. For example, functions can be 
+used in analysis and visualization tools like Power BI and in Tableau. Understanding how these 
+functions work, and more importantly, when to use them is a core data analysis skill.
+Basic Functions for Data Analysis
+Illustration 2.11 describes some basic Excel functions used in data analysis:
+•	The function name appears in the first column.
+•	The second column shows the function argument, which is the syntax necessary to invoke 
+the function and the range and criteria to apply to it. All Excel functions begin with an 
+equal sign, followed by the type of function being performed, and then parentheses that 
+specify the arguments for the function. For example, to sum a column of numbers in col-
+umn C and rows 2 through 245, the function would be: =SUM(C2:C245).
+•	The function calculation is described in the third column.
+Your boss asks you to identify all primary and foreign keys for the tables in the database so joins can 
+be created. For each table, list the primary key and any foreign keys.
+
+2.2  How Do Spreadsheet Functions Analyze Large Amounts of Data? 
+2-9
+ILLUSTRATION 2.11  Basic Microsoft Excel Functions
+Function
+Function Arguments
+Function Calculation
+IF
+=IF(logic test, value if true, 
+value if false)
+Returns one value if the condition is true and 
+another one if it is false.
+AVERAGE
+=AVERAGE(Range)
+Returns the arithmetic mean of the range, 
+array, or numbers.
+AVERAGEIF
+=AVERAGEIF (Range,  
+Criteria, AverageRange)
+Finds the arithmetic mean for the cells 
+specified by a given condition or criteria.
+AVERAGEIFS
+=AVERAGEIFS(SumRange, 
+CriteriaRange1, Criteria1, 
+CriteriaRange2, Criteria2)
+Finds the arithmetic mean for the cells 
+specified by a given set of conditions or criteria.
+Additional ranges, criteria ranges, and 
+criteria can be added.
+COUNT
+=COUNT(Range)
+Counts the number of cells in a range that 
+contain numbers.
+COUNTIF
+=COUNTIF(Range, Criteria)
+Counts the number of cells within a range 
+that meet the given criteria.
+COUNTIFS
+=COUNTIFS(Range1, 
+Criteria1, Range2, Criteria2)
+Counts the number of cells specified by a 
+given set of criteria.
+Additional ranges, criteria ranges, and 
+criteria can be added.
+COUNTA
+=COUNTA(Range)
+Counts the number of cells containing text 
+in a range.
+COUNTBLANK
+=COUNTBLANK(Range)
+Counts the number of blank cells in a range.
+SUM
+=SUM(Range)
+Adds the cells in a range.
+SUMIF
+=SUMIF(Range, Criteria, 
+SumRange)
+Adds the cells specified by a specified 
+condition or criteria.
+SUMIFS
+=SUMIFS(SumRange, 
+CriteriaRange1, Criteria1, 
+CriteriaRange2, Criteria2)
+Adds the cells specified by a given set of 
+conditions or criteria.
+Additional ranges, criteria ranges, and 
+criteria can be added.
+Returning to the university data example, Illustration 2.12 shows the function argu-
+ments box for a COUNTIF function used to determine how many pumps the university owns. 
+There are two input options to execute the functions illustrated:
+•	Type the function argument directly into a cell on the spreadsheet, or
+•	use the Function Arguments box.
+ILLUSTRATION 2.12  University Asset Data COUNTIF Function Arguments Box
+Range
+Criteria
+= {"PUMP";"BONDER";"IRRIGATION SYSTEM";"DRI...
+= "Pump"
+B2:B13127
+"Pump"
+= 92
+Function Arguments
+COUNTIF
+Counts the number of cells within a range that meet the given condition.
+Range     is the range of cells from which you want to count nonblank cells.
+?
+Formula result = 92
+Help on this function
+Cancel
+OK
+
+2-10 
+CHAPTER 2  Foundational Data Analysis Skills
+To open:
+•	Click on the fx next to the cell formula, which is above the spreadsheet (see the green fx 
+in Illustration 2.13).
+•	Next, the Function Arguments input box in Illustration 2.12 appears on the screen. 
+•	Fill in the range and criteria, and select OK. The formula for the function then appears 
+(Illustration 2.13). Note that the criteria (in this example “Pump”) must be typed in quo-
+tations. This is true for any criteria that is not a cell reference or a number.
+ILLUSTRATION 2.13  Finding the 
+Function Arguments Symbol
+=COUNTIF(B2:B13127,"Pump")
+fx
+Formula
+These Excel functions can help quickly analyze data sets, especially when they are very 
+large. Let’s now apply these functions to answer questions from a data set about fixed assets.
+Applying Excel Basic Functions
+Data   We will use the university’s assets data set (Illustration 2.14) to illustrate how func-
+tions can help make sense of data.
+ILLUSTRATION 2.14  University Asset Data
+fx
+B
+A
+C
+D
+E
+F
+Sheet1
+3
+4
+5
+13126
+13127
+AutoSave
+Oﬀ
+1
+2
+AssetTagID
+AssetDescription
+CategoryID
+University Asset Data
+Category
+Amount
+AcquisitionDate
+15
+15
+1
+U000009
+U000010
+U000015
+U000016
+U102879
+U204391
+Pump
+Bonder
+Irrigation System
+Drill
+Server
+Oven
+1
+7
+11
+Laboratory Equipment
+Laboratory Equipment
+Agricultural and Farm Machinery
+Agricultural and Farm Machinery
+Computer Equipment
+Food Preparation & Serving Equipment
+$    7,826.00
+$ 28,628.01
+$ 17,068.00
+$ 28,344.00
+$ 53,008.90
+$    7,255.53
+9/2/2021
+9/11/2021
+9/29/2020
+10/27/2019
+10/9/2021
+5/6/2023
+The data set was created from the University Asset Data file:
+•	Each row in the data set represents a unique asset owned by the university.
+•	The columns represent the attributes for each asset.
+There are 13,127 rows of data in this spreadsheet, so visually scanning them is impos-
+sible. Instead, take advantage of the available Excel functions. Imagine you are responsible 
+for reviewing the fixed assets for the university. You might want to ask the questions listed in 
+Illustration 2.15. Each question can be answered using an Excel function.
+
+2.2 How Do Spreadsheet Functions Analyze Large Amounts of Data? 
+2-11
+ ILLUSTRATION 2.15  Questions, Functions, and Answers Using University Asset Data 
+ Question 
+ Function 
+ Answer 
+ What is the total cost of fixed 
+assets? 
+ =SUM(E2:E13127) 
+ $225,069,282.74 
+ How many fixed assets does 
+the university have in total? 
+ =COUNTA(A2:A13127) 
+ 13,126 
+ How many assets were 
+acquired after 2022? 
+ =COUNTIF(F2:F13127,“>12/31/2022”) 
+ 1,388 
+ What is the total cost of assets 
+acquired after 2022? 
+ =SUMIF(F2:F13127,“>12/31/2022”,E2:E13127) 
+ $27,653,067.52 
+ Are any descriptions missing? 
+ =COUNTBLANK(D2:D13127) 
+ 0 
+ Illustration  2.15 uses the SUM, COUNTA, COUNTIF, SUMIF, and COUNTBLANK func-
+tions. Could a SUMIFS or a COUNTIFS also be used? 
+ If the question was how many computers the university purchased in 2023, then use the 
+COUNTIFS function because there are two criteria. Recall that the COUNTIFS function requires 
+specifying the range of cells to apply to the first criteria (computer equipment). The next criteria 
+are purchases made in 2023, and the range will be the column with the dates acquired.  Illustra-
+tion 2.16 shows the Function Arguments box for the COUNTIFS function and the result. 
+ ILLUSTRATION 2.16  Function Arguments for  COUNTIFS function 
+Criteria_range1
+= {“Laboratory Equipment”;”Labora
+D2:D13127
+= 283
+Function Arguments
+COUNTIFS
+Counts the number of cells specified by a given set of conditions or criteria.
+Criteria_range4:   is the range of cells you want evaluated for the particular condition.
+?
+Formula result = 283
+Help on this function
+Criteria1
+Criteria_range2
+= “Computer Equipment”
+= {44441;44450;44103;43765;44446;4446
+“Computer Equipment”
+F2:F13127
+Criteria2
+= “> 12/31/2022”
+“> 12/31/2022”
+Criteria_range3
+Criteria3
+= {44441;44450;44103;43765;44446;4446
+= “< 1/1/2024”
+F2:F13127
+“< 1/1/2024”
+Criteria_range4
+= reference
+Cancel
+OK
+ The function box creates a formula: 
+=COUNTIFS(D2:D13127,“Computer Equipment”,F2:F13127,“>12/31/2022”,
+F2:F13127,“<1/1/2024”) 
+ To retrieve only the year 2023 data, create two criteria in the function argument:
+• First, the date must be greater than December 31, 2022 (Criteria2). 
+• Second, the date must be less than January 1, 2024 (Criteria3). 
+
+2-12 
+CHAPTER 2  Foundational Data Analysis Skills
+By including those criteria in the argument, only results for the year 2023 are displayed.
+Basic Excel functions are useful for answering questions with a single answer or an 
+answer with one dimension. Dimensions are the variables or other fields that can be used to 
+drill down or disaggregate the analysis measures. In other words, dimensions are used when 
+there is a specific question about a specific aspect of the data.
+For example, a question about how many computers were purchased in 2023 has only one 
+dimension–computers in 2023. What about a question with more than one dimension? What 
+if we want to know the sum of costs for each of the asset categories rather than just computers 
+in a specific year? That question has more than one dimension because it involves every asset 
+category and all years. We discuss how to address multi-dimension questions next.
+Apply It 2.2
+Analyze Sales 
+Transactions with  
+Excel Functions
+Data   Financial Accounting   Managerial Accounting   Super Scooters manufactures and sells 
+four models of stand-on scooters: Celeritas, Captain, Lazer, and Kicks. Their customers range from large 
+scooter-sharing companies to small retailers. Your supervisor has given you, an accountant for the com-
+pany, a list of questions to answer using the Super Scooters data set. What follows is a portion of the Super 
+Scooters Sales Transactions for the years 2023–2025. There are 3,645 transactions in the sales database.
+Explain which Microsoft Excel functions are best suited to answer the following questions about 
+Super Scooters sales data.
+	 1.	 What are the total gross sales dollars?
+	 2.	 What are the total gross sales dollars for 2023?
+	 3.	 How many sales transactions are there for the Lazer model?
+	 4.	 What are the average gross sales for the Celeritas model in 2023?
+	 5.	 How many green colored Captain models were sold?
+	 6.	 If Super Scooters would like to add a column that indicates if the days on the lot are greater than 
+50 days, what function would be appropriate?
+SOLUTION
+	 1.	 SUM
+	 2.	 SUMIF
+	 3.	 CountIF
+	 4.	 AverageIFS
+	 5.	 CountIFS
+	 6.	 IF
+fx
+1
+B
+C
+D
+A
+E
+F
+G
+H
+I
+J
+Sheet1
+2
+3
+4
+5
+3645
+3646
+3647
+OrderNumber
+Model
+SoldDate
+SalesVolume
+DaysInInventory UnitSalePrice
+GrossSales
+13684
+13685
+13682
+13683
+10957
+10960
+12/31/2025
+12/31/2025
+12/30/2025
+12/30/2025
+12/22/2023
+12/31/2023
+20
+20
+20
+38
+18
+35
+83
+52
+29
+22
+17
+24
+$ 342.00
+$ 414.00
+$ 679.00
+$ 376.00
+$       330
+$       357
+$    6,840
+$    8,280
+$ 13,580
+$ 14,288
+$    5,940
+$ 12,495
+Celeritas
+Lazer
+Captain
+Lazer
+Lazer
+Lazer
+Color
+Location
+State
+Yellow
+Blue
+Green
+Green
+Yellow
+Red
+Dallas
+Seattle
+Seattle
+Miami
+Phoenix
+Phoenix
+TX
+WA
+WA
+FL
+AZ
+AZ
+AutoSave
+Oﬀ
+
+2.3  How Do We Organize Data Sets for Analysis? 
+2-13
+2.3  How Do We Organize Data Sets 
+for Analysis?
+LEARNING OBJECTIVE ➌
+Illustrate how pivot tables organize and filter data.
+You have just learned how to use functions to answer questions with a single dimension. 
+While you could use several functions to answer questions that involve multiple dimensions, 
+it is more efficient to first use a data organization technique on the data set.
+Data organization is the process of rearranging data to make it easier to understand. A 
+pivot table is a tool that summarizes and reorganizes selected columns and rows of data in a 
+spreadsheet, database, or business intelligence program. Pivot tables can quickly rearrange data 

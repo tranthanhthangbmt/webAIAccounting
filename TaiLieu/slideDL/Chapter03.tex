@@ -1,0 +1,216 @@
+\documentclass[aspectratio=169]{beamer}
+\usetheme{Madrid}
+\usecolortheme{default}
+\usepackage[utf8]{inputenc}
+\usepackage[T5]{fontenc}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{amsmath}
+
+\setbeamertemplate{caption}[numbered]
+\renewcommand{\figurename}{Hình}
+\renewcommand{\thefigure}{3.\arabic{figure}}
+
+\title[Chương 3: Frameworks \& Keras]{Học Sâu (Deep Learning) \\ \vspace{0.5cm} \Large Chương 3: Giới thiệu TensorFlow, PyTorch, JAX và Keras}
+\author{Đại học Đông Á}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame}{Nội dung chương}
+    \tableofcontents
+\end{frame}
+
+\section{1. Lịch sử phát triển các Framework Học sâu}
+
+\begin{frame}{Sự tiến hóa của các Framework}
+    \begin{itemize}
+        \item Kỷ nguyên trước 2009: Các nhà nghiên cứu phải tự viết tay logic tính toán đạo hàm (thường bằng C++). Việc lập trình GPU gần như bất khả thi.
+        \item \textbf{Theano (2009):} Framework đầu tiên hỗ trợ tự động tính đạo hàm (autograd) và tính toán GPU. Là "tổ tiên" của mọi framework hiện đại.
+        \item \textbf{TensorFlow (Cuối 2015):} Do Google phát triển, kế thừa Theano và hỗ trợ huấn luyện quy mô lớn. Keras nhanh chóng tích hợp TF.
+        \item \textbf{PyTorch (Cuối 2016):} Do Meta (Facebook) phát triển để đối trọng với TF, nổi bật với tính linh hoạt (Dynamic Computation Graph).
+        \item \textbf{JAX (2018):} Một hệ thống gọn nhẹ từ Google kết hợp Autograd và trình biên dịch XLA, tối ưu vô cùng mạnh mẽ.
+    \end{itemize}
+\end{frame}
+
+\section{2. Phân tích Sức mạnh của từng Framework}
+
+\begin{frame}{Điểm nổi bật của TensorFlow}
+    \begin{itemize}
+        \item \textbf{Hệ sinh thái Enterprise (Doanh nghiệp):} TensorFlow không chỉ là thư viện, nó là một hệ sinh thái khổng lồ (TFX, TF Serving, TF Lite, TensorFlow.js).
+        \item \textbf{Kiến trúc Đồ thị (Graph Execution):} Khởi điểm sử dụng Static Computation Graph giúp biên dịch và tối ưu trước khi chạy cực kỳ hiệu quả, phù hợp cho triển khai thực tế.
+        \item \textbf{Eager Execution:} Từ bản TF 2.0, TensorFlow đã hỗ trợ chạy trực tiếp từng dòng lệnh (Eager) để dễ debug và nghiên cứu hơn.
+        \item \textbf{Mở rộng dễ dàng:} Hỗ trợ out-of-the-box cho các hệ thống phân tán lên tới hàng nghìn GPU/TPU.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Điểm nổi bật của PyTorch}
+    \begin{itemize}
+        \item \textbf{Thống trị mảng Nghiên cứu (Research):} Hơn 70\% các bài báo khoa học AI mới đều sử dụng PyTorch.
+        \item \textbf{Tính Pythonic cao:} Cú pháp rất gần gũi với Python bản địa (như Numpy), mang lại sự thoải mái cho lập trình viên.
+        \item \textbf{Đồ thị tính toán Động (Dynamic Computation Graph):} 
+        \begin{itemize}
+            \item Đồ thị được xây dựng liên tục tại thời gian thực (on the fly).
+            \item Cực kỳ hữu ích để debug (có thể chèn print ở mọi nơi) và làm việc với độ dài chuỗi biến đổi (như NLP).
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Điểm nổi bật của JAX}
+    \begin{itemize}
+        \item \textbf{Siêu việt về Toán học:} JAX bản chất là thư viện \textit{"Numpy trên GPU/TPU kết hợp với tự động đạo hàm (Autograd)"}.
+        \item \textbf{Trình biên dịch XLA (Accelerated Linear Algebra):} Giúp tối ưu hóa toàn cục các chuỗi phép tính, tăng tốc độ xử lý phần cứng lên ngưỡng tối đa.
+        \item \textbf{Lập trình hàm (Functional Programming):} Tránh sử dụng trạng thái toàn cục (global state), mọi hàm đều trong suốt (pure functions). Điều này giúp JAX cực kỳ an toàn khi chạy song song trên nhiều GPU/TPU.
+    \end{itemize}
+\end{frame}
+
+\section{3. Mối quan hệ giữa Keras và các Backend}
+
+\begin{frame}{High-level API và Low-level API}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item \textbf{Low-level (TF, PyTorch, JAX):} Cung cấp các thao tác mảng tensor, tính toán đạo hàm tự động. Đòi hỏi code chi tiết, phức tạp.
+            \item \textbf{High-level (Keras):} Cung cấp API trực quan (Layers, Models, Optimizers, Loss) để ráp nối nhanh chóng.
+            \item Keras 3.0 trở lên: Có thể \textbf{chuyển đổi linh hoạt Backend} (TF $\leftrightarrow$ PyTorch $\leftrightarrow$ JAX) mà không cần viết lại code!
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.7\textheight,keepaspectratio]{../../images/ch03/keras_and_backends.7fcf768f.png}
+            \caption{Cấu trúc đa Backend của Keras}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\section{4. Bài toán cốt lõi: Bộ Phân loại Tuyến tính}
+
+\begin{frame}{Ôn tập toán học: Đường thẳng và Siêu phẳng}
+    Mục tiêu: Xây dựng bộ phân loại tuyến tính (Linear Classifier) từ con số 0.
+    \begin{itemize}
+        \item Trong không gian 2D, một bộ phân loại tuyến tính là một \textbf{đường thẳng}.
+        \item Phương trình dự đoán tổng quát:
+        \begin{equation}
+            \mathbf{y\_pred} = \mathbf{W} \cdot \mathbf{x} + \mathbf{b}
+        \end{equation}
+        \item $\mathbf{W}$ (Trọng số - Weights): Quyết định độ nghiêng/hướng của đường thẳng.
+        \item $\mathbf{b}$ (Độ lệch - Bias): Quyết định vị trí tịnh tiến của đường thẳng so với gốc toạ độ.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Khởi tạo dữ liệu giả lập (Point Clouds)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        Để minh họa, chúng ta tạo ra 2 cụm điểm (point clouds) phân bố ngẫu nhiên trong không gian 2D:
+        \begin{itemize}
+            \item \textbf{Cụm 1:} Ký hiệu màu nhạt, nhãn (label) = 0.
+            \item \textbf{Cụm 2:} Ký hiệu màu đậm, nhãn (label) = 1.
+        \end{itemize}
+        Bài toán: Làm sao vẽ được một đường thẳng tách biệt chính xác 2 cụm điểm này bằng toán học thay vì đo đạc bằng mắt?
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.7\textheight,keepaspectratio]{../../images/ch03/linear_model_inputs.282fc3b6.png}
+            \caption{Hai cụm điểm dữ liệu ngẫu nhiên}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Hàm mất mát (Loss) cho Bộ Phân Loại Tuyến Tính}
+    \begin{itemize}
+        \item Để đo lường xem đường thẳng hiện tại "tốt" hay "tệ" so với dữ liệu thật, ta cần một độ đo chuẩn.
+        \item Trong phân loại tuyến tính cơ bản, có thể dùng \textbf{MSE (Mean Squared Error - Sai số toàn phương trung bình)}:
+        \begin{equation}
+            MSE = \frac{1}{n} \sum_{i=1}^{n} (y\_pred_i - y\_true_i)^2
+        \end{equation}
+        \item Khi khoảng cách từ điểm đến đường thẳng lớn, hàm bình phương $(x^2)$ sẽ phạt mô hình cực kỳ nặng, buộc $W$ và $b$ phải thay đổi để giảm khoảng cách này xuống.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Dự đoán ban đầu (Khởi tạo ngẫu nhiên)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        Khi mô hình phân loại vừa được tạo ra:
+        \begin{itemize}
+            \item Trọng số $W$ và $b$ được khởi tạo bằng các giá trị ngẫu nhiên rất nhỏ (gần bằng 0).
+            \item Kết quả: Đường thẳng phân chia không có bất kỳ ý nghĩa nào, dự đoán sai lệch, điểm MSE Loss rất cao.
+        \end{itemize}
+        Bước tiếp theo là sử dụng \textbf{Gradient Descent} để cập nhật.
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.7\textheight,keepaspectratio]{../../images/ch03/linear_model_predictions.3e5424ac.png}
+            \caption{Đường thẳng phân chia trước khi huấn luyện}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Toán học của Cập nhật Gradient Descent}
+    Để đường thẳng xoay hướng chuẩn, ta dùng công thức:
+    \begin{equation}
+        \mathbf{W} \leftarrow \mathbf{W} - \eta \cdot \nabla L(\mathbf{W})
+    \end{equation}
+    \begin{itemize}
+        \item $\nabla L(\mathbf{W})$ là Gradient (đạo hàm) của hàm Loss theo $W$. Nó luôn chỉ về hướng làm cho sai số tăng lên nhanh nhất.
+        \item Dấu trừ ($-$) đảm bảo ta đi "ngược" hướng Gradient để giảm sai số.
+        \item $\eta$ (Learning Rate - Tốc độ học): Siêu tham số quyết định mỗi bước thay đổi lớn cỡ nào. Nếu quá lớn: dao động mạnh, quá nhỏ: hội tụ chậm.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Kết quả sau Vòng lặp huấn luyện (Training Loop)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        Sau nhiều bước lặp (epochs) cập nhật trọng số:
+        \begin{itemize}
+            \item Đường thẳng dần dịch chuyển tịnh tiến ($b$) và xoay độ nghiêng ($W$) cho đến khi cắt ngang khe hở giữa 2 cụm điểm.
+            \item Lúc này, Loss hội tụ (đạt cực tiểu). Bộ phân loại tuyến tính đã học thành công!
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.7\textheight,keepaspectratio]{../../images/ch03/linear_model_with_plotted_line.fd88e7bc.png}
+            \caption{Đường thẳng phân chia sau khi huấn luyện}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\section{5. Ứng dụng nâng cao (Tổng quan kiến trúc)}
+
+\begin{frame}{Không chỉ dừng ở Mô hình Tuyến tính}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Mạng nơ-ron thực tế không chỉ có 1 đường thẳng, mà kết hợp hàng nghìn lớp biến đổi tuyến tính (Dense) đan xen với các hàm kích hoạt phi tuyến (ReLU, Softmax).
+            \item Các kiến trúc mạng hiện đại có thể vô cùng phức tạp với hàng chục tỷ tham số, tiêu biểu như kiến trúc \textbf{Transformer} (Nền tảng của LLM).
+            \item Keras giúp ta đóng gói các cụm toán học phức tạp thành từng Layer như chơi xếp hình.
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth,height=0.7\textheight,keepaspectratio]{../../images/ch03/transformer.cb3f137f.png}
+            \caption{Đồ thị kiến trúc của Transformer Block}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\section{Tổng kết}
+
+\begin{frame}{Tổng kết Chương 3}
+    \begin{itemize}
+        \item \textbf{TensorFlow, PyTorch, JAX:} Đóng vai trò là các Low-level Backend cung cấp động cơ tính toán ma trận và đạo hàm (Autograd) vô cùng mạnh mẽ trên GPU/TPU.
+        \item \textbf{Keras:} Đóng vai trò là High-level API linh hoạt, tương thích đa backend, trực quan cho kỹ sư Học máy.
+        \item \textbf{Bài toán cốt lõi:} Dù mạng đơn giản như Linear Classifier ($y=Wx+b$) hay phức tạp như Transformer, quy trình chuẩn vẫn là: Tính Loss $\rightarrow$ Tìm Gradient $\rightarrow$ Cập nhật $W, b$ bằng Learning Rate.
+    \end{itemize}
+\end{frame}
+
+\end{document}

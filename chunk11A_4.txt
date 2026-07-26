@@ -1,0 +1,648 @@
+	 1.	 Instead of adding a category to the Filter area, click the down arrow in Row Labels to 
+reveal other filtering choices.
+	 2.	 Illustration 2.25 shows the dropdown box that then appears. Here, select the categories 
+of assets to filter.
+fx
+1
+A
+B
+Sheet1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+AutoSave
+Oﬀ
+Row Labels
+Years
+Agricultural and Farm Machinery
+Grand Total
+Athletic and Recreational Equipment
+Boats, Boat Motors, and Marine Equipment
+Cleaning and Maintenance Equipment
+Communication, Audio–Visual, Alarm, and Signal Equipment
+Computer Equipment
+Food Preparation and Serving Equipment
+Furniture and Furnishings
+Hand and Power Tools (Portable)
+Industrial, Shop, and Construction Equipment
+Laboratory Equipment
+Material Handling Equipment
+Medical Equipment
+Miscellaneous Equipment
+Motor Vehicles and Transportation Equipment
+Oﬀice and Business Machines and Non-Consumable Suppiles
+Parking Control Equipment
+Printing and Bookbinding Equipment
+Refrigeration Equipment
+2022
+$        258.409.17
+$        514,343.81
+$        144,999.00
+$        108,637.41
+$        234,398.94
+$        523,934.69
+$    8,141,730.27
+$           77,915.86
+$           64,795.95
+$           49,665.00
+$        117,352.04
+$    9,825,228.22
+$              6,778.00
+$        188,366.29
+$          389,043.31
+$ 20,869,919.66
+$        103,113.50
+$               8,045.00
+$             89,889.00
+$             23,274.20
+Sum of Amount
+Sort A to Z
+More Sort Options...
+Clear Filter From “Category”
+Label Filters
+Value Filters
+Sort Z to A
+AZ
+ZA
+Search
+(Select All)
+Agricultural and Farm Mach
+Art Equipment
+Athletic and Recreational Eq
+Boats, Boat Motors, and Mar
+Cleaning and Maintenance E
+Communication, Audio-Visu
+Computer Equipment
+OK
+Cancel
+1
+3
+2
+ILLUSTRATION 2.25  Excel 
+PivotTable to Filter for Computer 
+Equipment Only
+
+2-20 
+CHAPTER 2  Foundational Data Analysis Skills
+	 3.	 In this example, only Computer Equipment is selected. The resulting PivotTable is 
+shown in Illustration 2.26
+ILLUSTRATION 2.26  Excel PivotTable 
+Showing Just Computer Equipment 
+Purchased in 2022
+$    8,141,730.27
+$ 8,141,730.27
+Grand Total
+Row Labels
+Sum of Amount
+Computer Equipment
+Years
+2022
+The auto filter option quickly isolates a specific item. Two more auto filters are Label 
+Filters and Value Filters. Illustration 2.27 shows the options available after choosing Label 
+Filters.
+ILLUSTRATION 2.27  Excel PivotTables Label Filters
+Sort A to Z
+More Sort Options...
+Clear Filter From “Category”
+Value Filters
+Sort Z to A
+AZ
+ZA
+Search
+(Select All)
+Agricultural and Farm Mach
+Art Equipment
+Athletic and Recreational Eq
+Boats, Boat Motors, and Mar
+Cleaning and Maintenance E
+Communication, Audio-Visu
+Computer Equipment
+OK
+Cancel
+Clear Filter
+Equals...
+Does Not Equal...
+Begins With...
+Does Not Begin With...
+Does Not End With...
+Contains...
+Does Not Contain...
+Greater Than...
+Greater Than Or Equal To...
+Less Than...
+Less Than Or Equal To...
+Between...
+Not Between...
+Ends With...
+Label Filters
+Hightlighting and clicking one of the options under Label Filters opens a dialog box 
+to insert the filter’s parameter. For example, choosing Equals and entering “Computer 
+­Equipment” in the dialog box (Illlustration 2.28) achieves the same results as Illustration 2.26.
+
+2.3  How Do We Organize Data Sets for Analysis? 
+2-21
+ILLUSTRATION 2.28  Excel PivotTable Label Filter Equals Dialog Box
+Label Filter (Category)
+Show items for which the label
+Use ? to represent any single character
+equals
+Computer Equipment
+Use * to represent any series of characters
+Cancel
+OK
+?
+What if the goal was to filter the data so only the top five asset categories appear?
+	 1.	 Use the Value Filters and pick the option for Top 10… (Illustration 2.29).
+Sort A to Z
+More Sort Options...
+Clear Filter From “Category”
+Sort Z to A
+AZ
+ZA
+Search
+(Select All)
+Agricultural and Farm Mach
+Art Equipment
+Athletic and Recreational Eq
+Boats, Boat Motors, and Mar
+Cleaning and Maintenance E
+Communication, Audio-Visu
+Computer Equipment
+OK
+Cancel
+Clear Filter
+Equals...
+Does Not Equal...
+Greater Than...
+Greater Than Or Equal To...
+Less Than...
+Less Than Or Equal To...
+Between...
+Not Between...
+Top 10...
+Label Filters
+Value Filters
+ILLUSTRATION 2.29  PivotTable Value Filter Options
+	 2.	 A dialog box will open that allows changing the filter to top or bottom and the number of 
+items to display.
+In Illustration 2.30 the “Top 5” by “Sum of amount” was chosen.
+Top 10 Filter (Category)
+Show
+Top
+Items
+Sum of Amount
+by
+5
+Cancel
+OK
+?
+ILLUSTRATION 2.30  PivotTable Value Filter For Top Values Input Box
+
+2-22
+CHAPTER 2 Foundational Data Analysis Skills
+ The resulting Excel PivotTable is shown in  Illustration 2.31 . 
+$          514,343.81
+$          523,934.69
+$      8,141,730.27
+$      9,825,228.22
+$          389,043.31
+$ 19,394,280.30
+Grand Total
+Row Labels
+Agricultural and Farm Machinery
+2022
+Sum of Amount
+Years
+Communication, Audio-Visual, Alarm, & Signal Equipment
+Computer Equipment
+Laboratory Equipment
+Refrigeration Equipment
+ ILLUSTRATION 2.31  PivotTable Value Filter Results for Top 5 Amounts 
+ What about filtering for multiple dimensions at the same time? 
+ Use Slicers to Filter Data
+ Simultaneously filtering for multiple dimensions is often referred to as  slicing , or slice and 
+dice, which is the process of breaking the data down into smaller parts or examining it from 
+different viewpoints.  Slicers are an analysis tool that separate the resulting analysis measures 
+per the selected dimensions.  All data analysis software has slicing capabilities:
+•  Microsoft Excel and Power BI use slicers. 
+•  In Tableau, it is accomplished with interactive filters. 
+ In all types of software, slicers customize interaction with a data set by providing a visual dis-
+play of available filters.  Illustration 2.32 shows where the option to add slicers can be found 
+in Microsoft Excel. 
+View
+Developer
+Help
+Power Pivot
+Acrobat
+Data
+Filter
+Refresh
+Change Data
+Source
+Insert
+Slicer
+Insert
+Timeline
+Filter
+Connections
+fx
+fx
+B
+A
+C
+D
+E
+F
+$    3,838,203.58
+$         80,333.00
+$    3,060,781.37
+$   1,210,703.93
+$       278,233.02
+$         51,825.00
+$         18,033.00
+$ 43,294,238.92
+$   4,242,923.45
+$    2,458,319.00
+$       530,673.88
+$    1,047,971.77
+$       129,924.35
+1
+13
+12
+11
+10
+9
+8
+7
+6
+5
+4
+3
+2
+Sum of Amount
+AssetTagID
+AssetDescription
+CategoryID
+Category
+Amount
+AcquisitionDate
+Quarters
+Years
+?
+OK
+Cancel
+Review
+Data
+Refresh
+Change Data
+Source
+Filter
+Connections
+1
+Insert Slicers
+2
+ ILLUSTRATION 2.32  Adding Slicers to PivotTables 
+
+2.3 How Do We Organize Data Sets for Analysis? 
+2-23
+  1.  Click in the PivotTable and choose  Insert Slicer from the menu. This will open a box 
+with all the PivotTable fields. 
+  2. Select the fields for the slicers. If the goal is to determine how much was spent on each 
+category of assets by year, then slice data by asset category and year. To do this, select 
+Category and AcquisitionDate. 
+Illustration 2.33 shows the resulting slicers. One is for category and the other is for year. 
+fx
+1
+A
+B
+C
+D
+Sheet1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+AutoSave
+Oﬀ
+Category
+Years
+2016
+2017
+2018
+2020
+2021
+2022
+2023
+2019
+$   8,141,730.27
+$ 8,141,730.27
+Grand Total
+Row Labels
+Sum of Amount
+Computer Equipment
+Agricultural and Farm 
+Athletic and Recreation
+Boats, Boat Motors, and 
+Cleaning and Maintena
+Communication, Audio
+Computer Equipment
+Food Preparation and 
+Furniture and Furnishin
+ ILLUSTRATION 2.33  PivotTable Slicers Discovering the Total Amount by Category and Year 
+ In Illustration  2.33 , clicking Computer Equipment in the Category slicer and 2022 in the 
+Years slicer results in a PivotTable with the sum of computer equipment purchased in 2022. 
+ Slicers can be added to Power BI by choosing the slicer tool in Visualizations ( Illustra-
+tion 2.34) . 
+R
+Py
+Values
+Cross-report
+Keep all filters
+Drill through
+Oﬀ
+On
+Fields
+Visualizations
+Filters
+Sheet1
+AcquisitionDate 
+Amount
+AssetDescription
+AssetTagID
+Category
+CategoryID
+Year
+Add data fields here
+Add data fields here
+Add data fields here
+Search
+Filters on this visual
+Filters on this page
+Filters on all pages
+Amount
+is (All)
+is (All)
+Category
+Category
+Amount
+Add drill-through fields here
+Search
+fx
+R
+Py
+ ILLUSTRATION 2.34 Pivot Table
+Slicers Using PowerBI 
+
+2-24
+CHAPTER 2 Foundational Data Analysis Skills
+Next, select Category to create category slicers and repeat for the AcquisitionDate slicers. 
+Illustration 2.35 shows the result. 
+File
+Modeling
+View
+Help
+Insert
+Home
+fx
+1
+A
+C
+B
+Sheet1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+Category
+Total
+$ 8,141,730.27
+Computer Equipment
+$  8,141,730.27
+Amount
+Select Multiple Items
+OK
+Cancel
+Year
+Select Multiple Items
+OK
+Cancel
+Category
+2018
+2019
+2020
+2021
+2022
+2023
+2024
+Food Preparation and Serving Equipment
+Sign in
+Computer Equipment
+Communication, Audio-Visual, Alarm
+Cleaning and Maintenance Equipment
+Boats, Boat Motors, and Marine Equipment
+Athletic and Recreational Equipment
+Agricultural and Farm Machinery
+ ILLUSTRATION 2.35  Power BI Slicers for Category and Year 
+Because pivot table functions summarize data to quickly find answers to our questions, 
+creating pivot tables is a core data analysis skill you will use frequently in your career. 
+ Apply It 2.3
+Analyze Sales with 
+Excel PivotTables
+Data
+Financial Accounting
+Managerial Accounting Your supervisor at Super Scooters has 
+asked you to analyze sales for 2025 and revenue for all years. Create an Excel PivotTable to determine 
+the following:  
+  1.  What are the total gross sales for each location in 2025? 
+  2.  What is the average gross sales amount for each model in 2025? 
+  3.  What is total revenue per year? 
+ SOLUTION 
+ 1.  Choose (or drag) the fields: Location for  Rows , Gross Sales for  Values , and Year for 
+Filters . In the year filter pick 2025.
+Row Labels
+Sum of Gross Sales
+Boston
+Charlotte
+Chicago
+Dallas
+Miami
+Phoenix
+Salt Lake City
+Seattle
+$      1,433,578.00
+$      1,653,506.00
+$      1,624,719.00
+$      1,134,785.00
+$      1,606,576.00
+$      1,376,503.00
+$      1,593,184.00
+$      1,742,311.00
+$ 12,165,162.00
+Grand Total
+Year
+2025
+
+2.4  Which Descriptive Measures Help Us Understand Data? 
+2-25
+	 2.	 Begin by dragging the fields: Model to Rows, Gross Sales to Values, and Year to Filters. 
+Change the Sum of Gross Sales to Average by opening Value Field Settings and choosing 
+Average. In the year filter, select 2025.
+Row Labels
+Average of Gross Sales
+Captain
+Celeritas
+Kicks
+Lazer
+$ 15,855.84
+$   4,977.54
+$   2,760.45
+$   7,981.45
+$  9,098.85
+Grand Total
+Year
+2025
+	 3.	 Choose the following fields: Years to Rows, Revenue to Values.
+Year
+Sum of Total Revenue
+2023
+2024
+2025
+$      1,827,384.78
+$      4,086,546.19
+$      4,745,563.32
+$ 10,659,494.29
+Grand Total
+2.4  Which Descriptive Measures Help Us 
+Understand Data?
+LEARNING OBJECTIVE ➍
+Identify descriptive measures used to perform data analysis.
+You have learned how to identify and retrieve data and some basic approaches to analyzing it. 
+Earlier in the course, you also learned that there are four types of data analytics:
+•	Descriptive
+•	Diagnostic
+•	Predictive
+•	Prescriptive
+Recall that descriptive analytics help reveal what has happened or is currently happening 
+in the data. Why are descriptive analytics considered central to data analytics? Without that 
+basic understanding of the data, advancing to more sophisticated data analysis methods is 
+impossible. Sometimes descriptive analyses are all that are necessary, but more often this 
+method is the precursor for diagnostic, predictive, and prescriptive analyses. The core data 
+analysis skill for descriptive analytics is understanding descriptive statistics and correlation 
+analysis.
+
+2-26 
+CHAPTER 2  Foundational Data Analysis Skills
+Descriptive statistics reveal average observations in the data, the data’s shape. and the 
+distribution of the data. In addition, correlation analysis can show relationships in 
+the data. Together, these statistics provide data insights.
+Measures of Location
+Measures of location determine the average, or typical, observation in the data set. 
+Mean, Median, and Mode
+A measure of central tendency is a single value that describes a set of data by identifying 
+the central position within that data set. There are three measures of central tendency:
+•	Mean: The sum of all observations in a data set divided by the total number of 
+observations.
+•	Median: The middle value when the data is arranged from smallest to largest.
+•	Mode: The observation that occurs most frequently.
+Determining the mean and median is the first step for understanding data during descriptive 
+analysis. The two measures are often similar, but because the mean can be influenced by out-
+liers (extreme values in the data set), there may be a large difference between them. If there 
+are outliers in the data, then the median is a better representation of the central value in the 
+data set.
+Mode is useful in data sets with a small number of unique values. For example, an 
+accounts receivable aging report may have values of 30, 60, and 90 days. A mode of the aging 
+report data would reveal which category has the most observations. If there are few repeating 
+values, then mode is not a useful measure of central tendency.
+Excel is used here to calculate mean and median and interpret the results, but many tools 
+can calculate mean and median values. In fact, all data visualization software can calculate 
+mean and median. Regardless of how it is calculated, two things are important:
+•	Understanding how to calculate the measures.
+•	Knowing how to interpret the results.
+Calculate Measures of Location
+We will use the university example again to illustrate how to calculate the mean, median, 
+and mode. Instead of assets, however, we will perform a descriptive analysis of the university 
+payroll.
+Data   Illustration 2.36 is an excerpt from the university payroll data set. The data set 
+shows the employee titles column and the annual salaries for all university employees (10,789 
+employees).
+
+2.4  Which Descriptive Measures Help Us Understand Data? 
+2-27
+fx
+1
+B
+C
+Sheet1
+2
+3
+4
+6
+10790
+10791
+Program Coordinator
+Eminent Scholar
+Eminent Scholar
+Network Administrator
+Professor
+10789
+Associate Professor
+$    94,626.00
+$ 141,939.00
+5
+Assistant Professor
+$    87,454.00
+$    48,874.00
+$    23,998.00
+$    59,196.00
+$    57,633.00
+Title
+AnnualSalary
+AutoSave
+Oﬀ
+University Payroll Data
+The first two steps involve Excel functions:
+	 1.	 Calculate the mean using the Excel function AVERAGE. The formula is =­AVERAGE 
+(C2:C10790). The result is $40,065.88.
+	 2.	 Calculate the median using the Excel function MEDIAN. The formula is =­MEDIAN 
+(C2:C10790). The result is $28,276.00.
+Comparing the two measures shows a large difference between the mean and the median 
+annual salary for an employee ($11,789.88). What could cause this? Remember, mean can be 
+affected by outliers. The data can be further examined to determine if there are extremely high 
+or low salary amounts.
