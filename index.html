@@ -216,16 +216,11 @@
                   btn.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
                   wrapper.appendChild(btn);
 
-                  // Create Google Docs Viewer Iframe
-                  let viewerUrl = 'https://docs.google.com/viewer?url=' + encodeURIComponent(absoluteUrl) + '&embedded=true';
-                  let newIframe = document.createElement('iframe');
-                  newIframe.src = viewerUrl;
-                  newIframe.className = obj.className;
-                  newIframe.style.width = '100%';
-                  newIframe.style.height = '85vh';
-                  newIframe.style.border = 'none';
-                  newIframe.style.borderRadius = '10px';
-                  wrapper.appendChild(newIframe);
+                  // Keep native object but move it inside wrapper
+                  let newObj = obj.cloneNode(true);
+                  newObj.style.width = '100%';
+                  newObj.style.height = '85vh';
+                  wrapper.appendChild(newObj);
                   
                   obj.parentNode.replaceChild(wrapper, obj);
                 }
