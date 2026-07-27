@@ -1,37 +1,27 @@
 # Buổi 7: AI trong Tài chính Doanh nghiệp và Kiểm toán (Tự động hóa Kiểm soát Nội bộ & Phát hiện Gian lận)
 
-<div style="margin: 20px 0; padding: 15px; background-color: #f8f9fa; border-left: 4px solid #0056b3; border-radius: 4px;">
-    <h4 style="margin-top: 0;">🎧 Nghe Bài Giảng (Audio)</h4>
-    <audio controls style="width: 100%;">
-        <source src="audio/AIAcc_Day_07_Lưới_trời_AI_bủa_vây_gian_lận.m4a" type="audio/mp4">
-        Trình duyệt của bạn không hỗ trợ thẻ audio.
-    </audio>
-</div>
-
 <!-- tabs:start -->
 
-#### ** 🇬🇧 Tiếng Anh (Bản gốc PDF) **
-
-> Buổi học này bao gồm **2 tài liệu PDF gốc** từ giáo trình học phần (`textbook/`). Trình duyệt của bạn sẽ hiển thị nội dung từng tài liệu ở bên dưới.
+#### ** 🇬🇧 Tiếng Anh **
 
 ### 📄 Tài liệu PDF 1: Chương 9: Automating Internal Controls
 
-<object data="textbook/Buoi_07A_Chương 9 (Automating Internal Controls).pdf" type="application/pdf" class="pdf-container" width="100%" height="800px">
-    <p>Trình duyệt của bạn không hỗ trợ xem PDF nhúng. <a href="textbook/Buoi_07A_Chương 9 (Automating Internal Controls).pdf" target="_blank">Nhấn vào đây để tải tài liệu PDF 1</a>.</p>
+<object data="textbook/Buoi_07A_Chương 9 (Automating Internal Controls).pdf#view=FitH" type="application/pdf" class="pdf-container" width="100%" height="800px">
+    <p>Trình duyệt của bạn không hỗ trợ xem PDF nhúng. <a href="textbook/Buoi_07A_Chương 9 (Automating Internal Controls).pdf#view=FitH" target="_blank">Nhấn vào đây để tải tài liệu PDF 1</a>.</p>
 </object>
-<p style="text-align: right;"><a href="textbook/Buoi_07A_Chương 9 (Automating Internal Controls).pdf" target="_blank" style="font-weight: bold; color: #0056b3;">📥 Tải về Tài liệu 1 (PDF)</a></p>
+<p style="text-align: right;"><a href="textbook/Buoi_07A_Chương 9 (Automating Internal Controls).pdf#view=FitH" target="_blank" style="font-weight: bold; color: #0056b3;">📥 Tải về Tài liệu 1 (PDF)</a></p>
 
 ---
 
 ### 📄 Tài liệu PDF 2: Chương 12: Intelligent Automation of Fraud Detection
 
-<object data="textbook/Buoi_07B_Chương 12 (Intelligent Automation of Fraud Detection).pdf" type="application/pdf" class="pdf-container" width="100%" height="800px">
-    <p>Trình duyệt của bạn không hỗ trợ xem PDF nhúng. <a href="textbook/Buoi_07B_Chương 12 (Intelligent Automation of Fraud Detection).pdf" target="_blank">Nhấn vào đây để tải tài liệu PDF 2</a>.</p>
+<object data="textbook/Buoi_07B_Chương 12 (Intelligent Automation of Fraud Detection).pdf#view=FitH" type="application/pdf" class="pdf-container" width="100%" height="800px">
+    <p>Trình duyệt của bạn không hỗ trợ xem PDF nhúng. <a href="textbook/Buoi_07B_Chương 12 (Intelligent Automation of Fraud Detection).pdf#view=FitH" target="_blank">Nhấn vào đây để tải tài liệu PDF 2</a>.</p>
 </object>
-<p style="text-align: right;"><a href="textbook/Buoi_07B_Chương 12 (Intelligent Automation of Fraud Detection).pdf" target="_blank" style="font-weight: bold; color: #0056b3;">📥 Tải về Tài liệu 2 (PDF)</a></p>
+<p style="text-align: right;"><a href="textbook/Buoi_07B_Chương 12 (Intelligent Automation of Fraud Detection).pdf#view=FitH" target="_blank" style="font-weight: bold; color: #0056b3;">📥 Tải về Tài liệu 2 (PDF)</a></p>
 
 
-#### ** 🇻🇳 Tiếng Việt (Bản dịch) **
+#### ** 🇻🇳 Tiếng Việt **
 
 # 1. Đánh giá Kiểm soát Nội bộ Tự động (Automating Internal Controls Assessment)
 
@@ -386,9 +376,9 @@ Wolfe, D. T. and Hermanson, D. R. (2004) The Fraud diamond: Considering the four
 
 #### ** 🎦 Slide Bài Giảng **
 
-<object data="TaiLieu/slideAIAcc/Slide_AIAcc_Day07.pdf" type="application/pdf" class="pdf-container" width="100%" height="800px">
-    <p>Trình duyệt của bạn không hỗ trợ xem PDF nhúng. <a href="TaiLieu/slideAIAcc/Slide_AIAcc_Day07.pdf" target="_blank">Nhấn vào đây để tải Slide Bài Giảng</a>.</p>
+<object data="TaiLieu/slideAIAcc/Slide_AIAcc_Day07.pdf#view=FitH" type="application/pdf" class="pdf-container" width="100%" height="800px">
+    <p>Trình duyệt của bạn không hỗ trợ xem PDF nhúng. <a href="TaiLieu/slideAIAcc/Slide_AIAcc_Day07.pdf#view=FitH" target="_blank">Nhấn vào đây để tải Slide Bài Giảng</a>.</p>
 </object>
-<p style="text-align: right;"><a href="TaiLieu/slideAIAcc/Slide_AIAcc_Day07.pdf" target="_blank" style="font-weight: bold; color: #0056b3;">📥 Tải về Slide Bài Giảng (PDF)</a></p>
+<p style="text-align: right;"><a href="TaiLieu/slideAIAcc/Slide_AIAcc_Day07.pdf#view=FitH" target="_blank" style="font-weight: bold; color: #0056b3;">📥 Tải về Slide Bài Giảng (PDF)</a></p>
 
 <!-- tabs:end -->

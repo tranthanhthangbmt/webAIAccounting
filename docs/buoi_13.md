@@ -1,37 +1,27 @@
 # Buổi 13: Kỹ thuật Viết Prompt & Chiến lược Phân tích Dữ liệu Tài chính (SPARKS Framework)
 
-<div style="margin: 20px 0; padding: 15px; background-color: #f8f9fa; border-left: 4px solid #0056b3; border-radius: 4px;">
-    <h4 style="margin-top: 0;">🎧 Nghe Bài Giảng (Audio)</h4>
-    <audio controls style="width: 100%;">
-        <source src="audio/AIAcc_Day_13_Chiến_lược_dữ_liệu_tài_chính_AI.m4a" type="audio/mp4">
-        Trình duyệt của bạn không hỗ trợ thẻ audio.
-    </audio>
-</div>
-
 <!-- tabs:start -->
 
-#### ** 🇬🇧 Tiếng Anh (Bản gốc PDF) **
-
-> Buổi học này bao gồm **2 tài liệu PDF gốc** từ giáo trình học phần (`textbook/`). Trình duyệt của bạn sẽ hiển thị nội dung từng tài liệu ở bên dưới.
+#### ** 🇬🇧 Tiếng Anh **
 
 ### 📄 Tài liệu PDF 1: Chương 6: Turbocharging Financial Analysis (Scott Dell)
 
-<object data="textbook/Buoi_13A_Chương 6 (Turbocharging Financial Analysis).pdf" type="application/pdf" class="pdf-container" width="100%" height="800px">
-    <p>Trình duyệt của bạn không hỗ trợ xem PDF nhúng. <a href="textbook/Buoi_13A_Chương 6 (Turbocharging Financial Analysis).pdf" target="_blank">Nhấn vào đây để tải tài liệu PDF 1</a>.</p>
+<object data="textbook/Buoi_13A_Chương 6 (Turbocharging Financial Analysis).pdf#view=FitH" type="application/pdf" class="pdf-container" width="100%" height="800px">
+    <p>Trình duyệt của bạn không hỗ trợ xem PDF nhúng. <a href="textbook/Buoi_13A_Chương 6 (Turbocharging Financial Analysis).pdf#view=FitH" target="_blank">Nhấn vào đây để tải tài liệu PDF 1</a>.</p>
 </object>
-<p style="text-align: right;"><a href="textbook/Buoi_13A_Chương 6 (Turbocharging Financial Analysis).pdf" target="_blank" style="font-weight: bold; color: #0056b3;">📥 Tải về Tài liệu 1 (PDF)</a></p>
+<p style="text-align: right;"><a href="textbook/Buoi_13A_Chương 6 (Turbocharging Financial Analysis).pdf#view=FitH" target="_blank" style="font-weight: bold; color: #0056b3;">📥 Tải về Tài liệu 1 (PDF)</a></p>
 
 ---
 
 ### 📄 Tài liệu PDF 2: Chương 3 & 4: Planning Data Strategies & SPARKS Framework
 
-<object data="textbook/Buoi_13B_Chương 3 & 4 (Planning Data Strategies).pdf" type="application/pdf" class="pdf-container" width="100%" height="800px">
-    <p>Trình duyệt của bạn không hỗ trợ xem PDF nhúng. <a href="textbook/Buoi_13B_Chương 3 & 4 (Planning Data Strategies).pdf" target="_blank">Nhấn vào đây để tải tài liệu PDF 2</a>.</p>
+<object data="textbook/Buoi_13B_Chương 3 & 4 (Planning Data Strategies).pdf#view=FitH" type="application/pdf" class="pdf-container" width="100%" height="800px">
+    <p>Trình duyệt của bạn không hỗ trợ xem PDF nhúng. <a href="textbook/Buoi_13B_Chương 3 & 4 (Planning Data Strategies).pdf#view=FitH" target="_blank">Nhấn vào đây để tải tài liệu PDF 2</a>.</p>
 </object>
-<p style="text-align: right;"><a href="textbook/Buoi_13B_Chương 3 & 4 (Planning Data Strategies).pdf" target="_blank" style="font-weight: bold; color: #0056b3;">📥 Tải về Tài liệu 2 (PDF)</a></p>
+<p style="text-align: right;"><a href="textbook/Buoi_13B_Chương 3 & 4 (Planning Data Strategies).pdf#view=FitH" target="_blank" style="font-weight: bold; color: #0056b3;">📥 Tải về Tài liệu 2 (PDF)</a></p>
 
 
-#### ** 🇻🇳 Tiếng Việt (Bản dịch) **
+#### ** 🇻🇳 Tiếng Việt **
 
 # PHẦN I: TĂNG CƯỜNG PHÂN TÍCH VÀ DỰ ĐOÁN TÀI CHÍNH VỚI AI (SCOTT DELL - CHƯƠNG 6)
 
@@ -228,9 +218,9 @@ Buổi 13 là sự giao thoa hoàn hảo giữa công nghệ hiện đại (**K�
 
 #### ** 🎦 Slide Bài Giảng **
 
-<object data="TaiLieu/slideAIAcc/Slide_AIAcc_Day13.pdf" type="application/pdf" class="pdf-container" width="100%" height="800px">
-    <p>Trình duyệt của bạn không hỗ trợ xem PDF nhúng. <a href="TaiLieu/slideAIAcc/Slide_AIAcc_Day13.pdf" target="_blank">Nhấn vào đây để tải Slide Bài Giảng</a>.</p>
+<object data="TaiLieu/slideAIAcc/Slide_AIAcc_Day13.pdf#view=FitH" type="application/pdf" class="pdf-container" width="100%" height="800px">
+    <p>Trình duyệt của bạn không hỗ trợ xem PDF nhúng. <a href="TaiLieu/slideAIAcc/Slide_AIAcc_Day13.pdf#view=FitH" target="_blank">Nhấn vào đây để tải Slide Bài Giảng</a>.</p>
 </object>
-<p style="text-align: right;"><a href="TaiLieu/slideAIAcc/Slide_AIAcc_Day13.pdf" target="_blank" style="font-weight: bold; color: #0056b3;">📥 Tải về Slide Bài Giảng (PDF)</a></p>
+<p style="text-align: right;"><a href="TaiLieu/slideAIAcc/Slide_AIAcc_Day13.pdf#view=FitH" target="_blank" style="font-weight: bold; color: #0056b3;">📥 Tải về Slide Bài Giảng (PDF)</a></p>
 
 <!-- tabs:end -->

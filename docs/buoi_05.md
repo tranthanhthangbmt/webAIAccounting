@@ -1,37 +1,27 @@
 # Buổi 5: AI trong Quản lý Chuỗi cung ứng và Phát triển Kinh tế Xanh, Bền vững
 
-<div style="margin: 20px 0; padding: 15px; background-color: #f8f9fa; border-left: 4px solid #0056b3; border-radius: 4px;">
-    <h4 style="margin-top: 0;">🎧 Nghe Bài Giảng (Audio)</h4>
-    <audio controls style="width: 100%;">
-        <source src="audio/AIAcc_Day_05_Random_Forests_AB_Testing_và_rủi_ro.m4a" type="audio/mp4">
-        Trình duyệt của bạn không hỗ trợ thẻ audio.
-    </audio>
-</div>
-
 <!-- tabs:start -->
 
-#### ** 🇬🇧 Tiếng Anh (Bản gốc PDF) **
-
-> Buổi học này bao gồm **2 tài liệu PDF gốc** từ giáo trình học phần (`textbook/`). Trình duyệt của bạn sẽ hiển thị nội dung từng tài liệu ở bên dưới.
+#### ** 🇬🇧 Tiếng Anh **
 
 ### 📄 Tài liệu PDF 1: Chương 12: Managing Decision Uncertainty
 
-<object data="textbook/Buoi_05A_Chương 12 (Managing Decision Uncertainty).pdf" type="application/pdf" class="pdf-container" width="100%" height="800px">
-    <p>Trình duyệt của bạn không hỗ trợ xem PDF nhúng. <a href="textbook/Buoi_05A_Chương 12 (Managing Decision Uncertainty).pdf" target="_blank">Nhấn vào đây để tải tài liệu PDF 1</a>.</p>
+<object data="textbook/Buoi_05A_Chương 12 (Managing Decision Uncertainty).pdf#view=FitH" type="application/pdf" class="pdf-container" width="100%" height="800px">
+    <p>Trình duyệt của bạn không hỗ trợ xem PDF nhúng. <a href="textbook/Buoi_05A_Chương 12 (Managing Decision Uncertainty).pdf#view=FitH" target="_blank">Nhấn vào đây để tải tài liệu PDF 1</a>.</p>
 </object>
-<p style="text-align: right;"><a href="textbook/Buoi_05A_Chương 12 (Managing Decision Uncertainty).pdf" target="_blank" style="font-weight: bold; color: #0056b3;">📥 Tải về Tài liệu 1 (PDF)</a></p>
+<p style="text-align: right;"><a href="textbook/Buoi_05A_Chương 12 (Managing Decision Uncertainty).pdf#view=FitH" target="_blank" style="font-weight: bold; color: #0056b3;">📥 Tải về Tài liệu 1 (PDF)</a></p>
 
 ---
 
 ### 📄 Tài liệu PDF 2: Chương 14: New Product Development & Financial Planning
 
-<object data="textbook/Buoi_05B_Chương 14 (New Product Development).pdf" type="application/pdf" class="pdf-container" width="100%" height="800px">
-    <p>Trình duyệt của bạn không hỗ trợ xem PDF nhúng. <a href="textbook/Buoi_05B_Chương 14 (New Product Development).pdf" target="_blank">Nhấn vào đây để tải tài liệu PDF 2</a>.</p>
+<object data="textbook/Buoi_05B_Chương 14 (New Product Development).pdf#view=FitH" type="application/pdf" class="pdf-container" width="100%" height="800px">
+    <p>Trình duyệt của bạn không hỗ trợ xem PDF nhúng. <a href="textbook/Buoi_05B_Chương 14 (New Product Development).pdf#view=FitH" target="_blank">Nhấn vào đây để tải tài liệu PDF 2</a>.</p>
 </object>
-<p style="text-align: right;"><a href="textbook/Buoi_05B_Chương 14 (New Product Development).pdf" target="_blank" style="font-weight: bold; color: #0056b3;">📥 Tải về Tài liệu 2 (PDF)</a></p>
+<p style="text-align: right;"><a href="textbook/Buoi_05B_Chương 14 (New Product Development).pdf#view=FitH" target="_blank" style="font-weight: bold; color: #0056b3;">📥 Tải về Tài liệu 2 (PDF)</a></p>
 
 
-#### ** 🇻🇳 Tiếng Việt (Bản dịch) **
+#### ** 🇻🇳 Tiếng Việt **
 
 # 12 QUẢN LÝ SỰ KHÔNG CHẮC CHẮN TRONG RA QUYẾT ĐỊNH BẰNG RANDOM FORESTS (MANAGING DECISION UNCERTAINTY USING RANDOM FORESTS)
 
@@ -344,9 +334,9 @@ d. Khi các nhóm bị phụ thuộc
 
 #### ** 🎦 Slide Bài Giảng **
 
-<object data="TaiLieu/slideAIAcc/Slide_AIAcc_Day05.pdf" type="application/pdf" class="pdf-container" width="100%" height="800px">
-    <p>Trình duyệt của bạn không hỗ trợ xem PDF nhúng. <a href="TaiLieu/slideAIAcc/Slide_AIAcc_Day05.pdf" target="_blank">Nhấn vào đây để tải Slide Bài Giảng</a>.</p>
+<object data="TaiLieu/slideAIAcc/Slide_AIAcc_Day05.pdf#view=FitH" type="application/pdf" class="pdf-container" width="100%" height="800px">
+    <p>Trình duyệt của bạn không hỗ trợ xem PDF nhúng. <a href="TaiLieu/slideAIAcc/Slide_AIAcc_Day05.pdf#view=FitH" target="_blank">Nhấn vào đây để tải Slide Bài Giảng</a>.</p>
 </object>
-<p style="text-align: right;"><a href="TaiLieu/slideAIAcc/Slide_AIAcc_Day05.pdf" target="_blank" style="font-weight: bold; color: #0056b3;">📥 Tải về Slide Bài Giảng (PDF)</a></p>
+<p style="text-align: right;"><a href="TaiLieu/slideAIAcc/Slide_AIAcc_Day05.pdf#view=FitH" target="_blank" style="font-weight: bold; color: #0056b3;">📥 Tải về Slide Bài Giảng (PDF)</a></p>
 
 <!-- tabs:end -->

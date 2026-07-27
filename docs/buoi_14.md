@@ -1,16 +1,8 @@
 # Buổi 14: Phân tích Dữ liệu Kế toán Chuyên sâu (Khám phá Dữ liệu & Trực quan hóa Kết quả)
 
-<div style="margin: 20px 0; padding: 15px; background-color: #f8f9fa; border-left: 4px solid #0056b3; border-radius: 4px;">
-    <h4 style="margin-top: 0;">🎧 Nghe Bài Giảng (Audio)</h4>
-    <audio controls style="width: 100%;">
-        <source src="audio/AIAcc_Day_14_Nghệ_thuật_kể_chuyện_bằng_dữ_liệu.m4a" type="audio/mp4">
-        Trình duyệt của bạn không hỗ trợ thẻ audio.
-    </audio>
-</div>
-
 <!-- tabs:start -->
 
-#### ** 🇬🇧 Tiếng Anh (Bản gốc PDF) **
+#### ** 🇬🇧 Tiếng Anh **
 
 > [!NOTE]
 > **Tài liệu học tập chính thức:** Buổi 14 bao gồm hai chương sách cốt lõi thuộc giáo trình **Data Analytics for Accounting (Ann C. Dzuranin)**:
@@ -23,22 +15,22 @@
 
 ### TÀI LIỆU 1: CHƯƠNG 7 – DATA EXPLORATION (KHÁM PHÁ DỮ LIỆU KẾ TOÁN)
 
-<object data="textbook/Buoi_14A_Chương 7 (Data Exploration).pdf" type="application/pdf" width="100%" height="850px">
+<object data="textbook/Buoi_14A_Chương 7 (Data Exploration).pdf#view=FitH" type="application/pdf" width="100%" height="850px">
     <p>Trình duyệt của bạn không hỗ trợ xem trực tiếp file PDF. Vui lòng tải tài liệu tại đây: 
-    <a href="textbook/Buoi_14A_Chương 7 (Data Exploration).pdf" target="_blank">Tải xuống Buoi_14A_Chương 7 (Data Exploration).pdf</a></p>
+    <a href="textbook/Buoi_14A_Chương 7 (Data Exploration).pdf#view=FitH" target="_blank">Tải xuống Buoi_14A_Chương 7 (Data Exploration).pdf</a></p>
 </object>
 
 ---
 
 ### TÀI LIỆU 2: CHƯƠNG 9 – COMMUNICATING RESULTS (TRUYỀN ĐẠT KẾT QUẢ PHÂN TÍCH)
 
-<object data="textbook/Buoi_14B_Chương 9 (Communicating Results).pdf" type="application/pdf" width="100%" height="850px">
+<object data="textbook/Buoi_14B_Chương 9 (Communicating Results).pdf#view=FitH" type="application/pdf" width="100%" height="850px">
     <p>Trình duyệt của bạn không hỗ trợ xem trực tiếp file PDF. Vui lòng tải tài liệu tại đây: 
-    <a href="textbook/Buoi_14B_Chương 9 (Communicating Results).pdf" target="_blank">Tải xuống Buoi_14B_Chương 9 (Communicating Results).pdf</a></p>
+    <a href="textbook/Buoi_14B_Chương 9 (Communicating Results).pdf#view=FitH" target="_blank">Tải xuống Buoi_14B_Chương 9 (Communicating Results).pdf</a></p>
 </object>
 
 
-#### ** 🇻🇳 Tiếng Việt (Bản dịch) **
+#### ** 🇻🇳 Tiếng Việt **
 
 # PHÂN TÍCH DỮ LIỆU KẾ TOÁN CHUYÊN SÂU: KHÁM PHÁ DỮ LIỆU VÀ NGHỆ THUẬT TRUYỀN ĐẠT KẾT QUẢ
 *(Bản dịch toàn diện, học thuật & tích hợp đầy đủ 124 trang từ Chương 7 và Chương 9 – sách **Data Analytics for Accounting**, tác giả **Ann C. Dzuranin**)*
@@ -545,9 +537,9 @@ Kế toán viên hiện đại có thể kết hợp PivotTable Excel và AI t�
 
 #### ** 🎦 Slide Bài Giảng **
 
-<object data="TaiLieu/slideAIAcc/Slide_AIAcc_Day14.pdf" type="application/pdf" class="pdf-container" width="100%" height="800px">
-    <p>Trình duyệt của bạn không hỗ trợ xem PDF nhúng. <a href="TaiLieu/slideAIAcc/Slide_AIAcc_Day14.pdf" target="_blank">Nhấn vào đây để tải Slide Bài Giảng</a>.</p>
+<object data="TaiLieu/slideAIAcc/Slide_AIAcc_Day14.pdf#view=FitH" type="application/pdf" class="pdf-container" width="100%" height="800px">
+    <p>Trình duyệt của bạn không hỗ trợ xem PDF nhúng. <a href="TaiLieu/slideAIAcc/Slide_AIAcc_Day14.pdf#view=FitH" target="_blank">Nhấn vào đây để tải Slide Bài Giảng</a>.</p>
 </object>
-<p style="text-align: right;"><a href="TaiLieu/slideAIAcc/Slide_AIAcc_Day14.pdf" target="_blank" style="font-weight: bold; color: #0056b3;">📥 Tải về Slide Bài Giảng (PDF)</a></p>
+<p style="text-align: right;"><a href="TaiLieu/slideAIAcc/Slide_AIAcc_Day14.pdf#view=FitH" target="_blank" style="font-weight: bold; color: #0056b3;">📥 Tải về Slide Bài Giảng (PDF)</a></p>
 
 <!-- tabs:end -->

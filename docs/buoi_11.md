@@ -1,28 +1,18 @@
 # Buổi 11: Thực hành AI Phân tích Dữ liệu Cơ bản (Cơ sở Dữ liệu Quan hệ, SQL & Excel)
 
-<div style="margin: 20px 0; padding: 15px; background-color: #f8f9fa; border-left: 4px solid #0056b3; border-radius: 4px;">
-    <h4 style="margin-top: 0;">🎧 Nghe Bài Giảng (Audio)</h4>
-    <audio controls style="width: 100%;">
-        <source src="audio/AIAcc_Day_11_Vạch_trần_rủi_ro_bằng_SQL_Excel.m4a" type="audio/mp4">
-        Trình duyệt của bạn không hỗ trợ thẻ audio.
-    </audio>
-</div>
-
 <!-- tabs:start -->
 
-#### ** 🇬🇧 Tiếng Anh (Bản gốc PDF) **
-
-> Trình duyệt của bạn sẽ hiển thị nội dung PDF bài học gốc từ tài liệu giáo trình (`textbook/`) ở bên dưới.
+#### ** 🇬🇧 Tiếng Anh **
 
 ### 📄 Chương 2: Foundational Data Analysis Skills (Ann C. Dzuranin)
 
-<object data="textbook/Buoi_11_Chương 2 (Foundational Data Analysis Skills).pdf" type="application/pdf" class="pdf-container" width="100%" height="800px">
-    <p>Trình duyệt của bạn không hỗ trợ xem PDF nhúng. <a href="textbook/Buoi_11_Chương 2 (Foundational Data Analysis Skills).pdf" target="_blank">Nhấn vào đây để tải tài liệu PDF gốc</a>.</p>
+<object data="textbook/Buoi_11_Chương 2 (Foundational Data Analysis Skills).pdf#view=FitH" type="application/pdf" class="pdf-container" width="100%" height="800px">
+    <p>Trình duyệt của bạn không hỗ trợ xem PDF nhúng. <a href="textbook/Buoi_11_Chương 2 (Foundational Data Analysis Skills).pdf#view=FitH" target="_blank">Nhấn vào đây để tải tài liệu PDF gốc</a>.</p>
 </object>
-<p style="text-align: right;"><a href="textbook/Buoi_11_Chương 2 (Foundational Data Analysis Skills).pdf" target="_blank" style="font-weight: bold; color: #0056b3;">📥 Tải về tài liệu PDF (Bản gốc tiếng Anh)</a></p>
+<p style="text-align: right;"><a href="textbook/Buoi_11_Chương 2 (Foundational Data Analysis Skills).pdf#view=FitH" target="_blank" style="font-weight: bold; color: #0056b3;">📥 Tải về tài liệu PDF (Bản gốc tiếng Anh)</a></p>
 
 
-#### ** 🇻🇳 Tiếng Việt (Bản dịch) **
+#### ** 🇻🇳 Tiếng Việt **
 
 # PHẦN I: TỔNG QUAN VÀ MỤC TIÊU HỌC TẬP (OVERVIEW & LEARNING OBJECTIVES)
 
@@ -1184,9 +1174,9 @@ Trường hợp tiếp theo của Le Grind: Sử dụng số liệu thống kê 
 
 #### ** 🎦 Slide Bài Giảng **
 
-<object data="TaiLieu/slideAIAcc/Slide_AIAcc_Day11.pdf" type="application/pdf" class="pdf-container" width="100%" height="800px">
-    <p>Trình duyệt của bạn không hỗ trợ xem PDF nhúng. <a href="TaiLieu/slideAIAcc/Slide_AIAcc_Day11.pdf" target="_blank">Nhấn vào đây để tải Slide Bài Giảng</a>.</p>
+<object data="TaiLieu/slideAIAcc/Slide_AIAcc_Day11.pdf#view=FitH" type="application/pdf" class="pdf-container" width="100%" height="800px">
+    <p>Trình duyệt của bạn không hỗ trợ xem PDF nhúng. <a href="TaiLieu/slideAIAcc/Slide_AIAcc_Day11.pdf#view=FitH" target="_blank">Nhấn vào đây để tải Slide Bài Giảng</a>.</p>
 </object>
-<p style="text-align: right;"><a href="TaiLieu/slideAIAcc/Slide_AIAcc_Day11.pdf" target="_blank" style="font-weight: bold; color: #0056b3;">📥 Tải về Slide Bài Giảng (PDF)</a></p>
+<p style="text-align: right;"><a href="TaiLieu/slideAIAcc/Slide_AIAcc_Day11.pdf#view=FitH" target="_blank" style="font-weight: bold; color: #0056b3;">📥 Tải về Slide Bài Giảng (PDF)</a></p>
 
 <!-- tabs:end -->

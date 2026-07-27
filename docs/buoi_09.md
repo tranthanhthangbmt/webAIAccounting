@@ -1,37 +1,27 @@
 # Buổi 9: AI trong Tài chính Cá nhân và Thị trường Tài sản Số (Crypto Assets & Robo-Advisors)
 
-<div style="margin: 20px 0; padding: 15px; background-color: #f8f9fa; border-left: 4px solid #0056b3; border-radius: 4px;">
-    <h4 style="margin-top: 0;">🎧 Nghe Bài Giảng (Audio)</h4>
-    <audio controls style="width: 100%;">
-        <source src="audio/AIAcc_Day_09_Tài_sản_mã_hóa_và_Robo-Advisors.m4a" type="audio/mp4">
-        Trình duyệt của bạn không hỗ trợ thẻ audio.
-    </audio>
-</div>
-
 <!-- tabs:start -->
 
-#### ** 🇬🇧 Tiếng Anh (Bản gốc PDF) **
-
-> Buổi học này bao gồm **2 tài liệu PDF gốc** từ giáo trình học phần (`textbook/`). Trình duyệt của bạn sẽ hiển thị nội dung từng tài liệu ở bên dưới.
+#### ** 🇬🇧 Tiếng Anh **
 
 ### 📄 Tài liệu PDF 1: Chương 2: AI, Crypto Assets, and Financial Markets
 
-<object data="textbook/Buoi_09A_Chương 2 (AI, Crypto Assets, and Financial Markets).pdf" type="application/pdf" class="pdf-container" width="100%" height="800px">
-    <p>Trình duyệt của bạn không hỗ trợ xem PDF nhúng. <a href="textbook/Buoi_09A_Chương 2 (AI, Crypto Assets, and Financial Markets).pdf" target="_blank">Nhấn vào đây để tải tài liệu PDF 1</a>.</p>
+<object data="textbook/Buoi_09A_Chương 2 (AI, Crypto Assets, and Financial Markets).pdf#view=FitH" type="application/pdf" class="pdf-container" width="100%" height="800px">
+    <p>Trình duyệt của bạn không hỗ trợ xem PDF nhúng. <a href="textbook/Buoi_09A_Chương 2 (AI, Crypto Assets, and Financial Markets).pdf#view=FitH" target="_blank">Nhấn vào đây để tải tài liệu PDF 1</a>.</p>
 </object>
-<p style="text-align: right;"><a href="textbook/Buoi_09A_Chương 2 (AI, Crypto Assets, and Financial Markets).pdf" target="_blank" style="font-weight: bold; color: #0056b3;">📥 Tải về Tài liệu 1 (PDF)</a></p>
+<p style="text-align: right;"><a href="textbook/Buoi_09A_Chương 2 (AI, Crypto Assets, and Financial Markets).pdf#view=FitH" target="_blank" style="font-weight: bold; color: #0056b3;">📥 Tải về Tài liệu 1 (PDF)</a></p>
 
 ---
 
 ### 📄 Tài liệu PDF 2: Chương 6: Robo-Advisors in Financial Services
 
-<object data="textbook/Buoi_9B_Chương 6 (Mục Robo-Advisors).pdf" type="application/pdf" class="pdf-container" width="100%" height="800px">
-    <p>Trình duyệt của bạn không hỗ trợ xem PDF nhúng. <a href="textbook/Buoi_9B_Chương 6 (Mục Robo-Advisors).pdf" target="_blank">Nhấn vào đây để tải tài liệu PDF 2</a>.</p>
+<object data="textbook/Buoi_9B_Chương 6 (Mục Robo-Advisors).pdf#view=FitH" type="application/pdf" class="pdf-container" width="100%" height="800px">
+    <p>Trình duyệt của bạn không hỗ trợ xem PDF nhúng. <a href="textbook/Buoi_9B_Chương 6 (Mục Robo-Advisors).pdf#view=FitH" target="_blank">Nhấn vào đây để tải tài liệu PDF 2</a>.</p>
 </object>
-<p style="text-align: right;"><a href="textbook/Buoi_9B_Chương 6 (Mục Robo-Advisors).pdf" target="_blank" style="font-weight: bold; color: #0056b3;">📥 Tải về Tài liệu 2 (PDF)</a></p>
+<p style="text-align: right;"><a href="textbook/Buoi_9B_Chương 6 (Mục Robo-Advisors).pdf#view=FitH" target="_blank" style="font-weight: bold; color: #0056b3;">📥 Tải về Tài liệu 2 (PDF)</a></p>
 
 
-#### ** 🇻🇳 Tiếng Việt (Bản dịch) **
+#### ** 🇻🇳 Tiếng Việt **
 
 # PHẦN I: AI, TÀI SẢN TIỀN ĐIỆN TỬ VÀ THỊ TRƯỜNG TÀI CHÍNH (AI, CRYPTOASSETS & FINANCIAL MARKETS)
 
@@ -269,9 +259,9 @@ Với sự phổ biến ngày càng tăng của công nghệ AI sáng tạo tron
 
 #### ** 🎦 Slide Bài Giảng **
 
-<object data="TaiLieu/slideAIAcc/Slide_AIAcc_Day09.pdf" type="application/pdf" class="pdf-container" width="100%" height="800px">
-    <p>Trình duyệt của bạn không hỗ trợ xem PDF nhúng. <a href="TaiLieu/slideAIAcc/Slide_AIAcc_Day09.pdf" target="_blank">Nhấn vào đây để tải Slide Bài Giảng</a>.</p>
+<object data="TaiLieu/slideAIAcc/Slide_AIAcc_Day09.pdf#view=FitH" type="application/pdf" class="pdf-container" width="100%" height="800px">
+    <p>Trình duyệt của bạn không hỗ trợ xem PDF nhúng. <a href="TaiLieu/slideAIAcc/Slide_AIAcc_Day09.pdf#view=FitH" target="_blank">Nhấn vào đây để tải Slide Bài Giảng</a>.</p>
 </object>
-<p style="text-align: right;"><a href="TaiLieu/slideAIAcc/Slide_AIAcc_Day09.pdf" target="_blank" style="font-weight: bold; color: #0056b3;">📥 Tải về Slide Bài Giảng (PDF)</a></p>
+<p style="text-align: right;"><a href="TaiLieu/slideAIAcc/Slide_AIAcc_Day09.pdf#view=FitH" target="_blank" style="font-weight: bold; color: #0056b3;">📥 Tải về Slide Bài Giảng (PDF)</a></p>
 
 <!-- tabs:end -->

@@ -1,37 +1,27 @@
 # Buổi 12: Thực hành AI Nhận thức và AI Tạo sinh trong Kế toán - Tài chính (Generative AI & Web-Enhanced ChatGPT)
 
-<div style="margin: 20px 0; padding: 15px; background-color: #f8f9fa; border-left: 4px solid #0056b3; border-radius: 4px;">
-    <h4 style="margin-top: 0;">🎧 Nghe Bài Giảng (Audio)</h4>
-    <audio controls style="width: 100%;">
-        <source src="audio/AIAcc_Day_12_Kế_toán_lột_xác_nhờ_ChatGPT.m4a" type="audio/mp4">
-        Trình duyệt của bạn không hỗ trợ thẻ audio.
-    </audio>
-</div>
-
 <!-- tabs:start -->
 
-#### ** 🇬🇧 Tiếng Anh (Bản gốc PDF) **
-
-> Buổi học này bao gồm **2 tài liệu PDF gốc** từ giáo trình học phần (`textbook/`). Trình duyệt của bạn sẽ hiển thị nội dung từng tài liệu ở bên dưới.
+#### ** 🇬🇧 Tiếng Anh **
 
 ### 📄 Tài liệu PDF 1: Chương 1: Generative AI in Accounting (Scott Dell)
 
-<object data="textbook/Buoi_12A_Chương 1 (Generative AI in Accounting).pdf" type="application/pdf" class="pdf-container" width="100%" height="800px">
-    <p>Trình duyệt của bạn không hỗ trợ xem PDF nhúng. <a href="textbook/Buoi_12A_Chương 1 (Generative AI in Accounting).pdf" target="_blank">Nhấn vào đây để tải tài liệu PDF 1</a>.</p>
+<object data="textbook/Buoi_12A_Chương 1 (Generative AI in Accounting).pdf#view=FitH" type="application/pdf" class="pdf-container" width="100%" height="800px">
+    <p>Trình duyệt của bạn không hỗ trợ xem PDF nhúng. <a href="textbook/Buoi_12A_Chương 1 (Generative AI in Accounting).pdf#view=FitH" target="_blank">Nhấn vào đây để tải tài liệu PDF 1</a>.</p>
 </object>
-<p style="text-align: right;"><a href="textbook/Buoi_12A_Chương 1 (Generative AI in Accounting).pdf" target="_blank" style="font-weight: bold; color: #0056b3;">📥 Tải về Tài liệu 1 (PDF)</a></p>
+<p style="text-align: right;"><a href="textbook/Buoi_12A_Chương 1 (Generative AI in Accounting).pdf#view=FitH" target="_blank" style="font-weight: bold; color: #0056b3;">📥 Tải về Tài liệu 1 (PDF)</a></p>
 
 ---
 
 ### 📄 Tài liệu PDF 2: Chương 12: Web-Enhanced ChatGPT & Custom GPTs
 
-<object data="textbook/Buoi_12B_Chương 12 (Web-Enhanced ChatGPT).pdf" type="application/pdf" class="pdf-container" width="100%" height="800px">
-    <p>Trình duyệt của bạn không hỗ trợ xem PDF nhúng. <a href="textbook/Buoi_12B_Chương 12 (Web-Enhanced ChatGPT).pdf" target="_blank">Nhấn vào đây để tải tài liệu PDF 2</a>.</p>
+<object data="textbook/Buoi_12B_Chương 12 (Web-Enhanced ChatGPT).pdf#view=FitH" type="application/pdf" class="pdf-container" width="100%" height="800px">
+    <p>Trình duyệt của bạn không hỗ trợ xem PDF nhúng. <a href="textbook/Buoi_12B_Chương 12 (Web-Enhanced ChatGPT).pdf#view=FitH" target="_blank">Nhấn vào đây để tải tài liệu PDF 2</a>.</p>
 </object>
-<p style="text-align: right;"><a href="textbook/Buoi_12B_Chương 12 (Web-Enhanced ChatGPT).pdf" target="_blank" style="font-weight: bold; color: #0056b3;">📥 Tải về Tài liệu 2 (PDF)</a></p>
+<p style="text-align: right;"><a href="textbook/Buoi_12B_Chương 12 (Web-Enhanced ChatGPT).pdf#view=FitH" target="_blank" style="font-weight: bold; color: #0056b3;">📥 Tải về Tài liệu 2 (PDF)</a></p>
 
 
-#### ** 🇻🇳 Tiếng Việt (Bản dịch) **
+#### ** 🇻🇳 Tiếng Việt **
 
 # CHƯƠNG 1: TRÍ TUỆ NHÂN TẠO SÁNG TẠO (GAI) TRONG KẾ TOÁN
 
@@ -266,9 +256,9 @@ Cửa hàng GPT (GPT Store) và công nghệ GPT tùy chỉnh trong ChatGPT đá
 
 #### ** 🎦 Slide Bài Giảng **
 
-<object data="TaiLieu/slideAIAcc/Slide_AIAcc_Day12.pdf" type="application/pdf" class="pdf-container" width="100%" height="800px">
-    <p>Trình duyệt của bạn không hỗ trợ xem PDF nhúng. <a href="TaiLieu/slideAIAcc/Slide_AIAcc_Day12.pdf" target="_blank">Nhấn vào đây để tải Slide Bài Giảng</a>.</p>
+<object data="TaiLieu/slideAIAcc/Slide_AIAcc_Day12.pdf#view=FitH" type="application/pdf" class="pdf-container" width="100%" height="800px">
+    <p>Trình duyệt của bạn không hỗ trợ xem PDF nhúng. <a href="TaiLieu/slideAIAcc/Slide_AIAcc_Day12.pdf#view=FitH" target="_blank">Nhấn vào đây để tải Slide Bài Giảng</a>.</p>
 </object>
-<p style="text-align: right;"><a href="TaiLieu/slideAIAcc/Slide_AIAcc_Day12.pdf" target="_blank" style="font-weight: bold; color: #0056b3;">📥 Tải về Slide Bài Giảng (PDF)</a></p>
+<p style="text-align: right;"><a href="TaiLieu/slideAIAcc/Slide_AIAcc_Day12.pdf#view=FitH" target="_blank" style="font-weight: bold; color: #0056b3;">📥 Tải về Slide Bài Giảng (PDF)</a></p>
 
 <!-- tabs:end -->

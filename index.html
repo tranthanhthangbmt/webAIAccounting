@@ -124,8 +124,29 @@
         height: 85vh !important;
       }
     }
+    /* Customize APlayer to blend with the premium theme */
+    .aplayer {
+      border-radius: 10px !important;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+      margin-bottom: 0 !important;
+      font-family: 'Inter', sans-serif !important;
+    }
+
+    .aplayer .aplayer-info .aplayer-music .aplayer-title {
+      font-weight: 600 !important;
+    }
+
+    .aplayer .aplayer-info .aplayer-controller .aplayer-bar-wrap .aplayer-bar .aplayer-played {
+      background: var(--theme-color) !important;
+    }
+
+    .aplayer .aplayer-info .aplayer-controller .aplayer-bar-wrap .aplayer-bar .aplayer-played .aplayer-thumb {
+      background: var(--theme-color) !important;
+    }
   </style>
 
+  <!-- APlayer CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
 </head>
 
 <body>
@@ -168,6 +189,139 @@
 
   <!-- Tabs Plugin -->
   <script src="https://cdn.jsdelivr.net/npm/docsify-tabs@1"></script>
+
+  <!-- APlayer JS -->
+  <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+
+  <!-- APlayer Container -->
+  <div id="aplayer"></div>
+
+  <!-- APlayer Initialization & Docsify Sync Plugin -->
+  <script>
+    const audioFiles = [
+      'AIAcc_Day_01_AI_không_thay_thế_dân_kế_toán.m4a',
+      'AIAcc_Day_02_Tài_chính_thời_AI_Big_Data_Blockchain.m4a',
+      'AIAcc_Day_03_Mặt_tối_của_AI_trong_kế_toán.m4a',
+      'AIAcc_Day_04_AI_tìm_khách,_dự_báo_phá_sản.m4a',
+      'AIAcc_Day_05_Random_Forests_AB_Testing_và_rủi_ro.m4a',
+      'AIAcc_Day_06_AI_vạch_trần_gian_lận_tài_chính.m4a',
+      'AIAcc_Day_07_Lưới_trời_AI_bủa_vây_gian_lận.m4a',
+      'AIAcc_Day_08_Gian_lận_và_thao_túng_bằng_AI.m4a',
+      'AIAcc_Day_09_Tài_sản_mã_hóa_và_Robo-Advisors.m4a',
+      'AIAcc_Day_11_Vạch_trần_rủi_ro_bằng_SQL_Excel.m4a',
+      'AIAcc_Day_12_Kế_toán_lột_xác_nhờ_ChatGPT.m4a',
+      'AIAcc_Day_13_Chiến_lược_dữ_liệu_tài_chính_AI.m4a',
+      'AIAcc_Day_14_Nghệ_thuật_kể_chuyện_bằng_dữ_liệu.m4a'
+    ];
+
+    const playlist = audioFiles.map((file, index) => {
+      // Clean up the name for display
+      let name = file.replace('.m4a', '').replace(/_/g, ' ');
+      return {
+        name: name,
+        artist: 'AI Audiobook',
+        url: encodeURI('audio/' + file),
+        cover: 'https://cdn-icons-png.flaticon.com/512/860/860142.png' // Default AI icon cover
+      };
+    });
+
+    const dayToIndex = {};
+    audioFiles.forEach((file, index) => {
+        let match = file.match(/Day_(\d+)/);
+        if (match && match[1]) {
+            dayToIndex[parseInt(match[1])] = index;
+        }
+    });
+
+    const ap = new APlayer({
+      container: document.getElementById('aplayer'),
+      fixed: true,
+      lrcType: 0,
+      theme: '#1a73e8', // Matches --theme-color
+      preload: 'auto', // Đổi thành auto để trình duyệt buffer trước, tránh ngắt quãng giữa chừng
+      audio: playlist
+    });
+
+    // Xử lý lỗi khi audio bị ngắt giữa chừng do mạng hoặc lỗi file
+    ap.audio.addEventListener('error', function() {
+      console.error('Lỗi phát audio:', ap.audio.error);
+      // Hiển thị thông báo nhỏ nếu có lỗi xảy ra
+      let errorMsg = 'Đã xảy ra lỗi khi tải audio. Vui lòng kiểm tra mạng và thử lại.';
+      if (ap.audio.error && ap.audio.error.code === 3) { // MEDIA_ERR_DECODE
+        errorMsg = 'Lỗi giải mã audio. File có thể bị hỏng hoặc mạng không ổn định.';
+      } else if (ap.audio.error && ap.audio.error.code === 4) { // MEDIA_ERR_SRC_NOT_SUPPORTED
+        errorMsg = 'Lỗi mạng hoặc không tìm thấy file audio.';
+      }
+      // Dùng toast của docsify hoặc alert
+      alert(errorMsg);
+    });
+
+    ap.audio.addEventListener('stalled', function() {
+      console.warn('Audio đang bị gián đoạn do mạng...');
+    });
+
+    // Docsify plugin to sync player with current chapter and optimize PDF for mobile
+    window.$docsify.plugins = [].concat(
+      function (hook, vm) {
+        hook.doneEach(function () {
+          // 1. Mobile PDF Viewer Support
+          const isMobile = window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+          if (isMobile) {
+            document.querySelectorAll('.pdf-container iframe, object').forEach(function(iframe) {
+              // Note: For <object> tag we might need to check 'data' instead of 'src'
+              let src = iframe.getAttribute('src') || iframe.getAttribute('data');
+              if (src && src.includes('.pdf')) {
+                // Remove existing hash like #view=FitH
+                src = src.split('#')[0];
+                
+                // Build absolute URL for Google Docs Viewer
+                let absoluteUrl = src;
+                if (!src.startsWith('http')) {
+                  let baseUrl = window.location.origin + window.location.pathname;
+                  baseUrl = baseUrl.replace(/index\.html$/, '');
+                  if (!baseUrl.endsWith('/')) baseUrl += '/';
+                  absoluteUrl = baseUrl + src;
+                }
+                
+                // Use Google Docs Viewer to render PDF on mobile
+                let viewerUrl = 'https://docs.google.com/viewer?url=' + encodeURIComponent(absoluteUrl) + '&embedded=true';
+                
+                if (iframe.tagName.toLowerCase() === 'object') {
+                  // Replace object with iframe for mobile
+                  let newIframe = document.createElement('iframe');
+                  newIframe.src = viewerUrl;
+                  newIframe.className = iframe.className;
+                  newIframe.style.width = '100%';
+                  newIframe.style.height = '85vh';
+                  iframe.parentNode.replaceChild(newIframe, iframe);
+                } else {
+                  iframe.src = viewerUrl;
+                }
+              }
+            });
+          }
+
+          // 2. Check URL hash to find current chapter
+          let hash = window.location.hash;
+          if (hash.includes('buoi_')) {
+            // Extract chapter number, e.g. "buoi_05" -> 5
+            let match = hash.match(/buoi_(\d+)/);
+            if (match && match[1]) {
+              let dayNum = parseInt(match[1]);
+              let chapterIndex = dayToIndex[dayNum];
+              if (chapterIndex !== undefined) {
+                // If player is not already playing this chapter, switch to it
+                if (ap.list.index !== chapterIndex) {
+                  ap.list.switch(chapterIndex);
+                }
+              }
+            }
+          }
+        });
+      },
+      window.$docsify.plugins || []
+    );
+  </script>
 
 </body>
 
