@@ -1,0 +1,383 @@
+\documentclass[aspectratio=169]{beamer}
+\usetheme{Madrid}
+\usecolortheme{default}
+\usepackage[utf8]{inputenc}
+\usepackage[T5]{fontenc}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{booktabs}
+
+\setbeamertemplate{caption}[numbered]
+\renewcommand{\figurename}{Hình}
+
+\title[Trí tuệ Nhân tạo cho Kế toán]{Trí tuệ Nhân tạo cho Kế toán \\ \vspace{0.3cm} \Large KẾ HOẠCH SLIDE LÝ THUYẾT - DAY 07 (BUỔI 7)}
+\author{Đại học Đông Á}
+\date{\today}
+
+\begin{document}
+
+% SLIDE 1
+\begin{frame}
+    \titlepage
+\end{frame}
+
+% SLIDE 2
+\begin{frame}{Nội dung Bài học}
+    \tableofcontents
+\end{frame}
+
+
+\section{KẾ HOẠCH SLIDE LÝ THUYẾT - DAY 07 (BUỔI 7)}
+
+
+\begin{frame}{Title: Buổi 7: Ứng dụng AI hỗ trợ lập báo cáo theo yêu cầu (Dashboards).}
+    \begin{itemize}
+        \item Phụ đề: Chương 9 - Communicating Data Analysis Results
+        \item Giảng viên: Đại học Đông Á
+        \item Môn học: Trí tuệ Nhân tạo cho Kế toán
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Năng lực đạt được sau buổi học.}
+    \begin{itemize}
+        \item \textbf{Về Kiến thức:} Hiểu được vai trò của Data Storytelling trong kế toán và các bước tạo ra Data Visualization (Dashboards) hiệu quả.
+        \item \textbf{Về Kỹ năng:} Nhận diện được các biểu đồ gây hiểu lầm (Misleading Data Visualizations) và biết cách lập báo cáo, thuyết minh BCTC có sự hỗ trợ của AI.
+        \item \textbf{Về Tư duy:} Đánh giá phê phán các đề xuất của AI khi trực quan hóa, lựa chọn đúng loại biểu đồ cho từng mục tiêu giao tiếp.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Nội dung Chương trình (Agenda).}
+    \begin{itemize}
+        \item 1. Kể chuyện bằng dữ liệu (Data Storytelling).
+        \item 2. Các bước tạo Trực quan hóa dữ liệu hiệu quả.
+        \item 3. Đặc điểm của một Data Visualization tốt.
+        \item 4. Nhận diện các biểu đồ sai lệch (Misleading Visualizations).
+        \item 5. Dashboard và Trực quan hóa tương tác.
+        ### Phần 1: Kể chuyện bằng dữ liệu (Data Storytelling)
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Data Literacy - Hiểu biết về Dữ liệu.}
+    \begin{itemize}
+        \item Khái niệm: Là khả năng đọc, hiểu, sáng tạo và giao tiếp bằng dữ liệu.
+        \item Tầm quan trọng trong Kế toán: Không chỉ báo cáo số liệu mà phải hiểu được ý nghĩa đằng sau những con số.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Giao tiếp hiệu quả trong Kế toán (Communicate Effectively).}
+    \begin{itemize}
+        \item Hiểu đối tượng người nghe (Audience).
+        \item Tập trung vào thông điệp cốt lõi (Message).
+        \item Đặt dữ liệu vào đúng bối cảnh (Context).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Đối tượng người nghe (The Audience).}
+    \begin{itemize}
+        \item Stakeholders nội bộ (Internal): Đã có kiến thức nền về công ty.
+        \item Stakeholders bên ngoài (External - Nhà đầu tư, ngân hàng): Cần thông tin tóm lược, rõ ràng và có bối cảnh.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Yếu tố cấu thành một Data Story.}
+    \begin{itemize}
+        \item Gồm 3 yếu tố: Dữ liệu (Data), Tường thuật (Narrative), và Hình ảnh (Visuals).
+        \item Data + Narrative = Explain (Giải thích).
+        \item Data + Visuals = Enlighten (Làm sáng tỏ).
+        \item Narrative + Visuals = Engage (Thu hút).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Cấu trúc của một Data Story (Freytag's Pyramid).}
+    \begin{itemize}
+        \item Mở bài (Exposition): Giới thiệu vấn đề.
+        \item Thắt nút (Rising Action): Khám phá chi tiết dữ liệu.
+        \item Cao trào (Climax): Điểm mấu chốt, Aha moment.
+        \item Mở nút (Falling Action) \& Kết luận (Resolution).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Ví dụ về Data Storytelling trong Kế toán.}
+    \begin{itemize}
+        \item Khởi đầu: Nghi ngờ gian lận chi phí mua hàng.
+        \item Cao trào: Trực quan hóa chỉ ra sự bất thường ở một nhà cung cấp cụ thể.
+        \item Kết luận: Đề xuất siết chặt kiểm soát nội bộ.
+        ### Phần 2: Các bước tạo Trực quan hóa dữ liệu hiệu quả
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Data Visualization là gì?}
+    \begin{itemize}
+        \item Là quá trình hiển thị dữ liệu để mang lại ý nghĩa và insights cho người xem.
+        \item Giúp chuyển đổi bảng số liệu khô khan (BCTC) thành hình ảnh sinh động.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Bước 1: Xác minh Dữ liệu (Verify the Data).}
+    \begin{itemize}
+        \item Tránh nguyên tắc Garbage in, garbage out.
+        \item Dữ liệu phải Chính xác (Accurate) và Đầy đủ (Complete).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Tính Nhất quán và Cập nhật của Dữ liệu.}
+    \begin{itemize}
+        \item Nhất quán (Consistent): Cùng định dạng, cùng cấp độ chi tiết qua các kỳ.
+        \item Cập nhật (Fresh \& Timely): Dữ liệu phải là mới nhất cho kỳ báo cáo.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Bước 2: Xem xét Đối tượng khán giả (Consider the Audience).}
+    \begin{itemize}
+        \item Novice (Người mới): Cần nhiều thông tin nền tảng, giải thích chi tiết.
+        \item Managerial (Quản lý): Cần kết quả có thể hành động ngay (Actionable results).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Đối tượng Chuyên gia và Điều hành.}
+    \begin{itemize}
+        \item Expert (Chuyên gia): Muốn khám phá sâu, công cụ tương tác mạnh (Drill-down).
+        \item Executive (Điều hành): Cần thông tin vĩ mô, những insights quan trọng nhất.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Bước 3: Xác định Mục tiêu (Define the Objective).}
+    \begin{itemize}
+        \item Cần trả lời câu hỏi/vấn đề gì?
+        \item Mục tiêu có thể là: Thể hiện thành phần (Composition), Mối quan hệ (Relationships)...
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Các loại Mục tiêu trực quan hóa khác.}
+    \begin{itemize}
+        \item Phân phối (Distributions).
+        \item Xu hướng (Trends).
+        \item So sánh (Comparisons).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Chọn đúng biểu đồ (Matching Objectives to Types).}
+    \begin{itemize}
+        \item Thành phần: Pie chart, Stacked bar chart, Waterfall.
+        \item Mối quan hệ: Scatterplot, Bubble chart.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Chọn đúng biểu đồ (Tiếp).}
+    \begin{itemize}
+        \item Phân phối: Histogram.
+        \item Xu hướng theo thời gian: Line chart.
+        \item So sánh các nhóm: Bar/Column chart.
+        ### Phần 3: Đặc điểm của một Data Visualization tốt
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Nguyên tắc Nhận thức Thị giác (Visual Perception).}
+    \begin{itemize}
+        \item Não bộ con người thích sự đơn giản và có trật tự.
+        \item Áp dụng các nguyên tắc Gestalt: Continuity, Similarity, Proximity.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Nguyên tắc Tính liên tục (Continuity).}
+    \begin{itemize}
+        \item Mắt người có xu hướng theo dõi các đường nối hoặc các khối được sắp xếp liên tục.
+        \item Ứng dụng: Sắp xếp các cột trong biểu đồ theo thứ tự giảm dần/tăng dần thay vì ngẫu nhiên.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Nguyên tắc Tính tương đồng (Similarity).}
+    \begin{itemize}
+        \item Các phần tử giống nhau (màu sắc, hình dạng) được hiểu là cùng một nhóm.
+        \item Ứng dụng: Dùng chung một màu cho doanh thu của cùng một dòng sản phẩm qua các năm.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Nguyên tắc Khoảng cách (Proximity).}
+    \begin{itemize}
+        \item Các đối tượng gần nhau được xem là có liên quan mật thiết hơn.
+        \item Ứng dụng trong Scatterplot để nhận diện các cụm dữ liệu (Clustering).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Thuộc tính Tiền chú ý (Preattentive Attributes).}
+    \begin{itemize}
+        \item Là những đặc điểm não bộ nhận diện ngay lập tức trước khi ý thức can thiệp.
+        \item Bao gồm: Màu sắc, Kích thước, Hình dạng, Vị trí.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Sử dụng Màu sắc (Color) hiệu quả.}
+    \begin{itemize}
+        \item Không dùng quá nhiều màu gây rối.
+        \item Dùng màu để làm nổi bật (Highlighting) điểm quan trọng.
+        \item Chú ý đến người mù màu (Color blindness).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Tránh sự lộn xộn (Avoid Clutter).}
+    \begin{itemize}
+        \item Xóa bỏ Chart junk (các phần tử trang trí không mang thông tin).
+        \item Giảm đường lưới (Gridlines), viền không cần thiết.
+        \item Loại bỏ nhãn dữ liệu thừa mứa.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Ứng dụng AI trong việc làm sạch biểu đồ.}
+    \begin{itemize}
+        \item Prompt AI: "Gợi ý cách tối giản hóa biểu đồ này để tôn lên thông điệp lợi nhuận ròng đang giảm."
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Best Practices cho từng loại biểu đồ.}
+    \begin{itemize}
+        \item Biểu đồ Bar/Column: Trục Y luôn bắt đầu từ 0. Sắp xếp theo một trật tự logic.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Best Practices (Tiếp).}
+    \begin{itemize}
+        \item Biểu đồ Pie (Tròn): Không dùng quá 5 lát cắt. Không dùng hiệu ứng 3D.
+        \item Biểu đồ Line (Đường): Hạn chế số lượng đường (không quá 4-5) để tránh rối mắt.
+        ### Phần 4: Nhận diện biểu đồ gây hiểu lầm (Misleading Visualizations)
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Tại sao biểu đồ lại lừa dối?}
+    \begin{itemize}
+        \item Do vô tình thiếu kỹ năng, hoặc cố tình để thao túng người xem (Manipulate).
+        \item AI đôi khi cũng có thể sinh ra các biểu đồ sai lệch nếu không được Prompt kỹ.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Lỗi 1: Lược bỏ đường cơ sở (Omitting the Baseline).}
+    \begin{itemize}
+        \item Biểu đồ cột không bắt đầu từ 0 (Truncated graph).
+        \item Phóng đại mức độ chênh lệch giữa các cột.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Lỗi 2: Thao túng trục Y (Manipulating the Y-axis).}
+    \begin{itemize}
+        \item Thay đổi tỉ lệ (Scale) của trục Y làm cho sự thay đổi trông dốc hơn hoặc bằng phẳng hơn thực tế.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Lỗi 3: Đi ngược lại quy ước thông thường (Going Against Conventions).}
+    \begin{itemize}
+        \item Ví dụ: Dùng màu Đỏ để chỉ Lợi nhuận tăng, màu Xanh để chỉ Lỗ (trái ngược với quy ước màu sắc kế toán).
+        \item Lật ngược trục tọa độ.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Lỗi 4: Chọn lọc dữ liệu (Cherry-picking Data).}
+    \begin{itemize}
+        \item Chỉ vẽ biểu đồ cho những tháng có doanh thu tăng, bỏ qua các tháng giảm.
+        \item Không phản ánh đúng bức tranh toàn cảnh của kỳ kế toán.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Lỗi 5: Dùng sai loại biểu đồ (Using the Wrong Graph).}
+    \begin{itemize}
+        \item Dùng Pie chart để thể hiện sự thay đổi theo thời gian.
+        \item Tổng các phần trong Pie chart không bằng 100\%.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Phản biện AI khi tạo biểu đồ.}
+    \begin{itemize}
+        \item Luôn kiểm tra xem biểu đồ do AI (Advanced Data Analysis) tạo ra có vi phạm 5 lỗi trên không.
+        ### Phần 5: Dashboard và Trực quan hóa tương tác
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Thuyết trình trực tiếp với Data Visualizations.}
+    \begin{itemize}
+        \item Đừng chỉ đọc lại những gì trên màn hình.
+        \item Sử dụng kỹ thuật Build-up (Hiển thị từng phần của biểu đồ) để kể chuyện.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Dashboard tương tác (Interactive Visualizations).}
+    \begin{itemize}
+        \item Người dùng (Quản lý, Nhà đầu tư) có thể tự khám phá dữ liệu.
+        \item Tích hợp các bộ lọc (Filters): Theo năm, theo khu vực, theo dòng sản phẩm.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Tích hợp AI vào Dashboard.}
+    \begin{itemize}
+        \item Sử dụng các công cụ như PowerBI Copilot hoặc Tableau AI để tự động tạo giải thích bằng chữ (Natural Language Generation) bên cạnh biểu đồ.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Ứng dụng trong Báo cáo Quản trị.}
+    \begin{itemize}
+        \item Thay vì gửi file Excel hàng trăm trang, kế toán gửi một link Dashboard trực tuyến.
+        \item Ban giám đốc tự chọn góc nhìn họ cần.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Tổng kết buổi học.}
+    \begin{itemize}
+        \item Giao tiếp kết quả phân tích là bước quan trọng nhất để tạo ra giá trị.
+        \item Nắm vững 3 chữ: Data - Narrative - Visuals.
+        \item AI là công cụ tạo biểu đồ, Kế toán là người kiểm soát tính trung thực và thông điệp.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Thực hành - Phần 1.}
+    \begin{itemize}
+        \item Làm quen với việc phân tích yêu cầu từ sếp và lựa chọn biểu đồ phù hợp cho báo cáo.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Thực hành - Phần 2.}
+    \begin{itemize}
+        \item Tạo các bảng dữ liệu mẫu, thiết kế Dashboard tĩnh và ứng dụng Data Storytelling để báo cáo.
+    \end{itemize}
+\end{frame}
+
+
+\end{document}

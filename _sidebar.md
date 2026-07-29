@@ -2,6 +2,8 @@
 * [Đề cương học phần](TaiLieu/Đề_cương_AI_trong_Kế_toán.pdf)
 
 * Các buổi học (Lý thuyết & Thực hành)
+  * [Tài nguyên Thực hành (Datasets)](docs/thuchanh.md)
+  * [Thực hành 1: Data and Analytics in the Accounting Profession](docs/practice_ch01.md)
   * [Buổi 1: What Accountants Need to Know](docs/buoi_01.md)
   * [Buổi 2: AI and Blockchain in Finance](docs/buoi_02.md)
   * [Buổi 3: Python for Finance & Data Science](docs/buoi_03.md)

@@ -1,0 +1,231 @@
+\documentclass[aspectratio=169]{beamer}
+\usetheme{Madrid}
+\usecolortheme{default}
+\usepackage[utf8]{inputenc}
+\usepackage[T5]{fontenc}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{booktabs}
+
+\setbeamertemplate{caption}[numbered]
+\renewcommand{\figurename}{Hình}
+
+\title[Trí tuệ Nhân tạo cho Kế toán]{Trí tuệ Nhân tạo cho Kế toán \\ \vspace{0.3cm} \Large Kế hoạch Bài giảng Lý thuyết - Day 05 (Phiên bản v2)}
+\author{Đại học Đông Á}
+\date{\today}
+
+\begin{document}
+
+% SLIDE 1
+\begin{frame}
+    \titlepage
+\end{frame}
+
+% SLIDE 2
+\begin{frame}{Nội dung Bài học}
+    \tableofcontents
+\end{frame}
+
+
+\section{Kế hoạch Bài giảng Lý thuyết - Day 05 (Phiên bản v2)}
+
+
+\begin{frame}{Năng lực đạt được sau buổi học}
+    \begin{itemize}
+        \item \textbf{Về Lý thuyết (LT):} Hiểu được bản chất của sai sót/gian lận (Outliers) và cách AI (như LOF) tự động khoanh vùng rủi ro thay cho kiểm tra chọn mẫu.
+        \item \textbf{Về Thực hành (TH):} Ứng dụng thành thạo Excel (Conditional Formatting) và Power BI kết hợp Prompt AI để quét Sổ Nhật ký chung, phát hiện nhanh các giao dịch đáng ngờ (sai lệch ngày tháng, số tiền chẵn...).
+        \item \textbf{Về Tư duy nghề nghiệp:} Hình thành sự "hoài nghi nghề nghiệp", hiểu được giới hạn của AI (báo động giả) và trách nhiệm kiểm chứng của kế toán viên.
+        \textbf{Số lượng slide dự kiến:} 41 slide
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Phần 1: Kế toán điều tra và Sự can thiệp của AI (Slides 1 - 8)}
+\end{frame}
+
+
+\begin{frame}{Tiêu đề: Trí tuệ Nhân tạo cho Kế toán - Buổi 5: AI Phát hiện sai sót \& Chẩn đoán bất thường.}
+\end{frame}
+
+
+\begin{frame}{Mục tiêu bài học (Hiểu về Kế toán điều tra, Nhận diện Outlier, Ứng dụng AI phát hiện gian lận).}
+\end{frame}
+
+
+\begin{frame}{Kế toán điều tra (Forensic Accounting) là gì? Khái niệm như những "Thám tử tài chính".}
+\end{frame}
+
+
+\begin{frame}{Các loại gian lận phổ biến trong doanh nghiệp (Rút ruột công quỹ, Lạm dụng thẻ tín dụng công ty, Trốn thuế).}
+\end{frame}
+
+
+\begin{frame}{Hậu quả của gian lận tài chính (Thống kê thiệt hại kinh tế toàn cầu hàng năm).}
+\end{frame}
+
+
+\begin{frame}{Phương pháp rà soát thủ công truyền thống: Tốn thời gian, dễ bỏ sót.}
+\end{frame}
+
+
+\begin{frame}{Vai trò của Machine Learning/AI trong Kế toán điều tra.}
+\end{frame}
+
+
+\begin{frame}{Tự động hóa: Từ việc kiểm tra ngẫu nhiên (Sampling) sang kiểm tra toàn bộ 100\% dữ liệu.}
+\end{frame}
+
+
+\begin{frame}{Phần 2: Hiểu về "Điểm bất thường" (Outliers) (Slides 9 - 16)}
+\end{frame}
+
+
+\begin{frame}{Điểm bất thường (Outliers) là gì?}
+\end{frame}
+
+
+\begin{frame}{Sự khác biệt giữa Outliers (bất thường có ý nghĩa) và Noise (Nhiễu ngẫu nhiên).}
+\end{frame}
+
+
+\begin{frame}{Tại sao Outlier lại quan trọng trong Kế toán? (Đó thường là dấu hiệu của sai sót hoặc gian lận).}
+\end{frame}
+
+
+\begin{frame}{Ví dụ về Outlier: Một nhân viên thường xuyên chi tiêu tiếp khách 20 triệu/tháng bỗng dưng thanh toán hóa đơn 500 triệu.}
+\end{frame}
+
+
+\begin{frame}{Phương pháp nhận diện toàn cục (Global Outlier Detection) - Phương pháp 3 độ lệch chuẩn (3SD Rule).}
+\end{frame}
+
+
+\begin{frame}{Hạn chế của phương pháp toàn cục trong dữ liệu tài chính đa chiều.}
+\end{frame}
+
+
+\begin{frame}{Khái niệm Phương pháp nhận diện cục bộ (Local Outlier Detection).}
+\end{frame}
+
+
+\begin{frame}{Ưu điểm của nhận diện cục bộ: Tìm ra điểm bất thường so với "môi trường xung quanh" nó.}
+\end{frame}
+
+
+\begin{frame}{Phần 3: Trực giác về thuật toán LOF (Local Outlier Factor) (Slides 17 - 25)}
+\end{frame}
+
+
+\begin{frame}{Thuật toán LOF (Local Outlier Factor) là gì? Giải thích bằng trực giác (Không code).}
+\end{frame}
+
+
+\begin{frame}{Ví dụ trực quan: Ngôi nhà trong thung lũng vs Ngôi nhà trên đỉnh núi.}
+\end{frame}
+
+
+\begin{frame}{Định nghĩa "Hàng xóm" (Neighbors) trong dữ liệu kế toán (Ví dụ: Các giao dịch có tính chất tương đồng).}
+\end{frame}
+
+
+\begin{frame}{Khoảng cách Reachability (Reachability Distance) - Đo lường bán kính vùng lân cận.}
+\end{frame}
+
+
+\begin{frame}{Mật độ cục bộ (Local Reachability Density - LRD) - Nơi nào đông đúc, nơi nào thưa thớt?}
+\end{frame}
+
+
+\begin{frame}{Cách AI tính toán chỉ số LOF để chấm điểm rủi ro cho từng giao dịch.}
+\end{frame}
+
+
+\begin{frame}{Phân tích điểm số LOF: Điểm số cao cảnh báo rủi ro cao (Red Flag).}
+\end{frame}
+
+
+\begin{frame}{Ứng dụng LOF vào phát hiện gian lận thẻ tín dụng doanh nghiệp.}
+\end{frame}
+
+
+\begin{frame}{So sánh hiệu quả của LOF so với việc thiết lập luật (Rule-based) thông thường.}
+\end{frame}
+
+
+\begin{frame}{Phần 4: Phát hiện gian lận với AI và No-code (Slides 26 - 34)}
+\end{frame}
+
+
+\begin{frame}{Làm thế nào để áp dụng AI mà không cần viết code?}
+\end{frame}
+
+
+\begin{frame}{Sử dụng các công cụ tích hợp sẵn AI: Excel (Analyze Data) và Power BI (Anomaly Detection).}
+\end{frame}
+
+
+\begin{frame}{Quy trình chuẩn bị dữ liệu cho AI rà soát: Dọn dẹp dữ liệu (Data Cleansing).}
+\end{frame}
+
+
+\begin{frame}{Cung cấp bối cảnh cho AI: Prompt hướng dẫn ChatGPT/Copilot tìm kiếm điểm bất thường.}
+\end{frame}
+
+
+\begin{frame}{Case Study 1: Phát hiện giao dịch chia nhỏ (Smurfing) để né tránh hạn mức phê duyệt.}
+\end{frame}
+
+
+\begin{frame}{Cách AI nhận diện mô hình (Pattern Recognition) của Smurfing.}
+\end{frame}
+
+
+\begin{frame}{Case Study 2: Phát hiện hóa đơn ma (Phantom Vendors) bằng phân tích tài khoản ngân hàng trùng lặp.}
+\end{frame}
+
+
+\begin{frame}{Case Study 3: Phát hiện chi tiêu ngoài giờ làm việc hoặc vào ngày nghỉ phép.}
+\end{frame}
+
+
+\begin{frame}{Sự kết hợp giữa AI (cảnh báo) và Con người (điều tra và ra quyết định).}
+\end{frame}
+
+
+\begin{frame}{Phần 5: Thách thức, Đạo đức và Tương lai (Slides 35 - 42)}
+\end{frame}
+
+
+\begin{frame}{Những rào cản khi triển khai AI trong Kế toán điều tra (Dữ liệu không gán nhãn - Unlabeled data).}
+\end{frame}
+
+
+\begin{frame}{Cạm bẫy của AI: Báo động giả (False Positives) gây lãng phí nguồn lực.}
+\end{frame}
+
+
+\begin{frame}{Cạm bẫy của AI: Bỏ sót rủi ro (False Negatives) do kẻ gian lận liên tục thay đổi chiến thuật.}
+\end{frame}
+
+
+\begin{frame}{Vấn đề bảo mật dữ liệu và quyền riêng tư khi đưa dữ liệu sổ cái lên nền tảng AI.}
+\end{frame}
+
+
+\begin{frame}{Đạo đức nghề nghiệp: AI không có tính người, Kế toán viên phải là người đánh giá cuối cùng.}
+\end{frame}
+
+
+\begin{frame}{Xu hướng tương lai: AI rà soát giao dịch theo thời gian thực (Real-time Auditing).}
+\end{frame}
+
+
+\begin{frame}{Tóm tắt bài học: AI là chiếc radar mạnh mẽ, nhưng kế toán viên là người cầm lái.}
+\end{frame}
+
+
+\begin{frame}{Q\&A và Hướng dẫn thực hành buổi tiếp theo (Thực hành dùng Pivot Table \& AI tìm bất thường).}
+\end{frame}
+
+
+\end{document}

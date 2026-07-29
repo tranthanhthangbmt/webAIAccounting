@@ -1,0 +1,295 @@
+\documentclass[aspectratio=169]{beamer}
+\usetheme{Madrid}
+\usecolortheme{default}
+\usepackage[utf8]{inputenc}
+\usepackage[T5]{fontenc}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{booktabs}
+
+\setbeamertemplate{caption}[numbered]
+\renewcommand{\figurename}{Hình}
+
+\title[Trí tuệ Nhân tạo cho Kế toán]{Trí tuệ Nhân tạo cho Kế toán \\ \vspace{0.3cm} \Large BUỔI 13-15: LÝ THUYẾT - DỰ ÁN CUỐI KỲ (KHÔNG CODE)}
+\author{Đại học Đông Á}
+\date{\today}
+
+\begin{document}
+
+% SLIDE 1
+\begin{frame}
+    \titlepage
+\end{frame}
+
+% SLIDE 2
+\begin{frame}{Nội dung Bài học}
+    \tableofcontents
+\end{frame}
+
+
+\section{BUỔI 13-15: LÝ THUYẾT - DỰ ÁN CUỐI KỲ (KHÔNG CODE)}
+
+
+\begin{frame}{Năng lực đạt được sau buổi học}
+    \begin{itemize}
+        \item \textbf{Hiểu rõ Quy trình MOSAIC:} Nắm vững 6 bước cốt lõi trong phân tích dữ liệu kế toán: Motivation, Objective, Strategy, Analyze, Interpret, Communicate.
+        \item \textbf{Tích hợp công cụ AI (No-Code):} Biết cách áp dụng các công cụ Generative AI (như ChatGPT, Copilot) vào từng bước của quy trình MOSAIC mà không cần viết code (Python/R/SQL).
+        \item \textbf{Phát triển Tư duy Phân tích (Data Analytics Mindset):} Rèn luyện tư duy phản biện (Critical Thinking) để đặt câu hỏi đúng, chọn sai số đúng và diễn giải dữ liệu một cách logic.
+        \item \textbf{Chuẩn bị cho Dự án Thực tế:} Tạo tiền đề vững chắc để thực hiện dự án cuối khóa (Capstone Project) về cải tiến quy trình kế toán.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Nội dung chương trình}
+    1. Tổng quan về Dự án Cuối kỳ \& Quy trình MOSAIC.\\
+    2. Giai đoạn 1: Lập kế hoạch (Plan) - MOS (Motivation, Objective, Strategy).\\
+    3. Giai đoạn 2: Phân tích (Analyze) - A (Analyze).\\
+    4. Giai đoạn 3: Báo cáo (Report) - IC (Interpret, Communicate).\\
+    5. Tư duy Phân tích Dữ liệu \& Kỹ năng Tư duy Phản biện (SPARKS).\\
+    6. Hướng dẫn Tích hợp AI (No-Code) vào quy trình.\\
+\end{frame}
+
+
+\section{PHẦN 1: TỔNG QUAN VỀ MOSAIC}
+
+
+\begin{frame}{1.1 Khái niệm về Quy trình Phân tích Dữ liệu}
+    \begin{itemize}
+        \item Phân tích dữ liệu không chỉ là sử dụng công cụ (Excel, AI) để xử lý số liệu.
+        \item Đó là một \textbf{quy trình có hệ thống} nhằm biến dữ liệu thô (raw data) thành thông tin chi tiết (insights) để ra quyết định kinh doanh.
+        \item Để đạt được hiệu quả, kế toán viên cần một khuôn khổ (framework) chuẩn mực.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{1.2 MOSAIC là gì?}
+    \begin{itemize}
+        \item \textbf{MOSAIC} là một quy trình gồm 6 bước được thiết kế riêng cho lĩnh vực kế toán:
+        1. \textbf{M}otivation (Động lực/Lý do).
+        2. \textbf{O}bjective (Mục tiêu).
+        3. \textbf{S}trategy (Chiến lược).
+        4. \textbf{A}nalyze (Phân tích).
+        5. \textbf{I}nterpret (Diễn giải).
+        6. \textbf{C}ommunicate (Giao tiếp/Báo cáo).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{1.3 Tại sao sử dụng MOSAIC?}
+    \begin{itemize}
+        \item Được xây dựng dựa trên đặc thù của ngành Kế toán - Tài chính (do Ann Dzuranin \& Guido Geerts phát triển).
+        \item Cung cấp cấu trúc logic để sinh viên không bị lạc lối khi đối mặt với một tập dữ liệu lớn.
+        \item Dễ dàng kết hợp với các công cụ AI No-Code.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{1.4 Ba Giai đoạn Cốt lõi của MOSAIC}
+    \begin{itemize}
+        \item Quy trình 6 bước có thể được gộp thành 3 giai đoạn chính:
+        \item \textbf{Giai đoạn 1: Plan (Lập kế hoạch):} Gồm Motivation, Objective, Strategy. (Bước chuẩn bị quan trọng nhất).
+        \item \textbf{Giai đoạn 2: Analyze (Thực thi):} Tương đương với bước Analyze (xử lý, khám phá dữ liệu).
+        \item \textbf{Giai đoạn 3: Report (Báo cáo):} Gồm Interpret và Communicate (trình bày kết quả cho các bên liên quan).
+    \end{itemize}
+\end{frame}
+
+
+\section{PHẦN 2: GIAI ĐOẠN 1 - LẬP KẾ HOẠCH (PLAN)}
+
+
+\begin{frame}{2.1 M - Motivation (Động lực)}
+    \begin{itemize}
+        \item \textbf{Câu hỏi cốt lõi:} Vấn đề kinh doanh đang gặp phải là gì? Tại sao chúng ta cần phân tích tập dữ liệu này?
+        \item \textbf{Ví dụ:} Lãnh đạo công ty phàn nàn rằng "Chi phí vận hành quý vừa qua tăng đột biến mà không rõ lý do". Động lực ở đây là tìm ra nguyên nhân gây tăng chi phí.
+        \item \textbf{Vai trò của AI:} Dùng ChatGPT để thảo luận (brainstorming) và làm rõ vấn đề kinh doanh dựa trên mô tả sơ bộ.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{2.2 O - Objective (Mục tiêu)}
+    \begin{itemize}
+        \item \textbf{Câu hỏi cốt lõi:} Chúng ta cần đạt được kết quả cụ thể nào?
+        \item Chuyển hóa động lực (Motivation) thành một câu hỏi phân tích (Data Question) hoặc một giả thuyết (Hypothesis) có thể đo lường được.
+        \item \textbf{Ví dụ:} "Xác định các khoản mục chi phí nào đã tăng vượt mức 10\% so với dự toán ngân sách trong quý 3."
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{2.3 Phân loại Mục tiêu Phân tích}
+    Có 4 loại phân tích chính:\\
+    1. \textbf{Descriptive (Mô tả):} Chuyện gì đã xảy ra? (Ví dụ: Báo cáo lợi nhuận năm ngoái).\\
+    2. \textbf{Diagnostic (Chẩn đoán):} Tại sao nó lại xảy ra? (Ví dụ: Tìm nguyên nhân chi phí tăng).\\
+    3. \textbf{Predictive (Dự báo):} Chuyện gì sẽ xảy ra? (Ví dụ: Dự báo dòng tiền tháng tới).\\
+    4. \textbf{Prescriptive (Đề xuất):} Chúng ta nên làm gì? (Ví dụ: Đề xuất phương án cắt giảm chi phí).\\
+\end{frame}
+
+
+\begin{frame}{2.4 S - Strategy (Chiến lược)}
+    \begin{itemize}
+        \item \textbf{Câu hỏi cốt lõi:} Chúng ta cần dữ liệu gì, và sẽ dùng phương pháp nào để phân tích?
+        \item Xác định nguồn dữ liệu (ERP, Hóa đơn, File Excel).
+        \item Đánh giá chất lượng dữ liệu (Data Quality).
+        \item Chọn công cụ phân tích (Excel, Power BI, Advanced Data Analysis của AI).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{2.5 Chiến lược Dữ liệu (Data Strategy)}
+    \begin{itemize}
+        \item Xác định các trường dữ liệu (Fields/Columns) cần thiết.
+        \item \textbf{Ví dụ:} Để phân tích chi phí, cần các cột: Mã tài khoản, Tên chi phí, Ngày phát sinh, Số tiền, Bộ phận chịu phí.
+        \item \textbf{Vai trò của AI:} Yêu cầu AI (Copilot) lập danh sách các dữ liệu cần thu thập dựa trên mục tiêu phân tích.
+    \end{itemize}
+\end{frame}
+
+
+\section{PHẦN 3: GIAI ĐOẠN 2 - PHÂN TÍCH (ANALYZE)}
+
+
+\begin{frame}{3.1 A - Analyze (Phân tích)}
+    \begin{itemize}
+        \item Đây là giai đoạn thực thi các thao tác kỹ thuật trên dữ liệu.
+        \item Trong kỷ nguyên AI No-code, bước này đã được tự động hóa phần lớn nhờ các tính năng Data Analytics tích hợp sẵn.
+        \item \textbf{Các bước phụ:} Chuẩn bị dữ liệu (Prepare), Khám phá (Explore), và Xây dựng mô hình (Build Models).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{3.2 Chuẩn bị Dữ liệu (Data Preparation)}
+    \begin{itemize}
+        \item Chiếm đến 80\% thời gian của một dự án phân tích.
+        \item \textbf{Làm sạch (Cleaning):} Xử lý giá trị trống (Missing values), xóa dòng trùng lặp (Duplicates), sửa định dạng ngày tháng.
+        \item \textbf{Chuẩn hóa (Transforming):} Đổi tên cột, tạo cột dữ liệu mới (ví dụ: Cột "Lợi nhuận" = "Doanh thu" - "Chi phí").
+        \item Có thể dùng Power Query hoặc AI Prompt để xử lý nhanh chóng.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{3.3 Khám phá Dữ liệu (Data Exploration)}
+    \begin{itemize}
+        \item Sử dụng các thống kê mô tả (Descriptive Statistics) để nhìn nhận tổng quan: Trung bình (Mean), Trung vị (Median), Min, Max, Độ lệch chuẩn.
+        \item Vẽ các biểu đồ cơ bản (Histogram, Boxplot) để tìm kiếm các điểm bất thường (Outliers).
+        \item Phân tích tương quan (Correlation) để xem hai biến số có mối liên hệ với nhau không.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{3.4 Ứng dụng AI trong Khám phá Dữ liệu}
+    \begin{itemize}
+        \item Tải file dữ liệu lên ChatGPT (Advanced Data Analysis).
+        \item Sử dụng Prompt: "Hãy thực hiện Exploratory Data Analysis (EDA) trên tập dữ liệu này và tóm tắt 3 xu hướng đáng chú ý nhất."
+        \item AI sẽ tự động phân tích và trả về các biểu đồ cùng nhận xét sơ bộ.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{3.5 Xây dựng Mô hình Thông tin (Build Models)}
+    \begin{itemize}
+        \item Đối với phân tích nâng cao, có thể yêu cầu AI áp dụng các mô hình học máy cơ bản như Phân cụm (Clustering) hoặc Hồi quy (Regression).
+        \item \textbf{Ví dụ (No-code):} Yêu cầu AI "Sử dụng mô hình hồi quy tuyến tính để dự báo doanh thu tháng 12 dựa trên dữ liệu lịch sử". Sinh viên không cần viết mã Python, AI sẽ tự làm.
+    \end{itemize}
+\end{frame}
+
+
+\section{PHẦN 4: GIAI ĐOẠN 3 - BÁO CÁO (REPORT)}
+
+
+\begin{frame}{4.1 I - Interpret (Diễn giải)}
+    \begin{itemize}
+        \item \textbf{Câu hỏi cốt lõi:} Các con số này có ý nghĩa gì đối với doanh nghiệp?
+        \item Kết nối kết quả phân tích (Analyze) trở lại với Mục tiêu ban đầu (Objective).
+        \item Không chỉ đưa ra kết quả toán học (Ví dụ: P-value < 0.05), mà phải dịch nó sang ngôn ngữ kinh doanh (Ví dụ: "Chiến dịch quảng cáo có tác động tích cực đến doanh số").
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{4.2 Cẩn trọng với Sự thiên kiến trong Diễn giải}
+    \begin{itemize}
+        \item \textbf{Thiên kiến xác nhận (Confirmation Bias):} Cố tình diễn giải dữ liệu theo hướng củng cố niềm tin đã có từ trước của bản thân.
+        \item Tương quan không phải là Nhân quả (Correlation does not imply Causation).
+        \item Dùng AI như một "Devil's Advocate" (Người phản biện): "Dựa trên kết quả này, có cách giải thích nào khác phản bác lại kết luận của tôi không?"
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{4.3 C - Communicate (Giao tiếp/Báo cáo)}
+    \begin{itemize}
+        \item Trình bày kết quả và đề xuất hành động (Actionable Insights) cho các bên liên quan (Stakeholders - như Giám đốc, Cổ đông).
+        \item Sử dụng \textbf{Trực quan hóa dữ liệu (Data Visualization):} Vẽ biểu đồ (Charts), lập bảng điều khiển (Dashboards).
+        \item Nguyên tắc: "Keep It Simple". Người đọc báo cáo thường không có kiến thức sâu về kỹ thuật phân tích.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{4.4 Kể chuyện bằng Dữ liệu (Data Storytelling)}
+    \begin{itemize}
+        \item Báo cáo phải là một câu chuyện có logic: Bắt đầu từ Vấn đề (Motivation) -> Quá trình tìm kiếm (Analysis) -> Giải pháp (Insights).
+        \item \textbf{Vai trò của AI:} Yêu cầu ChatGPT viết một dàn ý Thuyết minh báo cáo hoặc tạo ra các kịch bản trình bày (Pitch Script) phù hợp với đối tượng khán giả.
+    \end{itemize}
+\end{frame}
+
+
+\section{PHẦN 5: TƯ DUY PHÂN TÍCH VÀ KỸ NĂNG PHẢN BIỆN (SPARKS)}
+
+
+\begin{frame}{5.1 Data Analytics Mindset}
+    \begin{itemize}
+        \item Để thực hiện tốt MOSAIC, bạn cần một \textbf{Tư duy Phân tích Dữ liệu (Data Analytics Mindset)}.
+        \item Đây là sự kết hợp của: Kỹ năng công nghệ, Khả năng đọc hiểu dữ liệu (Data Literacy), và Kỹ năng giao tiếp.
+        \item Quan trọng nhất: \textbf{Tư duy Phản biện (Critical Thinking).}
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{5.2 Khung tư duy SPARKS}
+    SPARKS là một bộ công cụ tư duy phản biện dành cho kế toán viên:\\
+    \begin{itemize}
+        \item \textbf{S}takeholders: Xác định các bên liên quan. Ai quan tâm đến kết quả này?
+        \item \textbf{P}urpose: Xác định mục đích. Tại sao chúng ta lại thực hiện nhiệm vụ này?
+        \item \textbf{A}lternatives: Xem xét các giải pháp thay thế. Còn cách giải quyết nào khác không?
+        \item \textbf{R}isks: Đánh giá rủi ro (Rủi ro về dữ liệu sai, rủi ro mô hình).
+        \item \textbf{K}nowledge: Xác định kiến thức cần thiết. Chúng ta đang thiếu thông tin gì?
+        \item \textbf{S}elf-Reflection: Tự phản tỉnh. Đánh giá lại kết luận của chính mình để tránh thiên kiến.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{5.3 Kết hợp MOSAIC và SPARKS}
+    \begin{itemize}
+        \item SPARKS đóng vai trò như một bộ lọc "kiểm soát chất lượng" ở mỗi bước của MOSAIC.
+        \item Ở giai đoạn Motivation: Dùng 'S' (Stakeholders) và 'P' (Purpose).
+        \item Ở giai đoạn Strategy: Dùng 'A' (Alternatives) và 'R' (Risks).
+        \item Ở giai đoạn Interpret: Dùng 'S' (Self-Reflection).
+    \end{itemize}
+\end{frame}
+
+
+\section{KẾT LUẬN VÀ CHUYỂN TIẾP THỰC HÀNH}
+
+
+\begin{frame}{6.1 Tổng kết Lý thuyết MOSAIC}
+    \begin{itemize}
+        \item MOSAIC (Motivation, Objective, Strategy, Analyze, Interpret, Communicate) là kim chỉ nam cho mọi dự án phân tích dữ liệu trong kế toán.
+        \item Kết hợp với AI, quy trình này giúp tự động hóa khâu "Analyze", giải phóng thời gian để kế toán viên tập trung vào tư duy ở khâu "Plan" và "Report".
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{6.2 Định hướng Dự án Thực tế}
+    \begin{itemize}
+        \item Các buổi thực hành tiếp theo (Day 13-15) sẽ là \textbf{Dự án Nhóm Cuối kỳ}.
+        \item Bạn sẽ chọn một bộ dữ liệu kế toán thực tế (Sổ cái, Doanh thu, Chi phí, v.v.).
+        \item Áp dụng toàn bộ quy trình MOSAIC kết hợp với kỹ thuật Prompt (đã học từ Buổi 1 đến 12) để tạo ra một báo cáo phân tích hoàn chỉnh mà không cần viết code.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{CẢM ƠN CÁC BẠN ĐÃ LẮNG NGHE!}
+    \begin{itemize}
+        \item Kết thúc phần Lý thuyết MOSAIC.
+        \item Sẵn sàng bước vào phần Hướng dẫn Thực hành Dự án!
+    \end{itemize}
+\end{frame}
+
+
+\end{document}

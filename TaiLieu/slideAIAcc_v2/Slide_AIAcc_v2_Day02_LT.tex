@@ -1,0 +1,393 @@
+\documentclass[aspectratio=169]{beamer}
+\usetheme{Madrid}
+\usecolortheme{default}
+\usepackage[utf8]{inputenc}
+\usepackage[T5]{fontenc}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{booktabs}
+
+\setbeamertemplate{caption}[numbered]
+\renewcommand{\figurename}{Hình}
+
+\title[Trí tuệ Nhân tạo cho Kế toán]{Trí tuệ Nhân tạo cho Kế toán \\ \vspace{0.3cm} \Large KẾ HOẠCH SLIDE LÝ THUYẾT - DAY 2 (BUỔI 2)}
+\author{Đại học Đông Á}
+\date{\today}
+
+\begin{document}
+
+% SLIDE 1
+\begin{frame}
+    \titlepage
+\end{frame}
+
+% SLIDE 2
+\begin{frame}{Nội dung Bài học}
+    \tableofcontents
+\end{frame}
+
+
+\section{KẾ HOẠCH SLIDE LÝ THUYẾT - DAY 2 (BUỔI 2)}
+
+
+\section{PHẦN 1: NHẬN DIỆN DỮ LIỆU TRONG KẾ TOÁN}
+
+
+\begin{frame}{TRANG BÌA (Title Page)}
+    \begin{itemize}
+        \item Tiêu đề chính: Trí tuệ Nhân tạo cho Kế toán
+        \item Tiêu đề phụ: Buổi 2 - Nhận diện \& Xử lý Dữ liệu Kế toán
+        \item Tác giả: Đại học Đông Á
+        \item *(🖼️ Ảnh minh họa: AI Generated - Luồng dữ liệu số nhị phân chuyển hóa thành biểu đồ tài chính)*
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Năng lực đạt được sau buổi học}
+    \begin{itemize}
+        \item \textbf{Về Lý thuyết (LT):} Phân biệt được thế nào là Dữ liệu sạch (Clean Data) và Dữ liệu bẩn (Dirty Data); Hiểu nguyên lý cấu trúc cơ sở dữ liệu quan hệ (Relational Databases).
+        \item \textbf{Về Thực hành (TH):} Áp dụng thành thạo các hàm cốt lõi và Pivot Tables trong Excel để tiền xử lý, làm sạch và tổng hợp dữ liệu chuẩn hóa, tạo nền tảng vững chắc để cấp cho hệ thống AI phân tích.
+        \item \textbf{Về Tư duy nghề nghiệp:} Định hình tư duy "Garbage In, Garbage Out" (GIGO) - Nhận thức được dữ liệu kế toán sạch là điều kiện tiên quyết trước khi ứng dụng bất kỳ mô hình AI nào.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Khởi động (Ice-breaker)}
+    \begin{itemize}
+        \item Câu nói nổi tiếng: "Garbage in, garbage out" (GIGO) - Rác đầu vào thì rác đầu ra.
+        \item AI dù thông minh đến đâu, nếu cấp cho nó dữ liệu sai lệch, nó sẽ đưa ra quyết định sai lầm.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Tầm quan trọng của Dữ liệu trong Kế toán}
+    \begin{itemize}
+        \item Kế toán không chỉ là "Ghi chép sổ sách" (Bookkeeping).
+        \item Kế toán hiện đại là "Quản trị dữ liệu tài chính".
+        \item Trước khi AI có thể phân tích, con người phải đảm bảo dữ liệu đã được cấu trúc đúng.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Dữ liệu Sạch (Clean Data) là gì?}
+    \begin{itemize}
+        \item Dữ liệu nguyên vẹn, chính xác, thống nhất về định dạng.
+        \item Sẵn sàng để đưa vào phần mềm ERP hoặc hệ thống AI để phân tích ngay lập tức.
+        \item *(🖼️ Ảnh minh họa: Bảng dữ liệu ngăn nắp, rõ ràng).*
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Dữ liệu Bẩn (Dirty Data) là gì?}
+    \begin{itemize}
+        \item Là dữ liệu chứa lỗi, không nhất quán, thiếu sót hoặc định dạng sai.
+        \item Chiếm đến 80\% thời gian của Kế toán viên (chỉ để dọn dẹp số liệu cuối tháng).
+        \item *(🖼️ Ảnh minh họa: Bảng dữ liệu lộn xộn, lỗi Font, định dạng ngày tháng lung tung).*
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Các loại "Dữ liệu Bẩn" phổ biến (Phần 1)}
+    \begin{itemize}
+        \item \textbf{Sai định dạng (Formatting errors):} Ngày tháng (MM/DD/YYYY lẫn lộn DD/MM/YYYY).
+        \item \textbf{Khoảng trắng thừa (Leading/Trailing Spaces):} " Công ty A " khác với "Công ty A". Máy tính sẽ hiểu là 2 đối tượng khác nhau.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Các loại "Dữ liệu Bẩn" phổ biến (Phần 2)}
+    \begin{itemize}
+        \item \textbf{Trùng lặp (Duplicates):} Cùng một khách hàng bị tạo thành 2 mã khách hàng do lỗi đánh máy.
+        \item \textbf{Giá trị rỗng (Null / Missing values):} Đơn hàng không có mã số thuế, thiếu mã vùng.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Hệ lụy của Dữ liệu Bẩn}
+    \begin{itemize}
+        \item Lập báo cáo tài chính sai lệch.
+        \item Ra quyết định kinh doanh sai (Tưởng lãi nhưng thực chất lỗ).
+        \item Rủi ro phạt thuế (Compliance risks).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Vai trò của Kế toán viên trong kỷ nguyên AI}
+    \begin{itemize}
+        \item Không cần tự tay dọn dẹp dữ liệu (AI có thể làm).
+        \item Nhưng phải \textbf{Nhận diện} được dữ liệu đang bị bẩn ở đâu để ra "Lệnh" (Prompt) cho AI dọn dẹp.
+    \end{itemize}
+\end{frame}
+
+
+\section{PHẦN 2: TỔ CHỨC \& LƯU TRỮ DỮ LIỆU (RELATIONAL DATABASES)}
+
+
+\begin{frame}{Làm sao để lưu trữ khối lượng dữ liệu khổng lồ?}
+    \begin{itemize}
+        \item Excel rất tốt, nhưng không thể chứa hàng triệu giao dịch mỗi ngày.
+        \item Giải pháp: Cơ sở dữ liệu quan hệ (Relational Database).
+        \item Đa số phần mềm kế toán (MISA, SAP, Oracle) đều chạy trên nền tảng này.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Khái niệm Relational Database}
+    \begin{itemize}
+        \item Lưu trữ dữ liệu trong các \textbf{Bảng (Tables)} riêng biệt thay vì dồn chung vào một bảng khổng lồ.
+        \item Các bảng được liên kết với nhau theo logic nghiệp vụ.
+        \item *(🖼️ Ảnh minh họa: Sơ đồ các bảng liên kết - Trích từ sách gốc DOCX).*
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Thành phần của một Bảng (Table)}
+    \begin{itemize}
+        \item \textbf{Dòng (Row / Record):} Đại diện cho 1 đối tượng duy nhất (VD: 1 khách hàng, 1 hóa đơn).
+        \item \textbf{Cột (Column / Attribute):} Các thuộc tính mô tả (Mã KH, Tên KH, Địa chỉ).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Primary Key (Khóa chính) là gì?}
+    \begin{itemize}
+        \item Mã định danh độc nhất cho mỗi dòng trong bảng.
+        \item Ví dụ: Mỗi người chỉ có 1 số CCCD. Trong kế toán: Mã Khách Hàng (CustomerID), Số Hóa Đơn (Invoice Number).
+        \item Không bao giờ được phép trùng lặp hoặc để trống (Null).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Foreign Key (Khóa ngoại) là gì?}
+    \begin{itemize}
+        \item Là một cột trong bảng này, nhưng lại trỏ tới Primary Key của bảng khác.
+        \item Dùng để \textbf{tạo liên kết (Relationship)} giữa các bảng.
+        \item Vd: Cột CustomerID trong bảng "Hóa đơn" là Khóa ngoại trỏ về bảng "Khách hàng".
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Liên kết dữ liệu (Joins)}
+    \begin{itemize}
+        \item Khi dữ liệu nằm ở nhiều bảng, ta dùng "Join" để kết hợp chúng lại phục vụ lập báo cáo.
+        \item Bốn loại phổ biến: Inner Join, Left Join, Right Join, Full Join.
+        \item *(🖼️ Ảnh minh họa: Các vòng tròn Venn biểu diễn Joins - Lấy từ DOCX).*
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Ứng dụng của Inner Join trong Kiểm toán}
+    \begin{itemize}
+        \item \textbf{Định nghĩa:} Chỉ lấy các dòng có dữ liệu khớp ở cả 2 bảng.
+        \item \textbf{Câu hỏi kế toán:} "Có nhân viên nào có số điện thoại trùng với số điện thoại của Nhà cung cấp không?" (Dấu hiệu gian lận).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Ứng dụng của Left / Right Join}
+    \begin{itemize}
+        \item \textbf{Định nghĩa:} Lấy toàn bộ dữ liệu 1 bảng, và ghép phần khớp của bảng kia (phần không khớp sẽ báo Null).
+        \item \textbf{Câu hỏi kế toán:} "Có hóa đơn mua hàng nào chưa được thanh toán không?" (Ghép bảng Hóa đơn và bảng Thanh toán).
+    \end{itemize}
+\end{frame}
+
+
+\section{PHẦN 3: HÀM CƠ BẢN \& TƯ DUY CHUẨN HÓA}
+
+
+\begin{frame}{Từ lý thuyết đến thực hành (Functions)}
+    \begin{itemize}
+        \item Trong thực tế SME, Excel vẫn là vua.
+        \item Cần nắm vững tư duy sử dụng Hàm (Functions) để biến dữ liệu bẩn thành sạch.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Hàm xử lý văn bản (Text Functions)}
+    \begin{itemize}
+        \item Tác dụng: Khắc phục lỗi con người nhập liệu sai quy cách.
+        \item \textbf{TRIM():} Cắt bỏ các khoảng trắng thừa.
+        \item \textbf{UPPER() / PROPER():} In hoa toàn bộ hoặc in hoa chữ cái đầu. Đưa tên Công ty về chuẩn.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Hàm Logic (Logical Functions)}
+    \begin{itemize}
+        \item Tác dụng: Giúp rẽ nhánh, phân loại dữ liệu tự động.
+        \item \textbf{IF():} Nếu [Điều kiện] đúng thì [A], sai thì [B].
+        \item Vd: IF(Doanh thu > 1 tỷ, "Khách VIP", "Khách thường").
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Kết hợp AND / OR}
+    \begin{itemize}
+        \item Đánh giá nhiều điều kiện cùng lúc.
+        \item Vd: Cảnh báo nợ xấu (Nợ > 90 ngày) AND (Chưa có cam kết trả).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Hàm tra cứu (Lookup Functions)}
+    \begin{itemize}
+        \item Tác dụng: Tìm kiếm và ghép nối dữ liệu từ các bảng khác nhau (Tương đương việc Join trong Database).
+        \item \textbf{VLOOKUP():} Tra cứu dọc. Rất phổ biến nhưng dễ lỗi.
+        \item *(🖼️ Ảnh minh họa: Screenshot dùng Vlookup tìm Tên Hàng hóa từ Mã Hàng hóa).*
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Kỷ nguyên mới với XLOOKUP}
+    \begin{itemize}
+        \item XLOOKUP khắc phục nhược điểm của Vlookup: Tìm kiếm hai chiều, tự động xử lý lỗi #N/A (báo giá trị Null).
+        \item Nên ưu tiên dùng XLOOKUP trong kế toán hiện đại.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Tư duy làm việc với hàm trong thời đại AI}
+    \begin{itemize}
+        \item Kế toán không cần thuộc lòng cú pháp hàm phức tạp.
+        \item Chỉ cần biết \textbf{"Nên dùng hàm loại gì"}. AI (ChatGPT/Copilot) sẽ viết cú pháp hàm chính xác cho bạn.
+    \end{itemize}
+\end{frame}
+
+
+\section{PHẦN 4: TỔNG HỢP DỮ LIỆU (PIVOT TABLES)}
+
+
+\begin{frame}{Vấn đề của Bảng dữ liệu phẳng (Flat Table)}
+    \begin{itemize}
+        \item Bạn có 1 file Excel 450.000 dòng lịch sử giao dịch.
+        \item Xếp yêu cầu: "Báo cáo ngay tổng doanh thu theo từng chi nhánh trong năm nay."
+        \item Dùng hàm SUMIF sẽ rất lâu và nặng máy.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Giải pháp: Pivot Table}
+    \begin{itemize}
+        \item Công cụ mạnh mẽ nhất trong Excel để tóm tắt, nhóm (group) và tính toán dữ liệu khổng lồ chỉ bằng thao tác kéo thả (Drag \& Drop).
+        \item Không cần viết bất kỳ dòng lệnh nào.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Cơ chế hoạt động của Pivot Table}
+    \begin{itemize}
+        \item Biến đổi dữ liệu chi tiết thành báo cáo tổng hợp.
+        \item Thay đổi cấu trúc góc nhìn (Xoay - Pivot) dữ liệu tức thì.
+        \item *(🖼️ Ảnh minh họa: Giao diện Fields của Pivot Table - Lấy từ DOCX/Screenshot).*
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Các thành phần của Pivot Table}
+    \begin{itemize}
+        \item \textbf{Rows (Dòng):} Nhóm theo tiêu chí (Vd: Tên khu vực).
+        \item \textbf{Columns (Cột):} Tách theo tiêu chí phụ (Vd: Từng quý).
+        \item \textbf{Values (Giá trị):} Tính toán (SUM, COUNT, AVERAGE).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Bộ lọc (Filtering \& Slicers)}
+    \begin{itemize}
+        \item \textbf{Filters:} Lọc báo cáo để chỉ xem một phần dữ liệu (VD: Chỉ xem Khách hàng Doanh nghiệp, bỏ qua Cá nhân).
+        \item \textbf{Slicers:} Bảng điều khiển trực quan giúp sếp tự bấm để lọc báo cáo mà không cần biết dùng Excel.
+        \item *(🖼️ Ảnh minh họa: Slicer tương tác trực quan).*
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Ứng dụng Pivot Table trong Kế toán}
+    \begin{itemize}
+        \item Lên bảng Cân đối phát sinh từ Nhật ký chung.
+        \item Báo cáo Tuổi nợ (Aging report).
+        \item Phân tích chi phí theo từng phòng ban/dự án.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{AI và Pivot Table}
+    \begin{itemize}
+        \item Các phần mềm hiện nay (Excel Copilot) có thể tự động tạo ra các Pivot Table phù hợp chỉ qua một câu lệnh tiếng Anh.
+        \item "Show me total sales by region in a pivot table."
+    \end{itemize}
+\end{frame}
+
+
+\section{PHẦN 5: THỐNG KÊ MÔ TẢ \& TRỰC QUAN HÓA}
+
+
+\begin{frame}{Phân tích Dữ liệu là gì?}
+    \begin{itemize}
+        \item Dữ liệu thô -> Xử lý (Sạch) -> Phân tích -> Thông tin chi tiết (Insights).
+        \item Bước đầu tiên của phân tích là Thống kê mô tả (Descriptive Statistics).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Các đại lượng đo lường vị trí (Location)}
+    \begin{itemize}
+        \item \textbf{Mean (Trung bình):} Bị nhiễu bởi các giá trị ngoại lai cực lớn/nhỏ.
+        \item \textbf{Median (Trung vị):} Phản ánh con số thực tế "nằm giữa".
+        \item Ứng dụng: Xác định mức lương trung vị của nhân viên thay vì trung bình.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Đo lường độ phân tán (Dispersion)}
+    \begin{itemize}
+        \item \textbf{Variance \& Standard Deviation (Phương sai \& Độ lệch chuẩn).}
+        \item Đo lường mức độ rủi ro hoặc biến động.
+        \item Ứng dụng: Phân tích độ lệch của chi phí bảo hành thực tế so với định mức dự toán.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Vì sao cần Trực quan hóa dữ liệu? (Data Visualization)}
+    \begin{itemize}
+        \item Não bộ con người xử lý hình ảnh nhanh hơn 60.000 lần so với văn bản và các dãy số.
+        \item Giúp Ban giám đốc "nhìn" thấy vấn đề trong vài giây.
+        \item *(🖼️ Ảnh minh họa: Bảng số liệu nhàm chán vs Biểu đồ trực quan sinh động).*
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Lựa chọn Biểu đồ phù hợp (Phần 1)}
+    \begin{itemize}
+        \item \textbf{Biểu đồ Cột (Bar/Column Chart):} So sánh giá trị giữa các hạng mục (Doanh thu các chi nhánh).
+        \item \textbf{Biểu đồ Tròn (Pie Chart):} Thể hiện tỷ trọng (Cơ cấu chi phí sản xuất). Không dùng khi có quá nhiều mẩu nhỏ.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Lựa chọn Biểu đồ phù hợp (Phần 2)}
+    \begin{itemize}
+        \item \textbf{Biểu đồ Đường (Line Chart):} Thể hiện xu hướng theo thời gian (Biến động doanh số 12 tháng).
+        \item \textbf{Biểu đồ Phân tán (Scatter Plot):} Tìm mối tương quan (Correlation) giữa 2 biến số (Ví dụ: Chi phí quảng cáo và Doanh số bán hàng).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Trực quan hóa dữ liệu trong thực tiễn}
+    \begin{itemize}
+        \item Các nền tảng như Tableau, Power BI đang trở thành kỹ năng bắt buộc cho Kế toán quản trị.
+        \item Tích hợp biểu đồ trực tiếp vào Dashboard thời gian thực.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Tổng kết Buổi 2}
+    \begin{itemize}
+        \item Nền tảng: Hiểu về Relational Database.
+        \item Công cụ: Dùng Hàm \& Pivot Table để dọn dẹp, tổng hợp dữ liệu.
+        \item Báo cáo: Dùng Thống kê mô tả và Biểu đồ để kể câu chuyện tài chính (Data Storytelling).
+        \item \textbf{Tiền đề quan trọng:} Dữ liệu chuẩn thì các buổi sau dùng AI mới chính xác!
+    \end{itemize}
+\end{frame}
+
+
+\end{document}

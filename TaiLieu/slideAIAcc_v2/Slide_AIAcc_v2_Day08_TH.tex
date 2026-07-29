@@ -1,0 +1,311 @@
+\documentclass[aspectratio=169]{beamer}
+\usetheme{Madrid}
+\usecolortheme{default}
+\usepackage[utf8]{inputenc}
+\usepackage[T5]{fontenc}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{booktabs}
+
+\setbeamertemplate{caption}[numbered]
+\renewcommand{\figurename}{Hình}
+
+\title[Trí tuệ Nhân tạo cho Kế toán]{Trí tuệ Nhân tạo cho Kế toán \\ \vspace{0.3cm} \Large KẾ HOẠCH SLIDE THỰC HÀNH - DAY 08 (BUỔI 8)}
+\author{Đại học Đông Á}
+\date{\today}
+
+\begin{document}
+
+% SLIDE 1
+\begin{frame}
+    \titlepage
+\end{frame}
+
+% SLIDE 2
+\begin{frame}{Nội dung Bài học}
+    \tableofcontents
+\end{frame}
+
+
+\section{KẾ HOẠCH SLIDE THỰC HÀNH - DAY 08 (BUỔI 8)}
+
+
+\begin{frame}{Title: Buổi 8 TH: Phân tích Xu hướng và Dự báo Ngân sách với AI.}
+    \begin{itemize}
+        \item Thực hành: Ứng dụng AI trong Kế toán Quản trị
+        \item Giảng viên: Đại học Đông Á
+        \item Môn học: Trí tuệ Nhân tạo cho Kế toán
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Năng lực đạt được sau buổi học.}
+    \begin{itemize}
+        \item \textbf{Về Kiến thức:} Nắm vững quy trình thiết lập bài toán dự báo trong Kế toán Quản trị, hiểu cách AI phân tích các chuỗi thời gian (time-series) từ dữ liệu doanh thu quá khứ.
+        \item \textbf{Về Kỹ năng:} Thành thạo việc thiết kế Prompt yêu cầu AI (ChatGPT) phân tích xu hướng (Trend Analysis), dự báo dòng tiền/doanh thu cho quý tiếp theo và lập các kịch bản Tốt/Xấu/Cơ sở.
+        \item \textbf{Về Tư duy:} Đánh giá tính khả thi và độ tin cậy của các con số dự báo do máy sinh ra. Ra quyết định kinh doanh dựa trên sự kết hợp giữa dữ liệu lịch sử và phán đoán chuyên gia.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Nội dung chương trình (Agenda).}
+    \begin{itemize}
+        \item 1. Chuẩn bị Dữ liệu Doanh thu và Dòng tiền.
+        \item 2. Phân tích Xu hướng (Trend Analysis) với AI.
+        \item 3. Thực hành Dự báo Doanh thu cho Quý tiếp theo.
+        \item 4. Xây dựng Kịch bản Đa chiều (Scenario Planning).
+        \item 5. Trực quan hóa Báo cáo Quản trị.
+        ### Phần 1: Chuẩn bị Dữ liệu Doanh thu và Dòng tiền
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Tổng quan Bài tập Thực hành.}
+    \begin{itemize}
+        \item Tình huống: Bạn là Kế toán Quản trị của Công ty ABC. Giám đốc yêu cầu bạn lập bản kế hoạch lợi nhuận cho Quý 1 năm tới.
+        \item Nhiệm vụ: Phân tích dữ liệu doanh thu và dòng tiền của 12 tháng qua để đưa ra dự báo.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Nguồn dữ liệu (Dataset).}
+    \begin{itemize}
+        \item Giảng viên cung cấp: File Excel `Sales\_CashFlow\_12Months.csv`.
+        \item Các trường dữ liệu: Tháng, Dòng sản phẩm, Khối lượng bán, Giá bán, Chi phí biến đổi, Chi phí cố định, Dòng tiền thuần.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Làm sạch và chuẩn hóa dữ liệu.}
+    \begin{itemize}
+        \item Mở file bằng Excel, kiểm tra xem có dòng dữ liệu nào trống (Missing values) hoặc bất thường không.
+        \item Định dạng cột Tháng thành dạng "Date", cột Số tiền thành dạng "Currency".
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Tải dữ liệu lên môi trường AI.}
+    \begin{itemize}
+        \item Sử dụng ChatGPT Plus (Advanced Data Analysis) hoặc Claude.
+        \item Click vào biểu tượng đính kèm (Attachment) để tải file CSV lên khung chat.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Prompt cơ bản: Yêu cầu AI "Đọc hiểu" dữ liệu.}
+    \begin{itemize}
+        \item \textbf{Prompt:} "Tôi vừa tải lên file dữ liệu doanh thu và dòng tiền 12 tháng qua của công ty. Hãy đọc file, tóm tắt cấu trúc các cột và cho tôi biết tổng doanh thu của 12 tháng là bao nhiêu."
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Xác nhận tính chính xác (Data Validation).}
+    \begin{itemize}
+        \item So sánh tổng doanh thu AI vừa báo cáo với tổng hàm SUM trong Excel của bạn.
+        \item Đảm bảo AI đã hiểu đúng bối cảnh số liệu trước khi bắt đầu phân tích sâu hơn.
+        ### Phần 2: Phân tích Xu hướng (Trend Analysis) với AI
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Tầm quan trọng của Phân tích Xu hướng.}
+    \begin{itemize}
+        \item Trước khi dự báo tương lai, ta phải hiểu quá khứ.
+        \item Nhận diện tính thời vụ (Seasonality): Các tháng nào doanh thu tăng đột biến?
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Thiết kế Prompt Phân tích Xu hướng.}
+    \begin{itemize}
+        \item \textbf{Prompt:} "Dựa trên dữ liệu 12 tháng qua, hãy phân tích xu hướng tăng/giảm doanh thu của từng dòng sản phẩm. Có yếu tố thời vụ nào được thể hiện không?"
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Khai thác Insight từ AI.}
+    \begin{itemize}
+        \item Yêu cầu AI chỉ ra nguyên nhân (Correlation) thay vì chỉ nêu con số.
+        \item Ví dụ: Tại sao Dòng tiền thuần tháng 8 lại âm dù doanh thu tăng? (Do tăng chi phí mua nguyên vật liệu dự trữ).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Sử dụng AI để tính toán các Chỉ số biến động.}
+    \begin{itemize}
+        \item Yêu cầu AI tính Tốc độ tăng trưởng hàng tháng (MoM - Month over Month).
+        \item AI có thể tự động viết mã Python để xuất ra bảng tính MoM ngay trong khung chat.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Kiểm chứng bằng Biểu đồ cơ bản.}
+    \begin{itemize}
+        \item Yêu cầu AI vẽ biểu đồ đường (Line chart) thể hiện sự thay đổi của Doanh thu và Chi phí trong 12 tháng.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Đánh giá biểu đồ do AI sinh ra.}
+    \begin{itemize}
+        \item Biểu đồ có dễ hiểu không? Trục Y có bắt đầu từ 0 không?
+        \item Lưu biểu đồ này lại để đưa vào báo cáo quản trị cuối cùng.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Nhận xét Phê phán.}
+    \begin{itemize}
+        \item Suy ngẫm: AI có nhận ra được các sự kiện bất thường (ví dụ: tháng 4 có chương trình khuyến mãi lớn) từ dữ liệu trống không?
+        \item Trả lời: Không, nếu bạn không cung cấp Context. $\Rightarrow$ Kế toán viên phải cung cấp Bối cảnh!
+        ### Phần 3: Thực hành Dự báo Doanh thu (Forecasting)
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Từ Phân tích đến Dự báo.}
+    \begin{itemize}
+        \item Bước tiếp theo: Sử dụng dữ liệu quá khứ để ước tính doanh thu và dòng tiền cho 3 tháng tiếp theo (Quý 1 năm sau).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Lựa chọn phương pháp Dự báo.}
+    \begin{itemize}
+        \item Trong ChatGPT, ta có thể yêu cầu AI sử dụng phương pháp Cân bằng động (Moving Average) hoặc Hồi quy tuyến tính (Linear Regression).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Thiết kế Prompt Dự báo Cơ bản.}
+    \begin{itemize}
+        \item \textbf{Prompt:} "Hãy đóng vai Chuyên gia Kế toán Quản trị. Dựa vào xu hướng 12 tháng qua, hãy dự báo Doanh thu và Dòng tiền thuần cho 3 tháng tới. Trình bày dưới dạng bảng."
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Kỹ thuật Prompt nâng cao cho Dự báo.}
+    \begin{itemize}
+        \item Thêm các giả định (Assumptions) vào Prompt.
+        \item \textbf{Prompt:} "...Giả định rằng: Chi phí biến đổi sẽ tăng 5 phần trăm do lạm phát, và giá bán không thay đổi. Hãy tính lại dự báo lợi nhuận."
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Yêu cầu giải thích thuật toán.}
+    \begin{itemize}
+        \item Để tránh tình trạng "Hộp đen" (Black box), hãy hỏi AI: "Bạn đã sử dụng công thức hoặc phương pháp thống kê nào để tính ra con số của 3 tháng tới?"
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Kiểm tra tính hợp lý (Sanity Check).}
+    \begin{itemize}
+        \item Nếu AI dự báo doanh thu tháng 1 năm sau tăng vọt 200 phần trăm, bạn phải đặt câu hỏi "Tại sao?".
+        \item AI có thể nội suy sai do không hiểu tính chu kỳ hàng năm.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Rolling Forecast (Dự báo Cuốn chiếu).}
+    \begin{itemize}
+        \item Thảo luận cách sử dụng template Prompt này để cập nhật dự báo mỗi tháng khi có dữ liệu mới.
+        ### Phần 4: Xây dựng Kịch bản Đa chiều (Scenario Planning)
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Tại sao cần lập nhiều kịch bản?}
+    \begin{itemize}
+        \item Tương lai là bất định. Một bản kế hoạch tĩnh là không đủ.
+        \item Cần chuẩn bị cho các tình huống xấu nhất (Thiên nga đen) và tốt nhất.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Khởi tạo 3 Kịch bản (3 Scenarios).}
+    \begin{itemize}
+        \item Kịch bản Cơ sở (Base Case): Giữ đà tăng trưởng như dự báo hiện tại.
+        \item Kịch bản Lạc quan (Best Case): Kinh tế phục hồi mạnh mẽ.
+        \item Kịch bản Bi quan (Worst Case): Chuỗi cung ứng đứt gãy.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Thiết kế Prompt Mô phỏng Kịch bản.}
+    \begin{itemize}
+        \item \textbf{Prompt:} "Dựa trên bản dự báo vừa lập, hãy tạo thêm 2 kịch bản. Kịch bản Lạc quan: Sản lượng bán tăng 15 phần trăm. Kịch bản Bi quan: Khách hàng chậm trả tiền làm Dòng tiền vào giảm 20 phần trăm."
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Phân tích Độ nhạy (Sensitivity Analysis).}
+    \begin{itemize}
+        \item Xem xét tác động của từng biến số. Nếu giá nguyên vật liệu tăng 1 phần trăm, lợi nhuận ròng giảm bao nhiêu phần trăm?
+        \item AI làm rất tốt việc tính toán Độ nhạy này trong nháy mắt.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Đề xuất Chiến lược Ứng phó (Mitigation Strategy).}
+    \begin{itemize}
+        \item Bước tạo ra giá trị cao nhất của Kế toán quản trị.
+        \item \textbf{Prompt:} "Với kịch bản Bi quan (dòng tiền âm vào tháng 2), hãy đề xuất 3 giải pháp tài chính để công ty không bị thiếu hụt thanh khoản."
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Đánh giá các lời khuyên từ AI.}
+    \begin{itemize}
+        \item Các đề xuất (như: Đàm phán kéo dài thời gian trả nợ, Bán nợ) có phù hợp với thực tế công ty không?
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Lưu trữ và cập nhật Kịch bản.}
+    \begin{itemize}
+        \item Hướng dẫn sinh viên cách lưu các Kịch bản này thành các Sheet riêng biệt trên Excel sau khi copy từ AI.
+        ### Phần 5: Tổng kết và Trình bày Báo cáo Quản trị
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Đóng gói Báo cáo (Packaging the Report).}
+    \begin{itemize}
+        \item Kế toán không gửi những dòng chat thô của AI cho Ban giám đốc.
+        \item Cần tổng hợp: Bảng số liệu, Biểu đồ dự báo, và Đoạn tóm tắt (Executive Summary).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Yêu cầu AI viết Executive Summary.}
+    \begin{itemize}
+        \item \textbf{Prompt:} "Dựa vào tất cả các phân tích và 3 kịch bản trên, hãy viết một bản Tóm tắt Quản trị (Executive Summary) dài 200 chữ để tôi trình bày trước Ban Giám đốc."
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Trình bày kết quả (Communicate Results).}
+    \begin{itemize}
+        \item Sử dụng kỹ thuật Data Storytelling (đã học ở buổi trước) để dẫn dắt câu chuyện từ Dữ liệu quá khứ -> Dự báo tương lai -> Đề xuất chiến lược.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Bài học kinh nghiệm (Lessons Learned).}
+    \begin{itemize}
+        \item AI giải phóng kế toán khỏi việc lập công thức Excel phức tạp.
+        \item Khả năng tư duy chiến lược và đặt câu hỏi đúng (Prompting) quyết định chất lượng của bản ngân sách.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Bài tập về nhà \& Q\&A.}
+    \begin{itemize}
+        \item Bài tập: Sinh viên tự điều chỉnh các giả định (lạm phát 10 phần trăm) và nộp lại báo cáo kịch bản bi quan.
+        \item Hỏi và Đáp cuối giờ.
+    \end{itemize}
+\end{frame}
+
+
+\end{document}

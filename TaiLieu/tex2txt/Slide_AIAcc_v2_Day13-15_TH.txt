@@ -1,0 +1,297 @@
+\documentclass[aspectratio=169]{beamer}
+\usetheme{Madrid}
+\usecolortheme{default}
+\usepackage[utf8]{inputenc}
+\usepackage[T5]{fontenc}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{booktabs}
+
+\setbeamertemplate{caption}[numbered]
+\renewcommand{\figurename}{Hình}
+
+\title[Trí tuệ Nhân tạo cho Kế toán]{Trí tuệ Nhân tạo cho Kế toán \\ \vspace{0.3cm} \Large BUỔI 13-15: THỰC HÀNH DỰ ÁN CUỐI KỲ (CAPSTONE PROJECT)}
+\author{Đại học Đông Á}
+\date{\today}
+
+\begin{document}
+
+% SLIDE 1
+\begin{frame}
+    \titlepage
+\end{frame}
+
+% SLIDE 2
+\begin{frame}{Nội dung Bài học}
+    \tableofcontents
+\end{frame}
+
+
+\section{BUỔI 13-15: THỰC HÀNH DỰ ÁN CUỐI KỲ (CAPSTONE PROJECT)}
+
+
+\begin{frame}{Năng lực đạt được sau dự án}
+    \begin{itemize}
+        \item \textbf{Làm chủ quy trình:} Tự tin áp dụng toàn bộ 6 bước của quy trình MOSAIC vào bài toán kế toán thực tế.
+        \item \textbf{Kỹ năng No-code AI:} Thành thạo việc kết hợp các prompt (câu lệnh AI) để làm sạch dữ liệu, định khoản, và phân tích số liệu mà không cần viết mã lập trình.
+        \item \textbf{Tư duy Giải quyết Vấn đề:} Khả năng phát hiện sai sót (anomalies) trong dữ liệu kế toán thô (raw data) và đưa ra các đề xuất quản trị.
+        \item \textbf{Kỹ năng Trình bày:} Trực quan hóa dữ liệu (Data Visualization) thành Dashboard và thuyết trình mạch lạc trước hội đồng.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Nội dung chương trình}
+    1. Giới thiệu Đề bài Dự án \& Phân nhóm.\\
+    2. Giai đoạn 1 (Buổi 13): Lên kế hoạch (MOS) \& Khám phá dữ liệu.\\
+    3. Giai đoạn 2 (Buổi 14): Phân tích \& Xử lý số liệu bằng AI (Analyze).\\
+    4. Giai đoạn 3 (Buổi 15): Vẽ Dashboard \& Báo cáo (Interpret \& Communicate).\\
+    5. Kỹ năng Thuyết trình \& Bảo vệ Dự án.\\
+    6. Tổng kết khóa học.\\
+\end{frame}
+
+
+\section{PHẦN 1: GIỚI THIỆU ĐỀ BÀI DỰ ÁN (CAPSTONE)}
+
+
+\begin{frame}{1.1 Kịch bản Kinh doanh (Business Case)}
+    \begin{itemize}
+        \item Bạn được tuyển dụng làm Chuyên viên Phân tích Dữ liệu Kế toán cho Công ty Thương mại ABC.
+        \item Giám đốc giao cho bạn một tập dữ liệu thô (Raw Dataset) gồm 5.000 dòng giao dịch trong năm qua.
+        \item Dữ liệu bao gồm: Sổ nhật ký chung, Hóa đơn mua/bán hàng, Bảng lương.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{1.2 Vấn đề của Công ty ABC}
+    \begin{itemize}
+        \item Lợi nhuận quý 4/2025 giảm mạnh (giảm 25\% so với cùng kỳ).
+        \item Nghi ngờ có một số khoản chi phí bất thường hoặc bị ghi nhận sai (gian lận/nhầm lẫn).
+        \item Giám đốc yêu cầu một báo cáo minh bạch và chi tiết trong vòng 3 ngày làm việc (tương đương 3 buổi học).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{1.3 Yêu cầu Đầu ra (Deliverables)}
+    1. Một file Excel đã làm sạch và chuẩn hóa.\\
+    2. Bảng định khoản tự động bằng AI (có log kiểm chứng).\\
+    3. Một Dashboard động trên Excel (hoặc Power BI) thể hiện tình hình kinh doanh.\\
+    4. Một bản báo cáo quản trị (Executive Summary) dài 1 trang (A4) do AI hỗ trợ soạn thảo.\\
+    5. Một bài thuyết trình (Pitch) 10 phút trước hội đồng.\\
+\end{frame}
+
+
+\begin{frame}{1.4 Quy định \& Nguyên tắc (No-Code)}
+    \begin{itemize}
+        \item \textbf{Công cụ cho phép:} Excel (Power Query, Pivot Table), ChatGPT (Advanced Data Analysis), Copilot, Claude.
+        \item \textbf{Không yêu cầu:} Lập trình Python, R, hoặc SQL.
+        \item \textbf{Bắt buộc:} Áp dụng khung tư duy SPARKS để phản biện kết quả của AI (Không tin mù quáng vào AI).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{1.5 Lập nhóm và Phân vai}
+    \begin{itemize}
+        \item Nhóm 3-4 thành viên. Phân vai:
+        \item \textbf{Trưởng nhóm (Project Manager):} Quản lý tiến độ, điều phối công việc.
+        \item \textbf{Chuyên gia AI Prompting:} Phụ trách giao tiếp với ChatGPT/Copilot.
+        \item \textbf{Chuyên viên Dữ liệu (Data Analyst):} Xử lý Power Query và vẽ biểu đồ.
+        \item \textbf{Chuyên viên Báo cáo:} Tổng hợp Interpret và chuẩn bị slide/thuyết trình.
+    \end{itemize}
+\end{frame}
+
+
+\section{PHẦN 2: BUỔI 13 - LẬP KẾ HOẠCH \& KHÁM PHÁ (MOS)}
+
+
+\begin{frame}{2.1 Bước M - Motivation (Động lực)}
+    \begin{itemize}
+        \item Họp nhóm 15 phút đầu tiên: Xác định rõ vấn đề kinh doanh.
+        \item Tại sao Ban Giám đốc lại lo lắng về Quý 4?
+        \item Sử dụng SPARKS (Chữ S \& P): Ai là người đọc báo cáo này? Mục đích cốt lõi là gì?
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{2.2 Bước O - Objective (Mục tiêu)}
+    \begin{itemize}
+        \item Viết ra 3 Câu hỏi Phân tích Dữ liệu (Data Questions).
+        \item Câu 1: (Descriptive) Xu hướng doanh thu và chi phí 12 tháng qua là gì?
+        \item Câu 2: (Diagnostic) Khoản mục chi phí nào tăng đột biến nhất trong Q4?
+        \item Câu 3: (Diagnostic) Có giao dịch nào vi phạm nguyên tắc kiểm soát nội bộ không?
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{2.3 Trợ lý AI - Tạo dàn ý phân tích}
+    \begin{itemize}
+        \item \textbf{Thực hành Prompting:} Cùng AI lập chiến lược.
+        \item "Đóng vai Chuyên gia Phân tích Tài chính. Tôi cần tìm nguyên nhân giảm lợi nhuận Q4 từ file Sổ cái 5000 dòng. Dựa trên 3 câu hỏi mục tiêu [Paste 3 câu ở trên], hãy gợi ý cho tôi các bước thao tác cụ thể trên Excel (Pivot, Chart)."
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{2.4 Bước S - Strategy (Chiến lược Dữ liệu)}
+    \begin{itemize}
+        \item Tải file `ABC\_Raw\_Data\_2025.xlsx` từ hệ thống lớp học.
+        \item Đánh giá chất lượng dữ liệu: File có bao nhiêu cột? (Ví dụ: Ngày, Số chứng từ, Diễn giải, Tài khoản Nợ/Có, Số tiền).
+        \item Lên danh sách các "căn bệnh" của dữ liệu: Lỗi font, ngày tháng sai chuẩn, ô bị bỏ trống.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{2.5 Thực hành: Khám phá Dữ liệu Cơ bản}
+    \begin{itemize}
+        \item Mở file Excel. Sử dụng Data Filter.
+        \item Đếm số dòng trống (Blanks).
+        \item Tính tổng (SUM) cột Số tiền để ghi nhận "Control Total" (Tổng đối chiếu) trước khi làm sạch.
+        \item \textbf{Mẹo:} Nếu Control Total bị thay đổi sau khi làm sạch, bạn đã làm mất dữ liệu!
+    \end{itemize}
+\end{frame}
+
+
+\section{PHẦN 3: BUỔI 14 - PHÂN TÍCH \& XỬ LÝ SỐ LIỆU (ANALYZE)}
+
+
+\begin{frame}{3.1 Bước A - Làm sạch Dữ liệu (Data Cleaning)}
+    \begin{itemize}
+        \item Khởi động Power Query Editor trong Excel.
+        \item Loại bỏ các ký tự thừa (Trim), chuẩn hóa kiểu dữ liệu (Change Type) cho cột Ngày tháng và Số tiền.
+        \item Thay thế lỗi (Replace Errors) bằng số 0 hoặc "N/A".
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{3.2 Khắc phục lỗi bằng AI}
+    \begin{itemize}
+        \item Nếu gặp một chuỗi ký tự lạ (Ví dụ: "HĐ001-INV-2025"), cần tách số hóa đơn.
+        \item \textbf{Prompt:} "Tôi có cột dữ liệu chứa chuỗi 'HĐ001-INV-2025' trong Excel. Tôi chỉ muốn lấy chữ '001'. Hãy cho tôi công thức Excel ngắn nhất để làm việc này."
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{3.3 Tự động Định khoản bằng AI}
+    \begin{itemize}
+        \item Giả định file có 50 nghiệp vụ phát sinh mới chỉ có mô tả bằng chữ (Ví dụ: "Mua máy chiếu phòng họp").
+        \item \textbf{Prompt:} "Đóng vai Kế toán trưởng (Thông tư 200). Định khoản Nợ/Có cho các nghiệp vụ sau và xuất kết quả dạng bảng: 1. Mua máy chiếu..., 2. Chi tiền mặt tiếp khách..."
+        \item Dán (Paste) kết quả vào file Excel.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{3.4 Phân tích Tìm kiếm Điểm bất thường (Outliers)}
+    \begin{itemize}
+        \item Nhiệm vụ: Tìm ra các khoản chi sai quy định.
+        \item Sử dụng tính năng "Analyze Data" (Tích hợp AI) trên Excel 365, hoặc upload file lên ChatGPT.
+        \item \textbf{Prompt:} "Sử dụng thuật toán tìm kiếm điểm bất thường (Outlier Detection), hãy chỉ ra top 5 giao dịch có số tiền chi ra vượt quá 3 độ lệch chuẩn (Standard Deviations) so với trung bình tháng."
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{3.5 Phân tích Xu hướng (Trend Analysis)}
+    \begin{itemize}
+        \item Tạo Pivot Table tổng hợp Doanh thu và Chi phí theo Tháng.
+        \item Chèn (Insert) Line Chart.
+        \item Quan sát tháng 10, 11, 12: Đường chi phí có vượt đường doanh thu không?
+        \item Lập bảng Top 3 bộ phận tiêu tốn nhiều chi phí nhất Quý 4.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{3.6 Đánh giá lại với SPARKS (Chữ R - Risks)}
+    \begin{itemize}
+        \item Kiểm tra lại các kết luận của AI: Số liệu AI đưa ra có khớp với Pivot Table bạn tự làm không?
+        \item Cảnh giác với "Ảo giác AI" (Hallucinations) khi phân tích số liệu tài chính lớn.
+    \end{itemize}
+\end{frame}
+
+
+\section{PHẦN 4: BUỔI 15 - VẼ DASHBOARD \& BÁO CÁO (INTERPRET \& COMMUNICATE)}
+
+
+\begin{frame}{4.1 Bước I - Diễn giải Kết quả (Interpret)}
+    \begin{itemize}
+        \item Thảo luận nhóm: Từ biểu đồ xu hướng và danh sách điểm bất thường, kết luận cuối cùng là gì?
+        \item (Ví dụ: Lợi nhuận giảm do Bộ phận Marketing chi quá ngân sách 40\% vào tháng 11, cộng thêm 2 khoản chi tiếp khách bị ghi trùng).
+        \item Chuyển "Con số" thành "Nguyên nhân kinh doanh".
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{4.2 Bước C - Xây dựng Dashboard (Trực quan hóa)}
+    \begin{itemize}
+        \item Tạo một Sheet mới đặt tên là "Dashboard".
+        \item Tập hợp các Pivot Charts đã làm ở Buổi 14 về đây.
+        \item Yêu cầu bắt buộc:
+        \item 1 Slicer lọc theo Quý/Tháng.
+        \item 1 Slicer lọc theo Phòng ban.
+        \item Biểu đồ so sánh Doanh thu - Chi phí.
+        \item Các KPI Cards (Tổng DT, Tổng CP, Lợi Nhuận).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{4.3 Sử dụng AI viết Báo cáo Quản trị}
+    \begin{itemize}
+        \item Ban Giám đốc không có thời gian xem toàn bộ file Excel.
+        \item Hãy dùng ChatGPT soạn một Executive Summary.
+        \item \textbf{Prompt:} "Đóng vai Giám đốc Tài chính. Dựa trên số liệu: Doanh thu Q4 giảm 10\%, Chi phí Marketing tăng 40\%, phát hiện 2 khoản chi trùng. Hãy viết một email báo cáo dài 300 chữ gửi CEO, nhấn mạnh vào rủi ro và đề xuất siết chặt kiểm soát."
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{4.4 Kỹ thuật "Kể chuyện bằng Dữ liệu"}
+    \begin{itemize}
+        \item Khi thuyết trình, không đọc các con số vô hồn.
+        \item Bắt đầu bằng bối cảnh (Context) -> Trình bày cao trào (Vấn đề Q4) -> Đưa ra giải pháp (Dựa trên dữ liệu).
+        \item Sử dụng ngữ điệu tự tin, mắt hướng về Ban Giám đốc.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{4.5 Thuyết trình (Presentation)}
+    \begin{itemize}
+        \item Mỗi nhóm có 10 phút trình bày, 5 phút Q\&A.
+        \item Giảng viên (Đóng vai CEO) sẽ đặt các câu hỏi phản biện gắt gao (Ví dụ: "Làm sao em biết AI định khoản khoản này là đúng?").
+        \item Điểm đánh giá: 40\% kỹ thuật dữ liệu, 30\% tư duy diễn giải (SPARKS), 30\% kỹ năng thuyết trình.
+    \end{itemize}
+\end{frame}
+
+
+\section{TỔNG KẾT KHÓA HỌC}
+
+
+\begin{frame}{5.1 Lời ngỏ từ Giảng viên}
+    \begin{itemize}
+        \item Chúc mừng các bạn đã đi đến cuối hành trình "Trí tuệ nhân tạo cho Kế toán"!
+        \item Qua 15 buổi, các bạn đã vượt qua vùng an toàn của một kế toán viên truyền thống.
+        \item Các bạn không chỉ biết hạch toán, mà còn biết dùng AI để kiểm soát, phân tích và quản trị dữ liệu.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{5.2 Thông điệp cốt lõi}
+    \begin{itemize}
+        \item "AI sẽ không thay thế kế toán viên. Kế toán viên biết sử dụng AI sẽ thay thế kế toán viên không biết dùng AI."
+        \item Kỹ năng No-code (Power Query, Prompting) là vũ khí lợi hại nhất của bạn trong 5 năm tới.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{5.3 Định hướng tương lai}
+    \begin{itemize}
+        \item Hãy tự xây dựng một "Thư viện Prompt" (Prompt Library) cho riêng mình.
+        \item Tiếp tục theo dõi các bản cập nhật của ChatGPT, Copilot trong hệ sinh thái Tài chính.
+        \item Khóa học kết thúc, nhưng hành trình chuyển đổi số của bạn chỉ mới bắt đầu!
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{CHÚC CÁC BẠN THÀNH CÔNG RỰC RỠ!}
+    \begin{itemize}
+        \item Cảm ơn các bạn đã đồng hành.
+        \item Hẹn gặp lại ở những cột mốc vinh quang trong sự nghiệp!
+    \end{itemize}
+\end{frame}
+
+
+\end{document}

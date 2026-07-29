@@ -1,0 +1,286 @@
+\documentclass[aspectratio=169]{beamer}
+\usetheme{Madrid}
+\usecolortheme{default}
+\usepackage[utf8]{inputenc}
+\usepackage[T5]{fontenc}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{booktabs}
+
+\setbeamertemplate{caption}[numbered]
+\renewcommand{\figurename}{Hình}
+
+\title[Trí tuệ Nhân tạo cho Kế toán]{Trí tuệ Nhân tạo cho Kế toán \\ \vspace{0.3cm} \Large KẾ HOẠCH SLIDE THỰC HÀNH - DAY 06 (BUỔI 6)}
+\author{Đại học Đông Á}
+\date{\today}
+
+\begin{document}
+
+% SLIDE 1
+\begin{frame}
+    \titlepage
+\end{frame}
+
+% SLIDE 2
+\begin{frame}{Nội dung Bài học}
+    \tableofcontents
+\end{frame}
+
+
+\section{KẾ HOẠCH SLIDE THỰC HÀNH - DAY 06 (BUỔI 6)}
+
+
+\begin{frame}{Title: Buổi 6 TH: Thực hành Phân tích Báo cáo Tài chính.}
+    \begin{itemize}
+        \item Giảng viên: Đại học Đông Á
+        \item Môn học: Trí tuệ Nhân tạo cho Kế toán
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Năng lực đạt được sau buổi học.}
+    \begin{itemize}
+        \item \textbf{Về Kiến thức:} Nắm bắt quy trình phân tích dữ liệu đa chiều (Data Cubes) và tỷ số tài chính.
+        \item \textbf{Về Kỹ năng:} Sử dụng ChatGPT (Advanced Data Analysis) để tính toán tự động và viết báo cáo đánh giá sức khỏe tài chính.
+        \item \textbf{Về Tư duy:} Hình thành tư duy đối chiếu, kiểm chứng kết quả do AI tạo ra (Double-check), không phụ thuộc mù quáng.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Cấu trúc buổi thực hành (Agenda).}
+    \begin{itemize}
+        \item Chuẩn bị dữ liệu (Data Preparation).
+        \item Khởi tạo môi trường AI \& Upload dữ liệu.
+        \item Thực thi Prompt tính toán Tỷ số tài chính.
+        \item Phân tích đa chiều (Pivot/Cubes) và trực quan hóa.
+        \item Báo cáo đánh giá và phản biện AI.
+        ### Phần 1: Chuẩn bị Dữ liệu (Data Preparation)
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Giới thiệu bộ dữ liệu thực hành.}
+    \begin{itemize}
+        \item File Excel chứa Bảng Cân đối kế toán (Balance Sheet) và Báo cáo Kết quả Kinh doanh (Income Statement).
+        \item Dữ liệu thô của 1 công ty niêm yết trong 3 năm liên tiếp.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Kiểm tra cấu trúc file Excel trước khi đưa vào AI.}
+    \begin{itemize}
+        \item Tại sao phải kiểm tra? Tránh lỗi "Garbage in, Garbage out".
+        \item Các cột cần có: Khoản mục, Mã số, Năm T, Năm T-1, Năm T-2.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Làm sạch dữ liệu (Data Cleansing) cơ bản.}
+    \begin{itemize}
+        \item Xóa các dòng trống (Blank rows), cột thừa.
+        \item Bỏ các định dạng phức tạp (Merge cells) có thể làm AI bối rối.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Chuẩn hóa tiêu đề cột (Headers).}
+    \begin{itemize}
+        \item Tiêu đề cột phải rõ ràng, ngắn gọn, nên dùng tiếng Anh hoặc tiếng Việt không dấu nếu công cụ AI dễ bị lỗi font.
+        \item Dòng đầu tiên (Row 1) phải là tên cột.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Tầm quan trọng của định dạng số liệu (Number format).}
+    \begin{itemize}
+        \item Số tiền (VNĐ/USD) không được chứa ký tự chữ cái lẫn lộn.
+        \item Phân biệt dấu phẩy (,) và dấu chấm (.) tùy theo Locale của Excel.
+        ### Phần 2: Khởi tạo môi trường AI \& Upload Dữ liệu
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Kích hoạt Advanced Data Analysis (ADA) trên ChatGPT.}
+    \begin{itemize}
+        \item Đăng nhập tài khoản ChatGPT.
+        \item Đảm bảo tính năng phân tích dữ liệu (Data Analyst) được bật.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Thao tác Upload file an toàn.}
+    \begin{itemize}
+        \item Kéo thả file Excel vào khung chat.
+        \item Lưu ý bảo mật: Đổi tên công ty thực thành công ty giả định (Công ty ABC) để bảo vệ dữ liệu nội bộ.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Prompt số 1 - Lệnh "Đọc hiểu" dữ liệu.}
+    \begin{itemize}
+        \item "Đóng vai chuyên gia phân tích tài chính. Hãy đọc file Excel đính kèm và tóm tắt cấu trúc dữ liệu của 2 sheet: Balance Sheet và Income Statement."
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Phân tích phản hồi đầu tiên của AI.}
+    \begin{itemize}
+        \item Kiểm tra xem AI có nhận diện đúng số dòng, số cột và các khoản mục chính không.
+        \item Nếu AI đọc sai (nhận nhầm header), cần nhắc nhở và sửa lỗi ngay.
+        ### Phần 3: Thực thi Prompt Tính toán Tỷ số tài chính
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Prompt số 2 - Tính toán Nhóm Thanh khoản (Liquidity).}
+    \begin{itemize}
+        \item "Dựa trên dữ liệu, hãy tạo một bảng tính Tỷ số thanh toán hiện hành và Tỷ số thanh toán nhanh cho cả 3 năm."
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Đọc kết quả Tỷ số Thanh khoản.}
+    \begin{itemize}
+        \item So sánh kết quả AI trả về với công thức chuẩn.
+        \item Kiểm tra xem AI lấy số liệu "Tài sản ngắn hạn" ở dòng nào.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Prompt số 3 - Tính toán Nhóm Đòn bẩy (Solvency).}
+    \begin{itemize}
+        \item "Tiếp tục tính Tỷ số Nợ / Vốn chủ sở hữu (D/E) và Tỷ số Nợ / Tổng tài sản cho 3 năm."
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Đọc kết quả Tỷ số Đòn bẩy.}
+    \begin{itemize}
+        \item Phân tích rủi ro từ con số AI đưa ra.
+        \item Xác minh AI có cộng đúng tổng nợ (Nợ ngắn + Nợ dài) hay không.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Prompt số 4 - Tính toán Nhóm Sinh lời (Profitability).}
+    \begin{itemize}
+        \item "Hãy tính ROA, ROE và Biên lợi nhuận gộp. Trình bày dưới dạng bảng so sánh."
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Đọc kết quả Tỷ số Sinh lời.}
+    \begin{itemize}
+        \item AI thường tính ROA bằng Tổng tài sản cuối kỳ hay Bình quân? (Yêu cầu AI giải thích công thức nó đã dùng).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Prompt nâng cao - Mô hình DuPont.}
+    \begin{itemize}
+        \item "Sử dụng dữ liệu hiện có, hãy phân tách ROE của năm gần nhất theo Mô hình DuPont 3 nhân tố."
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Phân tích kết quả DuPont do AI xuất ra.}
+    \begin{itemize}
+        \item Nhìn vào 3 nhân tố (Biên lợi nhuận ròng, Vòng quay TS, Đòn bẩy).
+        \item Nguyên nhân nào làm thay đổi ROE?
+        ### Phần 4: Phân tích Đa chiều (Từ Spreadsheet sang Data Cubes)
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Giới thiệu khái niệm Data Cubes cơ bản.}
+    \begin{itemize}
+        \item Vượt ra khỏi bảng 2 chiều (Dòng x Cột).
+        \item Thêm các chiều phân tích (Dimension): Thời gian, Chi nhánh, Dòng sản phẩm.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Data Cubes trong AI.}
+    \begin{itemize}
+        \item Khác với Excel Pivot Table phải kéo thả thủ công.
+        \item AI có thể tạo các lát cắt dữ liệu (Slice and Dice) bằng mã Python ngầm định.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Prompt số 5 - Tạo Data Cubes giả lập.}
+    \begin{itemize}
+        \item "Hãy nhóm doanh thu và chi phí theo từng quý (nếu có dữ liệu) và so sánh sự tăng trưởng (YoY)."
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Trực quan hóa dữ liệu (Data Visualization).}
+    \begin{itemize}
+        \item Yêu cầu AI: "Hãy vẽ biểu đồ cột thể hiện sự biến động của Doanh thu thuần và Lợi nhuận sau thuế trong 3 năm."
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Trực quan hóa cấu trúc vốn.}
+    \begin{itemize}
+        \item Yêu cầu AI: "Vẽ biểu đồ tròn (Pie chart) thể hiện cơ cấu Nợ và Vốn chủ sở hữu của năm mới nhất."
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Trực quan hóa xu hướng tỷ số.}
+    \begin{itemize}
+        \item Yêu cầu AI: "Vẽ biểu đồ đường (Line chart) mô tả xu hướng của ROA và ROE, thêm đường trung bình ngành (giả định là 10\%)."
+        ### Phần 5: Báo cáo Đánh giá và Phản biện AI
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Prompt Tổng hợp - Viết báo cáo Sức khỏe tài chính.}
+    \begin{itemize}
+        \item "Dựa trên tất cả các tỷ số đã tính, hãy viết một đoạn nhận xét 300 chữ đánh giá sức khỏe tài chính của công ty. Nêu rõ 2 điểm mạnh và 2 rủi ro."
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Đánh giá Báo cáo của AI.}
+    \begin{itemize}
+        \item Báo cáo có logic không? Các nhận định có khớp với số liệu không?
+        \item Phát hiện những lời "sáo rỗng" hoặc "ảo giác" của AI.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Phản biện lại AI.}
+    \begin{itemize}
+        \item Kỹ năng quan trọng: Yêu cầu AI giải thích "Tại sao bạn kết luận rủi ro thanh khoản cao khi Tỷ số hiện hành là 1.5?".
+        \item Xem AI giải thích các giả định của nó.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Kết xuất kết quả cuối cùng.}
+    \begin{itemize}
+        \item Hướng dẫn sinh viên copy/paste báo cáo và biểu đồ từ ChatGPT vào Word/PowerPoint để hoàn thiện bài tập nhóm.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Tổng kết buổi thực hành.}
+    \begin{itemize}
+        \item Điểm lại các lệnh Prompt hiệu quả nhất đã sử dụng.
+        \item Nhắc nhở: AI chỉ là công cụ hỗ trợ tính toán nhanh, linh hồn của bài phân tích vẫn là tư duy tài chính của người làm kế toán.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Q\&A - Giải đáp thắc mắc.}
+    \begin{itemize}
+        \item Sinh viên đặt câu hỏi về các lỗi gặp phải khi thực thi Prompt.
+        \item Bài tập về nhà: Tự tải BCTC của 1 công ty khác (VNM, FPT) và thực hiện quy trình tương tự.
+    \end{itemize}
+\end{frame}
+
+
+\end{document}

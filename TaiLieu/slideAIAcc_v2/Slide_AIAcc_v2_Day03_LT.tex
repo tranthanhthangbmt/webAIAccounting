@@ -1,0 +1,417 @@
+\documentclass[aspectratio=169]{beamer}
+\usetheme{Madrid}
+\usecolortheme{default}
+\usepackage[utf8]{inputenc}
+\usepackage[T5]{fontenc}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{booktabs}
+
+\setbeamertemplate{caption}[numbered]
+\renewcommand{\figurename}{Hình}
+
+\title[Trí tuệ Nhân tạo cho Kế toán]{Trí tuệ Nhân tạo cho Kế toán \\ \vspace{0.3cm} \Large KẾ HOẠCH SLIDE LÝ THUYẾT - DAY 3 (BUỔI 3)}
+\author{Đại học Đông Á}
+\date{\today}
+
+\begin{document}
+
+% SLIDE 1
+\begin{frame}
+    \titlepage
+\end{frame}
+
+% SLIDE 2
+\begin{frame}{Nội dung Bài học}
+    \tableofcontents
+\end{frame}
+
+
+\section{KẾ HOẠCH SLIDE LÝ THUYẾT - DAY 3 (BUỔI 3)}
+
+
+\section{PHẦN 1: TỔNG QUAN QUY TRÌNH CHỨNG TỪ \& NỖI ĐAU NHẬP LIỆU}
+
+
+\begin{frame}{TRANG BÌA (Title Page)}
+    \begin{itemize}
+        \item Tiêu đề chính: Trí tuệ Nhân tạo cho Kế toán
+        \item Tiêu đề phụ: Buổi 3 - AI Hỗ trợ Nhập liệu \& Xử lý Chứng từ
+        \item Tác giả: Đại học Đông Á
+        \item *(🖼️ Ảnh minh họa: AI Generated - Một robot đang chiếu tia laser quét qua một tờ hóa đơn tài chính, biến nó thành các dòng code số).*
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Năng lực đạt được sau buổi học}
+    \begin{itemize}
+        \item \textbf{Về Lý thuyết (LT):} Hiểu được quy trình luân chuyển chứng từ (Revenue Cycle) và cách công nghệ OCR/AI thay thế việc nhập liệu thủ công; Nhận thức rõ các rủi ro bảo mật (Confidentiality \& Privacy) khi chia sẻ dữ liệu kế toán với AI.
+        \item \textbf{Về Thực hành (TH):} Biết cách sử dụng Prompt (như Provide formatting instructions) kết hợp ChatGPT/Copilot hoặc tính năng OCR của Excel để bóc tách dữ liệu từ hình ảnh/PDF hóa đơn thành định dạng bảng.
+        \item \textbf{Về Tư duy nghề nghiệp:} Chuyển dịch từ tư duy "người nhập liệu" sang "người kiểm soát" (Reviewer), biết cách bảo vệ dữ liệu nhạy cảm của doanh nghiệp trước các công cụ AI công cộng.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Khởi động (Ice-breaker)}
+    \begin{itemize}
+        \item \textbf{Câu hỏi:} Bạn dành bao nhiêu phần trăm thời gian làm việc chỉ để gõ lại số liệu từ hóa đơn giấy vào phần mềm kế toán MISA/Excel?
+        \item \textbf{Thực trạng:} Hơn 60\% thời gian của sinh viên kế toán mới ra trường là làm công việc "thợ gõ" (Data entry).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Quy trình Bán hàng \& Thu tiền (The Revenue Cycle)}
+    \begin{itemize}
+        \item Bất kỳ doanh nghiệp nào cũng có chu trình Doanh thu.
+        \item Bắt đầu từ khi khách hàng đặt hàng $\rightarrow$ Giao hàng $\rightarrow$ Xuất hóa đơn $\rightarrow$ Thu tiền.
+        \item Mỗi bước đều phát sinh một loại \textbf{Chứng từ (Document)}.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Các loại chứng từ cốt lõi trong Chu trình Doanh thu}
+    \begin{itemize}
+        \item Đơn đặt hàng (Purchase Order).
+        \item Phiếu xuất kho (Packing Slip / Delivery Note).
+        \item Hóa đơn giá trị gia tăng (Sales Invoice).
+        \item Giấy báo có của Ngân hàng (Remittance Advice).
+        \item *(🖼️ Ảnh minh họa: Hình ảnh thực tế của 4 loại chứng từ trên).*
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Luân chuyển chứng từ truyền thống}
+    \begin{itemize}
+        \item Kế toán viên phải thu thập bản cứng hoặc file PDF qua Zalo/Email.
+        \item Mở file lên ở một màn hình, màn hình kia mở phần mềm MISA.
+        \item Nhìn bằng mắt, gõ lại từng con số: Mã số thuế, Tên công ty, Tiền trước thuế, Tiền thuế VAT...
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Rủi ro của phương pháp thủ công}
+    \begin{itemize}
+        \item \textbf{Sai sót con người (Human Error):} Gõ sai dấu phẩy thập phân (1,000,000 thành 100,000). Hậu quả: Báo cáo thuế sai, phạt chậm nộp.
+        \item \textbf{Quá tải cuối tháng (Bottleneck):} Hóa đơn dồn về cuối tháng khiến kế toán phải OT (làm thêm giờ) liên tục.
+        \item \textbf{Mất mát dữ liệu:} Rách giấy, mờ mực, trôi tin nhắn Zalo.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Nhu cầu tự động hóa}
+    \begin{itemize}
+        \item Doanh nghiệp không trả lương cho kế toán chỉ để "gõ máy".
+        \item Doanh nghiệp trả lương cho kế toán để \textbf{Phân tích} và \textbf{Kiểm soát}.
+        \item Giải pháp: Giao việc nhập liệu cho máy móc.
+    \end{itemize}
+\end{frame}
+
+
+\section{PHẦN 2: CÔNG NGHỆ NHẬN DẠNG QUANG HỌC (OCR)}
+
+
+\begin{frame}{OCR là gì? (Optical Character Recognition)}
+    \begin{itemize}
+        \item \textbf{Định nghĩa:} Nhận dạng ký tự quang học.
+        \item \textbf{Bản chất:} Chuyển đổi hình ảnh của văn bản (ảnh chụp, PDF scan) thành định dạng văn bản mà máy tính có thể hiểu và chỉnh sửa (như Word, Excel).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Cơ chế hoạt động của OCR truyền thống}
+    1. Quét hình ảnh (Image Acquisition).\\
+    2. Tiền xử lý (Pre-processing): Làm nét chữ, làm trắng nền.\\
+    3. Phân tích vùng (Zoning): Xác định đâu là vùng chứa chữ, đâu là logo.\\
+    4. Trích xuất ký tự (Character Extraction).\\
+\end{frame}
+
+
+\begin{frame}{Ứng dụng OCR trong Kế toán}
+    \begin{itemize}
+        \item Chụp ảnh hóa đơn nhà hàng $\rightarrow$ Tự động trích xuất Tên nhà hàng, Ngày ăn, Tổng số tiền.
+        \item Scan hàng loạt hóa đơn đầu vào $\rightarrow$ Đẩy thẳng vào phần mềm kế toán.
+        \item *(🖼️ Ảnh minh họa: App điện thoại chụp hóa đơn).*
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Nhược điểm của OCR truyền thống}
+    \begin{itemize}
+        \item Dựa trên \textbf{Luật (Rule-based)} và \textbf{Tọa độ (Template-based)}.
+        \item Nếu nhà cung cấp đổi mẫu hóa đơn (Logo dời sang phải, Tên công ty tụt xuống dưới), OCR cũ sẽ đọc sai bét.
+        \item Rất kém trong việc nhận dạng chữ viết tay hoặc hóa đơn bị nhàu nát, chụp mờ.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Sự tiến hóa: OCR kết hợp AI (Intelligent Document Processing - IDP)}
+    \begin{itemize}
+        \item AI vào cuộc! Thay vì học thuộc tọa độ, AI được huấn luyện (Machine Learning) để "Hiểu" hóa đơn.
+        \item AI hiểu ngữ cảnh: "Số nằm cạnh chữ VAT 8\% chắc chắn là tiền thuế, dù nó nằm ở góc nào của tờ giấy".
+    \end{itemize}
+\end{frame}
+
+
+\section{PHẦN 3: ỨNG DỤNG GENERATIVE AI ĐỂ XỬ LÝ CHỨNG TỪ}
+
+
+\begin{frame}{Kỷ nguyên của Generative AI (ChatGPT/Copilot)}
+    \begin{itemize}
+        \item Các mô hình ngôn ngữ lớn (LLMs) như GPT-4 hay Gemini hiện nay đều có khả năng \textbf{Thị giác máy tính (Computer Vision)}.
+        \item Chúng không chỉ đọc chữ (OCR), mà còn hiểu logic của chứng từ kế toán!
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Prompt Engineering (Kỹ thuật đặt câu lệnh) cho Hóa đơn}
+    \begin{itemize}
+        \item Bạn có thể tải file PDF hóa đơn lên ChatGPT.
+        \item \textbf{Prompt:} "Đây là hóa đơn mua hàng. Hãy đọc nó và trích xuất cho tôi các thông tin sau: Mã số thuế người bán, Tổng tiền trước thuế, Thuế VAT, Tổng thanh toán."
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Trích xuất ra định dạng Bảng (Table)}
+    \begin{itemize}
+        \item Để tiện cho việc nhập liệu, ta yêu cầu AI trả về dưới dạng bảng.
+        \item \textbf{Prompt:} "Hãy trình bày kết quả dưới dạng bảng có các cột: STT, Tên Hàng Hóa, Số Lượng, Đơn Giá, Thành Tiền. Bỏ qua các dòng trống."
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Xuất dữ liệu thẳng ra Excel/CSV}
+    \begin{itemize}
+        \item Khả năng tuyệt vời của AI là tạo ra file.
+        \item \textbf{Prompt:} "Hãy xuất kết quả trên thành một file CSV để tôi có thể mở bằng Excel."
+        \item Kế toán chỉ cần tải file về và import thẳng vào phần mềm!
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{So sánh đối chiếu chứng từ (3-Way Matching)}
+    \begin{itemize}
+        \item Kế toán thường phải dò 3 tờ giấy: Đơn đặt hàng (PO) + Phiếu xuất kho + Hóa đơn xem có khớp số lượng và đơn giá không.
+        \item \textbf{Giải pháp AI:} Tải cả 3 file lên ChatGPT.
+        \item \textbf{Prompt:} "Hãy đối chiếu xem số lượng hàng giao thực tế có khớp với số lượng đặt hàng và số lượng xuất hóa đơn không. Chỉ ra các điểm sai lệch."
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Tiềm năng tự động hóa 100\% (RPA + AI)}
+    \begin{itemize}
+        \item RPA (Robotic Process Automation): Các con bot tự động click chuột.
+        \item Kết hợp RPA và AI:
+        \item Bot tự mở Email tải hóa đơn PDF về.
+        \item Bot đẩy PDF vào AI để đọc lấy số liệu.
+        \item Bot tự động mở phần mềm MISA, điền số liệu vào đúng ô và bấm Lưu.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Ví dụ thực tế: Hệ thống tự động của các Big4}
+    \begin{itemize}
+        \item PwC, Deloitte, EY, KPMG đều đã xây dựng các hệ thống AI nội bộ để tự động đọc hàng triệu chứng từ kiểm toán mỗi năm.
+        \item Sinh viên kế toán cần làm quen với tư duy này để không bị đào thải.
+    \end{itemize}
+\end{frame}
+
+
+\section{PHẦN 4: THỰC HÀNH TƯ DUY XỬ LÝ VỚI AI}
+
+
+\begin{frame}{Case Study: Hóa đơn xăng dầu viết tay}
+    \begin{itemize}
+        \item Lái xe mang về một xấp hóa đơn bán lẻ xăng dầu, chữ viết tay nguệch ngoạc.
+        \item Nếu gõ tay: Mất 1 tiếng, dễ hoa mắt nhìn nhầm số.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Giải quyết Case Study bằng ChatGPT}
+    \begin{itemize}
+        \item Bước 1: Dùng điện thoại chụp lại xấp hóa đơn.
+        \item Bước 2: Gửi ảnh vào app ChatGPT.
+        \item Bước 3: Prompt "Nhận diện số tiền và ngày tháng trên các hóa đơn này, cộng tổng lại cho tôi."
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Kiểm chứng kết quả của AI (Human-in-the-loop)}
+    \begin{itemize}
+        \item AI không hoàn hảo (Có thể bị Hallucination - Ảo giác).
+        \item Nó có thể đọc nhầm số "8" thành số "3" nếu viết tay quá xấu.
+        \item \textbf{Vai trò của Kế toán viên:} Không phải là người nhập liệu, mà là người \textbf{Duyệt (Review)} dữ liệu do AI làm ra.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Nhận diện bất thường (Anomaly Detection)}
+    \begin{itemize}
+        \item Cấp dữ liệu 1000 hóa đơn cho AI.
+        \item Prompt: "Hãy tìm cho tôi những hóa đơn có ngày xuất vào Chủ Nhật hoặc ngày Lễ, hoặc có số tiền chiết khấu cao bất thường so với mức 5\% thông thường."
+        \item AI sẽ quét trong 10 giây và lọc ra các hóa đơn đáng ngờ.
+    \end{itemize}
+\end{frame}
+
+
+\section{PHẦN 5: BẢO MẬT, QUYỀN RIÊNG TƯ \& KIỂM SOÁT}
+
+
+\begin{frame}{Mặt trái của việc dùng AI xử lý chứng từ}
+    \begin{itemize}
+        \item Khi tải Hóa đơn, Bảng lương, Hợp đồng lên ChatGPT, bạn đang đưa dữ liệu đi đâu?
+        \item Các mô hình AI công cộng sẽ dùng dữ liệu của bạn để huấn luyện tiếp!
+        \item Rủi ro lộ lọt bí mật kinh doanh (Confidentiality Risk).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Confidentiality (Tính Bảo mật)}
+    \begin{itemize}
+        \item \textbf{Định nghĩa:} Bảo vệ các tài sản trí tuệ và thông tin nhạy cảm của tổ chức (Kế hoạch kinh doanh, Báo cáo tài chính nội bộ, Danh sách khách hàng VIP).
+        \item Nếu lộ ra ngoài, đối thủ cạnh tranh sẽ hưởng lợi.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Privacy (Quyền riêng tư)}
+    \begin{itemize}
+        \item \textbf{Định nghĩa:} Bảo vệ thông tin cá nhân (PII - Personally Identifiable Information) của khách hàng, nhân viên (CCCD, Số tài khoản ngân hàng, Lịch sử mua hàng).
+        \item Pháp luật quy định rất nghiêm (GDPR, CCPA, Nghị định 13/2023/NĐ-CP của Việt Nam về Bảo vệ dữ liệu cá nhân).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{4 Bước để Bảo vệ Dữ liệu theo chuẩn Quốc tế (Hình 12-1)}
+    1. \textbf{Identify \& Classify:} Nhận diện và phân loại thông tin nào là Mật, thông tin nào là Phổ thông.\\
+    2. \textbf{Encryption:} Mã hóa dữ liệu (Đặc biệt quan trọng).\\
+    3. \textbf{Access Controls:} Kiểm soát truy cập (Ai được quyền xem, ai được quyền tải về).\\
+    4. \textbf{Training:} Đào tạo nhân viên (Tránh việc gửi nhầm mail, up nhầm file lên mạng).\\
+\end{frame}
+
+
+\begin{frame}{Phân loại dữ liệu trước khi đưa cho AI}
+    \begin{itemize}
+        \item \textbf{Public (Công khai):} Thông tư, nghị định, chuẩn mực kế toán $\rightarrow$ Dùng ChatGPT công cộng vô tư.
+        \item \textbf{Internal (Nội bộ):} Quy trình làm việc, mẫu biểu không chứa số liệu mật $\rightarrow$ Cẩn trọng.
+        \item \textbf{Confidential/Restricted (Mật):} Hợp đồng M\&A, Bảng lương, Báo cáo doanh thu $\rightarrow$ \textbf{TUYỆT ĐỐI KHÔNG} tải lên ChatGPT miễn phí.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Mã hóa dữ liệu (Encryption)}
+    \begin{itemize}
+        \item Là phương pháp biến dữ liệu đọc được thành một chuỗi ký tự vô nghĩa (Ciphertext).
+        \item Chỉ có người sở hữu "Chìa khóa" (Decryption Key) mới giải mã được.
+        \item Bảo vệ dữ liệu trên đường truyền mạng (In transit) và dữ liệu lưu trữ trên máy (At rest).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Giấu thông tin (Data Masking / Tokenization)}
+    \begin{itemize}
+        \item Khi cần test hệ thống AI hoặc thuê lập trình viên ngoài.
+        \item Dùng Data Masking để ẩn đi các dữ liệu nhạy cảm.
+        \item Ví dụ: Số thẻ tín dụng \texttt{1234-5678-9012-3456} thành \texttt{XXXX-XXXX-XXXX-3456}.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Enterprise AI (AI dành cho Doanh nghiệp)}
+    \begin{itemize}
+        \item Để xử lý chứng từ mật, doanh nghiệp phải mua bản quyền \textbf{Enterprise AI} (Ví dụ: Microsoft Copilot for Microsoft 365, ChatGPT Enterprise).
+        \item Cam kết của nhà cung cấp: "Chúng tôi KHÔNG sử dụng dữ liệu của bạn để huấn luyện mô hình. Dữ liệu của bạn được mã hóa hoàn toàn."
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Information Rights Management (IRM)}
+    \begin{itemize}
+        \item Phần mềm kiểm soát quyền thông tin.
+        \item Dù file hóa đơn đã được gửi đi, kế toán trưởng vẫn có quyền giới hạn:
+        \item Chỉ cho phép xem, không cho in ấn (Print).
+        \item Cấm copy/paste.
+        \item Tự động hủy file (Revoke access) sau 7 ngày.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Data Loss Prevention (DLP)}
+    \begin{itemize}
+        \item Hệ thống phòng chống thất thoát dữ liệu.
+        \item Hoạt động như một màng lọc: Nếu một nhân viên thử gửi email đính kèm file có chứa từ khóa "Bảng lương", hệ thống sẽ chặn email lại và cảnh báo quản lý.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Digital Signatures (Chữ ký số)}
+    \begin{itemize}
+        \item Chứng từ kế toán hiện đại không thể thiếu Chữ ký số.
+        \item Chữ ký số không phải là ảnh chụp chữ ký tay dán vào PDF!
+        \item Nó là một thuật toán mã hóa phức tạp chứng minh:
+        1. Ai là người tạo ra văn bản này (Non-repudiation).
+        2. Văn bản chưa hề bị chỉnh sửa kể từ khi ký (Integrity).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Cách tạo Chữ ký số (Hashing)}
+    \begin{itemize}
+        \item \textbf{Hàm băm (Hash):} Biến một văn bản dài thành một đoạn code ngắn duy nhất (Ví dụ độ dài 256 ký tự). Nếu sửa dù chỉ 1 dấu chấm trong văn bản, đoạn code Hash sẽ thay đổi hoàn toàn.
+        \item Ký số = Mã hóa đoạn Hash đó bằng Khóa Bí Mật (Private Key) của giám đốc.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Blockchain trong chứng từ (Khái niệm sơ lược)}
+    \begin{itemize}
+        \item Blockchain có thể hiểu đơn giản là một cuốn sổ cái (Ledger) được nhân bản ra hàng ngàn máy tính.
+        \item Khi một chứng từ hóa đơn được đưa lên Blockchain, nó không thể bị xóa bỏ, không thể bị sửa chữa (Immutability).
+        \item Tạo ra niềm tin tuyệt đối trong kế toán.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Quy trình chuẩn khi áp dụng AI vào Kế toán}
+    1. Nhận chứng từ gốc.\\
+    2. Xóa/Ẩn thông tin định danh nhạy cảm cá nhân.\\
+    3. Cấp cho Enterprise AI để trích xuất dữ liệu.\\
+    4. Con người (Kế toán viên) kiểm tra lại kết quả.\\
+    5. Duyệt và lưu vào CSDL (có phân quyền Access Control).\\
+\end{frame}
+
+
+\begin{frame}{Trách nhiệm nghề nghiệp của Kế toán viên}
+    \begin{itemize}
+        \item AI là trợ thủ, không phải người chịu trách nhiệm trước pháp luật.
+        \item Nếu AI đọc sai số tiền thuế và bạn duyệt bấm nộp, cơ quan thuế sẽ phạt Doanh nghiệp (và truy trách nhiệm bạn), chứ không phạt OpenAI!
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Tóm tắt Buổi 3}
+    \begin{itemize}
+        \item \textbf{Giá trị:} AI và OCR giải phóng kế toán khỏi công việc nhập liệu nhàm chán.
+        \item \textbf{Kỹ năng:} Biết cách dùng Prompt để bắt AI đọc, trích xuất và đối chiếu chứng từ.
+        \item \textbf{Tuân thủ:} Luôn cảnh giác với bảo mật dữ liệu, phân loại tài liệu mật và hiểu về cơ chế mã hóa.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Chuẩn bị cho Buổi Thực hành}
+    \begin{itemize}
+        \item Cài đặt sẵn Excel.
+        \item Đăng ký tài khoản ChatGPT hoặc chuẩn bị Microsoft Copilot.
+        \item Chuẩn bị các file ảnh, file PDF hóa đơn thực tế để thực hành đọc số liệu.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Q\&A}
+    \begin{itemize}
+        \item Cùng thảo luận: Nếu AI thay thế hoàn toàn việc nhập liệu, sinh viên kế toán mới ra trường nên làm gì để gia tăng giá trị bản thân trong mắt nhà tuyển dụng?
+    \end{itemize}
+\end{frame}
+
+
+\end{document}

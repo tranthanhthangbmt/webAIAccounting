@@ -1,0 +1,361 @@
+\documentclass[aspectratio=169]{beamer}
+\usetheme{Madrid}
+\usecolortheme{default}
+\usepackage[utf8]{inputenc}
+\usepackage[T5]{fontenc}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{booktabs}
+
+\setbeamertemplate{caption}[numbered]
+\renewcommand{\figurename}{Hình}
+
+\title[Trí tuệ Nhân tạo cho Kế toán]{Trí tuệ Nhân tạo cho Kế toán \\ \vspace{0.3cm} \Large KẾ HOẠCH SLIDE LÝ THUYẾT - DAY 08 (BUỔI 8)}
+\author{Đại học Đông Á}
+\date{\today}
+
+\begin{document}
+
+% SLIDE 1
+\begin{frame}
+    \titlepage
+\end{frame}
+
+% SLIDE 2
+\begin{frame}{Nội dung Bài học}
+    \tableofcontents
+\end{frame}
+
+
+\section{KẾ HOẠCH SLIDE LÝ THUYẾT - DAY 08 (BUỔI 8)}
+
+
+\begin{frame}{Title: Buổi 8: Ứng dụng AI trong Kế toán Quản trị.}
+    \begin{itemize}
+        \item Phụ đề: AI-Driven Forecasting, Budgeting \& Profit Planning
+        \item Giảng viên: Đại học Đông Á
+        \item Môn học: Trí tuệ Nhân tạo cho Kế toán
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Năng lực đạt được sau buổi học.}
+    \begin{itemize}
+        \item \textbf{Về Kiến thức:} Hiểu được sự khác biệt giữa dự báo truyền thống và dự báo dựa trên AI. Nắm vững quy trình lập kế hoạch lợi nhuận (Profit Planning) và lập ngân sách (Budgeting).
+        \item \textbf{Về Kỹ năng:} Có khả năng sử dụng các công cụ AI và Prompts để phân tích xu hướng (Trend Analysis), dự báo dòng tiền, doanh thu và xây dựng các kịch bản kinh doanh đa chiều.
+        \item \textbf{Về Tư duy:} Rèn luyện tư duy chiến lược (Strategic Thinking) và ra quyết định dựa trên dữ liệu (Data-driven). Hiểu rõ giới hạn của AI và vai trò không thể thay thế của sự nhạy bén kinh doanh (Business Acumen) ở Kế toán viên.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Nội dung Chương trình (Agenda).}
+    \begin{itemize}
+        \item 1. Tổng quan về Kế toán Quản trị và Lập kế hoạch Lợi nhuận.
+        \item 2. Khái niệm và Vai trò của Dự báo dựa trên AI (AI-Driven Forecasting).
+        \item 3. Ứng dụng AI trong Lập Ngân sách (Budgeting).
+        \item 4. Phân tích Kịch bản (Scenario Analysis) \& Quản trị rủi ro.
+        \item 5. Giới hạn của AI trong Dự báo và Định hướng Nghề nghiệp.
+        ### Phần 1: Tổng quan về Kế toán Quản trị và Lập kế hoạch Lợi nhuận
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Kế toán Quản trị (Managerial Accounting) là gì?}
+    \begin{itemize}
+        \item Khác biệt với Kế toán Tài chính: Hướng tới tương lai (Future-oriented) thay vì ghi nhận quá khứ.
+        \item Đối tượng sử dụng: Ban lãnh đạo, cấp quản lý nội bộ.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Lập kế hoạch Lợi nhuận (Profit Planning).}
+    \begin{itemize}
+        \item Theo Garrison (Managerial Accounting): Lập kế hoạch lợi nhuận là quá trình thiết lập các mục tiêu kinh doanh và xác định các nguồn lực cần thiết để đạt được chúng.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Vai trò của Ngân sách (Budgets).}
+    \begin{itemize}
+        \item Là bản kế hoạch tài chính định lượng cho tương lai.
+        \item Giúp ép buộc nhà quản lý phải "suy nghĩ về tương lai".
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Chu trình Lập kế hoạch và Kiểm soát (Planning and Control Cycle).}
+    \begin{itemize}
+        \item Lập kế hoạch $\rightarrow$ Thực thi $\rightarrow$ So sánh thực tế với Ngân sách $\rightarrow$ Điều chỉnh.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Thách thức của Kế toán Quản trị truyền thống.}
+    \begin{itemize}
+        \item Xử lý dữ liệu thủ công, mất quá nhiều thời gian tổng hợp số liệu bằng Excel.
+        \item Các dự báo dựa chủ yếu vào cảm tính hoặc nội suy đơn giản từ dữ liệu quá khứ.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Hiệu ứng "Silo" trong dữ liệu.}
+    \begin{itemize}
+        \item Dữ liệu bán hàng, nhân sự, tài chính bị cô lập ở các phòng ban khác nhau.
+        \item Khó nhìn thấy bức tranh toàn cảnh để lập ngân sách chính xác.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Sự trỗi dậy của AI trong Kế toán Quản trị.}
+    \begin{itemize}
+        \item Chuyển dịch từ việc "Kế toán viên là người lập bảng tính" sang "Kế toán viên là nhà phân tích chiến lược".
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Khái niệm Predictive Analytics (Phân tích Dự đoán).}
+    \begin{itemize}
+        \item Sử dụng dữ liệu quá khứ, thuật toán thống kê và Machine Learning để xác định khả năng xảy ra của các kết quả trong tương lai.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{So sánh: Truyền thống vs. Predictive Analytics.}
+    \begin{itemize}
+        \item Truyền thống: "Doanh thu năm ngoái là X, năm nay cộng thêm 5\%".
+        \item Predictive Analytics: "Doanh thu năm nay sẽ là Y dựa trên 50 biến số (thời tiết, lạm phát, xu hướng mạng xã hội...)".
+        ### Phần 2: Dự báo dựa trên AI (AI-Driven Forecasting)
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Dự báo dựa trên AI là gì?}
+    \begin{itemize}
+        \item Là việc sử dụng Machine Learning để tìm ra các mẫu (patterns) ẩn sâu trong dữ liệu khổng lồ mà não bộ con người không thể nhận thấy.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Các loại Dự báo phổ biến trong Doanh nghiệp.}
+    \begin{itemize}
+        \item Dự báo Doanh thu (Sales Forecasting).
+        \item Dự báo Dòng tiền (Cash Flow Forecasting).
+        \item Dự báo Nhu cầu Hàng tồn kho (Demand Forecasting).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Yếu tố quyết định Dự báo Doanh thu AI.}
+    \begin{itemize}
+        \item Không chỉ nhìn vào dữ liệu lịch sử.
+        \item AI có thể tích hợp dữ liệu Vĩ mô (Lãi suất, GDP) và dữ liệu Vi mô (Traffic website, Lượt tìm kiếm Google).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Ưu điểm 1: Độ chính xác cao hơn.}
+    \begin{itemize}
+        \item Thuật toán Machine Learning liên tục học hỏi từ sai số (Error margin) để điều chỉnh trọng số (Weights).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Ưu điểm 2: Phân tích Dữ liệu phi cấu trúc (Unstructured Data).}
+    \begin{itemize}
+        \item NLP (Natural Language Processing) giúp AI đọc các đánh giá của khách hàng, tin tức ngành để đưa ra dự báo.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Dự báo Dòng tiền (Cash Flow Forecasting).}
+    \begin{itemize}
+        \item Xác định vòng quay khoản phải thu, phải trả với độ chính xác theo ngày.
+        \item Cảnh báo sớm các điểm thắt cổ chai về thanh khoản.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Tương tác với AI Generative trong Dự báo.}
+    \begin{itemize}
+        \item Làm thế nào ChatGPT có thể giúp dự báo?
+        \item Bằng tính năng Advanced Data Analysis: Upload file CSV và yêu cầu tính toán Trend Line, Moving Average.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Kỹ thuật Prompting cho Dự báo.}
+    \begin{itemize}
+        \item "Dựa trên dữ liệu doanh thu 36 tháng qua, hãy sử dụng mô hình ARIMA (hoặc các phương pháp ngoại suy tương tự) để dự báo 3 tháng tiếp theo."
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Trực quan hóa kết quả dự báo.}
+    \begin{itemize}
+        \item Yêu cầu AI vẽ các đường xu hướng dự báo kết hợp với dải tin cậy (Confidence intervals) để thấy được mức độ rủi ro.
+        ### Phần 3: Lập Ngân sách và Kế hoạch với AI (Budgeting)
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Các phương pháp lập Ngân sách truyền thống.}
+    \begin{itemize}
+        \item Ngân sách dựa trên lịch sử (Incremental Budgeting).
+        \item Ngân sách từ cơ sở Không (Zero-Based Budgeting - ZBB).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Khó khăn của Zero-Based Budgeting.}
+    \begin{itemize}
+        \item Rất tốn thời gian vì phải giải trình lại mọi khoản chi phí từ con số 0.
+        \item AI giúp tự động hóa quá trình phân loại, đánh giá mức độ cần thiết của chi phí, làm cho ZBB khả thi hơn.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Rolling Forecasts (Dự báo cuốn chiếu) với AI.}
+    \begin{itemize}
+        \item Khác với ngân sách tĩnh (Static Budget) 1 năm 1 lần.
+        \item Rolling Forecast cập nhật liên tục mỗi tháng. AI giúp quá trình cập nhật này tự động thay vì phải làm thủ công.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Tự động phát hiện chi phí dư thừa.}
+    \begin{itemize}
+        \item Thuật toán quét hàng ngàn mục chi phí, đánh dấu các khoản chi phí lặp lại không hiệu quả (Ví dụ: Các gói phần mềm SaaS không ai sử dụng).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Tối ưu hóa Giá trị Khách hàng (CLV - Customer Lifetime Value).}
+    \begin{itemize}
+        \item Lập ngân sách Marketing không còn cào bằng.
+        \item AI phân bổ ngân sách vào các tệp khách hàng có CLV cao nhất.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Phân bổ Ngân sách Động (Dynamic Resource Allocation).}
+    \begin{itemize}
+        \item Nếu doanh số tháng 1 vượt kỳ vọng, AI tự động đề xuất phân bổ thêm ngân sách sản xuất cho tháng 2 để bắt kịp đà tăng trưởng.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Tích hợp AI vào quá trình phê duyệt.}
+    \begin{itemize}
+        \item Chatbot nội bộ đóng vai trò là "Nhà quản trị tài chính số".
+        \item Ví dụ: Trưởng phòng Marketing chat: "Tôi còn bao nhiêu ngân sách cho chiến dịch quý 3?". AI trả lời và kiểm tra độ lệch ngân sách lập tức.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Dự toán chi phí nhân sự với AI.}
+    \begin{itemize}
+        \item Dự đoán tỷ lệ nghỉ việc (Turnover rate) dựa trên mức độ hài lòng, từ đó lập ngân sách tuyển dụng và đào tạo kịp thời.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Chống lại "Sự phình to của ngân sách" (Budget Slack).}
+    \begin{itemize}
+        \item Các nhà quản lý thường có xu hướng xin dư ngân sách.
+        \item Thuật toán Machine Learning đối chiếu với dữ liệu định mức ngành để phát hiện và cảnh báo các khoản "Slack" này.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Vai trò của Kế toán viên trong kỷ nguyên Ngân sách AI.}
+    \begin{itemize}
+        \item Chuyển từ người nhập liệu, tổng hợp số sang đối tác chiến lược (Strategic Business Partner).
+        ### Phần 4: Phân tích Kịch bản (Scenario Analysis) \& Quản trị rủi ro
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Phân tích Kịch bản (Scenario Analysis) là gì?}
+    \begin{itemize}
+        \item Là quá trình đánh giá các kết quả có thể xảy ra trong tương lai thông qua việc xem xét các trạng thái khác nhau của thế giới kinh doanh.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{3 Kịch bản cốt lõi.}
+    \begin{itemize}
+        \item Best-case scenario (Lạc quan).
+        \item Base-case scenario (Cơ sở / Kỳ vọng nhất).
+        \item Worst-case scenario (Bi quan).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{AI hỗ trợ mô phỏng Monte Carlo (Monte Carlo Simulation).}
+    \begin{itemize}
+        \item Phương pháp chạy hàng ngàn kịch bản ngẫu nhiên dựa trên các biến số có xác suất khác nhau để tìm ra rủi ro tối đa.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Ứng dụng Prompt cho Kịch bản.}
+    \begin{itemize}
+        \item "Hãy đóng vai CFO, phân tích tác động tài chính (Lợi nhuận, Dòng tiền) nếu chi phí nguyên vật liệu đầu vào tăng đột biến 20\% do đứt gãy chuỗi cung ứng."
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Phân tích Độ nhạy (Sensitivity Analysis).}
+    \begin{itemize}
+        \item "What-if analysis": Sự thay đổi của 1 biến số độc lập tác động thế nào đến lợi nhuận mục tiêu.
+        \item AI giúp thực hiện What-if trên hàng trăm biến số cùng lúc.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Chiến lược Ứng phó (Mitigation Strategy).}
+    \begin{itemize}
+        \item Không chỉ đưa ra con số rủi ro, AI (đặc biệt là LLMs) còn đề xuất các giải pháp chiến lược (ví dụ: Thay đổi nhà cung cấp, mua bảo hiểm tỷ giá).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Rủi ro "Thiên kiến dự báo" (Forecasting Bias) của AI.}
+    \begin{itemize}
+        \item Thuật toán học từ quá khứ, nếu quá khứ có thiên kiến (ví dụ: chỉ dự báo tăng trưởng do 10 năm qua là chu kỳ bơm tiền), AI có thể thất bại thảm hại khi xảy ra "Thiên nga đen" (Covid-19).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Black Swan Events (Sự kiện Thiên nga đen).}
+    \begin{itemize}
+        \item AI không giỏi dự đoán các sự kiện chưa từng có tiền lệ.
+        \item Đây là lúc Trực giác kinh doanh và Kinh nghiệm của Kế toán trưởng lên ngôi.
+        ### Phần 5: Tổng kết
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Nguyên tắc Cốt lõi.}
+    \begin{itemize}
+        \item AI là một phi công phụ (Copilot) đắc lực trong việc xử lý số lớn và tìm ra quy luật ẩn.
+        \item Tuy nhiên, dự báo kinh doanh là một "nghệ thuật" kết hợp giữa Khoa học dữ liệu (Data Science) và Phán đoán con người (Human Judgment).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Tổng kết buổi học.}
+    \begin{itemize}
+        \item Ứng dụng AI giúp Kế toán Quản trị chuyển từ Phân tích mô tả (Descriptive) sang Phân tích dự đoán (Predictive) và Phân tích đề xuất (Prescriptive).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Q\&A - Giải đáp thắc mắc và Chuẩn bị thực hành.}
+    \begin{itemize}
+        \item Chuẩn bị dữ liệu để tiến hành dùng AI tạo các kịch bản dự báo doanh thu.
+    \end{itemize}
+\end{frame}
+
+
+\end{document}

@@ -1,0 +1,331 @@
+\documentclass[aspectratio=169]{beamer}
+\usetheme{Madrid}
+\usecolortheme{default}
+\usepackage[utf8]{inputenc}
+\usepackage[T5]{fontenc}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{booktabs}
+
+\setbeamertemplate{caption}[numbered]
+\renewcommand{\figurename}{Hình}
+
+\title[Trí tuệ Nhân tạo cho Kế toán]{Trí tuệ Nhân tạo cho Kế toán \\ \vspace{0.3cm} \Large KẾ HOẠCH SLIDE THỰC HÀNH - DAY 3 (BUỔI 3 TH)}
+\author{Đại học Đông Á}
+\date{\today}
+
+\begin{document}
+
+% SLIDE 1
+\begin{frame}
+    \titlepage
+\end{frame}
+
+% SLIDE 2
+\begin{frame}{Nội dung Bài học}
+    \tableofcontents
+\end{frame}
+
+
+\section{KẾ HOẠCH SLIDE THỰC HÀNH - DAY 3 (BUỔI 3 TH)}
+
+
+\section{PHẦN 1: GIỚI THIỆU \& CHUẨN BỊ MÔI TRƯỜNG THỰC HÀNH}
+
+
+\begin{frame}{TRANG BÌA (Title Page)}
+    \begin{itemize}
+        \item Tiêu đề chính: Trí tuệ Nhân tạo cho Kế toán (Thực hành)
+        \item Tiêu đề phụ: Buổi 3 - AI Hỗ trợ Nhập liệu \& Đọc Chứng từ
+        \item Tác giả: Đại học Đông Á
+        \item *(🖼️ Ảnh minh họa: Một màn hình máy tính chia đôi, một bên là hóa đơn giấy lộn xộn, một bên là bảng Excel gọn gàng).*
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Năng lực đạt được sau buổi học}
+    \begin{itemize}
+        \item \textbf{Về Lý thuyết (LT):} Nắm vững chiến thuật "Provide formatting instructions" (chỉ định định dạng đầu ra) trong cẩm nang OpenAI Prompt Engineering Guide.
+        \item \textbf{Về Thực hành (TH):} Biết cách tải hình ảnh/PDF hóa đơn lên ChatGPT hoặc dùng tính năng trích xuất dữ liệu hình ảnh của Excel để bóc tách thông tin (Tên công ty, MST, Số tiền, Ngày tháng) và xuất ra bảng; Biết cách Import dữ liệu Excel vào phần mềm Kế toán.
+        \item \textbf{Về Tư duy nghề nghiệp:} Hình thành thói quen luôn kiểm tra chéo (Cross-check) độ chính xác của dữ liệu do AI xuất ra (Human-in-the-loop).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Tư duy "Vibe Accounting" (Làm việc bằng cảm hứng)}
+    \begin{itemize}
+        \item \textbf{Vibe Coding} là thuật ngữ giới lập trình dùng để chỉ việc: Bạn không cần viết code, chỉ cần mô tả ý tưởng, AI sẽ viết code.
+        \item \textbf{Vibe Accounting:} Kế toán không cần gõ phím cạch cạch nhập số, chỉ cần tải hóa đơn lên và ra lệnh: *"Lọc cho tôi số tiền thuế!"*, AI sẽ trả về kết quả.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Công cụ sử dụng trong buổi học}
+    \begin{itemize}
+        \item \textbf{Microsoft Copilot:} Tích hợp sẵn trong trình duyệt Edge, miễn phí, xử lý ảnh và PDF rất tốt.
+        \item \textbf{ChatGPT (Bản Free/Plus):} Phân tích dữ liệu (Advanced Data Analysis) cực mạnh.
+        \item \textbf{Microsoft Excel / Google Sheets:} Để kiểm tra kết quả đầu ra.
+        \item *(Giảng viên yêu cầu sinh viên mở sẵn trình duyệt và đăng nhập).*
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Bộ dữ liệu thực hành (Dataset)}
+    \begin{itemize}
+        \item Lớp trưởng gửi link Google Drive chứa thư mục "Day3\_ChungTu".
+        \item Bao gồm:
+        \item 2 ảnh chụp bill ăn uống (JPG).
+        \item 2 ảnh chụp hóa đơn viết tay (PNG).
+        \item 3 file hóa đơn điện tử (PDF).
+        \item Sinh viên tải toàn bộ về máy.
+    \end{itemize}
+\end{frame}
+
+
+\section{PHẦN 2: BÀI TẬP 1 - XỬ LÝ HÓA ĐƠN BÁN LẺ (ẢNH CHỤP)}
+
+
+\begin{frame}{Bài toán 1 - Thanh toán công tác phí}
+    \begin{itemize}
+        \item \textbf{Bối cảnh:} Nhân viên kinh doanh đi công tác về, ném cho bạn một xấp ảnh chụp các bill ăn uống, taxi, tiếp khách.
+        \item \textbf{Yêu cầu cũ:} Bạn phải căng mắt ra đọc từng bill, nhập vào Excel để làm Phiếu chi.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Bước 1 - Tải ảnh lên Copilot/ChatGPT}
+    \begin{itemize}
+        \item Hướng dẫn thao tác đính kèm hình ảnh (Nút kẹp ghim / dấu +).
+        \item Chọn file `Bill\_Taxi\_01.jpg`.
+        \item *(🖼️ Ảnh minh họa: Ảnh chụp màn hình vị trí nút Upload trên ChatGPT).*
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Bước 2 - Viết Prompt cơ bản}
+    \begin{itemize}
+        \item \textbf{Prompt 1:} *"Hãy đọc hình ảnh này và cho tôi biết đây là hóa đơn gì, tổng số tiền là bao nhiêu?"*
+        \item Sinh viên gõ prompt và quan sát tốc độ AI đọc ảnh (OCR).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Bước 3 - Viết Prompt cấu trúc (Structured Prompt)}
+    \begin{itemize}
+        \item Prompt 1 quá thô sơ. Kế toán cần dữ liệu có cấu trúc.
+        \item \textbf{Prompt 2:} *"Bạn là một kế toán viên. Hãy đọc bill này và trích xuất thông tin theo định dạng sau: Tên đơn vị cung cấp | Ngày tháng | Nội dung chi | Số tiền."*
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Xử lý nhiều bill cùng lúc (Batch Processing)}
+    \begin{itemize}
+        \item Tải lên cùng lúc 3 file ảnh `Bill\_01`, `Bill\_02`, `Bill\_03`.
+        \item \textbf{Prompt 3:} *"Hãy đọc cả 3 hóa đơn này. Lập cho tôi một bảng tổng hợp gồm các cột: STT, Tên cửa hàng, Ngày, Số tiền. Cuối bảng tính tổng số tiền."*
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Human-in-the-loop (Kiểm tra chéo)}
+    \begin{itemize}
+        \item \textbf{Nhiệm vụ sinh viên:} Đối chiếu kết quả AI trả về với ảnh gốc.
+        \item \textit{Câu hỏi thảo luận:} AI có đọc nhầm số "0" thành chữ "O", hay số "8" thành số "3" ở bill viết tay không?
+        \item Rút ra bài học: Luôn phải review lại dữ liệu.
+    \end{itemize}
+\end{frame}
+
+
+\section{PHẦN 3: BÀI TẬP 2 - ĐỌC HÓA ĐƠN ĐIỆN TỬ (PDF)}
+
+
+\begin{frame}{Bài toán 2 - Hóa đơn GTGT}
+    \begin{itemize}
+        \item \textbf{Bối cảnh:} Doanh nghiệp nhận được file PDF hóa đơn GTGT mua hàng từ nhà cung cấp (vài chục dòng hàng hóa).
+        \item \textbf{Khó khăn:** Không thể copy/paste từng dòng vào phần mềm kế toán vì dễ lệch dòng.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Xử lý File PDF với AI}
+    \begin{itemize}
+        \item Hướng dẫn sinh viên upload file `HoaDon\_MuaHang\_01.pdf` lên ChatGPT.
+        \item Giới hạn: Nếu dùng bản miễn phí, có thể copy toàn bộ Text trong PDF (Ctrl+A, Ctrl+C) và dán vào cửa sổ chat nếu không cho up file.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Prompt trích xuất phần Header (Thông tin chung)}
+    \begin{itemize}
+        \item \textbf{Prompt 4:} *"Hãy đọc hóa đơn này và liệt kê: Ký hiệu hóa đơn, Số hóa đơn, Ngày lập, Mã số thuế người bán, Tên người bán."*
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Prompt trích xuất Chi tiết hàng hóa (Line Items)}
+    \begin{itemize}
+        \item Đây là phần tốn thời gian nhất của kế toán.
+        \item \textbf{Prompt 5:} *"Hãy lập một bảng chi tiết các mặt hàng trong hóa đơn này. Cột gồm: STT, Tên Hàng Hóa, ĐVT, Số lượng, Đơn giá, Thành tiền (Chưa VAT)."*
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Ép kiểu dữ liệu (Data Formatting)}
+    \begin{itemize}
+        \item Kế toán ghét nhất là AI trả về số tiền có chữ "VNĐ" dính liền (Vd: 1.000.000VNĐ) vì không tính toán được.
+        \item \textbf{Prompt 6 (Nâng cấp):} *"Làm lại bảng trên. Lưu ý ở cột Số lượng, Đơn giá và Thành tiền, CHỈ in ra con số, không chứa chữ 'VNĐ' hay ký tự tiền tệ, sử dụng dấu phẩy để phân cách hàng nghìn."*
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Kiểm tra tính toán (Math Check)}
+    \begin{itemize}
+        \item AI đôi khi làm toán dở!
+        \item \textbf{Nhiệm vụ sinh viên:} Dùng máy tính bỏ túi hoặc nhẩm lại xem cột Số lượng x Đơn giá có thực sự bằng cột Thành tiền mà AI xuất ra không.
+        \item Nếu sai $\rightarrow$ Dạy AI tính lại.
+    \end{itemize}
+\end{frame}
+
+
+\section{PHẦN 4: CHUYỂN ĐỔI DỮ LIỆU SANG EXCEL}
+
+
+\begin{frame}{Từ Chatbot ra Excel}
+    \begin{itemize}
+        \item Không ai để bảng dữ liệu nằm trên ChatGPT. Phải mang nó về phần mềm.
+        \item Cách 1: Copy \& Paste.
+        \item Cách 2: Yêu cầu AI tạo file tải về.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Cách 1 - Copy \& Paste chuẩn xác}
+    \begin{itemize}
+        \item Sinh viên bôi đen bảng trên ChatGPT, mở Excel.
+        \item Hướng dẫn dùng tính năng `Paste Special` $\rightarrow$ `Text` để không bị vỡ khung bảng.
+        \item *(🖼️ Ảnh minh họa: Thao tác Paste Special trong Excel).*
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Cách 2 - Xuất file CSV (Khuyên dùng)}
+    \begin{itemize}
+        \item \textbf{Prompt 7:} *"Hãy lưu bảng chi tiết hàng hóa vừa tạo thành một file định dạng .CSV để tôi tải về."*
+        \item Click vào link tải file.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Sửa lỗi Font Tiếng Việt khi mở CSV}
+    \begin{itemize}
+        \item \textbf{Lỗi phổ biến:} Mở file CSV bằng Excel bị lỗi font chữ Tiếng Việt (Unicode UTF-8).
+        \item \textbf{Cách khắc phục:}
+        1. Mở Excel trắng.
+        2. Vào Data $\rightarrow$ From Text/CSV.
+        3. Ở mục File Origin, chọn `65001: Unicode (UTF-8)`.
+        4. Bấm Load.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Thực hành độc lập}
+    \begin{itemize}
+        \item Sinh viên áp dụng kỹ năng từ đầu buổi đến giờ để xử lý file `HoaDon\_MuaHang\_02.pdf` và `HoaDon\_MuaHang\_03.pdf`.
+        \item Đích đến: Tạo ra 1 file Excel duy nhất tổng hợp cả 2 hóa đơn.
+    \end{itemize}
+\end{frame}
+
+
+\section{PHẦN 5: BÀI TẬP 3 - ĐỐI CHIẾU VÀ TÌM KIẾM BẤT THƯỜNG}
+
+
+\begin{frame}{Bài toán 3 - 3-Way Matching}
+    \begin{itemize}
+        \item \textbf{Bối cảnh:} Kế toán cần kiểm tra xem Hóa đơn có khớp với Đơn đặt hàng (PO) không.
+        \item Tải lên 2 file: `PO\_101.pdf` và `HoaDon\_101.pdf`.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Kỹ thuật Prompt Đối chiếu}
+    \begin{itemize}
+        \item \textbf{Prompt 8:} *"Tôi vừa tải lên Đơn đặt hàng và Hóa đơn của cùng 1 giao dịch. Hãy so sánh cột Số lượng và Đơn giá của từng mặt hàng giữa 2 file. Hãy lập bảng chỉ ra các mặt hàng có sự chênh lệch (nếu có)."*
+        \item Sinh viên quan sát AI đóng vai trò như một Kiểm toán viên nội bộ.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Bài toán 4 - Dò tìm rủi ro thuế}
+    \begin{itemize}
+        \item Tải lên file `DanhSach\_HoaDon\_Thang5.xlsx` (bảng kê mua vào, khoảng 50 dòng).
+        \item \textbf{Prompt 9:} *"Hãy đóng vai nhân viên thuế. Kiểm tra bảng kê này và tìm cho tôi: 1. Hóa đơn có ngày xuất vào cuối tuần. 2. Hóa đơn có giá trị lớn hơn 20 triệu nhưng chưa đánh dấu thanh toán chuyển khoản."*
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Xử lý dữ liệu bị khuyết thiếu (Missing Data)}
+    \begin{itemize}
+        \item Có những bill bị mất góc, rách mờ.
+        \item \textbf{Prompt 10:} *"Đọc bill này. Nếu thông tin nào bị mờ không đọc được, hãy điền chữ '[CẦN KIỂM TRA LẠI]' vào ô đó."*
+        \item Giúp kế toán dễ dàng filter trong Excel để xử lý sau.
+    \end{itemize}
+\end{frame}
+
+
+\section{PHẦN 6: BẢO MẬT DỮ LIỆU THỰC TẾ}
+
+
+\begin{frame}{Cảnh báo quan trọng khi thực hành}
+    \begin{itemize}
+        \item Hôm nay chúng ta đang dùng các file chứng từ mẫu (Dummy data).
+        \item \textbf{TUYỆT ĐỐI KHÔNG} dùng hóa đơn thật, hợp đồng thật của công ty để up lên ChatGPT bản miễn phí.
+        \item Nhắc lại bài học Lý thuyết: Dữ liệu của bạn sẽ bị đem đi huấn luyện mô hình.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Thiết lập quyền riêng tư trên ChatGPT}
+    \begin{itemize}
+        \item Hướng dẫn sinh viên tắt tính năng lưu trữ lịch sử để bảo vệ dữ liệu.
+        \item \textbf{Thao tác:} Settings $\rightarrow$ Data Controls $\rightarrow$ Tắt "Chat history \& training".
+        \item *(🖼️ Ảnh minh họa: Màn hình cài đặt Data Controls của ChatGPT).*
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Xóa dữ liệu nhạy cảm (Sanitization) trước khi dùng AI}
+    \begin{itemize}
+        \item Dùng công cụ bôi đen (Redact) trên PDF để che đi: Số tài khoản ngân hàng, Mã số CCCD của khách hàng trước khi tải lên AI.
+        \item Đảm bảo tuân thủ quyền riêng tư (Privacy).
+    \end{itemize}
+\end{frame}
+
+
+\section{PHẦN 7: TỔNG KẾT \& ĐÁNH GIÁ}
+
+
+\begin{frame}{Báo cáo kết quả thực hành}
+    \begin{itemize}
+        \item Sinh viên nộp lại file Excel cuối cùng lên hệ thống LMS.
+        \item Chụp ảnh màn hình 1 câu Prompt hay nhất mà bạn đã sáng tạo ra để xử lý lỗi của AI.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Ôn tập \& Rút kinh nghiệm}
+    \begin{itemize}
+        \item \textbf{Ưu điểm:} Nhanh gấp 10 lần gõ tay, xuất bảng Excel đẹp.
+        \item \textbf{Nhược điểm:} Thi thoảng AI bị "ngáo", tính toán sai, hoặc từ chối đọc file nếu file quá lớn.
+        \item Kế toán viên phải luôn giữ vai trò người soát xét (Reviewer).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Q\&A và Dặn dò}
+    \begin{itemize}
+        \item Giải đáp thắc mắc về các lỗi file CSV, lỗi prompt không ra bảng.
+        \item \textbf{Buổi sau (Day 4):} Chuyển sang dùng AI để phân tích nghiệp vụ kế toán chuyên sâu (Định khoản, tập hợp chi phí). Chuẩn bị ôn lại kiến thức Nguyên lý kế toán!
+    \end{itemize}
+\end{frame}
+
+
+\end{document}

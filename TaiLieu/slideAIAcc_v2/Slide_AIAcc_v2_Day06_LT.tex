@@ -1,0 +1,409 @@
+\documentclass[aspectratio=169]{beamer}
+\usetheme{Madrid}
+\usecolortheme{default}
+\usepackage[utf8]{inputenc}
+\usepackage[T5]{fontenc}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{booktabs}
+
+\setbeamertemplate{caption}[numbered]
+\renewcommand{\figurename}{Hình}
+
+\title[Trí tuệ Nhân tạo cho Kế toán]{Trí tuệ Nhân tạo cho Kế toán \\ \vspace{0.3cm} \Large Kế hoạch Bài giảng Lý thuyết - Buổi 6: Ứng dụng AI trong phân tích Báo cáo Tài chính}
+\author{Đại học Đông Á}
+\date{\today}
+
+\begin{document}
+
+% SLIDE 1
+\begin{frame}
+    \titlepage
+\end{frame}
+
+% SLIDE 2
+\begin{frame}{Nội dung Bài học}
+    \tableofcontents
+\end{frame}
+
+
+\section{Kế hoạch Bài giảng Lý thuyết - Buổi 6: Ứng dụng AI trong phân tích Báo cáo Tài chính}
+
+
+\begin{frame}{Năng lực đạt được sau buổi học}
+    1. \textbf{Kiến thức:} Hiểu rõ các chỉ số tài chính cơ bản (Thanh toán, Sinh lời, Đòn bẩy, Hoạt động). Nắm vững nguyên lý AI định giá doanh nghiệp và nhận diện rủi ro tài chính so với kế toán viên.\\
+    2. \textbf{Kỹ năng:} Có khả năng sử dụng các công cụ AI (Advanced Data Analysis, AI Excel, Power BI) để tự động tính toán, vẽ biểu đồ phân tích và diễn giải xu hướng sức khỏe tài chính của doanh nghiệp. Biết cách dùng AI phân tích văn bản (Thuyết minh, báo cáo thường niên).\\
+    3. \textbf{Thái độ, Tư duy:} Cảnh giác trước các bẫy "làm đẹp" số liệu (Garbage in, Garbage out) và hạn chế "ảo giác" (Hallucination) của AI. Hình thành tư duy kiểm soát và ra quyết định độc lập thay vì phụ thuộc hoàn toàn vào máy móc.\\
+\end{frame}
+
+
+\begin{frame}{Đề cương chi tiết (40 Slides)}
+    ### Giới thiệu chung\\
+\end{frame}
+
+
+\begin{frame}{Title: Buổi 6: Ứng dụng AI trong phân tích Báo cáo Tài chính.}
+    \begin{itemize}
+        \item Giảng viên: Đại học Đông Á
+        \item Môn học: Trí tuệ Nhân tạo cho Kế toán
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Năng lực đạt được sau buổi học.}
+    \begin{itemize}
+        \item \textbf{Về Kiến thức:} Nắm bắt tỷ số tài chính, nguyên lý AI định giá và nhận diện rủi ro.
+        \item \textbf{Về Kỹ năng:} Tự động hóa tính toán tỷ số, trực quan hóa xu hướng tài chính bằng AI và xử lý dữ liệu văn bản.
+        \item \textbf{Về Tư duy:} Rèn luyện sự nhạy bén, hiểu rõ giới hạn và rủi ro của AI để làm chủ công cụ, tránh phụ thuộc máy móc.
+        ### Phần 1: Tổng quan Phân tích Báo cáo Tài chính
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Tầm quan trọng của Báo cáo tài chính (BCTC).}
+    \begin{itemize}
+        \item BCTC được ví như "hồ sơ sức khỏe" của doanh nghiệp.
+        \item Cung cấp bức tranh toàn cảnh về nguồn vốn, tài sản và kết quả kinh doanh.
+        \item Là cơ sở pháp lý và minh bạch thông tin cho cổ đông, nhà đầu tư.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{4 Báo cáo cốt lõi cấu thành BCTC.}
+    \begin{itemize}
+        \item Bảng Cân đối kế toán (Tài sản = Nợ + Vốn chủ sở hữu).
+        \item Báo cáo Kết quả Hoạt động Kinh doanh (Lãi/Lỗ).
+        \item Báo cáo Lưu chuyển tiền tệ (Dòng tiền thực tế).
+        \item Bản Thuyết minh BCTC (Chi tiết diễn giải).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Mục tiêu của việc Phân tích Báo cáo Tài chính.}
+    \begin{itemize}
+        \item Đánh giá lại quá khứ: Hiệu quả kinh doanh và các quyết định tài chính.
+        \item Thẩm định hiện tại: Khả năng thanh toán, cơ cấu vốn và sức khỏe tài chính.
+        \item Dự báo tương lai: Khả năng sinh lời, dòng tiền và tiềm năng tăng trưởng.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Các đối tượng sử dụng kết quả phân tích.}
+    \begin{itemize}
+        \item Nhà đầu tư (Cổ đông): Đánh giá lợi nhuận, cổ tức, rủi ro.
+        \item Chủ nợ (Ngân hàng): Khả năng trả nợ, lãi vay, thanh khoản.
+        \item Ban giám đốc (Quản trị): Ra quyết định chiến lược, cắt giảm chi phí.
+        \item Cơ quan thuế và quản lý: Đánh giá tuân thủ pháp luật, rủi ro thuế.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Hạn chế của phương pháp phân tích BCTC truyền thống.}
+    \begin{itemize}
+        \item Tốn thời gian nhập liệu, làm sạch và tính toán thủ công.
+        \item Khó khăn trong việc xử lý dữ liệu phi cấu trúc (ví dụ: Thuyết minh dài 100 trang).
+        \item Dễ sai sót do lỗi con người (nhầm lẫn công thức, sao chép sai).
+        \item Khó mở rộng phân tích hàng loạt công ty cùng lúc.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Checkpoint 1: Đố vui khởi động.}
+    \begin{itemize}
+        \item Câu hỏi: Khi ngân hàng muốn xét duyệt khoản vay ngắn hạn, họ quan tâm nhất đến báo cáo nào?
+        \item A. Báo cáo KQKD.
+        \item B. Bản Thuyết minh BCTC.
+        \item C. Bảng Cân đối kế toán.
+        \item D. Báo cáo thay đổi vốn chủ sở hữu.
+        ### Phần 2: Ôn tập các Nhóm Tỷ số Tài chính Cốt lõi
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Phân loại 4 nhóm tỷ số tài chính chính.}
+    \begin{itemize}
+        \item Nhóm 1: Tỷ số Khả năng thanh toán (Liquidity).
+        \item Nhóm 2: Tỷ số Đòn bẩy tài chính / Cơ cấu vốn (Solvency).
+        \item Nhóm 3: Tỷ số Hiệu quả hoạt động (Activity).
+        \item Nhóm 4: Tỷ số Khả năng sinh lời (Profitability).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Nhóm 1: Tỷ số Khả năng thanh toán.}
+    \begin{itemize}
+        \item Đo lường khả năng trả các khoản nợ ngắn hạn khi đến hạn.
+        \item Tỷ số thanh toán hiện hành (Current Ratio) = Tài sản ngắn hạn / Nợ ngắn hạn.
+        \item Tỷ số thanh toán nhanh (Quick Ratio) = (Tiền + Đầu tư ngắn hạn + Khoản phải thu) / Nợ ngắn hạn.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Phân tích ý nghĩa Tỷ số thanh toán.}
+    \begin{itemize}
+        \item Tỷ số > 1: Công ty có khả năng thanh toán nợ ngắn hạn.
+        \item Tỷ số quá cao: Dư thừa tiền mặt hoặc tồn kho ứ đọng, không hiệu quả.
+        \item Tỷ số < 1: Cảnh báo rủi ro thanh khoản, thiếu tiền mặt để hoạt động.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Nhóm 2: Tỷ số Đòn bẩy tài chính.}
+    \begin{itemize}
+        \item Đo lường mức độ sử dụng nợ để tài trợ cho tài sản.
+        \item Tỷ số Nợ trên Vốn chủ sở hữu (D/E) = Tổng nợ / Vốn chủ sở hữu.
+        \item Tỷ số Nợ trên Tổng tài sản = Tổng nợ / Tổng tài sản.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Phân tích rủi ro từ Đòn bẩy tài chính.}
+    \begin{itemize}
+        \item Đòn bẩy cao: Khả năng sinh lời cho cổ đông cao nếu kinh doanh tốt, nhưng rủi ro phá sản lớn nếu suy thoái.
+        \item Đòn bẩy thấp: An toàn, nhưng có thể bỏ lỡ cơ hội mở rộng kinh doanh do sợ vay vốn.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Nhóm 3: Tỷ số Hiệu quả Hoạt động.}
+    \begin{itemize}
+        \item Đo lường hiệu quả quản lý tài sản của ban lãnh đạo.
+        \item Vòng quay hàng tồn kho = Giá vốn hàng bán / Hàng tồn kho bình quân.
+        \item Kỳ thu tiền bình quân = 365 / Vòng quay khoản phải thu.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Ý nghĩa của Vòng quay hàng tồn kho.}
+    \begin{itemize}
+        \item Vòng quay cao: Bán hàng nhanh, quản lý tồn kho tốt, ít rủi ro hàng lỗi thời.
+        \item Vòng quay thấp: Hàng hóa ứ đọng, kẹt vốn, có thể phải trích lập dự phòng giảm giá.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Nhóm 4: Tỷ số Khả năng sinh lời.}
+    \begin{itemize}
+        \item Đo lường khả năng tạo ra lợi nhuận từ doanh thu hoặc tài sản.
+        \item Biên lợi nhuận gộp (Gross Margin) = Lợi nhuận gộp / Doanh thu thuần.
+        \item ROA (Return on Assets) = Lợi nhuận sau thuế / Tổng tài sản bình quân.
+        \item ROE (Return on Equity) = Lợi nhuận sau thuế / Vốn chủ sở hữu bình quân.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Mô hình DuPont: Phân tách ROE để tìm nguyên nhân gốc.}
+    \begin{itemize}
+        \item ROE không chỉ là một con số, nó chịu tác động bởi 3 yếu tố.
+        \item ROE = (Biên lợi nhuận ròng) x (Vòng quay tổng tài sản) x (Hệ số đòn bẩy tài chính).
+        \item Giúp trả lời câu hỏi: ROE tăng do kinh doanh hiệu quả hay do đi vay mượn nhiều?
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Checkpoint 2: Tình huống phân tích.}
+    \begin{itemize}
+        \item Tình huống: Một công ty có ROE tăng mạnh qua các năm, nhưng Biên lợi nhuận lại giảm. Theo mô hình DuPont, chuyện gì đang xảy ra?
+        \item Gợi ý: Công ty có thể đang sử dụng đòn bẩy tài chính (vay nợ) quá nhiều để đẩy ROE lên, che giấu sự yếu kém trong cốt lõi kinh doanh.
+        ### Phần 3: Ứng dụng AI trong Tính toán và Phân tích Định lượng
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{AI đang thay đổi cách phân tích BCTC như thế nào?}
+    \begin{itemize}
+        \item Tự động hóa hoàn toàn quy trình: từ trích xuất dữ liệu, tính toán, đến báo cáo.
+        \item Phân tích khối lượng dữ liệu khổng lồ trong vài giây.
+        \item Khám phá các quy luật ẩn (hidden patterns) mà mắt thường khó nhận ra.
+        \item Giảm thiểu tối đa lỗi sai do con người (Human errors).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Tự động hóa trích xuất dữ liệu bằng AI OCR.}
+    \begin{itemize}
+        \item Công nghệ Nhận dạng ký tự quang học (OCR) tích hợp AI (ví dụ: Azure Form Recognizer, AWS Textract).
+        \item Đọc hiểu và trích xuất bảng biểu BCTC từ file PDF/Ảnh.
+        \item Tự động chuyển đổi thành file Excel/CSV chuẩn hóa mà không cần gõ tay.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Sử dụng Advanced Data Analysis để tính toán hàng loạt.}
+    \begin{itemize}
+        \item Chức năng ADA (Advanced Data Analysis) của ChatGPT hoặc Copilot.
+        \item Tải trực tiếp file Excel BCTC vào AI.
+        \item Prompt: "Hãy tính 15 tỷ số tài chính phổ biến nhất từ bảng dữ liệu này và xuất thành bảng mới".
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{AI trong phân tích Xu hướng (Trend Analysis).}
+    \begin{itemize}
+        \item Con người khó nhìn ra xu hướng khi có quá nhiều biến số thay đổi.
+        \item AI có thể phân tích chuỗi thời gian (Time-series analysis) trong 5-10 năm.
+        \item Dự báo doanh thu hoặc biên lợi nhuận của quý tiếp theo dựa trên mô hình Machine Learning.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Phân tích Quy mô chung (Common-size Analysis).}
+    \begin{itemize}
+        \item Biến mọi số liệu thành tỷ lệ \% (ví dụ: Doanh thu = 100\%, các chi phí = X\%).
+        \item Dùng AI để tự động quy đổi toàn bộ Bảng cân đối kế toán \& Báo cáo KQKD sang Common-size.
+        \item Giúp dễ dàng so sánh giữa công ty lớn và công ty nhỏ trong cùng ngành.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Trực quan hóa dữ liệu BCTC tự động bằng AI.}
+    \begin{itemize}
+        \item "Một bức tranh đáng giá ngàn lời nói".
+        \item AI (như Power BI, ChatGPT) tự động đề xuất loại biểu đồ phù hợp nhất.
+        \item Vẽ biểu đồ hình tròn cho cơ cấu nợ, biểu đồ đường cho xu hướng lợi nhuận trong chớp mắt.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{So sánh Trung bình ngành (Benchmarking) bằng AI.}
+    \begin{itemize}
+        \item AI có thể truy cập kho dữ liệu khổng lồ để lấy chỉ số trung bình ngành.
+        \item So sánh trực tiếp kết quả của doanh nghiệp với các đối thủ cạnh tranh chính.
+        \item Xác định vị thế: Đang dẫn đầu, trung bình hay tụt hậu so với thị trường?
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Checkpoint 3: Thảo luận nhanh.}
+    \begin{itemize}
+        \item Sự khác biệt giữa việc tính tỷ số bằng công thức Excel và bằng công cụ AI là gì?
+        \item Excel: Cần biết công thức, kéo thả thủ công, tự viết hàm.
+        \item AI: Chỉ cần ra lệnh bằng ngôn ngữ tự nhiên (Prompt), AI tự viết code Python ngầm để xử lý và trả kết quả.
+        ### Phần 4: Ứng dụng AI trong Phân tích Định tính (Xử lý Văn bản)
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Phân tích BCTC: Không chỉ là Số, mà còn là Chữ.}
+    \begin{itemize}
+        \item Bảng số liệu chỉ nói "Điều gì đã xảy ra".
+        \item Bản thuyết minh và Báo cáo của Ban giám đốc mới giải thích "Tại sao điều đó xảy ra".
+        \item Trước đây: Rất khó phân tích văn bản vì quá dài và chủ quan.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Xử lý ngôn ngữ tự nhiên (NLP) đọc Thuyết minh.}
+    \begin{itemize}
+        \item AI sử dụng công nghệ NLP để "đọc hiểu" hàng ngàn trang tài liệu văn bản.
+        \item Tự động trích xuất các chính sách kế toán trọng yếu (khấu hao, ghi nhận doanh thu).
+        \item Tìm kiếm và đối chiếu các khoản mục phức tạp như Nợ tiềm tàng, Giao dịch các bên liên quan.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Phân tích cảm xúc (Sentiment Analysis) tài liệu.}
+    \begin{itemize}
+        \item Thuật toán AI chấm điểm "cảm xúc" của Báo cáo thường niên hoặc Thư gửi cổ đông.
+        \item Đếm số lượng các từ ngữ tích cực (tăng trưởng, cơ hội) vs tiêu cực (khó khăn, rủi ro, sụt giảm).
+        \item Dự báo sự tự tin hay lo lắng của Ban lãnh đạo về tương lai công ty.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Nhận diện rủi ro từ câu chữ "lấp lửng".}
+    \begin{itemize}
+        \item Ban lãnh đạo thường dùng các câu chữ phức tạp, lấp lửng để che đậy kết quả xấu.
+        \item Sử dụng Prompt yêu cầu AI: "Hãy tìm và làm rõ các đoạn văn lấp lửng, thiếu minh bạch trong tài liệu này".
+        \item AI giúp "dịch" ngôn ngữ phức tạp thành ngôn ngữ dễ hiểu, chỉ ra điểm đáng ngờ.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{AI hỗ trợ phân tích chính sách kế toán.}
+    \begin{itemize}
+        \item Phát hiện sự thay đổi bất thường trong chính sách kế toán giữa các năm.
+        \item Ví dụ: Chuyển từ khấu hao nhanh sang đường thẳng để "bơm" lợi nhuận.
+        \item AI sẽ tự động đối chiếu Thuyết minh năm nay với năm trước để chỉ ra điểm khác biệt.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Tóm tắt Báo cáo 100 trang trong 5 phút.}
+    \begin{itemize}
+        \item Generative AI (như Claude, ChatGPT) có khả năng tóm tắt tài liệu cực tốt.
+        \item Prompt: "Tóm tắt 5 rủi ro kinh doanh lớn nhất từ Báo cáo thường niên này trong 5 gạch đầu dòng".
+        \item Tiết kiệm hàng chục giờ đọc tài liệu cho Kế toán viên và Nhà đầu tư.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Case Study ngắn: Giải mã "Ngôn ngữ Kế toán".}
+    \begin{itemize}
+        \item Đoạn văn gốc: "Công ty ghi nhận doanh thu dựa trên ước tính mức độ hoàn thành hợp đồng, vốn tiềm ẩn nhiều yếu tố bất định...".
+        \item Dịch bằng AI: "Công ty đang ghi nhận trước doanh thu dựa trên ước lượng, điều này có nghĩa lợi nhuận hiện tại có thể không phản ánh dòng tiền thực tế và có nguy cơ bị điều chỉnh giảm trong tương lai."
+        ### Phần 5: Rủi ro, Giới hạn và Tính Chuyên nghiệp
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Bẫy 1: Dữ liệu đầu vào "Xào nấu" (Garbage in, Garbage out).}
+    \begin{itemize}
+        \item Nếu Báo cáo tài chính đã bị làm giả tinh vi ngay từ chứng từ gốc, AI rất khó phát hiện.
+        \item AI tính toán chuẩn xác dựa trên dữ liệu, nhưng không chịu trách nhiệm về tính trung thực của dữ liệu.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Bẫy 2: Ảo giác (Hallucination) của AI.}
+    \begin{itemize}
+        \item Đôi khi AI "bịa" ra những lời giải thích nghe rất hợp lý nhưng sai hoàn toàn về bản chất tài chính.
+        \item Đặc biệt nguy hiểm khi dùng AI để đánh giá các giao dịch cấu trúc phức tạp, chưa có tiền lệ.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Giới hạn: Thiếu bối cảnh vĩ mô \& mô hình đặc thù.}
+    \begin{itemize}
+        \item AI thiếu đi sự "linh cảm" và kinh nghiệm thương trường thực tế.
+        \item Mỗi doanh nghiệp có một mô hình kinh doanh đặc thù, AI có thể áp dụng sai chuẩn (Benchmarking) dẫn đến kết luận sai lầm.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{AI định giá Doanh nghiệp: Có tin cậy 100\%?}
+    \begin{itemize}
+        \item AI hỗ trợ cực tốt trong việc chạy các mô hình định giá (DCF, Multiples) với nhiều kịch bản khác nhau.
+        \item Tuy nhiên, các giả định cốt lõi (tốc độ tăng trưởng, tỷ suất chiết khấu) vẫn cần chuyên gia tài chính quyết định.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Sự tiến hóa của Kế toán viên trong kỷ nguyên AI.}
+    \begin{itemize}
+        \item Kế toán viên không bị đào thải bởi AI.
+        \item Kế toán viên sẽ bị đào thải bởi *Kế toán viên biết sử dụng AI*.
+        \item Chuyển đổi vai trò từ "Người xử lý dữ liệu" (Data processor) sang "Người thẩm định" (Reviewer) và "Cố vấn chiến lược".
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Lời khuyên khi ứng dụng AI phân tích BCTC.}
+    \begin{itemize}
+        \item Hãy xem AI là người trợ lý đắc lực, làm thay các việc lặp đi lặp lại.
+        \item Luôn luôn kiểm tra lại (Double-check) kết quả phân tích của AI.
+        \item Quyết định cuối cùng (Đầu tư, Tín dụng) phải do con người đưa ra dựa trên tư duy phản biện.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Tổng kết bài học và Chuẩn bị Thực hành.}
+    \begin{itemize}
+        \item Key Takeaways: AI tối ưu hóa tính toán tỷ số, giải mã văn bản thuyết minh, nhưng đòi hỏi sự kiểm soát từ con người.
+        \item Chuẩn bị cho buổi TH: Tải sẵn 2 file BCTC của công ty niêm yết (PDF/Excel), đăng nhập tài khoản ChatGPT/Copilot.
+        \item Q\&A: Giải đáp thắc mắc.
+    \end{itemize}
+\end{frame}
+
+
+\end{document}

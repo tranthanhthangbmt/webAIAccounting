@@ -1,0 +1,341 @@
+\documentclass[aspectratio=169]{beamer}
+\usetheme{Madrid}
+\usecolortheme{default}
+\usepackage[utf8]{inputenc}
+\usepackage[T5]{fontenc}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{booktabs}
+
+\setbeamertemplate{caption}[numbered]
+\renewcommand{\figurename}{Hình}
+
+\title[Buổi 11]{Trí tuệ Nhân tạo cho Kế toán \\ \vspace{0.3cm} \Large Ứng dụng AI trong Kế toán Thuế}
+\author{Đại học Đông Á}
+\date{\today}
+
+\begin{document}
+
+% SLIDE 1
+\begin{frame}
+    \titlepage
+\end{frame}
+
+% SLIDE 2
+\begin{frame}{Nội dung Bài học}
+    \tableofcontents
+\end{frame}
+
+
+\section{BUỔI 11 THỰC HÀNH: SỬ DỤNG AI ĐỂ TÓM TẮT VÀ TRÍCH XUẤT DỮ LIỆU TỪ VĂN BẢN PHÁP LUẬT}
+
+
+\begin{frame}{Năng lực đạt được sau buổi học}
+    \begin{itemize}
+        \item \textbf{Kỹ năng Prompting:} Thành thạo việc xây dựng câu lệnh (Prompt) để tóm tắt các văn bản pháp luật phức tạp, dài dòng (Luật, Thông tư, Nghị định).
+        \item \textbf{Kỹ năng Trích xuất:} Biết cách yêu cầu AI trích xuất chính xác các điều kiện cụ thể (ví dụ: điều kiện được khấu trừ thuế, quy định về hóa đơn).
+        \item \textbf{Tư duy Phản biện:} Rèn luyện khả năng kiểm chứng chéo (cross-check) thông tin do AI cung cấp với văn bản gốc để phát hiện "ảo giác" (hallucinations).
+        \item \textbf{Tự động hóa công việc:} Tiết kiệm thời gian tra cứu và áp dụng văn bản pháp luật vào xử lý tình huống kế toán thực tế.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Nội dung chương trình}
+    1. Giới thiệu Kỹ thuật Tóm tắt Văn bản Phức tạp với AI\\
+    2. Thực hành 1: Tóm tắt nhanh văn bản Thông tư dài\\
+    3. Thực hành 2: Trích xuất Điều kiện Khấu trừ Thuế\\
+    4. Kỹ thuật Tinh chỉnh Prompt (Refining Prompts)\\
+    5. Bài tập Thực hành Độc lập (Sinh viên tự làm)\\
+    6. Kiểm chứng Thông tin \& Quản trị Rủi ro\\
+    7. Tổng kết \& Đánh giá\\
+\end{frame}
+
+
+\section{PHẦN 1: GIỚI THIỆU KỸ THUẬT TÓM TẮT VĂN BẢN PHỨC TẠP VỚI AI}
+
+
+\begin{frame}{1.1 Vấn đề của Văn bản Pháp luật Thuế}
+    \begin{itemize}
+        \item Văn bản pháp luật (như Luật Quản lý Thuế, Thông tư 200) thường có hàng trăm trang.
+        \item Ngôn ngữ mang tính hàn lâm, pháp lý, gây khó khăn cho việc đọc hiểu nhanh.
+        \item Một quy định có thể nằm rải rác ở nhiều điều khoản, chương mục khác nhau.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{1.2 Giải pháp từ Trí tuệ Nhân tạo (AI)}
+    \begin{itemize}
+        \item AI như ChatGPT có khả năng Xử lý Ngôn ngữ Tự nhiên (NLP) cực mạnh.
+        \item "Đọc" một tài liệu 50 trang chỉ trong vài giây.
+        \item Khả năng cô đọng thông tin cốt lõi mà không làm mất đi ý nghĩa pháp lý gốc.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{1.3 Cơ chế Tóm tắt của AI (Summarization)}
+    \begin{itemize}
+        \item AI không chỉ "cắt xén" câu chữ, mà nó hiểu cấu trúc ngữ nghĩa (Semantic Understanding).
+        \item Tóm tắt có thể theo 2 dạng: Extractive (Trích xuất nguyên văn) hoặc Abstractive (Diễn đạt lại).
+        \item Trong kế toán thuế, chúng ta ưu tiên kết hợp cả 2: Diễn đạt lại cho dễ hiểu nhưng phải trích xuất đúng các điều kiện pháp lý.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{1.4 Lợi ích khi dùng AI tóm tắt văn bản}
+    \begin{itemize}
+        \item Rút ngắn 90\% thời gian nghiên cứu luật.
+        \item Dễ dàng truyền đạt quy định thuế phức tạp cho Ban Giám đốc (những người không chuyên về kế toán).
+        \item Tránh bỏ sót các quy định "ẩn" trong văn bản dài.
+    \end{itemize}
+\end{frame}
+
+
+\section{PHẦN 2: THỰC HÀNH 1 - TÓM TẮT NHANH VĂN BẢN THÔNG TƯ DÀI}
+
+
+\begin{frame}{2.1 Chuẩn bị Dữ liệu (Dataset)}
+    \begin{itemize}
+        \item Chúng ta sẽ sử dụng một đoạn trích từ \textbf{Thông tư 78/2014/TT-BTC} (hoặc Thông tư 96 sửa đổi) về Thuế TNDN.
+        \item Giảng viên đã chuẩn bị sẵn file text cho đoạn văn bản này.
+        \item \textbf{Yêu cầu:} Mở file text và Copy toàn bộ nội dung.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{2.2 Công thức Prompt Tóm tắt Cơ bản}
+    \begin{itemize}
+        \item Đừng chỉ nói: "Hãy tóm tắt đoạn này."
+        \item Hãy dùng cấu trúc: \textbf{[Vai trò] + [Hành động] + [Định dạng đầu ra] + [Dữ liệu đầu vào]}
+        \item Ví dụ: "Đóng vai chuyên gia tư vấn thuế, hãy tóm tắt văn bản sau bằng các gạch đầu dòng ngắn gọn."
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{2.3 Viết Prompt Thực tế}
+    \begin{itemize}
+        \item \textbf{Prompt:} "Tôi là một kế toán viên mới ra trường. Dưới đây là đoạn quy định về các khoản chi phí không được trừ khi tính thuế TNDN. Hãy tóm tắt lại bằng ngôn ngữ dễ hiểu nhất, chia làm 3 ý chính. [Dán văn bản vào đây]"
+        \item Hãy thử chạy Prompt này trên ChatGPT hoặc Copilot.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{2.4 Phân tích Kết quả}
+    \begin{itemize}
+        \item Bạn thấy kết quả của AI thế nào? Dễ hiểu hơn bản gốc chứ?
+        \item Chú ý xem AI có chia đúng 3 ý chính như bạn yêu cầu không.
+        \item Nếu kết quả còn quá dài, hãy yêu cầu AI: "Hãy làm cho nó ngắn hơn nữa, tối đa 100 chữ."
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{2.5 Kỹ thuật "Format Instructions" (Chỉ định Định dạng)}
+    \begin{itemize}
+        \item Bạn có thể yêu cầu AI xuất kết quả dưới dạng Bảng (Table).
+        \item \textbf{Prompt:} "Hãy chuyển đoạn tóm tắt vừa rồi thành một bảng gồm 2 cột: Cột 1 là 'Loại Chi phí', Cột 2 là 'Giải thích ngắn gọn'."
+        \item Việc dùng bảng giúp thông tin trực quan và dễ tra cứu hơn rất nhiều.
+    \end{itemize}
+\end{frame}
+
+
+\section{PHẦN 3: THỰC HÀNH 2 - TRÍCH XUẤT ĐIỀU KIỆN KHẤU TRỪ THUẾ}
+
+
+\begin{frame}{3.1 Trích xuất Dữ liệu (Data Extraction) là gì?}
+    \begin{itemize}
+        \item Thay vì tóm tắt toàn bộ, bạn chỉ muốn "moi" ra một mẩu thông tin cụ thể từ một mớ bòng bong.
+        \item Ví dụ: Trong 10 trang quy định, tôi chỉ muốn biết "Điều kiện để được khấu trừ thuế GTGT đầu vào là gì?"
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{3.2 Tình huống Thực tế}
+    \begin{itemize}
+        \item Doanh nghiệp bạn vừa mua một xe ô tô 9 chỗ ngồi trị giá 2 tỷ đồng.
+        \item Kế toán trưởng yêu cầu bạn kiểm tra xem phần thuế GTGT của xe này có được khấu trừ toàn bộ không.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{3.3 Viết Prompt Trích xuất}
+    \begin{itemize}
+        \item \textbf{Prompt:} "Dựa trên quy định của Luật Thuế GTGT hiện hành tại Việt Nam, hãy cho tôi biết: Điều kiện khấu trừ thuế GTGT đầu vào đối với ô tô chở người từ 9 chỗ ngồi trở xuống là gì? Mức khống chế là bao nhiêu? Hãy trích dẫn cơ sở pháp lý."
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{3.4 Kỹ thuật Ràng buộc Context (Ngữ cảnh)}
+    \begin{itemize}
+        \item Để tránh AI trả lời sai (hallucination) dựa trên luật của Mỹ hay nước khác, bạn phải ép ngữ cảnh.
+        \item Cụm từ: *"Dựa trên quy định của Luật Thuế GTGT hiện hành tại Việt Nam"* là cực kỳ quan trọng.
+        \item Hoặc an toàn hơn: Copy đoạn văn bản luật tiếng Việt dán vào và nói *"Chỉ dựa vào đoạn văn bản dưới đây, hãy..."*
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{3.5 Phân tích Kết quả của AI}
+    \begin{itemize}
+        \item AI sẽ trả lời: Mức khống chế khấu trừ thuế GTGT đối với ô tô từ 9 chỗ trở xuống là 1,6 tỷ đồng (trừ trường hợp kinh doanh vận tải).
+        \item Hãy kiểm tra xem AI có trích dẫn đúng tên văn bản không (Ví dụ: Khoản 3 Điều 14 Thông tư 219/2013/TT-BTC).
+    \end{itemize}
+\end{frame}
+
+
+\section{PHẦN 4: KỸ THUẬT TINH CHỈNH PROMPT (REFINING PROMPTS)}
+
+
+\begin{frame}{4.1 Tại sao cần tinh chỉnh?}
+    \begin{itemize}
+        \item Hiếm khi bạn nhận được câu trả lời hoàn hảo ngay ở Prompt đầu tiên.
+        \item AI cần sự tương tác qua lại (Conversational AI).
+        \item Tinh chỉnh giúp AI đi đúng hướng và đáp ứng chính xác nhu cầu chuyên môn sâu của bạn.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{4.2 Kỹ thuật "Hỏi sâu hơn" (Drill-down)}
+    \begin{itemize}
+        \item Khi AI đưa ra danh sách các điều kiện, nếu có điều kiện nào bạn chưa hiểu, hãy hỏi tiếp.
+        \item \textbf{Prompt:} "Ở điều kiện số 2 bạn vừa nêu (phải có chứng từ thanh toán không dùng tiền mặt), xin hãy giải thích rõ thế nào là thanh toán không dùng tiền mặt? Có bao gồm bù trừ công nợ không?"
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{4.3 Kỹ thuật Yêu cầu Ví dụ (Ask for Examples)}
+    \begin{itemize}
+        \item Luật thuế thường rất trừu tượng. Ví dụ là cách tốt nhất để hiểu.
+        \item \textbf{Prompt:} "Hãy đưa ra một ví dụ bằng số liệu cụ thể về cách tính mức khấu trừ thuế GTGT đối với ô tô trị giá 2 tỷ mà bạn vừa đề cập ở trên."
+        \item AI sẽ tự động đóng vai và lập một bài toán nhỏ để bạn hiểu.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{4.4 Kỹ thuật So sánh (Comparison)}
+    \begin{itemize}
+        \item Kế toán thường hay nhầm lẫn giữa các quy định.
+        \item \textbf{Prompt:} "Hãy lập bảng so sánh sự khác nhau về điều kiện khấu trừ thuế giữa Thuế GTGT đầu vào và Thuế TNDN đối với khoản chi phí công tác phí cho nhân viên."
+        \item AI cực kỳ giỏi trong việc gom nhóm và so sánh các đặc điểm.
+    \end{itemize}
+\end{frame}
+
+
+\section{PHẦN 5: BÀI TẬP THỰC HÀNH ĐỘC LẬP}
+
+
+\begin{frame}{5.1 Đề bài cho Sinh viên}
+    \begin{itemize}
+        \item Giảng viên chia lớp thành các nhóm nhỏ 2-3 người.
+        \item \textbf{Tài liệu:} Một đoạn văn bản dài 3 trang trích từ Thông tư hướng dẫn về Thuế Thu nhập Cá nhân (TNCN) đối với các khoản phụ cấp, trợ cấp.
+        \item \textbf{Nhiệm vụ:} Trong thời gian 15 phút, sử dụng AI để giải quyết 3 yêu cầu.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{5.2 Yêu cầu 1: Tóm tắt}
+    \begin{itemize}
+        \item Viết một Prompt yêu cầu AI tóm tắt 3 trang tài liệu trên thành đúng 1 đoạn văn (tối đa 150 chữ).
+        \item Đoạn văn phải tóm lược được tinh thần chính: Khoản phụ cấp nào chịu thuế, khoản nào không.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{5.3 Yêu cầu 2: Trích xuất Bảng dữ liệu}
+    \begin{itemize}
+        \item Viết Prompt yêu cầu AI trích xuất tất cả các khoản phụ cấp được nhắc đến trong văn bản.
+        \item Trình bày dưới dạng Bảng với 3 cột: STT, Tên Khoản Phụ cấp, Tình trạng (Chịu thuế / Miễn thuế).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{5.4 Yêu cầu 3: Tư vấn Tình huống}
+    \begin{itemize}
+        \item Giả định công ty A trợ cấp tiền ăn trưa cho nhân viên là 1.000.000 VNĐ/tháng bằng tiền mặt.
+        \item Hãy dùng AI để kiểm tra xem khoản này có bị tính vào Thu nhập chịu thuế TNCN không, dựa vào chính văn bản vừa cung cấp.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{5.5 Chấm điểm \& Trình bày}
+    \begin{itemize}
+        \item Các nhóm báo cáo lại Câu lệnh (Prompt) mình đã dùng.
+        \item Nhóm nào có Prompt hay nhất, ra kết quả chính xác và định dạng đẹp nhất (bảng biểu rõ ràng) sẽ đạt điểm cao.
+        \item Chia sẻ bài học rút ra khi giao tiếp với AI.
+    \end{itemize}
+\end{frame}
+
+
+\section{PHẦN 6: KIỂM CHỨNG THÔNG TIN \& QUẢN TRỊ RỦI RO}
+
+
+\begin{frame}{6.1 Mối nguy hiểm của AI trong Pháp lý}
+    \begin{itemize}
+        \item AI có xu hướng muốn "làm hài lòng" người dùng.
+        \item Nếu không biết câu trả lời, AI có thể tự sáng tác ra một điều luật (Hallucination).
+        \item Trong ngành Kế toán - Thuế, sai 1 con số luật có thể dẫn đến hậu quả tài chính nặng nề.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{6.2 Nguyên tắc Không Tin Tưởng Tuyệt Đối (Zero Trust)}
+    \begin{itemize}
+        \item Bất cứ thông tin luật nào AI xuất ra, phải coi đó là \textbf{bản nháp} hoặc \textbf{gợi ý}.
+        \item KHÔNG BAO GIỜ mang nguyên văn kết quả của AI đưa vào hồ sơ quyết toán thuế hay tư vấn cho Giám đốc mà chưa kiểm chứng.
+        \item "Trust, but Verify" (Tin tưởng, nhưng phải xác minh).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{6.3 Cách thức Kiểm chứng Chéo (Cross-checking)}
+    \begin{itemize}
+        \item Khi AI nói "Theo Điều 4, Thông tư 96/2015/TT-BTC...", bạn hãy mở đúng văn bản đó trên trang web của Thư viện Pháp luật hoặc Cổng thông tin Bộ Tài chính để đọc lại.
+        \item Dùng chức năng `Ctrl + F` trong file gốc để tìm các từ khóa mà AI đã trích xuất.
+        \item Đảm bảo AI không bỏ sót các trường hợp ngoại lệ (Exceptions) rất hay có trong luật thuế.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{6.4 Tự động hóa an toàn}
+    \begin{itemize}
+        \item Hãy mớm sẵn dữ liệu (Feeding Data): Copy nội dung luật chuẩn từ file PDF/Word của bạn và đưa cho AI, thay vì để AI tự lục lọi trên internet.
+        \item Điều này giới hạn sự "sáng tạo" của AI và buộc nó bám sát vào cơ sở pháp lý chính thống của doanh nghiệp.
+    \end{itemize}
+\end{frame}
+
+
+\section{PHẦN 7: TỔNG KẾT \& ĐÁNH GIÁ}
+
+
+\begin{frame}{7.1 Những gì chúng ta đã đạt được hôm nay?}
+    \begin{itemize}
+        \item Biết cách sử dụng AI (ChatGPT) như một công cụ đắc lực để xử lý văn bản pháp luật dày đặc.
+        \item Nắm vững 3 kỹ thuật cốt lõi: Tóm tắt (Summarization), Trích xuất (Extraction), và Tinh chỉnh (Refining).
+        \item Hiểu được ranh giới giữa việc dùng AI để tăng năng suất và rủi ro đạo đức nghề nghiệp khi tin tưởng mù quáng vào AI.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{7.2 Lời khuyên cho Kế toán viên tương lai}
+    \begin{itemize}
+        \item AI sẽ không thay thế kế toán viên.
+        \item Người kế toán viên biết dùng AI sẽ thay thế người không biết dùng.
+        \item Hãy rèn luyện kỹ năng đặt câu hỏi (Prompting) mỗi ngày, từ những việc nhỏ nhất.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{7.3 Giải đáp Thắc mắc (Q\&A)}
+    \begin{itemize}
+        \item Học viên chia sẻ khó khăn khi sử dụng các công cụ AI trong buổi học hôm nay.
+        \item Giảng viên giải đáp và hướng dẫn khắc phục các lỗi cơ bản khi Prompting.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{CẢM ƠN CÁC BẠN ĐÃ LẮNG NGHE!}
+    \begin{itemize}
+        \item Kết thúc Buổi 11 Thực hành.
+        \item Chúc các bạn làm chủ AI và nâng cao hiệu suất làm việc!
+    \end{itemize}
+\end{frame}
+
+
+\end{document}

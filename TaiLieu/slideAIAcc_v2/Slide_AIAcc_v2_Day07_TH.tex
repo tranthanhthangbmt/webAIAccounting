@@ -1,0 +1,321 @@
+\documentclass[aspectratio=169]{beamer}
+\usetheme{Madrid}
+\usecolortheme{default}
+\usepackage[utf8]{inputenc}
+\usepackage[T5]{fontenc}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{booktabs}
+
+\setbeamertemplate{caption}[numbered]
+\renewcommand{\figurename}{Hình}
+
+\title[Trí tuệ Nhân tạo cho Kế toán]{Trí tuệ Nhân tạo cho Kế toán \\ \vspace{0.3cm} \Large KẾ HOẠCH SLIDE THỰC HÀNH - DAY 07 (BUỔI 7)}
+\author{Đại học Đông Á}
+\date{\today}
+
+\begin{document}
+
+% SLIDE 1
+\begin{frame}
+    \titlepage
+\end{frame}
+
+% SLIDE 2
+\begin{frame}{Nội dung Bài học}
+    \tableofcontents
+\end{frame}
+
+
+\section{KẾ HOẠCH SLIDE THỰC HÀNH - DAY 07 (BUỔI 7)}
+
+
+\begin{frame}{Title: Buổi 7 TH: Ứng dụng AI Hỗ trợ Lập Báo cáo và Dashboard.}
+    \begin{itemize}
+        \item Thực hành: Xây dựng Thuyết minh BCTC \& Interactive Performance Dashboard
+        \item Giảng viên: Đại học Đông Á
+        \item Môn học: Trí tuệ Nhân tạo cho Kế toán
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Năng lực đạt được sau buổi học.}
+    \begin{itemize}
+        \item \textbf{Về Kiến thức:} Nắm vững quy trình thiết kế Dashboard hiệu suất tương tác (Interactive Performance Dashboard) từ dữ liệu kế toán thô.
+        \item \textbf{Về Kỹ năng:} Sử dụng AI (ChatGPT/Claude) để tự động sinh dàn ý Thuyết minh BCTC; sử dụng Excel/PowerBI để làm sạch dữ liệu, tạo Pivot Table, Pivot Chart và ghép thành Dashboard hoàn chỉnh.
+        \item \textbf{Về Tư duy:} Rèn luyện khả năng "Data Storytelling" (Kể chuyện bằng dữ liệu) để trình bày thông tin tài chính một cách trực quan, dễ hiểu và dễ ra quyết định cho Ban giám đốc.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Nội dung chương trình (Agenda).}
+    \begin{itemize}
+        \item 1. Dùng AI phác thảo Thuyết minh Báo cáo Tài chính.
+        \item 2. Giới thiệu bộ dữ liệu (Dataset) và mục tiêu thiết kế Dashboard.
+        \item 3. Làm sạch dữ liệu và tạo bảng tóm tắt (Pivot Tables).
+        \item 4. Xây dựng các biểu đồ tương tác (Pivot Charts).
+        \item 5. Hoàn thiện Interactive Performance Dashboard.
+        \item 6. Đánh giá và tích hợp AI Insights.
+        ### Phần 1: Dùng AI phác thảo Thuyết minh Báo cáo Tài chính
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Tổng quan bài tập Thuyết minh BCTC.}
+    \begin{itemize}
+        \item Bối cảnh: Công ty giả định vừa khóa sổ kế toán, Ban giám đốc cần bản Thuyết minh BCTC nhanh.
+        \item Dữ liệu cung cấp: Bảng Cân đối kế toán và Báo cáo Kết quả Kinh doanh rút gọn (File Excel).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Thiết lập Prompt cho AI.}
+    \begin{itemize}
+        \item Prompt đóng vai: "Bạn là một Kế toán trưởng dày dạn kinh nghiệm..."
+        \item Mục tiêu Prompt: Yêu cầu AI đọc số liệu và sinh ra Dàn ý (Outline) cho Thuyết minh BCTC chuẩn VAS.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Thực thi và đánh giá kết quả từ AI.}
+    \begin{itemize}
+        \item Copy \& Paste dữ liệu hoặc Upload file Excel lên công cụ AI.
+        \item Phân tích dàn ý do AI cung cấp (Đủ các phần: Đặc điểm hoạt động, Chính sách kế toán, Giải trình chi tiết chưa?).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Yêu cầu AI phân tích biến động (Fluctuation Analysis).}
+    \begin{itemize}
+        \item Prompt tiếp theo: "Hãy phân tích và viết một đoạn giải trình về sự biến động của Doanh thu thuần và Giá vốn hàng bán năm nay so với năm trước."
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Tinh chỉnh giọng văn (Tone of Voice).}
+    \begin{itemize}
+        \item Kỹ thuật: Yêu cầu AI viết lại đoạn giải trình với văn phong trung lập, khách quan và chuyên nghiệp.
+        \item "Hãy sử dụng ngôn ngữ tài chính, tránh dùng các từ cảm xúc như 'tuyệt vời', 'tồi tệ'."
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Double-check (Kiểm chứng chéo).}
+    \begin{itemize}
+        \item Sinh viên tự tính toán lại tỷ lệ phần trăm thay đổi của Doanh thu để so sánh với số liệu AI tự tính.
+        \item Tìm và chỉ ra lỗi "Ảo giác" (nếu có) của AI.
+        ### Phần 2: Giới thiệu bộ dữ liệu và mục tiêu Dashboard
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Chuyển sang phần Báo cáo Quản trị (Dashboards).}
+    \begin{itemize}
+        \item Tại sao lại cần Dashboard? Để Ban Giám đốc nhìn nhận "Sức khỏe Doanh nghiệp" một cách trực quan nhất.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Giới thiệu Bộ dữ liệu (Dataset).}
+    \begin{itemize}
+        \item Dữ liệu bán hàng và chi phí của công ty qua các năm, chi tiết tới từng tháng, từng dòng sản phẩm và từng khu vực.
+        \item Số lượng: Khoảng 2,000 dòng dữ liệu thô.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Mục tiêu thiết kế Dashboard (Objective).}
+    \begin{itemize}
+        \item Thể hiện được Tổng doanh thu (Gross Sales).
+        \item Tỷ suất Lợi nhuận gộp (Profit Margin) theo từng Dòng sản phẩm (Brand).
+        \item Phân tích cấu trúc Chi phí (Cost Analysis).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Lên ý tưởng (Wireframing).}
+    \begin{itemize}
+        \item Vẽ phác thảo cấu trúc Dashboard trên giấy hoặc bảng trắng.
+        \item Vị trí đặt biểu đồ: Biểu đồ quan trọng nhất đặt ở góc trên cùng bên trái.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Bố cục màn hình (Screen Layout).}
+    \begin{itemize}
+        \item Chia màn hình Dashboard thành các phần: Tiêu đề, Vùng Bộ lọc (Filters), Vùng Biểu đồ chính, Vùng Biểu đồ phụ.
+        ### Phần 3: Làm sạch dữ liệu và tạo bảng tóm tắt (Pivot Tables)
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Kiểm tra và làm sạch dữ liệu thô.}
+    \begin{itemize}
+        \item Xóa bỏ các dòng trống (Blank Rows).
+        \item Xử lý các giá trị lỗi (N/A, VALUE) và định dạng chuẩn (Currency, Date).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Sử dụng AI để tìm lỗi dữ liệu.}
+    \begin{itemize}
+        \item Prompt: "Hãy kiểm tra xem cột 'Gross Sales' có chứa giá trị text nào không, hoặc có số âm bất thường không."
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Tạo Pivot Table 1: Doanh thu theo Dòng sản phẩm.}
+    \begin{itemize}
+        \item Insert > PivotTable.
+        \item Kéo 'Brand' vào Rows, 'Gross Sales' vào Values.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Tạo Pivot Table 2: Tỷ suất lợi nhuận.}
+    \begin{itemize}
+        \item Tạo Calculated Field trong PivotTable (Profit = Gross Sales - Variable Costs).
+        \item Tính Profit Margin = Profit / Gross Sales.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Tạo Pivot Table 3: Phân tích chi phí.}
+    \begin{itemize}
+        \item Kéo 'Labor' và 'Materials' vào để xem cấu trúc chi phí (Variable Costs).
+        ### Phần 4: Xây dựng các biểu đồ tương tác (Pivot Charts)
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Vẽ biểu đồ Doanh thu (Gross Sales).}
+    \begin{itemize}
+        \item Chọn Pivot Table 1 -> Insert PivotChart -> Bar Chart.
+        \item Áp dụng nguyên tắc Gestalt: Sắp xếp các cột theo thứ tự giảm dần (Sort Z to A).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Vẽ biểu đồ Tỷ suất Lợi nhuận (Profit Margin).}
+    \begin{itemize}
+        \item Chọn Pivot Table 2 -> Insert PivotChart -> Column Chart hoặc Line Chart.
+        \item Thêm một đường trung bình (Average Line) làm chuẩn (Benchmark).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Vẽ biểu đồ Cấu trúc chi phí (Cost Analysis).}
+    \begin{itemize}
+        \item Chọn Pivot Table 3 -> Insert PivotChart -> Stacked Bar Chart.
+        \item Thể hiện sự đóng góp của chi phí nguyên vật liệu và nhân công vào tổng chi phí.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Làm sạch biểu đồ (Decluttering).}
+    \begin{itemize}
+        \item Xóa bỏ các đường lưới (Gridlines) mờ nhat.
+        \item Ẩn các nút Field Buttons không cần thiết trên biểu đồ.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Tối ưu hóa Tiêu đề và Nhãn dữ liệu (Labels).}
+    \begin{itemize}
+        \item Đổi tên biểu đồ thành các thông điệp có ý nghĩa (VD: "Sản phẩm A đang dẫn đầu Doanh thu").
+        \item Thêm Data Labels trực tiếp lên các cột thay vì dùng trục Y quá dày đặc.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Ứng dụng màu sắc (Color Application).}
+    \begin{itemize}
+        \item Dùng nguyên tắc Tiền chú ý (Preattentive attributes).
+        \item Tô màu Đỏ cho sản phẩm có Tỷ suất lợi nhuận âm, màu Xanh/Xám cho các sản phẩm còn lại.
+        ### Phần 5: Hoàn thiện Interactive Performance Dashboard
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Khởi tạo Trang tính Dashboard (Dashboard Sheet).}
+    \begin{itemize}
+        \item Mở một Sheet mới, tắt Gridlines (View > Bỏ chọn Gridlines) để làm nền trắng.
+        \item Cut và Paste các biểu đồ từ các Sheet chứa Pivot Table sang Sheet Dashboard.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Chèn Bộ lọc Tương tác (Slicers).}
+    \begin{itemize}
+        \item Chọn một biểu đồ -> Insert > Slicer.
+        \item Chọn các trường để lọc: 'Năm' (Year) và 'Khu vực' (Region).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Chèn Timeline (Tùy chọn).}
+    \begin{itemize}
+        \item Insert > Timeline (dành riêng cho dữ liệu ngày tháng).
+        \item Cho phép lướt chọn dữ liệu theo Tháng/Quý/Năm nhanh chóng.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Kết nối Slicer với nhiều biểu đồ (Report Connections).}
+    \begin{itemize}
+        \item Click chuột phải vào Slicer -> Report Connections.
+        \item Tích chọn tất cả các Pivot Tables có liên quan.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Trải nghiệm tính Tương tác (Interactivity).}
+    \begin{itemize}
+        \item Thử click chọn Năm 2024 trên Slicer -> Quan sát toàn bộ biểu đồ tự động cập nhật.
+        \item Giải thích lợi ích: Giúp Ban giám đốc tự do "Drill-down" dữ liệu mà không cần kế toán vẽ lại biểu đồ.
+        ### Phần 6: Đánh giá và tích hợp AI Insights
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Phân tích Dashboard bằng AI.}
+    \begin{itemize}
+        \item Cắt màn hình (Screenshot) Dashboard vừa tạo, dán vào ChatGPT (Vision).
+        \item Prompt: "Dựa vào hình ảnh Dashboard này, hãy tóm tắt 3 điểm nổi bật nhất về hiệu suất kinh doanh năm 2024."
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Tự động hóa Insight (NLG - Natural Language Generation).}
+    \begin{itemize}
+        \item Hướng dẫn dùng một số hàm Excel cơ bản ghép chuỗi (CONCATENATE) để tự động sinh ra một câu tóm tắt ngay trên Dashboard.
+        \item Ví dụ: ="Doanh thu cao nhất năm thuộc về " \& [Hàm lấy tên sản phẩm].
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Tránh bẫy biểu đồ sai lệch (Misleading Traps).}
+    \begin{itemize}
+        \item Sinh viên tự kiểm tra chéo (Peer-review) Dashboard của bạn học.
+        \item Trục Y có bắt đầu từ 0 chưa? Màu sắc có nhất quán không? (Ví dụ: Sản phẩm A phải cùng 1 màu trên tất cả biểu đồ).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Tổng kết buổi thực hành.}
+    \begin{itemize}
+        \item AI là công cụ sinh nội dung (Thuyết minh BCTC) và đọc hiểu kết quả (Dashboard Insights).
+        \item Kỹ năng tạo Dashboard là kỹ năng "kể chuyện" bằng số liệu giúp Kế toán viên nâng cao giá trị bản thân (từ Bookkeeper lên Advisor).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Q\&A - Giải đáp thắc mắc.}
+    \begin{itemize}
+        \item Hỗ trợ các sinh viên bị lỗi khi Report Connections hoặc lỗi Format biểu đồ.
+        \item Giao bài tập: Tự tùy biến Dashboard với màu sắc theo bộ nhận diện thương hiệu (Brand Guideline) của trường Đại học Đông Á.
+    \end{itemize}
+\end{frame}
+
+
+\end{document}

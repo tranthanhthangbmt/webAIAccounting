@@ -1,0 +1,358 @@
+\documentclass[aspectratio=169]{beamer}
+\usetheme{Madrid}
+\usecolortheme{default}
+\usepackage[utf8]{inputenc}
+\usepackage[T5]{fontenc}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{booktabs}
+
+\setbeamertemplate{caption}[numbered]
+\renewcommand{\figurename}{Hình}
+
+\title[Trí tuệ Nhân tạo cho Kế toán]{Trí tuệ Nhân tạo cho Kế toán \\ \vspace{0.3cm} \Large KẾ HOẠCH SLIDE LÝ THUYẾT - DAY 09 (BUỔI 9)}
+\author{Đại học Đông Á}
+\date{\today}
+
+\begin{document}
+
+% SLIDE 1
+\begin{frame}
+    \titlepage
+\end{frame}
+
+% SLIDE 2
+\begin{frame}{Nội dung Bài học}
+    \tableofcontents
+\end{frame}
+
+
+\section{KẾ HOẠCH SLIDE LÝ THUYẾT - DAY 09 (BUỔI 9)}
+
+
+\begin{frame}{Title: Buổi 9: Ứng dụng AI trong Kiểm soát Nội bộ.}
+    \begin{itemize}
+        \item Phụ đề: Tự động hóa đánh giá KSNB và Khuôn khổ COSO 2013
+        \item Giảng viên: Đại học Đông Á
+        \item Môn học: Trí tuệ Nhân tạo cho Kế toán
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Năng lực đạt được sau buổi học.}
+    \begin{itemize}
+        \item \textbf{Về Kiến thức:} Nắm vững 5 thành phần của Khuôn khổ COSO 2013. Hiểu được vai trò của AI trong việc tự động hóa đánh giá và thiết kế quy trình Kiểm soát Nội bộ (KSNB).
+        \item \textbf{Về Kỹ năng:} Có khả năng sử dụng Prompt để yêu cầu AI rà soát lỗ hổng kiểm soát (như thiếu phân nhiệm, thiếu phê duyệt) trong một quy trình thực tế (ví dụ: quy trình mua hàng, thanh toán).
+        \item \textbf{Về Tư duy:} Đánh giá tính rủi ro, phân biệt rõ vai trò không thể thay thế của con người (Professional Skepticism) so với sự hỗ trợ của AI trong môi trường KSNB.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Nội dung Chương trình (Agenda).}
+    \begin{itemize}
+        \item 1. Tổng quan về Kiểm soát Nội bộ và Khuôn khổ COSO 2013.
+        \item 2. Ứng dụng AI trong Đánh giá và Nhận diện Rủi ro.
+        \item 3. Tự động hóa Hoạt động Kiểm soát với AI.
+        \item 4. Rà soát Lỗ hổng Quy trình (Thực tế: Quy trình Mua hàng).
+        \item 5. Giới hạn của AI và Tương lai của KSNB.
+        ### Phần 1: Tổng quan về KSNB và COSO 2013
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Định nghĩa Kiểm soát Nội bộ (Internal Controls).}
+    \begin{itemize}
+        \item KSNB là một quy trình do Hội đồng quản trị, Ban giám đốc và các cá nhân khác thiết lập.
+        \item Mục đích: Đảm bảo độ tin cậy của BCTC, tuân thủ pháp luật và hiệu quả hoạt động.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Khuôn khổ COSO 2013 là gì?}
+    \begin{itemize}
+        \item Committee of Sponsoring Organizations of the Treadway Commission (COSO).
+        \item Là chuẩn mực toàn cầu được áp dụng rộng rãi nhất để thiết kế và đánh giá KSNB.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{5 Thành phần của COSO.}
+    \begin{itemize}
+        \item 1. Môi trường kiểm soát (Control Environment).
+        \item 2. Đánh giá rủi ro (Risk Assessment).
+        \item 3. Hoạt động kiểm soát (Control Activities).
+        \item 4. Thông tin và Truyền thông (Information \& Communication).
+        \item 5. Giám sát (Monitoring).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Khối lập phương COSO (COSO Cube).}
+    \begin{itemize}
+        \item 3 Mục tiêu (Hoạt động, Báo cáo, Tuân thủ).
+        \item 5 Thành phần KSNB.
+        \item Cấu trúc tổ chức (Thực thể, Khối, Đơn vị, Chức năng).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Tại sao KSNB truyền thống lại gặp khó khăn?}
+    \begin{itemize}
+        \item Khối lượng giao dịch ngày càng khổng lồ.
+        \item Rủi ro gian lận ngày càng tinh vi.
+        \item Đánh giá KSNB thủ công tốn quá nhiều thời gian và chi phí.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{AI - Giải pháp Tự động hóa.}
+    \begin{itemize}
+        \item Chuyển đổi từ "Kiểm tra chọn mẫu" sang "Kiểm tra toàn bộ 100\%".
+        \item AI giúp phát hiện các khuôn mẫu (patterns) bất thường mà mắt người bỏ sót.
+        ### Phần 2: Ứng dụng AI trong Đánh giá và Nhận diện Rủi ro
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Nhận diện Rủi ro (Risk Identification).}
+    \begin{itemize}
+        \item Theo COSO, rủi ro là các sự kiện có tác động tiêu cực đến mục tiêu kinh doanh.
+        \item AI sử dụng Xử lý ngôn ngữ tự nhiên (NLP) để quét các hợp đồng, email, báo cáo nhằm tìm rủi ro tiềm ẩn.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Phân tích Rủi ro Gian lận (Fraud Risk).}
+    \begin{itemize}
+        \item Gian lận BCTC, Biển thủ tài sản, Tham nhũng.
+        \item AI có khả năng lập hồ sơ rủi ro dựa trên dữ liệu lịch sử và học máy (Machine Learning).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Nhận diện Dấu hiệu Cảnh báo (Red Flags).}
+    \begin{itemize}
+        \item Thay vì đợi cuối tháng/cuối năm mới kiểm tra.
+        \item AI giúp cảnh báo theo thời gian thực (Real-time alerts).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Phân tích Rủi ro Người nội bộ (Insider Threat).}
+    \begin{itemize}
+        \item Phân tích hành vi người dùng (UBA - User Behavior Analytics).
+        \item Ví dụ: Kế toán viên đăng nhập hệ thống ERP vào lúc 2h sáng chủ nhật.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Sự bất phân nhiệm (Segregation of Duties - SoD).}
+    \begin{itemize}
+        \item Nguyên tắc cốt lõi: Một người không được kiêm nhiệm cả việc tạo giao dịch, phê duyệt và hạch toán.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{AI rà soát Phân nhiệm tự động.}
+    \begin{itemize}
+        \item AI quét hệ thống phân quyền của ERP để tìm ra những user có "quyền lực kép" gây nguy cơ gian lận.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Đánh giá Rủi ro Động (Dynamic Risk Assessment).}
+    \begin{itemize}
+        \item Rủi ro không tĩnh, nó thay đổi hàng ngày theo thị trường.
+        \item AI tích hợp dữ liệu bên ngoài (tin tức, biến động giá) để cập nhật hồ sơ rủi ro.
+        ### Phần 3: Tự động hóa Hoạt động Kiểm soát
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Hoạt động Kiểm soát (Control Activities).}
+    \begin{itemize}
+        \item Là các chính sách và thủ tục để đảm bảo các chỉ thị giảm thiểu rủi ro được thực hiện.
+        \item Gồm kiểm soát phòng ngừa (Preventive) và kiểm soát phát hiện (Detective).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Tự động hóa Kiểm soát Phòng ngừa.}
+    \begin{itemize}
+        \item AI chặn ngay lập tức một hóa đơn thanh toán nếu số tài khoản nhà cung cấp mới được thay đổi trong vòng 24h.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Tự động hóa Kiểm soát Phát hiện.}
+    \begin{itemize}
+        \item AI tự động đối chiếu sổ phụ ngân hàng (Bank Reconciliation) với hàng vạn dòng giao dịch trong vài giây.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Kế toán Không mã code (No-code Accounting).}
+    \begin{itemize}
+        \item Sử dụng ChatGPT/Copilot để tạo ra các quy trình tự động hóa mà không cần biết lập trình (Python/SQL).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Rà soát Hợp đồng bằng NLP.}
+    \begin{itemize}
+        \item Kiểm tra xem hợp đồng mua bán có thiếu các điều khoản phạt vi phạm hay không.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Kiểm tra Hóa đơn tự động (OCR + AI).}
+    \begin{itemize}
+        \item OCR đọc hóa đơn, AI đối chiếu 3 chiều (Three-way matching) giữa: Đơn đặt hàng (PO) - Phiếu nhập kho - Hóa đơn.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Khám phá Lỗ hổng Kế toán.}
+    \begin{itemize}
+        \item Tự động quét sổ cái để tìm các nghiệp vụ Nợ/Có lặp lại với số tiền dưới mức phê duyệt (Structuring fraud).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Nâng cấp Thông tin và Truyền thông.}
+    \begin{itemize}
+        \item Chatbot nội bộ trả lời các câu hỏi về chính sách kế toán cho nhân viên.
+        ### Phần 4: Rà soát Lỗ hổng Quy trình (Thực tế)
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Tình huống: Quy trình Mua hàng.}
+    \begin{itemize}
+        \item Nhân viên mua hàng tự liên hệ nhà cung cấp, tự nhận hàng và tự làm đề nghị thanh toán gửi Kế toán trưởng.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Sử dụng AI để tìm Lỗ hổng.}
+    \begin{itemize}
+        \item Kế toán viên có thể "nạp" mô tả quy trình trên vào ChatGPT và yêu cầu tìm rủi ro.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Các lỗ hổng do AI phát hiện.}
+    \begin{itemize}
+        \item Thiếu phê duyệt từ Trưởng bộ phận trước khi mua.
+        \item Thiếu phân nhiệm giữa việc Mua hàng và Nhận hàng.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Thiết kế lại Quy trình (Re-design).}
+    \begin{itemize}
+        \item Yêu cầu AI đề xuất một quy trình mua hàng mới, chuẩn COSO.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Lưu đồ Kiểm soát Mới.}
+    \begin{itemize}
+        \item Tách biệt: Người đề xuất - Người phê duyệt - Người mua - Người nhận hàng - Kế toán thanh toán.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Đưa AI vào Giám sát.}
+    \begin{itemize}
+        \item AI đóng vai trò là "Người giám sát ảo" liên tục audit quá trình này.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Tạo Prompt Kiểm toán Tự động.}
+    \begin{itemize}
+        \item Prompt: "Đóng vai chuyên gia COSO, hãy tìm 3 rủi ro lớn nhất trong quy trình thanh toán sau đây..."
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Tối ưu hóa Câu hỏi Prompt.}
+    \begin{itemize}
+        \item Kế toán phải cung cấp đủ context: Loại hình công ty, quy mô, quy chế chi tiêu nội bộ.
+        ### Phần 5: Giới hạn của AI và Tương lai của KSNB
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Không có AI nào hoàn hảo.}
+    \begin{itemize}
+        \item Hiện tượng "Ảo giác" (Hallucination) của AI: AI bịa ra các lỗi không có thật trong hệ thống.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Sự Cố hữu của Rủi ro.}
+    \begin{itemize}
+        \item Ban giám đốc vẫn có thể "vượt mặt" kiểm soát (Management Override of Controls). AI rất khó phát hiện nếu sếp thông đồng.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Vấn đề Bảo mật Dữ liệu.}
+    \begin{itemize}
+        \item Khi đưa dữ liệu nội bộ lên ChatGPT, công ty đối mặt rủi ro lộ lọt thông tin.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Tính Thiên lệch (Bias).}
+    \begin{itemize}
+        \item AI có thể tạo ra các cảnh báo giả (False Positives) đối với các giao dịch hợp lệ.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Vai trò của Con người (Human in the loop).}
+    \begin{itemize}
+        \item AI chỉ đóng vai trò "Trợ lý", quyết định cuối cùng vẫn thuộc về Kiểm toán viên nội bộ và Kế toán trưởng.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Sự Hoài nghi Nghề nghiệp (Professional Skepticism).}
+    \begin{itemize}
+        \item Kế toán viên phải luôn đặt câu hỏi về độ tin cậy của báo cáo rủi ro do AI xuất ra.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Tương lai của KSNB.}
+    \begin{itemize}
+        \item Từ kiểm toán định kỳ (Periodic) sang kiểm toán liên tục (Continuous Auditing).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Kỹ năng mới của Kế toán viên.}
+    \begin{itemize}
+        \item Không chỉ hạch toán, mà còn là người thiết kế hệ thống KSNB tự động và "điều khiển" AI.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Tổng kết.}
+    \begin{itemize}
+        \item COSO 2013 + AI = Hệ thống kiểm soát vững chắc, nhanh chóng và thông minh.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Hỏi và Đáp (Q\&A).}
+    \begin{itemize}
+        \item Giải đáp thắc mắc về ứng dụng AI trong kiểm soát thực tế tại doanh nghiệp.
+    \end{itemize}
+\end{frame}
+
+
+\end{document}

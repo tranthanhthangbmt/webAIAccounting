@@ -1,0 +1,358 @@
+\documentclass[aspectratio=169]{beamer}
+\usetheme{Madrid}
+\usecolortheme{default}
+\usepackage[utf8]{inputenc}
+\usepackage[T5]{fontenc}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{booktabs}
+
+\setbeamertemplate{caption}[numbered]
+\renewcommand{\figurename}{Hình}
+
+\title[Trí tuệ Nhân tạo cho Kế toán]{Trí tuệ Nhân tạo cho Kế toán \\ \vspace{0.3cm} \Large KẾ HOẠCH SLIDE THỰC HÀNH - DAY 2 (BUỔI 2)}
+\author{Đại học Đông Á}
+\date{\today}
+
+\begin{document}
+
+% SLIDE 1
+\begin{frame}
+    \titlepage
+\end{frame}
+
+% SLIDE 2
+\begin{frame}{Nội dung Bài học}
+    \tableofcontents
+\end{frame}
+
+
+\section{KẾ HOẠCH SLIDE THỰC HÀNH - DAY 2 (BUỔI 2)}
+
+
+\section{PHẦN 1: GIỚI THIỆU THỰC HÀNH \& SỨC MẠNH CỦA POWER QUERY}
+
+
+\begin{frame}{TRANG BÌA (Title Page)}
+    \begin{itemize}
+        \item Tiêu đề chính: Trí tuệ Nhân tạo cho Kế toán (Phần Thực Hành)
+        \item Tiêu đề phụ: Buổi 2 - Thực hành Chuẩn hóa dữ liệu với Power Query
+        \item Tác giả: Đại học Đông Á
+        \item *(🖼️ Ảnh minh họa: AI Generated - Giao diện dashboard hiện đại với biểu tượng phễu lọc dữ liệu).*
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Năng lực đạt được sau buổi học}
+    \begin{itemize}
+        \item \textbf{Về Lý thuyết (LT):} Hiểu được nguyên lý hoạt động của Power Query trong việc kết nối, làm sạch và hợp nhất dữ liệu; Nắm bắt được logic của các phép Joins (Left, Right, Inner) trong thao tác gộp bảng.
+        \item \textbf{Về Thực hành (TH):} Biết cách dùng tính năng cơ bản của Power Query và kết hợp ChatGPT để làm sạch một file dữ liệu "bẩn" (xóa cột thừa, tách/gộp chuỗi văn bản, chuyển đổi kiểu dữ liệu); Thực hiện thành công bài tập Case Study "Super Scooters" (Apply It 2.1 \& 2.2).
+        \item \textbf{Về Tư duy nghề nghiệp:} Loại bỏ thói quen làm sạch dữ liệu thủ công, biết cách thiết lập các quy trình dọn dẹp dữ liệu tự động (Automated Data Transformation) để tiết kiệm thời gian cho Kế toán viên.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Nỗi ám ảnh của Kế toán viên}
+    \begin{itemize}
+        \item Có bao giờ bạn phải mất hàng giờ đồng hồ mỗi cuối tháng chỉ để:
+        \item Copy-paste dữ liệu từ 12 file Excel của 12 tháng lại với nhau?
+        \item Dò tìm lỗi VLOOKUP bị \#N/A vì khác định dạng?
+        \item Xóa thủ công hàng ngàn dòng trắng và khoảng cách thừa?
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Giải pháp mang tên Power Query}
+    \begin{itemize}
+        \item \textbf{Power Query là gì?} Là một công cụ kết nối và chuẩn hóa dữ liệu siêu mạnh mẽ của Microsoft.
+        \item Được ví như "Trợ lý dọn dẹp dữ liệu cá nhân" (Personal Data Assistant).
+        \item \textbf{Đặc biệt:} Hoàn toàn KHÔNG cần biết code (No-code).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Power Query nằm ở đâu?}
+    \begin{itemize}
+        \item Được tích hợp sẵn hoàn toàn miễn phí.
+        \item \textbf{Trong Excel:} Vào tab \texttt{Data} $\rightarrow$ Chọn \texttt{Get \& Transform Data}.
+        \item \textbf{Trong Power BI Desktop:} Nút \texttt{Get Data} $\rightarrow$ \texttt{Transform Data}.
+        \item *(🖼️ Ảnh minh họa: Screenshot vị trí nút bấm Get Data trên thanh Ribbon của Excel).*
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Giao diện Power Query Editor (Phần 1)}
+    \begin{itemize}
+        \item \textbf{Ribbon (Thanh công cụ):} Chứa các tab \texttt{Home}, \texttt{Transform}, \texttt{Add Column}. Nơi thực hiện các phép thuật biến đổi.
+        \item \textbf{Queries Pane (Cửa sổ Queries):} Nằm bên trái, quản lý danh sách các bảng dữ liệu đang được kết nối.
+        \item *(🖼️ Ảnh minh họa: Screenshot tổng quan giao diện Power Query).*
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Giao diện Power Query Editor (Phần 2)}
+    \begin{itemize}
+        \item \textbf{Data Preview (Xem trước dữ liệu):} Khu vực trung tâm hiển thị trực tiếp bảng dữ liệu đang xử lý.
+        \item \textbf{Applied Steps (Các bước đã áp dụng):} Khung bên phải - \textbf{Tính năng đáng giá nhất!}. Ghi lại toàn bộ lịch sử thao tác giống như một cuốn băng ghi hình.
+        \item Có thể hoàn tác (Undo) bất kỳ bước nào chỉ bằng 1 cú click (dấu \texttt{X}).
+    \end{itemize}
+\end{frame}
+
+
+\section{PHẦN 2: CÁC THAO TÁC DỌN DẸP CƠ BẢN (BASIC TRANSFORMATIONS)}
+
+
+\begin{frame}{Tại sao không làm trực tiếp trên Excel?}
+    \begin{itemize}
+        \item Khi sửa dữ liệu trực tiếp trên ô Excel, nếu lỡ làm sai sẽ rất khó khôi phục, và tháng sau phải làm lại từ đầu.
+        \item \textbf{Power Query lưu lại quy trình (Applied Steps).} Tháng sau chỉ cần bấm \texttt{Refresh}, dữ liệu mới sẽ tự động chạy qua phễu lọc cũ.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Thao tác 1 - Xóa cột thừa (Removing Columns)}
+    \begin{itemize}
+        \item Báo cáo kết xuất từ phần mềm thường kèm theo rất nhiều cột mã hệ thống không cần thiết cho kế toán.
+        \item \textbf{Thực hành:} Nhấn chuột phải vào tiêu đề cột $\rightarrow$ \texttt{Remove}.
+        \item Lợi ích: Làm nhẹ file, tăng tốc độ tính toán.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Thao tác 2 - Đổi kiểu dữ liệu (Changing Data Types)}
+    \begin{itemize}
+        \item Đây là nguyên nhân hàng đầu gây lỗi VLOOKUP! (Số hóa đơn lưu dạng Text vs lưu dạng Number).
+        \item \textbf{Thực hành:} Click vào biểu tượng định dạng ở tiêu đề cột (ABC, 123, 📅) $\rightarrow$ Chọn \texttt{Whole Number}, \texttt{Text} hoặc \texttt{Date}.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Thao tác 3 - Lọc các dòng bị lỗi (Filtering Rows)}
+    \begin{itemize}
+        \item Loại bỏ các dòng tiêu đề rác của hệ thống hoặc các dòng trống.
+        \item \textbf{Thực hành:} Bấm vào nút mũi tên trên tiêu đề cột $\rightarrow$ Bỏ chọn \texttt{(null)} hoặc \texttt{Blank}.
+        \item Giống hệt Filter trong Excel nhưng quá trình này được lưu vĩnh viễn vào bộ máy tự động.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Thao tác 4 - Thay thế giá trị (Replace Values)}
+    \begin{itemize}
+        \item Giúp sửa các lỗi sai chính tả hàng loạt. (Ví dụ: "Hà nôi", "HN", "Ha Noi" $\rightarrow$ Sửa chung thành "Hà Nội").
+        \item \textbf{Thực hành:} Chuột phải vào tiêu đề $\rightarrow$ \texttt{Replace Values} $\rightarrow$ Nhập \texttt{Value To Find} và \texttt{Replace With}.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Thao tác 5 - Tách cột (Split Column)}
+    \begin{itemize}
+        \item Ví dụ: Cột tên ghi là "Nguyễn Văn A - KT" cần tách riêng Tên và Phòng ban.
+        \item \textbf{Thực hành:} Chọn \texttt{Split Column} $\rightarrow$ \texttt{By Delimiter} (Ký tự phân cách: dấu gạch ngang \texttt{-}).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Thao tác 6 - Trim \& Clean}
+    \begin{itemize}
+        \item Xóa khoảng trắng thừa (Leading/Trailing spaces) bằng \texttt{Trim}.
+        \item Xóa các ký tự không in được bằng \texttt{Clean}.
+        \item Đặc biệt hữu dụng với dữ liệu tải xuống từ hệ thống ngân hàng (Bank Statements).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Giới thiệu ngôn ngữ M (M Code)}
+    \begin{itemize}
+        \item Dành cho người muốn tìm hiểu sâu.
+        \item Các thao tác kéo thả của bạn thực chất được Power Query tự động dịch thành ngôn ngữ lập trình "M" (Formula Bar).
+        \item Bạn \textbf{KHÔNG} cần biết code M, nhưng nếu biết, bạn có thể chỉnh sửa sâu hơn.
+    \end{itemize}
+\end{frame}
+
+
+\section{PHẦN 3: HỢP NHẤT DỮ LIỆU (APPEND \& MERGE)}
+
+
+\begin{frame}{Nghệ thuật Hợp nhất dữ liệu}
+    \begin{itemize}
+        \item Trong thực tế, dữ liệu không bao giờ nằm sẵn trong 1 bảng đẹp đẽ.
+        \item Hợp nhất theo chiều dọc: \textbf{Append Queries}.
+        \item Hợp nhất theo chiều ngang: \textbf{Merge Queries}.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Gộp bảng theo chiều dọc (Append Queries)}
+    \begin{itemize}
+        \item \textbf{Bài toán:} Kế toán có 12 file Excel (từ tháng 1 đến tháng 12). Cần gộp thành 1 bảng duy nhất để làm báo cáo năm.
+        \item \textbf{Giải pháp Power Query:} Dùng \texttt{Append Queries}. Các file có cùng cấu trúc cột sẽ tự động xếp chồng lên nhau.
+        \item *(🖼️ Ảnh minh họa: AI Generated - Hai khối lego xếp chồng lên nhau).*
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Lợi ích cực lớn của Append}
+    \begin{itemize}
+        \item So với Copy-Paste thủ công: Nếu tháng sau có thêm file "Tháng 13", chỉ cần quăng file vào thư mục và bấm \texttt{Refresh}, dữ liệu tự cập nhật báo cáo!
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Gộp bảng theo chiều ngang (Merge Queries)}
+    \begin{itemize}
+        \item Bản nâng cấp hoàn hảo của VLOOKUP.
+        \item \textbf{Bài toán:} Bạn có bảng Hóa Đơn chứa \texttt{CustomerID}, và bảng Khách Hàng chứa \texttt{CustomerName}. Cần mang tên KH vào bảng Hóa Đơn.
+        \item *(🖼️ Ảnh minh họa: AI Generated - Hai bảng dữ liệu móc nối với nhau qua chiếc ổ khóa).*
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Cách thực hiện Merge Queries}
+    \begin{itemize}
+        \item Chọn \texttt{Merge Queries}.
+        \item Chọn bảng A và bảng B.
+        \item \textbf{Bước quan trọng nhất:} Click chọn cột \textbf{Khóa ngoại (Foreign Key)} và \textbf{Khóa chính (Primary Key)} khớp nhau giữa 2 bảng.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Tại sao Merge lại "ăn đứt" Vlookup?}
+    \begin{itemize}
+        \item VLOOKUP rất nặng, làm file Excel bị treo nếu có hàng trăm ngàn dòng.
+        \item VLOOKUP chỉ tìm từ trái sang phải.
+        \item Merge Queries xử lý ngầm, siêu nhẹ, không tốn ô Excel để tính toán, tốc độ cực nhanh.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Pivot \& Unpivot (Xoay và Bỏ xoay dữ liệu)}
+    \begin{itemize}
+        \item Dữ liệu bị trình bày sai cấu trúc (Các tháng nằm ngang thành từng cột thay vì nằm dọc).
+        \item \textbf{Thực hành:} Dùng lệnh \texttt{Unpivot Columns} để đưa các cột tháng về chuẩn 1 cột "Thuộc tính" và 1 cột "Giá trị". Sẵn sàng làm Pivot Table!
+    \end{itemize}
+\end{frame}
+
+
+\section{PHẦN 4: LAB - THỰC HÀNH KẾ TOÁN (APPLY IT)}
+
+
+\begin{frame}{LAB 1: Case Study - Super Scooters}
+    \begin{itemize}
+        \item \textbf{Bối cảnh:} Hãng sản xuất xe scooter "Super Scooters" vừa chuyển đổi hệ thống Database.
+        \item Hệ thống chia thành 4 bảng: Locations, SalesOrders, Employee, Customer.
+        \item *(🖼️ Ảnh minh họa: Bảng dữ liệu của Super Scooters từ sách gốc).*
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Nhiệm vụ LAB 1}
+    \begin{itemize}
+        \item Xác định \textbf{Primary Key} (Khóa chính) của từng bảng.
+        \item Xác định \textbf{Foreign Key} (Khóa ngoại) kết nối bảng SalesOrders với bảng Customer.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Phân tích LAB 1 - Bảng Locations \& Employee}
+    \begin{itemize}
+        \item \textbf{Locations Table:}
+        \item Primary Key: \texttt{LocationNumber} (Không thể trùng lặp).
+        \item \textbf{Employee Table:}
+        \item Primary Key: \texttt{EmployeeNumber}.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Phân tích LAB 1 - Bảng SalesOrders}
+    \begin{itemize}
+        \item \textbf{SalesOrders Table:}
+        \item Primary Key: \texttt{SalesOrderNumber} (Mỗi đơn hàng có mã duy nhất).
+        \item Foreign Keys: \texttt{ItemNumber}, \texttt{CustomerNumber}, \texttt{EmployeeNumber}, \texttt{LocationNumber}.
+        \item (Các khóa ngoại này giúp truy xuất thông tin từ các bảng vệ tinh).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{LAB 2: Xử lý Hóa đơn Bán hàng}
+    \begin{itemize}
+        \item \textbf{Tình huống:} Kế toán được gửi một file dữ liệu "Báo cáo bán hàng thô". Cột "Tên Khách Hàng" vừa có tên, vừa có mã số ở đằng sau (Nguyễn Văn A - KH001). Cột "Doanh thu" bị định dạng là Text.
+        \item \textbf{Yêu cầu:} Hãy làm sạch nó.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Các bước giải quyết LAB 2 (Live Demo)}
+    1. Import dữ liệu vào Power Query (Get Data).\\
+    2. Dùng \texttt{Split Column by Delimiter} (-) để tách cột Tên và Mã khách hàng.\\
+    3. Chọn cột Doanh thu, đổi Data Type sang \texttt{Decimal Number}.\\
+    4. Close \& Load để xuất bảng sạch ra Excel.\\
+\end{frame}
+
+
+\begin{frame}{Kỹ năng tạo tham số (Parameters) nâng cao}
+    \begin{itemize}
+        \item Giúp truy vấn có tính động (Dynamic).
+        \item Vd: Thay vì tạo bộ lọc cố định "Năm 2025", ta tạo Parameter "Năm". Người dùng có thể nhập số "2026" và toàn bộ luồng xử lý tự động đổi theo năm mới.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Load to Data Model (Mô hình Dữ liệu)}
+    \begin{itemize}
+        \item Sau khi Clean dữ liệu, ta xuất ra đâu?
+        \item \textbf{Tùy chọn 1 (Table):} Xuất ra bảng Excel bình thường (Nặng máy nếu quá 1 triệu dòng).
+        \item \textbf{Tùy chọn 2 (Create Connection Only \& Add to Data Model):} Lưu ngầm trong bộ nhớ, dùng để tạo Pivot Table trực tiếp, xử lý mượt mà hàng triệu dòng!
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Best Practices (Thực hành tốt nhất) khi dùng Power Query}
+    \begin{itemize}
+        \item Đặt tên Queries (Bảng) có ý nghĩa (Vd: \texttt{tbl\_DanhSachKhachHang}).
+        \item Ghi chú các bước thao tác phức tạp (Chuột phải vào Applied Step $\rightarrow$ \texttt{Properties} $\rightarrow$ \texttt{Description}).
+        \item Thường xuyên kiểm tra lại các bước (Test Your Queries) trước khi Load.
+    \end{itemize}
+\end{frame}
+
+
+\section{PHẦN 5: TỔNG KẾT \& Q\&A}
+
+
+\begin{frame}{Tổng kết Kiến thức Buổi Thực Hành}
+    \begin{itemize}
+        \item Power Query là công cụ tự động hóa quá trình chuẩn hóa (Clean) và biến đổi (Transform) dữ liệu No-code số 1 hiện nay.
+        \item Thay thế hoàn hảo cho các thao tác Copy-paste, VLOOKUP nặng nề.
+        \item Applied Steps giúp bạn xây dựng \textbf{"Nhà máy tự động dọn rác"}. Lần sau chỉ việc bấm Refresh!
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Hỏi \& Đáp (Q\&A)}
+    \begin{itemize}
+        \item Các câu hỏi thường gặp:
+        \item "Power Query có tốn phí không?" $\rightarrow$ Không, tích hợp sẵn trong Excel 2016 trở lên.
+        \item "Macbook có dùng được Power Query không?" $\rightarrow$ Có, Excel for Mac hiện đã hỗ trợ Power Query (dù giao diện hơi khác Windows).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Bài tập về nhà}
+    \begin{itemize}
+        \item Nhận file dữ liệu "Sales\_DirtyData.xlsx" từ giảng viên.
+        \item Hãy dùng Power Query để:
+        1. Loại bỏ các dòng trống.
+        2. Viết hoa chuẩn chữ cái đầu tên khách hàng.
+        3. Load ra một Pivot Table báo cáo tổng doanh thu theo khách hàng.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Kết thúc Buổi 2}
+    \begin{itemize}
+        \item \begin{center} \Huge \textbf{Thank You!} \end{center}
+        \item Hãy thực hành ngay trên máy tính của bạn, vì "Thực hành là cách duy nhất để làm chủ Dữ liệu".
+    \end{itemize}
+\end{frame}
+
+
+\end{document}
