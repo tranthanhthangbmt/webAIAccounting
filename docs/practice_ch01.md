@@ -9,7 +9,7 @@
 
 ### Tài nguyên Dữ liệu Thực hành
 Trong chương này, bạn sẽ sử dụng bộ dữ liệu sau cho bài tập thực hành. Bạn có thể tải về để mở ra xem trước dữ liệu:
-- 📥 **[LittleTots_Financials.csv](../TaiLieu/Datasets/LittleTots_Financials.csv)**: Bảng cân đối số phát sinh và dữ liệu tài chính cơ bản cho Cơ sở Trông trẻ Little Tots.
+- 📥 **<a href="Datasets/LittleTots_Financials.csv" download target="_blank"><strong>LittleTots_Financials.csv</strong></a>**: Bảng cân đối số phát sinh và dữ liệu tài chính cơ bản cho Cơ sở Trông trẻ Little Tots.
 Những thay đổi về dữ liệu và công nghệ đang tác động đến vai trò của kế toán viên trong mọi lĩnh vực kế toán (Accounting). Các kế toán viên của tương lai phải là những chuyên gia linh hoạt, sáng tạo, am hiểu về dữ liệu và công nghệ (Data and Technology Literate). Họ sẽ là những người giải quyết vấn đề (Problem-solvers) có tư duy phản biện (Critical Thinking), có khả năng sử dụng công nghệ và dữ liệu để thúc đẩy sự hiểu biết và thay đổi trong kinh doanh. Họ cần phải "suy nghĩ vượt ra ngoài khuôn khổ" (Think outside the box) để tạo ra giá trị bằng cách sử dụng dữ liệu và các phép phân tích (Analyses). Chương này là một bản tổng quan về cách những thay đổi này đang diễn ra, các loại dữ liệu và phân tích mà những sinh viên mới tốt nghiệp có khả năng gặp phải, và những kỹ năng họ cần để thành công trong môi trường đang thay đổi này.
 
 ### Góc nhìn Chuyên gia (Professional Insight): Tại sao Phân tích Dữ liệu (Data Analytics) lại quan trọng cho sự nghiệp của bạn?
@@ -770,7 +770,7 @@ Bạn làm việc cho một tổ chức phi lợi nhuận ở Washington D.C., c
 Hãy mô tả ngắn gọn những gì bạn sẽ đề xuất cho từng bước trong quy trình phân tích dữ liệu, sau đó áp dụng hai yếu tố tư duy phản biện vào mỗi bước được liệt kê. (Tương tự như bảng trong EX 1.7)
 
 ### Tình huống Ứng dụng Chuyên môn: Cơ sở Trông trẻ Little Tots (Professional Application Case: Little Tots Daycare)
-> 📥 **Dữ liệu thực hành:** Tải file [LittleTots_Financials.csv](../TaiLieu/Datasets/LittleTots_Financials.csv) để thực hiện bài tập này.
+> 📥 **Dữ liệu thực hành:** Tải file <a href="Datasets/LittleTots_Financials.csv" download target="_blank"><strong>LittleTots_Financials.csv</strong></a> để thực hiện bài tập này.
 
 Little Tots Day Care hoạt động ở Roswell, Georgia, một vùng ngoại ô của Atlanta. Đây là một cơ sở giữ trẻ quy mô vừa phục vụ trẻ em từ ba tháng đến sáu tuổi. Cơ sở này tự hào về việc cung cấp một môi trường an toàn và an ninh, nơi các bậc phụ huynh cảm thấy con cái của họ được chăm sóc và an toàn. Thị trường giữ trẻ rất cạnh tranh, với hơn 20 cơ sở được cấp phép ở Roswell. Little Tots đã mở cửa vào tháng 6 năm 2023 và đã chứng kiến sự tăng trưởng ổn định kể từ đó. Như hình ảnh trực quan sau đây cho thấy, họ đã hoạt động thua lỗ trong năm đầu tiên mở cửa nhưng đã tăng lợi nhuận đáng kể trong năm vừa qua.
 

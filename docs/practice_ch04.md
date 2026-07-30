@@ -7,10 +7,10 @@
 
 ### Tài nguyên Dữ liệu Thực hành
 Trong chương này, bạn sẽ sử dụng các bộ dữ liệu sau cho bài tập thực hành. Bạn có thể tải về để mở ra xem trước dữ liệu:
-- 📥 **[ATI_Purchases_Data.csv](../TaiLieu/Datasets/ATI_Purchases_Data.csv)**: Dữ liệu chu trình mua hàng, thuế và nhà cung cấp của công ty ATI.
-- 📥 **[Pet_Supply_Purchases.csv](../TaiLieu/Datasets/Pet_Supply_Purchases.csv)**: Dữ liệu đơn đặt hàng từ các nhà cung cấp đồ thú cưng.
-- 📥 **[Sihryas_Beauty_Sales.csv](../TaiLieu/Datasets/Sihryas_Beauty_Sales.csv)**: Dữ liệu bán hàng chi tiết của Cửa hàng Làm đẹp Sihrya's.
-- 📥 **[PCard_Spending.csv](../TaiLieu/Datasets/PCard_Spending.csv)**: Dữ liệu giao dịch thẻ mua hàng (P-Card) của nhân viên.
+- 📥 **<a href="Datasets/ATI_Purchases_Data.csv" download target="_blank"><strong>ATI_Purchases_Data.csv</strong></a>**: Dữ liệu chu trình mua hàng, thuế và nhà cung cấp của công ty ATI.
+- 📥 **<a href="Datasets/Pet_Supply_Purchases.csv" download target="_blank"><strong>Pet_Supply_Purchases.csv</strong></a>**: Dữ liệu đơn đặt hàng từ các nhà cung cấp đồ thú cưng.
+- 📥 **<a href="Datasets/Sihryas_Beauty_Sales.csv" download target="_blank"><strong>Sihryas_Beauty_Sales.csv</strong></a>**: Dữ liệu bán hàng chi tiết của Cửa hàng Làm đẹp Sihrya's.
+- 📥 **<a href="Datasets/PCard_Spending.csv" download target="_blank"><strong>PCard_Spending.csv</strong></a>**: Dữ liệu giao dịch thẻ mua hàng (P-Card) của nhân viên.
 
 Được trang bị với sự hiểu biết về các động lực và mục tiêu cho dự án phân tích dữ liệu và sau khi hình thành các câu hỏi mục tiêu cần thiết, đã đến lúc cho bước cuối cùng trong giai đoạn lập kế hoạch – thiết kế dữ liệu và các chiến lược phân tích (analysis strategies). Bạn sẽ sớm được kỳ vọng áp dụng kiến thức, khả năng tư duy và kỹ năng giải quyết vấn đề của mình để thiết kế một loạt các chiến lược dữ liệu và phân tích liên quan đến kế toán, kiểm toán và thuế. Chương này sẽ giúp bạn phát triển các kỹ năng cần thiết để lập các kế hoạch dự án phân tích dữ liệu hiệu quả.
 
@@ -1216,7 +1216,7 @@ ___ 5. Sự thay đổi (turnover) nhân viên CNTT của chúng ta có ảnh h�
 ___ 6. Chi phí tiền lương của chúng ta có đang tăng lên không?
 
 **EX 4.4 (LO 2) Kế toán Quản trị | Thiết kế Các Chiến lược Dữ liệu (Design Data Strategies)** 
-> 📥 **Dữ liệu thực hành:** Tải file [Pet_Supply_Purchases.csv](../TaiLieu/Datasets/Pet_Supply_Purchases.csv) để xem mẫu dữ liệu.
+> 📥 **Dữ liệu thực hành:** Tải file <a href="Datasets/Pet_Supply_Purchases.csv" download target="_blank"><strong>Pet_Supply_Purchases.csv</strong></a> để xem mẫu dữ liệu.
 
 Sau đây là danh sách các trường có sẵn trong một tập dữ liệu từ một cửa hàng đồ dùng cho thú cưng.
 
@@ -1262,7 +1262,7 @@ Xác định ba rủi ro dữ liệu và các kiểm soát dữ liệu mà bạn
 **EX 4.7 (LO 3) Kiểm toán | Kế toán Quản trị | Chuẩn bị một Kế hoạch Dự án (Prepare a Project Plan)** Bạn là một kiểm toán viên nội bộ đang làm việc với bộ phận bán hàng thiết bị hoạt động ngoài trời (outdoor gear sales department) của công ty bạn để nghĩ ra một chiến lược mới về hoa hồng bán hàng nhằm khuyến khích lợi nhuận cao hơn so với chiến lược hoa hồng cố định (flat commission) hiện tại của bạn. Mô tả một chiến lược dữ liệu, một chiến lược phân tích và ba rủi ro có thể xảy ra mà bạn cần kiểm soát bằng cách cung cấp các gợi ý kiểm soát.
 
 **EX 4.8 (LO 3) Kế toán Quản trị | Chuẩn bị một Kế hoạch Dự án (Prepare a Project Plan)** 
-> 📥 **Dữ liệu thực hành:** Tải file [Sihryas_Beauty_Sales.csv](../TaiLieu/Datasets/Sihryas_Beauty_Sales.csv) để thực hiện bài tập này.
+> 📥 **Dữ liệu thực hành:** Tải file <a href="Datasets/Sihryas_Beauty_Sales.csv" download target="_blank"><strong>Sihryas_Beauty_Sales.csv</strong></a> để thực hiện bài tập này.
 
 Bạn là một kế toán quản trị cho Cửa hàng Đồ dùng Làm đẹp Sihrya's. Bạn đã được yêu cầu dự đoán tỷ suất lợi nhuận trên biến phí (contribution margin) của năm tới. Dưới đây là một mẫu dữ liệu có sẵn cho phân tích của bạn.
 
@@ -1288,7 +1288,7 @@ Mô tả một chiến lược dữ liệu, một chiến lược phân tích, v
 
 
 **EX 4.11 (LO 1-4) Kế toán Tài chính | Kế toán Quản trị | Chuẩn bị một Kế hoạch Dự án (Prepare a Project Plan)** 
-> 📥 **Dữ liệu thực hành:** Tải file [Sihryas_Beauty_Sales.csv](../TaiLieu/Datasets/Sihryas_Beauty_Sales.csv) để thực hiện bài tập này.
+> 📥 **Dữ liệu thực hành:** Tải file <a href="Datasets/Sihryas_Beauty_Sales.csv" download target="_blank"><strong>Sihryas_Beauty_Sales.csv</strong></a> để thực hiện bài tập này.
 
 Bạn là một nhà phân tích tài chính tại Tiệm làm đẹp Sihrya's. Chủ sở hữu công ty đã yêu cầu bạn thực hiện các phân tích dữ liệu để hiểu về các sản phẩm đóng góp vào khả năng sinh lời của cửa hàng bán lẻ của tiệm. Chủ sở hữu đã cung cấp cho bạn một từ điển dữ liệu (data dictionary), được trình bày ở đây, mô tả dữ liệu mà bạn có thể xem xét sử dụng trong phân tích của mình.
 
@@ -1307,7 +1307,7 @@ Bạn là một nhà phân tích tài chính tại Tiệm làm đẹp Sihrya's. 
 3. Xác định các rủi ro và các lựa chọn kiểm soát liên quan đến câu hỏi phân tích.
 
 **EX 4.12 (LO 1-4) Dữ liệu | Kế toán Quản trị | Chọn một Chiến lược Dữ liệu và Thực hiện Phân tích (Select a Data Strategy and Perform an Analysis)** 
-> 📥 **Dữ liệu thực hành:** Tải file [Pet_Supply_Purchases.csv](../TaiLieu/Datasets/Pet_Supply_Purchases.csv) để thực hiện bài tập này.
+> 📥 **Dữ liệu thực hành:** Tải file <a href="Datasets/Pet_Supply_Purchases.csv" download target="_blank"><strong>Pet_Supply_Purchases.csv</strong></a> để thực hiện bài tập này.
 
 Bạn là một kế toán quản trị làm việc tại một công ty bán lẻ đồ chăm sóc thú cưng có nhiều địa điểm. Người giám sát của bạn đã yêu cầu bạn so sánh số tiền mua hàng từ mỗi nhà cung cấp trong tháng 12 năm 2024 so với tháng 12 năm 2025. Sau khi thảo luận với người giám sát, bạn đã xác định được những điều sau:
 **Mục tiêu:** So sánh tổng mức mua hàng theo nhà cung cấp trong tháng 12 năm 2024 và tháng 12 năm 2025.
@@ -1340,7 +1340,7 @@ Bạn là một kế toán quản trị làm việc tại một công ty bán l�
 **Các Bài tập Tình huống (Problems)**
 
 **PR 4.1 (LO 1- 4) Dữ liệu | Kiểm toán | Kế toán Quản trị | Hoàn thành Kế hoạch Dự án (Complete Project Plan)** 
-> 📥 **Dữ liệu thực hành:** Tải file [PCard_Spending.csv](../TaiLieu/Datasets/PCard_Spending.csv) để thực hiện bài tập này.
+> 📥 **Dữ liệu thực hành:** Tải file <a href="Datasets/PCard_Spending.csv" download target="_blank"><strong>PCard_Spending.csv</strong></a> để thực hiện bài tập này.
 
 Bạn làm việc trong nhóm kiểm toán nội bộ của tổ chức mình và người giám sát của bạn đã yêu cầu bạn phân tích dữ liệu về thẻ p-card. Mục tiêu của phân tích là để hiểu được việc chi tiêu qua thẻ p-card trong năm hiện tại. Các câu hỏi liên quan đến mục tiêu bao gồm:
 - Ba nhà cung cấp nào mà công ty chi nhiều tiền nhất bằng thẻ p-card?
@@ -1354,7 +1354,7 @@ Xem xét dữ liệu và hoàn thành biểu đồ để lập hồ sơ các l�
 5. Thực hiện các phân tích được đề xuất trong biểu đồ. Tóm tắt kết quả của bạn.
 
 **PR 4.2 (LO 1, 2, 3) Dữ liệu | Kế toán Tài chính | Kế toán Quản trị | Hoàn thành Bước 2 và 3 của Kế hoạch Dự án và Thực hiện Phân tích (Complete Steps 2 and 3 of a Project Plan and Perform Analysis).** 
-> 📥 **Dữ liệu thực hành:** Tải file [Sihryas_Beauty_Sales.csv](../TaiLieu/Datasets/Sihryas_Beauty_Sales.csv) để thực hiện bài tập này.
+> 📥 **Dữ liệu thực hành:** Tải file <a href="Datasets/Sihryas_Beauty_Sales.csv" download target="_blank"><strong>Sihryas_Beauty_Sales.csv</strong></a> để thực hiện bài tập này.
 
 Bạn là một nhà phân tích tài chính tại Tiệm làm đẹp Sihrya's. Chủ sở hữu đã yêu cầu bạn thực hiện các phân tích dữ liệu để hiểu về các sản phẩm đóng góp vào khả năng sinh lời của cửa hàng bán lẻ của tiệm. Chủ sở hữu đã đưa cho bạn một từ điển dữ liệu (data dictionary), được trình bày ở đây, mô tả dữ liệu mà bạn có thể xem xét sử dụng trong phân tích của mình.
 
@@ -1391,7 +1391,7 @@ Beautiful Bites là một chuỗi tiệm bánh tọa lạc tại Colorado. Các 
 ---
 
 **Bài tập Tình huống Ứng dụng Chuyên môn: Automated Transportation, Inc. (ATI)**
-> 📥 **Dữ liệu thực hành:** Tải file [ATI_Purchases_Data.csv](../TaiLieu/Datasets/ATI_Purchases_Data.csv) để thực hiện bài tập này.
+> 📥 **Dữ liệu thực hành:** Tải file <a href="Datasets/ATI_Purchases_Data.csv" download target="_blank"><strong>ATI_Purchases_Data.csv</strong></a> để thực hiện bài tập này.
 Automated Transportation, Inc. là một nhà sản xuất cỡ trung bình chuyên về xe ô tô, thuyền và máy bay không người lái điều khiển từ xa. Công ty được thành lập cách đây 5 năm khi hai anh em quyết định chế tạo và bán xe điều khiển từ xa cho những người đam mê. Khi công ty phát triển, họ đã mở rộng các sản phẩm cung cấp của mình để bao gồm xe ô tô, thuyền, và máy bay không người lái điều khiển từ xa. Hai anh em đóng vai trò là chủ tịch và CEO của công ty, và hiện họ có hơn 70 nhân viên.
 Họ có hai nhóm khách hàng chính: những người có sở thích (hobbyists) và các doanh nghiệp quan tâm đến việc kết hợp máy bay không người lái vào quy trình kinh doanh và chuỗi cung ứng của họ. Hai cơ sở khách hàng này cung cấp nhiều cơ hội phát triển. Ban quản lý coi trọng kiểm soát nội bộ, nhưng vì họ bận rộn điều hành công ty nên họ đã tuyển dụng nhân sự kế toán để giúp thiết kế các quy trình, chính sách, và kiểm soát nội bộ của công ty:
 - Công ty không bắt buộc phải có báo cáo về kiểm soát nội bộ và kiểm toán viên độc lập không bắt buộc phải chứng thực (attest) về các kiểm soát nội bộ của công ty.

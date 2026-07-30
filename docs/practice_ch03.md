@@ -9,8 +9,8 @@
 
 ### Tài nguyên Dữ liệu Thực hành
 Trong chương này, bạn sẽ sử dụng các bộ dữ liệu sau cho bài tập thực hành. Bạn có thể tải về để mở ra xem trước dữ liệu:
-- 📥 **[Vendor_Payments.csv](../TaiLieu/Datasets/Vendor_Payments.csv)**: Dữ liệu chi tiết các khoản thanh toán cho nhà cung cấp (sử dụng cho tạo Highlight Table).
-- 📥 **[PCard_Spending.csv](../TaiLieu/Datasets/PCard_Spending.csv)**: Dữ liệu giao dịch thẻ mua hàng (P-Card) của nhân viên.
+- 📥 **<a href="Datasets/Vendor_Payments.csv" download target="_blank"><strong>Vendor_Payments.csv</strong></a>**: Dữ liệu chi tiết các khoản thanh toán cho nhà cung cấp (sử dụng cho tạo Highlight Table).
+- 📥 **<a href="Datasets/PCard_Spending.csv" download target="_blank"><strong>PCard_Spending.csv</strong></a>**: Dữ liệu giao dịch thẻ mua hàng (P-Card) của nhân viên.
 
 Phân tích dữ liệu (Data analytics) là một lĩnh vực đang phát triển nhanh chóng và đầy thú vị, và có một nhu cầu lớn trong lĩnh vực này đối với các chuyên gia kế toán, những người có thể sử dụng các công cụ mới để phân tích một lượng lớn dữ liệu. Phân tích dữ liệu và trích xuất thông tin từ nó dẫn đến các quyết định sáng suốt, và các doanh nghiệp ngày nay mong muốn có được những người có những kỹ năng này.
 
@@ -1216,7 +1216,7 @@ e. Kế toán thuế
    c. Xác định số lượng đơn vị sản phẩm được sản xuất cao nhất theo `ProductDescription` trong năm 2024 so với năm 2025.
 
 **EX 3.3 (LO 2, 6) Kế toán Tài chính - Bảng đánh dấu (Highlight Table) trên Tableau** 
-> 📥 **Dữ liệu thực hành:** Tải file [Vendor_Payments.csv](../TaiLieu/Datasets/Vendor_Payments.csv) để thực hiện bài tập này.
+> 📥 **Dữ liệu thực hành:** Tải file <a href="Datasets/Vendor_Payments.csv" download target="_blank"><strong>Vendor_Payments.csv</strong></a> để thực hiện bài tập này.
 
 Giám đốc tài chính của bạn muốn hiểu rõ hơn những thay đổi trong các khoản thanh toán cụ thể cho nhà cung cấp từ năm 2024 đến năm 2025 được thực hiện bởi thành phố nơi bạn làm việc. Vị giám đốc tài chính này đặc biệt quan tâm đến việc hiểu những khoản thanh toán được thực hiện cho các nhà cung cấp sau: 4-Star Hose & Supply, Aecom Technical Services Inc., WRG LLC, Winston Water Cooler Ltd., và Zoetis Inc. Bạn đã tải file các khoản thanh toán cho nhà cung cấp về và tải nó lên Tableau để phân tích. Hãy tạo một Bảng Đánh dấu (Highlight table) trong Tableau để xác định những thay đổi trong các khoản thanh toán cho 5 nhà cung cấp này trong khoảng thời gian từ năm 2024 đến năm 2025.
 

@@ -28,36 +28,36 @@ Dưới đây là các bộ dữ liệu mô phỏng (Mock Data) đã được ch
 
 1. **Dự án Phân tích Lợi nhuận (Le Grind Coffee Distributors):**
    - *Mô tả:* Dữ liệu bán hàng chi tiết bao gồm Mã khách hàng, Phân loại khách hàng, Nguồn gốc cà phê, Doanh thu và Giá vốn hàng bán (COGS). Bộ dữ liệu này dùng để thực hành phân tích biên lợi nhuận gộp (Gross Margin Analysis) và làm quen với Pivot Table.
-   - 📥 **[Tải file CSV: LeGrind_Raw.csv](../TaiLieu/Datasets/LeGrind_Raw.csv)**
+   - 📥 **<a href="Datasets/LeGrind_Raw.csv" download target="_blank"><strong>Tải file CSV: LeGrind_Raw.csv</strong></a>**
 
 2. **Dự án Dự báo và Mô hình hóa "What-if" (Super Scooters):**
    - *Mô tả:* Dữ liệu doanh số, giá bán lẻ, chi phí biến đổi, và chi phí cố định phân bổ theo từng tháng của các dòng xe Scooter. Dùng để thực hành mô hình hóa độ nhạy (Sensitivity Analysis) và dự báo lợi nhuận hoạt động (Operating Income).
-   - 📥 **[Tải file CSV: SuperScooters_Case.csv](../TaiLieu/Datasets/SuperScooters_Case.csv)**
+   - 📥 **<a href="Datasets/SuperScooters_Case.csv" download target="_blank"><strong>Tải file CSV: SuperScooters_Case.csv</strong></a>**
 
 3. **Thực hành Làm sạch Dữ liệu (Dirty Data ETL):**
    - *Mô tả:* Một bộ dữ liệu bán hàng giả định chứa rất nhiều lỗi cố ý (Dirty Data) như: định dạng ngày tháng không đồng nhất, khoảng trắng thừa, trùng lặp mã đơn hàng, lỗi chính tả, sai kiểu dữ liệu... Bạn sẽ dùng Power Query hoặc XLOOKUP để dọn dẹp bộ dữ liệu này trước khi phân tích.
-   - 📥 **[Tải file Excel: Sales_DirtyData.xlsx](../TaiLieu/Datasets/Sales_DirtyData.xlsx)**
+   - 📥 **<a href="Datasets/Sales_DirtyData.xlsx" download target="_blank"><strong>Tải file Excel: Sales_DirtyData.xlsx</strong></a>**
 
 4. **Dự án Phân tích Khả năng Sinh lời (Sihrya's Beauty Salon / Supply Store):**
    - *Mô tả:* Dữ liệu bán hàng chi tiết (Biên lai, Sản phẩm, Số lượng bán, Giá bán, Giá vốn) của cửa hàng làm đẹp để thực hành phân tích khả năng sinh lời theo sản phẩm, làm quen với Join và PivotTable. (Sử dụng cho Bài tập Chương 2 & 4)
-   - 📥 **[Tải file CSV: Sihryas_Beauty_Sales.csv](../TaiLieu/Datasets/Sihryas_Beauty_Sales.csv)**
+   - 📥 **<a href="Datasets/Sihryas_Beauty_Sales.csv" download target="_blank"><strong>Tải file CSV: Sihryas_Beauty_Sales.csv</strong></a>**
 
 5. **Phân tích Chu trình Mua hàng (Automated Transportation, Inc. - ATI):**
    - *Mô tả:* Dữ liệu toàn diện về chu trình mua hàng (Order-to-Pay), thuế hải quan, và đánh giá nhà cung cấp. Dùng để thực hành phân tích thống kê mô tả, chẩn đoán ngoại lai (outliers) và trực quan hóa dữ liệu mua hàng theo quốc gia. (Sử dụng cho Bài tập Chương 4)
-   - 📥 **[Tải file CSV: ATI_Purchases_Data.csv](../TaiLieu/Datasets/ATI_Purchases_Data.csv)**
+   - 📥 **<a href="Datasets/ATI_Purchases_Data.csv" download target="_blank"><strong>Tải file CSV: ATI_Purchases_Data.csv</strong></a>**
 
 6. **Phân tích Thẻ tín dụng & Thanh toán (P-Card & Vendor Payments):**
    - *Mô tả:* Bộ dữ liệu chứa các giao dịch thẻ P-Card của nhân viên và các khoản thanh toán cho nhà cung cấp theo năm. Dùng để thực hành PivotTable và phân tích độ lệch / chẩn đoán chi tiêu. (Sử dụng cho Bài tập Chương 3 & 4)
-   - 📥 **[Tải file CSV: PCard_Spending.csv](../TaiLieu/Datasets/PCard_Spending.csv)**
-   - 📥 **[Tải file CSV: Vendor_Payments.csv](../TaiLieu/Datasets/Vendor_Payments.csv)**
+   - 📥 **<a href="Datasets/PCard_Spending.csv" download target="_blank"><strong>Tải file CSV: PCard_Spending.csv</strong></a>**
+   - 📥 **<a href="Datasets/Vendor_Payments.csv" download target="_blank"><strong>Tải file CSV: Vendor_Payments.csv</strong></a>**
 
 7. **Phân tích Nhà cung cấp Thú cưng (Pet Supply Purchases):**
    - *Mô tả:* Dữ liệu đơn đặt hàng và thông tin các nhà cung cấp đồ thú cưng để thực hành trích xuất chiến lược dữ liệu và đánh giá chất lượng nhà cung cấp. (Sử dụng cho Bài tập Chương 4)
-   - 📥 **[Tải file CSV: Pet_Supply_Purchases.csv](../TaiLieu/Datasets/Pet_Supply_Purchases.csv)**
+   - 📥 **<a href="Datasets/Pet_Supply_Purchases.csv" download target="_blank"><strong>Tải file CSV: Pet_Supply_Purchases.csv</strong></a>**
 
 8. **Tình huống Tài chính (Little Tots Daycare):**
    - *Mô tả:* Bảng cân đối số phát sinh (Trial Balance) và dữ liệu tài chính cơ bản để lập Báo cáo tài chính (Bảng Cân đối Kế toán & Báo cáo Kết quả Kinh doanh). (Sử dụng cho Bài tập Chương 1)
-   - 📥 **[Tải file CSV: LittleTots_Financials.csv](../TaiLieu/Datasets/LittleTots_Financials.csv)**
+   - 📥 **<a href="Datasets/LittleTots_Financials.csv" download target="_blank"><strong>Tải file CSV: LittleTots_Financials.csv</strong></a>**
 
 ---
 
