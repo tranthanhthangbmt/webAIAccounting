@@ -1,0 +1,355 @@
+LEARNING OBJECTIVE ❷
+Describe how to develop a data strategy.
+It’s easier to make better decisions when we have the necessary information. Each semester, 
+students who know their educational and career goals can select the courses that will prepare 
+them to graduate and begin their careers. For example, accounting majors do not need to take 
+the same courses as education majors. The same idea applies when developing a strategy for 
+selecting data in data analysis. A successful data analysis project hinges on selecting data that 
+are relevant and appropriate for the objective of the project, respecting the data’s characteris-
+tics and measurement scales, and controlling for inherent data risks.
+--- PAGE 13 ---
+4-12  CHAPTER 4  Planning Data and Analysis Strategies
+Identify Appropriate Data
+Data can be considered appropriate for analysis when they are relevant, available, and the 
+characteristics match the analysis method requirements. Appropriate data can be internal, 
+external, or a combination of both:
+•	Internal data are generated within the organization, such as sales data, purchase data, 
+inventory data, customer data, and vendor data. Internal data can typically be more easily 
+controlled and verified by an organization.
+•	External data are obtained from sources outside of an organization. This data can include 
+weather data, geographic data, and publicly available competitor data. External data are 
+somewhat riskier to use since we often cannot know if the data are accurate or complete. 
+External data can, however, provide insights that internal data alone cannot provide.
+After identifying the available and relevant data alternatives, the characteristics of the possible 
+data sets need to be verified as suitable for the planned analysis.
+Evaluate Data Fields and Sources
+A data set is a collection of data columns and rows available for analysis. Understanding the 
+characteristics of a data set is important because, for example, statistical measures and tests 
+often require certain data characteristics or a minimum of data points. Violating the data 
+requirements for these measures and tests can threaten the accuracy, reliability, and signifi-
+cance of the analysis results.
+Let’s use an example to evaluate the impact data can have on analysis. Illustration 4.8 
+shows the inventory data set for the 3D manufacturing company WeMakeIt, Inc.
+ILLUSTRATION 4.8  Typical Elements in a Data Set from WeMakeIt, Inc.’s Inventory
+358500
+358600
+358900
+359000
+361100
+361200
+361300
+361400
+3
+3
+3
+3
+$  36.00
+$  36.00
+$  36.00
+$  36.00
+30
+35
+25
+30
+Medical model foot
+Medical model hand
+Shop Lamp globe
+Superhero Fantastic Four Mister Fantastic
+Superhero Fantastic Four Invisible Woman
+Superhero Fantastic Four Thing
+Superhero Fantastic Four Human Touch
+Cord wraps
+InventoryCode InventoryDescription
+1
+1
+2
+2
+$  30.40
+$  30.20
+$  20.05
+$    5.00
+ProductCategory UnitCost
+32
+16
+43
+80
+NumberOnHand
+The data set is the entire collection
+of rows and columns.
+Row = Record
+Column = Data field = Attribute
+The individual columns in a data set are called fields, and if the source of the data was a data-
+base, the columns are called attributes. Each column describes and represents one unique 
+characteristic, a description, or aspect of the phenomena captured in the data set. Rows in 
+a data set from a database are records, which represent the collection of columns that hold 
+the descriptions of a single occurrence of the data set’s purpose. In Illustration 4.8, the high-
+lighted row ­contains all the information about the inventory item Superhero Fantastic Four 
+Mister Fantastic–inventory code, the description, product category, unit cost, and the number 
+of items on hand. This inventory item belongs to the ProductCategory group #3, indicating 
+that it is a superhero figurine.
+The records, or rows, in this inventory data set represent the different products man-
+ufactured in each product line. The columns that describe each inventory product for the 
+WeMakeIt, Inc. inventory data set are listed in Illustration 4.9.
+--- PAGE 14 ---
+4.2  What Should We Consider When Selecting Data for Analysis?  4-13
+ILLUSTRATION 4.9  Data Dictionary for the WeMakeIt, Inc. Inventory Data Set
+InventoryCode
+InventoryDescription
+ProductCategory
+UnitCost
+NumberOnHand
+Unique numerical code to identify inventory (primary key)
+Text that describes the inventory product
+The type of product (1 = medical, 2 = tool, 3 = toy)
+Currency value assigned to each unit’s cost
+Quantity of items in inventory
+Description
+Field Name
+In addition to understanding the content of data fields in accounting databases, considering 
+the source of the data is important because the quality of the data in the fields impact the qual-
+ity of the analysis. Were the data created by an external party on a web page, entered internally 
+by an employee, or automatically assigned by the computer? Do the data refer to a category, a 
+measurement, or a calculation? For example, in the WeMakeIt, Inc. inventory data in Illustra-
+tion 4.9, the InventoryCode field’s data are probably automatic sequential numbers assigned 
+by the AIS system whenever a new inventory product is added. Since a human is not creating 
+that field’s value when a new row is added, we can be confident that the InventoryCode data 
+are consistently correct. Illustration 4.10 summarizes the typical internal data field sources 
+often used by accountants.
+ILLUSTRATION 4.10  Common Data Field Sources and Examples
+Source
+Description
+WeMakeIt Inc. Examples
+Raw Data Fields
+Measured 
+Raw Data
+•	 Data created or captured by a controlled 
+process capturing the value of the data. 
+Examples include price, cost, number 
+on hand, weight, date, hours worked, 
+temperature, sensor readings, human 
+observation, or economic value.
+•	 Their format can be discrete or continuous 
+data.
+InventoryCost
+NumberOnHand
+UnitCost
+Non-
+measured 
+Raw Data
+•	 Data often created automatically by the 
+computer or company policy for control. 
+Examples include identification codes, chart 
+of account numbers, standard descriptions, 
+product category codes, or location codes such 
+as city.
+•	 These fields are typically formatted as discrete 
+data.
+InventoryCode
+ProductCategory
+Calculated Data Fields
+Calculated 
+Data
+•	 Data created when one or more fields in a 
+particular record (row) have any number of 
+mathematical operators (such as +, −, ×, %) 
+applied, and often are derived from using the 
+data in another field or fields within the same 
+record (never across different rows).
+•	 These fields can be formatted as discrete or 
+continuous data.
+TotalCost  
+(=UnitCost × NumberOnHand)
+In the WeMakeIt, Inc. data set example, both the InventoryCode and ProductCategory fields’ 
+data are non-measured raw data that have been formatted as numeric and discrete, mean-
+ing that they are non-continuous and will never have partial unit values. These fields ­cannot 
+be used in analysis for mathematical calculations because they refer to unique identifiers 
+for inventory items and their product category group. The InventoryDescription field’s data 
+source is also a non-measured raw data field formatted as a text field, which cannot be used in 
+numeric calculations during the analysis.
+The sources for data fields like UnitCost and NumberOnHand are different because they 
+are measured raw numeric data, which can be used in mathematical calculations.
+--- PAGE 15 ---
+4-14  CHAPTER 4  Planning Data and Analysis Strategies
+Finally, UnitCost and NumberOnHand can be multiplied in an expression to calculate 
+a new field within a query called TotalCost. This new field source is calculated data that 
+is also numeric and likely to be used in a variety of different mathematical calculations in 
+accounting.
+A data field’s measurement scale refers to the type of information provided by the data. 
+Data measurement scales should be considered when designing the data strategy, as they 
+impact which analyses can be performed on the data. Data measurement scales are grouped 
+into four categories: categorical, ordinal, interval, or ratio (Illustration 4.11).
+ILLUSTRATION 4.11  Measurement Scale Descriptions and Examples
+Categorical (nominal) data
+Ordinal data
+Labeled or named data that
+can be sorted into groups
+according to specific
+characteristics. The data do
+not have a quantitative value.
+Ordered or ranked categorical
+data. Distance between the
+categories does not need to be
+known or equal.
+Interval data
+Ordinal data that have equal
+and constant diﬀerences
+between observations and an
+arbitrary zero point.
+Ratio data
+Interval data with a natural
+zero point. A natural zero
+point means that it is not
+arbitrary.
+Regions, product type,
+account numbers, account
+category, locations.
+A survey question inquiring
+about customer service may
+ask customers to rate their
+experience from 1 to 10.
+Temperature, time, credit
+scores.
+Economic data, such as
+dollars or euros.
+Description
+Example
+Measurement Scale
+Classification
+Professional Insight 4.2: How Do You Select Financial Data  
+for Analysis?
+Jadon is an accounting and finance major, student athlete, and president of the first-genera-
+tion student organization on campus. During his internship, he realized how much his career 
+would involve data analysis of financial statement information.
+On the first day of my summer internship, I was tasked with calculating 
+ten financial ratios for five companies in the same industry for the most 
+recent three years. I was left to figure out how to get the data and perform the calcu-
+lations on my own. I reached into my sports experience to gather my courage by creating 
+a game plan. First, I had to select and set up my analysis tool.
+I chose Excel with the Analysis ToolPak and made a raw data template based on the totals 
+I would need for the ratios in the first worksheet. I copied it five times for each company’s 
+raw data. I made another worksheet for all the ratio calculations as the rows, and the com-
+panies would be the columns, grouped by each year. I organized the ratios into profitabil-
+ity, liquidity, and solvency groups. I entered ratio formulas that tied back to the raw data 
+worksheet cells and documented my steps on another sheet to remember my choices.
+Next, I had to find out where to get the data. I went to the SEC’s xBRL 
+data and downloaded the financial statement information and entered 
+what I needed into Excel. An unexpected benefit of having my ratios all in one sheet 
+was that it was easy to make visualizations of my results. I was amazed by how clear the 
+best and worst performing companies were from these visualizations. I saved my file and 
+emailed it to my boss.
+We discuss how data measurement scales influence analysis strategy options later in this 
+chapter. Next, let’s examine the risks and controls related to our data strategy.
+--- PAGE 16 ---
+4.2 What Should We Consider When Selecting Data for Analysis? 4-15
+ ILLUSTRATION 4.13  Representative Sampling Risks
+Entire Population
+Imagine a jar with 100
+marbles: 30 blue marbles
+and 70 white marbles.
+If a sample of ten blue marbles was
+extracted, it would not be
+representative of the population as
+the entire population has twice as
+many white marbles.
+A representative sample of ten
+marbles would have three blue
+marbles and seven white marbles.
+Nonrepresentative Sample
+Representative Sample
+ That is why performing tests on the sample’s representativeness can either verify its validity or 
+detect its significant weakness in representing the underlying marble populations. 
+ The second risk is potentially including unusual data points in an analysis. Outlier data 
+points are unusual data points compared to the rest of the data in either an activity point 
+(x-axis or the independent variable), such as number of units produced, or an unusual level 
+of the economic value (y-axis or the dependent variable), such as total costs or total sales. The 
+best control for identifying outliers is to visualize the data in a graph to check if the measure 
+ Consider Data Strategy Risks and Implement 
+Controls
+ Another benefit of documenting data strategy in a project plan is that examining each choice 
+can help identify three common data risks that might affect an analysis’s validity, accuracy, 
+and reliability ( Illustration 4.12 ). 
+ ILLUSTRATION 4.12  Common Data Risks and Recommended Controls 
+Data
+Risks
+Controls
+Non-representative sample selections
+Outlier data points
+Verify representativeness of sample.
+Perform a histogram or quartile analysis to 
+identify outliers, then explain or justify the rule
+used for outlier adjustment or removal.
+Dirty data
+Verify integrity of data set and clean up
+dirty data issues.
+ The first risk is that a sample extracted from a larger population of data are a poor repre-
+sentation of the underlying population. For example, a random selection of different colored 
+marbles might not be a sample that accurately represents the characteristics of the marble 
+population ( Illustration 4.13 ). 
+--- PAGE 17 ---
+4-16  CHAPTER 4  Planning Data and Analysis Strategies
+Apply It 4.2
+Identify Data 
+Characteristics
+Accounting Information Systems   Tremendous Toys has recently developed a database to cap-
+ture inventoriable costs from their production each week.
+Data has been extracted from the following data fields: 
+SOLUTION
+Field Name
+Field Type
+Field Measurement Scale
+ProductionRunNumber
+Non-measured raw data
+Categorical (Nominal)
+ProductionRunDate
+Non-measured raw data
+Interval
+NumberOfToysinRun
+Measured raw data
+Ratio
+ToyIDNumber
+Non-measured raw data
+Categorical (Nominal)
+DirectMaterialsUsed
+Measured raw data
+Ratio
+DirectLaborUsed
+Measured raw data
+Ratio
+OverheadCostApplied
+Calculated data
+Ratio
+TotalRunCost
+Calculated data
+Ratio
+TotalUnitCost
+Calculated data
+Ratio
+Complete the three-column table by adding each data field’s type and measurement scale. 
+is very different than the rest of the data. Identified outliers can either be remeasured (if pos-
+sible) or removed with a logical and documented rule.
+The final data risk is that a variety of data errors, or dirty data, are problematic for data 
+analysis. Dirty data include missing, invalid, duplicate, and incorrectly formatted data. For 
+example, the purchase orders, invoices, or checks written by the company should be sequen-
+tially accounted for, with no missing numbers or two with the same identifying number. 
+­Controls should always test for dirty data before the analysis is performed. Data can be com-
+pared to its source documents, or if that is not possible, tested for reasonableness. Testing for 
+reasonableness can include checking for missing sequence numbers, duplicate numbers, or 
+verifying the data have the expected format or acceptable characters.
+Once data have been selected, evaluated, and any risks identified and controlled, the next 
+step is to develop an analysis strategy appropriate for the objective of the project.
+Field Name
+Field Type
+Field Measurement Scale
+ProductionRunNumber
+ProductionRunDate
+NumberOfToysinRun
+ToyIDNumber
+DirectMaterialsUsed
+DirectLaborUsed
+OverheadCostApplied
+TotalRunCost
+TotalUnitCost
+--- PAGE 18 ---
+4.3  What Should We Consider When Selecting an Analysis?   4-17
+4.3  What Should We Consider When 
+Selecting an Analysis? 

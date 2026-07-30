@@ -1,0 +1,887 @@
+--- PAGE 37 ---
+3-36  CHAPTER 3  Motivations and Objectives for Data Analysis
+•  A spreadsheet model that evaluates how changes and specific 
+combinations of model inputs and assumptions is called a 
+what-if analysis. A what-if analysis is an easy way to change val-
+ues in a spreadsheet and recalculate the outputs.
+❻  Describe motivations and objectives for data analyt-
+ics in professional practice.
+The primary professional accounting practice areas have both com-
+mon and unique motivations to perform data analyses:
+•  Accounting information systems professionals have governance, 
+strategic, operational, and compliance motivations.
+•  Auditors have professional compliance, quality, firm, and mar-
+ket motivations.
+•  Financial accountants have both internal and external stake-
+holder motivations.
+•  Managerial accountants have internal governance, strategic, 
+and operational motivations.
+•  Tax accountants have professional compliance, client, firm, and 
+market motivations.
+HOW TO 3.1  Create a Highlight Table in Tableau
+The table shown in Illustration 3.10 was created in Tableau version 2021.1.2. Create it yourself 
+by following these steps.
+What You Need:  Data   The How To 3.1 data file. 
+STEP 1: Open a new worksheet and drag the Sold Date to Columns and Location to 
+Rows. Drag Gross Sales to the open area under years, or to the Text symbol under Marks 
+­(Illustration 3.37).
+How To
+Marks
+Automatic
+T
+T
+Filters
+Pages
+SUM(Gross Sale)
+T
+Color
+Detail
+Tooltip
+Size
+Text
+Sheet 22
+Year(Sold Date)
+Model
+Columns
+Rows
+Location
+2025
+2024
+2023
+Sold Date
+Boston
+Charlotte
+Chicago
+Dallas
+Miami
+Phoenix
+Salt Lake City
+Seattle
+1,433,578
+1,653,506
+1,624,719
+1,113,397
+1,606,576
+1,376,503
+1,593,184
+977,384
+686,611
+618,987
+711,852
+679,008
+582,623
+640,681
+544,630
+460,424
+1,211,197
+1,254,221
+1,239,689
+1,417,584
+1,410,659
+1,252,712
+1,205,880
+1,514,392
+ILLUSTRATION 3.37  Tableau 
+Worksheet
+ Key Terms Review
+Coefficient of determination  3-21
+Constraints  3-25
+Correlation coefficient  3-21
+Decision variables  3-25
+Dependent variable  3-20
+Descriptive questions  3-8
+Diagnostic questions  3-13
+Functional relationship  3-17
+Independent variables  3-20
+Linear function  3-17
+Linear optimization  3-25
+Linear regression  3-19
+Motivation  3-2
+Objective  3-3
+Objective function  3-25
+Optimization  3-24
+Predictive questions  3-16
+Prescriptive questions  3-24
+Regression statistics  3-20
+Variable  3-20
+What-if analysis  3-28
+How To Walk-Throughs
+
+
+--- PAGE 38 ---
+How To Walk-Throughs  3-37
+ILLUSTRATION 3.38  Filter Input 
+Box
+Filter [Model]
+Reset
+All
+Captain
+None
+Exclude
+OK
+Cancel
+Apply
+Summary
+Field:
+Selection:
+Wildcard:
+Condition:
+Limit:
+[Model]
+Selected 0 of 4 values
+All
+None
+None
+Celeritas
+Kicks
+Lazer
+General
+Wildcard
+Condition
+Top
+Select from list
+Custom value list
+Use all
+Enter search text
+Check the box for Celeritas and click OK. Next, drag Sold Date to Filter and select Years 
+from the input box (Illustration 3.39).
+STEP 2: Create a calculation that will calculate the change in sales from 2024 to 2025. Because 
+data from 2023 is unnecessary and we are only interested in the Celeritas model, create two 
+filters. First, drag Model to the Filters box. This opens an input box (Illustration 3.38).
+ILLUSTRATION 3.39  Filter Field Choices
+Next >
+Cancel
+How do you want to filter on [Sold Date]?
+Relative Date
+Range of Dates
+Years
+Quarters
+Months
+Days
+Week numbers
+Weekdays
+Month / Year
+Month / Day / Year
+Individual Dates
+Count
+Count (Distinct)
+Minimum
+Maximum
+Attribute
+Filter Field [Sold Date]
+
+
+--- PAGE 39 ---
+3-38  CHAPTER 3  Motivations and Objectives for Data Analysis
+Click Next to see the following input box choices (Illustration 3.40).
+ILLUSTRATION 3.40  Filter Choices
+Filter [Year of Sold Date]
+Reset
+All
+2023
+None
+Exclude
+OK
+Cancel
+Apply
+Summary
+Filter to latest date value when workbook is opened
+Field:
+Selection:
+Wildcard:
+Condition:
+Limit:
+[Year of Sold Date]
+Selected 2 of 3 values
+All
+None
+None
+2024
+2025
+General
+Condition
+Top
+Select from list
+Custom value list
+Use all
+Enter search text
+Select 2024 and 2025 and click OK.
+STEP 3: Create the calculation. Clicking the down arrow in the green pill for Sum­(Gross 
+Sales) in the Marks area generates several options (Illustration 3.41).
+ILLUSTRATION 3.41  Creating a Quick Table Calculation
+Marks
+Automatic
+T
+T
+SUM(Gross Sale)
+T
+Color
+Detail
+Tooltip
+Size
+Text
+Filter...
+Show Filter
+Format...
+Include in Tooltip
+Dimension
+Attribute
+Measure (Sum)
+Discrete
+Continuous
+Edit in Shelf
+Clear Table Calculation
+Compute Using
+Remove
+Relative to
+Edit Table Calculation...
+Quick Table Calculation
+Running Total
+Percent Diﬀerence
+Percent of Total
+Rank
+Percentile
+Moving Average
+Compound Growth Rate
+Year Over Year Growth
+YTD Total
+YTD Growth
+Diﬀerence
+
+
+--- PAGE 40 ---
+How To Walk-Throughs  3-39
+Select the Quick Table Calculation option, then select Difference. This will change the 
+columns in the table to differences (Illustration 3.42).
+ILLUSTRATION 3.42  Quick Table Calculation Results
+Marks
+Automatic
+T
+T
+Filters
+SUM(Gross Sale)
+T
+Color
+Detail
+Tooltip
+Size
+Text
+Model: Celeritas
+YEAR(Sold Date)
+Sheet 22
+Location
+2024
+Sold Date
+Boston
+Charlotte
+Chicago
+Dallas
+Miami
+Phoenix
+Salt Lake City
+Seattle
+‒88,837
+‒94,794
+‒58,619
+‒106,783
+‒57,786
+‒20,787
+‒46,867
+‒140,206
+2025
+ILLUSTRATION 3.43  Choosing 
+a Highlight Table
+123 456
+321 654
+654 321
+456 123
+123 456
+321 654
+654 321
+Show Me
+STEP 4: To create the highlight table in which darker colors 
+represent larger numbers, choose that chart type from the 
+Show Me options in the top right corner (Illustration 3.43).
+Now the table looks like the table in Illustration 3.44.
+ILLUSTRATION 3.44  Highlight Table Results
+Year(Sold Date)
+Location
+Columns
+Rows
+Marks
+Square
+T
+Filters
+Sheet 22
+Pages
+SUM(Gross Sale)
+T
+Color
+Detail
+Tooltip
+Size
+Label
+Model: Celeritas
+YEAR(Sold Date)
+SUM(Gross Sale)
+Location
+2025
+2024
+Sold Date
+Boston
+Charlotte
+Chicago
+Dallas
+Miami
+Phoenix
+Salt Lake City
+Seattle
+‒88,837
+‒94,794
+‒58,619
+‒106,783
+‒57,786
+‒20,787
+‒46,867
+‒140,206
+
+
+--- PAGE 41 ---
+3-40  CHAPTER 3  Motivations and Objectives for Data Analysis
+STEP 5: To only show the column for 2025, right click on the 2024 in the column and choose 
+Hide (Illustration 3.45).
+ILLUSTRATION 3.45  Hide Column Feature
+Sheet 22
+Location
+2025
+2024
+Sold Date
+Boston
+Charlotte
+Chicago
+Dallas
+Miami
+Phoenix
+Salt Lake City
+Seattle
+‒88,837
+‒94,794
+‒58,619
+‒106,783
+‒57,786
+‒20,787
+‒46,867
+‒140,206
+Keep only
+Exclude
+Hide
+Drill down
+Format...
+Rotate Label
+Show Header
+Show Missing Values
+Click on Hide and not Exclude. (Selecting Exclude means that the calculation will no longer 
+work because the 2024 data would be removed.)
+STEP 6: Order the locations by the largest loss to the smallest loss. To do that, click 2025 at the 
+top of the column. The box will appear as shown in Illustration 3.46.
+ILLUSTRATION 3.46  Sorting Data from Smallest to Largest
+Location
+2025
+Sold Date
+Boston
+Charlotte
+Chicago
+Dallas
+Miami
+Phoenix
+Salt Lake City
+Seattle
+‒88,837
+‒94,794
+‒58,619
+‒106,783
+‒57,786
+‒20,787
+‒46,867
+‒140,206
+Keep Only
+2025
+8 items selected
+Difference in SUM(Gross Sales): ‒614,679
+Exclude
+Click the sort icon that shows the smallest bar on the top. Data will then sort from the smallest 
+number to the largest (Illustration 3.47).
+ILLUSTRATION 3.47  Sorted 
+Highlight Table
+Location
+2025
+Sold Date
+Seattle
+Dallas
+Charlotte
+Boston
+Chicago
+Miami
+Salt Lake City
+Phoenix
+‒140,206
+‒106,783
+‒94,794
+‒88,837
+‒58,619
+‒57,786
+‒46,867
+‒20,787
+STEP 7: Format the difference column to whole dollars by clicking the green Sum(Gross 
+Sale) pill in the Marks area and choosing Format (Illustration 3.48).
+
+
+--- PAGE 42 ---
+How To Walk-Throughs  3-41
+ILLUSTRATION 3.48  Format Options
+Marks
+Square
+T
+Filters
+Pages
+SUM(Gross Sale)
+T
+Color
+Detail
+Tooltip
+Size
+Label
+Model: Celeritas
+YEAR(Sold Date)
+SUM(Gross Sale)
+Format Diﬀerence in SU...
+Fields
+Font: Tableau Book
+Automatic
+Alignment:
+Default
+$123,456
+Numbers:
+Totals
+Font: Tableau Medium
+Automatic
+Alignment:
+$123,456
+Numbers:
+Grand Totals
+Font: Tableau Medium
+Automatic
+Alignment:
+$123,456
+Numbers:
+Special Values (eg. NULL)
+Text: (Blank)
+Show at Indic...
+Marks:
+Filter...
+Show Filter
+Format...
+Include in Tooltip
+Dimension
+Attribute
+Measure (Sum)
+Discrete
+Continuous
+Edit in Shelf
+Clear Table Calculation
+Compute Using
+Quick Table Calculation
+Remove
+Relative to
+Edit Table Calculation...
+A
+Pane
+Axis
+Here, the default format can be changed to currency.
+STEP 8: Create a title for the visualization. Tableau will name the visualization by the sheet 
+number by default. To change that, right click in the sheet title area and then choose Edit 
+Title (Illustration 3.49).
+ILLUSTRATION 3.49  Editing a Worksheet 
+Title
+Sheet 22
+Location
+Sold Date
+2023
+Seattle
+Dallas
+Charlotte
+Boston
+Chicago
+Miami
+$ (‒140,206)
+(‒106,783)
+(‒94,794)
+(‒88,837)
+(‒58,619)
+(‒57,786)
+$
+$
+$
+$
+$
+Edit Title...
+Reset Title
+Hide Title
+Format Title...
+
+
+--- PAGE 43 ---
+3-42  CHAPTER 3  Motivations and Objectives for Data Analysis
+Enter a title in the box that appears (Illustration 3.50).
+ILLUSTRATION 3.50  Editing a Worksheet Title
+Location
+Sheet 22
+Sold Date
+2025
+Seattle
+Dallas
+Charlotte
+Boston
+Chicago
+Miami
+Salt Lake City
+Phoenix
+$ (140,206)
+(106,783)
+(94,794)
+(88,837)
+(58,619)
+(57,786)
+(46,867)
+(20,787)
+Edit Title
+Insert
+Change in Gross Sales from 2024-Celeritas Model
+B
+U
+Reset
+OK
+Cancel
+Apply
+$
+$
+$
+$
+$
+$
+$
+Tableau Light
+15
+HOW TO 3.2  Perform a Regression in Microsoft Excel
+Illustration 3.18 is regression performed in Excel. You can create it by following these steps.
+What You Need:   Data   The How To 3.2 data file.
+STEP 1: The Data Analysis tool in the Data ribbon has an option for regression. Illustration 
+3.51 shows the dialog box that opens when Data Analysis is selected.
+How To
+ILLUSTRATION 3.51  Excel Data Analysis Tool - Regression
+OK
+Cancel
+Help
+Data Analysis
+Analysis Tools
+?
+F-Test Two-Sample for Variances
+Fourier Analysis
+Histogram
+Moving Average
+Random Number Generation
+Rank and Percentile
+Regression
+Sampling
+t-Test: Paired Two Sample for Means
+t-Test: Two-Sample Assuming Equal Variances
+STEP 2: Click on Regression, then OK. A Regression dialog box will appear (Illustra-
+tion 3.52).
+
+
+--- PAGE 44 ---
+How To Walk-Throughs  3-43
+fx
+1
+A
+B
+C
+D
+E
+Sheet1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+AutoSave
+Oﬀ
+Jan-23
+Month/Year
+Machine
+Hours
+Maintenance
+Requests
+Maintenance
+Expenses
+Feb-23
+Mar-23
+Apr-23
+May-23
+Jun-23
+Jul-23
+Aug-23
+Sep-23
+Oct-23
+Nov-23
+Dec-23
+Jan-24
+Feb-24
+Mar-24
+Apr-24
+May-24
+Jun-24
+Jul-24
+Aug-24
+Sep-24
+3250
+5
+22080
+9
+5
+27360
+18660
+3770
+2470
+4030
+4940
+4290
+5330
+4550
+2600
+4810
+6110
+5460
+3270
+3790
+2490
+4050
+4960
+4310
+5350
+4570
+2620
+OK
+Cancel
+Help
+Regression
+Input
+Input Y Range:
+$D$1:$D$37
+Input X Range:
+Labels
+Confidence Level:
+Constant is Zero
+95
+%
+Output options
+Residuals
+Normal Probability
+Normal Probability Plots
+Residuals
+Standardized Residuals
+Residuals Plots
+Line Fit Plots
+Output Range:
+New Workbook
+New Worksheet Ply:
+?
+$B$1:$C$37
+$H$3
+ILLUSTRATION 3.52  Regression Dialog Box
+STEP 3: The Input Y Range is for the dependent variable. The dependent variable is what will 
+be predicted. In this example, it is column D, Maintenance Expenses ($D$1:$D$37). The Input 
+X Range is for the independent variables. In this example, there are two independent variables– 
+Machine Hours and Maintenance Requests ($B$1:$C$37). 
+Select Labels if the first row of the data is the column title (row 1). In this example, the output 
+will be in a new worksheet. Finally, Residuals, Standardized Residuals, Residual Plots, and 
+Normal Probability Plots are selected. These residuals options will be used to evaluate the 
+regression assumptions.
+STEP 4: Click OK for the regression results (Illustration 3.53).
+ILLUSTRATION 3.53  Regression Output
+Multiple R
+R Square
+Adjusted R Square
+Standard Error
+Observations
+ANOVA
+0.978687872
+0.95782995
+0.955274189
+1283.821342
+36
+df
+SS
+MS
+F
+1235399491
+54390508.88
+Regression
+Residual
+Total
+2
+33
+35
+1289790000
+6.18E+08
+1648197
+374.773
+2.05385E-23
+897.8427419
+0.43769194
+Intercept
+Machine Hours
+Maintenance Request
+5252.858452
+3.569202976
+759.8366754
+168.7763028
+4.502034
+5.850533
+8.154601
+7.94E-05
+2.05E-09
+1.5E-06
+Significance F
+Coeﬀicients
+Standard Error
+t Stat
+P-value
+416.4587054
+2.678712028
+3426.183659
+Lower 95%
+SUMMARY OUTPUT
+Regression Statistics
+
+
+--- PAGE 45 ---
+3-44  CHAPTER 3  Motivations and Objectives for Data Analysis
+Multiple Choice Questions
+1.  (LO 1)  Motivation in data analytics in accounting is
+a.	 the reason why the analysis is being performed.
+b.	 the interpretation of results of analysis.
+c.	 based only on factors outside analysis.
+d.	 based only on whether your career will benefit from perform-
+ing the analysis.
+2.  (LO 1)  One source of motivation for data analyses in accounting 
+relates to opportunity. Which of the following is an example of the 
+motivation source of opportunity?
+a.	 Desiring future success in your career path.
+b.	 Considering whether to expand production of a newly 
+launched product.
+c.	 Ensuring compliance with the newest FASB pronouncement.
+d.	 Considering why the company’s sales volume decreased over 
+a period of time.
+3.  (LO 1)  Accountants’ motivations to perform data analyses can 
+originate from
+a.	 opportunities in the marketplace or organization.
+b.	 changes in laws, regulations, and professional rules.
+c.	 indications that a problem needs to be solved.
+d.	 needing to perform evaluation on processes or performance.
+e.	 Any of these may trigger the motivation to perform data analyses.
+4.  (LO 1)  Critically thinking through the motivation to perform data 
+analyses includes considering
+a.	 stakeholders, purpose, alternatives, risks, knowledge, and 
+self-reflection.
+b.	 stakeholders and purpose.
+c.	 stakeholders, purpose, risk management, and alternatives.
+d.	 stakeholders, acquiring knowledge, alternatives, and self- 
+reflection.
+e.	 stakeholders, risk management, alternatives, and self- 
+reflection.
+5.  (LO 1)  Analyses of the stakeholders and their perspectives helps to 
+critically think through motivation to perform data analyses because
+a.	 it reminds you who pays your salary.
+b.	 some may be external to your organization.
+c.	 considering the perspectives of stakeholders helps identify 
+the objective and develop good questions.
+d.	 internal stakeholders should never be considered.
+e.	 All of these are reasons for considering stakeholders in your 
+critical thinking.
+6.  (LO 1)  Critically considering the purpose for performing data 
+analyses 
+a.	 keeps us focused on the reason why something is done or created.
+b.	 provides free data for analyses.
+c.	 reveals the stakeholders’ perspectives.
+d.	 helps avoid biases and assumptions.
+e.	 None of these list the critical thinking benefits of considering 
+the purpose of data analyses.
+7.  (LO 1)  Performing the most appropriate data analyses is more 
+likely if you critically think through issues by
+a.	 using bar charts from last year’s operational results.
+b.	 starting with the results you want to achieve.
+c.	 paying others to help you.
+d.	 acquiring and applying new knowledge.
+e.	 None of these help you perform better data analyses.
+8.  (LO 1)  Critically thinking through the risks to your perspective as 
+you determine your motivation to perform data analyses helps you 
+minimize
+a.	 errors from biases.
+b.	 errors from lack of experience.
+c.	 errors from your assumptions.
+d.	 faulty conclusions from errors or omissions in your data.
+e.	 All of these are benefits of considering the risks to your data 
+analyses choices.
+9.  (LO 1)  Considering several alternative methods of analysis helps you
+a.	 go with the first alternative that comes to mind.
+b.	 select the option that is best for the project’s purpose.
+c.	 pick the alternative with the highest incremental cost.
+d.	 pick the alternative with the lowest likelihood of informative 
+results.
+10.  (LO 2)  If the objective of data analysis is to understand what is 
+currently happening or has happened in the past, then what type of 
+question are you asking?
+a.	 Descriptive
+b.	 Diagnostic
+c.	 Predictive
+d.	 Prescriptive
+11.  (LO 2)  Once you have articulated a descriptive question, what 
+type of analysis is necessary to understand the dispersion of the data?
+a.	 Median
+b.	 Frequency
+c.	 Standard deviation
+d.	 Percent change
+12.  (LO 2)  Assume you plan to perform descriptive analysis of your 
+entity’s maintenance expenses. Which of the following analyses 
+would help understand categories of maintenance expenses?
+a.	 Create a frequency distribution table based on maintenance 
+expense categories.
+b.	 Calculate the mean and median maintenance expense for the 
+period.
+c.	 Build a regression model using labor hours as a predictor of 
+maintenance expenses.
+d.	 Calculate the percentage change in maintenance expenses 
+since prior year.
+e.	 None of these are considered descriptive analysis used to 
+understand categories of maintenance expenses.
+Data   The Data tag appears when the data required to answer a question or complete an 
+exercise are available on Wiley’s online learning platform.
+
+

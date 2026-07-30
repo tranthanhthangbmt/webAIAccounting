@@ -1,0 +1,228 @@
+--- PAGE 58 ---
+Brief Exercises 
+2-57
+9.  (LO 4)  Define negative correlation and positive correlation. Pro-
+vide an example of each.
+10.  (LO 5)  Describe exploratory data visualization and explanatory 
+data visualization. How are they the same? How are they different?
+11.  (LO 5)  For each scenario identify whether you would perform 
+exploratory data visualization or explanatory data visualization.
+Scenario
+Visualization Type
+1. Your manager provides you with all 
+the sales data by product line for the 
+last two years and asks you to identify 
+sales trends between years.
+2. You have analyzed data related to 
+sales trends by country over the past 
+three years and will present that data 
+using a tree map.
+3. Your manager provides you with 
+all the payments made to approved 
+vendors in the past six months and 
+asks you to identify if any payments are 
+outside of expected payment amounts.
+4. Your manager provides you with 
+analysis of maintenance expenses for 
+the year and asks you to prepare a pie 
+chart to illustrate the categories of 
+expenses.
+12.  (LO 5)  As a tax professional for an online retailer, you have been 
+asked to create a line graph visualization depicting the increase in 
+sales tax collected and remitted each month this year compared to 
+last year. Using the line graph best practices outlined in the chapter, 
+describe how you would set up the visualization. Identify the data 
+points on the x-axis, y-axis, and series of data.
+13.  (LO 5)  Describe the best practices for bar charts and area charts.
+14.  (LO 5)  You are a financial analyst in the operations division of 
+a manufacturing company. As part of quality control metrics, your 
+company tracks rework expenses for goods that were not manufac-
+tured to meet quality standards. Your manager has asked you to pre-
+pare a line chart illustrating the trend of rework expenses by reason 
+code category. You note that there are five different reason codes for 
+why rework may be required. Using the best practices outlined in this 
+chapter, describe how you would set up the line chart to depict rework 
+expense trends by category.
+Brief Exercises
+Employees
+EmployeeID
+LastName
+FirstName
+DateofBirth
+DateHired
+PayRate(hourly)
+JobTitle
+StreetAddress
+City
+State
+ZipCode
+PhoneNumber
+Customers
+CustomerID
+LastName
+FirstName
+StreetAddress
+City
+ZipCode
+State
+PhoneNumber
+TakeOrder
+OrderNumber
+CustomerID
+EmployeeID
+Notes
+Date
+Time
+BE 2.1  (LO 1)  Managerial Accounting   You are a financial analyst for PizzaNow! The corporate con-
+troller wants you to perform an analysis using three tables in the relational database.
+For each item, identify whether it is a primary key, foreign key, or neither.
+	 1.	 OrderNumber in the TakeOrder table
+	 2.	 EmployeeID in the TakeOrder table
+	 3.	 CustomerID in the Customers table
+	 4.	 EmployeeID in the Employees table
+	 5.	 Date in the TakeOrder table
+	 6.	 ZipCode in the Employees table
+
+--- PAGE 59 ---
+2-58 
+CHAPTER 2  Foundational Data Analysis Skills
+	 1.	 Identify the primary and foreign keys for each table.
+	 2.	 If you want to know the name of a customer for a specifc order, which tables should you query?
+BE 2.3  (LO 1)  Financial Accounting   Assume you are a financial analyst in the controller’s group 
+for your distribution company. You have been asked to identify all inventory items without sales in the 
+past year:
+•  The IT group has provided the inventory on hand data file and the twelve month sales data file.
+•  You have identified the inventory on hand table as the left table and the twelve month sales table 
+as the right table.
+Identify the most appropriate join for these two tables to perform your analysis. Why is this join the most 
+appropriate?
+BE 2.4  (LO 1)  Financial Accounting   You are a financial analyst for Dine At Home who has been 
+asked to analyze the data in the following three tables.
+Customer1
+CustomerID
+FirstName
+LastName
+Phone
+Site
+Address
+City
+State
+ZipCode
+Restaurant
+RestaurantNumber
+RestaurantName
+Street
+City
+State
+Zip
+OwnerFirstName
+OwnerLastName
+Phone
+Website
+Order
+OrderNumber
+RestaurantNumber
+OrderDate
+OrderAmount
+CustomerID
+Customer1
+CustomerID
+FirstName
+LastName
+Phone
+Site
+Address
+City
+State
+ZipCode
+Restaurant
+RestaurantNumber
+RestaurantName
+Street
+City
+State
+Zip
+OwnerFirstName
+OwnerLastName
+Phone
+Website
+Order
+OrderNumber
+RestaurantNumber
+OrderDate
+OrderAmount
+CustomerID
+BE 2.2  (LO 1)  Accounting Information Systems   Dine At Home provides home delivery of meals 
+ordered from various local restaurants. You are the liaison between the company’s information technol-
+ogy group and the accounting group. You are asked to explain the relationship among these tables to the 
+accounting group. The tables are from the Dine At Home database. 
+For each scenario, identify the join you would most likely use to query the data. Each join type can 
+be used once, more than once, or not at all. 
+a.	 Left join
+b.	 Right join
+c.	 Inner join
+d.	 Full join
+	 1.	 Execute a query to join the Restaurant table (left table) and the Order table (right table), but only 
+return the rows from both tables that have matching values.
+	 2.	 Execute a query to join the Restaurant table (left table) and the Customer1 (right table) table, and 
+return all records from the Restaurant table, but only those matching records from the Customer1 
+table.
+	 3.	 Execute a query to join the Order table (left table) and the Customer1 table (right table), and return 
+all records from both tables. Match the records that can be matched in both tables.
+
+--- PAGE 60 ---
+	 4.	 Execute a query to join the Order table (left table) and the Customer1 table (right table), and only 
+return all the records from the Order table and the matching records from the Customer1 table.
+BE 2.5  (LO 2)  Data   Managerial Accounting   The controller at ThisBigCity has asked that you per-
+form an analysis on the city’s employee reimbursement expenses over the past fifteen years. The IT group 
+has provided a download of all the employee reimbursement data since 2005. 
+	 1.	 Use the AVERAGE function. What was the average reimbursement amount paid from July 2005 to 
+November 2020?
+	 2.	 Use the AVERAGEIF function. What was the average reimbursement amount paid in 2019?
+	 3.	 Use the AVERAGEIFS function. What was the average reimbursement amount paid in the fire 
+department during 2019?
+BE 2.6  (LO 2)  Data   Accounting Information Systems   As an internal auditor at ThisBigCity, you 
+testing internal controls over the employee reimbursement process for the city. The IT group provided 
+a download of all the employee reimbursement data since 2005. Your manager suggested performing 
+descriptive statistics on this file to determine if you have a complete population of data, and to start the 
+process of identifying a sample size for internal control testing. 
+	 1.	 Use the COUNT function. How many reimbursements were paid from July 2005 to November 2020?
+	 2.	 Use the COUNTIF function. How many reimbursements were paid in 2019?
+	 3.	 Use the COUNTIFS function. How many reimbursements were paid in 2019 to firefighters? 
+BE 2.7  (LO 3)  Data   Auditing   Use PivotTables and the available data to answer the following questions:
+	 1.	 Which customer has the highest accounts receivable balance?
+	 2.	 Which customer has the highest accounts receivable balance that is more than 150 days past due?
+BE 2.8  (LO 3)  Data   Financial Accounting   Use PivotTables and the available data to answer the 
+following questions:
+	 1.	 What is the total of accounts receivable?
+	 2.	 What are the totals by region?
+BE 2.9  (LO 3)  Data   Financial Accounting   Managerial Accounting   Use PivotTables and the 
+Super Scooters data to answer the following questions:
+	 1.	 What are the total gross sales for each scooter model by year?
+	 2.	 Which color scooter had the highest sales volume in 2023?
+	 3.	 What was the total variable marketing expense for 2023 by model?
+BE 2.10  (LO 4)  Data   Managerial Accounting   As a financial analyst working for Animal Con-
+trol Centers, you want to understand the overtime pay during 2025. Find the following statistics for 
+overtime pay:
+	 1.	 Mean
+	 2.	 Median
+	 3.	 Mode
+BE 2.11  (LO 4)  Data   Financial Accounting   You are preparing the management’s discussion and 
+analysis (MD&A) regarding the city of Chicago’s fire department. One of the most important expenses 
+for the fire department is overtime. Therefore, you would like to understand the overtime data before you 
+write the MD&A.
+	 1.	 Calculate the coefficient of skewness for overtime pay.
+	 2.	 Calculate the coefficient of kurtosis for overtime pay.
+	 3.	 Prepare a histogram with these groupings: $500, $1,000, $2,000, $3,000, $4,000, $5,000, $6,000.
+BE 2.12  (LO 5)  Data   Financial Accounting   Your company, Loans Are US, provides loans to small 
+to medium-sized businesses. The company has loan offices in four regions. You are asked to prepare a 
+visualization that illustrates the total amount of loans by region and by the age of receivables. Prepare a 
+stacked column chart that does this.
+BE 2.13  (LO 5)  Data   Loans Are US keeps track of credit ratings for all customer accounts. You must 
+prepare a visualization that illustrates the total number of loans by credit rating. Prepare a bar chart visu-
+alizing the number of accounts in each of the three credit ratings: AAA, BBB, and CCC.
+BE 2.14  (LO 5)  Data   Your supervisor at Loans Are US has asked you to prepare a visualization that 
+illustrates the total dollar amount of loans past due by more than 150 days by credit rating. Prepare a bar 
+chart visualizing the number of accounts in each of the three credit ratings: AAA, BBB, and CCC.
+Brief Exercises 
+2-59

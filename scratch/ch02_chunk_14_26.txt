@@ -1,0 +1,1208 @@
+--- PAGE 14 ---
+2.3  How Do We Organize Data Sets for Analysis? 
+2-13
+2.3  How Do We Organize Data Sets 
+for Analysis?
+LEARNING OBJECTIVE ➌
+Illustrate how pivot tables organize and filter data.
+You have just learned how to use functions to answer questions with a single dimension. 
+While you could use several functions to answer questions that involve multiple dimensions, 
+it is more efficient to first use a data organization technique on the data set.
+Data organization is the process of rearranging data to make it easier to understand. A 
+pivot table is a tool that summarizes and reorganizes selected columns and rows of data in a 
+spreadsheet, database, or business intelligence program. Pivot tables can quickly rearrange data 
+to help answer many important business questions. Recall from the chapter opening profes-
+sional insight that Josh needed to use one to reorganize a spreadsheet with 450,000 rows of data. 
+It is unlikely Josh could have analyzed the spreadsheet data efficiently without a pivot table.
+The examples here use Microsoft Excel to demonstrate how to create and filter a pivot­
+table. (Note that pivot tables created in this software are generally labeled as PivotTables.) 
+Although the demonstrations use Excel PivotTables, these techniques are also used in other 
+data analysis software. For example, they are useful when creating visualizations. Whichever 
+data analysis tool you use, understanding the basic functionality of creating useful pivot tables 
+and how to filter them is essential.
+Using Pivot Tables
+Both powerful and easy to use, a pivot table is also one of the most common tools you will use 
+in your accounting career. It has five main components:
+	 1.	 Fields: The data elements available for use in the pivot table. 
+	 2.	 Columns: When a field is chosen for a column area, only the unique values of the field 
+are listed across the top.
+	 3.	 Rows: When a field is chosen for the row area, it populates it as the first column. All row 
+values are unique values and duplicates are removed.
+	 4.	 Values: Each value is kept in a pivot table cell and displays the summarized information. 
+Examples are sum, average, or count.
+	 5.	 Filters: Apply a restriction to the entire table.
+Once you know the basics of creating a pivot table in Microsoft Excel, you can use this tool to 
+answer accounting questions.
+Create a Microsoft Excel PivotTable
+Follow these steps:
+	 1.	 Open the spreadsheet with the data to summarize.
+	 2.	 Click any cell within the data (the first cell in row A in Illustration 2.17).
+	 3.	 Click the Insert option on the top menu ribbon.
+	 4.	 A PivotTable input box option will appear at the top left of the screen (Illustration 2.17).
+
+--- PAGE 15 ---
+2-14
+CHAPTER 2 Foundational Data Analysis Skills
+AutoSave
+Table
+Tables
+fx
+A2
+1
+B
+A
+D
+E
+F
+2
+3
+4
+5
+6
+7
+8
+AssetTagID
+AssetDescription
+C
+CategoryID
+15
+15
+15
+15
+1
+6
+1
+Category
+Amount
+$ 28,628.01
+$ 28,344.00
+$ 33,573.00
+$ 13,720.00
+$ 13,552.65
+$ 17,068.00
+$   7,826.00
+AcquisitionDate 
+Sheet1
+Icons
++
+Recom-
+mended
+Charts
+Pictures
+Shapes
+3D Models
+Illustrations
+SmartArt
+Screenshot
+Get Add-ins
+My Add-ins
+Add-ins
+Charts
+Maps Pivot
+Chart
+Sparklines
+Line Column Win/
+Loss
+3D
+Map
+Tours
+File
+Home
+Insert
+Page Layout
+Formulas
+Data
+Review
+View
+Developer
+Help
+Power Pivot
+New Tab
+U000009
+Recom-
+mended
+PivotTables
+Table
+Icons
++
+Recom-
+mended
+Charts
+Pictures
+Shapes
+3D Models
+Illustrations
+SmartArt
+Screenshot
+Get Add-ins
+My Add-ins
+Add-ins
+Charts
+Maps Pivot
+Chart
+Sparklines
+Line Column Win/
+Loss
+3D
+Map
+Tours
+Recom-
+mended
+PivotTables
+Pivot
+Table
+Laboratory Equipment
+Laboratory Equipment
+Laboratory Equipment
+Agricultural and Farm Machinery
+Agricultural and Farm Machinery
+Communication, Audio-Visual, Alarm, & Signal Equipment
+Laboratory Equipment
+Pump
+Pump
+Bonder
+Irrigation System
+Drill
+Video Camera
+Ultrasound System
+U000010
+U000015
+U000016
+U000018
+U000020
+U000022
+U000009
+9/4/2015
+9/13/2015
+10/1/2015
+10/29/2015
+9/9/2015
+9/24 /2015
+9/9/2015
+4
+2
+3
+  ILLUSTRATION 2.17 
+ University Assets Data Excel Spreadsheet 
+When this option is selected a new dialogue box opens called  PivotTable from table or 
+range ( Illustration 2.18 ). 
+  5.  Ensure the  Table/Range in the  Select a table or range box reflects all data that should 
+be included. (Remember to include the column headings.) Choose New Worksheet and 
+click  OK (Illustration  2.18 ). 
+PivotTable from table or range
+Table/Range:
+Select a table or range
+?
+Cancel
+OK
+New Worksheet
+Existing Worksheet
+Location:
+‘University Inventory Data’!$A$1:$F$13127
+Choose where you want the PivotTable report to be placed
+Choose whether you want to analyze multiple tables
+Add this data to the Data Model
+5
+  ILLUSTRATION 2.18  Excel Create PivotTable Dialog Box 
+  6.  This will open a new spreadsheet. A blank  PivotTable canvas will appear on the left, and the 
+ PivotTable Fields box that creates the  PivotTable will be on the right ( Illustration 2.19 ). 
+
+--- PAGE 16 ---
+2.3  How Do We Organize Data Sets for Analysis? 
+2-15
+fx
+1
+A
+B
+C
+D
+E
+Pivot Q1 & Q2
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+AutoSave
+Oﬀ
+PivotTable Fields
+Choose fields to add to report:
+AssetTagID
+AssetDescription
+CategoryID
+Category
+Amount
+AcquisitionDate
+Quarters
+Years
+More Tables..
+Drag fields between areas below:
+Filters
+Columns
+Search
+Rows
+Defer Layout Update
+Values
+∑
+Update
+PivotTable1
+To build a report, choose fields
+from the PivotTable Field List
+1
+2
+6
+ILLUSTRATION 2.19 
+Blank PivotTable Canvas
+Use the PivotTable Fields box to select what will appear in the PivotTable. Drag the column 
+name to either rows, columns, values, or filters.
+Data   Let’s use PivotTables to answer data questions about the university asset data. If 
+you were verifying total costs for each of the asset categories, you may want to answer the 
+following questions:
+•	Question 1: What is the total balance for assets in each category?
+•	Question 2: What is the total count of assets in each category?
+Find the Total Balance by Category
+Answer the first question by finding the total balance by category.
+	 1.	 Drag Category to the Rows area.
+	 2.	 Drag Amount to the Values area. The Σ Values in Columns is then automatically gener-
+ated by Excel.
+	 3.	 Excel will fill in the values for each category in the second column of the spreadsheet.
+
+--- PAGE 17 ---
+2-16 
+CHAPTER 2  Foundational Data Analysis Skills
+Illustration 2.20 shows the resulting PivotTable.
+Question 1
+Row Labels
+Agricultural and Farm Machinery
+$         3,838,203.58
+$             129,924.35
+$         1,047,971.77
+$         2,458,319.00
+$         4,242,923.45
+$         1,210,703.93
+$         3,060,781.37
+$         2,287,996.49
+$         2,449,781.57
+$         1,270,121.50
+$         6,467,000.41
+Grand Total
+$ 225,069,282.74
+$         1,587,495.45
+$         1,865,573.30
+$      43,294,238.92
+$     147,343,867.13
+$               18,033.00
+$               51,825.00
+$               90,332.00
+$               47,239.00
+$               88,248.00
+$           530,673.88
+$           278,233.02
+$           650,212.23
+$           146,953.15
+$           102,458.55
+$           279,665.97
+$           230,506.72
+Art Equipment
+Athletic and Recreational Equipment
+Boats, Boat Motors, and Marine Equipment
+Cleaning and Maintenance Equipment
+Communication, Audio-Visual, Alarm, and Signal Equipment
+Computer Equipment
+Drafing and Surveying Equipment
+Electrical Appliances and Equipment
+Electronic Equipment
+Food Preparation and Serving Equipment
+Furniture and Furnishings
+Hand and Power Tools (Portable)
+Industrial, Shop, and Construction Equipment
+Laboratory Equipment
+Material Handling Equipment
+Medical Equipment
+Miscellaneous Equipment
+Motor Vehicles and Transportation Equipment
+Musical Instruments
+Oﬀice and Business Machines and Non-Consumable Supplies
+Parking Control Equipment
+Photographic Equipment
+Plumbing, Heating, Air Conditioning, and Ventilating Equipment
+Police, Fire Fighting, and Safety Equipment
+Printing and Bookbinding Equipment
+Refrigeration Equipment
+Sum of Amount
+3
+ILLUSTRATION 2.20  Excel PivotTable for Question 1: What is the Total Balance  
+by Category?
+ILLUSTRATION 2.21  Excel PivotTable Value Field Settings Dialog Box
+Drag fields between
+OK
+Cancel
+Value Field Settings
+Filters
+Rows
+Move Up
+Move Down
+Move to End
+Move to Beginning 
+Move to Report Filter
+Move to Row Labels
+Move to Column Labels
+Move to Values
+∑
+Remove Field
+Value Field Settings...
+Source Name: AssetTagID
+Custom Name:
+Summarize Values By
+Choose the type of calculation that you want to use to summarize data from
+the selected field
+Sum
+Average
+Max
+Min
+Product
+Number Format
+Summarize value field by
+?
+Count of AssetTagID
+Count
+Show Values As
+i
+Category
+Defer Layout Update
+Count of Asset_T...
+Update
+4
+	 4.	 Excel will default to a sum of the value. The type of measurement can be changed by 
+clicking the down arrow in the Sum of Amount field and choosing the desired measure 
+(Illustration 2.21).
+
+--- PAGE 18 ---
+2.3  How Do We Organize Data Sets for Analysis? 
+2-17
+Another useful feature of the Value Field Settings dialog box is the ability to change the num-
+ber format in the PivotTable. (  Data How To 2.1 at the end of this chapter explains the Show 
+Values capability with pre-built calculations.)
+Determine Total Count of Assets
+To determine the total count of assets in each category (Question 2), use the first Excel 
+PivotTable:
+	 1.	 Drag AssetTagID to the Values area.
+	 2.	 Click the down arrow, choose Value Field Settings, and choose Count.
+	
+	 The data can be summarized with several different calculations. The question asks about 
+the number of assets per category, so choose Count.
+	 3.	 Excel populates the next table column with the count by asset category.
+The result is shown in Illustration 2.22.
+Question 1
+Question 2
+PivotTable Fields
+Row Labels
+Count of AssetTagID
+Agricultural and Farm Machinery
+$         3,838,203.58
+171
+Choose fields to add to report
+AssetTagID
+AssetDescription
+CategoryID
+Category
+Category
+Amount
+AcquisitionDate
+Quarters
+Years
+More Tables..
+Drag fields between areas below:
+Filters
+Columns
+7
+80
+37
+182
+271
+2543
+2
+5
+29
+112
+185
+5
+154
+8057
+47
+113
+4
+75
+7
+83
+12
+143
+17
+12
+19
+754
+$             129,924.35
+$         1,047,971.77
+ $         2,458,319.00
+$         4,242,923.45
+$         1,210,703.93
+$         3,060,781.37
+$         2,287,996.49
+$         2,449,781.57
+$         1,270,121.50
+$         6,467,000.41
+Grand Total
+$ 225,069,282.74
+13126
+$         1,587,495.45
+$         1,865,573.30
+$      43,294,238.92
+$    147,343,867.13
+$                18,033.00
+$               51,825.00
+$               90,332.00
+$               47,239.00
+$               88,248.00
+$           530,673.88
+$           278,233.02
+$           650,212.23
+$           146,953.15
+$           102,458.55
+$           279,665.97
+$           230,506.72
+Art Equipment
+Athletic and Recreational Equipment
+Boats, Boat Motors, and Marine Equipment
+Cleaning and Maintenance Equipment
+Communication, Audio-Visual, Alarm,
+   and Signal Equipment
+Computer Equipment
+Drafing and Surveying Equipment
+Electrical Appliances and Equipment
+Electronic Equipment
+Food Preparation and Serving Equipment
+Furniture and Furnishings
+Hand and Power Tools (Portable)
+Industrial, Shop, and Construction Equipment
+Laboratory Equipment
+Material Handling Equipment
+Medical Equipment
+Miscellaneous Equipment
+Motor Vehicles and Transportation Equipment
+Musical Instruments
+Oﬀice and Business Machines and
+   Non-Consumable Supplies
+Parking Control Equipment
+Photographic Equipment
+Plumbing, Heating, Air Conditioning,
+   and Ventilating Equipment
+Police, Fire Fighting, and Safety Equipment
+Printing and Bookbinding Equipment
+Refrigeration Equipment
+Sum of Amount
+Search
+Rows
+Defer Layout Update
+Values
+∑
+Values
+Sum of Amount
+Count of AssetTagID 
+∑
+Update
+2
+1
+3
+ILLUSTRATION 2.22  Excel PivotTable for Question 2: What is the Total Count of Assets in Each Category?
+How To
+
+--- PAGE 19 ---
+2-18 
+CHAPTER 2  Foundational Data Analysis Skills
+Filtering Pivot Tables
+One way to focus on a specific aspect of the data in a PivotTable is to use a filter. Applying a 
+filter means that only data that fits its criteria will be displayed. There are three ways to filter 
+in Excel:
+•	Apply the filter criteria to the Filter field area.
+•	Use AutoFilter in the PivotTable’s Row field.
+•	Insert one or more slicers.
+Data Answering a third assets data question will demonstrate each filtering option:
+Question 3: What is the total amount of purchases by category made in 2022?
+Apply Filter Criteria to the Filter Field Box
+To discover the total amount of purchases by category for the year 2022, create a PivotTable 
+that shows assets purchased in 2022 by category:
+	 1.	 Drag Category to Rows, and drag Amount to Values.
+	 2.	 The focus is on assets purchased in 2022, so bring Years to the Filters area.
+	 3.	 The word Years in the first column and the word ALL in the second column will now 
+appear at the top of the PivotTable.
+	 4.	 Clicking the down arrow next to ALL results in a dropdown box to select years to filter 
+(Illustration 2.23).
+Sum of Amount
+Question 1
+Row Labels
+Years
+Agricultural and Farm Machinery
+Grand Total
+Athletic and Recreational Equipment
+Boats, Boat Motors, and Marine Equipment
+Communication, Audio-Visual, Alarm, and Signal Equipment
+Computer Equipment
+Food Preparation and Serving Equipment
+Furniture and Furnishings
+Hand and Power Tools (Portable)
+Industrial, Shop, and Construction Equipment
+Laboratory Equipment
+Material Handling Equipment
+Medical Equipment
+Miscellaneous Equipment
+Motor Vehicles and Transportation Equipment
+Oﬀice and Business Machines and Non-Consumable Supplies
+Parking Control Equipment
+Printing and Bookbinding Equipment
+Refrigeration Equipment
+ALL
+$        258.409.17
+$        188,366.29
+$          389,043.31
+$ 20,869,919.66
+$        103,113.50
+$               8,045.00
+$             89,889.00
+$             23,274.20
+2016
+2017
+2018
+2019
+2020
+2021
+2022
+2023
+2024
+Select Multiple Items
+OK
+Cancel
+Search
+Drag fields between areas below:
+Filters
+Columns
+Years
+Category
+Sum of Amount
+Rows
+Values
+∑
+Defer Layout update
+Update
+Cleaning and Maintenance Equipment
+2
+1
+3
+3
+4
+ILLUSTRATION 2.23  How to Filter in an Excel PivotTable
+Illustration 2.24 shows the result of filtering for assets purchased in 2022.
+
+--- PAGE 20 ---
+2.3  How Do We Organize Data Sets for Analysis? 
+2-19
+ILLUSTRATION 2.24  PivotTable 
+Answer to Question 3: What is the 
+Total Cost of Assets Purchased in 
+2022?
+Sum of Amount
+Row Labels
+Years
+Agricultural and Farm Machinery
+Grand Total
+Athletic and Recreational Equipment
+Boats, Boat Motors, and Marine Equipment
+Cleaning and Maintenance Equipment
+Communication, Audio-Visual, Alarm, and Signal Equipment
+Computer Equipment
+Food Preparation and Serving Equipment
+Furniture and Furnishings
+Hand and Power Tools (Portable)
+Industrial, Shop, and Construction Equipment
+Laboratory Equipment
+Material Handling Equipment
+Medical Equipment
+Miscellaneous Equipment
+Motor Vehicles and Transportation Equipment
+Oﬀice and Business Machines and Non-Consumable Supplies
+Parking Control Equipment
+Printing and Bookbinding Equipment
+Refrigeration Equipment
+2022
+$        258.409.17
+$        514,343.81
+$        144,999.00
+$        108,637.41
+$        234,398.94
+$        523,934.69
+$    8,141,730.27
+$           77,915.86
+$           64,795.95
+$           49,665.00
+$        117,352.04
+$    9,825,228.22
+$              6,778.00
+$        188,366.29
+$          389,043.31
+$ 20,869,919.66
+$        103,113.50
+$               8,045.00
+$             89,889.00
+$             23,274.20
+Sum of Amount
+Use a Row Auto Filter
+Filters can also be created in an Excel PivotTable with the Auto Filter functionality for rows. In 
+this example, the question is how much was spent on computer equipment in 2022.
+	 1.	 Instead of adding a category to the Filter area, click the down arrow in Row Labels to 
+reveal other filtering choices.
+	 2.	 Illustration 2.25 shows the dropdown box that then appears. Here, select the categories 
+of assets to filter.
+fx
+1
+A
+B
+Sheet1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+AutoSave
+Oﬀ
+Row Labels
+Years
+Agricultural and Farm Machinery
+Grand Total
+Athletic and Recreational Equipment
+Boats, Boat Motors, and Marine Equipment
+Cleaning and Maintenance Equipment
+Communication, Audio–Visual, Alarm, and Signal Equipment
+Computer Equipment
+Food Preparation and Serving Equipment
+Furniture and Furnishings
+Hand and Power Tools (Portable)
+Industrial, Shop, and Construction Equipment
+Laboratory Equipment
+Material Handling Equipment
+Medical Equipment
+Miscellaneous Equipment
+Motor Vehicles and Transportation Equipment
+Oﬀice and Business Machines and Non-Consumable Suppiles
+Parking Control Equipment
+Printing and Bookbinding Equipment
+Refrigeration Equipment
+2022
+$        258.409.17
+$        514,343.81
+$        144,999.00
+$        108,637.41
+$        234,398.94
+$        523,934.69
+$    8,141,730.27
+$           77,915.86
+$           64,795.95
+$           49,665.00
+$        117,352.04
+$    9,825,228.22
+$              6,778.00
+$        188,366.29
+$          389,043.31
+$ 20,869,919.66
+$        103,113.50
+$               8,045.00
+$             89,889.00
+$             23,274.20
+Sum of Amount
+Sort A to Z
+More Sort Options...
+Clear Filter From “Category”
+Label Filters
+Value Filters
+Sort Z to A
+AZ
+ZA
+Search
+(Select All)
+Agricultural and Farm Mach
+Art Equipment
+Athletic and Recreational Eq
+Boats, Boat Motors, and Mar
+Cleaning and Maintenance E
+Communication, Audio-Visu
+Computer Equipment
+OK
+Cancel
+1
+3
+2
+ILLUSTRATION 2.25  Excel 
+PivotTable to Filter for Computer 
+Equipment Only
+
+--- PAGE 21 ---
+2-20 
+CHAPTER 2  Foundational Data Analysis Skills
+	 3.	 In this example, only Computer Equipment is selected. The resulting PivotTable is 
+shown in Illustration 2.26
+ILLUSTRATION 2.26  Excel PivotTable 
+Showing Just Computer Equipment 
+Purchased in 2022
+$    8,141,730.27
+$ 8,141,730.27
+Grand Total
+Row Labels
+Sum of Amount
+Computer Equipment
+Years
+2022
+The auto filter option quickly isolates a specific item. Two more auto filters are Label 
+Filters and Value Filters. Illustration 2.27 shows the options available after choosing Label 
+Filters.
+ILLUSTRATION 2.27  Excel PivotTables Label Filters
+Sort A to Z
+More Sort Options...
+Clear Filter From “Category”
+Value Filters
+Sort Z to A
+AZ
+ZA
+Search
+(Select All)
+Agricultural and Farm Mach
+Art Equipment
+Athletic and Recreational Eq
+Boats, Boat Motors, and Mar
+Cleaning and Maintenance E
+Communication, Audio-Visu
+Computer Equipment
+OK
+Cancel
+Clear Filter
+Equals...
+Does Not Equal...
+Begins With...
+Does Not Begin With...
+Does Not End With...
+Contains...
+Does Not Contain...
+Greater Than...
+Greater Than Or Equal To...
+Less Than...
+Less Than Or Equal To...
+Between...
+Not Between...
+Ends With...
+Label Filters
+Hightlighting and clicking one of the options under Label Filters opens a dialog box 
+to insert the filter’s parameter. For example, choosing Equals and entering “Computer 
+­Equipment” in the dialog box (Illlustration 2.28) achieves the same results as Illustration 2.26.
+
+--- PAGE 22 ---
+2.3  How Do We Organize Data Sets for Analysis? 
+2-21
+ILLUSTRATION 2.28  Excel PivotTable Label Filter Equals Dialog Box
+Label Filter (Category)
+Show items for which the label
+Use ? to represent any single character
+equals
+Computer Equipment
+Use * to represent any series of characters
+Cancel
+OK
+?
+What if the goal was to filter the data so only the top five asset categories appear?
+	 1.	 Use the Value Filters and pick the option for Top 10… (Illustration 2.29).
+Sort A to Z
+More Sort Options...
+Clear Filter From “Category”
+Sort Z to A
+AZ
+ZA
+Search
+(Select All)
+Agricultural and Farm Mach
+Art Equipment
+Athletic and Recreational Eq
+Boats, Boat Motors, and Mar
+Cleaning and Maintenance E
+Communication, Audio-Visu
+Computer Equipment
+OK
+Cancel
+Clear Filter
+Equals...
+Does Not Equal...
+Greater Than...
+Greater Than Or Equal To...
+Less Than...
+Less Than Or Equal To...
+Between...
+Not Between...
+Top 10...
+Label Filters
+Value Filters
+ILLUSTRATION 2.29  PivotTable Value Filter Options
+	 2.	 A dialog box will open that allows changing the filter to top or bottom and the number of 
+items to display.
+In Illustration 2.30 the “Top 5” by “Sum of amount” was chosen.
+Top 10 Filter (Category)
+Show
+Top
+Items
+Sum of Amount
+by
+5
+Cancel
+OK
+?
+ILLUSTRATION 2.30  PivotTable Value Filter For Top Values Input Box
+
+--- PAGE 23 ---
+2-22
+CHAPTER 2 Foundational Data Analysis Skills
+ The resulting Excel PivotTable is shown in  Illustration 2.31 . 
+$          514,343.81
+$          523,934.69
+$      8,141,730.27
+$      9,825,228.22
+$          389,043.31
+$ 19,394,280.30
+Grand Total
+Row Labels
+Agricultural and Farm Machinery
+2022
+Sum of Amount
+Years
+Communication, Audio-Visual, Alarm, & Signal Equipment
+Computer Equipment
+Laboratory Equipment
+Refrigeration Equipment
+ ILLUSTRATION 2.31  PivotTable Value Filter Results for Top 5 Amounts 
+ What about filtering for multiple dimensions at the same time? 
+ Use Slicers to Filter Data
+ Simultaneously filtering for multiple dimensions is often referred to as  slicing , or slice and 
+dice, which is the process of breaking the data down into smaller parts or examining it from 
+different viewpoints.  Slicers are an analysis tool that separate the resulting analysis measures 
+per the selected dimensions.  All data analysis software has slicing capabilities:
+•  Microsoft Excel and Power BI use slicers. 
+•  In Tableau, it is accomplished with interactive filters. 
+ In all types of software, slicers customize interaction with a data set by providing a visual dis-
+play of available filters.  Illustration 2.32 shows where the option to add slicers can be found 
+in Microsoft Excel. 
+View
+Developer
+Help
+Power Pivot
+Acrobat
+Data
+Filter
+Refresh
+Change Data
+Source
+Insert
+Slicer
+Insert
+Timeline
+Filter
+Connections
+fx
+fx
+B
+A
+C
+D
+E
+F
+$    3,838,203.58
+$         80,333.00
+$    3,060,781.37
+$   1,210,703.93
+$       278,233.02
+$         51,825.00
+$         18,033.00
+$ 43,294,238.92
+$   4,242,923.45
+$    2,458,319.00
+$       530,673.88
+$    1,047,971.77
+$       129,924.35
+1
+13
+12
+11
+10
+9
+8
+7
+6
+5
+4
+3
+2
+Sum of Amount
+AssetTagID
+AssetDescription
+CategoryID
+Category
+Amount
+AcquisitionDate
+Quarters
+Years
+?
+OK
+Cancel
+Review
+Data
+Refresh
+Change Data
+Source
+Filter
+Connections
+1
+Insert Slicers
+2
+ ILLUSTRATION 2.32  Adding Slicers to PivotTables 
+
+--- PAGE 24 ---
+2.3 How Do We Organize Data Sets for Analysis? 
+2-23
+  1.  Click in the PivotTable and choose  Insert Slicer from the menu. This will open a box 
+with all the PivotTable fields. 
+  2. Select the fields for the slicers. If the goal is to determine how much was spent on each 
+category of assets by year, then slice data by asset category and year. To do this, select 
+Category and AcquisitionDate. 
+Illustration 2.33 shows the resulting slicers. One is for category and the other is for year. 
+fx
+1
+A
+B
+C
+D
+Sheet1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+AutoSave
+Oﬀ
+Category
+Years
+2016
+2017
+2018
+2020
+2021
+2022
+2023
+2019
+$   8,141,730.27
+$ 8,141,730.27
+Grand Total
+Row Labels
+Sum of Amount
+Computer Equipment
+Agricultural and Farm 
+Athletic and Recreation
+Boats, Boat Motors, and 
+Cleaning and Maintena
+Communication, Audio
+Computer Equipment
+Food Preparation and 
+Furniture and Furnishin
+ ILLUSTRATION 2.33  PivotTable Slicers Discovering the Total Amount by Category and Year 
+ In Illustration  2.33 , clicking Computer Equipment in the Category slicer and 2022 in the 
+Years slicer results in a PivotTable with the sum of computer equipment purchased in 2022. 
+ Slicers can be added to Power BI by choosing the slicer tool in Visualizations ( Illustra-
+tion 2.34) . 
+R
+Py
+Values
+Cross-report
+Keep all filters
+Drill through
+Oﬀ
+On
+Fields
+Visualizations
+Filters
+Sheet1
+AcquisitionDate 
+Amount
+AssetDescription
+AssetTagID
+Category
+CategoryID
+Year
+Add data fields here
+Add data fields here
+Add data fields here
+Search
+Filters on this visual
+Filters on this page
+Filters on all pages
+Amount
+is (All)
+is (All)
+Category
+Category
+Amount
+Add drill-through fields here
+Search
+fx
+R
+Py
+ ILLUSTRATION 2.34 Pivot Table
+Slicers Using PowerBI 
+
+--- PAGE 25 ---
+2-24
+CHAPTER 2 Foundational Data Analysis Skills
+Next, select Category to create category slicers and repeat for the AcquisitionDate slicers. 
+Illustration 2.35 shows the result. 
+File
+Modeling
+View
+Help
+Insert
+Home
+fx
+1
+A
+C
+B
+Sheet1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+Category
+Total
+$ 8,141,730.27
+Computer Equipment
+$  8,141,730.27
+Amount
+Select Multiple Items
+OK
+Cancel
+Year
+Select Multiple Items
+OK
+Cancel
+Category
+2018
+2019
+2020
+2021
+2022
+2023
+2024
+Food Preparation and Serving Equipment
+Sign in
+Computer Equipment
+Communication, Audio-Visual, Alarm
+Cleaning and Maintenance Equipment
+Boats, Boat Motors, and Marine Equipment
+Athletic and Recreational Equipment
+Agricultural and Farm Machinery
+ ILLUSTRATION 2.35  Power BI Slicers for Category and Year 
+Because pivot table functions summarize data to quickly find answers to our questions, 
+creating pivot tables is a core data analysis skill you will use frequently in your career. 
+ Apply It 2.3
+Analyze Sales with 
+Excel PivotTables
+Data
+Financial Accounting
+Managerial Accounting Your supervisor at Super Scooters has 
+asked you to analyze sales for 2025 and revenue for all years. Create an Excel PivotTable to determine 
+the following:  
+  1.  What are the total gross sales for each location in 2025? 
+  2.  What is the average gross sales amount for each model in 2025? 
+  3.  What is total revenue per year? 
+ SOLUTION 
+ 1.  Choose (or drag) the fields: Location for  Rows , Gross Sales for  Values , and Year for 
+Filters . In the year filter pick 2025.
+Row Labels
+Sum of Gross Sales
+Boston
+Charlotte
+Chicago
+Dallas
+Miami
+Phoenix
+Salt Lake City
+Seattle
+$      1,433,578.00
+$      1,653,506.00
+$      1,624,719.00
+$      1,134,785.00
+$      1,606,576.00
+$      1,376,503.00
+$      1,593,184.00
+$      1,742,311.00
+$ 12,165,162.00
+Grand Total
+Year
+2025

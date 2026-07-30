@@ -65,6 +65,25 @@ class PDFCropperApp:
         
         tk.Label(controls, text="Drag on image to crop\nand save automatically.", bg="#f0f0f0", fg="blue").pack(pady=10)
         
+        tk.Label(controls, text="Cấu hình Tên File Ảnh", bg="#f0f0f0", font=("Arial", 9, "bold")).pack(pady=(10, 2))
+        
+        row1 = tk.Frame(controls, bg="#f0f0f0")
+        row1.pack(fill=tk.X, padx=5, pady=2)
+        tk.Label(row1, text="Loại:", bg="#f0f0f0", width=6, anchor="w").pack(side=tk.LEFT)
+        self.combo_type = ttk.Combobox(row1, values=["Figure", "ILLUSTRATION", "Table", "BÀI TẬP", "Exercise", "Problem", "Case"], width=15)
+        self.combo_type.pack(side=tk.LEFT, expand=True, fill=tk.X)
+        
+        row2 = tk.Frame(controls, bg="#f0f0f0")
+        row2.pack(fill=tk.X, padx=5, pady=2)
+        tk.Label(row2, text="Chương:", bg="#f0f0f0", width=6, anchor="w").pack(side=tk.LEFT)
+        self.entry_chapter = tk.Entry(row2, width=5)
+        self.entry_chapter.pack(side=tk.LEFT)
+        
+        tk.Label(row2, text=" STT:", bg="#f0f0f0").pack(side=tk.LEFT)
+        self.entry_seq = tk.Entry(row2, width=5)
+        self.entry_seq.pack(side=tk.LEFT)
+        self.entry_seq.insert(0, "1")
+        
         # Right Panel (Canvas with Scrollbars)
         right_panel = tk.Frame(self.root)
         right_panel.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
@@ -87,6 +106,11 @@ class PDFCropperApp:
         self.canvas.bind("<ButtonPress-1>", self.on_mouse_down)
         self.canvas.bind("<B1-Motion>", self.on_mouse_drag)
         self.canvas.bind("<ButtonRelease-1>", self.on_mouse_up)
+        
+        # Bind mouse wheel for scrolling
+        self.canvas.bind_all("<MouseWheel>", self.on_mouse_wheel)
+        self.canvas.bind_all("<Button-4>", self.on_mouse_wheel)
+        self.canvas.bind_all("<Button-5>", self.on_mouse_wheel)
         
         # Bind resize event to auto-fit if needed
         self.canvas.bind("<Configure>", self.on_canvas_resize)
@@ -113,6 +137,14 @@ class PDFCropperApp:
         filename = self.pdf_files[idx]
         self.current_pdf_path = os.path.join(BASE_DIR, filename)
         
+        # Auto-fill chapter number from filename (e.g. Ch_02 -> 02)
+        try:
+            chap_num = filename.split('_')[1].split('.')[0]
+            self.entry_chapter.delete(0, tk.END)
+            self.entry_chapter.insert(0, chap_num)
+        except:
+            pass
+            
         if self.doc:
             self.doc.close()
         
@@ -182,6 +214,13 @@ class PDFCropperApp:
         if self.fit_to_screen and self.doc:
             self.render_page()
 
+    def on_mouse_wheel(self, event):
+        # Handles Windows/Mac (<MouseWheel>) and Linux (<Button-4>/<Button-5>)
+        if event.num == 4 or getattr(event, 'delta', 0) > 0:
+            self.canvas.yview_scroll(-1, "units")
+        elif event.num == 5 or getattr(event, 'delta', 0) < 0:
+            self.canvas.yview_scroll(1, "units")
+
     def get_canvas_coords(self, event):
         x = self.canvas.canvasx(event.x)
         y = self.canvas.canvasy(event.y)
@@ -244,8 +283,38 @@ class PDFCropperApp:
         try:
             pix = page.get_pixmap(matrix=matrix, clip=clip_rect)
             
-            timestamp = int(time.time() * 1000)
-            out_filename = os.path.join(save_dir, f"page_{self.current_page + 1}_{timestamp}.png")
+            img_type = self.combo_type.get().strip()
+            img_chap = self.entry_chapter.get().strip()
+            img_seq = self.entry_seq.get().strip()
+            
+            custom_name = ""
+            if img_type or img_chap or img_seq:
+                if img_chap and img_seq:
+                    custom_name = f"{img_type} {img_chap}.{img_seq}".strip()
+                elif img_chap:
+                    custom_name = f"{img_type} {img_chap}".strip()
+                elif img_seq:
+                    custom_name = f"{img_type} {img_seq}".strip()
+                else:
+                    custom_name = img_type
+
+            if custom_name:
+                import re
+                safe_name = re.sub(r'[\\/*?:"<>|]', "", custom_name).strip()
+                out_filename = os.path.join(save_dir, f"{safe_name}.png")
+                counter = 1
+                while os.path.exists(out_filename):
+                    out_filename = os.path.join(save_dir, f"{safe_name}_{counter}.png")
+                    counter += 1
+                
+                # Auto increment sequence if it's a number
+                if img_seq.isdigit():
+                    self.entry_seq.delete(0, tk.END)
+                    self.entry_seq.insert(0, str(int(img_seq) + 1))
+            else:
+                timestamp = int(time.time() * 1000)
+                out_filename = os.path.join(save_dir, f"page_{self.current_page + 1}_{timestamp}.png")
+                
             pix.save(out_filename)
             
             # Flash the rectangle to indicate success

@@ -766,6 +766,7 @@ Bạn làm việc cho một tổ chức phi lợi nhuận ở Washington D.C., c
 Hãy mô tả ngắn gọn những gì bạn sẽ đề xuất cho từng bước trong quy trình phân tích dữ liệu, sau đó áp dụng hai yếu tố tư duy phản biện vào mỗi bước được liệt kê. (Tương tự như bảng trong EX 1.7)
 
 ### Tình huống Ứng dụng Chuyên môn: Cơ sở Trông trẻ Little Tots (Professional Application Case: Little Tots Daycare)
+> 📥 **Dữ liệu thực hành:** Tải file [LittleTots_Financials.csv](../TaiLieu/Datasets/LittleTots_Financials.csv) để thực hiện bài tập này.
 
 Little Tots Day Care hoạt động ở Roswell, Georgia, một vùng ngoại ô của Atlanta. Đây là một cơ sở giữ trẻ quy mô vừa phục vụ trẻ em từ ba tháng đến sáu tuổi. Cơ sở này tự hào về việc cung cấp một môi trường an toàn và an ninh, nơi các bậc phụ huynh cảm thấy con cái của họ được chăm sóc và an toàn. Thị trường giữ trẻ rất cạnh tranh, với hơn 20 cơ sở được cấp phép ở Roswell. Little Tots đã mở cửa vào tháng 6 năm 2023 và đã chứng kiến sự tăng trưởng ổn định kể từ đó. Như hình ảnh trực quan sau đây cho thấy, họ đã hoạt động thua lỗ trong năm đầu tiên mở cửa nhưng đã tăng lợi nhuận đáng kể trong năm vừa qua.
 

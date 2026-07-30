@@ -1,0 +1,524 @@
+LEARNING OBJECTIVE ➌
+Explain how an analysis strategy is designed.
+Consider these two questions when designing a data analysis strategy:
+	 1.	 Can the chosen analysis strategy answer the specific objective questions?  
+	 2.	 Is the measurement scale of the data appropriate for the selected analysis strategy?
+Earlier in this course you learned there are four types of data analysis objectives: descriptive, 
+­diagnostic, predictive, and prescriptive. Each asks different questions of the data. We perform 
+analyses to answer those ­questions. The specific analysis that can be performed on the data 
+is influenced by the data’s measurement scales. Next, we summarize what to consider when 
+designing analyses for projects with descriptive and diagnostic objectives.
+Designing Analyses to Describe and Diagnose
+Because understanding the phenomena captured by the data is essential, many data analysis 
+projects begin with descriptive analyses. Diagnostic analytics involve many of the same anal-
+yses as descriptive, but the focus is on explaining why something happened. Because many 
+types of analyses can be both descriptive and diagnostic, it makes sense to discuss these two 
+analysis strategies together.
+The specific type of descriptive and diagnostic analysis used depends on the measure-
+ment scale of the data. For example, calculating the median observation in the data requires 
+using either interval or ratio measures. Illustration 4.14 shows some analysis strategies for 
+descriptive and diagnostic objectives (checkmarks indicate appropriate analyses, and Xs indi-
+cate analyses that are inappropriate for the measurement scale).
+ILLUSTRATION 4.14  Analyses Strategies for Descriptive and Diagnostic Analytics
+Potential Analyses
+Data Measurement Scale
+Categorical
+Ordinal
+Interval
+Ratio
+Central Tendency
+Mode
+Median
+Mean
+Frequency Distributions
+Both counts and %s:
+Group frequency
+Cumulative frequency
+Relative frequency
+(Continued)
+--- PAGE 19 ---
+4-18  CHAPTER 4  Planning Data and Analysis Strategies
+Potential Analyses
+Data Measurement Scale
+Categorical
+Ordinal
+Interval
+Ratio
+Data Dispersion
+Minimum, maximum, range, quartiles
+Variance and standard deviation
+Normality, skewness, and kurtosis tests
+Visualizations
+Only bar and pie chart
+Many other trends options
+Histograms/box plots
+Correlation
+Scatterplots, Pearson’s R
+Cross tabulation analysis
+Calculations
+Totals and subtotals
+Percent change
+Percent of total
+Regression
+Descriptive Analysis Strategies
+Recall that accounting data are historic economic transaction and valuation data. Accoun-
+tants, business managers, and regulators all want to know more about what happened and 
+whether the data signals good or concerning news, so descriptive analyses are the most com-
+mon analysis strategies using accounting data. It is useful for evaluating strategy performance 
+because it provides more meaning and business intelligence than from just looking, for exam-
+ple, at the totals reported on one year’s financial statements.
+Let’s work through an example using the using the WeMakeIt Inc. accounts receivable data 
+set to illustrate the explanatory power of descriptive analysis even when using categorical data. 
+Recall that the objective for this analysis was to become more confident in the percentages 
+used for estimating bad debts. The initial descriptive analysis results indicated a large increase 
+in the number of customers with open invoices at the 2025 year end compared to the 2024 year 
+end. This analysis had been designed to answer two descriptive questions:
+•	Objective question 1: How many customers had outstanding invoices at the year end 
+of 2024?
+•	Objective question 2: How many customers had outstanding invoices at the end of 2025?
+A data strategy and an analysis strategy were developed:
+•	Data strategy: Use the categorical variable of CustomerNumber to identify customers 
+with outstanding balances.
+•	Analysis strategy: Count and compare the frequency of unique customer numbers with 
+outstanding invoices at the year-end of 2024, and then repeat the analysis for the 2025 
+year-end. Note that both count and frequency are analyses that can be performed on cat-
+egorical data.
+ILLUSTRATION 4.14  (Continued)
+--- PAGE 20 ---
+4.3  What Should We Consider When Selecting an Analysis?   4-19
+ILLUSTRATION 4.15  
+Outstanding Invoices by Customer 
+Number 
+Number of Customers
+with Outstanding Invoices
+at 2024 and 2025 Year-Ends
+Number of
+Customers
+0
+10
+20
+30
+40
+60
+50
+2024
+2025
+37
+37
+52
+The results indicated that in 2024 there were 37 unique customer numbers with outstanding 
+invoices, and in 2025 there were 52 unique customers numbers with outstanding invoices. 
+Next, we discuss diagnostic analysis strategies.
+APPLYING CRITICAL THINKING 4.5: Be Careful Interpreting 
+Initial Results
+You might initially conclude that accounts receivable in 2025 has the potential for higher col-
+lectability risk simply because there were more customers with outstanding invoices in 2025 
+than in 2024. However, this initial judgment may be affected by internal assumptions and biases 
+(Risks):
+•	 The 2025 increase in the number of customers with outstanding balances may not be a nega-
+tive result, as the company grew and added new customers in 2025.
+•	 These results may motivate you to evaluate alternative explanations and perform new analyses, 
+such as determining if the 2025 customer numbers with outstanding invoices at year end had 
+more invoices owed in 2025 than in 2024, or if the value of their outstanding balances were high-
+er in 2025, possibly signaling a cash liquidity concern This result is more closely relevant to our 
+company’s accounts receivable risks of uncollectability (Alternatives).
+Diagnostic Analysis Strategies
+Diagnostic analysis strategies can be compared to detective work. Accountants can use these 
+analysis strategies to identify and discover the most likely causes of accounting phenomena. 
+While both descriptive and diagnostic analysis strategies are descriptive techniques, diagnos-
+tic analysis strategies also identify what factors have caused the lower sales revenues or the 
+higher costs, for example. Diagnostic strategies always require applying critical thinking skills.
+Stakeholders rely on accountants across accounting practice areas to diagnose what is 
+happening and explain, typically in non-accounting terms, why it is happening. For instance, 
+systems accountants often use error dispersion data to identify system performance issues or 
+unusual activity data that may indicate unauthorized party access.
+Let’s use the WeMakeIt Inc. accounts receivable data set again, this time to illustrate diag-
+nostic analysis: 
+•	New objective question: Do the returning credit customers have more outstanding 
+invoices at the 2025 year-end than they had outstanding at the 2024 year-end?
+•	Data strategy: Once again, use the data set for the 2024 and 2025 year-end accounts 
+receivable open invoices.
+•	Analysis strategy: Group the data by CustomerNumber for this question.
+Illustration 4.15 reports the results of this analysis.
+--- PAGE 21 ---
+4-20  CHAPTER 4  Planning Data and Analysis Strategies
+To answer this question, we may choose to create a new, calculated ordinal variable (recall 
+that a variable is a data item that will be used in the analysis). This variable will group credit 
+customers into increasing ranges based on the number of invoices they have outstanding at 
+year-end. There are some benefits to this strategy:
+•	Changing a continuous variable into ordinal ranges results in meaningful groupings 
+rather than a simple count of the number of invoices outstanding per customer.
+•	The new ordinal variable allows a better understanding of the overall results of the num-
+ber of outstanding invoices in total.
+Let’s create three levels for outstanding invoices: ranges of 1-3 invoices, 4-6 invoices, and 7-9 
+invoices as the new ordinal variable levels. Illustration 4.16 provides a visualization of the 
+results of this analysis strategy. ( Data How To 4.2 describes how to recreate this visualization 
+with a different tool.)
+How To
+ILLUSTRATION 4.16  Frequency 
+of Customers with Outstanding 
+Balances
+Number of Outstanding Invoices
+Number of
+Customers
+1–3
+48
+7
+2
+2
+3
+4–6
+7–9
+Number of Customers with Outstanding
+Invoices in 2024 and 2025
+0
+20
+40
+60
+2024
+2025
+27
+The results of this second analysis show that the number of customers with 4-6 and 7-9 
+­outstanding invoices had decreased in 2025 compared to 2024. However, there are almost 
+twice as many customers with 1-3 past due invoices in 2025 compared to 2024. These results 
+are mixed news for concerns about future accounts receivable collectability risks.
+This surprise finding is a good reminder about the importance of critical thinking and 
+deliberation about the initial analysis results. Thinking critically when interpreting anal-
+ysis results involves evaluating both the analysis strategies performed and not performed. 
+Skeptically questioning data analysis strategies can provide valuable insights, as this final 
+analysis did.
+APPLYING CRITICAL THINKING 4.6: Controls for Risks 
+to Analysis Strategies
+Depending on the objective of the project, analysis strategies can involve a diverse mix of vari-
+ables with different sources and measurement scales. Simply adding variables and complexi-
+ties to analysis choices without justification can lead to information overload, which can impair 
+your judgement. For example, sales forecasts might involve fewer variables in industries such 
+as agriculture, as food demand is more stable, than for airlines, as travel is more discretionary. 
+Professional risk-reducing habits include (Risks):
+•	 Keeping analysis as simple as possible by including the fewest yet most relevant variables.
+•	 Documenting each step, especially the benefits and drawbacks of each choice as you develop, 
+evaluate, and choose an analysis strategy (Alternatives).
+The process for analyzing WeMakeIt, Inc.’s accounts receivable, whether descriptive or diag-
+nostic, involves an approach that can be used for most analysis strategies in accounting:
+•	Start with a clear objective and specific questions that should be answered.
+--- PAGE 22 ---
+4.3  What Should We Consider When Selecting an Analysis?   4-21
+•	Develop data alternatives, evaluate each on factors related to the objective, and select the 
+best data strategy. Filter the data set down to the variables and ranges of interest necessary 
+for the objective.
+•	The best analysis strategies typically create new calculated within-row variables necessary 
+for the analysis. These new calculated variables can be categorical groupings, ordinal rank-
+ings, interval measures, and ratio variables. Remember that relevant groupings can make 
+it easier to interpret results.
+•	Calculate any vertical analysis measures necessary, such as totals, frequencies, averages, 
+and measures of dispersion across the rows in the data set.
+•	Finally, the analysis variables can be correlated or sliced by dimension variables to add 
+insights from disaggregating the vertical measure total.
+Descriptive and diagnostic analyses help to better understand what happened and why it 
+­happened. What if the objective is to predict a future outcome or determine what strategies 
+might achieve a specific outcome? In those cases, we need to use predictive or prescriptive 
+analyses, which are explained next.
+Designing Analyses to Predict and Prescribe
+Predictive analysis strategies use historical data to create models that estimate a future value 
+or outcome. Prescriptive analysis strategies, on the other hand, help determine which option 
+is most likely to produce the best outcome given the objective. Predictive and prescriptive 
+analysis strategies can determine the best use of resources, improve performance, anticipate 
+market reactions and movements, and avoid process breakdowns:
+•	Accountants commonly use these analysis strategies to evaluate tax planning options, 
+operational and marketing strategy options, financing options, investment options, and 
+exit strategy options.
+•	Industries with these analysis objectives include lending institutions that want to avoid 
+bad credit decisions and insurance companies that must anticipate natural disasters and 
+disease onset so they can adjust business models before crises that cause their businesses 
+to suffer happen.
+Illustration 4.17 summarizes the most common predictive and prescriptive analysis strat-
+egies used by accountants that do not involve advanced technology tools. The green check-
+marks indicate appropriate analyses, and the red x’s indicate inappropriate analyses. As the 
+illustration shows, there are not many predictive or prescriptive models for categorical and 
+ordinal scale variables unless they are used in models in which interval or ratio scale variables 
+are desired for the prediction.
+ILLUSTRATION 4.17  Analyses Strategies for Predictive and Prescriptive  
+Analytics
+Trendlines
+Regression analysis (linear)
+Optimization models
+What-if analyses
+Ratio
+Categorical
+Potential Analyses
+Data Measurement Scale
+Ordinal
+Interval
+= inappropriate analysis for the scale
+Both predictive and prescriptive analysis strategies often use statistics and sophisticated 
+modeling techniques for their algorithms:
+•	Common tools for this include statistical regression, time series analyses, process min-
+ing and mapping, text analysis, artificial intelligence models, data mining, mathematical 
+modeling, complex simulations, and what-if sensitivity analysis modeling.
+•	These models train themselves by leveraging patterns, relationships, and structures 
+within the existing data to accurately anticipate future conditions and outcomes.
+--- PAGE 23 ---
+4-22
+CHAPTER 4 Planning Data and Analysis Strategies
+ The key to designing predictive or prescriptive strategies is to select data that will have the best 
+potential to inform the predictive or prescriptive objective questions:
+• If the goal is to predict next year’s production equipment maintenance expense, data 
+that  helps explain the expected amount or increases or decreases in maintenance 
+expenses are necessary. In other words, what variables drive changes in maintenance 
+expense? Once those variables are identified, the related data can be selected and 
+prepared for analysis.
+• If we believe production level impacts maintenance expense, then include a data variable 
+for the number of products produced, a measure of the most common levels of produc-
+tion, or a measure of whether production is expected to increase or decrease from current 
+levels. 
+ Suppose the WeMakeIt’s auditors are testing the assumptions used to create the balance in the
+the company’s allowance for doubtful accounts. The auditors developed a model that included 
+three variables that might impact whether the invoices would be collected on time. The model 
+predicts how many days outstanding an invoice may be based on the invoice amount, if they 
+are a new (1) or existing customer (0), and the credit period allowed on their invoice. The 
+result of the regression model is provided in  Illustration 4.18 . 
+ ILLUSTRATION 4.18  Prediction Model for Accounts Receivable Days Outstanding
+Multiple R
+R Square
+Adjusted R Square
+Standard Error
+Observations
+ANOVA
+0.825790307
+0.681929631
+0.681542056
+3.549920129
+2466
+df
+SS
+MS
+F
+66518.36434
+31025.95885
+Regression
+Residual
+Total
+3
+2462
+2465
+97544.3232
+22172.78811
+12.60193292
+1759.475173
+0.0000
+0.670515711
+0.000903172
+Intercept
+InvoiceAmount
+New or Existing Customer
+Credit Period in Days
+−7.961650225
+0.000829906
+1.535043063
+0.189912705
+8.082887691
+−11.87392047
+0.918879698
+9.81036E-16
+0.395420024
+0.006452145
+61.28504622
+0.000
+0.358248513
+1.16228E-31
+Significance F
+Coeﬀicients
+Standard Error
+t Stat
+P-value
+Regression Statistics
+ This model reveals that these variables (invoice amount, new or existing customer, and credit 
+period) explain about 68% of the change in days outstanding for a customer (adjusted R-square). 
+The model is significant with a Significance F of less than 0.05. The negative intercept corrects 
+the model’s predictions by almost 8 days because customers rarely pay within the first week 
+when they are offered an interest free period of time to pay their invoices. The significance of 
+the intercept indicates that the mere existence of a credit period is a variable that impacts the 
+number of days customers take to pay their invoices. With this model, the auditors can now
+predict that a new customer with a $900 invoice and 60 days to settle will take about 16.5 days 
+to make their payment:
+−7.9617 +  $ 900  ( 0.0008 ) +  1 ( 1.5350 ) +  60 ( 0.3954 ) =  16.48  days 
+ Analysis Strategy Risks and Suggested Controls
+ The last two steps of a data analysis plan are to consider risks inherent to the data and analysis 
+strategies and to put in place controls to reduce those risks.  Illustration 4.19 captures the 
+most common risks that accountants face when analyzing data. 
+--- PAGE 24 ---
+4.3  What Should We Consider When Selecting an Analysis?   4-23
+ILLUSTRATION 4.19  Common Analysis Risks and Recommended Controls 
+Analysis
+Risk
+Control
+The analysis is not appropriate for the variable’s
+measurement scales.
+The sample size is too small to allow for
+accurate inferences.
+Insuﬀiciently trained prediction and
+classification models.
+The sample is not representative.
+Confounding variables are interfering with the
+reliability of the information models.
+The omission of relevant variables, or variables that
+are unknown and not controlled for, resulting in less
+reliable modeling.
+Uncorrected and uncontrolled dirty data issues, such
+as errors, empty fields, outlier data points, and data from
+diﬀerent levels of quality sources.
+Insuﬀicient knowledge about or experience in performing
+the analysis strategy or interpreting the results.
+Poorly made or misleading visualizations.
+Failing to address the underlying uncertainties in
+the context.
+Review whether the analysis is appropriate for variables’
+measure scales. Change analysis strategy if needed.
+Test the reasonableness of sample with descriptive
+analyses.
+Perform the analysis with and without the confounding
+variable to test for explanatory power diﬀerences.
+Add available proxies for the missing variables to see if
+the model’s explanatory power increases.
+Properly prepare the data before starting the analysis.
+(Data preparation is explained in the next chapter.)
+Acquire proper training or work with a team that has
+more collective knowledge.
+Perform descriptive analyses to compare and augment
+the visualization. Use visualization best practices.
+Perform sensitivity analysis on all assumptions used
+in the analysis decisions.
+Gather more data to meet the model’s minimum data
+points and assumptions, or select data analyses that do
+not require large samples.
+Include more data to train the models and fully verify
+their accuracy before using them on the test data.
+It is critical to consider these risks during analysis strategy planning and to add controls to 
+help mitigate them. Without those controls we risk preparing, interpreting, and reporting 
+incorrect analyses results, possibly causing ourselves or our stakeholders to make harmful 
+decisions. Now that we have worked through the process of choosing the best data and analy-
+sis strategies, let’s examine how accountants do this in professional practice.
+Financial Accounting   Tremendous Toys has implemented a database to capture inventoriable 
+costs from their production each week. Data from the following data fields have been extracted, not-
+ing each field’s data type and measurement scale.
+Field Name
+Field Type
+Field Measurement Scale
+ProductionRunNumber
+Non-measured raw data
+Categorical (Nominal)
+ProductionRunDate
+Non-measured raw data
+Interval
+NumberOfToysinRun
+Measured raw data
+Ratio
+ToyIDNumber
+Non-measured raw data
+Categorical (Nominal)
+DirectMaterialsUsed
+Measured raw data
+Ratio
+DirectLaborUsed
+Measured raw data
+Ratio
+OverheadCostApplied
+Calculated data
+Ratio
+TotalRunCost
+Calculated data
+Ratio
+TotalUnitCost
+Calculated data
+Ratio
+Apply It 4.3
+Create a Predictive 
+Data Analysis 
+Project Plan
+--- PAGE 25 ---
+4-24  CHAPTER 4  Planning Data and Analysis Strategies
+Using this production data, as well as the sales data for how many toys of each type were sold each 
+month for the last three years, create a predictive data analysis project plan that will estimate Tremen-
+dous Toy’s year-end inventory valuation at the end of the next fiscal year. Your project plan should 
+address the following:
+	 1.	Project objective and specific questions
+	 2.	Data strategy
+	 3.	Analysis strategy
+	 4.	Risks in data and analysis strategies 
+	 5.	Controls for data and analysis strategies 
+SOLUTION
+	 1.	Project objective
+	
+	 Specific questions
+•	 Accurately predict the next year-end’s inventory value.
+•	 How many units are predicted to be in inventory at the 
+next year end? What is the predicted unit cost for each toy 
+type at the end of next year?
+	 2.	Data strategy
+•	 Data from the last three years of Tremendous Toys’ pro-
+duction records will be extracted and prepared for anal-
+ysis regarding materials costs, labor costs, and overhead 
+charges. 
+•	 The sales units data by toy type for the last three years will 
+be extracted, cleaned for missing, duplicate, and outlier 
+data errors, and aggregated by month. This results in 36 
+data points for the monthly unit sales of each toy type.
+•	 A calculated variable for average monthly cost for each toy 
+type will need to be created using the NumberofToysin-
+Run and TotalRunCost fields. First, this data must be 
+aggregated by month. Then, for each toy in each month, 
+the total monthly production cost should be divided by 
+the total number of toys produced to calculate the average 
+toy cost per month for each toy type. The result will be 
+36 data points for the monthly average cost for each type 
+of toy.
+	 3.	Analysis strategy
+•	 The December sales in units can be estimated by running 
+a regression on each month’s unit sales. 
+•	 A calculated variable must be created for each month’s 
+ending inventory units for each toy type, resulting in 36 
+data points for each toy. This variable’s formula is: begin-
+ning inventory units + monthly toys produced − monthly 
+units sold. (You can assume that this business started 
+three years ago with no beginning inventory.)
+•	 The December year-end ending inventory in units can be 
+estimated by running a regression on the monthly ending 
+inventory units for each toy type. 
+•	 The December year-end average cost per toy can be esti-
+mated by running a regression on the average monthly 
+costs per toy. 
+•	 To calculate the total December ending inventory val-
+uation, the December ending inventory units for each 
+toy should be multiplied by its corresponding estimated 
+December average cost. Then these total costs per toy must 
+be added for the total December year end inventory value. 
+(Continued)
+--- PAGE 26 ---
+4.4  How Do Data and Analysis Strategies Differ Across Practice Areas?  4-25
+	 4.	Risks to data strategy 
+	
+	 Risks to analysis strategy 
+•	 There may be missing, duplicated, or erroneous data in 
+the fields selected for analysis.
+•	 Costs may have changed over the three years due to sea-
+sonality, changes in vendors, and inflation. 
+•	 Calculations may contain errors.
+	 5.	Data strategy controls
+	
+	 Analysis strategy controls
+•	 Perform data cleaning tests to find and correct missing 
+data, duplicates, and errors that result in outlier data 
+points. 
+•	 Compare the unit cost and sales per month to determine 
+if an inflation factor, seasonality, or other changes have 
+occurred. If data shifts are noticed, their cause and perma-
+nence should be verified by speaking with the employees 
+who would know the answers. 
+•	 Each of the calculations performed should be verified, as 
+well as the averaging calculations.
+•	 Regression analyses can be verified by making visual-
+izations of the three years of monthly data points and 
+visually inspected for agreement with the regression 
+estimations.
+4.4  How Do Data and Analysis Strategies 
+Differ Across Practice Areas?

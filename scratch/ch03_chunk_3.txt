@@ -1,0 +1,316 @@
+--- PAGE 15 ---
+3-14  CHAPTER 3  Motivations and Objectives for Data Analysis
+Diagnostic Analyses Examples
+There are four common types of diagnostic analyses: anomaly detection, correlation, pattern 
+detection, and trend analysis.
+Using the Super Scooters questions in Illustration 3.11, let’s examine these sub-questions:
+	 1.	 Are there identifiable patterns in sales volume for the Celeritas model?
+	 2.	 Are there unusual patterns in the Seattle location’s Celeritas model sales? 
+Line charts can identify patterns by revealing repeating patterns in the data. Illustration 
+3.12 shows Celeritas sales by month for each year.
+ILLUSTRATION 3.12  Celeritas Sales Volume Patterns
+2,000
+1,800
+1,600
+1,400
+1,200
+1,000
+800
+600
+400
+200
+0
+Q1
+Q2
+Sales
+Volume
+Celeritas Sales Volume Pattern: 2023–2025
+Quarters of Sales Data
+Q3
+Q4 Q1
+Q2
+Q3
+Q4 Q1
+Q2
+Q3
+Q4
+2023
+2024
+2025
+The line charts in Illustration 3.12 do not appear to show a pattern in sales volume 
+for the Celeritas model. However, the line chart shows all locations, and previous analyses 
+revealed the Seattle location had a drop in Celeritas sales.
+The sales pattern in years 2023 and 2025 indicate that sales generally increase from the 
+first quarter to the third quarter:
+•	In 2023 there is a drop in sales in the fourth quarter, but 2024 and 2025 saw an increase 
+in fourth quarter sales.
+•	However, 2025 sales are below 2024 sales, and there was a large drop in the third quarter.
+To understand why sales are lower in 2025 and why there was a drop in the the third quarter 
+of 2025, we must further analyze sales volume by location.
+Illustration 3.13 shows an analysis examining monthly sales of the Celeritas at the Seat-
+tle location.
+
+
+--- PAGE 16 ---
+3.3  What are Diagnostic Objectives?  3-15
+ILLUSTRATION 3.13  Seattle 
+Location’s Monthly Celeritas  
+Sales – 2025
+Sales
+Volume
+115
+Celeritas 2025 Monthly Sales Volume: Seattle
+105
+95
+85
+75
+65
+55
+45
+35
+25
+15
+Jan.
+Feb.
+2025 (Months)
+Mar.
+Apr.
+May
+Jun.
+Jul.
+Aug.
+Sep.
+Nov.
+Oct.
+Dec.
+5
+The column chart of Celeritas sales over 2025 shows one thing and suggests another:
+•	In 2025 there are several months with no sales.
+•	This could be a contributing factor to the decline in overall Celeritas sales in 2025.
+The next step would be asking management what happened in March 2025 that led to six 
+months without any sales of the Celeritas model. This also raises additional questions to 
+investigate:
+•	Did sales drop at the Seattle location only?
+•	Was the Celeritas model the only product with declining sales?
+This investigative process is called exploratory data analysis, which you learn about later in 
+this course.
+Apply It 3.3
+Determine the  
+Risk of Material 
+Misstatement of Sales
+Data   Auditing   During the Best Bakes Bakery financial statement audit, you have been asked to 
+determine if there are unusual changes in sales from prior years that might affect risks of material 
+misstatement. You have been given an excerpt of the transactions in an Excel file so that you know 
+the data available.
+101
+101
+101
+521121 Bluebird Cafe
+Bluebird Cafe
+Bluebird Cafe
+Bluebird Cafe
+Bluebird Cafe
+Bluebird Cafe
+Walrus Ice Cream
+521121
+101
+521121
+521121
+101
+521121
+101
+521121
+(720) 296–2323
+(720) 296–2323
+(720) 296–2323
+(720) 296–2323
+(720) 296–2323
+(720) 296–2323
+102
+521425
+(303) 674–0930
+SalesOrder
+Number
+Customer
+Number
+80521
+80521
+80521
+80521
+80521
+80521
+80521
+Customer
+ZipCode
+CO
+CO
+CO
+CO
+CO
+CO
+CO
+Customer
+State
+Customer
+Phone
+Customer
+Name
+524 W Laurel St
+524 W Laurel St
+524 W Laurel St
+524 W Laurel St
+524 W Laurel St
+524 W Laurel St
+125 W Mountain Ave
+Fort Collins
+Fort Collins
+Fort Collins
+Fort Collins
+Fort Collins
+Fort Collins
+Fort Collins
+Customer
+Address
+Customer
+City
+853200
+853300
+853600
+Caramel Apple
+2/19/2022
+2/19/2022
+2/19/2022
+2/19/2022
+2/19/2022
+2/19/2022
+3/10/2022
+Poppyseed Bagel
+853500
+Cheesecake Bite
+Chocolate Chip Cookie
+853800
+Blueberry Scone
+853900
+Raspberry Scone
+$ 57.60
+$ 68.40
+$ 45.00
+$ 34.50
+$ 63.60
+$    6.50
+853100
+Cinnamon Bun
+$ 34.80
+0.160193
+0.333333
+Inventory
+Code
+Inventory
+Description
+Profit
+SalesOrder
+Date
+36
+24
+25
+30
+24
+10
+24
+$ 3.45
+$ 4.85
+$ 3.40
+$ 3.20
+$ 4.10
+$ 4.05
+$ 4.35
+SalesOrder
+Quantity
+Inventory
+Price
+$ 124.20
+$ 116.40
+$   85.00
+$   96.00
+$   98.40
+$   40.50
+$ 104.40
+Gross
+Sales
+$ 1.85
+$ 2.00
+$ 1.60
+$ 2.05
+$ 1.45
+$ 3.40
+$ 2.90
+Inventory
+Cost
+$ 66.60
+$ 48.00
+$ 40.00
+$ 61.50
+$ 34.80
+$ 34.00
+$ 69.60
+$ 66.60
+$ 48.00
+$ 40.00
+$ 61.50
+$ 34.80
+$ 34.00
+$ 69.60
+0.463768
+0.587629
+0.529412
+0.359375
+0.646341
+Profit
+Margin
+Costof
+GoodsSold
+
+
+--- PAGE 17 ---
+3-16  CHAPTER 3  Motivations and Objectives for Data Analysis
+1.	 What is the objective of the analysis?
+2.	 Develop three questions relevant to the objective, and state the measures necessary to answer 
+them.
+3.	 What analyses will you use to answer these three questions?
+SOLUTION
+1.	 The objective is to analyze the transactions from 2022 to 2025 for unusual changes. The anal-
+ysis will provide the auditor with information to determine the nature, timing, and extent of 
+audit procedures.
+2.
+Questions
+Measures
+	 1.	Are there any unusual changes in total 
+revenue over the years 2022–2025?
+Quarterly gross sales
+	 2.	Are there any unusual changes in total 
+revenue over the years by location?
+Quarterly gross sales
+	 3.	Are there any unusual changes in revenue 
+by product over the years?
+Sales volume by product
+3.	 Anomaly, pattern, and trend analyses can be prepared to answer the questions.
+3.4  What are Predictive Objectives?
+LEARNING OBJECTIVE ➍
+Demonstrate how to develop predictive questions.
+So far, you have learned how to develop descriptive questions to find out what happened in the 
+past and diagnostic questions to understand why. What if you want to know what may happen 
+in the future? In this case, you would ask predictive questions.
+Develop Predictive Questions
+When making loan decisions, banks use historical information about whether a potential 
+borrower pays bills consistently and on time to predict if they will continue to do so. In the 
+same way, predictive analytics use past and present data to create models so businesses can 
+make predictions.
+The use of predictive analytics is not new in the accounting profession, but as the avail-
+ability of data and software tools to perform predictive analytics has increased, so has per-
+forming these analytics in all areas of accounting:
+•	Financial accountants can identify trends in sales or expenses.
+•	Cost accountants can predict costs, create forecasts, and evaluate cost drivers.
+•	Auditors identify potential material misstatements using predictive analytics.
+•	Tax accountants may use predictive analytics for tax planning.
+
+

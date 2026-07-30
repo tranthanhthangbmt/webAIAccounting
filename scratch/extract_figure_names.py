@@ -3,6 +3,7 @@ import glob
 import re
 import csv
 import sys
+
 try:
     import easyocr
 except ImportError:
@@ -11,11 +12,8 @@ except ImportError:
 
 def sanitize_filename(name):
     """Remove invalid characters for Windows filenames."""
-    # Remove invalid characters
     name = re.sub(r'[\\/*?:"<>|]', "", name)
-    # Replace newlines and extra spaces with a single space
     name = re.sub(r'\s+', " ", name)
-    # Strip leading/trailing spaces
     name = name.strip()
     return name
 
@@ -25,19 +23,14 @@ def extract_figure_name(text_list):
     Looks for keywords like Figure, Exhibit, Table.
     """
     full_text = " ".join(text_list)
-    
-    # Try to find patterns like "Figure 1.1: Some text" or "FIGURE 1.1 Some text"
-    # We look for a keyword, followed by optional spaces, numbers/dots, and then text.
     match = re.search(r'(Figure|Exhibit|Table|FIGURE|EXHIBIT|TABLE)\s*\d+[\.\-]?\d*\s*[:\-]?\s*([A-Za-z0-9\s]+)', full_text, re.IGNORECASE)
     
     if match:
-        # Return the whole matched phrase up to maybe 50 chars to avoid capturing whole paragraphs
         extracted = match.group(0)
         if len(extracted) > 60:
             extracted = extracted[:60] + "..."
         return extracted
         
-    # If no regex match, just return the first few words of the first text block
     if text_list:
         fallback = text_list[0]
         if len(fallback) > 30:
@@ -48,8 +41,7 @@ def extract_figure_name(text_list):
 
 def process_directory(target_dir):
     print(f"Initializing EasyOCR for English...")
-    # Initialize reader for English
-    reader = easyocr.Reader(['en'], gpu=False) # Use CPU since we checked torch cpu version
+    reader = easyocr.Reader(['en'], gpu=False)
     
     image_files = glob.glob(os.path.join(target_dir, "*.png"))
     image_files.extend(glob.glob(os.path.join(target_dir, "*.jpg")))
@@ -64,11 +56,16 @@ def process_directory(target_dir):
     print(f"Found {len(image_files)} images. Starting OCR process...")
     for idx, img_path in enumerate(image_files):
         filename = os.path.basename(img_path)
+        
+        # Skip files that have already been named (don't start with 'page_')
+        if not filename.startswith("page_"):
+            print(f"[{idx+1}/{len(image_files)}] Skipping already named file: {filename}")
+            continue
+            
         print(f"[{idx+1}/{len(image_files)}] Processing {filename}...")
         
         try:
-            # Read text from image
-            result = reader.readtext(img_path, detail=0) # detail=0 returns just the text list
+            result = reader.readtext(img_path, detail=0)
             extracted = extract_figure_name(result)
             proposed_name = sanitize_filename(extracted) + os.path.splitext(filename)[1]
             
@@ -85,7 +82,6 @@ def process_directory(target_dir):
                 "Proposed_Filename": filename
             })
 
-    # Write to CSV
     with open(csv_path, 'w', newline='', encoding='utf-8') as f:
         writer = csv.DictWriter(f, fieldnames=["Original_File", "Extracted_Text", "Proposed_Filename"])
         writer.writeheader()
@@ -94,7 +90,6 @@ def process_directory(target_dir):
     print(f"\nDone! Please review the mapping file at:\n{csv_path}")
 
 if __name__ == "__main__":
-    # Default to Ch_01 if no argument provided
     base_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "TaiLieu", "textbookForPractice", "Figures")
     target = os.path.join(base_dir, "Ch_01")
     

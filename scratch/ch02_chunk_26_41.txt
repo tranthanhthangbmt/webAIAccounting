@@ -1,0 +1,1181 @@
+--- PAGE 26 ---
+2.4  Which Descriptive Measures Help Us Understand Data? 
+2-25
+	 2.	 Begin by dragging the fields: Model to Rows, Gross Sales to Values, and Year to Filters. 
+Change the Sum of Gross Sales to Average by opening Value Field Settings and choosing 
+Average. In the year filter, select 2025.
+Row Labels
+Average of Gross Sales
+Captain
+Celeritas
+Kicks
+Lazer
+$ 15,855.84
+$   4,977.54
+$   2,760.45
+$   7,981.45
+$  9,098.85
+Grand Total
+Year
+2025
+	 3.	 Choose the following fields: Years to Rows, Revenue to Values.
+Year
+Sum of Total Revenue
+2023
+2024
+2025
+$      1,827,384.78
+$      4,086,546.19
+$      4,745,563.32
+$ 10,659,494.29
+Grand Total
+2.4  Which Descriptive Measures Help Us 
+Understand Data?
+LEARNING OBJECTIVE ➍
+Identify descriptive measures used to perform data analysis.
+You have learned how to identify and retrieve data and some basic approaches to analyzing it. 
+Earlier in the course, you also learned that there are four types of data analytics:
+•	Descriptive
+•	Diagnostic
+•	Predictive
+•	Prescriptive
+Recall that descriptive analytics help reveal what has happened or is currently happening 
+in the data. Why are descriptive analytics considered central to data analytics? Without that 
+basic understanding of the data, advancing to more sophisticated data analysis methods is 
+impossible. Sometimes descriptive analyses are all that are necessary, but more often this 
+method is the precursor for diagnostic, predictive, and prescriptive analyses. The core data 
+analysis skill for descriptive analytics is understanding descriptive statistics and correlation 
+analysis.
+
+--- PAGE 27 ---
+2-26 
+CHAPTER 2  Foundational Data Analysis Skills
+Descriptive statistics reveal average observations in the data, the data’s shape. and the 
+distribution of the data. In addition, correlation analysis can show relationships in 
+the data. Together, these statistics provide data insights.
+Measures of Location
+Measures of location determine the average, or typical, observation in the data set. 
+Mean, Median, and Mode
+A measure of central tendency is a single value that describes a set of data by identifying 
+the central position within that data set. There are three measures of central tendency:
+•	Mean: The sum of all observations in a data set divided by the total number of 
+observations.
+•	Median: The middle value when the data is arranged from smallest to largest.
+•	Mode: The observation that occurs most frequently.
+Determining the mean and median is the first step for understanding data during descriptive 
+analysis. The two measures are often similar, but because the mean can be influenced by out-
+liers (extreme values in the data set), there may be a large difference between them. If there 
+are outliers in the data, then the median is a better representation of the central value in the 
+data set.
+Mode is useful in data sets with a small number of unique values. For example, an 
+accounts receivable aging report may have values of 30, 60, and 90 days. A mode of the aging 
+report data would reveal which category has the most observations. If there are few repeating 
+values, then mode is not a useful measure of central tendency.
+Excel is used here to calculate mean and median and interpret the results, but many tools 
+can calculate mean and median values. In fact, all data visualization software can calculate 
+mean and median. Regardless of how it is calculated, two things are important:
+•	Understanding how to calculate the measures.
+•	Knowing how to interpret the results.
+Calculate Measures of Location
+We will use the university example again to illustrate how to calculate the mean, median, 
+and mode. Instead of assets, however, we will perform a descriptive analysis of the university 
+payroll.
+Data   Illustration 2.36 is an excerpt from the university payroll data set. The data set 
+shows the employee titles column and the annual salaries for all university employees (10,789 
+employees).
+
+--- PAGE 28 ---
+2.4  Which Descriptive Measures Help Us Understand Data? 
+2-27
+fx
+1
+B
+C
+Sheet1
+2
+3
+4
+6
+10790
+10791
+Program Coordinator
+Eminent Scholar
+Eminent Scholar
+Network Administrator
+Professor
+10789
+Associate Professor
+$    94,626.00
+$ 141,939.00
+5
+Assistant Professor
+$    87,454.00
+$    48,874.00
+$    23,998.00
+$    59,196.00
+$    57,633.00
+Title
+AnnualSalary
+AutoSave
+Oﬀ
+University Payroll Data
+The first two steps involve Excel functions:
+	 1.	 Calculate the mean using the Excel function AVERAGE. The formula is =­AVERAGE 
+(C2:C10790). The result is $40,065.88.
+	 2.	 Calculate the median using the Excel function MEDIAN. The formula is =­MEDIAN 
+(C2:C10790). The result is $28,276.00.
+Comparing the two measures shows a large difference between the mean and the median 
+annual salary for an employee ($11,789.88). What could cause this? Remember, mean can be 
+affected by outliers. The data can be further examined to determine if there are extremely high 
+or low salary amounts.
+	 3.	 Finally, use the Excel filter option in the data file to filter the salaries from highest to 
+lowest.
+Illustration 2.37 shows the top five salaries and the bottom five salaries.
+ILLUSTRATION 2.36  University 
+Payroll Data
+ILLUSTRATION 2.37  University 
+Salaries Highest to Lowest
+fx
+1
+A
+B
+Sheet1
+2
+3
+4
+6
+1853
+2227
+7814
+6166
+Professor
+Professor
+5
+9964
+Professor
+Professor
+$ 426,091.00
+$ 425,000.00
+$ 406,909.00
+$ 397,118.00
+Professor
+$468,675.00
+EmployeeNumber
+Top Filter: Top Five University Salaries
+Bottom Filter: Bottom Five University Salaries
+Title
+C
+AnnualSalary
+AutoSave
+Oﬀ
+fx
+1
+A
+B
+Sheet1
+2
+3
+4
+6
+1674
+3031
+5008
+6845
+Graduate Research Assistant
+Graduate Assistant
+5
+4766
+Graduate Assistant
+Professor
+$ 159.00
+$ 152.00
+$ 123.00
+Publication Graphic Artist
+$ 172.00
+EmployeeNumber
+Title
+C
+AnnualSalary
+AutoSave
+Oﬀ
+$78.00
+C2
+C6
+$ 468,675.00
+There is a large diﬀerence
+between the highest paid
+employee and the lowest
+paid employee
+$   78.00
+
+--- PAGE 29 ---
+2-28 
+CHAPTER 2  Foundational Data Analysis Skills
+Given how much higher the mean salary is compared to the median, it is likely there are 
+more salaries at lower amounts than at higher amounts. We can better understand the differ-
+ence between the mean and median salary amounts by considering how much variation is in 
+the data.
+Measures of Dispersion
+In the salary example there was a large difference between the mean and median annual 
+­salary amounts. Measures of dispersion, which describe the amount of variation in the 
+data, can help find the cause of this disparity. Are the data spread out or are they compact? In 
+other words, how far apart are all the observations, or data points, from the mean?
+Variance and Standard Deviation
+There are two widely-used measures of dispersion:
+•	Variance is the average squared distance between the data points in the data set and the mean.
+•	Standard deviation is the square root of the variance.
+Although variance is necessary to calculate standard deviation, only standard deviation is usu-
+ally reported because it is easier to interpret than variance. It is easier to understand because it 
+is in the same units as the mean. In the university payroll example, standard deviation would 
+be in dollars of annual salary.
+Calculate Measures of Dispersion
+Data   Measures of dispersion can be calculated using Microsoft Excel (Illustration 2.38).
+ILLUSTRATION 2.38  University 
+Payroll Data
+fx
+1
+B
+C
+Sheet1
+2
+3
+4
+6
+10790
+10791
+10792
+10793
+Program Coordinator
+Eminent Scholar
+Eminent Scholar
+Network Administrator
+Professor
+10789
+Associate Professor
+$    94,626.00
+$ 141,939.00
+5
+Assistant Professor
+$    87,454.00
+$    48,874.00
+$    23,998.00
+$    59,196.00
+Standard Deviation 
+Variance
+=VAR(C2:C10790)
+=STDEV(C2:C10790)
+$    57,633.00
+Title
+AnnualSalary
+AutoSave
+Oﬀ
+University Payroll Data
+Again, calculate these measures by performing calculations in Excel:
+	 1.	 Calculate the variance using the Excel function VAR. The formula is =VAR(C2:C10790). 
+The result is $1,939,797,496.92
+	 2.	 Next, calculate the standard deviation using the Excel function STDEV. The formula is 
+=STDEV(C2:C10790). The result is $44,043.13
+While there is not a practical interpretation of the variance number, there is for standard 
+deviation:
+•	A low standard deviation indicates the observations in the data set tend to be close to the 
+mean of the data set.
+•	A high standard deviation indicates the values are spread out over a wider range.
+
+--- PAGE 30 ---
+2.4  Which Descriptive Measures Help Us Understand Data? 
+2-29
+In this example a standard deviation of $44,043.14 indicates that an observation, in this case 
+an employee’s annual salary, in the data set could vary by $44,043.14 from the mean. Recall 
+that the mean is $40,068.88, so $44,043.14 would be considered a high standard deviation.
+Another way to evaluate dispersion is to use a scatterplot (also called a scatter chart) to 
+visualize the data (Illustration 2.39).
+ILLUSTRATION 2.39  University 
+Payroll Scatterplot
+$0
+$50,000
+0
+2,000
+4,000
+6,000
+Employee Number
+8,000
+10,000
+12,000
+$100,000
+$150,000
+$200,000
+$250,000
+$300,000
+$350,000
+$400,000
+$450,000
+$500,000
+Annual Salary
+University Payroll
+Salaries are widely dispersed between $0 and a little over $450,000. This visualization of 
+the data coincides with the large standard deviation of $44,043.14
+Measures of Shape
+Besides understanding the dispersion of data, it is also important to understand its distribu-
+tion, or shape. Measures of shape describe the distribution of the data in the data set. How 
+a data set is shaped can reveal the best measure of central tendency to use, or it can show 
+patterns in the data.
+Skewness and Kurtosis
+Data sets are either symmetrical or asymmetrical in shape. In a symmetrical distribution, the 
+mean, median, and mode are equal and the data distribution to the right of the mean mirrors 
+the data to the left of the mean. A symmetrical distribution will look like a bell curve in a 
+graph (Illustration 2.40).
+ILLUSTRATION 2.40  
+Symmetrical Distribution
+Mean/Median/Mode
+The distribution’s shape can be determined by graphing the data or by using two sta-
+tistical measures. Often, both are appropriate. Two measures of shape are skewness and 
+kurtosis.
+Skewness describes the lack of symmetry of data:
+•	Distributions that tail off to the right of the mean are considered positively skewed.
+•	Distributions that tail to the left of the mean are negatively skewed.
+
+--- PAGE 31 ---
+2-30 
+CHAPTER 2  Foundational Data Analysis Skills
+The coefficient of skewness (CS) measures the skewness of a distribution. If the CS is 
+negative, then the data are left skewed (tails off to the left). If the CS is positive, the data are 
+right skewed (tails off to the right). The degree of skewness can be interpreted by the absolute 
+value of the CS:
+•	|CS| > 1, high degree of skewness
+•	0.5 ≤ |CS| ≥ 1, moderate skewness
+•	|CS| < 0.5, relative symmetry
+Calculate the coefficient of skewness using the Excel function =SKEW(data range). Data   
+Illustration 2.42 shows the Excel function and result using the university payroll data file. 
+The CS is a positive 2.3, indicating the data have a high degree of skewness and skew to the 
+right.
+ILLUSTRATION 2.41  Skewness 
+Examples
+Positive Skew
+Symmetrical
+Distribution
+Negative Skew
+Mode
+Median
+Mean
+Mean/Median/Mode
+Mode
+Median
+Mean
+ILLUSTRATION 2.42  Skewness and 
+Kurtosis of University Payroll Data
+Function
+Measure
+=SKEW(C2:C10790)
+=KURT(C2:C10790)
+Result
+CS
+CK
+2.3
+8.2
+Kurtosis refers to how peaked or flat a histogram of the data is. The coefficient of kur-
+tosis (CK) measures the degree of kurtosis of a distribution:
+•	If the CK is greater than three, then the data are somewhat peaked with less dispersion.
+•	If the CK is less than three, the data are somewhat flat with a wide degree of dispersion.
+The coefficient of kurtosis can be calculated in Excel using the function =KURT(data range). 
+Illustration 2.42 shows the CK of the university salary data is 8.2. This indicates the data are 
+peaked with less dispersion.
+Frequency Distributions and Histograms
+Along with the CS and CK measures, the shape of a distribution can be visualized with two 
+other measures:
+•	A frequency distribution is a representation of the data that summarizes the number 
+of observations within a given interval. For example, the number of employees by salary 
+dollar groupings.
+•	A histogram is a bar chart of a frequency distribution in which the height of the bar 
+reflects the frequency within the interval. For example, we may want to group salaries by 
+dollar amounts of $10,000, $20,000, and $30,000 and then count how many employees 
+are in each category.
+These measures can be created in data visualization software such as Power BI, Tableau, and 
+in Microsoft Excel using the Analysis Toolpak. Analysis Toolpak is a free add-on for Excel. 
+Once added, it will be under the Data tab. Illustration 2.43 shows where to find the Data 
+Analysis tool and the corresponding box that opens after clicking Data Analysis.
+Illustration 2.41 shows a positive, symmetrical, and negative skewed distribution.
+
+--- PAGE 32 ---
+2.4 Which Descriptive Measures Help Us Understand Data? 
+2-31
+ ILLUSTRATION 2.43  Excel Data Analysis Tool 
+Review
+View
+Developer
+Help
+Power Pivot
+New Tab
+Share
+Share
+fx
+1
+A
+B
+Sheet1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+AutoSave
+Oﬀ
+OK
+Cancel
+Help
+Data Analysis
+Analysis Tools
+?
+Anova: Two-Factor With Replication
+Anova: Two-Factor Without Replication
+Correlation
+Covariance
+Descriptive Statistics
+Exponential Smoothing
+F-Test Two-Sample for Variances
+Fourier Analysis
+Histogram
+Moving Average
+Analyze
+Analyze
+Queries &
+Connections
+Queries &
+Connections
+Edit Links
+Properties
+Refresh
+All
+Text to
+Columns
+Data Tools
+Stocks Geography
+Data Types
+New Tab
+Sort
+Filter
+Clear
+Reapply
+Advanced
+Sort & Filter
+Data
+Data
+Analysis
+Solver
+1
+Analyze
+Analyze
+Analyze
+Queries &
+Connections
+Queries &
+Connections
+Edit Links
+Properties
+Refresh
+All
+Text to
+Columns
+Data Tools
+Stocks Geography
+Data Types
+New Tab
+Sort
+Filter
+Clear
+Reapply
+Advanced
+ab
+Ad
+ab
+Sort & Filter
+Solver
+  1.  To prepare a histogram and frequency distribution, choose Histogram and click  OK . 
+  2.  A dialog box opens ( Illustration 2.44 ). 
+  3.  There are two input boxes:
+•  The  Input Range is the data that will be visualized. It is helpful to select the column 
+title and check the  Labels box so the histogram is labeled with the title of the data 
+being visualized (Illustration  2.44 ). 
+•  The next input box is  Bin Range , which defines the groups used for the frequency 
+distribution and histogram bars. These must be established before opening the dialog 
+box. Create the Bin Range by setting up a column of the values in which the data 
+should be grouped. In general, the values should be in equal increments and the num-
+ber of groups should be between five and fifteen. 
+  4.  Finally, choose where the outputs should go. Be sure to check the  Chart Output box 
+before clicking  OK . 
+ ILLUSTRATION 2.44  Histogram 
+Dialog Box 
+OK
+Cancel
+Help
+Histogram
+Input
+Input Range:
+Bin Range:
+Output options
+Output Range:
+New Workbook
+New Worksheet Ply:
+Pareto (sorted histogram)
+Cumulative Percentage
+Chart Output
+?
+Labels
+2
+3
+4
+
+--- PAGE 33 ---
+2-32 
+CHAPTER 2  Foundational Data Analysis Skills
+How do you know how many groups to create? The best way is to experiment with the 
+data to find the number that will create a useful visualization. For example, using fewer groups 
+means the group widths will be wider and the visualization may provide less detailed insight. 
+It is often helpful to divide the range (maximum observation – minimum observation) by the 
+number of groups you would like display as a starting point.
+Data   These steps can be used to create a histogram with the university payroll data file:
+	 1.	 Open the spreadsheet and create a column for the bins.
+	 2.	 First, determine the range of the data. The minimum salary is $78.00 and the maximum 
+salary is $468,675.00, indicating there is a large range of data. Create 12 bins, starting with 
+$8,000 in $20,000 increments (Illustration 2.45).
+ILLUSTRATION 2.45  Payroll Data, 
+Bins, and Histogram Dialog Box
+fx
+1
+B
+C
+Sheet1
+2
+3
+4
+6
+10789
+10790
+Program Coordinator
+Eminent Scholar
+Eminent Scholar
+Network Administrator
+Professor
+Associate Professor
+$   94,626.00
+$  141,939.00
+5
+Assistant Professor
+$   87,454.00
+$   48,874.00
+7
+Student Program Coordinator
+$   42,630.00
+8
+Professor
+$ 113,736.00
+9
+Professor
+$      2,170.00
+10
+Professor
+ $ 115,228.00
+11
+Research Assistant
+$      6,700.00
+12
+Research Assistant
+$     6,700.00
+13
+Research Assistant
+$   20,100.00
+28,000
+48,000
+68,000
+88,000
+108,000
+128,000
+148,000
+168,000
+188,000
+208,000
+228,000
+14
+Professor
+$  119,900.00
+$   23,998.00
+$   59,196.00
+$   57,633.00
+8,000
+Title
+Annual Salary
+E
+D
+Bins
+AutoSave
+Oﬀ
+Payroll Data, Bins, and Histogram Dialog Box
+OK
+Cancel
+Help
+Histogram
+Input
+Input Range:
+Bin Range:
+Output options
+Output Range:
+New Workbook
+New Worksheet Ply:
+Pareto (sorted histogram)
+Cumulative Percentage
+Chart Output
+?
+Labels
+$C$1:$C$10790
+$E$4:$E$15
+The results from the histogram dialog box are presented in Illustration 2.46.
+
+--- PAGE 34 ---
+2.4  Which Descriptive Measures Help Us Understand Data? 
+2-33
+ILLUSTRATION 2.46  University Payroll Data Histogram and Frequency Distribution
+2,873
+Histogram
+Salary Bins (in thousands)
+Frequency
+2,169
+1,241
+753
+466
+265
+162
+102
+72
+83
+40
+59
+2,504
+$8K
+0
+500
+1,000
+1,500
+2,000
+2,500
+3,000
+3,500
+28K
+48K
+68K
+88K
+108K 128K 148K
+168K 188K 208K 228K
+More
+8,000
+28,000
+48,000
+68,000
+88,000
+108,000
+128,000
+148,000
+168,000
+188,000
+208,000
+228,000
+More
+2,504
+2,873
+2,169
+1,241
+753
+466
+265
+162
+102
+72
+83
+40
+59
+23.21%
+26.63%
+20.10%
+11.50%
+6.98%
+4.32%
+2.46%
+1.50%
+0.95%
+0.67%
+0.77%
+0.37%
+0.55%
+Bins
+Frequency
+Frequency %
+The histogram reveals some information about the shape of the data set, including that 
+most of the data is grouped between $8,000 and $48,000:
+•	The data then trails off to the right. This supports the results of the measures of location 
+and shape. Recall the median for the data is $28,276.00, and the mean is $40,065.88. The 
+data peaks at the mode.
+•	The data then tails off to the right, which supports the result for the coefficient of skew-
+ness of a positive 2.3.
+•	Finally, the data are highly peaked. The majority (69%) are within the first three bars on 
+the histogram. This supports the result for the coefficient of kurtosis of 8.2 that indicates 
+highly peaked data with less dispersion.
+Descriptive Statistics Tools
+You have now learned how to calculate measures of location, dispersion, and shape using sin-
+gle Excel functions. There is another Excel tool, Descriptive Statistics, that calculates all these 
+measures at once (Illustration 2.47):
+	 1.	 Choose Descriptive Statistics from the Analysis Tools list.
+	 2.	 Use the dialog box for Descriptive Statistics to input the data range to analyze.
+	 3.	 Once the data range is entered, select labels (if you chose the row with the column title), 
+choose where the output will go, select Summary statistics, and click OK.
+ILLUSTRATION 2.47  Descriptive 
+Statistics Excel Tool and Dialog 
+Box
+OK
+Cancel
+Help
+Data Analysis
+Analysis Tools
+?
+Anova: Single Factor
+Anova: Two-Factor With Replication
+Anova: Two-Factor Without Replication
+Correlation
+Covariance
+Descriptive Statistics
+Exponential Smoothing
+F-Test Two-Sample for Variances
+Fourier Analysis
+Histogram
+1
+Note that the Bins and Frequency are generated by Excel when the histogram is created. The column for Frequency % was  
+calculated by dividing the Frequency for each bin by the total number of observations (10,789).
+
+--- PAGE 35 ---
+2-34 
+CHAPTER 2  Foundational Data Analysis Skills
+OK
+Cancel
+Help
+Descriptive Statistics
+Input
+Columns
+Rows
+Input Range:
+Grouped By:
+Output options
+Output Range:
+New Workbook
+New Worksheet Ply:
+Summary statistics
+Confidence Level for Mean:
+Kth Smallest:
+Kth Largest:
+$C$1:$C$10790
+1
+95
+%
+1
+?
+Labels in First Row
+2
+3
+ILLUSTRATION 2.47  (Continued)
+Excel will then calculate the descriptive statistics and print the results on a new work-
+sheet (Illustration 2.48).
+ILLUSTRATION 2.48  University 
+Salary Data Descriptive Statistics
+Mean
+Standard Error
+Median
+Mode
+Standard Deviation
+Sample Variance
+Kurtosis
+Skewness
+Range
+Minimum
+Maximum
+Sum
+Count
+$                40,065.88
+$                      424.02
+$                28,276.00
+$                   3,269.00
+$                44,043.13
+$ 1,939,797,496.92
+$                           8.19
+$                           2.30
+$              468,597.00
+$                         78.00
+$              468,675.00
+$      432,270,823.00
+10,789.00
+Annual Salary
+Statistical software packages typically have a similar feature to calculate multiple descrip-
+tive statistics simultaneously. Whether we use multiple single Excel functions or just one to 
+calculate it, revealing the shape of a data set helps us better understand the data. There is also 
+another important component–understanding relationships within a data set.
+Correlation Analysis
+Correlation analysis can reveal relationships in data by measuring the linear relationship 
+between two variables. The first step is understanding how variables are correlated, and the 
+second step involves calculating the correlation.
+Interpret Correlation Coefficients
+Linear correlation of continuous variables is measured by the correlation coefficient, also 
+known as the Pearson Product Moment Correlation Coefficient. This measure is a numerical 
+value between −1 and +1. The higher the absolute number, the greater the strength of the 
+relationship.
+
+--- PAGE 36 ---
+2.4  Which Descriptive Measures Help Us Understand Data? 
+2-35
+A correlation can be negative, zero, or positive (Illustration 2.49):
+•	A negative correlation is an inverse relationship. As one variable increases, the other 
+decreases. There is a negative relationship between soup sales and temperature because 
+as temperatures decrease, the soup sales increase.
+•	No correlation indicates no relationship between the variables. We would not expect the 
+outdoor temperature to have an impact on the sale of cereal, for example.
+•	A positive correlation coefficient indicates that as one variable increases, so does the 
+other variable. We would expect a positive relationship between ice cream sales and out-
+door temperature. As the temperature rises, ice cream sales tend to rise as well.
+ILLUSTRATION 2.49  Correlation 
+Examples
+Temperature
+Soup Sales
+Cereal
+Ice Cream Sales
+Negative
+Zero
+Positive
+We can also consider the strength of a relationship. The higher the correlation coefficient, 
+between a negative 1 and a positive 1, the stronger the correlation. Illustration 2.50 is a guide 
+to determining if a correlation coefficient indicates a weak, moderate, or strong relationship.
+ILLUSTRATION 2.50  Interpreting 
+Correlation Coefficients
+−0.70
+−0.50
+−0.30
+A moderate negative linear relationship
+A weak negative linear relationship
+0
+No linear relationship
+Exactly −1
++0.50
++0.70
+Exactly +1
++0.30
+A perfect negative linear relationship
+A strong negative linear relationship
+A strong positive linear relationship
+A perfect positive linear relationship
+A weak positive linear relationship
+A moderate positive linear relationship
+Interpretation
+Correlation r
+Imagine examining the relationship between ice cream sales and the outdoor tempera-
+ture. If the correlation coefficient of sales and temperature was positive 0.75, then there is a 
+strong positive relationship between sales and temperature. As temperatures rise, sales of ice 
+cream increase and vice versa. (Illustration 2.51)
+ILLUSTRATION 2.51  Positive 
+Correlation Example
+Temperatures Rise
+Correlation Coeﬀicient of Ice Cream
+Sales and Temperature
+Sales Rise
+$
+
+--- PAGE 37 ---
+2-36 
+CHAPTER 2  Foundational Data Analysis Skills
+$
+Heating Costs Rise
+Temperatures Fall
+Correlation Coeﬀicient of Heating
+Costs and Temperature
+ILLUSTRATION 2.52  Negative 
+Correlation Example
+ILLUSTRATION 2.53  University 
+Salary and Hours Data
+fx
+1
+F
+G
+Sheet1
+2
+3
+4
+6
+10789
+10790
+Program Coordinator
+Eminent Scholar
+Eminent Scholar
+Network Administrator
+Professor
+Associate Professor
+$   94,626.00
+$ 141,939.00
+5
+Assistant Professor
+$   87,454.00
+$   48,874.00
+7
+Student Program Coordinator
+$   42,630.00
+612
+918
+1,530
+2,040
+2,040
+$   23,998.00
+$   59,196.00
+387.6
+306
+$   57,633.00
+2,040
+Title
+AnnualSalary
+H
+HoursWorked
+AutoSave
+Oﬀ
+University Salary and Hours Data
+Illustration 2.54 shows the correlation dialog box that opens after clicking Correlation 
+and selecting OK in the Data Analysis Tools dropdown menu. The input range in the dialog 
+In this case, there is a strong negative correlation between heating costs and temperature. 
+As the temperature decreases, the cost of heating a home increases and vice versa.
+Perform Correlation Analysis
+Correlation can be visually assessed by preparing a scatterplot, like those in Illustration 2.49, 
+and then plotting a line. This will indicate if a correlation exists and whether it is positive or 
+negative.
+The correlation coefficient can be calculated by hand with a formula or with software. All 
+statistical software can calculate a correlation coefficient, including Microsoft Excel, which is 
+used in this example. Regardless of the software used, the interpretation of the results is the 
+same. There are two ways to perform correlation analysis in Excel:
+•	Using the CORREL function.
+•	Using the Correlation option in the Data Analysis tool.
+The benefit of using the Correlation option in the Data Analysis tool is that a correlation table 
+for more than one variable can be created at the same time.  Data   We use the university pay-
+roll data to illustrate the correlation option in Excel and then interpret the results.
+In the Salary Hours tab in the data file (Illustration 2.53), perform a correlation analysis 
+to see if there is a correlation between annual salary and hours worked.
+Suppose instead we are examining the relationship between heating costs and tempera-
+ture, and the correlation coefficient is a negative 0.70 (Illustration 2.52)
+
+--- PAGE 38 ---
+2.4  Which Descriptive Measures Help Us Understand Data? 
+2-37
+box contains the columns being tested for correlation. This example is testing for correlation 
+between column G (Annual Salary) rows 1 – 10790, and column H (Hours Worked) rows 1 
+– 10790.
+ILLUSTRATION 2.54  Data 
+Analysis Tool and Correlation 
+Dialog Box
+OK
+Cancel
+Help
+Data Analysis
+Analysis Tools
+?
+Anova: Single Factor
+Anova: Two-Factor With Replication
+Anova: Two-Factor Without Replication
+Correlation
+Covariance
+Descriptive Statistics
+Exponential Smoothing
+F-Test Two-Sample for Variances
+Fourier Analysis
+Histogram
+OK
+Cancel
+Help
+Correlation
+Input
+Columns
+Rows
+Input Range:
+Grouped By:
+Output options
+Output Range:
+New Workbook
+New Worksheet Ply:
+$G$1:$H$10790
+$J$3
+?
+Labels in First row
+The dialog box in Illustration 2.54 shows the inputs necessary to run the correlation anal-
+ysis. The result of the correlation analysis is shown in Illustration 2.55:
+•	The correlation coefficient is 0.552.
+•	There is a moderate positive correlation between annual salary and hours worked.
+In other words, as hours worked increases so does annual salary.
+ILLUSTRATION 2.55  University 
+Salary Correlation Analysis
+Annual Salary
+1
+0.552
+Hours Worked
+1
+Annual Salary
+Hours Worked
+Why is there not a stronger correlation? A strong correlation between the hours worked 
+and the amount of annual salary paid seems to make sense. However, if employees are paid a 
+fixed annual salary rather than hourly that would reduce the correlation to hours.
+Correlation analysis can help uncover relationships in the data and understand their 
+strength. But never assume that one variable causes a change in the other because there is 
+correlation between the two. It is possible to find a correlation between two variables that have 
+nothing to do with one another. This is a spurious correlation, which occurs when there is a 
+mathematical, but not a logical, relationship between two variables. Always ensure correla-
+tions make sense before using one to make decisions.
+
+--- PAGE 39 ---
+2-38 
+CHAPTER 2  Foundational Data Analysis Skills
+Apply It 2.4
+Use Descriptive 
+Statistics to Audit 
+Warranty Expense
+Data   Auditing   As an external auditor, you have been assigned to the audit engagement for Super 
+Scooters. One of your responsibilities is to review warranty expense. As the illustration shows, average 
+warranty expense for Super Scooters has been rising over the last three years.
+2023
+$0
+$50
+$100
+$150
+$200
+$250
+$300
+$350
+$400
+$450
+Average Warranty Expense
+Average
+ Warranty
+Expense
+Year
+2024
+2025
+To analyze the warranty expense, you have decided to use descriptive statistics. Perform the following 
+analyses and interpret your results.
+	 1.	 Use the Descriptive Statistics option in the Data Analysis tool to calculate the descriptive statis-
+tics for warranty expense from 2023 to 2025. Interpret the following measures:
+•  Mean
+•  Median
+•  Standard deviation
+•  Kurtosis
+•  Skewness
+	 2.	 Perform descriptive statistics for warranty expense in 2025. Interpret the following measures:
+•  Mean
+•  Median
+•  Kurtosis
+•  Skewness
+	 3.	 Prepare a histogram of 2025 Warranty Expense with the following bins: 200, 400, 600, 800, 1000, 
+1200, and 1,400.
+•  Chart the data.
+•  Does the shape and distribution of your histogram support the kurtosis and skewness 
+measures?
+
+--- PAGE 40 ---
+2.4  Which Descriptive Measures Help Us Understand Data? 
+2-39
+SOLUTION
+	 1.	 Descriptive statistics for warranty expense from 2023 to 2025:
+	
+343.57
+4.06
+300
+240
+244.90
+59,977.92
+1.54
+1.23
+1,493
+7
+1,500
+1,252,326
+3,645
+Mean
+Standard Error
+Median
+Mode
+Standard Deviation
+Sample Variance
+Kurtosis
+Skewness
+Range
+Minimum
+Maximum
+Sum
+Count
+Total Warranty
+	 	
+Measure Interpretation:
+Measure
+Result
+Interpretation
+Mean
+The mean warranty cost for 
+the 3-year period was $343.57.
+The average warranty cost for all 3,645 sales 
+over the 3-year period is $343.57.
+Median
+The median warranty cost for 
+the 3-year period was $300.00.
+The middle value of warranty expense for 
+the 3-year period, when ranking warranty 
+expense from high to low, is $300.
+Standard 
+deviation
+The standard deviation over 
+the 3-year period was $244.90.
+This is a high standard deviation compared 
+to the mean and median. It indicates a wide 
+dispersion of the warranty costs.
+For any given sale, the warranty cost could 
+be + or − $244.90 from the mean.
+Kurtosis
+The coefficient of kurtosis  
+is 1.54.
+This is less than 3, indicating that the shape 
+of the distribution is somewhat flat with a 
+wide degree of dispersion.
+Skewness
+The coefficient of skewness is 
+a positive 1.23.
+This is greater than 1, indicating that the 
+data peaks around the mean and then tails 
+off to the right.
+	 2.	 Descriptive statistics for warranty expense in 2025: 
+414.18
+7.551634
+330
+330
+276.13
+76,245.34
+0.93
+1.18
+1,460
+40
+1,500
+553,759
+1,337
+Mean
+Standard Error
+Median
+Mode
+Standard Deviation
+Sample Variance
+Kurtosis
+Skewness
+Range
+Minimum
+Maximum
+Sum
+Count
+Total Warranty–2025

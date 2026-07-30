@@ -1,0 +1,495 @@
+--- PAGE 10 ---
+3.2  What are Descriptive Objectives?  3-9
+Let’s continue with the Super Scooters example to illustrate. Illustration 3.6 provides the 
+financial information for the years 2023 through 2025.
+ILLUSTRATION 3.6  Super Scooters’ Income Statements: 2023–2025
+Year Ended December 31
+2023
+2024
+2025
+Gross Sales
+$4,924,816
+$10,506,334
+$11,378,847
+Total Variable Costs
+$2,190,588
+$  4,922,488
+$  5,416,827
+Contribution Margin
+$2,734,228
+$  5,583,846
+$  5,962,020
+Total Fixed Costs
+$   579,988
+$  1,027,391
+$  1,042,201
+Net Income
+$2,154,240
+$  4,556,455
+$  4,919,819
+While sales and net revenue have increased, two of the models have decreasing net reve-
+nue (Illustration 3.7).
+ILLUSTRATION 3.7  Scooter Model Revenue: 2023–2025
+Revenue
+Captain
+2023
+2024
+2025
+2023
+2024
+2025
+2023
+2024
+2025
+2023
+2024
+2025
+Model Revenue: 2023–2025
+Celeritas
+Kicks
+Lazer
+$2,600,000
+$2,400,000
+$2,200,000
+$2,000,000
+$1,800,000
+$1,600,000
+$1,400,000
+$1,200,000
+$1,000,000
+$800,000
+$600,000
+$400,000
+$200,000
+$0
+Super Scooters wants to understand the decreases in net revenue for the Celeritas and 
+Kicks models. What questions should they ask of the data? What possible measure(s) can be 
+used to answer the questions?
+
+
+--- PAGE 11 ---
+3-10  CHAPTER 3  Motivations and Objectives for Data Analysis
+ILLUSTRATION 3.8  Descriptive Questions to Understand Decreases in Revenue at Super Scooters
+Objective
+Initial Questions
+Sub-questions
+Possible Measures
+Understand 
+decreases in net 
+revenue for the 
+Celeritas and 
+Kicks models.
+Have sales decreased 
+for the Celeritas and 
+Kicks models?
+	 1.	Have sales decreased for the Celeritas model?
+	 2.	Have sales decreased in all locations for the 
+Celeritas model?
+	 3.	Have sales decreased for the Kicks model?
+	 4.	Have sales decreased in all locations for the Kicks 
+model?
+Gross sales dollars
+Average gross sales dollars
+Sales volume
+Have expenses 
+increased for the 
+Celeritas and Kicks 
+models?
+	 1.	Have expenses increased in all locations for the 
+Celeritas model?
+	 2.	Have expenses increased in all locations for the 
+Kicks model?
+Total expense dollars
+Average total expense dollars
+Percent change from prior year
+Have variable 
+expenses increased 
+for the Celeritas and 
+Kicks models?
+	 1.	Which variable expenses increased from prior year 
+for the Celeritas model?
+	 2.	Do some locations have higher increases in variable 
+expenses for the Celeritas model than others?
+	 3.	Which variable expenses increased from prior year 
+for the Kicks model?
+	 4.	Do some locations have higher increases in variable 
+expenses for the Kicks model than others?
+Variable expense dollars
+Average variable expenses
+Percent change from prior year
+Have fixed expenses 
+increased for the 
+Celeritas and Kicks 
+models?
+	 1.	Which fixed expenses increased from prior year for 
+the Celeritas model?
+	 2.	Do some locations have higher increases in fixed 
+expenses for the Celeritas model than others?
+	 3.	Which fixed expenses increased from prior year for 
+the Kicks model?
+	 4.	Do some locations have higher increases in fixed 
+expenses for the Kicks model than others?
+Fixed expense dollars
+Average fixed expenses
+Percent change from prior year
+Notice how the questions all relate to the analysis’ objective. The initial questions are 
+fine but broad. The sub-questions in the second column narrow the focus. Moreover, each 
+question is measurable, as indicated by the measures in the last column. Once the detailed 
+descriptive questions are outlined, it is time to determine the necessary data and analysis 
+method to answer them.
+Descriptive Analyses Examples
+Analyses commonly used to answer descriptive questions include measures of frequency, 
+location, dispersion, and percentages:
+•	Frequency measures help us understand categories of data.
+•	Measures of location (mean, median, mode) reveal average observations in a data set.
+•	Measures of dispersion (minimum, maximum, range, variance, and standard deviation) 
+show how much variance there is among the observations in the data set.
+•	Measures of percentage change compare results to prior periods and the percent of total.
+Data   Let’s demonstrate an example using the questions identified in Illustration 3.8.
+Illustration 3.8 provides examples of both initial questions and sub-questions (in other 
+words, more detailed questions).
+
+
+--- PAGE 12 ---
+3.2  What are Descriptive Objectives?  3-11
+It is possible to discover if gross sales have decreased for the Celeritas model by using the 
+measure gross sales. Several different analyses can determine if gross sales have decreased:
+•	Gross sales dollars: total measure
+•	Sales volume: total measure
+•	Average unit sales price
+A PivotTable in Microsoft Excel created with the Super Scooter data prepares a descriptive 
+analysis for this question (Illustration 3.9).
+The sales data confirms the Celeritas and Kicks models each declined from 2024 to 2025. 
+Interestingly, both sales volume and average price decreased, so the decline is a combination 
+of both volume and price. The next step is answering the next sub-question: Did sales decrease 
+in all locations?
+Illustration 3.10 shows the change in average gross sales dollars, which is a measure 
+of location. It is the result of a descriptive analysis in Tableau that shows the change in gross 
+sales from 2023 to 2025 by location for the Celeritas model. This is a highlight table where 
+the darker color signals a larger decrease. ( Data   See How To 3.1 at the end of this chapter to 
+learn how to create this table in Tableau.)
+How To
+ILLUSTRATION 3.9  Descriptive 
+Analysis of Celeritas and Kicks 
+Sales
+Celeritas
+2023
+2024
+2025
+Kicks
+Model
+Total Gross Sales
+Total Sales Volume
+Average of Unit Sale Price
+2023
+2024
+2025
+$ 1,256,478.00
+$ 2,081,584.00
+$ 1,488,293.00
+$     628,271.00
+$     279.848.00
+$     221,134.00
+3,595
+5,932
+4,258
+3,385
+1,816
+1,695
+$ 350.25
+$ 350.57
+$ 347.92
+$ 187.88
+$ 148.37
+$ 136.21
+The Seattle location had the largest total gross sales decrease from 2024 at $140,206. 
+Dallas had the second largest decrease at $106,783. However, it is also clear that sales have 
+dropped in all locations. The next step is to determine why sales have decreased, which will 
+require diagnostic analytics. 
+ILLUSTRATION 3.10  Descriptive 
+Analysis of Celeritas’ Change in 
+Gross Sales by Location
+2025
+Change in Gross Sales from
+2024 ‒ Celeritas
+Seattle
+Dallas
+Charlotte
+Boston
+Chicago
+Miami
+Salt Lake City
+Phoenix
+$ (140,206)
+(106,783)
+(94,794)
+(88,837)
+(58,619)
+(57,786)
+(46,867)
+(20,787)
+Difference in Gross Sales
+‒140K
+$  (20,787)
+$
+$
+$
+$
+$
+$
+$
+
+
+--- PAGE 13 ---
+3-12  CHAPTER 3  Motivations and Objectives for Data Analysis
+Apply It 3.2
+Describe Customers’ 
+Buying Behavior
+Data   Financial Accounting   Best Bakes Bakery would like to better understand their top cus-
+tomers’ buying behavior. You have been given sales transactions for the years 2022 to 2025. An excerpt 
+from the file follows.
+101
+101
+101
+521121 Bluebird Cafe
+Bluebird Cafe
+Bluebird Cafe
+Bluebird Cafe
+Bluebird Cafe
+Bluebird Cafe
+Walrus Ice Cream
+521121
+101
+521121
+521121
+101
+521121
+101
+521121
+(720) 296–2323
+(720) 296–2323
+(720) 296–2323
+(720) 296–2323
+(720) 296–2323
+(720) 296–2323
+102
+521425
+(303) 674–0930
+SalesOrder
+Number
+Customer
+Number
+80521
+80521
+80521
+80521
+80521
+80521
+80521
+Customer
+ZipCode
+CO
+CO
+CO
+CO
+CO
+CO
+CO
+Customer
+State
+Customer
+Phone
+Customer
+Name
+524 W Laurel St
+524 W Laurel St
+524 W Laurel St
+524 W Laurel St
+524 W Laurel St
+524 W Laurel St
+125 W Mountain Ave
+Fort Collins
+Fort Collins
+Fort Collins
+Fort Collins
+Fort Collins
+Fort Collins
+Fort Collins
+Customer
+Address
+Customer
+City
+853200
+853300
+853600
+Caramel Apple
+2/19/2022
+2/19/2022
+2/19/2022
+2/19/2022
+2/19/2022
+2/19/2022
+3/10/2022
+Poppyseed Bagel
+853500
+Cheesecake Bite
+Chocolate Chip Cookie
+853800
+Blueberry Scone
+853900
+Raspberry Scone
+$ 57.60
+$ 68.40
+$ 45.00
+$ 34.50
+$ 63.60
+$    6.50
+853100
+Cinnamon Bun
+$ 34.80
+Inventory
+Code
+Inventory
+Description
+Profit
+SalesOrder
+Date
+36
+24
+25
+30
+24
+10
+24
+$ 3.45
+$ 4.85
+$ 3.40
+$ 3.20
+$ 4.10
+$ 4.05
+$ 4.35
+SalesOrder
+Quantity
+Inventory
+Price
+$ 124.20
+$ 116.40
+$   85.00
+$   96.00
+$   98.40
+$   40.50
+$ 104.40
+Gross
+Sales
+$ 1.85
+$ 2.00
+$ 1.60
+$ 2.05
+$ 1.45
+$ 3.40
+$ 2.90
+Inventory
+Cost
+$ 66.60
+$ 48.00
+$ 40.00
+$ 61.50
+$ 34.80
+$ 34.00
+$ 69.60
+Costof
+GoodsSold
+1.	 What is the objective of the analysis?
+2.	 Develop three questions relevant to the objective, and describe the measures necessary to answer 
+the questions.
+3.	 What analyses will you use to answer these questions?
+SOLUTION
+1.	 The objective of the analysis is to identify the top customers and evaluate what products they 
+purchase.
+2.
+Questions
+Measures
+	 1.	Who are the top five customers?
+Gross sales, sales volume, profit margin
+	 2.	What are the top five products sold?
+Sales volume, gross sales
+	 3.	What are the spending patterns for the 
+top five customers?
+Sales volume, gross sales
+3.	 Analyses for the three questions:
+1.	 Descriptive analysis: Top five customers by year for each of the measures compared to 
+average for all customers.
+2.	 Descriptive analysis: Five highest selling products by year for each of the measures com-
+pared to average for all products.
+3.	 Descriptive analysis: Analysis showing sales by month or quarter for each year for the 
+top five customers. A bar chart or a line chart could be used. 
+
+
+--- PAGE 14 ---
+3.3  What are Diagnostic Objectives?  3-13
+3.3  What are Diagnostic Objectives?
+LEARNING OBJECTIVE ➌
+Demonstrate how to develop diagnostic questions.
+Once we know what has happened, the next step is to determine why. Diagnostic questions 
+build on descriptive analyses and further explore the data to find the outcome’s cause. Diag-
+nostic analytics do this by looking for anomalies, correlations, patterns, or trends.
+Develop Diagnostic Questions
+Diagnostic questions identify a problem or issue to understand why an outcome occurred. 
+Illustration 3.11 shows diagnostic questions based on the results of the descriptive analysis 
+of Super Scooters’ sales in the previous section.
+ILLUSTRATION 3.11  Diagnostic Questions About Super Scooters’ Sales Decline
+Objective
+Initial Question
+Sub-questions
+Possible Measures
+Determine 
+why sales are 
+decreasing for 
+the Celeritas 
+and Kicks 
+models.
+What is driving 
+the sales volume 
+decrease?
+1.	Are there anomalies 
+in sales volume for the 
+Celeritas model?
+2.	Are there anomalies 
+in sales volume for the 
+Kicks model?
+3.	Are there identifiable 
+patterns in sales volume 
+for the Celeritas model?
+4.	Are there identifiable 
+patterns in sales volume 
+for the Kicks model?
+Sales volume
+Understand 
+the large 
+decrease 
+in sales at 
+the Seattle 
+location.
+What factors 
+are driving the 
+decrease in sales 
+at the Seattle 
+locations?
+1.	Are there unusual  
+patterns in the Seattle 
+location sales of 
+Celeritas models?
+2.	Are there unusual 
+patterns in the Seattle 
+location sales of the  
+Kicks model?
+Gross sales dollars
+Average gross sales 
+dollars
+Sales volume
+Why are sales decreasing, and specifically, why did the Seattle location have the largest 
+decrease? The questions and sub-questions dive deeper into the sales decrease by asking about 
+anomalies and unusual patterns. Now, identify the data and analyses that will answer these 
+questions.
+
+
