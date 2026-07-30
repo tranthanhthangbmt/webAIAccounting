@@ -5,6 +5,13 @@
 
 ## Tổng quan Chương (Chapter Preview)
 
+### Tài nguyên Dữ liệu Thực hành
+Trong chương này, bạn sẽ sử dụng các bộ dữ liệu sau cho bài tập thực hành. Bạn có thể tải về để mở ra xem trước dữ liệu:
+- 📥 **[ATI_Purchases_Data.csv](../TaiLieu/Datasets/ATI_Purchases_Data.csv)**: Dữ liệu chu trình mua hàng, thuế và nhà cung cấp của công ty ATI.
+- 📥 **[Pet_Supply_Purchases.csv](../TaiLieu/Datasets/Pet_Supply_Purchases.csv)**: Dữ liệu đơn đặt hàng từ các nhà cung cấp đồ thú cưng.
+- 📥 **[Sihryas_Beauty_Sales.csv](../TaiLieu/Datasets/Sihryas_Beauty_Sales.csv)**: Dữ liệu bán hàng chi tiết của Cửa hàng Làm đẹp Sihrya's.
+- 📥 **[PCard_Spending.csv](../TaiLieu/Datasets/PCard_Spending.csv)**: Dữ liệu giao dịch thẻ mua hàng (P-Card) của nhân viên.
+
 Được trang bị với sự hiểu biết về các động lực và mục tiêu cho dự án phân tích dữ liệu và sau khi hình thành các câu hỏi mục tiêu cần thiết, đã đến lúc cho bước cuối cùng trong giai đoạn lập kế hoạch – thiết kế dữ liệu và các chiến lược phân tích (analysis strategies). Bạn sẽ sớm được kỳ vọng áp dụng kiến thức, khả năng tư duy và kỹ năng giải quyết vấn đề của mình để thiết kế một loạt các chiến lược dữ liệu và phân tích liên quan đến kế toán, kiểm toán và thuế. Chương này sẽ giúp bạn phát triển các kỹ năng cần thiết để lập các kế hoạch dự án phân tích dữ liệu hiệu quả.
 
 *(Sơ đồ 3 Giai đoạn của Mô hình MOSAIC)*

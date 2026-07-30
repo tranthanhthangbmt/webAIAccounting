@@ -6,6 +6,10 @@
 # Chương 1: Dữ liệu và Phân tích trong Nghề Kế toán (Data and Analytics in the Accounting Profession)
 
 ## Tổng quan Chương (Chapter Preview)
+
+### Tài nguyên Dữ liệu Thực hành
+Trong chương này, bạn sẽ sử dụng bộ dữ liệu sau cho bài tập thực hành. Bạn có thể tải về để mở ra xem trước dữ liệu:
+- 📥 **[LittleTots_Financials.csv](../TaiLieu/Datasets/LittleTots_Financials.csv)**: Bảng cân đối số phát sinh và dữ liệu tài chính cơ bản cho Cơ sở Trông trẻ Little Tots.
 Những thay đổi về dữ liệu và công nghệ đang tác động đến vai trò của kế toán viên trong mọi lĩnh vực kế toán (Accounting). Các kế toán viên của tương lai phải là những chuyên gia linh hoạt, sáng tạo, am hiểu về dữ liệu và công nghệ (Data and Technology Literate). Họ sẽ là những người giải quyết vấn đề (Problem-solvers) có tư duy phản biện (Critical Thinking), có khả năng sử dụng công nghệ và dữ liệu để thúc đẩy sự hiểu biết và thay đổi trong kinh doanh. Họ cần phải "suy nghĩ vượt ra ngoài khuôn khổ" (Think outside the box) để tạo ra giá trị bằng cách sử dụng dữ liệu và các phép phân tích (Analyses). Chương này là một bản tổng quan về cách những thay đổi này đang diễn ra, các loại dữ liệu và phân tích mà những sinh viên mới tốt nghiệp có khả năng gặp phải, và những kỹ năng họ cần để thành công trong môi trường đang thay đổi này.
 
 ### Góc nhìn Chuyên gia (Professional Insight): Tại sao Phân tích Dữ liệu (Data Analytics) lại quan trọng cho sự nghiệp của bạn?

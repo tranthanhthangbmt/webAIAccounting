@@ -7,6 +7,11 @@
 
 ## Tổng quan Chương (Chapter Preview)
 
+### Tài nguyên Dữ liệu Thực hành
+Trong chương này, bạn sẽ sử dụng các bộ dữ liệu sau cho bài tập thực hành. Bạn có thể tải về để mở ra xem trước dữ liệu:
+- 📥 **[Vendor_Payments.csv](../TaiLieu/Datasets/Vendor_Payments.csv)**: Dữ liệu chi tiết các khoản thanh toán cho nhà cung cấp (sử dụng cho tạo Highlight Table).
+- 📥 **[PCard_Spending.csv](../TaiLieu/Datasets/PCard_Spending.csv)**: Dữ liệu giao dịch thẻ mua hàng (P-Card) của nhân viên.
+
 Phân tích dữ liệu (Data analytics) là một lĩnh vực đang phát triển nhanh chóng và đầy thú vị, và có một nhu cầu lớn trong lĩnh vực này đối với các chuyên gia kế toán, những người có thể sử dụng các công cụ mới để phân tích một lượng lớn dữ liệu. Phân tích dữ liệu và trích xuất thông tin từ nó dẫn đến các quyết định sáng suốt, và các doanh nghiệp ngày nay mong muốn có được những người có những kỹ năng này.
 
 Tuy nhiên, một dự án phân tích dữ liệu không bắt đầu bằng việc đi sâu ngay vào dữ liệu. Việc lập kế hoạch cho dự án, bao gồm hiểu được động lực (motivation) để thực hiện nó và phát triển các mục tiêu cụ thể của nó, cũng quan trọng không kém. Phân tích dữ liệu có thể tốn kém, phức tạp và mất thời gian. Một kế hoạch chi tiết liên kết động lực của dự án với mục tiêu và các câu hỏi trọng tâm của nó, giúp chúng ta chọn ra phương pháp phân tích tốt nhất. Nếu không có kế hoạch, chúng ta có thể bỏ sót những thông tin quan trọng hoặc các câu hỏi thiết yếu, điều này có thể làm cho quá trình phân tích kém hiệu quả hoặc thậm chí vô ích.

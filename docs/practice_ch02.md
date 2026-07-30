@@ -5,6 +5,11 @@
 
 ## Tổng quan Chương (Chapter Preview)
 
+### Tài nguyên Dữ liệu Thực hành
+Trong chương này, bạn sẽ sử dụng các bộ dữ liệu sau cho bài tập thực hành. Bạn có thể tải về để mở ra xem trước dữ liệu:
+- 📥 **[Sales_DirtyData.xlsx](../TaiLieu/Datasets/Sales_DirtyData.xlsx)**: Bộ dữ liệu giả định chứa nhiều lỗi (Dirty Data) để thực hành làm sạch dữ liệu.
+- 📥 **[Sihryas_Beauty_Sales.csv](../TaiLieu/Datasets/Sihryas_Beauty_Sales.csv)**: Dữ liệu bán hàng chi tiết của Cửa hàng Làm đẹp Sihrya's để thực hành phân tích sinh lời và PivotTable.
+
 Bạn sẽ làm việc với dữ liệu và phần mềm phân tích dữ liệu trong suốt sự nghiệp của mình, và một trong những công cụ phần mềm phổ biến nhất được sử dụng trong kế toán là Microsoft Excel. Như bạn sẽ thấy trong phần Professional Insight, khả năng sử dụng Microsoft Excel để thao tác trên các tập dữ liệu lớn là một tài sản to lớn đối với những kế toán viên chuyên nghiệp mới được tuyển dụng. Mặc dù các kỹ năng Microsoft Excel là quan trọng, nhưng phần mềm này không đủ mạnh để phân tích các tập dữ liệu cực kỳ lớn, vì vậy nó không phải là công cụ duy nhất được sử dụng để phân tích dữ liệu. Chương này giới thiệu một số kỹ năng mà bất kể sử dụng công nghệ nào, đều là nền tảng để thực hiện phân tích dữ liệu. Microsoft Excel được sử dụng để minh họa cho nhiều kỹ năng phân tích dữ liệu cốt lõi, nhưng các chương tiếp theo cũng sẽ giới thiệu các phần mềm phân tích dữ liệu như Power BI và Tableau. Sự kết hợp giữa hiểu biết cốt lõi về dữ liệu, trực quan hóa dữ liệu và các kỹ năng phân tích mô tả là nền tảng để thực hiện phân tích dữ liệu nâng cao hơn.
 
 ### Góc nhìn Chuyên gia (Professional Insight): Pivot Tables Có Thể Giúp Ích Như Thế Nào Trong Việc Hiểu Các Tập Dữ Liệu Lớn?
