@@ -1,0 +1,547 @@
+5-58  CHAPTER 5  Analysis: Data Preparation
+14.  (LO 5)  You are examining the columns in a data set that you are analyzing. The following columns 
+are in the data set.
+HotelPropertyID
+Contains a unique identification number for each hotel.
+HotelAge
+How many years the hotel has been operating since opening.
+OpeningDate
+The date the hotel opened.
+RoomsAvailable
+The number of rooms in the hotel.
+RoomsRented
+The number of rooms rented during the year.
+Revenue
+The amount of money collected for rooms rented during the year.
+After reviewing the column headings and description, which of the following would you note? 
+a.	 There is no overlap between the columns.
+b.	 There is an overlap between HotelAge and OpeningDate.
+c.	 There is redundancy between RoomsAvailable and RoomsRented.
+d.	 There is dependency between HotelAge and OpeningDate.
+15.  (LO 5)  Consider a scenario where the following validation rule was applied to the Employee table 
+shown. 
+VALID =
+IF EMPLOYEE.AGE < 24 AND EMPLOYEE.DEGREE = “COLLEGE”,
+THEN “YES”,
+ELSE “NO”
+Employee
+Code
+Age
+Degree
+1
+23
+High School
+2
+23
+College
+3
+25
+College
+4
+21
+Which of the following statements is incorrect?
+a.	 The value for the Valid column for the employee with code “1” is “No.” 
+b.	 The value for the Valid column for the employee with code “2” is “No.” 
+c.	 The value for the Valid column for the employee with code “3” is “No.” 
+d.	 The value for the Valid column for the employee with code “4” is “No.” 
+16.  (LO 6)  Mithali, a financial analyst, is preparing data to engage in a data analysis project to pre-
+dict revenue for the next period based on environmental considerations. She is currently reviewing the 
+tables to validate inter-table rules for referential integrity. Which of the following is true about referential 
+integrity?
+a.	 The primary and foreign key fields must have the same name.
+b.	 The primary key must be single-valued, but the foreign key can be multi-valued.
+c.	 The primary and foreign key fields can have different data types.
+d.	 All values in a foreign key should also exist as values in the corresponding primary key.
+17.  (LO 6)  Skyline is a national plumbing and heating company. ­Skyline’s CFO is preparing the employee 
+performance data for further analysis. Samples of four of the files are shown. How would you suggest 
+combining these four files?
+JanuaryPurchases
+PurchaseID
+Date
+Amount
+Employee
+14399
+1/1/2025
+1,432.24
+  7
+14400
+1/1/2025
+  799.99
+14
+14401
+1/1/2025
+320
+12
+14402
+1/1/2025
+  822.21
+22
+
+Multiple Choice Questions  5-59
+N
+N
+N
+1
+1
+1
+1
+N
+Date
+Dimension Tables
+Fact Table
+Dimension Tables
+WeekDay
+Month
+Year
+Date
+EmployeeCode
+Name
+Position
+Employee
+VendorID
+Name
+Contacts
+Vendor
+LineItemNumber
+Employee
+Item
+PurchaseDate
+Vendor
+PurchaseID
+Quantity
+Price
+Purchase
+ItemCode
+Description
+Item
+EmployeeDemographics
+ID
+Name
+DateOfBirth
+14399
+Ben Jespers
+3/3/1975
+14400
+Bei Shi
+7/17/1985
+14401
+Michael Rodman
+5/20/1984
+14402
+Benita Alvarez
+11/11/1979
+EmployeeWages
+ID
+HourlyWage
+14399
+25
+14400
+38
+14401
+36
+14402
+45
+FebruaryPurchases
+PurchaseID
+Date
+Amount
+Employee
+15021
+2/1/2025
+123.89
+  4
+15022
+2/1/2025
+540.99
+  1
+15023
+2/1/2025
+183.12
+14
+15024
+2/1/2025
+744.41
+21
+a.	 Merge JanuaryPurchases and EmployeeDemographics and merge FebruaryPurchases and 
+EmployeeWages.
+b.	 Union JanuaryPurchases and FebruaryPurchases and union EmployeeDemographics and 
+EmployeeWages.
+c.	 Union JanuaryPurchases and FebruaryPurchases and merge EmployeeDemographics and 
+EmployeeWages.
+d.	 Union JanuaryPurchases and EmployeeDemographics and merge FebruaryPurchases and 
+EmployeeWages.
+18.  (LO 6)  Which of the following would result in transforming this star schema into a snowflake schema?
+a.	 EmployeeName is a combined field that contains both the employee’s first name and last name.
+b.	 For some employees, their position is not known.
+c.	 It is possible to have multiple contacts for a vendor.
+d.	 Weekday, Month, and Year are extensively used for analysis purposes.
+
+5-60  CHAPTER 5  Analysis: Data Preparation
+Review Questions
+19.  (LO 7)  Hamza is transferring data into an analytical database for analysis. Which steps should he 
+take to identify whether all the data transferred?
+a.	 Review the columns for appropriate naming conventions.
+b.	 Establish data validation rules and identify which data do not comply with the data validation rules.
+c.	 Inspect distinct values and analyze frequencies. 
+d.	 Compare the row count for the analytical database with the row count of the data set in the ETL tool.
+20.  (LO 7)  You are preparing an analysis for a food delivery company called Dine At Home. Dine At 
+Home picks up food orders from restaurants and delivers them to the customer. Customers can order 
+many times, but an order is for one customer only. Restaurants may have many orders, but an order is 
+only for one restaurant. Which of the following cardinality specifications is incorrect?
+Restaurant
+Restaurant
+Order
+Order
+Order
+Order
+Customer
+Customer
+N
+N
+1
+N
+a.
+b.
+c.
+d.
+1.  (LO 1)  Describe data preparation. Why is data preparation necessary prior to analyzing data?
+2.  (LO 1)  Assume you are preparing an analytic database. You have downloaded raw data from the infor-
+mation system and are now examining the data for consistency. Discuss two profiling techniques you 
+might use to identify inconsistencies in the data.
+3.  (LO 2)  Define and describe the three subprocesses of data transformation.
+4.  (LO 2)  Compare and contrast the two forms of data integration: linking and combining.
+5.  (LO 2)  What is data matching and why is it a challenge for data integration?
+6.  (LO 3)  Describe what a data dictionary is and why it is an important part of data analysis. 
+7.  (LO 3)  Discuss why a pattern-based approach to data preparation is appropriate for data analysis 
+projects.
+8.  (LO 3)  Discuss the tools and features available in Microsoft Excel to ensure the transfer of all data 
+when extracting data.
+9.  (LO 4)  Compare and contrast the data types of whole number and text. Include how variables that are 
+noted as whole numbers and variables that are coded as text are used in data analysis. 
+10.  (LO 4)  Discuss the difference between a composite column and a multi-valued column and give an 
+example of each. 
+11.  (LO 4)  Describe the profiling techniques for detecting inconsistent values, and explain how to mod-
+ify inconsistent values. Give an example of an inconsistent value. 
+12.  (LO 5)  Discuss the importance of minimizing redundant data among columns in an analytical 
+database.
+13.  (LO 5)  Discuss why it is important to verify the presence of primary keys. Explain how to identify a missing 
+primary key and how to create one.
+14.  (LO 6)  Describe dimensional modeling and discuss the importance of complying with dimensional 
+modeling principles when building an analytical database.
+15.  (LO 6)  What is the difference between a union and a merge? Give an example of when a union 
+cannot be used. 
+16.  (LO 6)  Discuss the benefits of single-valued columns and flat tables for slicing data. 
+
+Brief Exercises  5-61
+17.  (LO 6)  Explain how you would detect and correct the following issues. 
+Issues
+Detection 
+Correction
+A table in your analytical database does not have a primary key.
+A column in the fixed assets table has a column for date acquired 
+(DateAcquired) and the asset age (AssetAge). Age represents 
+how long the asset has been held since the date acquired.
+A table with vendor information is named VINFO.
+Invalid data might have been entered into one of the tables in 
+the database.
+18.  (LO 6)  Discuss transforming models and how it differs from transforming columns. 
+19.  (LO 7)  Discuss the importance of validating relationships when transferring data from the ETL tool 
+to the analytical database.
+20.  (LO 7)  Discuss why it is important to ensure correct transfer when loading data. Give an example of 
+how to determine if the data are correct. 
+Brief Exercises
+BE 5.1  (LO 1)  Auditing   You are an audit staff assigned to the Coleman Cable, Inc. audit. You have 
+been asked to develop a star schema to illustrate the structure of the analytical data model for your sales 
+analysis. The senior has provided you with a first draft of the star schema. Match each of the following 
+terms to its appropriate location in the star schema.
+	 a.	 Dimension tables
+	 b.	 Fact table
+	 c.	 N
+	 d.	 Measure
+	 e.	 TotalAmountPurchased
+	 f.	 PurchasingClerk
+Day
+Weekday
+Month
+Year
+Date
+ClerkID
+FirstName
+LastName
+Name
+PurchasingClerk
+ProductCode
+Name
+Description
+Cost
+Product
+VendorID
+Name
+ContactPerson
+Street
+City
+Zip
+State
+Address
+Vendor
+1
+1
+1
+1
+N
+N
+N
+N
+Date
+Product
+Vendor
+Price
+Quantity
+Amount
+TotalQuantityPurchased
+PurchaseOrderNo
+Purchase
+3.
+Key
+Column
+Calculated column
+Foreign key
+6.
+4.
+5.
+1.
+2.
+
+5-62  CHAPTER 5  Analysis: Data Preparation
+BE 5.2  (LO 1)  You are a financial analyst asked to debrief your manager on the relationships between 
+tables in your analytical database. For each of the following four relationship specifications, identify the 
+most appropriate sentence describing one of its cardinalities.
+Customer
+Dimension
+Table
+Fact
+Table
+Vendor
+Employee
+Employee
+Sales
+Purchases
+Order
+Payment
+1
+N
+1
+N
+1
+N
+1
+N
+1
+2
+3
+4
+	 a.	 Only one vendor can be specified for a purchase.
+	 b.	 For every one customer there can be many sales.
+	 c.	 The same employee can place multiple orders.
+	 d.	 There can be many customers for the same sale–for example, two people buying a house.
+	 e.	 Only one employee is accountable for a payment.
+BE 5.3  (LO 1)  You have been provided with a data table that contains customer data collected for a retail 
+company’s customer loyalty program. An excerpt of that data table follows. Identify at least three data 
+quality issues.
+CustomerInfo
+Gender
+Date
+Email
+Steve Millier, 121 South Beach St
+M
+10/21/1978
+steve.miller
+Sara Stevens, 435 Parker St
+Female
+9/21/2008
+sara.stevens@mail.com
+Libby Ralston, 812 Foster Ave
+Female
+6/28/2956
+libby123@mail.com
+Able Meyers, 902
+Male
+1/4/2009
+smileyone@mail.com
+Spring Stevens, 639 Bulldog Ct
+Undisclosed
+6/14/1982
+sparkie.steven
+Kevin Hogan, 3098 N. Tier St. Apt 392
+M
+7/22/1955
+doglover@mail.com
+Libby Ralston, 812 Foster Ave
+Female
+Sara Stevens, 435 Parker St
+Female
+9/21/2008
+sara.stevens@mail.com
+Cooper Mazzu, 2342 Lincoln Way
+Male
+4/17/1955
+coop8623
+Molly White
+F
+10/21/1977
+molly.white.123@mail.com
+Janet Jones, 909 Hwy 78
+F
+BE 5.4  (LO 2)  The following two tables must be integrated into one combined table. The combined table 
+must include the following fields for each record: Description, QOH, Location, Cost, Price, and Sale. 
+Review each table and identify three data matching challenges.
+Table A
+Description
+QOH
+Location
+Blue Dog Collar
+  5
+A10
+Red Doc Collar
+  3
+A11
+7 Inch Rope Sturdy 
+Lead
+10
+B10
+10 Inch Rope 
+Sturdy Lead - Green
+  3
+B10
+10 Inch Rope 
+Sturdy Lead - Black
+  5
+B10
+Table B
+ProductDescription
+Cost
+Price
+Sale
+Dog Collar - Blue
+12.54
+16.93
+Y
+7 Inch Rope Sturdy Lead
+15.44
+20.85
+N
+Red Dog Collar
+15.54
+20.98
+N
+10 Inch Rope Sturdy 
+Lead - Bk
+20.38
+27.52
+N
+Green 10 Inch Rope 
+Sturdy Lead
+28.34
+38.26
+Y
+
+Brief Exercises  5-63
+BE 5.5  (LO 2)  Panels (A) and (B) represent alternative data models for the same data set. Compare and 
+contrast the two models.
+ID
+Name
+Address
+Group
+GroupName
+Customer
+(A)
+(B)
+1
+N
+1
+1
+N
+GroupID
+GroupName
+Group
+ID
+Name
+Address
+Group
+Customer
+InvoiceNo
+Amount
+Date
+Customer
+Sales
+N
+InvoiceNo
+Amount
+Date
+Customer
+Sales
+BE 5.6  (LO 3)  Tax Accounting   You have been asked to develop an analytical database to analyze local 
+and federal sales tax compared to value-added tax. An excerpt of your data table is presented.
+SaleID Date
+5/25/2024
+5/26/2024
+5/27/2024
+5/28/2024
+5/29/2024
+5/30/2024
+USA
+USA
+MEX
+MEX
+CAN
+AUS
+$ 197
+$ 113
+$ 155
+$ 423
+$   88
+$ 250
+1001
+0.0685
+0.0685
+0.16
+0.16
+0.05
+0.1
+1002
+1003
+1004
+1005
+1006
+SaleLocation SaleAmount
+0.02
+0.02
+LocalTax SalesTax
+VAT
+You have started the process and are now ready to create the data dictionary. For each of the blank spaces 
+designated with a number in the following table, identify the appropriate sentence or term to create the 
+data dictionary. Each term or sentence will be used only once.
+	 a.	 SaleID
+	 b.	 SaleAmount
+	 c.	 Vat
+	 d.	 LocalTax
+	 e.	 The percentage of federal sales taxes collected 
+at the time of the sale.
+	 f.	 The location where the sale was made.
+	 g.	 The date the sale was made.
+Name
+Description
+1.
+Unique identifier for each sale made.
+Date
+2.
+SaleLocation
+3.
+4.
+The total amount of the sale before taxes.
+5.
+The percentage of local taxes collected at the time of the sale.
+SalesTax
+6.
+7.
+The value-added-tax percentage to be collected related to the sale.

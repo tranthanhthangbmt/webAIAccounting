@@ -5,11 +5,6 @@
 
 ## Tổng quan Chương (Chapter Preview)
 
-### Tài nguyên Dữ liệu Thực hành
-Trong chương này, bạn sẽ sử dụng các bộ dữ liệu sau cho bài tập thực hành. Bạn có thể tải về để mở ra xem trước dữ liệu:
-- 📥 **<a href="TaiLieu/Datasets/Sales_DirtyData.xlsx" download target="_blank"><strong>Sales_DirtyData.xlsx</strong></a>**: Bộ dữ liệu giả định chứa nhiều lỗi (Dirty Data) để thực hành làm sạch dữ liệu.
-- 📥 **<a href="TaiLieu/Datasets/Sihryas_Beauty_Sales.csv" download target="_blank"><strong>Sihryas_Beauty_Sales.csv</strong></a>**: Dữ liệu bán hàng chi tiết của Cửa hàng Làm đẹp Sihrya's để thực hành phân tích sinh lời và PivotTable.
-
 Bạn sẽ làm việc với dữ liệu và phần mềm phân tích dữ liệu trong suốt sự nghiệp của mình, và một trong những công cụ phần mềm phổ biến nhất được sử dụng trong kế toán là Microsoft Excel. Như bạn sẽ thấy trong phần Professional Insight, khả năng sử dụng Microsoft Excel để thao tác trên các tập dữ liệu lớn là một tài sản to lớn đối với những kế toán viên chuyên nghiệp mới được tuyển dụng. Mặc dù các kỹ năng Microsoft Excel là quan trọng, nhưng phần mềm này không đủ mạnh để phân tích các tập dữ liệu cực kỳ lớn, vì vậy nó không phải là công cụ duy nhất được sử dụng để phân tích dữ liệu. Chương này giới thiệu một số kỹ năng mà bất kể sử dụng công nghệ nào, đều là nền tảng để thực hiện phân tích dữ liệu. Microsoft Excel được sử dụng để minh họa cho nhiều kỹ năng phân tích dữ liệu cốt lõi, nhưng các chương tiếp theo cũng sẽ giới thiệu các phần mềm phân tích dữ liệu như Power BI và Tableau. Sự kết hợp giữa hiểu biết cốt lõi về dữ liệu, trực quan hóa dữ liệu và các kỹ năng phân tích mô tả là nền tảng để thực hiện phân tích dữ liệu nâng cao hơn.
 
 ### Góc nhìn Chuyên gia (Professional Insight): Pivot Tables Có Thể Giúp Ích Như Thế Nào Trong Việc Hiểu Các Tập Dữ Liệu Lớn?
@@ -1352,6 +1347,9 @@ Bạn là một chuyên viên phân tích tài chính cho PizzaNow! Kiểm soát
 5. Date trong bảng TakeOrder
 6. ZipCode trong bảng Employees
 
+![BE 2.1](../TaiLieu/textbookForPractice/Figures/Ch_02/BE%202.1.png)
+![BE 2.1_1](../TaiLieu/textbookForPractice/Figures/Ch_02/BE%202.1_1.png)
+
 **BE 2.2 (LO 1) Hệ thống Thông tin Kế toán (Accounting Information Systems)**
 Dine At Home cung cấp dịch vụ giao đồ ăn tận nhà được đặt từ nhiều nhà hàng địa phương khác nhau. Bạn là người kết nối giữa bộ phận công nghệ thông tin và bộ phận kế toán của công ty. Bạn được yêu cầu giải thích mối quan hệ giữa ba bảng này cho nhóm kế toán. Các bảng (Customer1, Restaurant, Order) được lấy từ cơ sở dữ liệu của Dine At Home.
 Đối với mỗi kịch bản, hãy xác định kết nối (join) mà bạn có khả năng sử dụng nhiều nhất để truy vấn dữ liệu. Mỗi loại kết nối có thể được sử dụng một lần, nhiều lần, hoặc không được sử dụng.
@@ -1366,6 +1364,9 @@ d. Full join
 1. Xác định khóa chính (primary keys) và khóa ngoại (foreign keys) cho mỗi bảng.
 2. Nếu bạn muốn biết tên của một khách hàng cho một đơn hàng cụ thể, bạn nên truy vấn các bảng nào?
 
+![BE 2.2](../TaiLieu/textbookForPractice/Figures/Ch_02/BE%202.2.png)
+![BE 2.2_1](../TaiLieu/textbookForPractice/Figures/Ch_02/BE%202.2_1.png)
+
 **BE 2.3 (LO 1) Kế toán Tài chính (Financial Accounting)**
 Giả sử bạn là một chuyên viên phân tích tài chính trong nhóm kiểm soát cho công ty phân phối của bạn. Bạn được yêu cầu xác định tất cả các mặt hàng tồn kho không có doanh số bán hàng trong năm qua:
 - Nhóm IT đã cung cấp tệp dữ liệu hàng tồn kho hiện có (inventory on hand data file) và tệp dữ liệu doanh số mười hai tháng (twelve month sales data file).
@@ -1374,6 +1375,9 @@ Hãy xác định kết nối (join) phù hợp nhất cho hai bảng này để
 
 **BE 2.4 (LO 1) Kế toán Tài chính (Financial Accounting)**
 Bạn là một chuyên viên phân tích tài chính cho Dine At Home và được yêu cầu phân tích dữ liệu trong ba bảng trên (Customer1, Restaurant, Order). 
+
+![BE 2.4](../TaiLieu/textbookForPractice/Figures/Ch_02/BE%202.4.png)
+![BE 2.4_1](../TaiLieu/textbookForPractice/Figures/Ch_02/BE%202.4_1.png)
 
 **BE 2.5 (LO 2) > **Data** Kế toán Quản trị (Managerial Accounting)**
 Kiểm soát viên tại ThisBigCity đã yêu cầu bạn thực hiện một bản phân tích về chi phí hoàn trả cho nhân viên (employee reimbursement expenses) của thành phố trong mười lăm năm qua. Nhóm IT đã cung cấp một bản tải xuống tất cả dữ liệu hoàn trả cho nhân viên kể từ năm 2005.
@@ -1433,12 +1437,18 @@ Bạn là một kiểm toán viên nội bộ cho Way Cool Stuff. Bạn phải x
 2. Bạn sẽ sử dụng các trường nào để kết nối các bảng, nếu cần?
 3. Bạn cần các trường nào từ (các) bảng để hoàn thành bài kiểm tra này?
 
+![EX 2.1](../TaiLieu/textbookForPractice/Figures/Ch_02/EX%202.1.png)
+![EX 2.1_1](../TaiLieu/textbookForPractice/Figures/Ch_02/EX%202.1_1.png)
+
 **EX 2.2 (LO 1) Kế toán Tài chính (Financial Accounting)**
 **Xác định Dữ liệu và Kết nối Cần thiết để Tóm tắt Dữ liệu (Identify Data and Joins Needed to Summarize Data)**
 Bạn là một kế toán viên tài chính tại Way Cool Stuff đang tính toán thu nhập ròng (net income). Sử dụng các bảng cơ sở dữ liệu có sẵn của Way Cool Stuff được cung cấp.
 1. Bạn cần (các) bảng nào để có thể thu thập dữ liệu cần thiết cho việc tính toán thu nhập ròng?
 2. Bạn sẽ sử dụng các trường nào để kết nối các bảng?
 3. Bạn sẽ cần các trường nào để tính thu nhập ròng?
+
+![EX 2.2](../TaiLieu/textbookForPractice/Figures/Ch_02/EX%202.2.png)
+![EX 2.2_1](../TaiLieu/textbookForPractice/Figures/Ch_02/EX%202.2_1.png)
 
 **EX 2.3 (LO 1) Kế toán Quản trị (Managerial Accounting)**
 **Áp dụng Kết nối để Trả lời Câu hỏi (Apply Joins to Answer Questions)**
@@ -1447,12 +1457,18 @@ Bạn đang phân tích doanh số bán hàng tại Way Cool Stuff theo khu vự
 2. Bạn sẽ sử dụng các trường nào để kết nối các bảng?
 3. Bạn sẽ cần các trường nào để thực hiện phân tích của mình?
 
+![EX 2.3](../TaiLieu/textbookForPractice/Figures/Ch_02/EX%202.3.png)
+![EX 2.3_1](../TaiLieu/textbookForPractice/Figures/Ch_02/EX%202.3_1.png)
+
 **EX 2.4 (LO 1) Kế toán Thuế (Tax Accounting)**
 **Xác định Dữ liệu và Kết nối Cần thiết cho Việc Tuân thủ Thuế (Identify Data and Joins Needed for Tax Compliance)**
 Bạn đang nộp tờ khai thuế bán hàng cấp bang của Way Cool Stuff cho tháng kết thúc vào ngày 31 tháng 12 năm 2025 đối với tất cả các địa điểm có thu thuế bán hàng. Sử dụng các bảng cơ sở dữ liệu có sẵn để trả lời các câu hỏi.
 1. Bạn cần (các) bảng nào để có thể thu thập dữ liệu cần thiết cho việc tính toán khoản thuế bán hàng phải nộp cho tháng 12 năm 2025?
 2. Bạn sẽ sử dụng các trường nào để kết nối các bảng?
 3. Bạn sẽ cần các trường nào để thu thập thông tin cần thiết nhằm nộp thuế bán hàng năm 2025?
+
+![EX 2.4](../TaiLieu/textbookForPractice/Figures/Ch_02/EX%202.4.png)
+![EX 2.4_1](../TaiLieu/textbookForPractice/Figures/Ch_02/EX%202.4_1.png)
 
 **EX 2.5 (LO 3) > **Data** Kế toán Quản trị (Managerial Accounting)**
 **Áp dụng Bộ cắt lọc PivotTable của Excel (Apply Excel PivotTable Slicers)**
@@ -1534,6 +1550,8 @@ Bạn là một kiểm toán viên đang thực hiện cuộc kiểm toán báo 
 5. Tạo một biểu đồ phân tán (scatterplot) mô tả số tiền hoàn trả trong năm 2025. Trên trục x, hiển thị ngày tháng, và trên trục y, hiển thị số tiền. Phạm vi trục y nên từ $−500 đến $3,500.
 6. Sử dụng các số liệu thống kê mô tả sau và biểu đồ phân tán để xác định bất kỳ điểm bất thường nào trong các khoản hoàn trả của thành phố trong năm 2025: Mean, Median, Mode, Standard deviation.
 7. Đi Sâu Hơn (Dig Deeper): Mở rộng các phân tích này để bao gồm một cuộc thảo luận về số tiền hoàn trả theo phòng ban (department) hoặc theo chức danh công việc (job title).
+
+![PR 2.2](../TaiLieu/textbookForPractice/Figures/Ch_02/PR%202.2.png)
 
 **PR 2.3 (LO 2, 5) > **Data** Kiểm toán (Auditing)**
 **Các Hàm Excel Cơ Bản và Biểu Đồ Tròn (Basic Excel Functions and Pie Chart)**

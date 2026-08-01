@@ -1,0 +1,549 @@
+5-52  CHAPTER 5  Analysis: Data Preparation
+HOW TO 5.2 
+Merge Tables With Power Query
+In the Beans case the goal is to join the Employee and EmployeeDemographics tables. If both 
+tables share the same primary key, a join, or merge, is straightforward. But the Employee­
+Demographics table does not have a primary key and there are matching issues between the 
+names. Let’s explore how these different issues can be addressed with Power Query.
+What You Need:  Data   The How To 5.2 data file. 
+STEP 1: If you are using Excel, open the file and click the Data tab in the main menu. Select 
+Get Data in the ribbon, then Launch Power Query Editor. In Power BI, open the file and 
+click on the Home tab in the main menu. Select Transform data.
+	
+In both cases, Power Query will open. Make sure you are connected to the BeansEmployee-
+Data file. Create this connection by clicking the wheel next to Source in the Applied Steps pane. 
+Under File path, specify where the data set is located on your device. If you don’t define this 
+connection correctly, you will receive an error message like the one shown in Illustration 5.57.
+How To
+Click Column profiling based on 1000 rows and then select Column profiling based on 
+entire data set (Illustration 5.55).
+Column profiling based on top 1000 rows
+Column profiling based on entire data set
+ILLUSTRATION 5.55  Column Profiling 
+Based on Entire Data Set
+The statistics shown in Illustration 5.56 will appear. This results from checking the Column 
+profile option. Among others, the information provided includes the row count and the aver-
+age control amount.
+Count
+Column statistics
+. . .
+Error
+Empty
+Distinct
+Unique
+NaN
+Zero
+Min
+Max
+Average
+Standard deviation
+Even
+Odd
+4,632
+0
+0
+4,632
+4,632
+0
+0
+1
+4,632
+2,316.5
+1,337.28...
+2,316
+2,316
+ILLUSTRATION 5.56  Column Profile
+ILLUSTRATION 5.57  Incorrect Connection to Data Set
+File
+Home
+Transform
+Add Column
+View
+Data Sources
+Data Source
+Settings
+A
+Z
+Z
+A
+Sort
+Transform
+Combine
+Queries [2]
+Query Settings
+PROPERTIES
+Name
+All Properties
+Query
+Properties
+Advanced Editor
+Manage
+Refresh
+Preview
+Split
+Column
+Group
+By
+Data Type: Any
+Use First Row as Headers
+1 2 Replace Values
+Close
+Close &
+Load
+Manage
+Parameters
+Parameters
+Enter Data
+New Source
+Recent Sources
+New Query
+Reduce Rows
+Keep
+Rows
+Remove
+Rows
+Manage Columns
+Choose
+Columns
+Remove
+Columns
+Merge Queries
+Append Queries
+Combine Files
+EmployeeDemographi...
+!
+Employee
+!
+DataSource.Error: Could not find file ‘C:\Users\bigda\Dropbox\WILEY\BEANS\DA_CH 05_Apply It 5.2 BeansEmployeeData.xlsx’.
+Details:
+     C:\Users\bigda\Dropbox\WILEY\BEANS\DA_CH 05_Apply It 5.2 BeansEmployeeData.xlsx    
+!
+Go To Error
+EmployeeDemographics
+?
+Data Sources
+Data Source
+Settings
+A
+Z
+Z
+A
+Sort
+Transform
+Combine
+Split
+Column
+Group
+By
+Data Type: Any
+Use First Row as Headers
+1 2 Replace Values
+Manage
+Parameters
+Parameters
+Enter Data
+New Source
+Recent Sources
+New Query
+Reduce Rows
+Keep
+Rows
+Remove
+Rows
+Manage Columns
+Choose
+Columns
+Remove
+Columns
+Merge Queries
+Append Queries
+Combine Files
+Close
+Close &
+Load
+
+How To Walk-Throughs  5-53
+STEP 2: Select the Employee table in the Queries pane. Next, select the Home tab in Power 
+Query’s main menu and select Merge Queries in the Combine group. 
+STEP 3: Select the EmployeeDemographics table to join it with the Employee table.
+STEP 4: Choose FirstName and LastName in both tables. Using Pattern 6 to split the name 
+in the Employee table now pays off!
+	
+Illustration 5.58 visually shows how to perform steps 3, 4, and 5.
+ILLUSTRATION 5.58  Merge Tables with Fuzzy Matching
+Merge
+Select a table and matching columns to create a merged table.
+Employee
+EmployeeID
+FirstName 1
+LastName 2
+JobTitle
+Rate
+MaritalStatus
+1
+2
+3
+4
+5
+Kayne
+Ivan
+Mick
+Juan
+Gail
+James
+Lenk
+Richards
+Lozano
+David
+Staff
+Manager
+Senior
+Staff
+Senior
+165
+250
+225
+180
+218
+Married
+Single
+Married
+Single
+EmployeeDemographics
+FirstName 1
+LastName 2 CertificationList
+University
+null
+null
+null
+Diego
+Kim
+Marcus
+Gail
+Shiela
+Asare
+Bush
+Clay
+David
+Diamond
+CPA
+CPA, CMA, CFA
+Grand Valley State University
+University of Delaware
+Michigan State University
+University of Michigan
+Michigan State University
+Join Kind
+Left Outer (all from first, matching from second)
+Use fuzzy matching to perform the merge
+Cancel
+OK
+4
+4
+3
+Fuzzy matching options
+Similarity threshold (optional)
+0.4
+i
+i
+Ignore case
+Match by combining text parts
+5
+5
+STEP 5: To address data issues resulting from nicknames, typos, and reversed names, click the 
+checkbox Use fuzzy matching to perform the merge. Fuzzy matching is an algorithm that 
+measures similarities between two sets of values. The similarity threshold determines 
+how similar the values need to be for them to match. To fully match both sets here, the 
+threshold should be lowered to 0.4. Click OK to perform the merge.
+STEP 6: As shown in Illustration 5.59, a new column is added to the Employee table 
+as a result of the merge: EmployeeDemographics. All values in this column show 
+Table as the value. Next, Click the right upper corner of the column: 
+•	 Power Query will let you select any column from the EmployeeDemographics table 
+and add it to the Employee table. Uncheck the FirstName and LastName columns 
+and keep the CertificationList and University columns. 
+•	 Uncheck Use original column name as prefix. This will delete EmployeeDemo-
+graphics from the CertificationList and University column names.
+At this point, you have successfully merged the two tables into one.
+ILLUSTRATION 5.59  Select Data from the 
+Merged Table
+EmployeeDemographics
+6
+Table
+Table
+Table
+Table
+Table
+
+5-54  CHAPTER 5  Analysis: Data Preparation
+STEP 7: Only the Employee table is needed for analytical purposes. Illustration 5.60 shows 
+how to instruct Power Query not to load a table. Right-click on EmployeeDemographics 
+and unclick the checkbox before Enable Load. Tables that are not loaded into the analytical 
+database are shown in italics. Note: This option is available in power BI only, not in Excel
+HOW TO 5.3 
+Implement Referential Integrity with Microsoft Access
+To improve data quality, referential integrity is best implemented at the data entry level. Data-
+base software such as Microsoft Access makes this easy.
+What You Need:  Data   The How To 5.3 file. 
+STEP 1: The Microsoft Access database contains the Vendor and Purchase tables: 
+•	 As shown in Illustration 5.61, the relationship between the two tables is defined between 
+the ID field in the Vendor table and the Vendor field in the Purchase table. 
+•	 The bottom of Illustration 5.61 shows that when creating this relationship (by dragging the 
+vendor field into the Purchase table, or the other way around), Microsoft Access provides 
+an Enforce Referential ­Integrity option.
+How To
+ILLUSTRATION 5.60  Select Tables that Should Not be Loaded
+Queries [4]
+Client
+EmployeeDemographics
+Employee
+Service
+1
+2
+3
+4
+5
+6
+7
+Kayne
+Ivan
+Copy
+Paste
+Delete
+Rename
+Enable load
+Include in report refresh
+FirstName
+ABC
+7
+ILLUSTRATION 5.61  Enforcing 
+Referential Integrity With Microsoft 
+Access
+Edit Relationships
+?
+Table/Query:
+Related Table/Query:
+Enforce Referential Integrity
+Cascade Update Related Fields
+Cascade Delete Related Records
+Relationship Type:
+One-to-Many
+Vendor
+ID
+Name
+Purchase
+Code
+Date
+Vendor
+Select
+“Enforce
+Referential
+Integrity”
+Option
+Cancel
+Create New..
+Create
+Join Type..
+
+Multiple Choice Questions  5-55
+STEP 2: Illustration 5.62 demonstrates what happens if you select this option. Panel (A) 
+shows all existing vendors. Panel (B) shows what happens if you try to add a non-existing 
+vendor–the vendor with ID 6–to the Purchase table. Access generates an error preventing you 
+from entering the invalid vendor.
+ID
+Name
+Billy
+Namsun
+Esmeralda
+Cassius
+Carol
+1
+2
+3
+4
+5
+Code
+Date
+Vendor
+Click to Add
+L122
+1/2/2023
+U18
+1/3/2023
+1
+6
+Microsof Access
+You cannot add or change a record because a related record is required in table ‘VENDOR'.
+!
+OK
+Help
+Entering a Non-
+Existing Vendor
+Error Message
+Generated By
+Access
+(A)
+(B)
+ILLUSTRATION 5.62  Entering an Invalid Vendor
+Data   The Data tag appears when the data to answer a question or complete an exercise 
+are available on Wiley’s online learning platform. 
+Multiple Choice Questions
+1.  (LO 1)  Which of the following terms describes the process of profiling, cleaning, restructuring, and 
+integrating data prior to processing and analysis?
+a.	 Data profiling
+b.	 Data preparation
+c.	 Data querying
+d.	 Data parsing
+2.  (LO 1)  Hao, an accounts receivable analyst, is reviewing the customer master file for use in an anal-
+ysis project. He noticed that in the Address field one customer’s state is listed as NM, while another 
+customer’s state is listed as New Mexico. Which of the following is true?
+a.	 Hao has identified an instance of data that is incorrect.
+b.	 Hao has identified an instance of data that is invalid.
+c.	 Hao has identified an instance of data that is inconsistent.
+d.	 Hao has identified an instance of data that is not sizable.
+3.  (LO 1)  Spencer, a financial analyst at an athletic apparel store, is preparing a master file of all professional 
+sporting spokespersons for the company. Use the table to identify which of the following statements is true:
+Spokesperson
+Name
+Sport
+Bharat Arun, Bowling
+Bharat Arun
+Bowling
+Ramakrishnan Sridhar, Fielding
+Ramakrishnan Sridhar
+Fielding
+Virat Kohli, Batsman
+Virat Kohli
+Batsman
+Rohit Sharma, Batsman
+Rohit Sharma
+Batsman
+a.	 The Spokesperson column contains incorrect data, while the Name column contains invalid data.
+b.	 Spokesperson is a single-valued column, whereas Name is a composite column.
+c.	 Spokesperson is a composite column, whereas Name is a single-valued column.
+d.	 Spokesperson represents an aggregate column, whereas Name and Sport represent sliced columns.
+
+5-56  CHAPTER 5  Analysis: Data Preparation
+4.  (LO 1)  Which of the following statements about star schemas is incorrect?
+a.	 Fact tables represent business transactions.
+b.	 Compared to fact tables, dimension tables typically have fewer instances and more columns.
+c.	 To make slicing data easier, most measures are defined as part of the dimension tables.
+d.	 Dimension tables are used for what, when, and who analysis.
+e.	 The grain represents the granularity level of a fact table.
+5.  (LO 2)  Which of the following statements about data transformation are correct?
+1.	 Data transformation has three subprocesses: cleaning, restructuring, and integration.
+2.	 Cleaning aims to correct data anomalies.
+3.	 Restructuring does not change any data, just the way they are organized.
+4.	 Integration links the data together by defining relationships.
+a.	 1 and 2
+b.	 1 and 3
+c.	 1, 2, and 4
+d.	 1, 2, 3, and 4
+6.  (LO 2)  Data cleaning can involve adding, modifying, and deleting data. In which of the following 
+examples would data modifying be required?
+a.	 A file of purchase orders is missing one month of purchase orders.
+b.	 You are preparing an analysis of how many purchase orders are greater than $500. The file you 
+are working with has a row at the beginning of each new month with the month name listed in 
+the date column. There is no other data in the row with the month name.
+c.	 While examining the purchase orders data, you note that the vendor’s name, street address, city 
+and state are listed in separate columns. In some cases, the state column displays the state name, 
+in other cases the state abbreviation is shown. 
+d.	 During your analysis of purchase orders, you note that some of the orders include the vendor 
+phone number. 
+7.  (LO 3)  Validation of data transfers is done by comparing the source data with the data in the ETL tool. 
+Which of the following statements about data transfer is incorrect?
+a.	 The number of rows helps validate the completeness of data transfers.
+b.	 Sequence gap analysis helps validate the completeness of data transfers.
+c.	 Comparing the averages of a numeric field helps validate the accuracy of data transfers.
+d.	 Comparing column headers helps validate both completeness and accuracy.
+e.	 Comparing the sum of numeric fields helps validate the accuracy of data transfers.
+8.  (LO 3)  You are preparing an analysis of vendors and purchase orders and have transferred data from 
+the ERP system for all purchase orders in the past year and the data for all vendors. You have been pro-
+vided with the following information about the data:
+1
+Total number of purchase orders
+15,786
+2
+Sum of all purchase orders
+$1,567,679
+3
+Average purchase order amount
+$99.31
+4
+Total number of vendors
+672
+Which information is relevant to ensure the transfer of all data?
+a.	 1 and 2
+b.	 2 and 3
+c.	 1 and 4
+d.	 1, 2, 3, and 4
+9.  (LO 4)  Lizelle is a financial analyst preparing an analytical database to analyze manufacturing data 
+to determine the most efficient processes. She is currently identifying irrelevant and unreliable data in 
+columns within a table. Which of the following is the most appropriate response when she identifies 
+irrelevant or unreliable data?
+a.	 Remove the column with irrelevant or unreliable data.
+b.	 Abandon the project because the data are not valid and cannot be analyzed.
+c.	 Unpivot the column so that the data are separated into distinct fields.
+d.	 Put the relevant, irrelevant, reliable, and unreliable data in separate columns.
+
+Multiple Choice Questions  5-57
+10.  (LO 4)  Hofflak is a large construction company in the Northwest U.S. Their ERP system keeps track 
+of all their assets. The data dictionary for the asset table looks as follows:
+Asset
+Name
+Description
+ID
+An asset’s unique ID.
+Description
+An asset’s description.
+AssetCategory
+An asset’s category.
+Price
+The price paid for the asset.
+Salvam
+The estimated book value of the asset at the end of its useful life.
+EstimatedLifetime
+An asset’s estimated lifespan.
+DprMethod
+The depreciation method that applies to the asset.
+What column names would you change for data analysis purposes?
+a.	 ID, Salvam, DprMethod
+b.	 ID, Price, EstimatedLifetime, DprMethod
+c.	 Price, Salvam, EstimatedLifetime, DprMethod
+d.	 AssetCategory, Price
+e.	 Salvam, EstimatedLifetime, DprMethod
+f.	 EstimatedLifetime, DprMethod
+11.  (LO 4)  To restructure a composite column you should
+a.	 remove the column data that is not needed.
+b.	 split the column data into separate columns.
+c.	 create a separate table.
+d.	 move the column to another table. 
+12.  (LO 4)  Courtier is a high-end luxury goods store that designs and manufactures watches and jewelry 
+and sells them worldwide. The table provides a small sample of the customer information they track. They 
+have a very simple loyalty program. Customers earn “diamond” status if they have bought more than 
+$10,000,000 worth of products, “gold” status if they have bought for more than $1,000,000, and “no” status 
+if they have bought less than $1,000,000.
+Customer
+Code
+LoyaltyStatus
+Country
+1
+Diamond
+USA
+2
+Gold
+Italy
+3
+N/A
+US
+4
+Gold
+Based on the information given to you, how would you describe this data set’s issues?
+a.	 Incorrect, inconsistent, incomplete, invalid
+b.	 Inconsistent, incomplete, invalid
+c.	 Inconsistent, invalid
+d.	 Incomplete, invalid
+13.  (LO 5)  Which of the following statements is true about establishing a primary key in a table?
+a.	 Primary keys must use the same column title in all related tables.
+b.	 Primary keys must have a unique value for each row and have no null values.
+c.	 Primary keys and foreign keys are identical information repeated in the same table.
+d.	 If a table does not have a primary key, it cannot be included in an analytical database.

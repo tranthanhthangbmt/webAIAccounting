@@ -1,0 +1,492 @@
+6-0
+ C H A P T ER  6 
+ Analysis: Information 
+Modeling 
+ Chapter Preview 
+ After planning the project and completing the data preparation, you are probably excited to 
+finally explore the data and generate insights. While the data may be ready for analysis, there is 
+still a missing piece–the information necessary to perform the analysis. For example, the data 
+selected and prepared for analysis might include a set of transactions, but without knowing the 
+total revenue or profit generated, they cannot be analyzed to determine which products are 
+profitable. 
+ 
+ There are two important information modeling tasks to complete before data exploration. 
+First, you must understand what information is required for analysis and what data are needed 
+to produce that information. You did this in the planning stage when you developed a strategy 
+to select the best data and analysis to answer accounting questions. The second task is identify-
+ing the specific measures you want to use for analysis based on the prepared data set, and then 
+writing the code that generates this information. 
+ 
+ Information modeling is a process. This chapter will help you develop the skills to do it 
+successfully by offering a menu of patterns for common coding structures and for identifying
+information used in accounting analytics. 
+Analyze
+Plan
+Report
+Stage 2
+Stage 3
+Stage 1
+Interpret
+Communicate
+Analysis
+Strategy
+Objective
+Motivation
+Detect and
+correct data
+issues
+Identify and
+calculate relevant
+information
+Discover insights
+relevant for
+decision-making
+Information
+Modeling
+Data
+Exploration 
+Data
+Preparation 
+
+Professional Insight: Why is Information Modeling Important?
+After earning his accounting degree, Dan started working as a tax consultant for one of the Big 
+Four public accounting firms, which is where he fell in love with data and data analytics. More 
+recently, he moved to a multinational telecommunications corporation where he works as a data 
+analyst.
+As a data analyst, I must be versatile. I process raw data sets from multiple sources 
+and am heavily involved in ETL (extract-transform-load). I also explore data to gener-
+ate insights for stakeholders across multiple departments and develop dashboards. 
+­Continuously facing new challenges is what I really like about my job. Two days 
+ago, I worked on processing unstructured data (text), yesterday I coded a new algo-
+rithm, and today I am working on a dashboard that presents an interrelated set of KPIs.
+While I spend most of my time on ETL, I think information modeling is the heart of 
+data analytics. It involves coding the calculations, testing whether they are correct, and 
+making sure the information necessary for the different business cases is available. This 
+is where my accounting degree pays off, as I can understand the business context.
+Chapter Roadmap
+LEARNING OBJECTIVES
+TOPICS
+APPLY IT
+ LO 6.1   Describe the 
+foundational concepts of 
+information modeling.
+•	 The Information Modeling Process
+•	 A Structured Approach
+Complete a Star Schema 
+(Example: Accounting Information 
+Systems and Financial Accounting)
+ LO 6.2   Apply common 
+information modeling 
+algorithms.
+Seven Information Modeling Patterns 
+for Algorithms
+Use Algorithms to Calculate Net 
+Revenue 
+(Example: Financial Accounting)
+ LO 6.3   Develop and implement 
+information models for common 
+accounting data structures.
+Six Information Modeling Patterns for 
+Common Accounting Data Structures
+Answer Questions with a Star 
+Schema
+(Example: Managerial Accounting)
+Data   The Data tag appears in the chapter when the data for an example, illustration, or application are 
+­available on Wiley’s online learning platform.
+Data analytics software is continuously changing, and there may be more recent versions of the software refer-
+enced in this chapter. For more information access the accompanying video on Wiley’s online learning platform. 
+6.1  What is Information Modeling?
+LEARNING OBJECTIVE ➊
+Describe the foundational concepts of information modeling.
+Information modeling is the process of generating additional knowledge from data that is rel-
+evant for analysis purposes. Next, we examine how this is performed in an accounting context.
+6.1  What is Information Modeling?  6-1
+
+6-2  CHAPTER 6  Analysis: Information Modeling
+The Information Modeling Process
+In information modeling, data are the input. They are the raw figures and facts. Algorithms 
+are sets of instructions that transform the data into information, which is the output of addi-
+tional knowledge gained from the data (Illustration 6.1).
+ILLUSTRATION 6.1  The Information Modeling Process
+Algorithm
+Information
+Data
+Transforms
+Output
+Input
+Information Modeling
+Algorithms are the link between the input of facts and the output of useful information. Keep 
+in mind that data (input) for one application can also be information (output) for another 
+application. One example is how financial statements are information (output) for financial 
+statement preparers, but they are data (input) for financial analysts.
+Algorithms are intrinsic to the work of accountants. These instructions calculate depre-
+ciation, cost, financial ratios, and more. They range from simple to complex and can be coded 
+with a host of languages, including Excel functions, Power BI’s Data Analysis Expressions 
+(DAX) language, and the Python programming language. In this chapter we will rely on gen-
+eral descriptions of the algorithms.
+The first seven columns in Illustration 6.2 are data fields. They are factual descriptions 
+about sales transactions, such as a transaction’s identification number and the date it occurred. 
+In accounting these descriptions can range from the social security numbers of employees to 
+the names of customers who have made payments. The last two columns in Illustration 6.2 
+contain information that was calculated with an algorithm.
+ILLUSTRATION 6.2  Data, Information, and Algorithms for Sales Transactions
+Information
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+1/3/2022
+1/3/2022
+1/3/2022
+1/4/2022
+1/4/2022
+1/4/2022
+1/4/2022
+1/4/2022
+1/4/2022
+1/5/2022
+825
+$
+$
+$
+$
+$ 2,500
+$ 2,500
+$ 1,250
+900
+$ 1,500
+$ 1,500
+$ 1,000
+900
+500
+825
+$
+$
+$
+$
+$
+$ 2,400
+$ 2,250
+$ 1,175
+775
+$ 1,250
+$ 1,350
+950
+900
+450
+0
+100
+250
+75
+125
+250
+150
+50
+0
+50
+Dishwasher
+Refrigerator
+Refrigerator
+Cooktop
+Dishwasher
+Cooktop
+Oven
+Cooktop
+Cooktop
+Dishwasher
+Jeremy
+Jane
+Molly
+Whitney
+Zuzu
+Carmen
+Ben
+Lebron
+Trisha
+Xuomin
+Discount
+Customer
+SalesPerson
+TransactionSize
+Amount
+Product
+Date
+ID
+Ed
+Juana
+Hakeem
+Ed
+Juana
+Cindy
+Hakeem
+Juana
+Hakeem
+Cindy
+S
+M
+M
+M
+S
+M
+M
+S
+S
+S
+IF the NetAmount of a transaction is smaller than $1,000,
+THEN the TransactionSize is S (small), 
+ELSE
+    IF the NetAmount of a transaction is at least $1,000 but smaller than $2,500,
+    THEN the TransactionSize is M (medium), 
+    ELSE the transaction size is L (large). 
+Amount − Discount
+Algorithm for NetAmount
+Algorithm for TransactionSize
+Data
+NetAmount
+
+6.1  What is Information Modeling?  6-3
+There are two types of information fields:
+•	In Illustration 6.2, both NetAmount and TransactionSize are a calculated column in the 
+­SalesTransactions table because a value is calculated for each cell in the columns. They 
+are integral parts of the table.
+•	The second type of information field is a measure, which is an aggregate, or total, that 
+can be used in reports, and thus for analytical purposes. Measures are created by algo-
+rithms, but they are not integral parts of a table.
+Two measures that could be calculated for the table in Illustration 6.2 are the total net amount 
+generated by sales and the number of large transactions. The algorithms for these ­measures 
+are shown in Illustration 6.3.
+ILLUSTRATION 6.3  Algorithms to Calculate Total Net Amount and Number of Large Transactions
+Measure 
+Algorithm
+TotalNetAmount 
+Sum of all the values in the NetAmount column.
+NumberOfLargeTransactions
+Count the number of cells in the TransactionSize column that have 
+the value “L.”
+Measures are at the center of data analytics. They can be calculated and then sliced in 
+many ways during data exploration. Data analytics software, such as Power BI and Tableau, 
+make it easy to create and slice them.
+A Structured Approach
+Performing data analysis requires determining the numbers to analyze (these are the mea-
+sures) and how to analyze them (these are the dimensions, or the fields that can slice them). 
+This chapter describes a structured approach to developing accounting information models by 
+defining dimensions of who, what, and when in transactions to help make accounting sense 
+of data. A measure such as total revenue can be broken down by the following dimensions:
+•	Customer (who?).
+•	Product category (what?).
+•	Year (when?).
+Dimensions like these, and the measures they can slice, are typically configured in a star 
+schema. (As you learned earlier in this course, star schemas are the preferred data structures 
+for data analysis.) Let’s use an example to help illustrate this. Data   KLUB is a retail store 
+located in Interlochen, MI:
+•	KLUB’s owner uses business connections in different retail spaces to negotiate bulk pur-
+chases at heavily discounted prices and signs no-return policies with all vendors to fur-
+ther lower the prices.
+•	The company sells the items at prices lower than its competitors, but still with a substan-
+tial profit margin.
+•	The owner handles all negotiations, contracts, and deliveries with vendors.
+•	Salespeople are contractors who are paid a commission on sold goods.
+KLUB’s website shows currently available items, but sales are exclusively made over the 
+phone. The company regularly sends marketing emails to a list of 100,000 potential customers. 
+When customers want to buy something, they email the company and a salesperson contacts 
+them.
+KLUB
+
+6-4  CHAPTER 6  Analysis: Information Modeling
+After six months in business, the owner is curious where the company stands from a 
+sales and profit perspective and hires you to provide some insights. You are given the compa-
+ny’s available data. The data set is clean and structured as star schemas.
+From Data Model to Information Model
+Illustration 6.4 shows the two star schemas for the KLUB data set. The information model 
+has not been created yet.
+ILLUSTRATION 6.4  KLUB’s Sales and Purchases Star Schemas
+Dimension Tables
+Fact Table
+Dimension Tables
+Merchandise
+Calendar
+Customer
+Employee
+Sales
+Sales Star Schema
+1
+1
+N
+N
+1
+1
+N
+N
+Dimension Tables
+Fact Table
+Dimension Tables
+Vendor
+Calendar
+Merchandise
+Purchases
+Purchases Star
+Schema
+1
+1
+N
+N
+1
+N
+A star schema is a data model. A data model shows the structure of a data set. It shows 
+the concepts being described, the tables, and the fields used to describe the concepts. An 
+information model extends the data model because it also includes calculated columns and 
+measures. It has additional information that is calculated from the data set, which can be used 
+for analysis purposes.
+Illustration 6.5 shows the extended Sales star schema with field names such as Brand, 
+Country, and Gender. In this illustration, the fact table describes sales transactions. The fields 
+with question marks indicate the information model’s calculated columns and measures that 
+will be developed in this chapter.
+
+6.1  What is Information Modeling?  6-5
+ILLUSTRATION 6.5  Extended Sales Star Schema
+EmployeeID
+Email
+FirstName
+Gender
+LastName
+Sssn
+Employee
+CustomerID
+Age
+City
+Country
+FirstName
+Gender
+LastName
+Street
+State
+Telephone
+Title
+Zip
+?
+Customer
+Dimension Tables
+Fact Table
+Dimension Tables
+BatchID
+Brand
+Category
+Code
+Commission
+Description
+MinimumSalePrice
+Type
+Merchandise
+Date
+?
+Calendar
+1
+1
+1
+1
+N
+N
+N
+N
+InvoiceLineID
+Sale
+SellPrice
+QuantitySold
+Customer
+Date
+Employee
+Merchandise
+?
+?
+?
+?
+?
+Sales
+Key
+Column
+Calculated column
+Measure
+Foreign key
+?
+?
+?
+APPLYING CRITICAL THINKING 6.1: Same Data, Different KPIs
+Measures feed into key performance indicators (KPIs), which are the numbers businesses want 
+to track and then analyze. Developing an information model requires talking with different peo-
+ple across your company:
+•	 People who are impacted by the analysis all likely want their own KPIs included. Consider 
+sales data—the marketing manager might be interested in analyzing churn rates, while the 
+accountant might be interested in analyzing accounts receivable and bad debt expenses. The 
+same data is being analyzed, but different KPIs must be applied (Stakeholders).
+•	 One KPI might mean different things to different people. What if you are asked to analyze profit 
+margin? Is it the gross profit margin or the net profit margin? Make sure you understand the 
+algorithm (Knowledge)!
+Create Measures and Dimensions
+There are two goals for building an information model for a star schema. The first is to create 
+a rich set of measures for the fact table. Recall that in a star schema, fact tables typically hold 
+business transactions. For example, in Illustration 6.2 the NetAmount column was created 
+
+6-6  CHAPTER 6  Analysis: Information Modeling
+and then used to create the TotalNetAmount measure, which is an aggregate. The calculated 
+fields in the fact table are often used as building blocks for the measures.
+The second goal for building an information model is a rich set of dimensions that can 
+break down, or slice, measures in many ways. Helpful dimensions in Illustration 6.5 include 
+Gender, State, Country, Brand, Type, and Category. In the KLUB example, it may be useful 
+to compare profit across product brands, types, categories, and countries. More dimensions 
+can be created through calculated columns. An example of a dimension we will develop with 
+calculated columns for KLUB’s Sales star is AgeCategory, which differentiates between junior 
+and senior customers.
+Dimension tables can describe specific characteristics of transactions: who participated, 
+what was involved, and when they occurred1:
+•	A dimension table that describes the agents involved in the transactions is a who table. 
+Internal agents are the employees who participate in the transaction. External agents, such 
+as customers and vendors, are parties external to the organization involved in the account-
+ing transactions. A participates relationship links agents to specific transactions.
+•	A dimension table that describes the resources that were given up or acquired as part 
+of a transaction is a what table. In the KLUB example, purchases increase merchan-
+dise, while sales decrease merchandise. A flows relationship links resources to specific 
+transactions.
+•	A dimension table that describes when a transaction occurs is a when table. Such tables 
+often take the form of a Calendar table. An occurs relationship links the calendar to 
+specific transactions.
+Illustration 6.6 is KLUB’s Sales star schema labeled with who, what, and when dimension 
+tables and their relationships.
+1Who-what-when dimensions of accounting transactions were first recognized in McCarthy, William E. (1982) 
+The REA accounting model: A generalized framework for accounting systems in a shared data environment. 
+Accounting Review: 554-578.
+N
+N
+Participates
+Occurs
+Participates
+Flows
+N
+N
+1
+1
+1
+1
+Dimension Tables
+Fact Table
+Dimension Tables
+To/From
+Whom?
+Customer
+Transaction
+Sales
+Who? 
+Employee
+When? 
+Calendar
+What? 
+Merchandise
+ILLUSTRATION 6.6  Sales Star with Who, What, and When Dimension Tables
+Stars like the one shown in Illustration 6.6 are designed for accounting analytics. They 
+make it easy to answer transaction questions that include who, what, and when characteris-
+tics. For example, an accountant at KLUB could ask: How much revenue (the measure) was 

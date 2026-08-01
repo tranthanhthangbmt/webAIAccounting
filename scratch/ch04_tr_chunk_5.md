@@ -50,6 +50,8 @@ Các số liệu hiển thị trong bảng ở Hình minh họa 4.2 được tí
 - WeMakeIt, Inc. ước tính rằng 2% của các khoản phải thu quá hạn từ 30 đến 60 ngày sẽ không thể thu hồi, và 30% của các khoản phải thu quá hạn lớn hơn 60 ngày sẽ không thể thu hồi.
 - Số dư chưa điều chỉnh của tài khoản dự phòng các khoản phải thu khó đòi cuối năm 2025 là $3,000.
 
+![ILLUSTRATION 4.2](../TaiLieu/textbookForPractice/Figures/Ch_04/ILLUSTRATION%204.2.png)
+
 **Bạn Cần Gì:** Dữ liệu: Tệp dữ liệu How To 4.1.
 
 **BƯỚC 1:** Chọn toàn bộ tập dữ liệu, nhưng không chọn các nhãn (labels), và sắp xếp dữ liệu hóa đơn chưa thanh toán theo ngày hóa đơn. Tùy chọn `Sort` xuất hiện trong tab `Data`. (Hình minh họa 4.29)
@@ -119,6 +121,8 @@ Có Dự phòng các khoản phải thu khó đòi 7,366.89
 **CÁCH LÀM (HOW TO) 4.2**
 **Tạo Biểu đồ Cột Tần suất trong Power BI (Create a Frequency Bar Chart in Power BI)**
 Hình minh họa 4.16 có thể được tạo lại trong Power BI bằng cách phân tích các hóa đơn chưa thanh toán trong các khoản phải thu theo khách hàng và tạo một hình ảnh trực quan hiển thị số lượng hóa đơn chưa thanh toán thuộc nợ của các khách hàng duy nhất vào cuối năm 2024 và 2025 theo ba nhóm: 1-3 hóa đơn, 4-6 hóa đơn, và 7-9 hóa đơn.
+
+![ILLUSTRATION 4.16](../TaiLieu/textbookForPractice/Figures/Ch_04/ILLUSTRATION%204.16.png)
 
 **Bạn Sẽ Cần Gì:** Dữ liệu: Tệp dữ liệu How To 4.2.
 

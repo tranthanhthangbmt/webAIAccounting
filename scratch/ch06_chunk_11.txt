@@ -1,0 +1,396 @@
+6-62  CHAPTER 6  Analysis: Information Modeling
+EX 6.11  (LO 2, 3)  Data   Financial Accounting   Create an Information Model for Cash Flow 
+Analysis Valentina Turner owns The Blue Ballroom, which is a dance studio in Nevada. She has a 
+spreadsheet that records incoming and outgoing payments since the beginning of the year (2025). The 
+structure of the data set is shown here.
+RemittanceAdvice
+Number
+CashReceipt
+Fact Table
+Dimension Table
+Fact Table
+Disbursement
+VoucherNumber
+Amount
+Date
+Bank
+Amount
+Bank
+Date
+CashDisbursement
+N
+N
+1
+1
+BankCode
+BankName
+StartingBalance
+Cash
+Key
+Column
+She would like to use the summary table shown here to show the overall cash flows and the cash flows 
+for each of her three bank accounts.
+Fulton
+MTB
+PNC
+23,009
+89,012
+44,099
+BankName
+StartingBalance
+953.34
+2,116.00
+2,408.04
+$
+$
+$
+Inflow
+1,148.36
+900.23
+2,987.36
+$
+$
+$
+22,813.98
+90,227.77
+43,519.68
+$
+$
+$
+Total
+$ 156,120 $ 5,477.38 $ 5,035.95
+$ 156,561.43
+Outflow
+CustomerBalance
+$ 
+$ 
+$ 
+	 1.	 Create the information model.
+	 2.	 Generate the report.
+EX 6.12  (LO 2, 3)  Data   Managerial Accounting   Create an Information Model for Employee 
+Performance Analysis Carousel is a startup ride-share company that aims to compete with companies 
+like Uber and Lyft in the U.S. Using heavy local advertisement, they ran a pilot program during the first 
+weekend of February in the Seattle area. The diagram shows the data they collected.
+Fact Table
+Dimension Table
+RideID
+Ride
+N
+1
+Participates
+Key
+Column
+EstimatedTime
+ActualTime
+Amount
+Tip
+Rating
+Driver
+DriverID
+Driver
+DriverName
+The data dictionary provides a brief description for each of the fields.
+Ride
+Name
+Description
+RideID
+An ID that uniquely identifies a ride.
+EstimatedTime
+The estimated time of the ride in minutes.
+ActualTime
+The actual time of the ride in minutes.
+Amount
+The dollar amount paid for the ride.
+Tip
+The dollar amount tip received by the driver for a ride.
+(Continued)
+
+Name
+Description
+Rating
+The customer’s rating for the ride on a scale of one to five, 
+with five being excellent.
+Driver
+The driver’s ID.
+Driver
+Name
+Description
+DriverID
+An ID that uniquely identifies a driver.
+DriverName
+The name of the driver.
+	 1.	 Carousel’s CEO asks you to develop an information model that will help analyze driver perfor-
+mance. Develop at least three measures.
+	 2.	 Next, generate at least two reports that use the information model you developed.
+EX 6.13  (LO 2, 3)  Data   Financial Accounting   Create an Information Model for Revenue 
+Analysis Jane Jones (JJ) just opened a small food truck, Gourmet@5, on Fifth Avenue in New York City. 
+The menu is simple, offering hamburgers, hot dogs, water bottles, and a variety of soda and candy bars. 
+She gives you a spreadsheet that contains all the transactions for the first week from Monday through 
+­Sunday. The diagram shows what data was collected.
+Fact Table
+Dimension Table
+ItemCode
+Items
+N
+1
+Flows
+(out)
+Key
+Column
+Sales
+TransactionID
+Day
+Item
+Quantity
+ItemName
+ItemPrice
+ItemCategory
+The data dictionary provides a brief description for each of the fields.
+Sales
+Name
+Description
+TransactionID
+An ID used to identify the transaction.
+Day
+The day of the week the transaction occurred.
+Item
+The item sold to the customer (code).
+Quantity
+The quantity sold of the item.
+Items
+Name
+Description
+ItemCode
+A code that uniquely identifies a type of product.
+ItemName
+The name of the item (product type).
+ItemPrice
+The item’s price. All items have a fixed price.
+ItemCategory
+The item’s category.
+	 1.	 Develop an information model that will help analyze the first week’s sales. The owner is especially 
+interested in knowing which products generate the most revenue.
+	 2.	 Generate at least two reports using the information model you created.
+Exercises  6-63
+
+6-64  CHAPTER 6  Analysis: Information Modeling
+EX 6.14  (LO 2, 3)  Data   Create an Information Model for Employee Performance Analysis 
+Giuseppina’s is a popular, family-owned, pizza store in Bourbon, Missouri. The store’s owner has col-
+lected the following information regarding all deliveries on February 14, 2025: order number, driver, 
+order amount, and tip amount received by the driver. The owner would like to rank the drivers based on 
+two criteria:
+•  Total tip amount received.
+•  Average tip percentage received.
+	 1.	 Develop an information model for such an analysis.
+	 2.	 Use the information model to create a table for each ranking that shows the names of the drivers.
+Professional Application Case: D*Tunes
+D*Tunes is a ballroom studio in Pocatello, Idaho. The studio’s owner has collected data regarding the 
+studio’s sales for lessons in January 2025. You are interning with them as an accountant. The owner has a 
+series of questions that can be answered using data that has already been given to you. You have already 
+developed the data dictionary and the data model for the data set.
+D*Tunes Data Dictionary
+Instructors
+Column Name
+Field Description
+InstructorID
+An ID that uniquely identifies an instructor.
+InstructorName
+An instructor’s name.
+NumberOfHoursTaught
+The number of hours an instructor has taught for D*Tunes.
+NumberOfAwards
+The number of local and regional awards an instructor has 
+received during the last three years.
+NumberOfNationalAwards
+The number of national recognitions an instructor has received.
+Salary
+For full-time employees, the salary the instructor earns.
+JobTitle
+An instructor’s job title.
+Classes
+Column Name
+Field Description
+ClassCode
+A code that uniquely identifies a class.
+ClassDescription
+A brief description of the class.
+Students
+Column Name
+Field Description
+StudentID
+An ID that uniquely identifies a student.
+StudentName
+A student’s name.
+Level
+Student’s Skill Level: 
+B = Beginner 
+I = Intermediate 
+A = Advanced
+Gender
+A student’s gender.
+
+Key
+Column
+Foreign key
+InstructorName
+JobTitle
+NumberOfAwards
+NumberOfHoursTaught
+NumberOfNationalAwards
+Salary
+Instructors
+ClassCode
+ClassDescription
+Classes
+1
+1
+N
+N
+N
+1
+1
+N
+InstructorID
+StudentName
+Level
+Gender
+Students
+StudentID
+Participates
+Lesson
+Student
+Class
+Instructor
+Date
+Lessons
+LessonID
+Lessons
+Column Name
+Field Description
+LessonID
+An ID that uniquely identifies a lesson.
+Date
+The date on which the lesson occurred.
+Class
+The type of class taught during this lesson.
+Instructor
+The ID of the instructor teaching this class.
+Participates
+Column Name
+Field Description
+Lesson
+The ID of the lesson taken by the student.
+Student
+The ID of the student taking the lesson.
+Professional Application Case: D*Tunes  6-65
+
+6-66  CHAPTER 6  Analysis: Information Modeling
+PAC 6.1  Financial Accounting: Analyze D*Tunes’ Profitability
+Data   Financial Accounting   D*Tunes has four categories of instructors:
+•	 Apprentice.
+•	 Intermediate.
+•	 Advanced.
+•	 Champion.
+The following rules are used to assign instructors to their category.
+•	 Instructors who have taught less than 250 hours are apprentices.
+•	 Instructors who have taught more than 250 hours are considered intermediate.
+•	 Intermediate instructors who have won at least three awards, from a list of approved local and 
+regional tournaments, during the last three years, are considered advanced.
+•	 Instructors who have earned national recognition, from a list of highly prestigious awards, are clas-
+sified as champions.
+Instructors’ pay is determined by their category:
+Apprentice
+Intermediate
+Advanced
+Champion
+Category
+Hourly Rate
+45
+65
+85
+$ 110
+$
+$
+$
+This hourly rate applies to any class an instructor teaches: initiation, private, or group. The only excep-
+tion is the Friday evening parties, for which an instructor is paid $250. The price paid by students is the 
+instructor’s hourly rate plus $30. So, for a one-hour lesson with an apprentice, the student pays $75. For a 
+one-hour lesson with a champion, the students pays $140. The standard rate for any group lesson (swing, 
+cha-cha, etc.) is $40 per person. Admission to the weekly ­Friday party is $25. Every student receives a 
+free initiation lesson.
+	 1.	 Develop an information model that enables you to determine the gross profit for last month. When 
+calculating gross profit, the only cost to consider is what the owner pays the instructors. Do not 
+include the salaries paid to full-time employees. 
+	 2.	 Create a report that shows the total gross profit generated, gross profit generated per class, and gross 
+profit generated per instructor.
+PAC 6.2  Auditing: Analyze Potential Fraud
+Data   Auditing   D*Tunes’ policy is that potential customers can have a free initiation lesson. How-
+ever, instructors are still paid for these lessons. The owner does not want to change this policy, but under-
+stands that it creates an opportunity for fraud. You are asked to analyze the following four questions.
+Build an information model to explore each question. Then, create a report for each of them.
+	 1.	 What is the cost of the initiation lessons. What investment has been made thus far?
+	 2.	 Are there students that took more than one initiation lesson?
+	 3.	 Are there instructors with an unusually high number of initiation lessons?
+	 4.	 What is the conversion rate? That is, how many students who signed up for an initiation lesson also 
+eventually paid for a lesson or a Friday night party?
+PAC 6.3  Managerial Accounting: Create a Breakeven Analysis of Group Classes
+Data   Managerial Accounting   D*Tunes policy is to keep group classes only when there is a net 
+revenue of at least $150 after paying the instructor. Currently, the price paid by students for a group class 
+is $40. Explore the following two questions.
+	 1.	 Create an information model to determine how many students are required per lesson to breakeven, 
+and which lessons have not yet reached that goal.
+	 2.	 Generate a report that shows which classes are not meeting the breakeven point. What classes would 
+you suggest canceling?
+
+LeGrind Continuing Case: Build the Information Model for 
+Calculating Gross Profit
+Data
+Visit Wiley’s online learning platform for the case background, additional questions, data, and 
+more details about the continuing case. 
+LeGrind Continuing Case: Build the Information Model for Calculating Gross Profit 6-67
+ PAC 6.4 Tax Accounting: Determine Withholdings for Salaried Employees 
+Data
+Tax Accounting
+For the two salaried employees, D*Tunes must withhold the employer por-
+tion of FICA taxes every month from their wages.  FICA tax is a combination of Social Security tax and 
+Medicare tax.  The 2025 FICA tax rate is 7.65%, which includes Social Security tax of 6.2% and Medicare 
+tax of 1.45%. The owner does not need to withhold Social Security tax for any earnings above $168,900. 
+Therefore, the studio must only withhold Medicare tax on wages above this amount.  Create an informa-
+tion model that will allow you to design a worksheet similar to the one shown that will help the studio
+determine the FICA tax payments for each month.
+January
+February
+March
+April
+May
+Salary
+FICA%
+SocialSecurity%
+Medicare%
+SocialSecurityMaximum
+200,000
+0.0765
+0.062
+0.0145
+168,900
+June
+July
+August
+September
+October
+November
+December
+1,275.00
+1,275.00
+1,275.00
+1,275.00
+1,275.00
+1,275.00
+1,275.00
+1,275.00
+1,275.00
+1,275.00
+380.13
+241.67
+Month
+Deduction

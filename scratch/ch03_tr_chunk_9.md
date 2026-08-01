@@ -9,12 +9,17 @@ Hãy hoàn thành các câu hỏi mục tiêu chẩn đoán trong bảng sau:
 Phân tích mô tả ban đầu của bạn đã phát hiện ra rằng trong ba năm qua, có 313 sự cố không gian mạng đã được báo cáo. Có 73 báo cáo trong năm 2023, 111 báo cáo trong năm 2024 và 129 báo cáo trong năm 2025. Người quản lý của bạn muốn hiểu lý do tại sao số lượng báo cáo sự cố mạng lại tăng lên. Bạn đã bắt đầu xác định các câu hỏi ban đầu, các câu hỏi phụ và những thước đo khả thi cho phân tích của mình trong bảng sau (xem sách giáo khoa).
 - 4. Hãy thực hiện các phân tích khả thi.
 
+![EX 3.8](../TaiLieu/textbookForPractice/Figures/Ch_03/EX%203.8.png)
+![EX 3.8_1](../TaiLieu/textbookForPractice/Figures/Ch_03/EX%203.8_1.png)
+
 **EX 3.9 (LO 4, 6) Hệ thống Thông tin Kế toán - Đường xu hướng (Trendlines)** Giám đốc tài chính của bạn đã yêu cầu bạn chứng minh mối quan hệ giữa chi phí đào tạo an ninh mạng và số lượng các mối đe dọa không gian mạng hợp lệ (valid cybersecurity threats) do nhân viên báo cáo. Bạn đã thu thập dữ liệu hàng tháng báo cáo chi phí đào tạo an ninh mạng hàng tháng và số lượng các mối đe dọa không gian mạng hợp lệ do nhân viên báo cáo. Hãy tạo một biểu đồ đường (line graph) cho thấy mối quan hệ giữa hai biến này. Bao gồm đường xu hướng (trendline), phương trình, và R-bình phương (R-square) của phân tích của bạn.
 
 **EX 3.10 (LO 5, 6) Kiểm toán - Thủ tục Phân tích (Analytical Procedures) cho Hàng bán bị trả lại** Bạn là thực tập sinh kiểm toán cho kỳ kiểm toán báo cáo tài chính năm kết thúc vào ngày 31 tháng 12 năm 2025 của một công ty tư nhân. Kiểm toán viên chính (audit senior) của bạn rất vui mừng vì bạn vừa hoàn thành một khóa học phân tích dữ liệu kế toán và muốn bạn sử dụng kiến thức về phân tích dự đoán để phát triển một dự tính về khoản hàng bán bị trả lại dựa trên khối lượng bán hàng nhằm thực hiện các thủ tục phân tích. Bạn đã tham gia vào quá trình suy nghĩ phản biện (critical thinking) và phát triển một phần của bảng (xem sách giáo khoa). Hoàn thành bảng.
 2. Thực hiện phân tích hồi quy để dự đoán giá trị bằng đô la của khoản hàng bán bị trả lại bằng cách sử dụng khối lượng bán hàng.
 3. Viết phương trình hồi quy.
 4. R² cho mô hình hồi quy là bao nhiêu?
+
+![EX 3.10](../TaiLieu/textbookForPractice/Figures/Ch_03/EX%203.10.png)
 
 **EX 3.11 (LO 5, 6) Kế toán Tài chính - Ước tính Chi phí Bảo hành cho các khoản Dự thu/Dự chi (Accruals)** Là một kế toán tài chính cho một công ty sản xuất widget đại chúng, bạn được cung cấp một file dữ liệu và được yêu cầu tính toán cũng như ghi nhận các bút toán điều chỉnh cuối tháng. Bạn phải tính số tiền chi phí bảo hành cho tháng 1 năm 2025.
 1. Thực hiện phân tích hồi quy để dự đoán chi phí bảo hành bằng cách sử dụng khối lượng bán hàng.
@@ -30,6 +35,9 @@ Phân tích mô tả ban đầu của bạn đã phát hiện ra rằng trong ba
 1. Biến phụ thuộc (y range) trong mô hình là gì?
 2. Biến độc lập (x range) trong mô hình là gì?
 3. Phương trình hồi quy cho mô hình này là gì?
+
+![EX 3.13](../TaiLieu/textbookForPractice/Figures/Ch_03/EX%203.13.png)
+![EX 3.13_1](../TaiLieu/textbookForPractice/Figures/Ch_03/EX%203.13_1.png)
 
 **EX 3.14 (LO 5, 6) Kế toán Quản trị - Tối ưu hóa** Quản đốc sản xuất của bạn đã yêu cầu bạn xác định số lượng mặt hàng cần sản xuất để tối đa hóa số dư đảm phí (contribution margin) của công ty trong kỳ. Công ty của bạn có 4 sản phẩm: Standard widgets, Blue flying widgets, Red swimming widgets, Yellow hopping widgets. Bạn đã tạo một bảng tính nêu sơ lược về nhu cầu, số giờ máy trên mỗi đơn vị sản phẩm, số dư đảm phí trên mỗi đơn vị và tổng số giờ máy. Sử dụng tính năng Microsoft Solver để xác định số lượng đơn vị cần sản xuất cho mỗi sản phẩm và số dư đảm phí tối đa.
 
@@ -48,6 +56,8 @@ Ngoài ra, bạn và các bạn cùng phòng đã cam kết làm việc theo s�
 3. Tổng lợi nhuận gộp dự kiến kiếm được dựa trên sản xuất hàng tuần là bao nhiêu?
 4. Có ràng buộc nào được xác định trong báo cáo câu trả lời là không ràng buộc không?
 
+![EX 3.16](../TaiLieu/textbookForPractice/Figures/Ch_03/EX%203.16.png)
+
 **EX 3.17 (LO 5, 6) Kế toán Quản trị - Tối ưu hóa Tuyến tính** Tiana’s Jewel Design, Inc. thiết kế và sản xuất đồ trang sức kim loại sản xuất hàng loạt và đồ trang sức mạ bạc thiết kế tùy chỉnh. Hiện tại, chủ sở hữu thiết kế và sản xuất ba dòng trang sức tùy chỉnh (custom jewelry): dây chuyền (necklaces), vòng tay (bracelets) và hoa tai (earrings) (các biến quyết định). Số dư đảm phí và yêu cầu về nguồn lực cho mỗi sản phẩm được cung cấp (xem bảng trong sách).
 Họ muốn tối đa hóa số dư đảm phí (hàm mục tiêu). Tuy nhiên, chủ sở hữu có những ràng buộc sau:
 - Hợp đồng sản xuất ít nhất 10 đôi khuyên tai tùy chỉnh một tháng.
@@ -60,6 +70,8 @@ Họ muốn tối đa hóa số dư đảm phí (hàm mục tiêu). Tuy nhiên, 
 2. Cần sản xuất bao nhiêu sản phẩm mỗi loại để tối đa hóa số dư đảm phí?
 3. Có ràng buộc nào bị giới hạn (binding) không?
 4. Dựa trên kết quả đầu ra từ báo cáo câu trả lời, bạn sẽ đưa ra lời khuyên gì cho chủ sở hữu?
+
+![EX 3.17](../TaiLieu/textbookForPractice/Figures/Ch_03/EX%203.17.png)
 
 ---
 

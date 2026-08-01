@@ -1,0 +1,5099 @@
+--- PAGE 1 ---
+6-0
+ C H A P T ER  6 
+ Analysis: Information 
+Modeling 
+ Chapter Preview 
+ After planning the project and completing the data preparation, you are probably excited to 
+finally explore the data and generate insights. While the data may be ready for analysis, there is 
+still a missing piece–the information necessary to perform the analysis. For example, the data 
+selected and prepared for analysis might include a set of transactions, but without knowing the 
+total revenue or profit generated, they cannot be analyzed to determine which products are 
+profitable. 
+ 
+ There are two important information modeling tasks to complete before data exploration. 
+First, you must understand what information is required for analysis and what data are needed 
+to produce that information. You did this in the planning stage when you developed a strategy 
+to select the best data and analysis to answer accounting questions. The second task is identify-
+ing the specific measures you want to use for analysis based on the prepared data set, and then 
+writing the code that generates this information. 
+ 
+ Information modeling is a process. This chapter will help you develop the skills to do it 
+successfully by offering a menu of patterns for common coding structures and for identifying
+information used in accounting analytics. 
+Analyze
+Plan
+Report
+Stage 2
+Stage 3
+Stage 1
+Interpret
+Communicate
+Analysis
+Strategy
+Objective
+Motivation
+Detect and
+correct data
+issues
+Identify and
+calculate relevant
+information
+Discover insights
+relevant for
+decision-making
+Information
+Modeling
+Data
+Exploration 
+Data
+Preparation 
+--- PAGE 2 ---
+Professional Insight: Why is Information Modeling Important?
+After earning his accounting degree, Dan started working as a tax consultant for one of the Big 
+Four public accounting firms, which is where he fell in love with data and data analytics. More 
+recently, he moved to a multinational telecommunications corporation where he works as a data 
+analyst.
+As a data analyst, I must be versatile. I process raw data sets from multiple sources 
+and am heavily involved in ETL (extract-transform-load). I also explore data to gener-
+ate insights for stakeholders across multiple departments and develop dashboards. 
+­Continuously facing new challenges is what I really like about my job. Two days 
+ago, I worked on processing unstructured data (text), yesterday I coded a new algo-
+rithm, and today I am working on a dashboard that presents an interrelated set of KPIs.
+While I spend most of my time on ETL, I think information modeling is the heart of 
+data analytics. It involves coding the calculations, testing whether they are correct, and 
+making sure the information necessary for the different business cases is available. This 
+is where my accounting degree pays off, as I can understand the business context.
+Chapter Roadmap
+LEARNING OBJECTIVES
+TOPICS
+APPLY IT
+ LO 6.1   Describe the 
+foundational concepts of 
+information modeling.
+•	 The Information Modeling Process
+•	 A Structured Approach
+Complete a Star Schema 
+(Example: Accounting Information 
+Systems and Financial Accounting)
+ LO 6.2   Apply common 
+information modeling 
+algorithms.
+Seven Information Modeling Patterns 
+for Algorithms
+Use Algorithms to Calculate Net 
+Revenue 
+(Example: Financial Accounting)
+ LO 6.3   Develop and implement 
+information models for common 
+accounting data structures.
+Six Information Modeling Patterns for 
+Common Accounting Data Structures
+Answer Questions with a Star 
+Schema
+(Example: Managerial Accounting)
+Data   The Data tag appears in the chapter when the data for an example, illustration, or application are 
+­available on Wiley’s online learning platform.
+Data analytics software is continuously changing, and there may be more recent versions of the software refer-
+enced in this chapter. For more information access the accompanying video on Wiley’s online learning platform. 
+6.1  What is Information Modeling?
+LEARNING OBJECTIVE ➊
+Describe the foundational concepts of information modeling.
+Information modeling is the process of generating additional knowledge from data that is rel-
+evant for analysis purposes. Next, we examine how this is performed in an accounting context.
+6.1  What is Information Modeling?  6-1
+--- PAGE 3 ---
+6-2  CHAPTER 6  Analysis: Information Modeling
+The Information Modeling Process
+In information modeling, data are the input. They are the raw figures and facts. Algorithms 
+are sets of instructions that transform the data into information, which is the output of addi-
+tional knowledge gained from the data (Illustration 6.1).
+ILLUSTRATION 6.1  The Information Modeling Process
+Algorithm
+Information
+Data
+Transforms
+Output
+Input
+Information Modeling
+Algorithms are the link between the input of facts and the output of useful information. Keep 
+in mind that data (input) for one application can also be information (output) for another 
+application. One example is how financial statements are information (output) for financial 
+statement preparers, but they are data (input) for financial analysts.
+Algorithms are intrinsic to the work of accountants. These instructions calculate depre-
+ciation, cost, financial ratios, and more. They range from simple to complex and can be coded 
+with a host of languages, including Excel functions, Power BI’s Data Analysis Expressions 
+(DAX) language, and the Python programming language. In this chapter we will rely on gen-
+eral descriptions of the algorithms.
+The first seven columns in Illustration 6.2 are data fields. They are factual descriptions 
+about sales transactions, such as a transaction’s identification number and the date it occurred. 
+In accounting these descriptions can range from the social security numbers of employees to 
+the names of customers who have made payments. The last two columns in Illustration 6.2 
+contain information that was calculated with an algorithm.
+ILLUSTRATION 6.2  Data, Information, and Algorithms for Sales Transactions
+Information
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+1/3/2022
+1/3/2022
+1/3/2022
+1/4/2022
+1/4/2022
+1/4/2022
+1/4/2022
+1/4/2022
+1/4/2022
+1/5/2022
+825
+$
+$
+$
+$
+$ 2,500
+$ 2,500
+$ 1,250
+900
+$ 1,500
+$ 1,500
+$ 1,000
+900
+500
+825
+$
+$
+$
+$
+$
+$ 2,400
+$ 2,250
+$ 1,175
+775
+$ 1,250
+$ 1,350
+950
+900
+450
+0
+100
+250
+75
+125
+250
+150
+50
+0
+50
+Dishwasher
+Refrigerator
+Refrigerator
+Cooktop
+Dishwasher
+Cooktop
+Oven
+Cooktop
+Cooktop
+Dishwasher
+Jeremy
+Jane
+Molly
+Whitney
+Zuzu
+Carmen
+Ben
+Lebron
+Trisha
+Xuomin
+Discount
+Customer
+SalesPerson
+TransactionSize
+Amount
+Product
+Date
+ID
+Ed
+Juana
+Hakeem
+Ed
+Juana
+Cindy
+Hakeem
+Juana
+Hakeem
+Cindy
+S
+M
+M
+M
+S
+M
+M
+S
+S
+S
+IF the NetAmount of a transaction is smaller than $1,000,
+THEN the TransactionSize is S (small), 
+ELSE
+    IF the NetAmount of a transaction is at least $1,000 but smaller than $2,500,
+    THEN the TransactionSize is M (medium), 
+    ELSE the transaction size is L (large). 
+Amount − Discount
+Algorithm for NetAmount
+Algorithm for TransactionSize
+Data
+NetAmount
+--- PAGE 4 ---
+6.1  What is Information Modeling?  6-3
+There are two types of information fields:
+•	In Illustration 6.2, both NetAmount and TransactionSize are a calculated column in the 
+­SalesTransactions table because a value is calculated for each cell in the columns. They 
+are integral parts of the table.
+•	The second type of information field is a measure, which is an aggregate, or total, that 
+can be used in reports, and thus for analytical purposes. Measures are created by algo-
+rithms, but they are not integral parts of a table.
+Two measures that could be calculated for the table in Illustration 6.2 are the total net amount 
+generated by sales and the number of large transactions. The algorithms for these ­measures 
+are shown in Illustration 6.3.
+ILLUSTRATION 6.3  Algorithms to Calculate Total Net Amount and Number of Large Transactions
+Measure 
+Algorithm
+TotalNetAmount 
+Sum of all the values in the NetAmount column.
+NumberOfLargeTransactions
+Count the number of cells in the TransactionSize column that have 
+the value “L.”
+Measures are at the center of data analytics. They can be calculated and then sliced in 
+many ways during data exploration. Data analytics software, such as Power BI and Tableau, 
+make it easy to create and slice them.
+A Structured Approach
+Performing data analysis requires determining the numbers to analyze (these are the mea-
+sures) and how to analyze them (these are the dimensions, or the fields that can slice them). 
+This chapter describes a structured approach to developing accounting information models by 
+defining dimensions of who, what, and when in transactions to help make accounting sense 
+of data. A measure such as total revenue can be broken down by the following dimensions:
+•	Customer (who?).
+•	Product category (what?).
+•	Year (when?).
+Dimensions like these, and the measures they can slice, are typically configured in a star 
+schema. (As you learned earlier in this course, star schemas are the preferred data structures 
+for data analysis.) Let’s use an example to help illustrate this. Data   KLUB is a retail store 
+located in Interlochen, MI:
+•	KLUB’s owner uses business connections in different retail spaces to negotiate bulk pur-
+chases at heavily discounted prices and signs no-return policies with all vendors to fur-
+ther lower the prices.
+•	The company sells the items at prices lower than its competitors, but still with a substan-
+tial profit margin.
+•	The owner handles all negotiations, contracts, and deliveries with vendors.
+•	Salespeople are contractors who are paid a commission on sold goods.
+KLUB’s website shows currently available items, but sales are exclusively made over the 
+phone. The company regularly sends marketing emails to a list of 100,000 potential customers. 
+When customers want to buy something, they email the company and a salesperson contacts 
+them.
+KLUB
+--- PAGE 5 ---
+6-4  CHAPTER 6  Analysis: Information Modeling
+After six months in business, the owner is curious where the company stands from a 
+sales and profit perspective and hires you to provide some insights. You are given the compa-
+ny’s available data. The data set is clean and structured as star schemas.
+From Data Model to Information Model
+Illustration 6.4 shows the two star schemas for the KLUB data set. The information model 
+has not been created yet.
+ILLUSTRATION 6.4  KLUB’s Sales and Purchases Star Schemas
+Dimension Tables
+Fact Table
+Dimension Tables
+Merchandise
+Calendar
+Customer
+Employee
+Sales
+Sales Star Schema
+1
+1
+N
+N
+1
+1
+N
+N
+Dimension Tables
+Fact Table
+Dimension Tables
+Vendor
+Calendar
+Merchandise
+Purchases
+Purchases Star
+Schema
+1
+1
+N
+N
+1
+N
+A star schema is a data model. A data model shows the structure of a data set. It shows 
+the concepts being described, the tables, and the fields used to describe the concepts. An 
+information model extends the data model because it also includes calculated columns and 
+measures. It has additional information that is calculated from the data set, which can be used 
+for analysis purposes.
+Illustration 6.5 shows the extended Sales star schema with field names such as Brand, 
+Country, and Gender. In this illustration, the fact table describes sales transactions. The fields 
+with question marks indicate the information model’s calculated columns and measures that 
+will be developed in this chapter.
+--- PAGE 6 ---
+6.1  What is Information Modeling?  6-5
+ILLUSTRATION 6.5  Extended Sales Star Schema
+EmployeeID
+Email
+FirstName
+Gender
+LastName
+Sssn
+Employee
+CustomerID
+Age
+City
+Country
+FirstName
+Gender
+LastName
+Street
+State
+Telephone
+Title
+Zip
+?
+Customer
+Dimension Tables
+Fact Table
+Dimension Tables
+BatchID
+Brand
+Category
+Code
+Commission
+Description
+MinimumSalePrice
+Type
+Merchandise
+Date
+?
+Calendar
+1
+1
+1
+1
+N
+N
+N
+N
+InvoiceLineID
+Sale
+SellPrice
+QuantitySold
+Customer
+Date
+Employee
+Merchandise
+?
+?
+?
+?
+?
+Sales
+Key
+Column
+Calculated column
+Measure
+Foreign key
+?
+?
+?
+APPLYING CRITICAL THINKING 6.1: Same Data, Different KPIs
+Measures feed into key performance indicators (KPIs), which are the numbers businesses want 
+to track and then analyze. Developing an information model requires talking with different peo-
+ple across your company:
+•	 People who are impacted by the analysis all likely want their own KPIs included. Consider 
+sales data—the marketing manager might be interested in analyzing churn rates, while the 
+accountant might be interested in analyzing accounts receivable and bad debt expenses. The 
+same data is being analyzed, but different KPIs must be applied (Stakeholders).
+•	 One KPI might mean different things to different people. What if you are asked to analyze profit 
+margin? Is it the gross profit margin or the net profit margin? Make sure you understand the 
+algorithm (Knowledge)!
+Create Measures and Dimensions
+There are two goals for building an information model for a star schema. The first is to create 
+a rich set of measures for the fact table. Recall that in a star schema, fact tables typically hold 
+business transactions. For example, in Illustration 6.2 the NetAmount column was created 
+--- PAGE 7 ---
+6-6  CHAPTER 6  Analysis: Information Modeling
+and then used to create the TotalNetAmount measure, which is an aggregate. The calculated 
+fields in the fact table are often used as building blocks for the measures.
+The second goal for building an information model is a rich set of dimensions that can 
+break down, or slice, measures in many ways. Helpful dimensions in Illustration 6.5 include 
+Gender, State, Country, Brand, Type, and Category. In the KLUB example, it may be useful 
+to compare profit across product brands, types, categories, and countries. More dimensions 
+can be created through calculated columns. An example of a dimension we will develop with 
+calculated columns for KLUB’s Sales star is AgeCategory, which differentiates between junior 
+and senior customers.
+Dimension tables can describe specific characteristics of transactions: who participated, 
+what was involved, and when they occurred1:
+•	A dimension table that describes the agents involved in the transactions is a who table. 
+Internal agents are the employees who participate in the transaction. External agents, such 
+as customers and vendors, are parties external to the organization involved in the account-
+ing transactions. A participates relationship links agents to specific transactions.
+•	A dimension table that describes the resources that were given up or acquired as part 
+of a transaction is a what table. In the KLUB example, purchases increase merchan-
+dise, while sales decrease merchandise. A flows relationship links resources to specific 
+transactions.
+•	A dimension table that describes when a transaction occurs is a when table. Such tables 
+often take the form of a Calendar table. An occurs relationship links the calendar to 
+specific transactions.
+Illustration 6.6 is KLUB’s Sales star schema labeled with who, what, and when dimension 
+tables and their relationships.
+1Who-what-when dimensions of accounting transactions were first recognized in McCarthy, William E. (1982) 
+The REA accounting model: A generalized framework for accounting systems in a shared data environment. 
+Accounting Review: 554-578.
+N
+N
+Participates
+Occurs
+Participates
+Flows
+N
+N
+1
+1
+1
+1
+Dimension Tables
+Fact Table
+Dimension Tables
+To/From
+Whom?
+Customer
+Transaction
+Sales
+Who? 
+Employee
+When? 
+Calendar
+What? 
+Merchandise
+ILLUSTRATION 6.6  Sales Star with Who, What, and When Dimension Tables
+Stars like the one shown in Illustration 6.6 are designed for accounting analytics. They 
+make it easy to answer transaction questions that include who, what, and when characteris-
+tics. For example, an accountant at KLUB could ask: How much revenue (the measure) was 
+--- PAGE 8 ---
+6.1 What is Information Modeling? 6-7
+generated by selling garden items ( what ) to customers living in Texas ( who ) during the 2023 
+spring season ( when )? 
+ When developing stars like this, it is critical to determine:
+•  The accounting measures to break down. 
+•  The  who, what, and when dimensions for analysis purposes. 
+ This chapter explains how to do both.  Information modeling is the heart of data analytics. 
+Rich, robust information models lead to rich and robust analyses. Creating measures and 
+dimensions that are relevant for analysis requires coding skills. But once these measures and 
+dimensions are in place, software, such as Power BI or Tableau, makes it easy to do the anal-
+ysis. Whatever software and language you use, invest some time into learning how to code. It 
+will pay off!
+ Apply It 6.1 
+ Complete a Star 
+Schema 
+Accounting Information Systems
+Financial Accounting
+Abroad is a store in the King of 
+Prussia mall near Philadelphia, PA that sells stylish suitcases and bags. Sales are spectacular, but 
+management believes data analytics are the key for more growth. The company is in the process of 
+building their application and the owner asks you for help. 
+ The illustration shows an empty star schema for cash receipts transactions, or payments made 
+by a customer.
+ Draft Cash Receipt Star Schema 
+N
+N
+Participates
+Occurs
+Participates
+Stock–Flow
+N
+N
+1
+1
+1
+1
+Dimension Tables
+Fact Table
+Dimension Tables
+To/From
+Whom?
+?
+Transaction
+CashReceipt
+Who?
+?
+When?
+?
+What?
+?
+ Complete the star schema by answering these questions.
+ 1.  What labels would you use for the who (external and internal), what, and when tables that are 
+represented by empty boxes with question marks? 
+ 2.  Indicate two relevant measures for cash receipts. 
+ 3.  For both measures, identify a relevant question that shows how the measure can be broken down 
+by the information in the who, what, and when tables. 
+ SOLUTION 
+ (Solutions will vary. What follows are examples.) 
+ 1.  Who Table External: Customer (Who makes the payments?) 
+Who Table Internal: Employee/Cashier. (Who is handling the payments by the customers?) 
+--- PAGE 9 ---
+6-8  CHAPTER 6  Analysis: Information Modeling
+	
+What Table: Account (A payment from a customer increases an account’s balance. An account 
+can be cash, a bank, etc.)
+	
+When Table: Calendar (The calendar contains information regarding the date the payment 
+was made.)
+2.	 Measure 1: Total number of cash receipt transactions.
+	
+Measure 2: Total amount of dollars received.
+3.	 Measure 1: How do the number of cash receipt transactions (measure) in the first quarter of 
+2025 (when) compare across employees (who)?
+	
+Measure 2: What are the monthly trends (when) for the amounts (measure) received for the 
+different accounts (what), and are there any fluctuations?
+6.2  Which Patterns Implement Information 
+Modeling Algorithms? 
+LEARNING OBJECTIVE ❷
+Apply common information modeling algorithms.
+This section presents seven implementation patterns that each represent a different type of 
+algorithm. The first four create calculated columns, while the final three patterns create mea-
+sures. ( Data How To 6.1 at the end of the chapter walks through how to create calculated 
+columns and measures with Power BI.) The details of each pattern are illustrated with the 
+KLUB example and data set. Data Download the available data set to create the information 
+model as you work through the chapter.
+Information Modeling Pattern 1: Within-Table 
+Numeric Calculation
+The within-table numeric calculation pattern creates a new field (a calculated column) 
+from one or more numeric columns, or fields in the same table. Basic arithmetic opera-
+tions of addition, subtraction, multiplication, and division can do this. A typical exam-
+ple is determining the dollar total for an order line or invoice line by multiplying price 
+and quantity. ­Illustration 6.7 (A) shows how to create a Revenue field in KLUB’s sales 
+ILLUSTRATION 6.7  Within-Table Numeric Calculation to Determine Revenue
+1
+2
+3
+4
+5
+1
+1
+1
+2
+2
+8
+9
+16
+19
+20
+12
+4
+1
+40
+40
+223
+223
+223
+80968
+80968
+1/5/23
+1/5/23
+1/5/23
+1/6/23
+1/6/23
+7
+7
+7
+635
+635
+Customer Employee
+SellPrice
+QuantitySold
+Result of Algorithm
+SellPrice × QuantitySold
+Revenue
+Merchandise
+Date
+Sale
+InvoiceLineID
+60
+20
+320
+9
+20
+720
+80
+320
+360
+800
+Table: Sales
+Calculated Column
+Algorithm
+Revenue
+SellPrice × QuantitySold
+(A)
+(B)
+--- PAGE 10 ---
+6.2  Which Patterns Implement Information Modeling Algorithms?   6-9
+Once implemented, the Address field can be used to create maps.
+Using similar formulas, KLUB’s information model can be extended with Name fields for 
+both the Customer and Vendor tables (Illustration 6.9). If you are following along building 
+KLUB’s information model, make sure to create both columns.
+ILLUSTRATION 6.9  Within-Table Text Calculations to Determine Customer and Vendor Names
+Table: Customer
+Calculated Column
+Algorithm
+Name 
+LastName & “ , ” & FirstName
+Table: Vendor
+Calculated Column
+Algorithm
+Name 
+Lastname & “ , ” & Firstname
+Information Modeling Pattern 3: Within-Table 
+Classification
+The number of classification algorithms that can be applied to a data set is, in essence, unlim-
+ited. You may be familiar with airlines’ tiered loyalty programs classifications (such as silver, 
+gold, platinum) where an algorithm determines your status based on miles flown or money 
+spent. The statistical technique of data binning is another example, where numbers are 
+Information Modeling Pattern 2: Within-Table 
+Text Calculation
+The second implementation pattern also involves creating a new calculated column from one 
+or more fields in the same table. However, the information in the new column is created from 
+text fields. For example, different pieces of location information could be linked, or concate-
+nated, into an address so it can be read by a map service such as Bing Maps or Google Maps.
+Illustration 6.8 (A) shows an algorithm that creates an address field in KLUB’s ­Customer 
+table. (The ampersand symbol represents concatenation.) The new field in the Customer table 
+in Illustration 6.8 (B) is the result of applying this calculation.
+table with such a calculation. Illustration 6.7 (B) shows the result: the Revenue field that 
+is part of the Sales table. Later, we will use the Revenue field as a building block for the 
+TotalRevenue measure.
+ILLUSTRATION 6.8  Within-Table Text Calculation to Determine Customer Address
+1
+2
+3
+4
+5
+3462 MacLaren Street
+2608 Laurel Lane
+4679 Byrd Lane
+975 Armbrester Drive
+3251 St. John Street
+ON
+TX
+NM
+CA
+SK
+K1P 5M7
+79703
+87102
+90265
+S4P 3Y2
+Ottawa
+Terminal
+Albuquerque
+Malibu
+Bruno
+CA
+US
+US
+US
+CA
+Zip
+Country
+Street + City + State + Zip + Country
+Address
+State
+City
+Street
+CustomerID
+3462 MacLaren Street,Ottawa,ON,K1P 5M7,CA
+2608 Laurel Lane,Terminal,TX,79703,US
+4679 Byrd Lane,Albuquerque,NM,87102,US
+975 Armbrester Drive,Malibu,CA,90265,US
+3251 St. John Street,Bruno,SK,S4P 3Y2,CA
+Result of Algorithm
+(B)
+Table: Customer
+Calculated Column
+Algorithm
+Address
+Street & “,” & City & “,” & State & “,” & Zip & “,” & Country
+(A)
+--- PAGE 11 ---
+6-10  CHAPTER 6  Analysis: Information Modeling
+grouped into smaller numbers of “bins,” such as age groups. In fact, classifications are omni-
+present in accounting, such as classifying accounts receivable by age to determine bad debt 
+expense.
+The third implementation pattern is used when classifications are determined based on 
+data that are part of the same table. Most classification algorithms rely on Boolean logic, so it 
+is necessary to understand Boolean operators like AND, OR, NOT, and IF functions and how 
+to create them.
+With both code (A) and a flowchart (B) Illustration 6.10 shows how an IF function can 
+split customers into two categories: junior (up to 40 years old), and senior (older than 40). 
+Illustration 6.10 (C) is the result of applying this algorithm. The new AgeCategory field is now 
+part of the Customer table.
+ILLUSTRATION 6.10  Within-Table Classification Using an IF function to Determine Customer Age Category
+AgeCategory =
+Senior
+AgeCategory =
+Junior
+Age < =
+40
+1
+2
+3
+4
+5
+25
+22
+68
+71
+54
+Junior
+Junior
+Senior
+Senior
+Senior
+CustomerID
+Age
+AgeCategory
+Result of
+Algorithm
+False
+True
+Calculated Column
+Algorithm
+AgeCategory = Senior
+AgeCategory = Junior
+Age < = 40
+Table: Customer
+(C)
+(A)
+(B)
+Once implemented, we can use the AgeCategory field for analysis. Illustration 6.11 
+shows the proportional number of KLUB’s junior and senior customers, respectively.
+ILLUSTRATION 6.11  Pie Chart Created With AgeCategory Field
+Senior
+65,203 (65.2%)
+Junior
+34,797 (34.8%)
+Relative Importance of Age Categories
+Information Modeling Pattern 4: Across-Table 
+Calculation
+The calculations for this pattern are like the first three–a new column is created from exist-
+ing data using arithmetic, text calculation, or classification. But this pattern is different from 
+the earlier patterns because data from different tables are used to create a new column. This 
+means the tables must be linked. How this is accomplished depends on the software being 
+--- PAGE 12 ---
+6.2  Which Patterns Implement Information Modeling Algorithms?   6-11
+used. Excel uses a VLOOKUP, in a relational database this is done with a join, and in DAX it 
+is accomplished with the RELATED function. Regardless of the software, there are multiple 
+questions to consider when linking tables:
+•	Are there properly defined relationships between the tables?
+•	What is the nature of the relationship, and what type of join should be considered?
+•	What cardinalities apply to the relationship: 1-1, 1-N, N-1, or N-N? For example, calcula-
+tions become more complex when navigating a 1-N relationship.
+Let’s use an example of an across-table calculation that illustrates some of these issues. Recall 
+that KLUB buys products in batches:
+•	The buy price, or cost per unit, in a batch is recorded in the Purchase table.
+•	The revenue of sold items is determined by multiplying the SellPrice and QuantitySold 
+fields in the Sales table, which results in the Revenue field (which is a calculated column) 
+discussed earlier.
+•	The matching cost is determined by multiplying the BuyPrice in the Purchase table with 
+QuantitySold in the Sales table.
+Illustration 6.12 is an algorithm that calculates cost of goods sold (COGS). Since data from 
+different tables are used, table names are now included in the algorithm as TableName.Field-
+Name. For example, Sales.QuantitySold refers to the QuantitySold field in the Sales table.
+ILLUSTRATION 6.12  Across-Table Calculation to Determine COGS
+Table: Sales
+Calculated Column
+Algorithm
+COGS
+Sales.QuantitySold × Purchases.BuyPrice
+Illustration 6.13 is the data model on which the implementation of the COGS column relies.
+ILLUSTRATION 6.13  COGS as an Across-Table Calculation
+The quantity sold of a
+specific product as
+part of a specific sale
+(InvoiceLine)
+Sales
+N
+1
+Collapse
+Customer
+∑
+Employee
+∑
+Merchandise
+InvoiceLineID
+∑
+QuantitySold
+∑
+Sale
+∑
+SellPrice
+∑
+Date
+Revenue
+∑
+BatchID
+Purchases
+BuyPrice
+Date
+∑
+QuantityBought
+Vendor
+∑
+∑
+Collapse
+BatchID
+Merchandise
+Brand
+Category
+Code
+Commission
+Description
+MinimumSalePrice
+Type
+Collapse
+1
+1
+The matching price
+paid (Cost) for the
+items sold
+The values in the COGS column in the Sales table are calculated by multiplying the Quan-
+titySold field in the Sales table by the corresponding BuyPrice field in the Purchase table. 
+Corresponding values are determined by following the relationships, which is known as the 
+--- PAGE 13 ---
+6-12  CHAPTER 6  Analysis: Information Modeling
+ILLUSTRATION 6.14  Column Chart Created with COGS and Revenue Fields
+Electronics
+Garden
+Oﬀice
+$0
+$100,000
+Revenue and COGS Comparison
+Across Product Categories
+$200,000
+$300,000
+$400,000
+COGS
+Revenue
+$500,000
+26,598
+58,025
+50,149
+132,300
+146,090
+431,308
+Applying the first four implementation patterns has extended KLUB’s Sales star schema 
+(Illustration 6.15) with the following calculated columns:
+•	Address (Customer)
+•	AgeCategory (Customer)
+•	COGS (Sales)
+•	Name (Customer)
+•	Revenue (Sales)
+In addition, a Name calculated field was added to the Vendor table in KLUB’s Purchases star 
+schema. 
+navigation path. Here are some characteristics of the navigation process for the execution of 
+this formula:
+•	A green line indicates the navigation path in Illustration 6.13. The Merchandise field in 
+the Sales table is linked to the BatchID field in the Merchandise table based on matching 
+values. A similar relationship is created between the BatchID field in the Merchandise 
+table and the BatchID field in the Purchases table. If KLUB sells a hairdryer to a cus-
+tomer, the navigation path will reveal which batch it belongs to and thus from whom they 
+bought it, when, and for what price (cost).
+•	The navigation path has 1-1 cardinalities. There is one merchandise item (Merchan-
+dise) per invoice line (Sales), and one purchase (Purchase) for a merchandise item 
+(Merchandise).
+•	There are no join issues. There is exactly one merchandise for each invoice line, and there 
+is exactly one purchase for each merchandise.
+Once implemented, the COGS field can be used for analysis. The clustered column chart cre-
+ated with the COGS field in Illustration 6.14 can be used by KLUB management to compare 
+revenue and COGS across three product categories: electronics, garden, and office.
+--- PAGE 14 ---
+6.2  Which Patterns Implement Information Modeling Algorithms?   6-13
+ILLUSTRATION 6.15  KLUB’s Information Model Extended With Calculated Columns
+EmployeeID
+Email
+FirstName
+Gender
+LastName
+Sssn
+Employee
+CustomerID
+Age
+City
+Country
+FirstName
+Gender
+LastName
+Street
+State
+Telephone
+Title
+Zip
+Address
+AgeCategory
+Name
+Customer
+Dimension Tables
+Fact Table
+Dimension Tables
+BatchID
+Brand
+Category
+Code
+Commission
+Description
+MinimumSalePrice
+Type
+Merchandise
+Date
+Calendar
+1
+1
+1
+1
+N
+N
+N
+N
+InvoiceLineID
+Sale
+SellPrice
+QuantitySold
+COGS
+Revenue
+Sales
+Customer
+Date
+Employee
+Merchandise
+Key
+Column
+Calculated column
+Measure
+Foreign key
+Calculated columns added
+to the Information Model
+Information Modeling Pattern 5: Single-Column 
+Aggregation
+The single-column aggregation pattern is the first to focus on measures, which, as you have 
+learned, are the heart of data analytics. Measures calculate aggregates that can be sliced, or 
+broken down, in many ways.
+In its simplest form, a measure applies a mathematical operation to all the values of a 
+­single column. Operations that can be applied include aggregate functions such as SUM, 
+AVERAGE, COUNT, MIN, and MAX. Each of these functions generate a single value. For 
+most applications, single-column measures make up a significant part of the information 
+model. A few more things about aggregation functions:
+•	Except for aggregation functions that count, most require a numeric data type.
+•	Be sure to understand how the aggregate functions deal with specific values, such as null, 
+as this can differ depending on the implementation platform.
+Three measures can be created using single-column aggregations for KLUB’s data set: 
+	 1.	 TotalQuantitySold: Calculates the total number of units (aggregate) sold by KLUB by 
+using the SUM function to add all values in the QuantitySold field in the Sales table.
+	 2.	 TotalRevenue: Calculates the total revenue (aggregate) generated by KLUB thus far. Notice 
+that the SUM aggregation function uses the calculated field Revenue as an argument.
+	 3.	 NumberOfCustomers: Calculates the number of KLUB’s customers (aggregate) by count-
+ing all cells in the CustomerID field of the Customer table that are not blank. Because 
+CustomerID is a primary key, there are no empty cells, and all rows in the table are being 
+counted.
+--- PAGE 15 ---
+6-14  CHAPTER 6  Analysis: Information Modeling
+ILLUSTRATION 6.17  The One Measure, Multiple Analyses Principle
+Frazier, Theodore
+Morris, Bonnie
+Moncrief, Richard
+Fisher, Rebecca
+Fennell, Mary
+Beaver, Daniel
+Vaughn, Anthony
+Zebrowski, Connie
+Uren, Harold
+Newby, Annie
+Deaton, Andrew
+Henderson, Teresa
+Engel, Dexter
+Nevius, Scott
+Black, Candice
+Flynn, Casey
+$ 27,500
+$ 11,573
+$ 11,400
+$ 11,145
+$ 10,975
+$ 10,200
+$   9,960
+$   9,565
+$   9,385
+$   8,750
+$   8,515
+$   7,785
+$   6,825
+$   6,090
+$   5,884
+$   5,700
+Name
+Total
+Revenue
+Total Revenue
+Sliced by: Customer,
+State, and (Product)
+Category
+Revenue
+ON
+BC
+AB
+CA
+FL
+QC
+NY
+TX
+PA
+GA
+NJ
+WI
+MA
+MS
+MI
+SK
+CA
+CA
+CA
+US
+US
+CA
+US
+US
+US
+US
+US
+US
+US
+US
+US
+CA
+Total Revenue
+$621,633
+$  132,867
+58,258
+57,254
+41,466
+39,572
+33,404
+18,049
+17,959
+16,999
+13,647
+12,218
+11,941
+11,358
+11,305
+9,891
+8,665
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+State
+Country
+Revenue
+Oﬀice
+Garden
+Electronics
+$  431,308
+$  132,300
+58,025
+$
+Category
+Revenue
+APPLYING CRITICAL THINKING 6.2: Evaluate Algorithms
+Implementing an algorithm (or writing a program) is not an exact science. There are often multiple 
+appropriate solutions, but also some bad ones. The most important criterion for a good program 
+is that the output is correct. But it should also be fast, and this is especially true for large data sets. 
+An algorithm should use the least amount of memory possible and be readable. (Alternatives).
+ILLUSTRATION 6.16  Single-
+Measure Aggregation to Create 
+TotalQuantitySold, TotalRevenue, 
+and NumberOfCustomers 
+Measures
+Table: Sales
+Measure
+Algorithm
+TotalQuantitySold
+SUM(QuantitySold)
+Table: Sales
+Measure
+Algorithm
+TotalRevenue
+SUM(Revenue)
+Table: Customer
+Measure
+Algorithm
+NumberOfCustomers
+COUNT(CustomerID)
+These measures calculate aggregates that can be sliced in many ways. The report in 
+­Illustration 6.17 is an example of this one measure, multiple analyses principle. 
+It breaks revenue down by customer, state, and product category. There are many more 
+types of analysis that could be performed with TotalRevenue, including a break down by the 
+AgeCategory field we calculated (which is a classification).
+Illustration 6.16 lists these three measures and their algorithms.
+--- PAGE 16 ---
+6.2  Which Patterns Implement Information Modeling Algorithms?   6-15
+Information Modeling Pattern 6: Filtered 
+Aggregation
+It is often necessary to analyze aggregates based on filtered data sets. One example is analyzing 
+the total revenue generated by sales to U.S. customers. There are different ways to implement 
+filtered aggregations. The method often depends on the software being used.
+•	In Excel, use the SUMIF, COUNTIF, AVERAGEIF, etc., functions.
+•	In SQL, use the WHERE clause ( Data How To 6.2 demonstrates how to implement a 
+filtered aggregation with SQL).
+•	In Power BI, create filters in the Filters pane, or use the CALCULATE function.
+Illustration 6.18 (A) is an example of a filtered aggregation that determines the total 
+revenue generated by KLUB from sales to its U.S. customers. Illustration 6.18 (B) recreates the 
+report from Illustration 6.17 using the total revenue from U.S. customers measure.
+Information Modeling Pattern 7: Measure 
+Hierarchies
+A measure hierarchy is used when a new, more complex measure is created using existing 
+measures. In fact, complex problems can sometimes be solved by dividing the problem into 
+smaller problems, then combining the different solutions. Measure hierarchies are especially 
+useful when calculating ratios and benchmarks.
+Table: Sales
+Measure
+Algorithm
+TotalRevenueFromUSCustomers
+SUM(Sales.Revenue)
+WHERE Customer.Country = “US”
+ILLUSTRATION 6.18  Filtered Aggregation to Calculate Total Revenue From U.S. Customers
+(A)
+Adams, Ramon
+Alfonso, Henry
+Archer, Greg
+Armstrong, Rita
+Arnold, Charles
+Baker, Nancy
+Ball, Martha
+Banks, Ingrid
+Barnhart, Richard
+Batts, Andrea
+Beaver, Daniel
+Bentley, Earnest
+Bernard, Caleb
+Blocher, Harold
+Bloss, John
+1,160
+4,965
+2,150
+300
+710
+1,030
+320
+1,465
+885
+1,680
+$ 10,200
+1,750
+1,418
+990
+828
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+Name
+Total Revenue
+From US Customers
+Total Revenue
+From US Customers
+Sliced by: Customer,
+State, and (Product)
+Category
+Total Revenue
+From US
+Customers
+AK
+AL
+AR
+AZ
+CA
+CO
+CT
+DC
+DE
+FL
+GA
+HI
+ID
+IL
+IN
+US
+US
+US
+US
+US
+US
+US
+US
+US
+US
+US
+US
+US
+US
+US
+Total Revenue
+From US Customers
+$325,125
+5,148
+750
+6,310
+4,050
+41,466
+2,160
+980
+6,023
+4,550
+$ 39,572
+13,647
+113
+1,520
+4,715
+5,217
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+State
+Country
+Electronics
+Garden
+Oﬀice
+34,553
+80,012
+$
+$
+$ 210,560
+Category
+Total Revenue
+From US
+Customers
+Total Revenue
+From US
+Customers
+(B)
+--- PAGE 17 ---
+6-16  CHAPTER 6  Analysis: Information Modeling
+2The TotalRevenueFromUSCustomers measure is the same as the measure in Illustration 6.18.
+After creating the NumberOfCustomers, TotalQuantitySold, TotalRevenue, TotalRevenue­
+FromUSCustomers, TotalRevenueFromCanadianCustomers, and Canadian/USRevenueRatio 
+measures, KLUB’s information model is growing (­Illustration 6.20). Remember, the richer 
+your information model is, the richer your analysis will be!
+Illustration 6.19 (A) visualizes a measure hierarchy. The first measure, TotalRevenue-
+FromCanadianCustomers, determines the total revenue generated by KLUB’s customers in 
+Canada. The second measure, TotlRevenueFromUSCustomers, determines the total revenue 
+generated by KLUB’s U.S. customers. The third measure reuses the first two measures to calculate 
+a ratio that compares Canadian revenue with U.S. revenue, using the latter as the benchmark.
+Illustration 6.19 (B) shows a possible implementation for the view hierarchy. The slash 
+symbol represents division. Finally, Illustration 6.19 (C) shows one way to use the Canadian/
+USRevenueRatio measure. The red line, a ratio with value 1, indicates the equal contribution 
+to revenue by both countries. With this analysis, management at KLUB can see that while 
+Canada generates slightly more revenue for office products, most of the revenue for Electron-
+ics and Garden products are generated in the United States.
+ILLUSTRATION 6.19  Measure Hierarchy for Canadian/U.S. Revenue Ratio: Visualization and Implementation2
+Canadian/
+USRevenueRatio
+Measure Hierarchy
+TotalRevenue
+FromUSCustomers
+TotalRevenue
+FromCanadianCustomers
+(A)
+Measure Hierarchy to Calculate the Canadian/USRevenueRatio Measure
+Table: Sales
+Measures
+Algorithm
+TotalRevenueFromCanadianCustomers
+SUM(Revenue)
+WHERE Customer.Country = “CA”
+TotalRevenueFromUSCustomers
+SUM(Revenue)
+WHERE Customer.Country = “US”
+Canadian/USRevenueRatio
+TotalRevenueFromCanadianCustomers / TotalRevenueFromUSCustomers
+(B)
+1.05
+0.68
+0.65
+Oﬀice
+Electronics
+Category
+Garden
+0.0
+0.2
+0.4
+Canadian/US
+Revenue Ratio
+Revenue Ratio Comparison
+by Category
+0.6
+0.8
+1.0
+1.2
+(C)
+--- PAGE 18 ---
+6.2 Which Patterns Implement Information Modeling Algorithms?  6-17
+ ILLUSTRATION 6.20  KLUB’s Information Model Extended With Measures 
+EmployeeID
+Email
+FirstName
+Gender
+LastName
+Ssn
+Employee
+CustomerID
+Age
+City
+Country
+FirstName
+Gender
+LastName
+Street
+State
+Telephone
+Title
+Zip
+Address
+AgeCategory
+Region
+NumberofCustomers
+Customer
+DimensionTables
+Fact Table
+Dimension Tables
+BatchID
+Brand
+Category
+Code
+Commission
+Description
+MinimumSalePrice
+Type
+Merchandise
+Date
+Calendar
+1
+1
+1
+1
+N
+N
+N
+N
+Sale
+SellPrice
+QuantitySold
+COGS
+Revenue
+Sales
+InvoiceLineID
+Customer
+Date
+Merchandise
+Employee
+Key
+Column
+Calculated column
+Measure
+Foreign key
+Canadian/USRevenueRatio
+TotalQuantitySold
+TotalRevenue
+TotalRevenueFromUSCustomers
+TotalRevenueFromCanadianCustomers
+Measures added to the
+Information Model
+ Apply It 6.2 
+ Use Algorithms 
+to Calculate Net 
+Revenue 
+Financial Accounting
+The owner at luggage retailer Abroad gives you the following data model, 
+which shows the sales-related data that Abroad collects. Each row in the Sales table represents an 
+invoice line.
+CustomerID
+Name
+LoyaltyLevel
+Customer
+ProductID
+ProductCategory
+PromotionCode
+PromotionDiscount
+Product
+1
+1
+N
+N
+Customer
+Product
+Sale
+Price
+Quantity
+Sales
+InvoiceLineNumber
+Key
+Column
+Foreign key
+ Some products have a promotion code and a promotion discount. For products with no promotion 
+code, the discount is 0. Abroad has three loyalty levels: Fish, Eagle, and Lion. The discounts given to 
+each of the loyalty levels is shown in the table.
+--- PAGE 19 ---
+6-18  CHAPTER 6  Analysis: Information Modeling
+6.3  Which Patterns Help Develop and 
+Implement Accounting Information 
+Models?
+LEARNING OBJECTIVE ➌
+Develop and implement information models for common accounting data structures.
+Earlier in the course you learned the importance of applying dimensional modeling to 
+accounting data. Organizing data properly in specific ways makes analysis easier. Informa-
+tion modeling, or identifying and implementing measures and dimensions, also benefits from 
+having similiar structures in place. The previous section covered seven common patterns for 
+implementing calculated columns and measures. Here, we present six more patterns that help 
+identify measures to analyze who, what, and when characteristics of accounting transactions.
+Fish
+Eagle
+Lion
+0
+3
+5
+Level
+Discount
+Abroad’s owner asks you to calculate the total net revenue generated thus far. When calculating the 
+total net revenue, be sure to consider both the loyalty and promotion discounts. Assume that both 
+discounts are recorded as percentages, e.g., 5%. For each of the following, indicate which pattern(s) 
+you applied, then show your algorithms.
+1.	 Loyalty discount
+2.	 Net revenue
+3.	 Total net revenue
+SOLUTION
+1. Pattern 2.
+Algorithm (calculated column): LoyaltyDiscount =
+IF Level = “Fish” THEN 0, ELSE
+IF Level = “Eagle” THEN 3, ELSE 5
+2. Pattern 3 and Pattern 4.
+Algorithm (calculated column): NetRevenue =
+IF Customer.LoyaltyDiscount > 0 and Product.PromotionDiscount > 0
+THEN
+Sales.Price × Sales.Quantity × (1 − ((Customer.LoyaltyDiscount / 100) + (Product.
+PromotionDiscount/100)))
+ELSE
+IF Customer.LoyaltyDiscount = 0 and Product.PromotionDiscount > 0
+THEN Sales.Price × Sales.Quantity × (1 − Product.PromotionDiscount/100)
+ELSE
+IF Customer.LoyaltyDiscount > 0 and Product.PromotionDiscount = 0
+THEN Sales.Price × Sales.Quantity × (1 − Customer.LoyaltyDiscount/100)
+ELSE Sales.Price × Sales.Quantity
+3. Pattern 5. 
+Algorithm (measure): Total Net Revenue = SUM(Amount)
+--- PAGE 20 ---
+6.3 Which Patterns Help Develop and Implement Accounting Information Models? 6-19
+ ILLUSTRATION 6.21  The How Many Pattern 
+Sales
+Customer
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+Babyliss
+Heimvision
+Terzani
+Herman Miller
+Uline
+FrontGate
+CrafsMan
+Hammermill
+Amassador
+Westcott
+BLP
+SAR
+JFL
+HMOC
+UOD
+FRGH
+CRAS
+HAMC
+AMNOTE
+WSC
+Pro
+Sunrise 14X
+2090 Pro
+High–Back Cosm
+400 Adjustable
+Premium 50
+4920
+5 Ream Case
+Hard Cover
+Scissor
+Electronics
+Electronics
+Electronics
+Oﬀice
+Oﬀice
+Garden
+Garden
+Oﬀice
+Oﬀice
+Oﬀice
+Hair Dryer
+Alarm Clock
+Floor Lamp
+Oﬀice Desk
+Oﬀice Chair
+Garden House
+Spreader
+Paper
+Notebook
+Oﬀice Tools
+Description
+Type
+Code
+Category
+Brand
+BatchID
+Generic
+KLUB
+Merchandise
+Table
+Resource
+Transaction
+Agent
+How many rows are
+in the table?
+How many batches?
+Merchandise
+Sales
+Customer
+ In the KLUB example, we can create “how many” measures for: 
+•  Resources: Merchandise. 
+•  Transactions: Sales and purchases. 
+•  Agents: Customer, vendor, and employee. 
+ Information Model
+ These measures can be broken down further. Using the KLUB data set, we could explore ques-
+tions like the following by applying these measures to transactions, who, and what tables:
+•  Transactions: How many sales have occurred, and how many purchases? 
+•  Agents (Who): How many customers does KLUB have, how many employees, and how 
+many vendors do they work with? It is also possible to drill down further to reveal how 
+many customers or vendors KLUB has per country, per state, or per province. 
+•  Resources (What): How many products does KLUB have? It is then possible to find the 
+number of products per brand, per product type, and per product category. 
+ When answering questions about agents and resources, we can analyze relationships between 
+dimensions in the same table, such as the number of customers for a state or province, or the 
+number of product types per category.  Illustration 6.22 shows how some dimensions in the 
+Merchandise table are related. Remember the N-1 cardinalities for the relationship between 
+Batch ID and Brand:
+•  1: One brand is specified for a batch. 
+•  N: There can be many batches of the same brand. 
+Information Modeling Pattern 8: How Many
+ Tables usually describe concepts like customers, vendors, sales, and products. The next pat-
+tern creates a measure that counts the number of rows, or instances, of a concept within a 
+table. This pattern can count resources, transactions, and agents, which means it can be used 
+for both fact (transactions) and dimension (resources and agents) tables. 
+ The example in  Illustration 6.21 determines the number of rows in the Merchandise 
+table, which reveals how many batches KLUB has purchased. 
+--- PAGE 21 ---
+6-20
+CHAPTER 6 Analysis: Information Modeling
+ ILLUSTRATION 6.22  Relationships Between the Merchandise Dimensions 
+Brand
+BatchID
+N
+1
+1
+1
+N
+N
+N
+N
+N
+N
+Type
+Category
+ The algorithms in  Illustration 6.23 show that implementing measures to answer ques-
+tions about the number of transactions, agents (who), and resources (what) is straightforward. 
+Implementation is performed with a single-column aggregation–Count. A similar formula 
+was used for the NumberOfCustomers measure earlier in this chapter. 
+ ILLUSTRATION 6.23  How Many Measures for KLUB’s Information Model 
+ Table: Vendor 
+Measure
+Algorithm
+NumberOfVendors
+COUNT(VendorID)
+ Table: Sales 
+Measure
+Algorithm
+NumberOfSales
+COUNT(InvoiceLineID)
+ Table: Purchase 
+Measure
+Algorithm
+NumberOfPurchases
+COUNT(BatchID)
+ Table: Employee 
+Measure
+Algorithm
+NumberOfEmployees
+COUNT(EmployeeID)
+ Table: Merchandise 
+Measure
+Algorithm
+NumberOfBatches
+COUNT(BatchID)
+ Once in place, filters can be applied to the measures. For example, tables that describe agents 
+(who) often contain location information, so it is also possible to determine the number of 
+KLUB customers living in California, or any other location. On the other hand, tables that 
+describe resources (what) often contain information about categories that can be used as fil-
+ters. For example, it is possible to determine how many electronic batches KLUB bought.
+ Analysis
+ The NumberOfCustomers measure can determine how potential customers are spread out 
+across countries by provinces in Canada and states in the U.S. ( Illustration 6.24 ). Clicking a 
+bar in the column chart filters the state/provinces in the table, so management at KLUB could 
+select the Canadian provinces only. 
+--- PAGE 22 ---
+6.3  Which Patterns Help Develop and Implement Accounting Information Models?  6-21
+ILLUSTRATION 6.24  Analysis with the Number of Customers Measure
+ON
+BC
+QC
+AB
+CA
+TX
+NY
+FL
+SK
+IL
+21,290
+8,641
+7,664
+7,445
+5,286
+3,837
+2,938
+2,606
+2,440
+2,389
+PA
+MI
+OH
+NJ
+MA
+GA
+NC
+VA
+MO
+2,127
+1,979
+1,880
+1,474
+1,472
+1,380
+1,375
+1,172
+1,098
+WA
+WI
+IN
+MN
+MD
+1,068
+1,064
+1,034
+1,031
+1,013
+NumberOfCustomers
+State
+50,151
+49,849
+U.S.
+Country
+Number Of
+Customers
+Number of Customers
+by Location
+CA
+0
+10,000
+20,000
+30,000
+40,000
+50,000
+60,000
+Information Modeling Pattern 9: Participates | 
+Transaction-Who
+The participates relationship describes who is involved in a transaction (Illustration 6.25).
+ILLUSTRATION 6.25  The Participates Relationship
+N
+Participates
+Participates
+N
+1
+1
+Dimension Tables 
+Fact Table
+To/From
+Whom?
+External
+Agent
+Transaction
+Who?
+Internal
+Agent
+In KLUB’s data model there are three participates relationships:
+•	From Sales to Customer (the customer is an external agent).
+•	From Sales to Employee (the employee is an internal agent).
+•	From Purchases to Vendor (the vendor is an external agent).
+--- PAGE 23 ---
+6-22  CHAPTER 6  Analysis: Information Modeling
+There are also other types of participates relationships that do not appear in the KLUB data set:
+•	CashReceipts to Customer.
+•	CashReceipts to Employee.
+•	CashDisbursements to Vendor.
+•	CashDisbursements to Employee.
+Because the information captured by these relationships is similar, the same types of analyses 
+apply to all of them.
+Information Model
+Following the principles of dimensional modeling, measures must be developed for the sales 
+transactions and broken down by agent dimensions, such as customer tables:
+•	What are relevant measures for transactions that can be broken down by agents? Illus-
+tration 6.26 (A) shows that the number of transactions is a key measure for the partici-
+pates relationship information model. For example, how many flights (transaction) has 
+an airline customer taken (agent)?
+•	What dimensions can be defined for agents? Analysis can be performed for individual 
+customers, but typically customers are grouped in a variety of ways for analysis purposes, 
+including by location, membership group, or performance category.
+ILLUSTRATION 6.26  Information Model Pattern for the Participates Relationship
+Fact Table
+1
+Participates
+Participates
+1
+N
+N
+Dimension Tables
+Who?
+Agent
+AgentDimensions
+CalculatedAgentDimensions
+Transaction
+NumberOfTransactions
+Sales
+NumberOfSales
+Who?
+Customer
+Name
+State
+Country
+AgeCategory
+(A) Generic
+(B) KLUB
+Column
+Calculated column
+Measure
+To implement the participates information model, create relevant measures and calcu-
+lated columns in the Transaction (fact) and Agent (dimension) tables. The actual measures 
+and calculated fields will depend on a business’s specific needs. Illustration 6.26 (B) applies 
+the participates model to KLUB’s Customer-Sales relationship. The additional calculated 
+--- PAGE 24 ---
+6.3  Which Patterns Help Develop and Implement Accounting Information Models?  6-23
+columns and measures create a richer information model and therefore, a richer analysis. The 
+algorithms to implement the NumberOfSales measure and the AgeCategory calculated field 
+in Illustration 6.26 were discussed earlier in this chapter.
+Analysis
+KLUB could use the participates relationship to answer several questions using data analysis 
+(Illustration 6.27).
+ILLUSTRATION 6.27  Answering 
+Questions with the Participates 
+Relationship
+What is the number of sales
+transactions per customer (name)?
+1
+Who are the customers (name) with the
+highest number of sales transactions?
+2
+What is the number of sales
+transactions per state (customer)?
+3
+What is the number of sales
+transactions per country (customer)?
+4
+What is the number of sales
+transactions per age category?
+5
+What the number of sales per employee
+(name)?
+6
+Who are the employees (name) with the
+highest number of sales transactions?
+7
+Who are the customers (name) with
+a number of transactions of at least two?
+8
+Dimensions
+Measures
+Next, let’s use KLUB’s information model to further explore two of the questions posed 
+in Illustration 6.27.
+•	Question ❷: Who are the customers (name, which is a dimension) with the highest 
+number of sales transactions (measure)? 
+In Illustration 6.28 the number of sales transactions is broken down by customer name, 
+and the top five are shown in descending order.
+ILLUSTRATION 6.28  Number of Sales Transactions Per Customer: Top Five
+14
+14
+13
+13
+13
+11
+12
+10
+8
+6
+4
+2
+0
+Funk, Viola
+Alfonso, Henry
+Reynolds, Steven
+Top 5 Customers
+Top 5 Customers
+Number
+of Sales
+Rippy, Kevin
+Morris, Bonnie
+--- PAGE 25 ---
+6-24  CHAPTER 6  Analysis: Information Modeling
+•	Question ❽: Who are repeat customers? That is, who are the customers (name, which is 
+a dimension) with a number of transactions (measure) of at least two? 
+Illustration 6.29 is a partial list of customers who have bought at least twice from KLUB.
+ILLUSTRATION 6.29  List of 
+Repeat Customers
+Funk, Viola
+Alfonso, Henry
+Reynolds, Steven
+Rippy, Kevin
+Morris, Bonnie
+Moore, Steven
+Williams, Mary
+Zebrowski, Connie
+Garza, Jeﬀrey
+Uren, Harold
+Barnhart, Richard
+Edens, Blaine
+Jenkins, Toni
+Ward, Jenny
+Younce, Stacey
+14
+13
+13
+13
+11
+9
+9
+9
+8
+8
+7
+7
+7
+7
+7
+Name
+NumberOfSales
+Information Modeling Pattern 10: Flows | 
+Transaction-What
+The flows relationship describes what is involved in a transaction, such as goods and services 
+(Illustration 6.30). A transaction results in either an increase or a decrease of the resources.
+ILLUSTRATION 6.30  The Flows 
+Relationship
+Fact Table
+Flows
+N
+1
+Dimension Table
+What?
+Resource
+Transaction
+In KLUB’s data model there are two flows relationships:
+•	From Sales to Merchandise.
+•	From Purchases to Merchandise.
+There are also other types of flows relationships that do not appear in the KLUB data set:
+•	Cash Receipts to Cash.
+•	Cash Disbursements to Cash.
+Because the information captured by these relationships is similar, the same types of analysis 
+apply to all of them.
+Information Model
+The first step is to develop measures for the transactions, such as sales, that can be broken 
+down by dimensions that are part of the Resource tables, such as merchandise. For flows rela-
+tionships, consider measures that summarize the physical and monetary flows:
+•	The physical flows describe how many. How many units were bought? How many units 
+were sold?
+•	The monetary flows describe how much? What is the value of the units sold, and for how 
+much have they been sold?
+--- PAGE 26 ---
+6.3  Which Patterns Help Develop and Implement Accounting Information Models?  6-25
+In addition, we can use the number of transactions and number of resources measures dis-
+cussed earlier.
+Illustration 6.31 (A) shows the generic information model for flows relationships. Panel 
+(B) in the same illustration applies this pattern to KLUB’s Sale-Merchandise flows relation-
+ship, which results in four measures: NumberOfSales, TotalCOGS, TotalQuantitySold, and 
+TotalRevenue.
+ILLUSTRATION 6.31  Information Model Pattern for the Flows Relationship
+Fact Table
+1
+Flows
+Flows
+1
+N
+N
+Dimension Table
+What?
+Resource
+ResourceDimensions
+CalculatedResourceDimensions
+What?
+MerchandiseID
+Brand
+Type
+Category
+(A) Generic
+(B) KLUB
+Column
+Calculated column
+Measure
+Merchandise
+NumberOfSales
+TotalCOGS
+TotalQuantitySold
+TotalRevenue
+Sales
+NumberOfTransactions
+TotalQuantity(PhysicalFlow)
+TotalDollarAmount(MonetaryFlow)
+Transaction
+Implementing the flows information model involves creating measures in the Transac-
+tion table and creating Resource dimensions through algorithms. All dimensions in Illustra-
+tion 6.31 are given; that is, additional calculations are unnecessary. How to implement the 
+NumberOfSales, TotalQuantitySold, and TotalRevenue measures was discussed earlier. Total-
+COGS, a measure in the Sales table, is a single-column aggregation that sums all the values in 
+the COGS column–SUM(COGS).
+There are two additional flows-related measures that should be added to the information 
+model (Illustration 6.32). The TotalQuantityBought measure uses the single-column aggre-
+gation pattern to determine the total units bought by KLUB, and it is added to the Purchases 
+table. The TotalQuantityOfPrintersSold measure uses the filtered aggregation pattern to deter-
+mine the total quantity of printers sold.
+--- PAGE 27 ---
+6-26  CHAPTER 6  Analysis: Information Modeling
+ILLUSTRATION 6.32  Additional 
+Measures for KLUB’s Flows 
+Information Model
+Table: Purchases
+Measure
+Algorithm
+TotalQuantityBought 
+SUM(QuantityBought)
+Table: Sales
+Measure
+Algorithm
+TotalQuantityOfPrintersSold
+SUM(QuantitySold) WHERE Type = “Printer”
+Analysis
+In the KLUB flows information model, the TotalQuantityBought measure in the Purchases table 
+and the TotalQuantitySold measure in the Sales table summarize the physical flows, while the 
+TotalCost measure in the Purchases table and the TotalRevenue and TotalCOGS measures in the 
+Sales table summarize the monetary flows. Brand, Type, and Category are resource dimensions.
+What questions can the data described by a flows relationship answer? Illustration 6.33 
+presents some that can be analyzed using KLUB’s flows information model.
+ILLUSTRATION 6.33  Answering 
+Questions with the Flows 
+Relationship
+What is the number of sales
+transactions per batch (MerchandiseID)?
+What is the total cost per batch
+(MerchandiseID)?
+What is the total revenue generated
+per batch (MerchandiseID)?
+What is the total revenue generated
+per brand?
+What is the total revenue generated
+per type?
+What is the total revenue generated
+per category?
+What is the total number of printers
+(type) sold?
+What is the number of units bought
+per batch (MerchandiseID)?
+What is the number of units sold
+per batch (MerchandiseID)?
+What is the number of items sold
+per brand?
+What is the number of items sold
+per type?
+What is the number of items sold
+per category?
+What is the relative contribution of each
+category to the total revenue generated?
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+Dimensions
+Measures
+Next, use KLUB’s information model to explore two of the questions posed in this 
+illustration. 
+•	Question ➐: What is the relative contribution of each category (dimension) to the Total-
+Revenue (measure)? 
+In Illustration 6.34, the TotalRevenue measure in the Sales table is broken down by the 
+category dimension in the Merchandise table. Pie chart slices represent the relative impor-
+tance of each category. The pie chart shows that KLUB generates most of its revenue from its 
+office products.
+--- PAGE 28 ---
+6.3  Which Patterns Help Develop and Implement Accounting Information Models?  6-27
+ILLUSTRATION 6.34  Relative 
+Contribution of Categories to Total 
+Revenue
+Oﬀice
+431,308 (69.39%)
+Electronics
+58,025 (9.33%)
+Garden
+132,300 (21.28%)
+Contribution to Total Revenue
+Now, explore another question. 
+•	Question ⓭: What is the total number (measure) of printers (type, which is a dimension) 
+sold?
+Illustration 6.35 shows the total quantity of printers sold and breaks that number down 
+by brand using a column chart. 
+ILLUSTRATION 6.35  Total 
+Number of Printers Sold
+100
+80
+60
+40
+HP
+99
+74
+Brand
+Total Quantity of
+Printers Sold
+Total Printers Sold
+EPSON
+20
+0
+Total Quantity
+of Printers Sold
+Total Quantity
+of Printers Sold
+173
+Information Modeling Pattern 11: Occurs | 
+Transaction-When
+The occurs relationship describes when a transaction takes place by connecting it to a Calen-
+dar table (Illustration 6.36).
+ILLUSTRATION 6.36  The Occurs 
+Relationship
+Fact Table 
+Occurs
+N
+1
+Dimension Table
+When?
+Transaction
+Calendar
+--- PAGE 29 ---
+6-28  CHAPTER 6  Analysis: Information Modeling
+There are two occurs relationships in KLUB’s data model:
+•	Sales to Calendar.
+•	Purchases to Calendar.
+There are other occurs relationships that do not appear in the KLUB data set:
+•	CashReceipts to Calendar.
+•	CashDisbursements to Calendar.
+Because the information captured by these relationships is similar, the same types of analyses 
+apply to all of them.
+Information Model
+Following the principles of dimensional modeling, measures must be developed for the trans-
+actions (such as Sales) and broken down by dimensions that are part of the Calendar table:
+•	The measures developed earlier for the Transaction tables, such as NumberOfSales, can 
+also be used here.
+•	In addition to dates, a Calendar table contains a series of time units as dimensions for 
+analysis, including weekday, week number, month, quarter, and year. Because there are 
+only six months of data for KLUB, year dimensions are not relevant.
+Illustration 6.37 (A) shows the generic information model for occurs relationships. Panel (B) 
+of the same illustration applies this pattern to KLUB’s Sales-Calendar occurs relationship. 
+NumberOfSales can be analyzed by weekday, month, and quarter.
+A calendar table contains all dates between a start date and an end date. Software such as 
+Power BI makes it easy to create a Calendar table. Once that is done, time unit dimensions such as 
+month, quarter, and year can be added and used for analysis. Creating these dimensions is usually 
+easy. An example of this is Excel’s year function, which returns the year component of a date.
+ILLUSTRATION 6.37  Information 
+Model Pattern for the Occurs 
+Relationship
+Fact Table
+1
+Occurs
+Occurs
+1
+N
+N
+Dimension Table
+When?
+Calendar
+Date
+TimeUnits
+When?
+Calendar
+Date
+WeekDay
+Month
+Quarter
+Sales
+NumberOfSales
+Transaction
+NumberOfTransactions
+(A) Generic
+(B) KLUB
+Column
+Calculated column
+Measure
+Analysis
+Illustration 6.38 presents some example questions that can be analyzed using KLUB’s occurs 
+relationships.
+--- PAGE 30 ---
+6.3  Which Patterns Help Develop and Implement Accounting Information Models?  6-29
+ILLUSTRATION 6.38  Answering 
+Questions With the Occurs 
+Relationship
+How do the number of sales
+transactions compare across weekdays?
+How do the number of purchase
+transactions compare across weekdays?
+1
+2
+What is the trend for the number of
+sales transactions during the first six
+months of 2023?
+How do the number of sales
+transactions for the first and
+second quarters compare?
+3
+4
+Dimensions
+Measures
+Once again, we can use the information model to explore two of these questions. Illustration 
+6.39 explores the first question with KLUB’s occurs information model. 
+•	Question ❶: How do the number of sales transactions (measure) compare across week-
+days (dimension)? 
+The column chart breaks down the number of sales transactions by weekday.
+ILLUSTRATION 6.39  Comparing 
+Number of Sales Transactions 
+Across Weekdays
+200
+150
+183
+180
+174
+141
+132
+110
+87
+100
+50
+0
+Fri.
+Mon.
+Tue.
+Wed.
+Weekday
+Number
+of Sales
+Weekday Sales Comparison
+Thu.
+Sat.
+Sun.
+Illustration 6.40 explores another question.
+•	Question ❸: What is the trend for the number of sales transactions (measure) during 
+the first six months (dimension) of 2023? 
+The line chart breaks down the number of sales transactions by month and helps identify 
+trends.
+ILLUSTRATION 6.40  Identifying 
+Trends for the Number of Sales 
+Transactions Across Months
+250
+200
+150
+100
+Jan.
+88
+110
+137
+140
+264
+268
+Feb.
+Mar.
+Month
+Number
+of Sales
+Sales Trends by Month
+Apr.
+May
+Jun.
+50
+300
+--- PAGE 31 ---
+6-30  CHAPTER 6  Analysis: Information Modeling
+Information Modeling Pattern 12: Who-What-
+When Star Schema
+While patterns 9, 10, and 11 analyze the who, what, and when dimensions of accounting 
+transactions, this pattern integrates these three relationships (Illustration 6.41).
+ILLUSTRATION 6.41  The Who-What-When Star Schema Pattern
+N
+N
+Participates
+Occurs
+Participates
+Flows
+N
+N
+1
+1
+1
+1
+Dimension Tables
+Fact Table
+Dimension Tables
+Who?
+External
+Agent
+Transaction
+Who?
+Internal
+Agent
+When?
+Calendar
+What?
+Resource
+KLUB’s data model integrates two instances of the who-what-when pattern. The first is 
+for the acquisition of items, which are purchases (Illustration 6.42). There is no employee 
+information to record for purchases because the owner of the company oversees the acquisi-
+tion process.
+ILLUSTRATION 6.42  The Purchases Who-What-When Star Schema Pattern
+N
+N
+Participates
+Occurs
+Flows
+N
+1
+1
+1
+Dimension Table
+Fact Table
+Dimension Tables
+Vendor
+Purchases
+Calendar
+What
+does KLUB
+buy?
+When
+does KLUB
+buy?
+From Whom
+does KLUB
+buy?
+Merchandise
+--- PAGE 32 ---
+6.3  Which Patterns Help Develop and Implement Accounting Information Models?  6-31
+The second is for selling the items, or sales (Illustration 6.43).
+ILLUSTRATION 6.43  The Sales Who-What-When Star Schema Pattern
+N
+N
+Participates
+Occurs
+Participates
+Flows
+N
+N
+1
+1
+1
+1
+Dimension Tables
+Fact Table
+Dimension Tables
+Customer
+Sales
+Who
+Sells?
+Employee
+Calendar
+What
+does KLUB
+sell?
+When
+does KLUB
+sell?
+To Whom
+does KLUB
+sell?
+Merchandise
+Information Model
+Recall that a data model contains all fields, while the information model also contains cal-
+culated columns and measures created for analysis purposes. Information models can be 
+extended depending on business’ specific needs. Illustration 6.44 is the data model and infor-
+mation model for KLUB’s Sales star schema. 
+To create a richer information model for KLUB, we added an extra calculated column 
+called TargetAmount, as well as the three extra measures of TotalTargetAmount, Discrepancy, 
+and Discrepancy% to the Sales star schema: 
+•	For each batch, KLUB has a minimum target price per unit called MinimumSalePrice.
+•	The Discrepancy measure determines the difference between the actual price charged to 
+the customer and the target price.
+•	Disrepancy% results from dividing the sales price by the target price. It indicates by what 
+percentage the minimum target price is exceeded.
+Among others, these measures can be used to analyze the negotiation skills of KLUB’s 
+­salespeople. Illustration 6.45 shows formulas to create the new calculated column 
+(­TargetAmount) and measures (TotalTargetAmount, Discrepancy, and Discrepancy%).
+The calculated column and measures determine specific pieces of information:
+•	The TargetAmount column determines the dollar amount for an invoice line if the 
+minimum sale price had been charged to the customer. Its algorithm follows Pattern 4: 
+Across-Table Calculation.
+•	The TotalTargetAmount measure determines the total amount KLUB would have 
+received if the company had charged the target prices for all its sales. Its algorithm fol-
+lows Pattern 5: Single-Column Aggregation.
+•	The Discrepancy measure determines the discrepancy between total revenues and total 
+target amounts. The “−” symbol represents subtraction. This is an aggregate that can be 
+sliced in many ways. Its algorithm follows Pattern 7: Measure Hierarchies.
+•	The Discrepancy% measure compares actual revenues with targeted revenues as a per-
+centage. Its algorithm also follows Pattern 7: Measure Hierarchies.
+--- PAGE 33 ---
+6-32  CHAPTER 6  Analysis: Information Modeling
+ILLUSTRATION 6.45  Additional 
+Calculated Columns and Measures 
+for the Who-What-When Sales  
+Star Schema
+Table: Sales
+Calculated Column
+Algorithm
+TargetAmount
+Sales.QuantitySold × Merchandise.MinimumSalePrice
+Table: Sales
+Measures
+Algorithm
+TotalTargetAmount
+SUM(TargetAmount)
+Discrepancy
+[TotalRevenue] − [TotalTargetAmount]
+Discrepancy%
+[TotalRevenue] / [TotalTargetAmount]
+Analysis
+A who-what-when star schema is a powerful structure for the analysis of accounting data. Any 
+transaction measures in the fact table can be broken down by any combination of dimensions (who, 
+what, and/or when), and these breakdowns can be shaped through a variety of visualizations.
+ILLUSTRATION 6.44  Data and Information Models for the Who-What-When Sales Star Schema
+Dimension Tables
+Fact Table
+Dimension Tables
+1
+1
+1
+1
+N
+N
+N
+N
+InvoiceLineID
+Customer
+Date
+Employee
+Merchandise
+Sale
+SellPrice
+QuantitySold
+COGS
+Revenue
+TargetAmount
+CanadianUsRevenueRatioTotalCOGS
+Discrepancy
+Discrepancy%
+NumberOfSales
+TotalCOGS
+TotalQuantitySold
+TotalRevenue
+TotalRevenueFromCanadianCustomers
+TotalRevenueFromUSCustomers
+TotalTargetAmount
+Sales
+BatchID
+Brand
+Category
+Code
+Commission
+Description
+MinimumSalePrice
+Type
+NumberOfBatches
+Merchandise
+CustomerID
+Age
+City
+Country
+FirstName
+Gender
+LastName
+Street
+State
+Telephone
+Title
+Zip
+NumberOfCustomers
+Address
+AgeCategory
+Customer
+EmployeeID
+Email
+FirstName
+Gender
+LastName
+Ssn
+NumberOfEmployees
+Employee
+Date
+WeekDay
+Month
+Quarter
+Calendar
+Key
+Column
+Calculated column
+Measure
+Foreign key
+New to Information Model
+--- PAGE 34 ---
+6.3  Which Patterns Help Develop and Implement Accounting Information Models?  6-33
+The information models for the Sales and Purchase star schemas have been gradually 
+developed in this chapter as we created the necessary measures and calculated columns. A 
+who-what-when star schema is an effective way to perform an analysis because it high-
+lights what to break down (the measure) and how to break it down, which is an intersec-
+tion of dimensions. Star schemas can be developed independently of the software being 
+used. Illustration 6.46 contains just a few examples of questions that can be analyzed using 
+the sales star schema shown in Illustration 6.44.
+ILLUSTRATION 6.46  Answering 
+Questions with the Sales Star 
+Schema
+What is the total quantity sold per
+category (what) during weekends
+(weekday) (when) to female (gender)
+customers living in the Mid–Atlantic
+region (state) (who)? 
+Compare the total revenue generated
+by brand (what), age category
+and gender (who)? 
+Compare the discrepancy % across
+product categories (what)―which
+category exceeds revenue expectations
+most?
+1
+Determine the discrepancy % for
+employees (name) (who)―who
+is the better negotiator?
+4
+2
+Determine the discrepancy % for
+employees (name) (who) across
+categories (what)―who should sell what?
+5
+3
+Dimensions
+Measures
+Next, we explore two of these questions. 
+•	Question ❶: What is the total quantity sold (measure) per category (what dimension) 
+during weekends (weekday) (when dimension) to female (gender) customers living in the 
+Mid-Atlantic region (who dimensions)?
+Illustration 6.47 shows how the who-what-when star schema can answer this question.
+ILLUSTRATION 6.47  Who-What-When Star Schema for Quantity Sold Analysis
+N
+N
+Participates
+Occurs
+Participates
+Flows
+N
+N
+1
+1
+1
+1
+Dimension Tables
+Fact Table
+Dimension Tables
+Customer
+Employee
+Gender
+State
+Merchandise
+Category
+Calendar
+WeekDay
+Sales
+TotalQuantitySold
+Column
+Calculated column
+Measure
+--- PAGE 35 ---
+6-34  CHAPTER 6  Analysis: Information Modeling
+This is a query-type question that uses filters, so the next step is to create the algorithm that 
+integrates these filters (Illustration 6.48).
+ILLUSTRATION 6.48  Implementation of the QuantitySoldOnWeekdaysToFemaleMidAtlanticCustomers Measure
+Table: Sales
+Measure
+Algorithm
+QuantitySoldOnWeekdaysToFemaleMidAtlanticCustomers
+SUM(QuantitySold) 
+WHERE Calendar.Weekday = 1 or 7, AND 
+  Customer.Gender = “Female”, AND 
+  Customer.State = “PA” OR “MD” OR “DC” OR “VA” OR “WV” OR “DE” OR “NJ” OR “NY” 
+Finally, the number generated by QuantitySoldOnWeekdaysToFemaleMidAtlanticCustomers 
+must be sliced by product category. The column chart in Illustration 6.49 shows this slicing.
+ILLUSTRATION 6.49  Product Category Comparison: Quantity 
+Sold to Mid-Atlantic Female Customers on Weekdays 
+200
+150
+100
+50
+0
+250
+Garden
+238
+Oﬀice
+126
+Category
+Quantity
+Sold
+Product Category Comparison:
+Who, What, When
+Electronics
+7
+Next, use the information model to explore another question. 
+•	Question ❹: Determine the discrepancy % (measure) for employees (name, which is a who 
+dimension). 
+The answer to this question can reveal which employees are the better negotiators. This 
+is an exploration-type of question. Illustration 6.50 shows how the who-what-when star 
+schema answers this question.
+--- PAGE 36 ---
+6.3  Which Patterns Help Develop and Implement Accounting Information Models?  6-35
+ILLUSTRATION 6.50  Who-What-When Star Schema for Discrepancy% Analysis
+N
+N
+Participates
+Occurs
+Participates
+Flows
+N
+N
+1
+1
+1
+1
+Dimension Tables 
+Fact Table
+Dimension Tables 
+Merchandise
+Customer
+Calendar
+Employee
+Name
+Sales
+Discrepancy%
+Column
+Measure
+ILLUSTRATION 6.51  Comparing 
+Employees Based on Discrepancy%
+Gianni, Kobierski
+Jade, Steeden
+Arlyn, McCreery
+Rosabel, Gabbitus
+Dalenna, Patillo
+Valery, Bayles
+Catherin, Tolliday
+Haze, Coomer
+Florella, McAllan
+Hermina, Jeandillou
+Padriac, Parlour
+Alyda, Greenhall
+Tamra, Lambdin
+Berti, Pridding
+Loreen, Polye
+Catharine, Laimable
+Audie, Braniﬀ
+Charlie, Libri
+Clim, Orhtmann
+Chancey, Donke
+Aarika, Bircher
+Edik, Knowles
+Silvain, MacTague
+Sally, Blizard
+Timmie, Brookzie
+12.06
+4.80
+3.43
+2.94
+2.86
+2.86
+2.66
+2.59
+2.56
+2.47
+2.44
+2.40
+2.38
+2.36
+2.36
+2.35
+2.33
+2.27
+2.25
+2.25
+2.20
+2.19
+2.07
+1.94
+1.93
+EmployeeName
+Discrepancy%
+Information Modeling Pattern 13: Integrated Star 
+Schemas
+Illustration 6.52 (A) shows how who-what-when stars are connected through resources. 
+Resources are being acquired for a purpose–to sell or to use them for manufacturing, for exam-
+ple. Illustration 6.52 (B) applies the pattern to KLUB. Because KLUB buys items in batches 
+Illustration 6.51 slices the Discrepancy% measure by employee (name), which reveals 
+the negotiation power for each employee. To generate more robust insights, sort the percent-
+ages in descending order.
+--- PAGE 37 ---
+6-36  CHAPTER 6  Analysis: Information Modeling
+and sells them to make a profit, the Sales and Purchases star schemas are connected through 
+the Merchandise table.
+ILLUSTRATION 6.52  Integrated Star Schemas Pattern
+Flows
+in
+(A) Generic
+(B) KLUB
+Flows
+out
+Flows
+in
+Flows
+out
+Purchase
+What?
+Resource
+What is
+Being
+Purchased/Sold?
+Merchandise
+Transaction
+Sale
+Transaction
+Additional examples of integrated stars that are not part of the KLUB data set are:
+•	Cash Receipts to Cash to Cash Disbursements.
+•	Fixed Asset Acquisitions to Fixed Asset to Depreciation.
+Information Model
+This pattern describes the flow of resources in terms of quantity and value. It helps answer 
+questions about how many resources have been acquired, which is the inflow, how many are 
+in stock, and how many have been used and how (such as sales). Illustration 6.53 provides an 
+overview of accounting concepts, the information model, that can be derived from integrating 
+KLUB’s Sale and Purchase star schemas as shown in Illustration 6.52.
+ILLUSTRATION 6.53  Information Model for KLUB’s Integrated Star Schemas
+Concept/Field
+Field Type
+Description
+Revenue
+Calculated Column
+The dollar amount paid by the customers for 
+items sold.
+COGS
+Calculated Column
+The dollar amount paid by KLUB for the items 
+they sold.
+Profit
+Calculated Column
+The profit KLUB made on the items they sold.
+NetProfit
+Calculated Column
+The net profit KLUB made on the items sold 
+after paying a commission (additional cost) to 
+their employees (salespeople).
+TotalRevenue
+Measure
+Total revenue generated from sales.
+TotalCOGS
+Measure
+Total dollar amount paid by KLUB for items they 
+sold.
+TotalProfit
+Measure
+Total profit generated from sales.
+TotalNetProfit
+Measure
+Total net profit generated from sales. 
+Commissions for employees are considered.
+OverallNetProfit  
+Margin
+Measure
+The overall net profit margin for KLUB’s sales. 
+Total net profit / total revenue.
+--- PAGE 38 ---
+6.3  Which Patterns Help Develop and Implement Accounting Information Models?  6-37
+Again, there are many ways to implement the enhanced information model associated 
+with the integrated star schemas. The formulas for the additional columns and measures are 
+shown in Illustration 6.54.
+ILLUSTRATION 6.54  Extending 
+KLUB’s Information Model
+Table: Sales
+Calculated Columns
+Algorithm
+Profit
+Revenue − COGS
+NetProfit
+Sales.Profit − (Sales.Revenue × (Merchandise.Commission)/100)
+Table: Sales
+Measure
+Algorithm
+TotalProfit
+SUM(Profit)
+TotalNetProfit
+SUM(NetProfit)
+OverallNetProfitMargin
+[TotalNetProfit] / [TotalRevenue]
+The Profit column is implemented with the within-table numeric calculation implemen-
+tation pattern (Pattern 1). The implementation of the NetProfit column is more complex, 
+given that information from both the Sales table and the Merchandise table is needed. This is 
+an application of the across-table calculation implementation pattern (Pattern 4).
+The implementation of the TotalProfit and TotalNetProfit measures are both applications 
+of the single-column aggregation implementation pattern (Pattern 5), summing the values 
+of a calculated column. Finally, the OverallNetProfitMargin measure is an application of the 
+measure hierarchy implementation pattern (Pattern 7).
+The information model can be further expanded with more specific measures. For exam-
+ple, we could calculate the total profits resulting from electronics sales in the U.S. A possible 
+implementation for this measure is shown in Illustration 6.55, which is an application of the 
+filtered aggregation implementation pattern (Pattern 6).
+ILLUSTRATION 6.55  
+Implementation of the 
+ProfitsForUSElectronicSales 
+Measure
+Table: Sales
+Measure
+Algorithm
+ProfitsForUSElectronicsSales
+TotalProfit Where Customer.Country = “US” AND
+  Merchandise.Category = “Electronics”
+Analysis
+This extended information model can answer a variety of questions regarding KLUB’s finan-
+cial situation (Illustration 6.56).
+ILLUSTRATION 6.56  Answering 
+Questions with KLUB’s Integrated 
+Star Schemas
+What is the overall net profit margin for
+the diﬀerent product categories?
+Who are the 25 customers (name) with
+the highest net profit margin?
+Which printer brand, HP or Epson,
+has the highest profit margin? 
+1
+2
+3
+Which employees (name) have
+generated at least $1,000 in profit?
+How do Canadian provinces (state) rank
+based on total profit generated?
+4
+5
+What is the trend (month) in profits
+generated by selling electronics 
+(category) to  U.S. (state) customers?
+6
+Dimensions
+Measures
+--- PAGE 39 ---
+6-38  CHAPTER 6  Analysis: Information Modeling
+Next, we use KLUB’s integrated star schemas to further explore two of these questions.
+•	Question ❶: What is the overall net profit margin (measure) for the different product 
+categories (dimension)? 
+Illustration 6.57 shows how the star schema can be used to answer this question.
+ILLUSTRATION 6.57  Star Schema for Net Profit Margin Analysis
+N
+N
+Participates
+Occurs
+Participates
+Flows
+N
+N
+1
+1
+1
+1
+Dimension Tables
+Fact Table
+Dimension Tables
+Employee
+Customer
+Calendar
+Merchandise
+Category
+Sales
+OverallNetProfitMargin
+Column
+Measure
+The corresponding report is shown in Illustration 6.58.
+ILLUSTRATION 6.58  Comparing Product Categories by Net Profit Margin
+0.35
+0.30
+0.25
+0.20
+Net Profit
+Margin
+Net Profit Margin by Category
+0.15
+0.10
+0.05
+0.00
+Garden
+0.309
+0.263
+0.220
+Oﬀice
+Category
+Electronics
+Category is used as a dimension, and net profit margin is calculated for each category 
+(garden, office, and electronics) and represented as a bar. KLUB’s negotiation power seems to 
+be strongest for garden items.
+--- PAGE 40 ---
+6.3  Which Patterns Help Develop and Implement Accounting Information Models?  6-39
+•	Question ➏: What if we wanted to know the trend (month, which is a dimension) in 
+profits (measure) generated by selling electronics (category, which is a dimension) to U.S. 
+(country, which is a dimension) customers? 
+Illustration 6.59 shows the star schema for this question. It should be noted that an 
+alternative star schema could be created where the ProfitsForUSElectronicSales measure is 
+sliced by month.
+ILLUSTRATION 6.59  Star Schema for Profit Analysis
+N
+N
+Participates
+Occurs
+Participates
+Flows
+N
+N
+1
+1
+1
+1
+Dimension Tables
+Fact Table
+Dimension Tables
+Customer
+Employee
+Country
+Merchandise
+Category
+Calendar
+Month
+Sales
+Total Profits
+Column
+Calculated column
+Measure
+The corresponding report is shown in Illustration 6.60. Profits for U.S. electronics sales 
+are sliced by month, which is accomplished with a line chart.
+ILLUSTRATION 6.60  Trend Analysis of Profits Generated From U.S. Electronics Sales
+10,000
+8,000
+6,000
+4,000
+2,000
+0
+January
+Profits
+U.S. Electronic Sales Profits
+Month
+February
+March
+April
+May
+June
+--- PAGE 41 ---
+6-40
+CHAPTER 6 Analysis: Information Modeling
+ Thirteen different patterns were applied to complete KLUB’s information model. Keep in 
+mind that patterns are best practices. They are a guide for determining what information, or 
+content, is relevant and how to implement it. These thirteen patterns will help you identify 
+a range of relevant accounting information and code the algorithms that can generate such 
+information. 
+ Apply It 6.3 
+ Answer Questions 
+with a Star Schema 
+Managerial Accounting
+The CEO at Abroad is positive that data analytics can also help on the 
+production side of the business. The star schema summarizes the data and information captured 
+about the acquisition of raw materials.
+Dimension Tables
+Fact Table
+Dimension Tables
+Date
+Month
+Year
+Calendar
+1
+1
+1
+1
+N
+N
+N
+N
+Date
+Employee
+RawMaterial
+Vendor
+Purchase
+Price
+Quantity
+Amount
+TargetAmount
+Variance
+AverageVariance
+TotalAmount
+TotalQuantity
+TotalTargetAmount
+TotalVariance
+Variance%
+Purchase
+PurchaseLineID
+ProductID
+Description
+TargetPrice
+RawMaterial
+VendorID
+Name
+QualityCategory
+Vendor
+EmployeeID
+Name
+Employee
+Key
+Column
+Calculated column
+Measure
+Foreign key
+You are given the following table that has additional information about some of the calculated col-
+umns and measures.
+ Table 
+ Field 
+ Description/Algorithm
+ RawMaterial  TargetPrice 
+ What Abroad is expected to pay for one unit of the raw material. 
+ Purchase 
+ Amount 
+ Price × Quantity. 
+ TargetAmount 
+ TargetPrice × Quantity. 
+ AverageVariance  TotalVariance/TotalQuantity 
+ Variance 
+TargetAmount − Amount
+ Variance% 
+ TotalAmount/TotalTargetAmount 
+Vendor
+QualityCategory
+Assessment of the vendor’s quality on a 1 to 5 scale, with 1 being 
+the worst and 5 being the best.
+--- PAGE 42 ---
+Learning Objectives Review  6-41
+SOLUTION
+There are many different questions that can be answered using the star schema. Following are 
+five examples.
+1.	 Per raw material, which of the vendors with a quality category of at least four has the highest 
+average variance?
+•	 Description (RawMaterial), Name (Vendor), and QualityCategory (Vendor) are dimensions.
+•	 AverageVariance (Purchase) is a measure.
+2.	 Per raw material how has the overall average variance changed during the last 12 months?
+•	 Description (RawMaterial) and month (Calendar) are dimensions.
+•	 AverageVariance (Purchase) is a measure.
+3.	 Who are the top three employees with the strongest negotiation skills, i.e., with the lowest 
+variance percentage?	
+•	 Name (Employee) is a dimension.
+•	 Variance% (Purchase) is a measure.
+4.	 Who are the top three vendors with the strongest negotiation skills, i.e., with the highest vari-
+ance percentage?	
+•	 Name (Vendor) is a dimension.
+•	 Variance% (Purchase) is a measure.
+5.	 Determine the raw materials for which the target price might have to be reviewed; i.e. the raw 
+materials with a variance percentage of greater than 1.2 or less than 0.8.
+•	 Description (RawMaterial) is a dimension.
+•	 Variance% (Purchase) is a measure.
+Chapter Review and Practice
+Learning Objectives Review
+❶  Describe the foundational concepts of information 
+modeling.
+Successful information modeling requires an in-depth understanding 
+of its foundational concepts:
+•  Information modeling is a process. Algorithms transform data 
+into information.
+•  Information models are built using calculated columns and 
+measures. Calculated columns are new columns with values 
+that are calculated, row-by-row, from existing data. Measures 
+are aggregates resulting from vertical calculations that can be 
+broken down in many different ways.
+•  Star schemas are the preferrable data structure for data analyt-
+ics. Measures are created for the fact table and are sliced, or bro-
+ken down, with the fields in the dimension tables. A robust set 
+of measures and dimensions results in a rich information model 
+that enables analytics.
+•  Who-what-when stars structure accounting data and make acc­
+ou­nting analytics easier.
+❷  Apply common information modeling algorithms.
+Seven foundational algorithms provide a strong base for developing 
+information models:
+•  Pattern 1 is within-table numeric calculation. It adds a new col-
+umn to a table by applying arithmetic operators such as addi-
+tion, subtraction, multiplication, and division to columns in the 
+same table.
+•  Pattern 2 is within-table text calculation. It adds a new column 
+to a table by applying text manipulation operators such as con-
+catenation, extraction, and replacement to columns in the same 
+table.
+•  Pattern 3 is within-table classification. It adds a new column to 
+a table by applying a classification algorithm to data in other 
+columns in the same table.
+•  Pattern 4 is across-table calculation. It creates a new column 
+by using data from different tables. Tables are linked through 
+relationships, and algorithms are required to navigate these 
+relationships.
+You are asked to develop three questions that can be explored with this information model. Abroad’s 
+owner is especially interested in questions related to variances. Identify three potential questions and 
+the dimensions and measures you would use to answer them. 
+--- PAGE 43 ---
+6-42  CHAPTER 6  Analysis: Information Modeling
+•  Pattern 5 is single-column aggregation. It aggregates all the val-
+ues in a single column using mathematical operators such as 
+SUM AVERAGE, and COUNT.
+•  Pattern 6 is filtered aggregation. It filters the data in a single 
+column based on one or more criteria and then aggregates the 
+remaining values.
+•  Pattern 7 creates a measure hierarchy. It creates a new, more 
+complex measure using existing measures. 
+❸  Develop and implement information models for 
+common accounting data structures.
+Six common accounting data structures can help identify an informa-
+tion model’s measures and dimensions:
+•  Pattern 8 is the how many pattern. It counts existing agents, 
+transactions, and resources.
+•  Pattern 9 is the participates | transaction-who pattern. It captures 
+information about who is involved in the transactions. Agents 
+participating in an accounting transaction can be external to an 
+organization, e.g., customer, or internal, e.g., salesperson.
+•  Pattern 10 is the flows | transaction-what pattern. It captures 
+information about what resources are involved in the trans-
+action. A transaction can result in an inflow or outflow of 
+resources.
+•  Pattern 11 is the occurs | transaction-when pattern. It captures 
+information about when a transaction occurs.
+•  Pattern 12 is the who-what-when star schema pattern. It inte-
+grates the who, what, and when dimensions of transactions and 
+supports a wide range of accounting analyses.
+•  Pattern 13 is the integrated star schemas pattern. It combines 
+multiple star schemas and enables integrated analyses of resource 
+inflows and outflows.
+ILLUSTRATION 6.61  Overview of Information Modeling Patterns 
+Id
+Algorithm
+Description
+Implementation
+Implementation Patterns
+1
+Within-Table Numeric 
+Calculation
+Creates a new calculated column 
+by applying arithmetic operators 
+to columns in the same table.
+Basic arithmetic operators: 
+addition, subtraction, 
+multiplication, division, or 
+exponentiation.
+2
+Within-Table Text 
+Calculation
+Creates a new calculated column 
+by applying text manipulation 
+operators to columns in the same 
+table.
+Text manipulation operators 
+such as concatenate, extract, 
+or replace.
+3
+Within-Table 
+Classification
+Creates a new calculated column 
+that contains new knowledge by 
+applying conditional logic.
+Boolean expressions and 
+Boolean operators such as 
+AND, OR, and NOT.
+4
+Across-Table 
+Calculation
+Data from different, linked tables 
+are used to create a new calculated 
+column.
+Navigation operators such 
+as joins.
+5
+Single-Column 
+Aggregation
+Creates a new measure that 
+aggregates all the values of a 
+single column. 
+Aggregate functions such as 
+SUM, COUNT, AVERAGE, 
+MIN, and MAX. 
+6
+Filtered Aggregation
+Creates a new measure that 
+aggregates a subset of the values 
+of a single column.
+Apply filters. Examples are 
+SUMIF, COUNTIF, and 
+AVERAGEIF functions in 
+Excel or the WHERE clause 
+in SQL. 
+7
+Measure Hierarchies
+Creates a new, more complex 
+measure using existing measures. 
+Apply arithmetic operators 
+to measures such as 
+addition, subtraction, 
+multiplication, or division.
+Illustration 6.61 is an overview of the thirteen patterns.
+(Continued)
+--- PAGE 44 ---
+Key Terms Review  6-43
+Key Terms Review
+Algorithms  6-2
+Calculated columns  6-3
+Data model  6-4
+Dimensions  6-3
+Flows relationship  6-6
+Information  6-2
+Information model  6-4
+Information modeling  6-1
+Measure  6-3
+Measure hierarchy  6-15
+One measure, multiple analysis principle  6-14
+Occurs relationship  6-6
+Participates relationship  6-6
+What table  6-6
+When table  6-6
+Who table  6-6
+ID
+Information
+Description
+Implementation
+Content Patterns
+8
+How Many
+Analyzes how many of a concept 
+exists.
+Create measures that counts 
+rows in tables.
+9
+Participates | 
+Transaction-Who
+Analyzes who is involved in a 
+transaction.
+Create measures for 
+transactions and calculated 
+columns for agents.
+10
+Flows | 
+Transaction-What
+Analyzes what is involved in a 
+transaction.
+Create measures for 
+transactions and calculated 
+columns for resources.
+11
+Occurs | 
+Transaction-When 
+Analyzes when a transaction 
+occurred.
+Create measures for 
+transactions and calculated 
+columns for calendars.
+12
+Who-What-When Star 
+Schemas
+Integrates analysis of the who, 
+what, and when transactions.
+Create measures for 
+transactions and calculated 
+columns for agents, 
+resources, and calendars.
+13
+Integrated Star Schemas
+Analyze how inflows and outflows 
+affect resources.
+Create measures for 
+transactions and calculated 
+columns for resources.
+--- PAGE 45 ---
+6-44  CHAPTER 6  Analysis: Information Modeling
+ILLUSTRATION 6.62  Creating Columns and Measures
+Fields
+Calendar
+Employee
+Select
+“More Options”
+Merchandise
+Purchases
+Sales
+Vendor
+Search
+Customer
+Select Table
+1
+New measure
+New column
+2
+Select
+“New Measure” Or
+“New Column”
+STEP 3: An area in which to enter the formula that creates the new column, or measure, will 
+appear (Illustration 6.63).
+ILLUSTRATION 6.63  Entering a Formula
+Insert
+File
+1
+New
+measure
+Quick
+measure
+Formatting
+Structure
+Properties
+Calculations
+Home
+Help
+Table tools
+Measure tools
+View
+Modeling
+Name
+Measure
+Home table
+Customer
+$% Format
+Auto
+$
+%
+000
+Data category Uncategorized
+Measure =
+Enter Formula
+3
+4
+How To Walk-Throughs
+HOW TO 6.1 
+Create Calculated Columns and Measures with Power BI
+Calculated columns and measures are the building blocks of information models. Here, we 
+illustrate how they can be specified with Power BI.
+What You Need: Data   The How To 6.1 data file.
+STEP 1: In the Fields pane, select the table to which you want to add a column or a measure. 
+In Illustration 6.62, the Customer table is selected.
+STEP 2: Next to the table name, click More Options and select either New Measure or New 
+Column.
+How To
+STEP 4: Enter a formula. For example, enter the following formula to create a measure which 
+determines the number of customers:
+NUMBER OF CUSTOMERS = COUNT(Customer[CustomerID]).
+Then, press the Enter key.
+--- PAGE 46 ---
+How To Walk-Throughs  6-45
+HOW TO 6.2 
+Implement a Filtered Aggregation With SQL
+The patterns discussed in this chapter are not specific to a software or language. Here, you can 
+practice implementing filtered aggregation with relational database software (e.g., Microsoft 
+Access) using the Structured Query Language (SQL).
+What You Need: Data   The How To 6.2 data file.
+STEP 1: Open the file using Microsoft Access and select the Create tab in the Main Menu. 
+Click Query Design in the Queries group of the ribbon.
+STEP 2: When a new ribbon appears in the Results group, select SQL View.
+STEP 3: Enter the SQL command shown in Illustration 6.64.
+ILLUSTRATION 6.64  SQL Query for Determining the Total Revenue Generated from Sales to U.S. 
+Customers by Product Category
+Query: Total Revenue from US Customers by Product Category
+SELECT Category, SUM([SellPrice] * [QuantitySold]) AS [TotalrevenueFromUSCustomers]
+FROM Merchandise INNER JOIN (Customer INNER JOIN Sales ON Customer.CustomerID = Sales.Customer) 
+ON Merchandise.BatchID = Sales.Merchandise
+WHERE Country=“US”
+GROUP BY Category
+Detailed Descriptions Code
+Code
+Description
+SUM([SellPrice] * [QuantitySold])
+Calculates the total revenue generated from 
+sales.
+WHERE Country="US”
+A filter defined through a Boolean expression. 
+Only sales from U.S. customers are considered.
+GROUP BY Category
+The total revenue is broken down by category. 
+There are three values for CATEGORY: 
+Electronics, Garden, and Office.
+FROM Merchandise INNER JOIN (Customer INNER JOIN 
+Sales ON Customer.CustomerID = Sales.Customer)  
+ON Merchandise.BatchID = Sales.Merchandise
+Defines the joins between the tables and thus 
+the navigation path.
+STEP 4: Select the Exclamation Mark (!) in the Results group of the ribbon. The table shown 
+in Illustration 6.65, which summarizes revenues generated from sales to U.S. customers by 
+(product) category, will appear.
+ILLUSTRATION 6.65  Query Results
+Electronics
+Category
+Total Revenue From US Customers
+34,553
+80,012
+210,560
+Garden
+Oﬀice
+Data   The Data tag appears when the data required to answer a question or complete an 
+exercise are available on Wiley’s online learning platform.
+--- PAGE 47 ---
+6-46  CHAPTER 6  Analysis: Information Modeling
+Multiple Choice Questions
+1.  (LO 1)  Which of the following statements is false?
+a.	 Calculated columns are the center of data analytics. Once calculated, they can be sliced in many 
+ways during data exploration.
+b.	 A measure hierarchy can be built by applying arithmetic operators to existing measures, such 
+as dividing existing measures.
+c.	 A calculated column is an integrated part of a table.
+d.	 Calculated columns and measures are both implemented using algorithms.
+2.  (LO 1)  Information modeling is the process of
+a.	 defining relationships between tables and the constraints that apply to them.
+b.	 generating additional knowledge from data that is relevant for analysis purposes.
+c.	 creating star and/or snowflake schemas.
+d.	 creating data structures that make analytics easy.
+3.  (LO 1)  Which of the following does not describe an accounting algorithm?
+a.	 Calculating depreciation expenses using the straight-line method.
+b.	 Creating a line chart that shows changes in an organization’s net profit margin during the last five 
+years.
+c.	 Determining last year’s net profit margin.
+d.	 Calculating how much overhead should be allocated to different product categories.
+4.  (LO 1)  Assume a grocery store recorded the following information for each transaction.
+1
+2
+3
+4
+5
+2/1/2025
+2/1/2025
+2/2/2025
+2/2/2025
+2/3/2025
+Y
+N
+N
+Y
+N
+1.44
+0
+2.89
+1.35
+1
+144.17
+35.80
+$ 289.09
+134.88
+99.50
+$
+$
+$
+$
+LoyaltyDiscount
+Loyalty
+Amount
+Date
+TransactionID
+The information model consists of three measures and a calculated column. Which of the following is 
+the calculated column?
+	 a.	 Calculation of the loyalty discount. Members of the loyalty program get a 1% discount on all 
+transactions.
+	 b.	 Calculation of the % of transactions from members of the loyalty program.
+	 c.	 Calculation of the total dollar amount generated on a specific day.
+	 d.	 Calculation of the total loyalty discount amount paid on a specific day.
+5.  (LO 1)  Star schemas represent data structures that help determine which numbers to break down 
+(facts) and how (what, who, when) to break them down (dimensions). Which of the following scenarios 
+is not compliant with such a structure?
+Scenario
+Facts
+Dimensions
+What
+Who
+When
+a.
+Total revenue
+Product category
+Customer
+Month
+b.
+Total revenue
+Region
+c.
+Total profit
+Product type
+Region
+Weekday
+d.
+Total number of customers
+Region
+e.
+Total number of sales
+Product category
+Customer
+f.
+Total number of sales
+Month
+g.
+Total cost
+Product type
+--- PAGE 48 ---
+6.  (LO 2)  Which of the following statements regarding algorithms would you disagree with?
+a.	 Boolean expressions are an integral part of classification algorithms.
+b.	 Analytics based on data from multiple tables heavily rely on properly defined relationships 
+among the tables.
+c.	 A measure hierarchy defines a relationship between measures from two different tables.
+d.	 SUM, AVERAGE, and COUNT are mathematical operations often used to define measures.
+7.  When applying the following classification algorithm to the data set, which of the four customers 
+­(CustomerID) is assigned the value B?
+Algorithm
+IF ((Age < 30 AND LoyaltyProgram = “Yes”) OR (Sales > 10,000 AND NumberOfIssues = 0))
+THEN “A”
+ELSE “B”
+Data set
+1
+2
+3
+4
+CustomerID
+Kinsun
+Barbara
+Jon
+Gabriella
+32
+29
+29
+25
+Yes
+No
+Yes
+Yes
+$
+$
+$
+$
+13,833
+15,000
+15,000
+20,000
+0
+2
+2
+0
+Name
+Age LoyaltyProgram
+Sales
+NumberOfIssues
+a.	 1
+b.	 2
+c.	 3
+d.	 4
+8.  (LO 2)  Which of the following is not a within-table text calculation?
+a.	 Combining two text fields, such as combining a customer’s first name John, and last name Doe, 
+resulting in John Doe.
+b.	 Replacing a number of characters in a text field, such as replacing “str” with “street” in an address 
+field.
+c.	 Extracting a substring for a text field. For example, extracting the area code 302 from telephone 
+number 302-200-5731.
+d.	 Counting the number of different cells in a text field. For example, counting the different values 
+in the Country field.
+9.  (LO 2)  When applying the following algorithm to the data set, which of the following implementation 
+patterns are used?
+Algorithm
+PRICE TYPE =
+IF Price < 25,000 THEN “LOW-END” ELSE
+IF Price >= 25,000 AND PRICE < 50,000 THEN “MID-RANGE” ELSE
+“HIGH-END”
+Data set
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+ProductID
+Price
+VW Beetle
+Honda Pilot
+BMW X7
+Chevrolet Cru..
+Mercedes ML
+Ford Explorer
+Honda Civic
+Chevrolet Tah..
+Jeep Wrangler
+Maserati Leva..
+2019
+2018
+2019
+2019
+2017
+2019
+2017
+2016
+2007
+2020
+$ 14,322
+25,119
+50,432
+11,654
+29,750
+32,881
+9,811
+42,889
+9,999
+69,922
+$
+$
+$
+$
+$
+$
+$
+$
+$
+Description
+Year
+a.	 Within-table numeric calculation
+b.	 Within-table text calculation
+c.	 Within-table classification
+d.	 Filtered aggregation
+Multiple Choice Questions  6-47
+--- PAGE 49 ---
+6-48  CHAPTER 6  Analysis: Information Modeling
+10.  (LO 2)  Which of the following statements regarding the coding patterns is incorrect?
+a.	 Ratios are most often implemented as measure hierarchies.
+b.	 Across-table calculations strongly rely on matching primary key and foreign key values.
+c.	 Single-column aggregations (measures) generate a singular value.
+d.	 Often, the same formula combines numeric and textual calculations.
+11.  (LO 3)  For what type of table or tables is the how many pattern most relevant?
+a.	 Fact tables.
+b.	 Dimension tables.
+c.	 Fact and dimension tables.
+d.	 Neither fact nor dimension tables.
+12.  (LO 3)  Which of the following statements regarding dimensional modeling is incorrect? 
+a.	 Dimensional modeling aims to create data structures that make data analytics easier.
+b.	 Dimensions can be used for filtering purposes.
+c.	 Calculated columns can function as dimensions.
+d.	 How many measures can be specified for dimension tables only.
+13.  (LO 3)  The diagram is part of a star schema that describes a manufacturing process.
+Fact Table
+N
+1
+Dimension Table
+Finished Good
+Production
+How would you describe the nature of the relationship between production and finished goods? 
+a.	 A participates relationship.
+b.	 An occurs relationship.
+c.	 A flows relationship resulting in a decrease or outflow of finished goods. 
+d.	 A flow relationship resulting in an increase or inflow of finished goods. 
+14.  (LO 3)  Which of the following questions does not rely on a participates relationship?
+a.	 Which vendor offers the lowest price for a specific product?
+b.	 What is the total units sold for each product category?
+c.	 For each product category, who is the customer that bought the highest quantity last year?
+d.	 Which employee has the worst return ratio?
+15.  (LO 3)  Which of the following questions does not rely on a flows relationship?
+a.	 How many payments did John, an accounting clerk, make in January?
+b.	 How many units did we produce in January?
+c.	 How much money was deposited in the Fulton bank account in January?
+d.	 Which customer bought the most electronics products?
+16.  (LO 3)  Who-what-when stars are connected through
+a.	 transactions (e.g., sales).
+b.	 resources (e.g., finished goods).
+c.	 internal agents (e.g., employees).
+d.	 external agents (e.g., customers).
+--- PAGE 50 ---
+17.  (LO 3)  This column chart was generated by a car manufacturer.
+$2,000,000
+$2,500,000
+$2,001,001
+$998,177
+$567,112
+$1,500,000
+$1,000,000
+$500,000
+$0
+Sedan
+SUV
+Category
+Sales
+Sports
+Which is the most accurate description of the accounting information captured by this chart?
+a.	 The average revenue generated by category.
+b.	 The total revenue generated.
+c.	 How much revenue each category has generated (inflow).
+d.	 How much revenue each category has generated (outflow).
+18.  (LO 3)  Which of the following analyses cannot be explored with this information model?
+EmployeeID
+NumberOfEmployees
+Employee
+CustomerID
+Age
+City
+Country
+Name
+Gender
+Title
+Region
+NumberOfCustomers
+Customer
+Dimension Tables
+Fact Table
+Dimension Tables
+ProductID
+Category
+NumberOfProducts
+Product
+Date
+Calendar
+1
+1
+1
+1
+N
+N
+N
+N
+OrderDate
+Product
+Customer
+Employee
+Order
+Price
+Quantity
+Amount
+TotalAmount
+TotalQuantity
+Order
+OrderLineID
+Key
+Column
+Calculated column
+Measure
+Foreign key
+Name
+JobTitle
+Gender
+a.	 The number of different products ordered by region.
+b.	 The total quantity ordered by female customers from female employees.
+c.	 Monthly changes in quantities ordered.
+d.	 The relative contribution of each region to the total quantity ordered.
+e.	 The top three customers per state based on dollar amount ordered.
+Multiple Choice Questions  6-49
+--- PAGE 51 ---
+6-50  CHAPTER 6  Analysis: Information Modeling
+19.  (LO 3)  What type of analysis is performed with this stacked area chart?
+$140,000
+$120,000
+$100,000
+$80,000
+$60,000
+$40,000
+$20,000
+$0
+January
+February
+March
+Month
+Profit
+April
+May
+June
+Electronics
+Garden
+Oﬀice
+a.	 Who-what
+b.	 Who-when
+c.	 What-when
+d.	 Who-what-when
+1.  (LO 1)  Describe the goal of information modeling.
+2.  (LO 1)  What are the two main tasks involved in information modeling?
+3.  (LO 1)  What is the difference between a data model and an information model?
+4.  (LO 1)  What are the two different types of information fields and how do they differ?
+5.  (LO 1)  What are the two goals of star schema information models?
+6.  (LO 1)  What is an algorithm? Provide an example of an accounting algorithm. 
+7.  (LO 2)  Provide two examples of text calculations.
+8.  (LO 2)  What is Boolean logic and how can it be used for classification purposes?
+9.  (LO 2)  Calculations might require information from multiple tables. Describe the mechanism that is 
+used to connect tables.
+10.  (LO 2)  Describe the one measure, multiple analyses principle.
+11.  (LO 2)  For each operator, describe whether you most likely would use it to create a calculated col-
+umn or a measure. 
+Mathematical Operator
+Type of Information Field
+Sum
+Multiplication
+Count
+Concatenation
+Average
+Division
+Exponentiation
+Standard Deviation
+12.  (LO 2)  What are filtered measures?
+13.  (LO 2)  For what purpose is a measure hierarchy used?
+14.  (LO 3)  What are the who, what, and when dimensions of accounting transactions?
+15.  (LO 3)  What accounting information is captured by a flows relationship?
+16.  (LO 3)  What is the difference between physical and monetary flow information?
+Review Questions
+--- PAGE 52 ---
+17.  (LO 3)  Examine this model.
+N
+N
+Participates
+Occurs
+Participates
+Flows
+N
+N
+1
+1
+1
+1
+Dimension Tables
+Fact Table
+Dimension Tables
+Employee
+State
+Customer
+TotalProfit
+InvoiceLine
+Category
+Product
+Year
+Calendar
+	 1.	 What are you comparing?
+	 2.	 What field do you use for comparison purposes?
+	 3.	 What fields are you using for filtering purposes?
+18.  (LO 3)  What kind of information do calendar tables contain?
+19.  (LO 3)  Describe the difference between internal and external agents. For purchase transactions, who 
+are the internal and external agents?
+20.  (LO 3)  What information is captured by the occurs relationship, and why is such information crucial 
+in an accounting context? 
+21.  (LO 3)  For the Customer table, what relationships between the dimensions can you identify? 
+Describe how such relationships can be used for analysis purposes by identifying a few questions that 
+can be answered using these relationships. 
+CustomerName
+State
+LoyaltyGroup
+LoyaltyProgramEnrollmentDate
+Customer
+CustomerID
+Brief Exercises  6-51
+Brief Exercises
+BE 6.1  (LO 1)  Use the following terms to complete the sentence. 
+	 a.	 algorithm
+	 b.	 data 
+	 c.	 information model
+	 d.	 star schema
+	 1.	 A(n) __________ is a data model extended with calculated columns and measures. 
+	 2.	 The formula that determines the break-even point is an example of a(n) __________. 
+	 3.	 A(n) __________ is the preferred data structure for data analysis. 
+	 4.	 __________ is the input of an information model.
+--- PAGE 53 ---
+6-52  CHAPTER 6  Analysis: Information Modeling
+BE 6.2  (LO 1)  Match the appropriate term to each definition.
+	 a.	 Algorithm
+	 b.	 Calculated column
+	 c.	 Data model
+	 d.	 Information model
+	 e.	 Measure
+	 f.	 Star schema
+Definition
+Term
+1.  An aggregate that is calculated from a set of data that can be used for analytical 
+purposes.
+2.  A specification of the structure of a data set showing what concepts are described 
+as tables and what characteristics are used to describe the concepts.
+3.  An extension to the data model that consists of calculated columns and measures.
+4.  A set of instructions that transform data into information.
+BE 6.3  (LO 1)  The two building blocks of an information model are calculated columns and measures. Deter-
+mine how the following five algorithms are best implemented: Either as a calculated column or measure.
+	 1.	 A publisher would like to determine, for each salesperson, the number of units sold for a specific 
+title during the third quarter of 2025. 
+	 2.	 Determine the standard deviation for all prices paid in 2025 for a specific type of tire used by a bike 
+manufacturer.
+	 3.	 Given a fixed asset’s net price, its number of useful years, and its salvage value, you are asked to 
+determine its annual depreciation expense.
+	 4.	 A company selling electronic gadgets would like to determine the product with the highest number 
+of customer complaints. 
+	 5.	 For a company with more than a thousand employees, determine each employee’s seniority starting 
+from the hiring date.
+BE 6.4  (LO 1, 3)  Agree or disagree with each of the following statements. If you disagree, provide a brief 
+explanation why.
+	 1.	 Depreciation data describe a flows (inflow) relationship.
+	 2.	 Data describing all the services a public accounting firm has offered to clients last month is an exam-
+ple of a flows relationship.
+	 3.	 An audit procedure checking the vendors involved in purchases against an approved list of vendors 
+is an analysis of a participates relationship.
+	 4.	 Calendar tables are used for occurs relationships.
+BE 6.5  (LO 2)  Data   Financial Accounting   Tesla is an Austin, Texas, based electric vehicle and 
+clean energy company. You just downloaded its inside trading report for the first quarter of 2022.
+	 1.	 Build an information model for this data set that lets you compare the fluctuations in the total value 
+of shares sold during the first three months of 2022.
+	 2.	 Use your information model to create the following line chart.
+$30,000,000
+$25,000,000
+$20,000,000
+$15,000,000
+$10,000,000
+$5,000,000
+$0
+January
+February
+Month
+TotalValue
+March
+--- PAGE 54 ---
+BE 6.6  (LO 2)  Data   Managerial Accounting   OCE is a large chemical company with headquarters 
+in Birmingham (UK). One of the responsibilities of their controller is to manage projects. In January 
+2025, 200 projects were completed. The controller would like to know how many of them did not exceed 
+their budgeted expenses. 
+	 1.	 Create the information model by writing the algorithms. 
+	 2.	 Create a pie chart that shows the number of projects that did and did not exceed their budgeted 
+expenses.
+BE 6.7  (LO 2)  Data   Financial Accounting   Bellafonte is a small university with a sizeable endow-
+ment. Part of their endowment is invested in stocks. At the end of their fiscal year, they provide you the 
+following information regarding their stocks: 
+•  Ticker symbol
+•  Market Sector
+•  Price
+•  Number of stocks
+They ask you to determine the total value of their stock portfolio and the relative importance of each 
+market sector in it, presented as a pie chart. 
+	 1.	 Build the information model needed to generate such chart.
+	 2.	 Create the pie chart. 
+BE 6.8  (LO 2)  Data   Managerial Accounting   Somnum is a startup company that engineered a rev-
+olutionary mattress, the Meglio. They start with a week long sale to test the market reaction to the ­Meglio. 
+A salesperson was placed in ten different malls, each with the goal of selling twenty-five mattresses per 
+day. For each of the following questions, build an information model and perform the analysis. 
+	 1.	 Was the overall goal, which was selling 1,750 mattresses, achieved?
+	 2.	 Which salespeople reached the goal of selling 175 mattresses?
+	 3.	 Which salespeople made their target at least four out of seven days?
+BE 6.9  (LO 2)  Data   Financial Accounting   KOE is a small dairy company in southeast Canada. 
+They track a variety of financial information on a monthly basis. They provide you with some finan-
+cial information for the year 2025 and ask you to determine their 2025 net profit margin and compare 
+the 2025 monthly net profit margins.  
+	 1.	 Build the information model. 
+	 2.	 Use the information model to perform this analysis. 
+BE 6.10  (LO 2)  Data   Managerial Accounting   Charmes is a high-end clothing manufacturer. They 
+offer three product lines: bags, coats, and shoes. Every item produced at Charmes goes through a rigor-
+ous inspection process. Last month the total inspection cost for all items was $45,750. You are asked to 
+determine how much of the inspection cost pool is allocated to each product line, using the number of 
+units as the cost driver. 
+	 1.	 Build the information model. 
+	 2.	 Create a pie chart that shows how much of the inspection costs (in dollars) was allocated to each 
+product line. 
+Brief Exercises  6-53
+--- PAGE 55 ---
+6-54  CHAPTER 6  Analysis: Information Modeling
+BE 6.11  (LO 2)  Data   Tax Accounting   Danski is a shoe manufacturer in Oxford, PA. Five years ago, 
+they hired a tax accountant, and the company is wondering whether the tax accountant was able to lower 
+their effective tax rate. Danski’s CEO gives you this worksheet.
+2021 Income Before Tax
+2021
+2022
+2022
+2023
+2023
+2024
+2024
+2025
+2025
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+14,365,450
+1,120,505
+15,299,804
+1,254,584
+165,998,110
+12,947,853
+13,489,990
+1,025,239
+175,009,898
+12,950,732
+Income Tax Expense
+Income Before Tax
+Income Tax Expense
+Income Before Tax
+Income Tax Expense
+Income Before Tax
+Income Tax Expense
+Income Before Tax
+Income Tax Expense
+Year
+Account
+Amount
+	 1.	 Develop the information model that calculates the effective tax rate.
+	 2.	 Use it to create the following report. 
+8.2%
+8.0%
+7.8%
+7.80%
+7.80%
+7.60%
+7.40%
+8.20%
+7.6%
+7.4%
+2021
+2022
+2023
+Year
+2024
+2025
+Eﬀective
+TaxRate
+2021
+2022
+2023
+2024
+2025
+Year
+EﬀectiveTaxRate
+7.80%
+8.20%
+7.80%
+7.60%
+7.40%
+--- PAGE 56 ---
+BE 6.12  (LO 3)  Identify three issues with this star schema for sales orders. Briefly discuss how you 
+would address each.
+CustomerID
+Email
+FirstName
+Gender
+LastName
+Ssn
+Name
+NumberOfCustomers
+Customer
+SocialSecurityNumber
+Age
+Name
+Position
+DateOfHire
+DateOfBirth
+NumberOfSalesPeople
+SalesPerson
+Dimension Tables
+Fact Table
+Dimension Tables
+ItemID
+Color
+Cost
+Description
+ProductCategory
+NumberOfItems
+ProductType
+Date
+Weekday
+Month
+Year
+Calendar
+1
+1
+1
+1
+N
+N
+N
+N
+Date
+Item
+SalesPerson
+Discount
+QuantitySold
+SalesOrder
+SalesPrice
+SalesOrderLineAmount
+SalesOrderLineNetAmount
+NumberOfSalesOrders
+TotalDiscount
+TotalSalesOrderAmount
+TotalSalesOrderNetAmount
+SalesOrder
+SalesOrderLineID
+Key
+Column
+Calculated column
+Measure
+Foreign key
+BE 6.13  (LO 3)  Determine which pattern applies for each of the analyses described.
+	 a.	 flows
+	 b.	 how many
+	 c.	 occurs
+	 d.	 participates
+Analysis
+Pattern
+1.  Comparing the relative proportion of customers per sales region.
+2.  An airline determining the number of hours flown on each type of airplane 
+(e.g., Airbus 321 or Boeing 787) in use.
+3.  The monthly fluctuations in the number of pesticide applications for a 
+farm.
+4.  A comparison of the number of sales completed by freelance salespeople 
+versus full-time salespeople.
+Brief Exercises  6-55
+--- PAGE 57 ---
+6-56  CHAPTER 6  Analysis: Information Modeling
+BE 6.14  (LO 3)  Assume you would like to explore how the total revenue generated by sales from senior 
+salespeople to U.S. customers in 2025 differs across product categories. Salespeople are considered senior 
+when they are with the company for at least 10 years after their hiring date. Complete the star schema. 
+EmployeeName
+Employee
+LessorName
+Country
+NumberOfLessors
+Lessor
+Dimension Tables
+Fact Table
+Participates
+Flows
+Occurs
+Participates
+Dimension Tables
+AirPlaneID
+Manufacturer
+AirplaneType
+Airplane
+Year
+Calendar
+1
+1
+1
+1
+N
+N
+1
+N
+LeaseNumber
+LeaseSigningDate
+LeaseInceptionDate
+LeaseTerminationDate
+LeaseTerm
+LeaseType
+AnnualPaymentAmount
+TotalLeaseAmount
+NumberOfLeases
+PrincipalAmount
+Employee
+Lessor
+Date
+Airplane
+Lease
+Key
+Column
+Calculated column
+Measure
+Foreign key
+NumberOfAirplanes
+Date
+BE 6.15  (LO 3)  Mediterranean is a mid-size airline with flights primarily in Europe and Africa. They 
+lease all their planes from lessors. Part of their star schema information model is shown here.
+Dimension Tables
+Fact Table
+Participates
+Flows
+Occurs
+Participates
+Dimension Tables
+1
+1
+1
+1
+N
+N
+N
+N
+InvoiceLine
+Column
+Calculated column
+Measure
+SalesPerson
+Customer
+Product
+Calendar
+--- PAGE 58 ---
+The table is the data dictionary for this information model.
+Name
+Description
+EmployeeName
+The name of the employee at Mediterranean who is accountable for 
+the lease.
+LessorName
+The lessor from whom the plane is leased.
+LessorCountry
+The lessor’s country.
+NumberOfLessors
+The total number of lessors from whom Mediterranean has leased planes.
+LeaseNumber
+A lease’s ID.
+LeaseSigningDate
+The date the lease agreement was signed.
+LeaseInceptionDate
+The date on which the lease starts.
+LeaseTerminationDate
+The date on which the lease ends.
+PrincipalAmount
+Financing amount the lessee (Mediterranean) agrees to pay to the lessor.
+LeaseTerm
+The number of years a plane is leased.
+LeaseType
+Short-term or operating lease.
+Long-term or finance lease.
+AnnualPaymentAmount
+The annual amount to be paid for the lease.
+TotalLeaseAmount
+Total dollar amount for all leases.
+NumberOfLeases
+Total number of leases.
+AirPlaneID
+An airplane’s unique ID.
+Manufacturer
+The airplane’s builder—Boeing, Airbus, or Embraer.
+AirplaneType
+The airplane’s type. For example, a (Boeing) 787 model. 
+NumberOfAirplanes
+The total number of airplanes leased.
+Determine at least five questions that can be analyzed starting from this information model.
+Exercises  6-57
+Exercises
+EX 6.1  (LO 1)  Identify Data Relationships For each of the scenarios described, identify which rela-
+tionship or relationships they describe: participates, flows, or occurs.
+	 1.	 Dismissal of fixed assets.
+	 2.	 Making a cash payment.
+	 3.	 Generating quarterly sales reports.
+	 4.	 Return of goods to a vendor.
+	 5.	 Manufacturing a custom-made electric car.
+EX 6.2  (LO 2)  Data   Financial Accounting   Tax Accounting   Build an Information Model for 
+Reporting Net Revenues and Tax Curves is a custom-design furniture store. They provide you with a 
+spreadsheet that contains the following information regarding their Q1 2025 sales:
+•  InvoiceNumber: Used to uniquely identify sales transactions.
+•  Amount: A sale’s gross dollar amount.
+•  Discount: The discount, in dollars, to be deducted from the (sales) amount.
+•  Tax: The tax amount, defined as a percentage, to be paid by the customer on the sales amount after 
+the discount has been applied.
+	 1.	 Create an information model that enables you to determine the total net revenue and the total tax to 
+be collected by Curves for the Q1 sales.
+	 2.	 Once the information model is in place, create this report.
+$3,319,960
+$136,463.17
+Total Net Revenue
+Total Tax
+--- PAGE 59 ---
+6-58  CHAPTER 6  Analysis: Information Modeling
+EX 6.3  (LO 2)  Data   Managerial Accounting   Build an Information Model for Reporting ­Standard 
+Costs FonzieBikes is a niche Canadian manufacturer of bikes and buggies. Their engineers and accountants 
+have worked together to specify a Bill of Materials (BoM) which determines what raw materials are needed 
+to make a finished good (product), how many (quantity), and what the expected (standard) cost is for each of 
+them. You are given a data set that contains a sample of the BoM data.
+Tricycle
+Tricycle
+Tricycle
+Tricycle
+Mountain bike
+Mountain bike
+Mountain bike
+Mountain bike
+Buggy
+Buggy
+Buggy
+Buggy
+Buggy
+Buggy
+Buggy
+Trike tire, large front
+Tricycle frame
+4” tire
+Tricycle pedals
+18” Frame
+26” wheels and tires
+Mountain Bike handle
+Gear system
+Nuts
+Bolts
+Radio
+Truck body
+Engine
+Automotive tires
+Black Paint
+1
+1
+1
+2
+1
+2
+2
+1
+2,500
+2,750
+1
+1
+1
+4
+40
+96
+150
+64
+28
+213
+34
+44
+81
+0.01
+0.01
+111
+430
+1,015
+69
+2
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+FinishedGood RawMaterial
+STDQuantity STDCost
+	 1.	 Create an information model.
+	 2.	 Use the information model to generate a report that shows the total estimated standard cost for each 
+of the three products: tricycle, mountain bike, and buggy.
+Buggy
+Mountain bike
+Tricycle
+FinishedGood
+TotalStandardCost
+1,964.50
+450.00
+366.00
+$
+$
+$
+EX 6.4  (LO 2)  Data   Managerial Accounting   Create a Report for Hotel Spending Emory & 
+Grant is a regional accounting firm in the southeastern United States. When traveling to clients, their 
+employees can stay at any Hilton or Marriott hotel. You receive a spreadsheet with all February 2025 
+hotel transactions and the amount paid for each stay. You are asked to build an information model that 
+can determine two things:
+•  The amount spent on Hilton hotels, the amount spent on Marriott hotels, and the amount spent on 
+other hotels.
+•  The relative proportion of Hilton, Marriott, and other hotels in lodging expenses.
+	 1.	 Develop the information model.
+	 2.	 Then, create the following two reports:
+Report 1: Amount spent per hotel chain.
+Hilton
+Marriott
+Other
+Total
+Hotel
+TotalAmountSpent
+170,154.52
+245,756.70
+73,376.80
+2,225.38
+$
+$
+$
+$
+--- PAGE 60 ---
+Report 2: Relative proportion of lodging expenses per hotel chain
+EX 6.5  (LO 2)  Data   Create an Information Model to Support a Hiring Decision CreativeX is 
+hiring a CFO. To be considered qualified, a candidate must meet the following three criteria:
+•  	Between 30 and 50 years old (>= 30 and <=50).
+•  	Expertise in either auditing or tax, or both.
+•  	Currently employed as level 3 (manager) or higher.
+The company provides you with the spreadsheet containing the information they received from the 
+candidates.
+Liz Smith
+Jada Vaughn
+Jenny Wang
+Eric Kim
+Misty Harrison
+George Star
+Elton Seger
+Isabella Fernande
+Elise Jackson
+Brenda Swif
+Lindsay Lauper
+Nicole Sardo
+Cindy Raﬀerty
+Greg Cuddy
+Mateo Rodriguez
+Caleb Cooke
+Jane Harris
+Debra Pollack
+Sheldon Andrews
+33
+29
+52
+47
+41
+39
+25
+38
+41
+25
+56
+35
+40
+45
+31
+28
+41
+29
+49
+Y
+Y
+N
+Y
+N
+Y
+N
+Y
+Y
+N
+N
+N
+N
+Y
+N
+Y
+N
+Y
+Y
+N
+Y
+N
+Y
+Y
+N
+N
+N
+Y
+N
+Y
+N
+N
+N
+Y
+N
+Y
+N
+Y
+4
+3
+1
+3
+4
+5
+3
+2
+2
+5
+4
+2
+2
+3
+4
+2
+5
+1
+2
+Candidate
+Audit
+Tax
+Level
+Age
+	 1.	 Create the information model.
+	 2.	 Use the information model to generate a list with the names of the candidates that are qualified.
+EX 6.6  (LO 2)  Data   Financial Accounting   Build an Information Model for Reporting Net 
+Revenues Old Marine (OM) is a Michigan clothing manufacturer. You are given a spreadsheet that con-
+tains information regarding all January 2025 orders. It has two worksheets:
+•  Orders: For each order, a unique ID, date, dollar amount, and shipment ID are provided.
+•  Shipments: For each shipment, a unique ID, the shipment type, the shipping cost (Amount), and 
+the shipping company are provided.
+There are two types of shipping:
+•  FOB Origin (O): The customer pays for the shipping costs.
+•  FOB Destination (D): Old Marine pays for the shipping costs.
+The net revenue for an order is the order’s amount minus the shipping cost paid by OM.
+	 1.	 Create an information model that enables you to generate the total net revenue for January 2025 
+Orders.
+	 2.	 Use the information model to create a report that shows this number.
+Hilton
+69.23%
+Marriott
+29.86%
+Other
+0.91%
+Exercises  6-59
+--- PAGE 61 ---
+6-60  CHAPTER 6  Analysis: Information Modeling
+EX 6.7  (LO 2)  Data   Financial Accounting   Build an Information Model for Profit Margin 
+Analysis Berok is a small investment company that wants to invest in one of the following three compa-
+nies: ABC Groceries, Neighborhood Groceries, or Worldwide Groceries. They assembled a spreadsheet 
+with revenue and profit data for each firm for the last five years. A key ratio for their financial analysis 
+is profit margin.
+	 1.	 Develop an information model that calculates the profit margin ratio.
+	 2.	 Use the information model to create the following two visuals:
+a.	 The profit ratios for each of the five previous years (2021-2025) for each of the three companies:
+ABC Groceries
+Neighborhood Groceries
+Worldwide Groceries
+7.55%
+6.83%
+7.62%
+Name
+2021
+7.94%
+6.76%
+8.57%
+2022
+7.55%
+7.02%
+7.52%
+7.14%
+6.67%
+8.27%
+2023
+2024
+8.05%
+6.78%
+8.59%
+2025
+b.	 The profit ratio based on the total revenues and profits for the 2021-2025 period for each of the 
+three companies:
+ABC Groceries
+Neighborhood Groceries
+Worldwide Groceries
+7.65%
+6.82%
+8.08%
+Name
+Profit Margin 2021–2025
+EX 6.8  (LO 2)  Data   Managerial Accounting   Create an Information Model to Determine 
+Employee Bonuses Ruppetware is a small manufacturer of innovative kitchen products. In addition to 
+their fixed salaries, salespeople at Ruppetware can earn a substantial bonus at the end of the year. This is 
+the algorithm to determine bonuses for 2025:
+•  The 2025 target sales amount for each salesperson is determined by adding 5% to the average 2024 
+sales amount for all salespeople.
+•  Only salespeople that meet that target are considered for a bonus. The magnitude of the bonus is 
+determined as follows:
+•  If the target is exceeded by less than 5%, the bonus is $5,000.
+•  If the target is exceeded by at least 5% but less than 10%, the bonus is $10,000.
+•  If the target is exceeded by at least 10%, then the bonus is $15,000.
+	 1.	 Create the information model needed for such an analysis.
+	 2.	 Generate a list that shows the 2025 bonus amounts for all salespeople.
+EX 6.9  (LO 2)  Data   Managerial Accounting   Build an Information Model for Truckload 
+Management Leno Transportation Services (LTS) is a transportation company that compiles a daily 
+schedule linking available trucks to pallets that need to be transported that day. All transportations are 
+local. They keep their data in three worksheets:
+•  The Truck worksheet contains a list of all available trucks. For each truck, LTS records a unique ID 
+and the maximum weight it can carry (truckload).
+•  The Pallet worksheet contains a list of all pallets that must transported on a given day. For each 
+pallet, LTS records a unique ID and the total weight of the goods currently on a it. Pallet weights are 
+in kilograms (note, 1 Kilogram = 2.20462 pounds).
+•  The Schedule table contains the daily schedule and therefore determines which pallets must be 
+loaded on which trucks.
+Using the three worksheets, LTS asks you to create an information model that enables them to explore 
+the following two questions:
+•  Is the maximum weight for any truck exceeded?
+•  What trucks have a truckload of less than 75%?
+--- PAGE 62 ---
+Exercises  6-61
+	 1.	 Create the information model.
+	 2.	 Once your information model is in place, use it to create a table that provides a list of all trucks 
+scheduled to go out today. For each truck, shows its ID, its maximum weight, its scheduled weight, 
+and its scheduled load. Use a red background for trucks that exceed their maximum weight and a 
+yellow background for trucks that have a truckload less than 75%. The report should look as follows:
+1
+2
+3
+4
+5
+6
+7
+10,000
+25,000
+15,000
+20,000
+20,000
+25,000
+15,000
+TruckID MaximumWeight
+7,826.40
+25,974.83
+11,794.72
+16,997.62
+8,267.33
+19,246.33
+4,078.55
+TotalWeight
+0.78
+1.04
+0.79
+0.85
+0.41
+0.77
+0.27
+Load
+EX 6.10  (LO 2)  Data   Financial Accounting   Create an Information Model to Show 401K 
+Contributions Maurer and Cook is a small accounting firm in downtown Reno, Nevada. They offer 
+to match $0.75 of each dollar of their employees’ 401K contributions following the graded vesting 
+schedule shown here.
+Years Employed
+Vesting Schedule
+0
+0%
+1
+0%
+2
+20%
+3
+40%
+4
+60%
+5
+80%
+6
+100%
+The managing partner gives you an Excel worksheet with the names of all employees, their years of ser-
+vice, and their total employee contributions. 
+	 1.	 Develop the information model. 
+	 2.	 Generate a report that shows each employee’s total vested 401k contribution. 
+David Maurer
+Mike Cook
+Bernard Espinosa
+Susan Hoover
+Jamal Coleman
+Elzbieta Jacek
+Gail Wolcott
+Billy Houston
+Carlos Martinez
+Amy Winter
+705,047.00
+638,946.00
+438,663.75
+437,302.25
+321,413.75
+234,108.00
+78,167.25
+50,912.40
+37,590.80
+30,483.70
+Employee
+Total Vested Contribution
+--- PAGE 63 ---
+6-62  CHAPTER 6  Analysis: Information Modeling
+EX 6.11  (LO 2, 3)  Data   Financial Accounting   Create an Information Model for Cash Flow 
+Analysis Valentina Turner owns The Blue Ballroom, which is a dance studio in Nevada. She has a 
+spreadsheet that records incoming and outgoing payments since the beginning of the year (2025). The 
+structure of the data set is shown here.
+RemittanceAdvice
+Number
+CashReceipt
+Fact Table
+Dimension Table
+Fact Table
+Disbursement
+VoucherNumber
+Amount
+Date
+Bank
+Amount
+Bank
+Date
+CashDisbursement
+N
+N
+1
+1
+BankCode
+BankName
+StartingBalance
+Cash
+Key
+Column
+She would like to use the summary table shown here to show the overall cash flows and the cash flows 
+for each of her three bank accounts.
+Fulton
+MTB
+PNC
+23,009
+89,012
+44,099
+BankName
+StartingBalance
+953.34
+2,116.00
+2,408.04
+$
+$
+$
+Inflow
+1,148.36
+900.23
+2,987.36
+$
+$
+$
+22,813.98
+90,227.77
+43,519.68
+$
+$
+$
+Total
+$ 156,120 $ 5,477.38 $ 5,035.95
+$ 156,561.43
+Outflow
+CustomerBalance
+$ 
+$ 
+$ 
+	 1.	 Create the information model.
+	 2.	 Generate the report.
+EX 6.12  (LO 2, 3)  Data   Managerial Accounting   Create an Information Model for Employee 
+Performance Analysis Carousel is a startup ride-share company that aims to compete with companies 
+like Uber and Lyft in the U.S. Using heavy local advertisement, they ran a pilot program during the first 
+weekend of February in the Seattle area. The diagram shows the data they collected.
+Fact Table
+Dimension Table
+RideID
+Ride
+N
+1
+Participates
+Key
+Column
+EstimatedTime
+ActualTime
+Amount
+Tip
+Rating
+Driver
+DriverID
+Driver
+DriverName
+The data dictionary provides a brief description for each of the fields.
+Ride
+Name
+Description
+RideID
+An ID that uniquely identifies a ride.
+EstimatedTime
+The estimated time of the ride in minutes.
+ActualTime
+The actual time of the ride in minutes.
+Amount
+The dollar amount paid for the ride.
+Tip
+The dollar amount tip received by the driver for a ride.
+(Continued)
+--- PAGE 64 ---
+Name
+Description
+Rating
+The customer’s rating for the ride on a scale of one to five, 
+with five being excellent.
+Driver
+The driver’s ID.
+Driver
+Name
+Description
+DriverID
+An ID that uniquely identifies a driver.
+DriverName
+The name of the driver.
+	 1.	 Carousel’s CEO asks you to develop an information model that will help analyze driver perfor-
+mance. Develop at least three measures.
+	 2.	 Next, generate at least two reports that use the information model you developed.
+EX 6.13  (LO 2, 3)  Data   Financial Accounting   Create an Information Model for Revenue 
+Analysis Jane Jones (JJ) just opened a small food truck, Gourmet@5, on Fifth Avenue in New York City. 
+The menu is simple, offering hamburgers, hot dogs, water bottles, and a variety of soda and candy bars. 
+She gives you a spreadsheet that contains all the transactions for the first week from Monday through 
+­Sunday. The diagram shows what data was collected.
+Fact Table
+Dimension Table
+ItemCode
+Items
+N
+1
+Flows
+(out)
+Key
+Column
+Sales
+TransactionID
+Day
+Item
+Quantity
+ItemName
+ItemPrice
+ItemCategory
+The data dictionary provides a brief description for each of the fields.
+Sales
+Name
+Description
+TransactionID
+An ID used to identify the transaction.
+Day
+The day of the week the transaction occurred.
+Item
+The item sold to the customer (code).
+Quantity
+The quantity sold of the item.
+Items
+Name
+Description
+ItemCode
+A code that uniquely identifies a type of product.
+ItemName
+The name of the item (product type).
+ItemPrice
+The item’s price. All items have a fixed price.
+ItemCategory
+The item’s category.
+	 1.	 Develop an information model that will help analyze the first week’s sales. The owner is especially 
+interested in knowing which products generate the most revenue.
+	 2.	 Generate at least two reports using the information model you created.
+Exercises  6-63
+--- PAGE 65 ---
+6-64  CHAPTER 6  Analysis: Information Modeling
+EX 6.14  (LO 2, 3)  Data   Create an Information Model for Employee Performance Analysis 
+Giuseppina’s is a popular, family-owned, pizza store in Bourbon, Missouri. The store’s owner has col-
+lected the following information regarding all deliveries on February 14, 2025: order number, driver, 
+order amount, and tip amount received by the driver. The owner would like to rank the drivers based on 
+two criteria:
+•  Total tip amount received.
+•  Average tip percentage received.
+	 1.	 Develop an information model for such an analysis.
+	 2.	 Use the information model to create a table for each ranking that shows the names of the drivers.
+Professional Application Case: D*Tunes
+D*Tunes is a ballroom studio in Pocatello, Idaho. The studio’s owner has collected data regarding the 
+studio’s sales for lessons in January 2025. You are interning with them as an accountant. The owner has a 
+series of questions that can be answered using data that has already been given to you. You have already 
+developed the data dictionary and the data model for the data set.
+D*Tunes Data Dictionary
+Instructors
+Column Name
+Field Description
+InstructorID
+An ID that uniquely identifies an instructor.
+InstructorName
+An instructor’s name.
+NumberOfHoursTaught
+The number of hours an instructor has taught for D*Tunes.
+NumberOfAwards
+The number of local and regional awards an instructor has 
+received during the last three years.
+NumberOfNationalAwards
+The number of national recognitions an instructor has received.
+Salary
+For full-time employees, the salary the instructor earns.
+JobTitle
+An instructor’s job title.
+Classes
+Column Name
+Field Description
+ClassCode
+A code that uniquely identifies a class.
+ClassDescription
+A brief description of the class.
+Students
+Column Name
+Field Description
+StudentID
+An ID that uniquely identifies a student.
+StudentName
+A student’s name.
+Level
+Student’s Skill Level: 
+B = Beginner 
+I = Intermediate 
+A = Advanced
+Gender
+A student’s gender.
+--- PAGE 66 ---
+Key
+Column
+Foreign key
+InstructorName
+JobTitle
+NumberOfAwards
+NumberOfHoursTaught
+NumberOfNationalAwards
+Salary
+Instructors
+ClassCode
+ClassDescription
+Classes
+1
+1
+N
+N
+N
+1
+1
+N
+InstructorID
+StudentName
+Level
+Gender
+Students
+StudentID
+Participates
+Lesson
+Student
+Class
+Instructor
+Date
+Lessons
+LessonID
+Lessons
+Column Name
+Field Description
+LessonID
+An ID that uniquely identifies a lesson.
+Date
+The date on which the lesson occurred.
+Class
+The type of class taught during this lesson.
+Instructor
+The ID of the instructor teaching this class.
+Participates
+Column Name
+Field Description
+Lesson
+The ID of the lesson taken by the student.
+Student
+The ID of the student taking the lesson.
+Professional Application Case: D*Tunes  6-65
+--- PAGE 67 ---
+6-66  CHAPTER 6  Analysis: Information Modeling
+PAC 6.1  Financial Accounting: Analyze D*Tunes’ Profitability
+Data   Financial Accounting   D*Tunes has four categories of instructors:
+•	 Apprentice.
+•	 Intermediate.
+•	 Advanced.
+•	 Champion.
+The following rules are used to assign instructors to their category.
+•	 Instructors who have taught less than 250 hours are apprentices.
+•	 Instructors who have taught more than 250 hours are considered intermediate.
+•	 Intermediate instructors who have won at least three awards, from a list of approved local and 
+regional tournaments, during the last three years, are considered advanced.
+•	 Instructors who have earned national recognition, from a list of highly prestigious awards, are clas-
+sified as champions.
+Instructors’ pay is determined by their category:
+Apprentice
+Intermediate
+Advanced
+Champion
+Category
+Hourly Rate
+45
+65
+85
+$ 110
+$
+$
+$
+This hourly rate applies to any class an instructor teaches: initiation, private, or group. The only excep-
+tion is the Friday evening parties, for which an instructor is paid $250. The price paid by students is the 
+instructor’s hourly rate plus $30. So, for a one-hour lesson with an apprentice, the student pays $75. For a 
+one-hour lesson with a champion, the students pays $140. The standard rate for any group lesson (swing, 
+cha-cha, etc.) is $40 per person. Admission to the weekly ­Friday party is $25. Every student receives a 
+free initiation lesson.
+	 1.	 Develop an information model that enables you to determine the gross profit for last month. When 
+calculating gross profit, the only cost to consider is what the owner pays the instructors. Do not 
+include the salaries paid to full-time employees. 
+	 2.	 Create a report that shows the total gross profit generated, gross profit generated per class, and gross 
+profit generated per instructor.
+PAC 6.2  Auditing: Analyze Potential Fraud
+Data   Auditing   D*Tunes’ policy is that potential customers can have a free initiation lesson. How-
+ever, instructors are still paid for these lessons. The owner does not want to change this policy, but under-
+stands that it creates an opportunity for fraud. You are asked to analyze the following four questions.
+Build an information model to explore each question. Then, create a report for each of them.
+	 1.	 What is the cost of the initiation lessons. What investment has been made thus far?
+	 2.	 Are there students that took more than one initiation lesson?
+	 3.	 Are there instructors with an unusually high number of initiation lessons?
+	 4.	 What is the conversion rate? That is, how many students who signed up for an initiation lesson also 
+eventually paid for a lesson or a Friday night party?
+PAC 6.3  Managerial Accounting: Create a Breakeven Analysis of Group Classes
+Data   Managerial Accounting   D*Tunes policy is to keep group classes only when there is a net 
+revenue of at least $150 after paying the instructor. Currently, the price paid by students for a group class 
+is $40. Explore the following two questions.
+	 1.	 Create an information model to determine how many students are required per lesson to breakeven, 
+and which lessons have not yet reached that goal.
+	 2.	 Generate a report that shows which classes are not meeting the breakeven point. What classes would 
+you suggest canceling?
+--- PAGE 68 ---
+LeGrind Continuing Case: Build the Information Model for 
+Calculating Gross Profit
+Data
+Visit Wiley’s online learning platform for the case background, additional questions, data, and 
+more details about the continuing case. 
+LeGrind Continuing Case: Build the Information Model for Calculating Gross Profit 6-67
+ PAC 6.4 Tax Accounting: Determine Withholdings for Salaried Employees 
+Data
+Tax Accounting
+For the two salaried employees, D*Tunes must withhold the employer por-
+tion of FICA taxes every month from their wages.  FICA tax is a combination of Social Security tax and 
+Medicare tax.  The 2025 FICA tax rate is 7.65%, which includes Social Security tax of 6.2% and Medicare 
+tax of 1.45%. The owner does not need to withhold Social Security tax for any earnings above $168,900. 
+Therefore, the studio must only withhold Medicare tax on wages above this amount.  Create an informa-
+tion model that will allow you to design a worksheet similar to the one shown that will help the studio
+determine the FICA tax payments for each month.
+January
+February
+March
+April
+May
+Salary
+FICA%
+SocialSecurity%
+Medicare%
+SocialSecurityMaximum
+200,000
+0.0765
+0.062
+0.0145
+168,900
+June
+July
+August
+September
+October
+November
+December
+1,275.00
+1,275.00
+1,275.00
+1,275.00
+1,275.00
+1,275.00
+1,275.00
+1,275.00
+1,275.00
+1,275.00
+380.13
+241.67
+Month
+Deduction

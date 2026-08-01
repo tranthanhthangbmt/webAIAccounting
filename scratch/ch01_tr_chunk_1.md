@@ -26,6 +26,8 @@ Kỹ năng giải quyết vấn đề là thiết yếu trong một ngành kinh 
 **LO 1.3** Xác định các kỹ năng cần thiết để thực hiện phân tích dữ liệu. | • Tư duy Phản biện (Critical Thinking)<br>• Hiểu biết về Dữ liệu (Data Literacy)<br>• Kỹ năng Công nghệ (Technology Skills)<br>• Kỹ năng Giao tiếp (Communication Skills) | Đánh giá Mối quan hệ giữa Kỹ năng và Nhiệm vụ (Ví dụ: Kế toán Thuế - Tax Accounting)
 **LO 1.4** Giải thích cách áp dụng tư duy phân tích dữ liệu (Data Analytics Mindset) vào quy trình phân tích dữ liệu. | • Hiểu rõ các Bên liên quan (Understand the Stakeholders)<br>• Xác định Mục đích (Identify the Purpose)<br>• Xem xét các Giải pháp thay thế (Consider Alternatives)<br>• Đánh giá Rủi ro (Assess Risks)<br>• Xác định Kiến thức (Identify Knowledge)<br>• Thực hiện Tự phản ánh (Perform Self-Reflection)<br>• SPARKS: Bộ công cụ Tư duy Phản biện | Tích hợp Tư duy Phản biện với Quy trình Phân tích Dữ liệu (Ví dụ: Kiểm toán)
 
+![LO 1.4](../TaiLieu/textbookForPractice/Figures/Ch_06/LO%201.4.png)
+
 ---
 
 ## 1.1 Dữ liệu và Phân tích đang Chuyển đổi Nghề Kế toán như thế nào? (How are Data and Analytics Transforming the Accounting Profession?)

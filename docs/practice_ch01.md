@@ -6,10 +6,6 @@
 # Chương 1: Dữ liệu và Phân tích trong Nghề Kế toán (Data and Analytics in the Accounting Profession)
 
 ## Tổng quan Chương (Chapter Preview)
-
-### Tài nguyên Dữ liệu Thực hành
-Trong chương này, bạn sẽ sử dụng bộ dữ liệu sau cho bài tập thực hành. Bạn có thể tải về để mở ra xem trước dữ liệu:
-- 📥 **<a href="TaiLieu/Datasets/LittleTots_Financials.csv" download target="_blank"><strong>LittleTots_Financials.csv</strong></a>**: Bảng cân đối số phát sinh và dữ liệu tài chính cơ bản cho Cơ sở Trông trẻ Little Tots.
 Những thay đổi về dữ liệu và công nghệ đang tác động đến vai trò của kế toán viên trong mọi lĩnh vực kế toán (Accounting). Các kế toán viên của tương lai phải là những chuyên gia linh hoạt, sáng tạo, am hiểu về dữ liệu và công nghệ (Data and Technology Literate). Họ sẽ là những người giải quyết vấn đề (Problem-solvers) có tư duy phản biện (Critical Thinking), có khả năng sử dụng công nghệ và dữ liệu để thúc đẩy sự hiểu biết và thay đổi trong kinh doanh. Họ cần phải "suy nghĩ vượt ra ngoài khuôn khổ" (Think outside the box) để tạo ra giá trị bằng cách sử dụng dữ liệu và các phép phân tích (Analyses). Chương này là một bản tổng quan về cách những thay đổi này đang diễn ra, các loại dữ liệu và phân tích mà những sinh viên mới tốt nghiệp có khả năng gặp phải, và những kỹ năng họ cần để thành công trong môi trường đang thay đổi này.
 
 ### Góc nhìn Chuyên gia (Professional Insight): Tại sao Phân tích Dữ liệu (Data Analytics) lại quan trọng cho sự nghiệp của bạn?
@@ -85,6 +81,8 @@ Ngoài đánh giá rủi ro, kiểm toán viên có thể sử dụng phân tíc
 
 Ví dụ trong ILLUSTRATION 1.4 đã sử dụng trực quan hóa dữ liệu (Data Visualization) để so sánh doanh thu kỳ vọng và thực tế nhằm xác định xem có tháng nào cần phân tích thêm hay không. Nó cho thấy doanh thu thực tế cao hơn dự kiến vào tháng Hai, tháng Bảy và tháng Mười Hai, do đó kiểm toán viên có thể quyết định tập trung vào ba tháng đó để kiểm tra bổ sung.
 
+![ILLUSTRATION 1.4](../TaiLieu/textbookForPractice/Figures/Ch_01/ILLUSTRATION%201.4.png)
+
 Các thủ tục kiểm toán cũng đang thay đổi. Do nhiều công ty đang đầu tư vào phần mềm Tự động hóa Quy trình bằng Robot (RPA - Robotic Process Automation) và phần mềm tự động hóa phân tích để tự động hóa các tác vụ kiểm toán thủ công, các kiểm toán viên có thể tập trung vào việc phân tích và cung cấp những hiểu biết sâu sắc có giá trị.
 
 #### Kế toán Tài chính (Financial Accounting)
@@ -120,6 +118,8 @@ Phân tích dữ liệu cũng có thể được sử dụng để phân tích t
 - Các bảng điều khiển thuế có thể giúp các tổ chức giám sát các vị thế thuế trong thời gian thực.
 
 ILLUSTRATION 1.7 là một bảng điều khiển thuế sử dụng trực quan hóa dữ liệu để hiển thị động thông tin thuế tiểu bang, nhằm giúp các chuyên gia thuế theo dõi vị thế thuế của tổ chức. Các menu ở trên cùng bên trái cho phép người dùng tương tác với dữ liệu để đi sâu (Drill Down) vào các chi tiết hỗ trợ. Người dùng có thể chọn thực thể công ty (Corporate Entity), loại thuế, khu vực tài phán (tiểu bang), và số lượng thực thể cần hiển thị. Hình ảnh trực quan ở trên cùng của bảng điều khiển là một tổng quan về thuế tiền lương (Payroll Taxes) theo từng bang cho thực thể được chọn. Hình ảnh trực quan dưới cùng hiển thị tổng số tiền của thuế tiền lương.
+
+![ILLUSTRATION 1.7](../TaiLieu/textbookForPractice/Figures/Ch_01/ILLUSTRATION%201.7.png)
 
 ## 1.2 Các giai đoạn của Quy trình Phân tích Dữ liệu là gì? (What are the Stages of the Data Analysis Process?)
 
@@ -620,7 +620,8 @@ d. Giao tiếp (Communication)
 **BE 1.1 (LO 1) Kiểm toán (Auditing)**
 Phân tích sau đây về doanh số bán hàng theo tháng và quý cho năm 2025 đã được chuẩn bị cho One Stop Shop.
 
-![BE 1.1](../TaiLieu/textbookForPractice/Figures/Ch_01/page_32_1785340201585.png)
+![BE 1.1](../TaiLieu/textbookForPractice/Figures/Ch_01/BE%201.1.png)
+![BE 1.1_1](../TaiLieu/textbookForPractice/Figures/Ch_01/BE%201.1_1.png)
 
 1. Một kiểm toán viên có thể sử dụng phân tích này như thế nào?
 2. Nhận diện bất kỳ tháng nào có thể cần điều tra bổ sung.
@@ -655,6 +656,8 @@ Best Bakes Bakery có mục tiêu tỷ suất lợi nhuận trung bình là 42% 
 Bạn là một kế toán tài chính cho Best Bakes Bakery được yêu cầu diễn giải một phân tích về doanh số theo sản phẩm. Mục tiêu là xác định những sản phẩm nào đang tăng và giảm lợi nhuận. Bạn được cung cấp biểu đồ trực quan sau đây. *(Lưu ý: Dữ liệu dạng biểu đồ lợi nhuận theo năm cho Blueberry Scone, Caramel Apple, Cinnamon Bun, Poppyseed Bagel).*
 1. Liệu phân tích này có đáp ứng được mục tiêu giúp Best Bakes Bakery xác định xem lợi nhuận đang tăng hay giảm đối với từng sản phẩm không?
 2. Có những cách nào để bạn có thể truyền đạt sự diễn giải của mình?
+
+![BE 1.6](../TaiLieu/textbookForPractice/Figures/Ch_01/BE%201.6.png)
 
 **BE 1.7 (LO 3) Kiểm toán (Auditing)**
 Hãy tìm một bài đăng tuyển dụng gần đây cho vị trí kiểm toán viên mới vào nghề ở một công ty kế toán công. Liệt kê các trách nhiệm và tiêu chuẩn yêu cầu cho vị trí này. Làm nổi bật các trách nhiệm và tiêu chuẩn liên quan đến tư duy phản biện, sự am hiểu dữ liệu, kỹ năng công nghệ và kỹ năng giao tiếp.
@@ -716,6 +719,8 @@ Bạn đang thực hiện một cuộc kiểm toán độc lập về báo cáo 
 **EX 1.3 (LO 2, 4) Kế toán tài chính (Financial Accounting) | Áp dụng Quy trình phân tích dữ liệu**
 Bonnie, Giám đốc tài chính (CFO) của một công ty bán lẻ lớn, đã yêu cầu bạn thực hiện phân tích dữ liệu để xác định hàng tồn kho lỗi thời và tính toán khoản dự phòng giảm giá hàng tồn kho cho báo cáo tài chính cuối năm. Hàng tồn kho là một trong những tài sản lớn nhất trên bảng cân đối kế toán của bạn. Hãy hoàn thành bảng sau.
 
+![EX 1.3](../TaiLieu/textbookForPractice/Figures/Ch_01/EX%201.3.png)
+
 | Giai đoạn quy trình phân tích dữ liệu | Phản hồi (Response) |
 | --- | --- |
 | **Lên kế hoạch (Plan)** | 1. Động lực (Motivation) thực hiện phân tích của bạn là gì? <br> 2. Mục tiêu dự án phân tích dữ liệu của bạn là gì? <br> 3. Chiến lược để đạt được mục tiêu của bạn là gì? |
@@ -725,6 +730,8 @@ Bonnie, Giám đốc tài chính (CFO) của một công ty bán lẻ lớn, đ�
 **EX 1.4 (LO 2, 4) Hệ thống thông tin kế toán (Accounting Information Systems) | Kiểm toán (Auditing) | Tư duy phản biện và Quy trình phân tích dữ liệu**
 Bạn đang làm việc trong bộ phận kiểm toán nội bộ của một công ty niêm yết đại chúng. Đây là năm đầu tiên công ty phải phân tích và báo cáo về tính hiệu quả hoạt động của các kiểm soát nội bộ đối với báo cáo tài chính.
 Hito, giám đốc kiểm toán nội bộ, yêu cầu bạn kiểm tra các kiểm soát liên quan đến việc ủy quyền và xác thực người dùng vào hệ thống thông tin của công ty. Cụ thể, bạn được yêu cầu xác định xem có bất kỳ nhân viên nào đã nghỉ việc mà vẫn tiếp tục có quyền đăng nhập vào hệ thống thông tin hay không. Bạn dự định yêu cầu các tệp từ nhóm nhân sự và nhóm công nghệ thông tin. Đối với mỗi bước trong quy trình phân tích dữ liệu (MOSAIC), hãy sử dụng khung tư duy phản biện bằng cách áp dụng ít nhất hai yếu tố tư duy phản biện.
+
+![EX 1.4](../TaiLieu/textbookForPractice/Figures/Ch_01/EX%201.4.png)
 
 | Giai đoạn quy trình phân tích dữ liệu | Tư duy phản biện (Critical Thinking) |
 | --- | --- |
@@ -736,11 +743,15 @@ Hito, giám đốc kiểm toán nội bộ, yêu cầu bạn kiểm tra các ki�
 Bạn là một kiểm toán viên độc lập năm nhất được phân công cho một khách hàng có hoạt động kinh doanh chính là nhân giống và chăn nuôi bò rừng. Họ bán thịt cho các cửa hàng tạp hóa và nhà phân phối, những người này sau đó bán lại cho các nhà hàng. Bạn sẽ kiểm toán khoản dự phòng nợ phải thu khó đòi của công ty. Khách hàng đã lập một bảng tiến độ cho thấy họ có hơn 200 khách hàng với số dư nợ phải thu chưa thanh toán tính đến cuối năm. Trưởng nhóm kiểm toán (audit senior) của bạn đã chỉ ra rằng cơ sở dẫn liệu (assertion) chính mà bạn nên tập trung vào là việc định giá khoản dự phòng nợ khó đòi. Bạn phải thực hiện một phân tích để tính toán lại số dư đã ghi nhận của công ty.
 Đối với mỗi bước trong quy trình phân tích dữ liệu, hãy sử dụng khung tư duy phản biện bằng cách áp dụng ít nhất hai yếu tố tư duy phản biện. (Tương tự như bảng trong EX 1.4)
 
+![EX 1.5](../TaiLieu/textbookForPractice/Figures/Ch_01/EX%201.5.png)
+
 **EX 1.6 (LO 2, 4) Kế toán tài chính (Financial Accounting) | Tư duy phản biện và Quy trình phân tích dữ liệu**
 Bạn là một nhà phân tích tài chính làm việc cho bộ phận kế toán của một công ty hàng không lớn. CFO muốn hiểu khả năng thanh toán nợ của công ty (nghĩa là khả năng đáp ứng các nghĩa vụ nợ của họ) so với các đối thủ cạnh tranh chính (Southwest, Delta, American, và Alaska Air). Bạn đã được giao nhiệm vụ tính toán, diễn giải và đánh giá các tỷ số sau:
 - Tỷ số Nợ trên Vốn chủ sở hữu (Debt to equity): Tổng nợ / Vốn chủ sở hữu
 - Tỷ số Nợ trên Tài sản (Debt to assets): Tổng nợ / Tổng tài sản
 - Tỷ số khả năng trả lãi (Times interest earned): (Thu nhập ròng + Chi phí lãi vay + Chi phí thuế) / Chi phí lãi vay
+
+![EX 1.6](../TaiLieu/textbookForPractice/Figures/Ch_01/EX%201.6.png)
 
 Đối với mỗi bước trong quy trình phân tích dữ liệu, hãy sử dụng khung tư duy phản biện bằng cách áp dụng ít nhất hai yếu tố tư duy phản biện. (Tương tự bảng trong EX 1.4).
 
@@ -770,7 +781,6 @@ Bạn làm việc cho một tổ chức phi lợi nhuận ở Washington D.C., c
 Hãy mô tả ngắn gọn những gì bạn sẽ đề xuất cho từng bước trong quy trình phân tích dữ liệu, sau đó áp dụng hai yếu tố tư duy phản biện vào mỗi bước được liệt kê. (Tương tự như bảng trong EX 1.7)
 
 ### Tình huống Ứng dụng Chuyên môn: Cơ sở Trông trẻ Little Tots (Professional Application Case: Little Tots Daycare)
-> 📥 **Dữ liệu thực hành:** Tải file <a href="TaiLieu/Datasets/LittleTots_Financials.csv" download target="_blank"><strong>LittleTots_Financials.csv</strong></a> để thực hiện bài tập này.
 
 Little Tots Day Care hoạt động ở Roswell, Georgia, một vùng ngoại ô của Atlanta. Đây là một cơ sở giữ trẻ quy mô vừa phục vụ trẻ em từ ba tháng đến sáu tuổi. Cơ sở này tự hào về việc cung cấp một môi trường an toàn và an ninh, nơi các bậc phụ huynh cảm thấy con cái của họ được chăm sóc và an toàn. Thị trường giữ trẻ rất cạnh tranh, với hơn 20 cơ sở được cấp phép ở Roswell. Little Tots đã mở cửa vào tháng 6 năm 2023 và đã chứng kiến sự tăng trưởng ổn định kể từ đó. Như hình ảnh trực quan sau đây cho thấy, họ đã hoạt động thua lỗ trong năm đầu tiên mở cửa nhưng đã tăng lợi nhuận đáng kể trong năm vừa qua.
 
@@ -838,6 +848,8 @@ Hãy cân nhắc cách phân tích dữ liệu có thể được sử dụng t�
 **PAC 1.1 Kiểm toán: Đánh giá Rủi ro và Thủ tục Kiểm toán (Auditing: Risk Assessment and Audit Procedures)**
 Nhóm kiểm toán của bạn đã được cung cấp một tập dữ liệu của tất cả các giao dịch trong năm 2025. Một mẫu của tệp được cung cấp bên dưới:
 
+![PAC 1.1](../TaiLieu/textbookForPractice/Figures/Ch_01/PAC%201.1.png)
+
 | ReceiptNumber | Date | Service | CustomerFirstName | CustomerLastName | ChildsFirstName | ChildsLastName | Amount |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | F-01251 | 1/15/2025 | Full Time | Teri | Park | Nicholas | Park | $ 125.00 |
@@ -861,6 +873,8 @@ Bạn đã được yêu cầu đề xuất cách phân tích dữ liệu có th
 **PAC 1.3 Kế toán quản trị: Hiểu về Hiệu suất Vận hành (Managerial Accounting: Understand Operational Performance)**
 Bạn đang chuẩn bị kế hoạch ngân sách năm tới, cũng như một phân tích để xác định thành phố nào mà Little Tots nên cân nhắc cho việc mở rộng.
 
+![PAC 1.3](../TaiLieu/textbookForPractice/Figures/Ch_01/PAC%201.3.png)
+
 | City | State | Country | Population | Percentage Five Years Old And Under | Number Of Children Five Yrs Or Under | Median Income |
 | --- | --- | --- | --- | --- | --- | --- |
 | Atlanta | Georgia | USA | 498,715 | 5.4% | 26,931 | $ 59,948 |
@@ -880,6 +894,8 @@ Bạn đang chuẩn bị kế hoạch ngân sách năm tới, cũng như một p
 
 **PAC 1.4 Kế toán thuế: Sử dụng Dữ liệu Thuế cho việc Ra quyết định (Tax Accounting: Use Tax Data for Decision-Making)**
 Bạn đang giúp bộ phận kế toán quản trị phân tích để xác định một thành phố tiềm năng để mở một chi nhánh khác. Bạn đã thu thập dữ liệu từ IRS cho thấy thông tin về các tờ khai thuế được nộp trong mỗi mã zip ở tiểu bang Georgia. Danh sách dữ liệu có sẵn để phân tích được trình bày bên dưới. Nếu một mục dữ liệu hữu ích cho phân tích của bạn, hãy cho biết liệu bạn sẽ sử dụng số lượng tờ khai (Number of Returns) hay số tiền (Dollar Amount) trong phân tích của mình. Sau đó, giải thích tại sao bạn lại chọn mục cụ thể đó.
+
+![PAC 1.4](../TaiLieu/textbookForPractice/Figures/Ch_01/PAC%201.4.png)
 
 | Dữ liệu có sẵn (Data Available) | Số lượng tờ khai (Number of Returns) | Số tiền (Dollar Amount) | Lý do (Reason) |
 | --- | --- | --- | --- |

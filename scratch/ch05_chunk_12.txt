@@ -1,0 +1,698 @@
+5-70  CHAPTER 5  Analysis: Data Preparation
+EX 5.3  (LO 1, 2, 3, 4, 5, 7)  Data   Financial Accounting   Extraction, Column and Table Trans-
+formations As the accountant for El Azteco, a restaurant in Knoxville, TN, you are asked to prepare 
+data for analysis of the restaurant’s sales. The data dictionary details the data recorded for each sales 
+transaction.
+Name
+Description
+ID
+A number that uniquely identifies the sale.
+SaleDate
+The date the sale occurred.
+Amount
+The dollar amount the customer owes before discounts and coupons.
+Discount
+A discount percentage given to the customer.
+LoyaltyDiscount
+A loyalty discount percentage given to the customer.
+LolyaltyNumber 
+A unique number given to loyalty customers. Only customers 
+enrolled in El Azteco’s loyalty program can receive a loyalty discount.
+All data recorded thus far is given to you in a CSV file. The data are also shown here. Notice that currently, 
+all data are stored in one column. Further, Fernando, El Azteco’s owner, informs you that the average 
+sales amount thus far is $212.1.
+SalesInformation 
+1,1/6/2025,97,0,0
+2,1/6/2025,113,2,3,49
+3,1/6/2025,55,0,1,23
+4,1/7/2025,423,2,0
+5,1/7/2025,88,0,0
+6,1/7/2025,250,3,5,53
+7,1/8/2025,680,2,0
+8,1/8/2025,58,0,0
+9,1/8/2025,99,1,1
+10,1/8/2025,258,2,0
+A
+Examples of questions you need to answer using this data include:
+•  What is the actual amount paid for each sale?
+•  What is the average discount per sale?
+•  What is the total discount given to loyal customers?
+Apply the necessary data preparation patterns to prepare an analytical database that makes it easy to 
+answer these questions. Make sure to consider the patterns that help with detecting and correcting incon-
+sistent and invalid data. 
+EX 5.4  (LO 4, 5, 7)  Managerial Accounting   Apply Principles of Dimensional Modeling MEQ is 
+a medical equipment manufacturer that sells their products in the U.S., Canada, and several European 
+countries. All sales are conducted by salespeople. As MEQ’s accountant, you are asked to perform an 
+analysis of your entity’s sales by salesperson. You will calculate key performance indicators (KPIs) for 
+each salesperson as part of their annual performance review. Currently, all information is stored in a 
+single table (named Sales) in a relational database. The data dictionary is given here.
+Name
+Description
+Address
+A customer’s address.
+Category
+An item’s category.
+CCode
+A code that uniquely identifies a customer.
+CName
+A customer’s name.
+Date
+The day a sale occurred.
+Description
+An item’s name. 
+DOH
+The day a salesperson was hired.
+(Continued)
+
+Exercises  5-71
+Name
+Description
+InvoiceId
+An ID that uniquely identifies a sale.
+ItemCode
+A code that uniquely identifies an item or product.
+LiId
+A unique ID given to each line item. A sale can have multiple line 
+items. A line item specifies an item’s ID and description, the quantity 
+sold, and the price asked per unit.
+PaymentTerms
+The payment terms that apply to a customer.
+Price
+The price paid for a line item as part of a sale.
+Quantity
+The quantity sold of a line item as part of a sale.
+QOH
+Current quantity on hand for a product.
+Region
+The different regions in which a salesperson operates. Each region is 
+assigned to exactly one salesperson.
+SpCode
+A code that uniquely identifies a salesperson.
+SpName
+A salesperson’s name.
+	 1.	 Apply the principles of dimensional modeling to the Sales table by creating a star or snowflake 
+schema. 
+	 2.	 List the patterns you would use to detect and correct data issues, and explain why you would use 
+each pattern. 
+EX 5.5  (LO 6)  Data   Auditing   Combine Tables and Identify Invalid Data Assume you are a 
+financial analyst working in the controller’s group at a public company. You are asked to prepare an 
+analytical database that shows the consolidated fixed assets for your entity. This analytical database 
+will be used by the auditor to verify depreciation expenses and by your controller when they are pre-
+paring the financial statement footnotes. Your company has locations in the United States and Mexico. 
+Each location’s technology group provided you with a data file that contains data about fixed assets and 
+­depreciation. Apply the appropriate data preparation patterns to the data files to create an analytical 
+database that helps verify the 2025 depreciation expenses and the accumulated depreciation expenses. 
+You can assume that all data were transferred correctly.
+EX 5.6  (LO 4)  Data   Use Patterns to Detect and Correct Data Issues Dunn Motors is a Honda 
+dealership in Tallahassee, Fl. They keep a list of all vehicles available for the salespeople in their used car 
+department. A sample of the list and the table’s data dictionary follows. 
+3044
+3045
+3046
+3047
+3048
+3049
+3050
+3051
+3052
+3053
+12350
+16990
+9766
+10889
+22998
+11150
+24551
+12990
+17000
+13500
+ID
+Accord-Black-2017-*13,14,15*
+Odyssey-White-2020-*4,7,11,12,17,*
+Ridgeline-Black-2012-*1,13*
+Pilot-White-2016-*7*
+Accord-Black-2018-*12,14,17*
+CRV-White-2019-*11,22,27*
+Accord-Green-2012-*4,7*
+Civic-White-2015-*4,5,6*
+Pilot-Red-2018-*1,7,11,18*
+Civic-Gray-2017-*2,6,9,20*
+ProductCode
+Price
+Name
+Description
+ID
+A car’s unique ID.
+ProductCode
+A car’s code that captures the following information: model, color, year, and list of 
+extra features (between **). Each feature has an internal code between 1 and 30.
+Price
+A car’s price (before negotiation).
+	 1.	 Describe the table’s data problems. 
+	 2.	 Address these issues by transforming the table. 
+
+5-72  CHAPTER 5  Analysis: Data Preparation
+EX 5.7  (LO 2, 5, 6)  Data   Financial Accounting   Prepare Data for Financial Analysis Hikko is a 
+technology firm headquartered in California with sales in three regions: U.S., Europe, and Asia. It pub-
+lishes the following report regarding its quarterly revenues. 
+Region 2022:Q1
+2022:Q2 2022:Q3 2022:Q4 2023:Q1 2023:Q2 2023:Q3 2023:Q4 2024:Q1 2024:Q2 2024:Q3
+2024:Q4
+U.S
+77,265,889
+57,176,758
+57,748,525 78,811,207 97,265,889 71,976,758 80,613,969 94,347,912 107,467,822 78,451,510 89,434,721
+102,094,431
+EUROPE
+53,761,998
+47,848,178
+51,197,551 53,224,378 65,534,311 58,325,537 67,074,367 67,500,340
+73,666,129 54,512,935 54,512,935
+72,929,468
+ASIA
+32,188,799
+27,038,591
+31,094,380 32,832,575 31,777,112 23,197,292 23,661,238 32,094,883
+29,778,112 22,035,803
+24,239,383
+28,289,206
+You would like to compare Hikko’s revenues across regions, quarters, and years. How would you reorga-
+nize the data to make such analysis easy? 
+EX 5.8  (LO 1, 4, 5, 6)  Data   Managerial Accounting   Prepare Data for Cost Analysis Wilkinson, 
+a luxury custom home builder in southern Nevada, uses job time cards to track labor costs for its different 
+properties. They create weekly reports. Samples of the 2025 week 1 and week 2 reports are shown here. 
+3405
+3406
+3407
+3408
+1
+1
+13
+25
+1
+1
+1
+1
+ID
+ERF007
+ERF008
+ERF007
+IR68
+Employee JobNo
+WilkinsonWeek1
+WilkinsonWeek2
+WeekNo
+4
+4
+4
+8
+4
+Thursday:
+1/2/2025
+8
+8
+8
+Friday:
+1/3/2025
+4
+8
+0
+Saturday:
+1/4/2025
+4608
+4609
+4610
+4611
+25
+13
+13
+1
+2
+2
+2
+2
+ID
+ERF008
+ERF008
+IR68
+IR101
+JobNo
+Employee
+WeekNo
+8
+8
+4
+6
+Monday:
+1/6/2025
+8
+8
+8
+Tuesday:
+1/7/2025
+8
+4
+10
+Wednesday:
+1/8/2025
+8
+8
+8
+Thursday:
+1/9/2025
+8
+8
+8
+Friday:
+1/10/2025
+4
+4
+4
+Saturday:
+1/11/2025
+How would you prepare Wilkinson’s data for labor cost analysis purposes?
+EX 5.9  (LO 4)  Data   Detect Data Issues HomePrinter is a distributor of laser and inkjet printers for 
+the home office. You receive a data set that describes the different models they buy (and sell) and their 
+January purchases. Profile the data set and identify any data issues.
+EX 5.10  (LO 5)  Data   Detect Data Issues The Creighton Group is a small accounting firm with 
+twenty employees. They keep track of their employees’ salaries, bonuses and other information in a data 
+file. Profile this data set and identify any data issues.
+EX 5.11  (LO 6)  Data   Create and Test Validation Rules Vroomba manufactures and sells state-of-
+the art robot vacuums. All units sell for $279. Salespeople receive a large bonus if they sell more than 
+1,000 units in a single week. Salespeople can sell to a pre-approved list of customers, which are distribu-
+tors, only. Every customer (distributor) has a unique name. They provide you with a sample of sales trans-
+actions for the week of January 6, 2025. What validation rule would you test? Are there any transactions 
+that require further investigation?
+EX 5.12  (LO 5)  Data   Identify Inconsistent, Incomplete, or Invalid Data Libel is a new ride-­
+sharing company. They believe their employess are the keys to their success. They keep track of a wide 
+range of employee information in a custom cloud application. On January 1, 2025, they provide you with 
+a sample of employee information. The data dictionary for the Driver table follows.
+
+Professional Application Case: Fluffy 5-73
+ Name 
+ Description 
+ DriverNumber
+ A Libel driver’s unique number. 
+DateOfBirth
+ A driver’s birthday .
+ State
+ The state in which the driver lives .
+ DateDriverLicense
+ The day a driver license was obtained by the driver .
+ AverageRating
+ The driver’s average rating, with 1 being the worst possible 
+rating and 5 being the best possible. 
+ Customer
+ A six-digit unique code used to text a driver pickup 
+information .
+Profile this data set and identify any inconsistent, incomplete, or invalid data problems. 
+ EX 5.13  (LO 1, 4) Data
+Prepare Data for Analysis The Muffin House is an industrial bakery in 
+Ogunquit, Maine. They produce baked goods in large batches. For each batch they record a range of 
+information. A sample of this information is provided in a data file. The data dictionary for the Batch 
+table follows. 
+BATCH
+ Name 
+ Description 
+ ID 
+ Uniquely identifies a batch. 
+ Product
+ The product, a baked good, produced by the batch. 
+ EstThrough
+ The estimated throughput time for the batch. How many 
+minutes it should take to complete the batch. 
+ ActThrough
+ The actual throughput time for the batch. How many minutes 
+actually it takes to complete the batch. 
+ EstQuantity
+ The estimated number of baked goods units that will be
+produced by the batch. 
+ ActQuantity
+ The actual number of baked goods units produced by the 
+batch. 
+ Facility
+ Records which of the two facilities, A or B, produced the 
+batch. 
+ Supervisor
+ The employee who supervised the batch. 
+What changes would you make to the file before it is used for analysis? 
+ Professional Application Case: Fluffy
+Fluffy is a fast-growing company in North Dakota that creates and ships customized stuffed animals to 
+all fifty U.S. states. There are several options for customization, from customers submitting their own 
+designs to sending the company a rough design idea that Fluffy then develops and creates. While business 
+is going well, the company’s information system is a disaster and they are not able to do any analytics. 
+The priority is to integrate their data into an analytical database. They hire your firm to help them. 
+
+5-74  CHAPTER 5  Analysis: Data Preparation
+1
+2
+3
+4
+5
+4326 Lochmere Lane, Groton, CT, 06340
+1177 Gore Street, Houston, TX, 77027
+4457 Lonely Oak Drive, Mobile, AL, 36603
+3764 Courtright Street, Fargo, ND, 58102 
+2170 Metz Lane, Camden, NJ, 08102
+Code
+Discount store
+Lebron Jordan
+Duﬀy Warehouse
+Bob Dylan
+Segher's Fabrics
+Name
+Address
+Vendors
+1
+2
+3
+4
+5
+Phillps Circle 12, Fargo, ND, 58102
+1012 Catherine Drive, St. Thomas, ND, 58276
+2490 Findley Avenue, Hope, ND, 58046
+3764 Courtright Street, Fargo, ND, 58102
+4000 Findley Avenue, Minot, ND, 58701
+Code
+Joan Waddington
+Matt Anthony
+Elizabeth Petroni
+Andrea Dylan
+Jimmy John
+Name
+Address
+Employees
+1
+2
+3
+4
+6
+7
+8
+8
+9
+10
+1
+3
+5
+4
+2
+4
+6
+6
+2
+4
+Number
+Purchases
+1/6/2025
+1/23/2025
+1/23/2025
+1/30/2025
+1/31/2025
+1/7/2025
+1/9/2025
+1/14/2025
+1/20/2025
+1/21/2025
+Date
+$ 4,176
+$ 1,597
+$ 1,597
+$ 3,433
+$ 1,833
+$     660
+$ 1,680
+$ 4,703
+$ 3,108
+$ 2,263
+Amount Employee
+Using the data preparation patterns, review the sample data and identify at least three issues. Where 
+applicable, specify which pattern you applied to detect and correct an issue.
+PAC 5.2  Financial Accounting: Determine and Analyze Accounts Receivable
+Data   Financial Accounting   Fluffy allows their customers to pay in installments. In the current 
+system, sales orders and payments are recorded in two separate files. The SalesOrders file records the 
+amount the customer owes Fluffy and the payments that have been received. The CashReceipts file 
+records all payments received. Samples of both files are shown here.
+1
+2
+3,10
+5
+4
+11
+7,9,11
+$     838.46
+$     100.03
+$     245.67
+$ 3,632.16
+$     386.90
+$     753.15
+$     194.80
+$     611.00
+$ 1,496.72
+$        63.00
+1/6/2025
+1/7/2025
+1/9/2025
+1/13/2025
+1/15/2025
+1/20/2025
+1/20/2025
+1/23/2025
+1/28/2025
+1/25/2025
+1
+2
+3
+4
+5
+6
+10
+7
+9
+8
+OrderNo Date
+Amount
+Payments
+SalesOrders
+Cash
+Credit Card
+Credit Card
+Check
+Cash
+Check
+Check
+Check
+Check
+Check
+$ 838.46
+$    100.3
+$        150
+$        350
+$    386.9
+$        200
+$        500
+$    194.8
+$ 403.15
+$    95.67
+$        200
+1/6/2025
+1/7/2025
+1/9/2025
+1/20/2025
+1/24/2025
+1/27/2025
+1/27/2025
+1/30/2025
+1/31/2025
+1/31/2025
+1/30/2025
+1
+2
+3
+4
+5
+6
+10
+11
+7
+9
+8
+CashReceiptNo
+Date
+Amount
+Type
+CashReceipts
+Check
+	 1.	 Identify and explain the primary issue in the data set. 
+	 2.	 Describe how you would reorganize the data to enable the calculation of accounts receivable.
+PAC 5.3  Managerial Accounting: Analyze Costs
+Data   Managerial Accounting   Cost analysis is extremely important for Fluffy. In addition to produc-
+ing the stuffed animals and providing standard shipping, they also offer a range of other services, such as 
+express shipping, packing, and design. In fact, any service requested by a customer will be ­considered by 
+Fluffy. When the company outsources a service, such as express shipping, the customer simply pays the 
+amount charged to Fluffy. Fluffy has a standard markup for everything produced in-house, the stuffed 
+animals, designs, and packing. 
+0
+154
+0
+0
+0
+0
+0
+0
+252
+0
+0
+0
+225
+0
+0
+150
+0
+0
+0
+0
+0
+0
+50
+125
+0
+25
+250
+125
+10
+35
+0
+0
+35
+1010
+1011
+1012
+1013
+1014
+1015
+1019
+1020
+1016
+1018
+1017
+38
+0
+50
+57
+49
+44
+62
+75
+0
+60
+66
+700
+280
+1,590
+906
+142
+1,728
+664
+208
+296
+800
+778
+No
+Price:100 StandardShipping:0 ExpressShipping:0 Packing:25 Design:50
+PAC 5.1  Auditing: Identify Data Issues
+Auditing   You are given access to Fluffy’s vendors, purchases, and employees files. Samples of the three 
+files appear here.
+
+Le Grind Continuing Case: Use Data Preparation Patterns to Clean and Structure Data for Analysis Purposes 5-75
+ The sample data file shows how they currently record their cost and markup information. For exam-
+ple, for Order # 1010:
+•  The cost to make the products sold is $350. The price they charge is $700. As indicated by the col-
+umn header, the markup on stuffed animals is 100%. 
+•  There is no markup for shipping or express shipping. 
+•  The markup for packing is 25%. The packing cost for Order # 1010 is $40. There is a 25% markup 
+($10), and the customer pays $50 ($40 + $10.) 
+•  The overall cost for Order 1010 is $350 (stuffed animals) + $38 (standard shipping) + $40 (packing) 
+= $428. The markup for the same order is $350 (stuffed animals) + $10 (packing) = $360. The total 
+price to be paid by the customer is $788. 
+ Fluffy would like to use their data to answer questions such as:
+•  What is the total revenue generated? 
+•  What is the overall cost structure of orders based on the services offered? 
+•  How do additional services affect the overall profit margin? 
+ How would you restructure the data to make it easier to answer these questions through analysis? 
+PAC 5.4 Tax Accounting: Validate Sales Tax Amounts
+Tax Accounting
+Currently, Fluffy’s salespeople are responsible for creating and sending orders to cus-
+tomers. All salespeople have access to the Excel file that contains the sales tax rates for each state. They 
+use that information to manually determine the sales tax of an order and enter it in the accounting system. 
+Connecticut
+Delaware
+Hawaii
+Kentucky
+Maryland
+Michigan
+Rhode Island
+6.35
+N/A
+4.17
+6
+6
+6
+7
+State
+SalesTaxRate
+SalesTaxRate
+ At the end of each week, Fluffy’s accounting system generates a list of all orders called Sales Orders. As 
+Fluffy’s accountant, you must collect sales taxes and remit them to applicable states. You must check whether 
+the sales tax amounts are accurate. A sample with ten orders from the sales orders file is shown next.
+KY
+RI
+CT
+RI
+MD
+HI
+HI
+DE
+MI
+MD
+1
+2
+3
+4
+5
+6
+10
+7
+9
+8
+$   47.46
+$   12.03
+$   14.67
+$ 144.16
+$   21.90
+$   30.15
+$      7.80
+$     0.00
+$   84.72
+$      8.00
+$     791
+$       88
+$     231
+$ 3,488
+$     365
+$     723
+$     611
+$       55
+$     187
+$ 1,412
+OrderNo
+Amount SalesTax State
+SalesOrder
+ It would help if you could combine the information in both tables to automatically calculate the sales tax
+per order and compare the tax information by state. Are there any data issues that would prevent this? 
+List the patterns you used to identify the issues.
+Le Grind Continuing Case: Use Data Preparation Patterns to Clean and Structure Data 
+for Analysis Purposes
+Data
+Visit Wiley’s online learning platform for the case background, additional questions, data, and 
+more details about the continuing case. 

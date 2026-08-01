@@ -109,6 +109,9 @@ Các giá trị trong một Excel PivotTable có thể được định dạng b
 Cùng một trực quan hóa từ Hình minh họa 2.63 có thể được tạo bằng cách sử dụng Tableau.
 **Những gì bạn cần:** > **Data** Tệp dữ liệu How To 2.2.
 
+![ILLUSTRATION 2.63](../TaiLieu/textbookForPractice/Figures/Ch_02/ILLUSTRATION%202.63.png)
+![ILLUSTRATION 2.63_1](../TaiLieu/textbookForPractice/Figures/Ch_02/ILLUSTRATION%202.63_1.png)
+
 **BƯỚC 1:** Thêm các trường cho trực quan hóa vào vùng làm việc (canvas):
 - Mở tệp và nhấp vào **Sheet 1** ở dưới cùng của màn hình (Hình minh họa 2.67).
 - Việc này sẽ mở ra một bảng tính mới cho một trực quan hóa. Nhấp vào trường cần trực quan hóa và kéo nó vào dòng column hoặc row:

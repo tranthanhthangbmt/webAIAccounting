@@ -69,6 +69,8 @@ Hãy cân nhắc cách phân tích dữ liệu có thể được sử dụng t�
 **PAC 1.1 Kiểm toán: Đánh giá Rủi ro và Thủ tục Kiểm toán (Auditing: Risk Assessment and Audit Procedures)**
 Nhóm kiểm toán của bạn đã được cung cấp một tập dữ liệu của tất cả các giao dịch trong năm 2025. Một mẫu của tệp được cung cấp bên dưới:
 
+![PAC 1.1](../TaiLieu/textbookForPractice/Figures/Ch_01/PAC%201.1.png)
+
 | ReceiptNumber | Date | Service | CustomerFirstName | CustomerLastName | ChildsFirstName | ChildsLastName | Amount |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | F-01251 | 1/15/2025 | Full Time | Teri | Park | Nicholas | Park | $ 125.00 |
@@ -92,6 +94,8 @@ Bạn đã được yêu cầu đề xuất cách phân tích dữ liệu có th
 **PAC 1.3 Kế toán quản trị: Hiểu về Hiệu suất Vận hành (Managerial Accounting: Understand Operational Performance)**
 Bạn đang chuẩn bị kế hoạch ngân sách năm tới, cũng như một phân tích để xác định thành phố nào mà Little Tots nên cân nhắc cho việc mở rộng.
 
+![PAC 1.3](../TaiLieu/textbookForPractice/Figures/Ch_01/PAC%201.3.png)
+
 | City | State | Country | Population | Percentage Five Years Old And Under | Number Of Children Five Yrs Or Under | Median Income |
 | --- | --- | --- | --- | --- | --- | --- |
 | Atlanta | Georgia | USA | 498,715 | 5.4% | 26,931 | $ 59,948 |
@@ -111,6 +115,8 @@ Bạn đang chuẩn bị kế hoạch ngân sách năm tới, cũng như một p
 
 **PAC 1.4 Kế toán thuế: Sử dụng Dữ liệu Thuế cho việc Ra quyết định (Tax Accounting: Use Tax Data for Decision-Making)**
 Bạn đang giúp bộ phận kế toán quản trị phân tích để xác định một thành phố tiềm năng để mở một chi nhánh khác. Bạn đã thu thập dữ liệu từ IRS cho thấy thông tin về các tờ khai thuế được nộp trong mỗi mã zip ở tiểu bang Georgia. Danh sách dữ liệu có sẵn để phân tích được trình bày bên dưới. Nếu một mục dữ liệu hữu ích cho phân tích của bạn, hãy cho biết liệu bạn sẽ sử dụng số lượng tờ khai (Number of Returns) hay số tiền (Dollar Amount) trong phân tích của mình. Sau đó, giải thích tại sao bạn lại chọn mục cụ thể đó.
+
+![PAC 1.4](../TaiLieu/textbookForPractice/Figures/Ch_01/PAC%201.4.png)
 
 | Dữ liệu có sẵn (Data Available) | Số lượng tờ khai (Number of Returns) | Số tiền (Dollar Amount) | Lý do (Reason) |
 | --- | --- | --- | --- |

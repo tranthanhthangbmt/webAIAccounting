@@ -10,6 +10,9 @@ Bạn là một chuyên viên phân tích tài chính cho PizzaNow! Kiểm soát
 5. Date trong bảng TakeOrder
 6. ZipCode trong bảng Employees
 
+![BE 2.1](../TaiLieu/textbookForPractice/Figures/Ch_02/BE%202.1.png)
+![BE 2.1_1](../TaiLieu/textbookForPractice/Figures/Ch_02/BE%202.1_1.png)
+
 **BE 2.2 (LO 1) Hệ thống Thông tin Kế toán (Accounting Information Systems)**
 Dine At Home cung cấp dịch vụ giao đồ ăn tận nhà được đặt từ nhiều nhà hàng địa phương khác nhau. Bạn là người kết nối giữa bộ phận công nghệ thông tin và bộ phận kế toán của công ty. Bạn được yêu cầu giải thích mối quan hệ giữa ba bảng này cho nhóm kế toán. Các bảng (Customer1, Restaurant, Order) được lấy từ cơ sở dữ liệu của Dine At Home.
 Đối với mỗi kịch bản, hãy xác định kết nối (join) mà bạn có khả năng sử dụng nhiều nhất để truy vấn dữ liệu. Mỗi loại kết nối có thể được sử dụng một lần, nhiều lần, hoặc không được sử dụng.
@@ -24,6 +27,9 @@ d. Full join
 1. Xác định khóa chính (primary keys) và khóa ngoại (foreign keys) cho mỗi bảng.
 2. Nếu bạn muốn biết tên của một khách hàng cho một đơn hàng cụ thể, bạn nên truy vấn các bảng nào?
 
+![BE 2.2](../TaiLieu/textbookForPractice/Figures/Ch_02/BE%202.2.png)
+![BE 2.2_1](../TaiLieu/textbookForPractice/Figures/Ch_02/BE%202.2_1.png)
+
 **BE 2.3 (LO 1) Kế toán Tài chính (Financial Accounting)**
 Giả sử bạn là một chuyên viên phân tích tài chính trong nhóm kiểm soát cho công ty phân phối của bạn. Bạn được yêu cầu xác định tất cả các mặt hàng tồn kho không có doanh số bán hàng trong năm qua:
 - Nhóm IT đã cung cấp tệp dữ liệu hàng tồn kho hiện có (inventory on hand data file) và tệp dữ liệu doanh số mười hai tháng (twelve month sales data file).
@@ -32,6 +38,9 @@ Hãy xác định kết nối (join) phù hợp nhất cho hai bảng này để
 
 **BE 2.4 (LO 1) Kế toán Tài chính (Financial Accounting)**
 Bạn là một chuyên viên phân tích tài chính cho Dine At Home và được yêu cầu phân tích dữ liệu trong ba bảng trên (Customer1, Restaurant, Order). 
+
+![BE 2.4](../TaiLieu/textbookForPractice/Figures/Ch_02/BE%202.4.png)
+![BE 2.4_1](../TaiLieu/textbookForPractice/Figures/Ch_02/BE%202.4_1.png)
 
 **BE 2.5 (LO 2) > **Data** Kế toán Quản trị (Managerial Accounting)**
 Kiểm soát viên tại ThisBigCity đã yêu cầu bạn thực hiện một bản phân tích về chi phí hoàn trả cho nhân viên (employee reimbursement expenses) của thành phố trong mười lăm năm qua. Nhóm IT đã cung cấp một bản tải xuống tất cả dữ liệu hoàn trả cho nhân viên kể từ năm 2005.

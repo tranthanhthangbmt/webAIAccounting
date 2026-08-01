@@ -1,0 +1,521 @@
+5-40  CHAPTER 5  Analysis: Data Preparation
+Modify Invalid Values
+If you were working on the Beans case, you would consult with the CEO to find out if a policy 
+violation, incorrect entry of the data, or another reason caused the error. Once identified, the 
+issue can be corrected by putting a control in place to avoid further policy violations, correct-
+ing the values in the source data, or correcting the values in the analytical database.
+Pattern 17 Summary
+Problem
+Invalid data might result in poor decision-making.
+Detect (Data Profiling)
+Create and apply inter-table validation rules.
+Correct (ETL)
+Modify the invalid rules.
+Apply It 5.6
+Draw a Star Schema
+Data   Shanice’s assistant at Stufan provides you with revised versions of the Customer, Item, Sale, 
+and Salesperson files. Use the data in these files to draw a star schema.
+1.	 Draw the different tables and their fields.
+2.	 Label each table as fact or dimension and label each dimension table as who, when, or what.
+3.	 Put the fact table in the center.
+4.	 Complete the star schema by connecting the tables and defining their cardinalities.
+SOLUTION
+Transaction
+What?
+Who?
+Who?
+Dimension Tables
+Fact Table
+Dimension Tables
+N
+N
+N
+1
+1
+1
+SalesPerson
+SalesPersonID
+Name
+City
+State
+Item
+ItemCode
+Description
+Category
+QOH
+Customer
+CustomerCode
+Name
+City
+State
+Sale
+Customer
+SalesPerson
+Item
+Sale
+Price
+Quantity
+Date
+ID
+1
+4
+2
+3
+Key
+Column
+Foreign Key
+
+5.7  Which Patterns Apply to Data Loading?  5-41
+5.7  Which Patterns Apply to 
+Data Loading?
+LEARNING OBJECTIVE ❼
+Apply patterns to data loading issues.
+Once the data are cleaned and transformed, it is time to load them into the software for analy-
+sis. Data loading is the process of making the analytical database available for use. Since both 
+extraction and loading are transfer processes, they have similar issues when it comes to the 
+completeness and correctness of transferred data. It is also important that the data model of 
+the analytical database is validated–that is, that all relationships have been defined.
+Data Preparation Pattern 18: Incomplete  
+Data Loading
+Loading moves the data from the ETL tool to the analytical database. Illustration 5.40 shows 
+how to transfer data from the ETL tool, in this case Power Query, to the analytical database.
+There are three options: 
+•	Close and apply: Close Power Query and apply all transformations to the analytical database.
+•	Apply: Apply all the transformations to the analytical database, but keep Power Query open.
+•	Close: Close Power Query without applying any transformations to the analytical database.
+If we choose one of the first two options, then it is important to confirm that all data were 
+transferred. 
+Compare Row Counts
+Like Pattern 1, the row count for the analytical database can be compared with the row count 
+of the data set in the ETL tool. The ETL tool will also issue an alert if any errors occurred when 
+the transformations are applied to the analytical database. 
+Add Missing Rows
+If the numbers do not match, determine which rows were not transferred and why. Once iden-
+tified, add the missing rows to the analytical database.
+ILLUSTRATION 5.40  ETL-Analytical 
+Database Transfer
+File
+Home
+Transform
+Recent
+Sources
+Enter
+Data
+New
+Source
+Close & Apply
+Close
+Apply
+Close &
+Apply
+
+5-42  CHAPTER 5  Analysis: Data Preparation
+Pattern 18 Summary
+Problem
+All the data did not transfer during loading. 
+Detect (Data Profiling)
+Compare row counts.
+Correct (ETL)
+Add the missing data.
+Data Preparation Pattern 19: Incorrect Data 
+Loading
+Even when all the rows have been transferred, the data might not have been transferred cor-
+rectly. Pattern 19 addresses this potential issue.
+Compare Control Amounts
+Like Pattern 2, an effective way to validate the correct transfer of data is by comparing sums, 
+averages, or any other control amounts.
+Modify Incorrect Values
+If the numbers do not match, determine which data were transferred incorrectly and what 
+caused the problem. Once identified, modify the incorrectly transferred values in the analyt-
+ical database.
+Pattern 19 Summary
+Problem
+The correct data did not transfer during loading. 
+Detect (Data Profiling)
+Compare control amounts.
+Correct (ETL)
+Modify incorrect values.
+Data Preparation Pattern 20: Missing or Incorrect 
+Data Relationships
+Analytics rely heavily on the underlying data model. Missing or incorrectly defined data rela-
+tionships make analytics challenging or even impossible, so the completeness and accuracy of 
+the data model must be validated after loading.
+Investigate the Completeness and Accuracy of the Data Model
+A complete and accurate data model is one in which all relationships are correct. 
+­Illustration 5.41 shows the finalized data model for the Beans analytical database created 
+with Power Query. Compare this with your data model, and determine that no relationships are 
+missing, there are no unnecessary relationships, and that all relationships are defined correctly. 
+ILLUSTRATION 5.41  Beans Data Model
+Certifications
+Certification
+EmployeeID
+...
+Employee
+EmployeeID
+FirstName
+JobTitle
+LastName
+MaritalStatus
+Rate
+University
+...
+Service
+ActualTime
+BudgetTime
+Client
+Date
+Employee
+ServiceID
+Task
+...
+Task
+Area
+TaskID
+TaskName
+...
+Client
+ClientID
+IndustryName
+Name
+...
+*
+1
+*
+1
+*
+*
+1
+1
+
+5.7  Which Patterns Apply to Data Loading?  5-43
+Modify the Data Model
+To do this in Power BI, select the Home tab in the Main Menu and click Manage Relation-
+ships in the ribbon. The window shown in Illustration 5.42 will appear. Select the buttons at 
+the bottom of the window to create, edit, or delete a relationship.
+ILLUSTRATION 5.42  Manage Relationships
+Service (Client)
+Service (Employee)
+Service (Task)
+Client (ClientID)
+Employee (EmployeeID)
+Task (TaskID)
+From: Table (Column)
+Certifications (EmployeeID)
+New...
+To: Table (Column)
+Employee (EmployeeID)
+Edit...
+Delete
+Autodetect...
+Close
+Active
+Manage Relationships
+Illustration 5.43 shows some of the aspects of a relationship that can be defined:
+•	The data fields between which the relationship is specified.
+•	The cardinalities that apply to the relationship.
+•	The navigation direction used to aggregate data.
+ILLUSTRATION 5.43  Define Relationships
+Select tables and columns that are related.
+OK
+Cancel
+Cardinality
+Certifications
+2
+3
+3
+CPA
+CPA
+CMA
+EmployeeID
+Certification
+Employee
+1
+2
+3
+Staﬀ
+Manager
+Senior
+EmployeeID
+JobTitle
+Kayne
+Ivan
+Mick
+FirstName
+James
+Lenk
+Richards
+LastName
+Michigan State University
+University of Michigan
+Wayne State University
+University
+165
+250
+225
+Rate
+Married
+Single
+MaritalStatus
+Many to one (*:1)
+Make this relationship active
+Assume referential integrity
+Cross filter direction
+Single
+Apply security filter in both directions
+Navigation
+direction
+Fields for
+relationship
+definition
+Cardinality
+specification
+Edit Relationship
+
+5-44  CHAPTER 5  Analysis: Data Preparation
+Pattern 20 Summary
+Problem
+Missing or incorrectly defined data relationships 
+makes analysis challenging or even impossible.
+Detect (Data Profiling)
+Investigate the completeness and accuracy of the 
+data model.
+Correct (ETL)
+Modify the data model.
+The transformation of the Beans data set and its preparation for analytics is now complete.
+Illustration 5.44 shows the revised data dictionary for the analytical database in Illus-
+tration 5.41.
+ILLUSTRATION 5.44  Beans Revised Data Dictionary
+Service
+Name
+Description
+Data Type
+Key
+Mandatory
+Client
+A client’s unique ID.
+Integer
+Foreign
+Yes
+Employee
+An employee’s unique ID.
+Integer
+Foreign
+Yes
+Task
+A task’s unique ID.
+Integer
+Foreign
+Yes
+ServiceID
+A service’s unique ID.
+Integer
+Primary
+Yes
+Date
+The date the service occurred.
+Date
+Yes
+ActualTime
+The actual time spent on the 
+service provided.
+Decimal
+Yes
+BudgetedTime
+The budgeted time for the service 
+provided.
+Decimal
+Yes
+Task
+Name
+Description
+Data Type
+Key
+Mandatory
+TaskID
+A task’s unique ID.
+Integer
+Primary
+Yes
+TaskName
+A task’s name.
+Text
+Yes
+Area
+A task’s area.
+Text
+Yes
+Client
+Name
+Description
+Data Type
+Key
+Mandatory
+ClientID
+A client’s unique ID.
+Integer
+Primary
+Yes
+Name
+A client’s name.
+Text
+Yes
+IndustryName
+A client’s industry.
+Text
+Yes
+Employee
+Name
+Description
+Data Type
+Key
+Mandatory
+EmployeeID
+An employee’s unique ID.
+Integer
+Primary
+Yes
+FirstName
+An employee’s first name.
+Text
+Yes
+LastName
+An employee’s last name.
+Text
+Yes
+JobTitle
+An employee’s job title.
+Text
+Yes
+Rate
+The hourly rate charged for the 
+employee.
+Integer
+Yes
+MaritalStatus
+An employee’s marital status.
+Text
+No
+University
+The university from which 
+the employee received an 
+undergraduate degree.
+Text
+No
+Certifications
+Name
+Description
+Data Type
+Key
+Mandatory
+EmployeeID
+An employee’s unique ID.
+Integer
+Foreign
+Yes
+Certification
+A certification earned by the 
+employee.
+Text
+Yes
+
+5.7  Which Patterns Apply to Data Loading?  5-45
+Apply It 5.7
+Evaluate 
+Relationships 
+Between Tables
+The following two illustrations show the current relationship between the Sale and Customer tables 
+for the Stufan data set. There are two issues that would dramatically distort any analytics related to 
+this relationship. Identify them and describe why they are problems.
+Select tables and columns that are related.
+Cardinality
+Edit Relationship
+CustomerCode
+Customer
+Sale
+Name
+City
+State
+1
+2
+3
+1
+2
+3
+1
+30
+30
+20
+1
+2
+Cruella De Vil
+Scar LeRoi
+Winnie Pooh
+Orlando
+Phoenix
+Wilmington
+AZ
+DE
+FL
+ID
+Sale
+Item
+Price
+Quantity
+Customer
+SalesPerson
+Date
+DOCL
+GRUML
+SNES
+10
+1
+1
+6
+10
+20
+111223333
+111223333
+null
+Friday, February 21, 2025
+Friday, February 21, 2025
+Saturday, February 22, 2025
+One to one (1:1)
+Both
+Make this relationship active
+Assume referential integrity
+Cross filter direction
+OK
+Cancel
+1
+1
+…
+Customer
+City
+Name
+State
+CustomerCode
+Collapse
+Collapse
+…
+Sale
+Date
+ID
+Item
+Price
+Quantity
+∑
+∑
+∑
+∑
+∑
+Sale
+SalesPerson
+Customer
+SOLUTION
+1.	 The relationship is defined between the wrong fields: CustomerCode and ID. ID is a sequen-
+tial number assigned to each row in the Sale table. As a result, the wrong customers are 
+being assigned to the sales. The relationship should have been designated between the 
+CustomerCode field in the Customer table and the Customer field in the Sale table.
+2.	 A 1-N cardinality pattern is expected for a relationship between a dimension table (customer) 
+and a fact table (sale). Customers can make more than one sale, but only one customer is spec-
+ified for each sale.

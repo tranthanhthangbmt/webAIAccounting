@@ -6,7 +6,8 @@
 **BE 1.1 (LO 1) Kiểm toán (Auditing)**
 Phân tích sau đây về doanh số bán hàng theo tháng và quý cho năm 2025 đã được chuẩn bị cho One Stop Shop.
 
-![BE 1.1](../TaiLieu/textbookForPractice/Figures/Ch_01/page_32_1785340201585.png)
+![BE 1.1](../TaiLieu/textbookForPractice/Figures/Ch_01/BE%201.1.png)
+![BE 1.1_1](../TaiLieu/textbookForPractice/Figures/Ch_01/BE%201.1_1.png)
 
 1. Một kiểm toán viên có thể sử dụng phân tích này như thế nào?
 2. Nhận diện bất kỳ tháng nào có thể cần điều tra bổ sung.
@@ -41,6 +42,8 @@ Best Bakes Bakery có mục tiêu tỷ suất lợi nhuận trung bình là 42% 
 Bạn là một kế toán tài chính cho Best Bakes Bakery được yêu cầu diễn giải một phân tích về doanh số theo sản phẩm. Mục tiêu là xác định những sản phẩm nào đang tăng và giảm lợi nhuận. Bạn được cung cấp biểu đồ trực quan sau đây. *(Lưu ý: Dữ liệu dạng biểu đồ lợi nhuận theo năm cho Blueberry Scone, Caramel Apple, Cinnamon Bun, Poppyseed Bagel).*
 1. Liệu phân tích này có đáp ứng được mục tiêu giúp Best Bakes Bakery xác định xem lợi nhuận đang tăng hay giảm đối với từng sản phẩm không?
 2. Có những cách nào để bạn có thể truyền đạt sự diễn giải của mình?
+
+![BE 1.6](../TaiLieu/textbookForPractice/Figures/Ch_01/BE%201.6.png)
 
 **BE 1.7 (LO 3) Kiểm toán (Auditing)**
 Hãy tìm một bài đăng tuyển dụng gần đây cho vị trí kiểm toán viên mới vào nghề ở một công ty kế toán công. Liệt kê các trách nhiệm và tiêu chuẩn yêu cầu cho vị trí này. Làm nổi bật các trách nhiệm và tiêu chuẩn liên quan đến tư duy phản biện, sự am hiểu dữ liệu, kỹ năng công nghệ và kỹ năng giao tiếp.

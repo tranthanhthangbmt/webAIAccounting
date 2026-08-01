@@ -1,0 +1,468 @@
+6-44  CHAPTER 6  Analysis: Information Modeling
+ILLUSTRATION 6.62  Creating Columns and Measures
+Fields
+Calendar
+Employee
+Select
+“More Options”
+Merchandise
+Purchases
+Sales
+Vendor
+Search
+Customer
+Select Table
+1
+New measure
+New column
+2
+Select
+“New Measure” Or
+“New Column”
+STEP 3: An area in which to enter the formula that creates the new column, or measure, will 
+appear (Illustration 6.63).
+ILLUSTRATION 6.63  Entering a Formula
+Insert
+File
+1
+New
+measure
+Quick
+measure
+Formatting
+Structure
+Properties
+Calculations
+Home
+Help
+Table tools
+Measure tools
+View
+Modeling
+Name
+Measure
+Home table
+Customer
+$% Format
+Auto
+$
+%
+000
+Data category Uncategorized
+Measure =
+Enter Formula
+3
+4
+How To Walk-Throughs
+HOW TO 6.1 
+Create Calculated Columns and Measures with Power BI
+Calculated columns and measures are the building blocks of information models. Here, we 
+illustrate how they can be specified with Power BI.
+What You Need: Data   The How To 6.1 data file.
+STEP 1: In the Fields pane, select the table to which you want to add a column or a measure. 
+In Illustration 6.62, the Customer table is selected.
+STEP 2: Next to the table name, click More Options and select either New Measure or New 
+Column.
+How To
+STEP 4: Enter a formula. For example, enter the following formula to create a measure which 
+determines the number of customers:
+NUMBER OF CUSTOMERS = COUNT(Customer[CustomerID]).
+Then, press the Enter key.
+
+How To Walk-Throughs  6-45
+HOW TO 6.2 
+Implement a Filtered Aggregation With SQL
+The patterns discussed in this chapter are not specific to a software or language. Here, you can 
+practice implementing filtered aggregation with relational database software (e.g., Microsoft 
+Access) using the Structured Query Language (SQL).
+What You Need: Data   The How To 6.2 data file.
+STEP 1: Open the file using Microsoft Access and select the Create tab in the Main Menu. 
+Click Query Design in the Queries group of the ribbon.
+STEP 2: When a new ribbon appears in the Results group, select SQL View.
+STEP 3: Enter the SQL command shown in Illustration 6.64.
+ILLUSTRATION 6.64  SQL Query for Determining the Total Revenue Generated from Sales to U.S. 
+Customers by Product Category
+Query: Total Revenue from US Customers by Product Category
+SELECT Category, SUM([SellPrice] * [QuantitySold]) AS [TotalrevenueFromUSCustomers]
+FROM Merchandise INNER JOIN (Customer INNER JOIN Sales ON Customer.CustomerID = Sales.Customer) 
+ON Merchandise.BatchID = Sales.Merchandise
+WHERE Country=“US”
+GROUP BY Category
+Detailed Descriptions Code
+Code
+Description
+SUM([SellPrice] * [QuantitySold])
+Calculates the total revenue generated from 
+sales.
+WHERE Country="US”
+A filter defined through a Boolean expression. 
+Only sales from U.S. customers are considered.
+GROUP BY Category
+The total revenue is broken down by category. 
+There are three values for CATEGORY: 
+Electronics, Garden, and Office.
+FROM Merchandise INNER JOIN (Customer INNER JOIN 
+Sales ON Customer.CustomerID = Sales.Customer)  
+ON Merchandise.BatchID = Sales.Merchandise
+Defines the joins between the tables and thus 
+the navigation path.
+STEP 4: Select the Exclamation Mark (!) in the Results group of the ribbon. The table shown 
+in Illustration 6.65, which summarizes revenues generated from sales to U.S. customers by 
+(product) category, will appear.
+ILLUSTRATION 6.65  Query Results
+Electronics
+Category
+Total Revenue From US Customers
+34,553
+80,012
+210,560
+Garden
+Oﬀice
+Data   The Data tag appears when the data required to answer a question or complete an 
+exercise are available on Wiley’s online learning platform.
+
+6-46  CHAPTER 6  Analysis: Information Modeling
+Multiple Choice Questions
+1.  (LO 1)  Which of the following statements is false?
+a.	 Calculated columns are the center of data analytics. Once calculated, they can be sliced in many 
+ways during data exploration.
+b.	 A measure hierarchy can be built by applying arithmetic operators to existing measures, such 
+as dividing existing measures.
+c.	 A calculated column is an integrated part of a table.
+d.	 Calculated columns and measures are both implemented using algorithms.
+2.  (LO 1)  Information modeling is the process of
+a.	 defining relationships between tables and the constraints that apply to them.
+b.	 generating additional knowledge from data that is relevant for analysis purposes.
+c.	 creating star and/or snowflake schemas.
+d.	 creating data structures that make analytics easy.
+3.  (LO 1)  Which of the following does not describe an accounting algorithm?
+a.	 Calculating depreciation expenses using the straight-line method.
+b.	 Creating a line chart that shows changes in an organization’s net profit margin during the last five 
+years.
+c.	 Determining last year’s net profit margin.
+d.	 Calculating how much overhead should be allocated to different product categories.
+4.  (LO 1)  Assume a grocery store recorded the following information for each transaction.
+1
+2
+3
+4
+5
+2/1/2025
+2/1/2025
+2/2/2025
+2/2/2025
+2/3/2025
+Y
+N
+N
+Y
+N
+1.44
+0
+2.89
+1.35
+1
+144.17
+35.80
+$ 289.09
+134.88
+99.50
+$
+$
+$
+$
+LoyaltyDiscount
+Loyalty
+Amount
+Date
+TransactionID
+The information model consists of three measures and a calculated column. Which of the following is 
+the calculated column?
+	 a.	 Calculation of the loyalty discount. Members of the loyalty program get a 1% discount on all 
+transactions.
+	 b.	 Calculation of the % of transactions from members of the loyalty program.
+	 c.	 Calculation of the total dollar amount generated on a specific day.
+	 d.	 Calculation of the total loyalty discount amount paid on a specific day.
+5.  (LO 1)  Star schemas represent data structures that help determine which numbers to break down 
+(facts) and how (what, who, when) to break them down (dimensions). Which of the following scenarios 
+is not compliant with such a structure?
+Scenario
+Facts
+Dimensions
+What
+Who
+When
+a.
+Total revenue
+Product category
+Customer
+Month
+b.
+Total revenue
+Region
+c.
+Total profit
+Product type
+Region
+Weekday
+d.
+Total number of customers
+Region
+e.
+Total number of sales
+Product category
+Customer
+f.
+Total number of sales
+Month
+g.
+Total cost
+Product type
+
+6.  (LO 2)  Which of the following statements regarding algorithms would you disagree with?
+a.	 Boolean expressions are an integral part of classification algorithms.
+b.	 Analytics based on data from multiple tables heavily rely on properly defined relationships 
+among the tables.
+c.	 A measure hierarchy defines a relationship between measures from two different tables.
+d.	 SUM, AVERAGE, and COUNT are mathematical operations often used to define measures.
+7.  When applying the following classification algorithm to the data set, which of the four customers 
+­(CustomerID) is assigned the value B?
+Algorithm
+IF ((Age < 30 AND LoyaltyProgram = “Yes”) OR (Sales > 10,000 AND NumberOfIssues = 0))
+THEN “A”
+ELSE “B”
+Data set
+1
+2
+3
+4
+CustomerID
+Kinsun
+Barbara
+Jon
+Gabriella
+32
+29
+29
+25
+Yes
+No
+Yes
+Yes
+$
+$
+$
+$
+13,833
+15,000
+15,000
+20,000
+0
+2
+2
+0
+Name
+Age LoyaltyProgram
+Sales
+NumberOfIssues
+a.	 1
+b.	 2
+c.	 3
+d.	 4
+8.  (LO 2)  Which of the following is not a within-table text calculation?
+a.	 Combining two text fields, such as combining a customer’s first name John, and last name Doe, 
+resulting in John Doe.
+b.	 Replacing a number of characters in a text field, such as replacing “str” with “street” in an address 
+field.
+c.	 Extracting a substring for a text field. For example, extracting the area code 302 from telephone 
+number 302-200-5731.
+d.	 Counting the number of different cells in a text field. For example, counting the different values 
+in the Country field.
+9.  (LO 2)  When applying the following algorithm to the data set, which of the following implementation 
+patterns are used?
+Algorithm
+PRICE TYPE =
+IF Price < 25,000 THEN “LOW-END” ELSE
+IF Price >= 25,000 AND PRICE < 50,000 THEN “MID-RANGE” ELSE
+“HIGH-END”
+Data set
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+ProductID
+Price
+VW Beetle
+Honda Pilot
+BMW X7
+Chevrolet Cru..
+Mercedes ML
+Ford Explorer
+Honda Civic
+Chevrolet Tah..
+Jeep Wrangler
+Maserati Leva..
+2019
+2018
+2019
+2019
+2017
+2019
+2017
+2016
+2007
+2020
+$ 14,322
+25,119
+50,432
+11,654
+29,750
+32,881
+9,811
+42,889
+9,999
+69,922
+$
+$
+$
+$
+$
+$
+$
+$
+$
+Description
+Year
+a.	 Within-table numeric calculation
+b.	 Within-table text calculation
+c.	 Within-table classification
+d.	 Filtered aggregation
+Multiple Choice Questions  6-47
+
+6-48  CHAPTER 6  Analysis: Information Modeling
+10.  (LO 2)  Which of the following statements regarding the coding patterns is incorrect?
+a.	 Ratios are most often implemented as measure hierarchies.
+b.	 Across-table calculations strongly rely on matching primary key and foreign key values.
+c.	 Single-column aggregations (measures) generate a singular value.
+d.	 Often, the same formula combines numeric and textual calculations.
+11.  (LO 3)  For what type of table or tables is the how many pattern most relevant?
+a.	 Fact tables.
+b.	 Dimension tables.
+c.	 Fact and dimension tables.
+d.	 Neither fact nor dimension tables.
+12.  (LO 3)  Which of the following statements regarding dimensional modeling is incorrect? 
+a.	 Dimensional modeling aims to create data structures that make data analytics easier.
+b.	 Dimensions can be used for filtering purposes.
+c.	 Calculated columns can function as dimensions.
+d.	 How many measures can be specified for dimension tables only.
+13.  (LO 3)  The diagram is part of a star schema that describes a manufacturing process.
+Fact Table
+N
+1
+Dimension Table
+Finished Good
+Production
+How would you describe the nature of the relationship between production and finished goods? 
+a.	 A participates relationship.
+b.	 An occurs relationship.
+c.	 A flows relationship resulting in a decrease or outflow of finished goods. 
+d.	 A flow relationship resulting in an increase or inflow of finished goods. 
+14.  (LO 3)  Which of the following questions does not rely on a participates relationship?
+a.	 Which vendor offers the lowest price for a specific product?
+b.	 What is the total units sold for each product category?
+c.	 For each product category, who is the customer that bought the highest quantity last year?
+d.	 Which employee has the worst return ratio?
+15.  (LO 3)  Which of the following questions does not rely on a flows relationship?
+a.	 How many payments did John, an accounting clerk, make in January?
+b.	 How many units did we produce in January?
+c.	 How much money was deposited in the Fulton bank account in January?
+d.	 Which customer bought the most electronics products?
+16.  (LO 3)  Who-what-when stars are connected through
+a.	 transactions (e.g., sales).
+b.	 resources (e.g., finished goods).
+c.	 internal agents (e.g., employees).
+d.	 external agents (e.g., customers).
+
+17.  (LO 3)  This column chart was generated by a car manufacturer.
+$2,000,000
+$2,500,000
+$2,001,001
+$998,177
+$567,112
+$1,500,000
+$1,000,000
+$500,000
+$0
+Sedan
+SUV
+Category
+Sales
+Sports
+Which is the most accurate description of the accounting information captured by this chart?
+a.	 The average revenue generated by category.
+b.	 The total revenue generated.
+c.	 How much revenue each category has generated (inflow).
+d.	 How much revenue each category has generated (outflow).
+18.  (LO 3)  Which of the following analyses cannot be explored with this information model?
+EmployeeID
+NumberOfEmployees
+Employee
+CustomerID
+Age
+City
+Country
+Name
+Gender
+Title
+Region
+NumberOfCustomers
+Customer
+Dimension Tables
+Fact Table
+Dimension Tables
+ProductID
+Category
+NumberOfProducts
+Product
+Date
+Calendar
+1
+1
+1
+1
+N
+N
+N
+N
+OrderDate
+Product
+Customer
+Employee
+Order
+Price
+Quantity
+Amount
+TotalAmount
+TotalQuantity
+Order
+OrderLineID
+Key
+Column
+Calculated column
+Measure
+Foreign key
+Name
+JobTitle
+Gender
+a.	 The number of different products ordered by region.
+b.	 The total quantity ordered by female customers from female employees.
+c.	 Monthly changes in quantities ordered.
+d.	 The relative contribution of each region to the total quantity ordered.
+e.	 The top three customers per state based on dollar amount ordered.
+Multiple Choice Questions  6-49

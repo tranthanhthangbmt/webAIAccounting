@@ -1,0 +1,576 @@
+5.1  What is Data Profiling?  5-7
+Illustration 5.4 (B) shows the same data using a flat structure. Carlos, Elodie, Jane, and Jim 
+have become values of the Salesperson column. They can be used for filter and group-by oper-
+ations. Would you prefer the table in panel (A) or the table in panel (B) to answer a question 
+like “How many Mustangs did Jane and Jim sell?” The flat structure in Illustration 5.4 (B) 
+makes analysis easier because we can filter by salesperson and then sum the values in the 
+UnitsSold column.
+Data Models That Make Analysis Easier
+A data model defines how different tables relate to each other. Analytical data models should 
+be easy to understand by business users such as accountants, and computers should be able 
+to efficiently process them. The recommended structure for analytical data models is the 
+star schema, which has both characteristics (Illustration 5.5). As the top of Illustration 5.5 
+shows, a star schema consists of two types of tables, fact tables and dimension tables, and the 
+relationships between them.
+ILLUSTRATION 5.5  Star Schema
+Day
+Weekday
+Month
+Year
+Date
+SalesPersonID
+FirstName
+LastName
+Department
+Name
+SalesPerson
+Dimension Tables
+Fact Table
+Dimension Tables
+ProductCode
+Name
+Description
+CategoryID
+CategoryName
+Cost
+Product
+CustomerID
+Name
+Street
+City
+Zip
+State
+Email
+Gender
+Status
+Occupation
+Address
+Customer
+1
+1
+1
+1
+N
+N
+N
+N
+Date
+Product
+Customer
+SalesPerson
+InvoiceNo
+Price
+Quantity
+Amount
+InvoiceLineNo
+TotalQuantitySold
+TotalSalesAmount
+TotalProfit
+Sale
+Key
+Column
+Calculated column
+Measure
+Foreign key
+Relationship
+Fact Tables 
+In an accounting context, facts correspond to business transactions such 
+as orders, sales, purchases, and payments. The fact table in the center of Illustration 5.5 
+contains sales data. Data in a fact table are captured at a high granularity level to avoid 
+imposing additional constraints on the analysis. (The level of detail is known as the grain.) 
+In Illustration 5.5 the grain is an invoice line, which is a specific product shipped to a specific 
+customer, on a specific day, and involving a specific salesperson.
+
+5-8  CHAPTER 5  Analysis: Data Preparation
+ILLUSTRATION 5.6  Slicing Measures by Dimensions
+What is the total sales amount (dollars)
+for a specific customer?
+1
+What is the total sales amount (dollars)
+for all customers in a specific state?
+2
+What is the total quantity sold of a
+specific product?
+3
+Which month has the highest total
+sales amount (dollars)?
+4
+What is the total sales amount (dollars)
+for a specific product to a specific
+customer?
+5
+How do the monthly sales, in terms
+of total quantity sold for a specific
+product, fluctuate?
+6
+Who is the salesperson with the
+highest total sales amount (dollars)
+for a specific product?
+7
+What is the total quantity sold of a
+specific product in a specific month
+in a specific state?
+8
+Dimensions
+Measures
+While the number of rows in a dimension table is usually small, they often have many 
+columns. The Customer dimension table in Illustration 5.5 has ten columns but no measures. 
+In practice, customer dimension tables often have more than 100 columns.
+Relationships 
+Relationships, the final element of data models, link tables and are rep-
+resented by lines in Illustration 5.5. All relationships in a star schema have a one-to-many 
+(1-N) cardinality pattern. A cardinality is a constraint that defines how many times an 
+instance of an entity can participate in a relationship. It can take two possible values, N or 1:
+•	N: An instance can participate many times in the relationship. There is no restriction.
+•	1: An instance can participate only one time in the relationship.
+A 1-N cardinality pattern for a relationship between a dimension and a fact table can be inter-
+preted as follows:
+While the number of columns in a fact table is generally small, they usually have many 
+rows. Companies often have thousands of sales on the same day, if not more–think of online 
+retail giants such as Amazon. The columns in fact tables are also mostly quantitative, and 
+more specifically, additive. The values in these columns can be easily aggregated, or grouped 
+together, as measures. These measures can then be sliced using the columns in the next type 
+of tables.
+Dimension Tables 
+Dimensions provide context to analysis and give meaning to facts. 
+The dollar amount for a sale of $100 does not provide much information. Businesses want to 
+know when the sales transaction occurred, who must pay the $100, and for what goods. The 
+star schema in Illustration 5.5 has dimension tables for the date the sale occurred, the product 
+that was sold, the customer, and the salesperson. Columns in dimension tables are variables 
+that can be combined in multiple ways to slice the measures. Illustration 5.6 demonstrates 
+eight questions that can be answered by slicing a sale measure by one or more of the dimen-
+sions shown in Illustration 5.5. 
+
+5.1  What is Data Profiling?  5-9
+•	1: For every fact, there is just one corresponding value in each dimension table. For each 
+instance of the Sale table (an invoice line), there is one date, product, customer, and 
+salesperson.
+•	N: There can be many facts for each dimension. There can be many sales on the same day, 
+and the same product type can be sold many times. Both customers and salespeople can 
+be involved in many sales transactions.
+Decide and Inform
+After investigating the quality and structure of the data, it is time to take the next step:
+•	Do not move forward: If the data are unfit, such as the data having poor quality, then 
+using the data for decision-making would be too risky. Similarly, if the data structure is 
+poor, then restructuring and processing the data might be too complicated and econom-
+ically unfeasible.
+•	Redesign the source system: This decision is usually made because errors generated 
+by the source system need to be corrected. Once fixed, the data source should be profiled 
+again.
+•	Confirm the data’s fitness for the analysis and move forward: Moving forward with 
+the data requires being risk-aware. That is, we can move forward with the data with an 
+awareness of potential reliability issues and their impact on decisions.
+If the decision is made to move forward, the next step in the process would be informed by any 
+issues that must be addressed.
+Stufan is a small store in Gumboro, Delaware that buys and sells stuffed animals. Founder and CEO 
+Shanice Parker wants to apply data analytics to better understand her business. To start, she asks your 
+firm to help prepare the data for analysis.
+The table is a sample of Stufan’s product data. Identify three quality issues with the data.
+BASHL
+BASHS
+BERL
+CAPH
+DOCL
+DOCS
+DOPL
+DOPS
+DUCH
+Bashful Large, Dwarfs
+Bashful Small, Dwarfs
+Berlioz, Aristocats
+Captain Haddock, Tintin
+Doc Large, Dwarfs
+Doc Small, Dwarfs
+Dopey Large, Dwarfs
+Duchess, Aristocrats
+Dopey Small, Dwarfs
+Code
+Description
+13
+67
+23
+14
+23
+45
+43
+44
+–3
+QOH
+SOLUTION
+1.  Description is not a single-valued column. It combines “description” and “category.”
+2.  There is a consistency issue: “Aristocats” and “Aristocrats.”
+3.  There is a validity issue: QOH (Quantity On Hand) cannot be negative.
+Apply It 5.1
+Identify Data Quality 
+Issues
+
+5-10  CHAPTER 5  Analysis: Data Preparation
+5.2  What Does it Mean to Extract-
+Transform-Load (ETL) Data?
+LEARNING OBJECTIVE ➋
+Describe the extract-transform-load (ETL) process.
+While the data profiling process you just learned about detects issues, the extract-transform-
+load (ETL) process corrects them. As Illustration 5.7 shows, the ETL process builds an ana-
+lytical database using one or more sources of raw data. 
+ILLUSTRATION 5.7  The Extract-Transform-Load (ETL) Process
+Load
+Analytical
+Database
+Raw Data
+Extract
+Cleaning
+Integrating
+Restructuring
+Transform
+E
+T
+L
+Extract Data 
+Data extraction, which involves transferring data, is the first step in the ETL process:
+•	Source data are moved to the platform where they will be transformed. This platform is 
+normally a data warehouse, which is software that stores and analyzes large data sets. 
+Power BI and Tableau are examples of data warehouses.
+•	The process also includes data validation, or confirming that the data were transferred 
+completely and correctly.
+ETL tools make it easy to extract data from databases, spreadsheets, text files, and many other 
+data sources by providing data connectors that are intuitive software programs designed 
+to extract data. Illustration 5.8 (A) shows some data connectors that are available in Excel, 
+while panel (B) does the same for Power BI.
+Transform Data 
+Raw data are rarely ready for analysis after they are extracted. Data transformation improves 
+the raw data for analysis through cleaning, restructuring, and integration.
+Cleaning Data
+Data can be incorrect, invalid, inconsistent or incomplete. Cleaning data, one of the most 
+important and time-consuming aspects of data transformation, is also known as data cleans-
+ing or data scrubbing. It involves adding, modifying, and deleting data:
+•	In the case of incomplete data, such as a missing sales transaction, data might need to be 
+added. A specific strategy for dealing with incomplete data is imputation, which is when 
+estimated values are substittued for missing data.
+
+5.2 What Does it Mean to Extract-Transform-Load (ETL) Data? 5-11
+•  Modifying data is necessary when a current value must be replaced with a new value if 
+data are incorrect, invalid, inconsistent, or incomplete. Replacing the value NY with NJ 
+in a column that records a customer’s state is an example of this.
+•  Delete data that are not relevant for analysis. Redundant data, such as a duplicate sales 
+transaction, should be removed. 
+Get
+Data
+From Text/CSV
+From Web
+From Table/Range
+Existing Connections
+Recent Sources
+File
+Home
+Insert
+Draw
+Page Layout
+Formulas
+Data
+Refresh
+All
+Queries & Conne
+From File
+From Database 
+From Azure
+From Other Sources
+Combine Queries
+Launch Power Query Editor...
+Data Source Settings
+Query Options
+From Text/CSV
+From Web
+From Table/Range
+Existing Connections
+Recent Sources
+Refresh
+All
+All
+From Workbook
+From Text/CSV
+From XML
+From JSON
+From PDF
+From Folder
+X
+JSON
+PDF
+Excel
+X
+Get
+data
+Power BI
+datasets
+SQL
+Server
+Recent
+sources
+File
+Home
+Insert
+Modeling
+View
+Help
+Clipboard
+Data
+Get Data
+Search
+All
+All
+File
+Database
+Power Platform
+Azure
+Online Services
+Other
+Connect
+Cancel
+Page 1
+From Online Services
+Paste
+Cut
+Copy
+Format painter
+& Conne
++
+Enter
+data
+Excel
+X
+Power BI
+datasets
+SQL
+Server
+Recent
+sources
+Data
++
+Enter
+data
+Excel
+Text/CSV
+JSON
+XML
+Folder
+PDF
+SharePoint folder
+SQL Server database
+SQL Server Analysis Services database
+Access database
+Oracle database
+IBM Db2 database
+IBM Netezza
+IBM Informix database (Beta)
+MySQL database
+PostgreSQL database
+Template Apps
+Certified Connectors
+For an overview of all Excel’s
+data connectors, click on the Data
+tab in the Main Menu, then select
+Get Data in the Ribbon.
+Clipboard
+Paste
+Cut
+Copy
+Format painter
+b
+d
+b
+d
+(A) Excel Data Connectors
+(B) Power BI Data Connectors
+For an overview of all Power
+BI’s data connectors, click on the
+Home tab in the Main Menu, then
+select Get Data in the Ribbon. 
+ ILLUSTRATION 5.8  Data Extraction using Data Connectors 
+ ILLUSTRATION 5.9  Removing 
+Rows with Power Query 
+Remove
+Rows
+A
+Z
+Z
+A
+Split
+Column
+Group
+By
+Remove Top Rows
+Remove Bottom Rows
+Remove Alternate Rows
++
+Remove Duplicates
+Remove Blank Rows
+Remove Errors
+ ETL tools provide built-in functions for a range of data cleaning tasks. What if you wanted 
+to remove rows from a table?  Illustration 5.9 shows that Power Query, Excel’s and Power 
+BI’s ETL tool, have commands for removing duplicate rows, blank rows, or rows containing 
+errors. Other tools offer similar operations. 
+
+5-12  CHAPTER 5  Analysis: Data Preparation
+What about replacing specific values? Illustration 5.10 shows how Power Query’s Find and 
+Replace option can fix an inconsistency problem.
+ILLUSTRATION 5.10  Replacing Values with Power Query
+Replace Values
+Value To Find
+Replace one value with another in the selected columns.
+M
+Replace With
+Male
+Advanced options
+Cancel
+OK
+APPLYING CRITICAL THINKING 5.3: Choose the Best Method
+Data preparation is not an exact science. Judgment is an important part of building an analyti-
+cal database. Always consider alternatives, examine their strengths and weaknesses, and rank 
+them. In the following, panels (A) and (B) represent the same data but organize them differently 
+(Alternatives):
+•	 In panel (B), category becomes its own entity and the name of a category is recorded only once.
+•	 On the other hand, adopting the data model in panel (A) means the category name is repeated 
+for all products in the same category. The data model in panel (B) saves space at the price 
+of complexity, given that there is an extra relationship that needs to be considered during 
+­analytics.
+Alternative Data Models for the Same Data Set
+InvoiceNo
+Date
+Product
+Sale
+(A)
+(B)
+N
+1
+N
+1
+N
+1
+ProductCode
+Name
+Description
+CategoryID
+CategoryName
+Cost
+Product
+InvoiceNo
+Date
+Product
+Sale
+ProductCode
+Name
+Description
+Category
+Cost
+Product
+CategoryID
+CategoryName
+Category
+If “M” is sometimes used for “Male,” and sometimes the word “Male” is used in the col-
+umn for gender in the data set, then all M values in the Gender column can be replaced with 
+“Male.” Using this tool quickly resolves the inconsistent data by finding the inconsistent val-
+ues and replacing them. 
+
+5.2  What Does it Mean to Extract-Transform-Load (ETL) Data?  5-13
+Integrating Data
+Most data analytics projects involve multiple tables, often from different data sources, which 
+must be integrated before performing analysis. Data integration is the process of connecting 
+related data. There are two distinctive forms of integration:
+•	Linking two tables by defining a relationship between them. Relationships are created 
+using primary and foreign keys. Other aspects of relationships that must be specified are 
+cardinalities.
+•	Combining two or more tables unites information about the same entity. Tables can be 
+combined two ways. A union combines different tables with the same data structure. The 
+result is a table with more rows. Recall from the foundational data analysis chapter that a 
+join, or merge, combines data elements or columns from different tables. The result is a 
+table with more columns. 
+A challenge specific to integration is data matching, a process that compares data and deter-
+mines whether they describe the same entity. Consider the two customer data sets shown in 
+Illustration 5.11. Ilustration 5.11 (A) contains financial information, and panel (B) contains 
+demographic information about customers. How would we reconcile, or match, the customer 
+names? Specific issues to be addressed include:
+•	Nicknames: Jen Pollack versus Jenny Pollack.
+•	Typos: Carlos Panetta versus Carlos Paretta.
+•	Reversed names: Margarita David versus David Margo.
+Panel (C) shows the merged table. Most ETL tools provide advanced support for data matching.
+Restructuring Data
+Clean data are not necessarily structured in a way that makes analytics easy and efficient. Data 
+restructuring, which is also known as data wrangling or data munging, does not change data 
+values, but it does change how the data are organized.
+ETL tools provide a variety of techniques to make restructuring easier:
+•	Adding and deleting columns.
+•	Renaming columns and tables.
+•	Splitting and merging columns.
+•	Splitting and combining tables.
+•	Transposing and unpivoting tables.
+ILLUSTRATION 5.11  Data Matching Issues
+Ann White
+Carlos Panetta
+Jen Pollack
+Margarita David
+William McCarthy
+B
+A
+B
+C
+A
+Names
+Status
+3
+5
+3
+1
+5
+Discount
+(C) Merged Customer Table
+F
+M
+F
+M
+M
+Gender
+28
+44
+57
+22
+38
+Age
+William McCarthy
+Margarita David
+Ann White
+Carlos Panetta
+Jen Pollack
+A
+C
+B
+A
+B
+Names
+Status
+5
+1
+3
+5
+3
+Discount
+(A) Customer Table:
+Financial Information
+Carlos Paretta
+David Margo
+Jenny Pollack
+Bill McCarthy
+Ann White
+M
+M
+F
+M
+F
+Names
+Gender
+44
+22
+57
+38
+28
+Age
+(B) Customer Table:
+Demographic Information

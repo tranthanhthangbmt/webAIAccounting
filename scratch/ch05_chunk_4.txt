@@ -1,0 +1,634 @@
+5.4  Which Patterns Transform Columns?  5-21
+	 1.	 Names should accurately describe the column’s content.
+	 2.	 They should be intuitive to business people.
+	 3.	 Use only common abbreviations that are understood by everyone, such as YTD.
+	 4.	 Eliminate spaces, underscores, or other symbols. For example, use CustomerName 
+instead of Customer_Name.
+Rename Columns
+ETL tools make it easy to correct this problem by renaming the column. Illustration 5.17 
+shows how to rename a column in Power Query. First, right-click on the ID column in the 
+ClData table and then select Rename and enter the new name: “ClientID.” Note that a col-
+umn name change propagates automatically to all formulas and reports.
+ILLUSTRATION 5.17  Modify Column Names
+123 ID
+Copy
+Remove
+Remove Other Columns
+Duplicate Column
+Add Column From Examples...
+Remove Duplicates
+Remove Errors
+Change Type
+Transform
+Replace Values...
+Replace Errors...
+Group By...
+Fill
+Unpivot Columns
+Unpivot Other Columns
+Unpivot Only Selected Columns
+Rename...
+Move
+Drill Down
+Add as New Query 
+1 2
+Not all column names in the Beans data set are intuitive and easy to understand. Illustration 5.18 
+shows some potential name changes for columns. Note that, because two columns in the same 
+table cannot have the same name, Power Query automatically changed the second ID column in 
+the Service table to ID-1 when loading the data.
+ILLUSTRATION 5.18  Column Name Suggestions  
+for Beans
+ClData
+ClData
+Employee
+Employee
+E-Dem
+E-Dem
+E-Dem
+Service
+Service
+ClientID
+IndustryName
+EmployeeID
+JobTitle
+FirstName
+LastName
+CertificationList
+ActualTime
+ServiceID
+Service
+Service
+Service
+BudgetedTime
+TaskID
+TaskName
+Table
+RevisedColumnName
+ID
+Industry Name
+ID
+Job Title
+Employee
+MaritalStatus
+MS
+First
+Last
+CertList
+Actual Time
+ID
+Budgeted Time
+ID-1
+Task
+ColumnName
+
+5-22  CHAPTER 5  Analysis: Data Preparation
+Pattern 4 Summary
+Problem
+Incorrect or ambiguous column names make it 
+harder to understand and work with a data set.
+Detect (Data Profiling)
+Scan columns for incorrect or ambiguous names.
+Correct (ETL)
+Rename columns.
+Data Preparation Pattern 5: Incorrect Data Types
+Verifying data types is an essential part of data preparation. Data types are an integral part of 
+column definitions because they determine what we can and cannot do with the data in a col-
+umn. For example, mathematical operators such as SUM and AVERAGE require a numerical 
+field, but time and date functions require a column with a date data type.
+Inspect the Data Type
+ETL tools automatically assign a data type to each column during extraction, but sometimes 
+either the assignment is incorrect or the ETL tool is unable to determine a data type. Let’s 
+illustrate the last scenario with an example. Illustration 5.19 (A) shows the raw spread-
+sheet data. Panel (B) shows the same data set after extraction in Power Query. Notice that 
+the data type is ABC 
+123 , also known as the Any data type. It indicates that Power Query cannot 
+identify the data type, which means calculations cannot be performed on the data in the 
+column.
+ILLUSTRATION 5.19  Inspecting and Changing Data Types
+A
+A
+B
+6
+ID
+1
+2
+4
+5
+123 ID
+Error
+Error
+1
+2
+4
+5
+6
+1
+2
+3
+4
+5
+6
+7
+ID
+2 (28%)
+Error
+Remove Errors
+...
+ABC
+123 ID
+A
+B
+1
+2
+4
+5
+6
+(B) Extracted Data
+(C) Data Type Transformation:
+Whole Number
+(D) Data Type
+Transformation: Text
+(A) Raw
+Spreadsheet
+Data
+ABC ID
+1
+2
+3
+4
+5
+6
+7
+1
+2
+A
+4
+5
+B
+6
+Change the Data Type
+Correct this problem by changing the data type with an ETL tool. Illustration 5.20 shows 
+the different data types available in Power Query. Illustration 5.19 (C) shows what happens if 
+Whole Number is selected for the data set in panel (B). Notice that some values are converted 
+while other values generate an error. This is helpful because checking for errors should be 
+part of data preparation. The red bar indicates there are errors, and clicking on it reveals the 
+percentage of errors (28%). They can also be filtered out, which is useful for large data sets. 
+Illustration 5.19 (D) shows what happens when the Data Type is converted to Text. The errors 
+disappear, but what can be done with the data is limited. 
+
+5.4  Which Patterns Transform Columns?  5-23
+ILLUSTRATION 5.20  Power Query Data Types
+ABC
+123
+ID
+1
+2
+3
+4
+5
+6
+7
+1.2      Decimal Number
+$          Fixed Decimal Number
+123      Whole Number
+%         Percentage
+Date/Time
+Date/Time/Timezone
+Date
+Duration
+ABC
+Text
+Time
+True/False
+Binary
+Using Locale...
+There are no issues with Bean’s data types, so no changes must be made. However, make sure 
+to add a column to the data dictionary that specifies the data types.
+Pattern 5 Summary
+Problem
+An incorrect data type limits what can be done 
+with the data in a column.
+Detect (Data Profiling)
+Inspect the data type.
+Correct (ETL)
+Change the data type.
+Data Preparation Pattern 6: Composite and 
+Multi-Valued Columns
+Each cell should contain one value describing one characteristic because two or more values in 
+the same cell makes analysis more challenging. Two specific scenarios that violate the ­single- 
+valued rule and make analysis more complex are composite columns and multi-valued columns.
+Scan for Composite and Multi-Valued Columns
+The best method to detect composite or multi-valued columns is visual scanning. Examining 
+the Beans data set this way would reveal:
+•	The Name column in the Employee table mixes an employee’s first and last names. While 
+this might not be an issue from an analytical perspective, it is an issue when matching 
+them with the FirstName and LastName columns in the E-Dem table.
+•	The CertificationList column in the E-Dem table is multi-valued.
+Restructure the Data
+How a column is restructured depends on whether the column is composite or multi-valued. 
+The solution for a composite column is to split it. In Power Query, click on the Name column. 
+Then select the Home tab in the Main Menu. Click Split Column in the ribbon, and select 
+By Delimiter (Illustration 5.21).
+
+5-24
+CHAPTER 5 Analysis: Data Preparation
+ ILLUSTRATION 5.21  Power Query | Split Column | Setup 
+Close
+Close &
+Apply
+New
+Source
+Recent
+Sources
+Enter
+Data
+New Query
+Data Source
+Settings
+Data Sourc..
+Manage
+Parameters
+Parameters
+Manage
+Columns
+Refresh
+Preview
+A
+Z
+Z
+A
+Sort
+Reduce
+Rows
+Properties
+Advanced Editor
+Manage
+Split
+Column
+Group
+By
+E-DEM
+Employee
+CLdata
+Service
+Queries [4]
+EmployeeID
+123
+Name
+ABC
+Job
+ABC
+1
+2
+3
+4
+5
+1
+2
+3
+4
+5
+Kanya, James
+Ivan, Lenk
+Mick, Richards
+Juan, Lozano
+Gail, David
+Staﬀ
+Manager
+Senior
+Staﬀ
+Senior
+Query
+File
+Home
+Transform
+Add Column
+Tools
+Help
+View
+By Delimiter
+By Number of Characters
+By Lowercase to Uppercase
+By Uppercase to Lowercase
+By Digit to Non-Digit
+By Non-Digit to Digit
+By Positions
+Close
+Close &
+Apply
+New
+Source
+Recent
+Sources
+Enter
+Data
+New Query
+Data Source
+Settings
+Data Sourc..
+Manage
+Parameters
+Parameters
+Manage
+Columns
+Refresh
+Preview
+A
+Z
+Z
+A
+Sort
+Reduce
+Rows
+Properties
+Advanced Editor
+Manage
+Query
+Data Type: Text
+Use First Row
+as Headers
+1 2 Replace Values
+Group
+By
+Data Type: Text
+Use First Row
+as Headers
+1 2 Replace Values
+ The window shown in  Illustration 5.22 will appear. Power Query already selected Comma
+as the delimiter, and since there is only one comma for each name, it does not matter which 
+of the three Split at options is selected. In this example the Left-most delimiter option was 
+selected. Once split, rename Name.1 as “FirstName” and Name.2 as “LastName.” 
+ On the other hand, the CertificationList column’s multi-valued nature in the E-Dem table 
+requires creating a new table. But because the employee data needs additional work, it makes 
+sense to do that later. This example shows the non-sequential nature of applying the patterns–
+the order in which they are applied will depend on each project.  The other columns in the 
+Beans data set are single-valued, and this pattern does not apply to them. 
+ Pattern 6 Summary 
+ Problem 
+ Columns that are not single-valued make analytics difficult. 
+ Detect (Data Profiling) 
+Examine the values in the columns. 
+ Correct (ETL) 
+ Split combined columns. 
+ Create a separate table for multi-valued columns. 
+Data Preparation Pattern 7: Incorrect Values
+ At times the wrong value is assigned to one of the entities’ characteristics. The certification for 
+an employee could be recorded as CMA instead of CPA, which are both valid certifications. 
+Incorrect values can have dramatic consequences, including shipping and billing errors. 
+ ILLUSTRATION 5.22  Power Query | Split Column | 
+Select Delimiter 
+Split Column by Delimiter
+Specify the delimiter used to split the text column.
+Select or enter delimiter
+Split at
+Comma
+?
+Lef-most delimiter
+Right-most delimiter
+Each occurrence of the delimiter
+Advanced options
+
+5.4  Which Patterns Transform Columns?  5-25
+Detect Incorrect Values with Outliers
+Incorrect data are difficult to identify within the content of a single column, so it is helpful 
+to look for outliers, values that stand out in numeric data. If a product with a price of $19 is 
+instead recorded as $91, and most product prices are between $10 and $30, that will stand out. 
+A more formal definition for an outlier is a value that falls more than 1.5 times the interquar-
+tile range below the first quartile or above the third quartile.
+Let’s profile the ActualTime column in the Service table. Illustration 5.23 (A) displays 
+the column profile statistics generated by Power Query. Panel (B) shows the values of the 
+ActualTime in descending order. The top three values in the column (panel (B)) are outliers 
+and most likely incorrect. Also, the actual time for the service with ID “1325”, 25 hours, is 
+invalid. It should be 2.5 hours.
+ILLUSTRATION 5.23  Profiling for 
+Incorrect Data
+Column Statistics
+Count
+4,632
+Error
+0
+Empty
+0
+Distinct
+190
+Unique
+48
+NaN
+0
+Zero
+0
+Min
+0.05
+Max
+25
+Average
+1.77672...
+Standard deviation
+2.03039...
+(B) ActualTime Column:
+Values in Descending Order
+(A) ActualTime Column: Statistics
+1325
+3277
+4387
+2828
+2452
+25
+22.5
+20
+11.4
+10.75
+123 ID
+1.2 ActualTime
+Modify Incorrect Values
+Once a questionable value is identified, there are a few options. The first is identifying the 
+error’s root cause and eliminating it. A user could be warned that an outlier is being entered 
+into the system. This would significantly eliminate errors in the raw data. Another option is 
+to correct the value in the source data. Finally, the value could be corrected in the analytical 
+database, but not in the source data.
+Illustration 5.24 shows the ActualTime values modified for the Beans example.
+Pattern 7 Summary
+Problem
+Incorrect data might result in poor decision-making.
+Detect (Data Profiling)
+Detect incorrect values with outliers.
+Correct (ETL)
+Modify incorrect values.
+Data Preparation Pattern 8: Inconsistent Values
+The next pattern addresses data inconsistency, which occurs when two or more different rep-
+resentations of the same value are mixed in the same column. For example, determining the 
+total sales amount in dollars for MI customers when both MI and Michigan are used as values 
+could lead to an underestimation, which could in turn result in poor decisions.
+ILLUSTRATION 5.24  Correcting 
+the ActualTime Field in the Service 
+Table
+1325
+3277
+4387
+25
+22.5
+20
+ID
+IncorrectValue
+2.5
+2.25
+2
+CorrectValue
+
+5-26  CHAPTER 5  Analysis: Data Preparation
+Identify Inconsistent Values
+Two profiling techniques are useful for detecting inconsistent values:
+•	Distinct values: Visually scanning the distinct values of a column is an effective way to 
+identify inconsistent data.
+•	Frequencies: Values with a low frequency could indicate inconsistent data.
+Illustration 5.25 (A) shows the distinct values for the JobTitle column in the Employee table. 
+This information is available for all columns in Power Query. The illustration shows that 
+Sr. Manager is inconsistently represented. Low frequencies might also indicate a misspelling 
+resulting in an inconsistency. As panel (B) shows, the frequency for Sr Manager is 1. The value 
+distribution shown in panel (B) is part of a column’s profile in Power Query. Another column 
+with inconsistencies issues in the Beans data set is University.
+Modify Inconsistent Values
+Correct the inconsistent data by identifying the root cause and eliminating it or modifying 
+the values in either the source data or the analytical database. When modifying the values, 
+first determine which representation to keep. For the JobTitle column, keep Sr. Manager. The 
+changes shown in Illustration 5.26 were made to the University column. 
+Most ETL software, including Power Query, offer find and replace tools to modify values.
+Pattern 8 Summary
+Problem
+Inconsistent data might result in poor decision-making.
+Detect (Data Profiling)
+Identify inconsistent values.
+Correct (ETL)
+Modify inconsistent values.
+Data Preparation Pattern 9: Incomplete Values
+This pattern addresses incompleteness that might make data unusable and unreliable. For 
+example, without customers’ addresses, a business cannot send them marketing materials. 
+The different meanings given to null values might also result in unreliable data.
+ILLUSTRATION 5.25  Profiling for Inconsistent Data
+(B) JobTitle Column: Frequencies
+Count
+Error
+Empty
+Distinct
+Unique
+Empty string
+Min
+Max
+24
+0
+0
+6
+1
+0
+Manag...
+Staﬀ
+Column statistics
+...
+...
+Senior
+Staﬀ
+Manager
+Partner
+Sr. Manager
+Sr Manager
+Value distribution
+123
+1
+EmployeeID
+ABC
+FirstName
+ABC
+LastName
+(A) JobTitle Column: Distinct Values
+LastName
+ABC
+Sort Descending
+ZA
+Clear Sort
+Clear Filter
+Remove Empty
+AZ
+Sort Ascending
+Text Filters
+Search
+(Select All) 
+Manager
+Sr Manager
+Sr. Manager
+Partner
+Senior
+Staﬀ
+OK
+Cancel
+ABC
+ABC
+JobTitle
+JobTitle
+MSU
+UM
+Michigan State University
+University of Michigan
+Current Value
+New Value
+ILLUSTRATION 5.26  Changes 
+to Address Inconsistencies in the 
+University Column
+
+5.4  Which Patterns Transform Columns?  5-27
+There are a few dimensions of incompleteness worth exploring:
+•	Should null values be allowed, and if not, are there any?
+•	If null values are allowed, what percentage of the values are null? If the percentage is 
+high, should the column be loaded?
+•	How are incomplete values represented: nulls, or a specific code? Are the representations 
+consistent?
+Investigate Null Values
+ETL tools reveal, on a column-by-column basis, the percentage of null values. Using Power 
+Query, Illustration 5.27 shows this information for the MaritalStatus column in the 
+Employee table. This information is useful in many ways:
+•	For each column, decide whether null values are allowed. Primary keys cannot contain 
+null values. Also, the Rate column in the Employee table cannot contain any null values 
+because it is used to determine the fee to be paid by the client. The percentage shows 
+whether this is the case.
+•	A high or higher than expected percentage might make the column unusable.
+It is also important to analyze how incompleteness is represented and how this affects 
+the data’s reliability. What does a null value in the MaritalStatus column imply? Is this a 
+different way to state that an employee is single, or do we not know the employee’s marital 
+status?
+Remove Empty
+MaritalStatus
+16 (67%)
+Valid
+0 (0%)
+Error
+Married
+Single
+Single
+Married
+Single
+null
+null
+null
+null
+Married
+Married
+MaritalStatus
+ABC
+8 (33%)
+Empty
+ILLUSTRATION 5.27  
+Incompleteness Profiling
+Remove the Column or Replace the Null Values
+The correction scenario depends on the situation. If null values are not allowed but they 
+exist, they should be replaced. If the number of null values is too high to be useful, then 
+remove the column from the analytical database. If there is inconsistency in representing 
+missing values, design a consistent schema and correct the values in terms of that schema. For 
+the MaritalStatus column, values could be Married, Single, and blank. Blank values indicate 
+that the values are unknown. 
+Pattern 9 Summary
+Problem
+Incompleteness might make data unusable and 
+unreliable and result in poor decision-making.
+Detect (Data Profiling)
+Investigate null values.
+Correct (ETL)
+Remove the column or replace the null values.

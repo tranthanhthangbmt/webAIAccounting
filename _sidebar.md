@@ -7,6 +7,8 @@
   * [Thực hành 2: Foundational Data Analysis Skills](docs/practice_ch02.md)
   * [Thực hành 3: Motivations and Objectives for Data Analysis](docs/practice_ch03.md)
   * [Thực hành 4: Planning Data and Analysis Strategies](docs/practice_ch04.md)
+  * [Thực hành 5: Data Preparation](docs/practice_ch05.md)
+  * [Thực hành 6: Information Modeling](docs/practice_ch06.md)
   * [Buổi 1: What Accountants Need to Know](docs/buoi_01.md)
   * [Buổi 2: AI and Blockchain in Finance](docs/buoi_02.md)
   * [Buổi 3: Python for Finance & Data Science](docs/buoi_03.md)

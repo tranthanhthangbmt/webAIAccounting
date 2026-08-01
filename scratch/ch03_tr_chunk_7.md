@@ -41,6 +41,8 @@ Các lĩnh vực thực hành kế toán chuyên nghiệp chính có chung và c
 Bảng được hiển thị trong Hình minh họa 3.10 được tạo trong Tableau phiên bản 2021.1.2. Hãy tự tạo nó bằng cách làm theo các bước sau.
 > **Những gì bạn cần:** **Data** File dữ liệu How To 3.1.
 
+![ILLUSTRATION 3.10](../TaiLieu/textbookForPractice/Figures/Ch_03/ILLUSTRATION%203.10.png)
+
 **BƯỚC 1:** Mở một worksheet (bảng tính) mới và kéo `Sold Date` vào Columns (Cột) và `Location` vào Rows (Hàng). Kéo `Gross Sales` vào vùng trống bên dưới số năm, hoặc vào biểu tượng Text trong phần Marks (Hình minh họa 3.37).
 
 ![ILLUSTRATION 3.37](../TaiLieu/textbookForPractice/Figures/Ch_03/ILLUSTRATION%203.37.png)
@@ -108,6 +110,8 @@ Nhập tiêu đề vào ô xuất hiện (Hình minh họa 3.50).
 #### HOW TO 3.2: Thực hiện Hồi quy (Regression) trong Microsoft Excel
 Hình minh họa 3.18 là quy trình hồi quy được thực hiện trong Excel. Bạn có thể tạo nó bằng cách làm theo các bước sau.
 > **Những gì bạn cần:** **Data** File dữ liệu How To 3.2.
+
+![ILLUSTRATION 3.18](../TaiLieu/textbookForPractice/Figures/Ch_03/ILLUSTRATION%203.18.png)
 
 **BƯỚC 1:** Công cụ Data Analysis trong thanh công cụ Data (Dữ liệu) có tùy chọn cho hồi quy (regression). Hình minh họa 3.51 hiển thị hộp thoại mở ra khi Data Analysis được chọn.
 

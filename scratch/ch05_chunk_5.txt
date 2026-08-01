@@ -1,0 +1,370 @@
+5-28  CHAPTER 5  Analysis: Data Preparation
+Data Preparation Pattern 10: Invalid Values
+Domain-specific rules that determine whether data are acceptable can be created for most 
+columns. Data that do not meet these expectations are considered invalid.
+Create and Apply Validation Rules
+For some validation rules, we can rely on the profiling information automatically generated 
+by the ETL tool. For a mandatory column, which cannot contain null values, the statistics 
+about null values provided by ETL tools can be used for validation. However, in most cases the 
+validation rule must be implemented with a scripting language. Illustration 5.28 shows a few 
+examples of validation rules that apply to the Beans case. The syntax used in the sample code 
+column is general, as no specific scripting language is used.
+ILLUSTRATION 5.28  Design and Implementation of Validation Rules
+Description
+Sample Code
+The actual hours for a 
+service must be positive 
+and can’t exceed 14.
+ACTUALHOURSVALID =
+IF SERVICE.ACTUALTIME > 0 AND SERVICEACTUALTIME <= 14,
+THEN “YES”,
+ELSE “NO”
+The minimum employee 
+rate is $150, and the 
+maximum employee rate 
+must be lower than $500.
+RATEVALID =
+IF EMPLOYEE.RATE >= 150 AND EMPLOYEE.RATE < 500,
+THEN “YES”,
+ELSE “NO”
+Valid job titles are:  
+{Manager, Partner,  
+Senior, Sr. Manager,  
+Staff}.
+JOBTITLEVALID =
+IF EMPLOYEE.JOBTITLE IN {“MANAGER”, “PARTNER”, “SENIOR”, “SR. MANAGER”, “STAFF”},
+THEN “YES”,
+ELSE “NO”
+Modify Invalid Values
+If a questionable value is identified, eliminate the root cause, change the value in the source, 
+or change the value in the analytical database. In the Beans data set, no invalid data were 
+detected.
+Pattern 10 Summary
+Problem
+Invalid data might result in poor decision-making.
+Detect (Data Profiling)
+Create and apply validation rules.
+Correct (ETL)
+Modify invalid values.
+Data   One of Shanice’s assistants at Stufan prepared four files called Customer, Item, Sale, and 
+Salesperson and gave them to you. These files have several data issues. Identify them using the col-
+umn transformation patterns in this section.
+For each data issue you identify: 
+1.	 Describe the issue. 
+2.	 Identify the data preparation pattern you applied to detect the issue. 
+3.	 Explain how you would correct it.
+Apply It 5.4
+Use Column 
+Transformation 
+Patterns
+
+5.5  Which Patterns Transform Tables?  5-29
+SOLUTION
+Issue 1:
+1.	 The data in the LoyaltyRating column in the Customer table are not useful for analytical 
+purposes.
+2.	 Data Preparation Pattern 3: Irrelevant and Unreliable Data.
+3.	 Remove the LoyaltyRating column from the analytical database.
+Issue 2:
+1.	 The Sales table has a column with ambiguous heading-SP.
+2.	 Data Preparation Pattern 4: Incorrect and Ambiguous Column Names.
+3.	 Replace the ambiguous abbreviation SP with SalesPerson.
+Issue 3:
+1.	 The State column in the Customer table contains the value DN, which might be incorrect, 
+inconsistent, and/or invalid. 
+2.	 Data Preparation Patterns 7, 8, and 10: Incorrect, Inconsistent, and Invalid Values.
+3.	 Replace the DN value with DE.
+5.5  Which Patterns Transform 
+Tables?
+LEARNING OBJECTIVE ➎
+Apply patterns to transform tables.
+Transformation patterns at the table level look for data issues in a single table, such as ambig-
+uously named tables, missing primary keys, and overlapping columns. 
+Data Preparation Pattern 11: Non-Intuitive and 
+Ambiguous Table Names
+Like column names, table names are part of both the data model and the data set’s vocabulary, 
+so they must be correct, intuitive, and clear.
+Scan Tables for Incorrect or Ambiguous Names
+Examining a table’s content and its data dictionary definition can help determine whether 
+the name accurately reflects its content. The rules for naming tables are the same as those 
+for naming columns. They should be intuitive, avoid spaces, underscores, and special coding:
+•	For example, use CashReceipt instead of Cash Receipt.
+•	Avoid special coding like DCustomer (the D refers to a dimension table, but not everyone 
+will understand that). 
+
+5-30  CHAPTER 5  Analysis: Data Preparation
+Rename Tables
+To correct this issue, rename the table with an ETL tool, as name changes are automatically 
+propagated to all formulas. For the Beans example, make two changes. First, replace ClData 
+with Client and then replace E-Dem with EmployeeDemographics.
+Pattern 11 Summary
+Problem
+Incorrect or ambiguous table names make it 
+harder to understand and work with a data set.
+Detect (Data Profiling)
+Visually scan tables for incorrect or ambiguous 
+names.
+Correct (ETL)
+Rename tables.
+Data Preparation Pattern 12: Missing Primary Keys
+This pattern focuses on primary keys. Tables are descriptions of entities, and each instance of 
+an entity should be uniquely identified. To be a primary key, a column must have a unique 
+value for each instance and no null values. Primary keys are normally already in place when 
+data are extracted from a relational database. However, a primary key will not be in place 
+when data are extracted from a spreadsheet, such as in the Beans case. To establish a primary 
+key, the field must be selected and both rules must be validated.
+Identify Tables with a Primary Key Missing
+Every table needs at least one column–or combination of columns–that meet the two 
+criteria discussed earlier. Columns that meet both criteria are candidate keys, and ETL 
+tools can help identify them. The column profile provided by Power Query, first shown in 
+Illustration 5.15 and repeated in Illustration 5.29, provides the information necessary to 
+identify a candidate key: 
+•	The value for Empty should be zero. 
+•	The values for Count, Distinct, and Unique should be the same. A unique value is a value 
+that occurs only once in the column.
+ILLUSTRATION 5.29  Column 
+Profile in Power Query
+Column Statistics
+Count
+4,632
+Error
+0
+Empty
+0
+Distinct
+4,632
+Unique
+4,632
+NaN
+0
+Zero
+0
+Min
+1
+Max
+4,632
+Average
+2,316.5
+Standard deviation
+1,337.28...
+Even
+2,316
+Odd
+2,316
+Create a Primary Key
+The EmployeeDemographics table does not have a candidate key. We could combine the first 
+and last names into the same field (Name), but names generally should not be used as primary 
+keys because they are rarely unique. For scenarios like this, create an artificial key, such as a 
+number. As Illustration 5.30 shows, ETL tools can help with that:
+
+5.5  Which Patterns Transform Tables?  5-31
+•	In Power Query, click Add Column in the Main Menu.
+•	Select Index Column.
+•	Click From 1.
+ILLUSTRATION 5.30  Creating a Primary Key
+Home
+Transform
+View
+Add Column
+Untitled - Power Query Editor
+File
+≠
+123
+Conditional Column
+Index Column
+Intex column
+Queries [5]
+Custom
+Column
+Column From
+Examples
+ƒx 
+ƒx 
+Invoke Custom
+Function
+General
+ABC FIRST
+From 0
+From 1
+Custom...
+The situation for the Beans data set is more complicated, so there is an alternative solution, 
+which is presented with Pattern 15. 
+Pattern 12 Summary
+Problem
+Some tables do not have a primary key.
+Detect (Data Profiling)
+Identify tables missing a primary key.
+Correct (ETL)
+Create a primary key.
+Data Preparation Pattern 13: Redundant Content 
+Across Columns
+This pattern looks for redundancies that create inconsistencies. Data inconsistencies occur 
+when the same data are recorded more than once and changed in one place but not the other, 
+such as a customer’s email address. Here are two scenarios where two or more columns in a 
+table might have the same content:
+•	When there is overlap such as an address that contains state information and a separate 
+state field.
+•	When there is dependency, which exists when one column’s values are dependent on 
+the values of another column in the same table. Assume both age and date of birth are 
+recorded. However, the values of age change when time passes and the data will become 
+inconsistent. Therefore, instead of transferring age from the data source, it should be cal-
+culated as part of the analytical database. 
+Perform Column-By-Column Comparisons
+Performing column-by-column comparisons for overlaps or dependencies would detect this 
+issue. Doing so within the Beans data set would show there is currently no redundant content. 
+Delete Redundant and Dependent Columns
+Columns that contain redundant information can be deleted. When there is dependency, 
+delete the column that contains the dependent value. Instead, use a formula to recreate the 
+column in the analytical database. 
+
+5-32  CHAPTER 5  Analysis: Data Preparation
+Pattern 13 Summary
+Problem
+Redundant content among columns in a table 
+might result in inconsistencies.
+Detect (Data Profiling)
+Perform column-by-column comparisons.
+Correct (ETL)
+Delete redundant and dependent data.
+Data Preparation Pattern 14: Find Invalid Values 
+with Intra-Table Rules
+Pattern 14 is similar to Pattern 10 in that it also defines acceptable values for a column. How-
+ever, Pattern 14 determines the validity of a column’s values based on the values in one or 
+more other columns in the same table.
+Create and Apply Intra-Table Validation Rules
+The goal of the validation rule is to identify invalid data. Creating validation rules requires 
+in-depth knowledge of the business, and they are implemented using a scripting language. 
+Illustration 5.31 shows an intra-table validation rule for the Beans case. The values in 
+the Rate column depend on the values in the JobPosition column. Applying this validation 
+rule to the Bean’s data set shows that the rates are too low for five employees–Alex Messi, 
+Thibaut Martens, Paulo Lukaku, Ed Diamond, and Molly McCarthy.
+ILLUSTRATION 5.31  Design and 
+Implementation of Intra-Table 
+Validation Rules
+DESCRIPTION
+The rate of Beans’ employees is determined by their job position. The table shows the minimum 
+and maximum rates, in dollars, for each job position.
+Position
+>=
+<
+Staff
+150
+200
+Senior
+200
+250
+Manager
+250
+300
+Sr. Manager
+300
+350
+Partner
+350
+500
+SAMPLE CODE
+RATEVALIDBASEDONJOBTITLE =
+IF EMPLOYEE.JOBTITLE = “Staff” AND (EMPLOYEE.RATE >= 150 AND EMPLOYEE.RATE < 200), THEN “YES”, ELSE,
+IF EMPLOYEE.JOBTITLE = “Senior” AND (EMPLOYEE.RATE >= 200 AND EMPLOYEE.RATE < 250), “YES”, ELSE,
+IF EMPLOYEE.JOBTITLE = “Manager” AND (EMPLOYEE.RATE >= 250 AND EMPLOYEE.RATE < 300), “YES”, ELSE,
+IF EMPLOYEE.JOBTITLE = “Sr. Manager” AND (EMPLOYEE.RATE >= EMPLOYEE.RATE < 350), “YES”, ELSE,
+IF EMPLOYEE.JOBTITLE = “Partner” AND (EMPLOYEE.RATE >= 350 AND EMPLOYEE.RATE < 500), “YES”, ELSE,
+“NO”
+)
+
+5.5  Which Patterns Transform Tables?  5-33
+Modify Invalid Values
+At Beans, modifying employee rates or the rate policy requires approval from the CEO, so 
+there can be no rate changes until approval is granted.
+Apply It 5.5
+Transform Tables 
+with Patterns
+At Stufan, CEO Shanice wonders whether it would be possible to integrate sales and purchases infor-
+mation for analysis. Purchase information is currently recorded in an Excel worksheet titled PTS, a 
+sample of which is shown.
+fx
+1
+B
+C
+D
+E
+A
+PTS
+2
+3
+4
+5
+6
+7
+8
+9
+Invoice
+2
+2
+1
+1
+5
+4
+3
+4
+Price
+10
+7
+20
+15
+9
+25
+20
+20
+Quantity
+10
+10
+10
+10
+10
+10
+10
+10
+Vendor
+BIC
+BIC
+DITV
+DITV
+STIMP
+DELT
+STWS
+DELT
+Item
+TINL
+SNOWL
+DOCL
+DOCS
+TINL
+SNOWL
+DUCH
+GRUML
+AutoSave
+Oﬀ
+Use the table transformation patterns to identify two data issues in the PTS file. 
+1.	 First, describe the data issue. 
+2.	 Next, identify the data exploration pattern you could apply to detect it. 
+3.	 Finally, explain how you would correct the problem. 
+SOLUTION
+Issue 1:
+1.	 The current name of the worksheet/table is ambiguous. PTS stands for PurchaseTransactions, 
+but that is not clear from the title. 
+2.	 Use Data Exploration Pattern 11: Non-Intuitive and Ambiguous Table Names.
+3.	 Rename the worksheet “Purchases.”
+Issue 2:
+1.	 The table currently does not have a primary key, and none of the columns contain unique val-
+ues. Each row in the table represents an invoice line. The first two rows in the table represent 
+two line items for invoice 1, one for the item DOCL and another for the item DOCS.
+2.	 Use Data Exploration Pattern 12: Missing Primary Keys.
+3.	 Create an artificial key consisting of unique sequential numbers. 
+Pattern 14 Summary
+Problem
+Invalid data might result in poor decision-making.
+Detect (Data Profiling)
+Create and apply intra-table validation rules.
+Correct (ETL)
+Modify the invalid values.

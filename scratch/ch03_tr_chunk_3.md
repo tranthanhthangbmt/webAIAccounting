@@ -6,6 +6,8 @@ Sử dụng các câu hỏi của Super Scooters trong Hình minh họa 3.11, h�
 1. Có những khuôn mẫu nhận diện được nào trong khối lượng bán hàng của mẫu Celeritas không?
 2. Có những khuôn mẫu bất thường nào trong doanh số của mẫu Celeritas tại địa điểm Seattle không?
 
+![ILLUSTRATION 3.11](../TaiLieu/textbookForPractice/Figures/Ch_03/ILLUSTRATION%203.11.png)
+
 Biểu đồ đường (line charts) có thể xác định các khuôn mẫu bằng cách tiết lộ các mô hình lặp lại trong dữ liệu. Hình minh họa 3.12 cho thấy doanh số của Celeritas theo tháng của từng năm.
 
 ![ILLUSTRATION 3.12](../TaiLieu/textbookForPractice/Figures/Ch_03/ILLUSTRATION%203.12.png)

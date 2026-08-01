@@ -1,0 +1,482 @@
+5-0
+ C H A PT E R  5 
+ Analysis: Data 
+Preparation 
+ Chapter Preview 
+ So far in this course, you have learned to plan a data analysis project by articulating what is 
+motivating it, identifying its objectives, and designing a strategy to successfully complete it. 
+Now that the plan is in place, it is time to move on to the data analysis stage. There are three 
+tasks in this stage: preparing the data, building the information model, and exploring the data. 
+Here, we will focus on the first task of preparing the data for analysis. Data preparation can be 
+the most time-consuming activity in a data analytics project. You could spend over 75% of the 
+project’s total work time on this task alone! But there is a good reason for this, as data prepara-
+tion involves multiple activities. There are two key factors to be aware of when preparing data 
+for analysis:
+ 1.  The quality of the data will affect the quality of the insights and the decisions based on 
+them. In other words, bad data leads to bad decisions. 
+ 2.  The structure of the data will determine how effectively they can be analyzed.  
+ First, we explore the two key data preparation processes in detail. Next, the chapter presents 
+twenty data extraction, transformation, and loading patterns you can use to prepare data for 
+analysis. 
+Analyze
+Plan
+Report
+Stage 2
+Stage 3
+Stage 1
+Interpret
+Communicate
+Analysis
+Strategy
+Objective
+Motivation
+Detect and correct
+data issues
+Identify and
+calculate 
+relevant
+information
+Discover insights
+relevant for
+decision-making
+Data
+Preparation 
+Information
+Modeling
+Data
+Exploration 
+
+Chapter Roadmap  5-1
+Professional Insight: How Can You Approach the Challenges of 
+Data Preparation?
+Bill is a director in the audit data analytics practice at one of the large public accounting firms.
+After graduating with an accounting degree, I gradually moved to our data analytics 
+practice. I love how accounting and technology blend together in our audit engage-
+ments and that there are always new opportunities and challenges to work on.
+A key challenge in working with data at a public accounting firm is that our clients 
+come in all shapes and sizes, with ERP systems ranging from legacy proprietary sys-
+tems to increasingly modern, cloud-based integrated systems with sophisticated 
+reporting and analytics capabilities. This means that the cleanliness, quality, granu-
+larity, volume, and structure of the data can vary significantly. This increases the 
+importance of ETL (Extract-Transform-Load) solutions to help our professionals 
+efficiently extract data from client systems, transform that data into a common 
+format, and ultimately load the data into our analytics platform.
+To be successful, the data professionals at my firm must be able to understand and 
+evaluate our clients’ data to ensure that they are relevant and reliable. This includes 
+knowing how to have the right conversations with our clients, often including repre-
+sentatives from the client’s IT department and our internal data extraction specialists, 
+in order to effectively communicate our data requirements. The skills you are building 
+in this chapter are all highly relevant to a successful career as a data analyst in today’s 
+public accounting profession.
+Chapter Roadmap
+LEARNING OBJECTIVES
+TOPICS
+APPLY IT
+ LO 5.1   Explain the process of 
+data profiling.
+•	 Investigate Data Quality
+•	 Investigate Data Structure
+•	 Decide and Inform
+Identify Data Quality Issues
+ LO 5.2   Describe the extract-
+transform-load (ETL) process.
+•	 Extract Data
+•	 Transform Data
+•	 Load Data
+Combine Tables for Analysis
+ LO 5.3   Apply patterns to extract 
+data.
+•	 Two Data Extraction Patterns
+Extract Data with Patterns
+ LO 5.4   Apply patterns to 
+transform columns.
+•	 Eight Column Transformation Patterns
+Use Column Transformation 
+Patterns
+ LO 5.5   Apply patterns to 
+transform tables.
+•	 Four Table Transformation Patterns
+Transform Tables with 
+Patterns
+ LO 5.6   Apply patterns to 
+transform models.
+•	 Three Model Transformation Patterns
+Draw a Star Schema
+ LO 5.7   Apply patterns to data 
+loading Issues.
+•	 Three Data Loading Patterns
+Evaluate Relationships 
+Between Tables
+Data   The Data tag appears in the chapter when the data for an example, illustration, or application are  
+available on Wiley’s online learning platform.
+Data analytics software is continuously changing, and there may be more recent versions of the software refer-
+enced in this chapter. For more information access the accompanying video on Wiley’s online learning platform. 
+
+5-2  CHAPTER 5  Analysis: Data Preparation
+5.1  What is Data Profiling?
+LEARNING OBJECTIVE ➊
+Explain the process of data profiling.
+Businesses lose billions of dollars every year due to dirty data, or data that provide inaccurate 
+or incomplete descriptions of the economic activities of a business. Using dirty data can result in 
+issues ranging from inaccurate pricing, to sending bills to the wrong customers (or not collecting 
+them at all), to an inability to detect fraud. Data preparation helps avoid these issues and more.
+Data preparation is the process of profiling, cleaning, restructuring, and integrating data 
+prior to processing and analysis. It helps ensure high-quality data and, therefore, improved 
+decision-making. Data profiling is the process of investigating data quality and structure. It 
+has three parts:
+	 1.	 Investigating data quality: Search for anomalies in the data. That is, are the data dirty?
+	 2.	 Investigating data structure: Find the best way to organize the data and improve 
+analytics.
+	 3.	 Deciding and informing: Make decisions about whether it is possible to address the 
+identified issues, what the cost of doing so would be, and consider the possible conse-
+quences if the issues are not addressed.
+Decisions made in the final phase will guide the extract, transform, load (ETL) process by 
+determining what must be changed. As Illustration 5.1. shows, data preparation is an ongo-
+ing collaboration between the data profiling process, which is the subject of this discussion, 
+and the ETL process, which is covered next. For now, keep in mind that data profiling detects 
+data issues and ETL corrects them.
+ILLUSTRATION 5.1  The Data 
+Preparation Process
+Data Preparation Process
+Extract-Transform-Load
+Data Profiling
+Data Quality
+Data Structure
+Informs
+Correct
+Detect
+Investigate Data Quality
+When discussing the “quality” of the data we work with, we are referring to the suitability 
+of using the data for decision-making. Assessing data quality identifies flawed values in the 
+data set, which reveals if there are data that must be cleaned. There are different methods for 
+doing this:
+•	The rule-driven method is a top-down approach. A logical relationship, or rule, is defined 
+among data and tested to determine if the data conform to it. The number of rules that 
+can be specified is nearly unlimited. Examples include:
+•  Segregation of duties.
+•  Quantity on hand cannot be negative.
+•  A car cannot be rented to someone who is younger than 16 years old.
+•  Sales can only be executed with a valid order.
+•	The exploration and inference methods are bottom-up approaches. The goal is to find 
+anomalies by examining the data from many different perspectives. Sorting, frequency 
+
+5.1  What is Data Profiling?  5-3
+distributions, and outlier analysis are examples of powerful techniques for exploration 
+purposes. The second bottom-up approach, inference, is a method that relies on computer 
+algorithms to identify anomalies.
+These different methods identify data anomalies, which occur when the data do not meet 
+expectations of correctness, validity, consistency, and completeness.
+Correctness
+Data describe facts about entities, such as the name of a customer, the price of a product, or 
+the date of a transaction. Data are incorrect when the value assigned to an entity’s character-
+istic is wrong. For instance, a customer might live in New Jersey (NJ), but New York (NY) is 
+recorded instead, or the price of a product is $252, but it is listed as $225.
+Incorrect data are common, as these real-world examples of data glitches show. For the 
+businesses involved, data mistakes can be significant:
+•	Delta Airlines sold a round trip plane ticket from mainland U.S. to Hawaii for less than $7. 
+In a similar example, a United Airlines customer was able to purchase a first-class round-
+trip ticket from the U.S. to Hong Kong for just seven frequent flyer miles.
+•	A customer booked a luxury hotel room in Pasadena, California for $10 a night.
+•	Walmart sold a treadmill for less than $35.
+There are several ways to detect such errors. When pricing is incorrect, such as when a nor-
+mally expensive airfare is available at a deep discount due to an error, then a sudden surge in 
+demand might be an indication of a problem. Profiling techniques, such as exploring outliers, 
+can also be useful. Regardless, always think critically about the data being analyzed and watch 
+for anomalies.
+APPLYING CRITICAL THINKING 5.1: Assess Data Quality
+Using sound data removes biases and guesswork from decision-making. Using poor data in 
+the process increases risk. So, it is crucial to assess risk associated with less-than-perfect-data. 
+There are two characteristics to consider (Risks):
+•	 Reliability: Data extracted from an enterprise resource planning (ERP) system that have been 
+subjected to hundreds of internal controls are more reliable than sentiment data extracted 
+from Facebook.
+•	 Impact: Similarly, the impact of launching a new product line is much larger than the decision 
+to invest in new business cards.
+The higher the impact, the more you should be willing to invest in improving the data’s reliability.
+Assessing Data Reliability and Impact
+Decision
+Impact
+Data Reliability
+Low
+High
+Small
+Large
+Validity
+Another integral part of data profiling is designing validation rules. These rules define what val-
+ues are and are not acceptable and they can take many shapes and forms. For example, an order 
+should occur before a shipment, or an email address should contain the symbol @.
+
+5-4  CHAPTER 5  Analysis: Data Preparation
+Validity and correctness are sometimes confused. Imagine that a business ships their 
+items to midwestern states only: IL, IN, IA, KS, MI, MN, MO, NE, ND, OH, SD, and WI. Here 
+are some scenarios:
+•	Goods are shipped to Ohio (OH), and OH is entered as the value for the state field in the 
+system. The value is both valid and correct.
+•	Someone accidentally records Minnesota (MN) as the destination for a shipment that 
+went to Michigan (MI). The value entered is valid (MN is an accepted state) but incorrect.
+•	The business receives an order from a customer in Pennsylvania (PA), and the goods are 
+shipped. PA is entered into the system as the state. While the system will consider the value 
+as invalid, it is correct (PA is the correct state, but the company cannot sell goods there).
+•	The same order from a customer in PA is received and the goods will be shipped there. 
+NA–Not Applicable–is entered into the system as the state. In this case, the value entered 
+is both invalid and incorrect.
+An incorrect value means the wrong value is assigned, and an invalid value means an unac-
+ceptable value is assigned.
+Consistency
+In addition to being correct and valid, data should be consistent. Data inconsistency occurs 
+when the same characteristic is represented multiple ways. Using both MI and Michigan to 
+refer to the same state would create data inconsistency. Using mgr, mngr, and manager to 
+describe the same job position would do the same. These inconsistencies create challenges 
+during analysis. For example, it would be difficult to determine total revenues per state if there 
+were separate totals for MI and Michigan.
+How can we identify inconsistencies like these? Here are two profiling techniques: 
+•	Create a list with all distinct values, then sort and review. The inconsistent values of mgr, 
+mngr, and manager will likely be noticeable immediately.
+•	Build a frequency table, or a table that counts how many times a value occurs. Values with 
+a low frequency might indicate inconsistent data.
+Completeness
+Data that is correct, valid, and consistent are only accurate if they are also complete, as non-
+complete data might result in distorted insights. Data can be incomplete in two ways.
+A missing instance is when a concept occurred but is not recorded, such as when goods 
+were sold, but the sales transaction was not recorded. A missing instance such as a missing 
+sales transaction can be identified with gap analysis. If there is a sequential number for each 
+sales invoice, then a missing number might indicate a sale that occurred but was not recorded.
+A missing value occurs when the transaction is recorded, but we do not have information 
+for all characteristics. The result is empty cells. This might happen if a customer is recorded, 
+but the record does not include the customer’s email address. The term null typically indicates 
+a missing or unknown value. It is important to assess how the missing information affects 
+decision-making.
+Investigate Data Structure
+Along with their quality, data are investigated to assess whether they are structured in a way 
+that makes data analytics easy and efficient.
+Unambiguous Descriptions
+During data exploration and interpretation, column names in tables become variables. We 
+apply mathematical operations, such as sum, to them and use them as part of visualiza-
+tions, such as pie charts. However, poorly named columns make it complicated to develop 
+
+5.1  What is Data Profiling?  5-5
+information models and to conduct analysis. Column names should also be correct, intuitive, 
+and clear because they are part of the analytical database, which might have many different 
+users. An analytical database is the integrated data set used for analysis purposes. Unambig-
+uous descriptions should be a priority when developing an analytical database. Here are some 
+examples of correct and clear column titles:
+•	An age column should contain numbers (e.g., 32) and not dates (e.g., 6/2/1990).
+•	CustomerID is more descriptive than ID.
+•	Birthday is easier to understand than bday.
+ILLUSTRATION 5.2  Composite vs. Single-Valued Column
+Cole, Lakeisha, NA
+Lopez, Alejandro, CPA
+Key, Kim, NA
+David, Julie, CPA
+Malone, Moses, NA
+Buslepp, Bill, CPA
+Despontin, Marc, CPA
+Kaminski, Ivanka, NA
+Name
+(A) Composite
+Column
+Cole, Lakeisha 
+Lopez, Alejandro
+Key, Kim
+David, Julie
+Malone, Moses
+Buslepp, Bill
+Potoms, Keme, NA
+Potoms, Keme
+Despontin, Marc
+Kaminski, Ivanka
+NA
+CPA
+NA
+CPA
+NA
+CPA
+NA
+NA
+CPA
+Name
+Certification
+(B) Single-Valued
+Column
+APPLYING CRITICAL THINKING 5.2: Create A Shared, 
+Comprehensible Vocabulary
+Creating a shared vocabulary requires identifying who is going to use the analytical database 
+(Stakeholders):
+•	 If you prepare the data for others, then make sure that you create a vocabulary for column and 
+table names that is easy to understand and work with.
+•	 For example, it is common for data scientists to use table names such as DCustomer and 
+FSales with D and F referring to certain types of tables. However, such terms might be confus-
+ing to other stakeholders who are not data scientists!
+Table Structures That Make Analysis Easier
+Analysis includes aggregating, or grouping, data and then examining them from different 
+viewpoints in many ways. This is known as slicing. Here is an example of slicing sales trans-
+action data for a business with sales in multiple regions: 
+•	Aggregate: Calculate the total sales amount.
+•	Slice: Break the total down by region to examine the regional sales in more detail.
+Some data structures are a good fit for these aggregate and slice processes, while others are 
+not, so learning best practices for structuring data is crucial. Two common best practices are 
+single-valued columns and flat tables.
+Single-Valued Columns 
+For analytical purposes, each cell should contain one value 
+describing one characteristic. That is, each column should be single-valued. Two or more 
+values in the same cell makes analysis more challenging. Here are two scenarios that 
+violate the single-valued rule.
+A composite column combines values for two or more characteristics. The Name col-
+umn in Illustration 5.2 (A) combines last name, first name, and certification characteristics. 
+Which data set would you prefer if you needed to generate a list with all employees who have a 
+CPA–panel (A) or (B)? While the data are identical for both data sets, panel (B) makes it easier 
+to answer this question.
+
+5-6  CHAPTER 5  Analysis: Data Preparation
+Flat Tables 
+Another best practice for structuring data is using flat tables, in which col-
+umn headers do not contain data values useful for analysis purposes. For data analysis, flat 
+table structures are preferred over crosstabulation tables
+Illustration 5.4 (A) shows a crosstabulation table representing a relationship between 
+the two variables of car model and salesperson:
+•	In the first column are the values for the different car models: Focus, Mustang, Escape, 
+and Explorer.
+•	The column headers in the top row show the values for salespeople.
+•	A cross-section cell shows how many units a salesperson has sold of a specific model. 
+Salesperson Elodie has sold five units of the Focus model.
+Crosstabulation tables have limitations for analysis. The names in the panel (A) column head-
+ers are examples of data values useful for data analysis. Column headers cannot be used for 
+filter or group-by operations.
+ILLUSTRATION 5.4  Crosstabulation Table Structure vs. Flat Table Structure
+Focus
+Mustang
+Escape
+Explorer
+Focus
+Mustang
+Escape
+Explorer
+Focus
+Mustang
+Escape
+Explorer
+Focus
+Mustang
+Escape
+Explorer
+4
+3
+2
+1
+5
+3
+0
+1
+0
+2
+1
+2
+0
+1
+4
+2
+Model
+UnitsSold
+Carlos
+Carlos
+Carlos
+Carlos
+Elodie
+Elodie
+Elodie
+Jane
+Elodie
+Jane
+Jane
+Jane
+Jim
+Jim
+Jim
+Jim
+SalesPerson
+(B) Flat
+(A) Crosstabulation
+Focus
+Mustang
+Escape
+Explorer
+4
+3
+2
+1
+Carlos
+5
+3
+0
+0
+Elodie
+1
+2
+1
+2
+0
+1
+4
+2
+Jane
+Jim
+ILLUSTRATION 5.3  Multi-Valued vs. Single-Valued Column
+Cole, Lakeisha 
+Lopez, Alejandro
+Lopez, Alejandro
+Key, Kim
+David, Julie
+David, Julie
+David, Julie
+Malone, Moses
+Buslepp, Bill
+CISA
+CISA
+CPA
+CMA
+CISA
+CMA
+CPA
+CMA
+CPA
+Buslepp, Bill
+Potoms, Keme
+Despontin, Marc
+Kaminski, Ivanka
+Kaminski, Ivanka
+CPA
+CMA
+CPA
+CISA
+CMA
+Name
+Certifications
+(B) Single-Valued
+Column
+Cole, Lakeisha 
+Lopez, Alejandro
+Key, Kim
+David, Julie
+Malone, Moses
+Buslepp, Bill
+Potoms, Keme
+Despontin, Marc
+Kaminski, Ivanka
+CISA
+CPA, CISA
+CMA
+CPA, CMA, CISA
+CPA
+CPA, CMA
+CMA
+CMA, CISA
+CPA
+Name
+Certifications
+(A) Multi-Valued
+Column
+In a multi-valued column, a cell contains multiple values of the same characteristic. The 
+Certifications column in Illustration 5.3 (A) lists all certifications for an employee. Again, 
+which data set would you prefer if you needed to generate a list with all employees who have 
+a CPA–panel (A) or (B)? While the data are identical for both data sets, it is easier to answer 
+this question with the single-valued column in panel (B).

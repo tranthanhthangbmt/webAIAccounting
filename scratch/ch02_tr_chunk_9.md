@@ -7,12 +7,18 @@ Bạn là một kiểm toán viên nội bộ cho Way Cool Stuff. Bạn phải x
 2. Bạn sẽ sử dụng các trường nào để kết nối các bảng, nếu cần?
 3. Bạn cần các trường nào từ (các) bảng để hoàn thành bài kiểm tra này?
 
+![EX 2.1](../TaiLieu/textbookForPractice/Figures/Ch_02/EX%202.1.png)
+![EX 2.1_1](../TaiLieu/textbookForPractice/Figures/Ch_02/EX%202.1_1.png)
+
 **EX 2.2 (LO 1) Kế toán Tài chính (Financial Accounting)**
 **Xác định Dữ liệu và Kết nối Cần thiết để Tóm tắt Dữ liệu (Identify Data and Joins Needed to Summarize Data)**
 Bạn là một kế toán viên tài chính tại Way Cool Stuff đang tính toán thu nhập ròng (net income). Sử dụng các bảng cơ sở dữ liệu có sẵn của Way Cool Stuff được cung cấp.
 1. Bạn cần (các) bảng nào để có thể thu thập dữ liệu cần thiết cho việc tính toán thu nhập ròng?
 2. Bạn sẽ sử dụng các trường nào để kết nối các bảng?
 3. Bạn sẽ cần các trường nào để tính thu nhập ròng?
+
+![EX 2.2](../TaiLieu/textbookForPractice/Figures/Ch_02/EX%202.2.png)
+![EX 2.2_1](../TaiLieu/textbookForPractice/Figures/Ch_02/EX%202.2_1.png)
 
 **EX 2.3 (LO 1) Kế toán Quản trị (Managerial Accounting)**
 **Áp dụng Kết nối để Trả lời Câu hỏi (Apply Joins to Answer Questions)**
@@ -21,12 +27,18 @@ Bạn đang phân tích doanh số bán hàng tại Way Cool Stuff theo khu vự
 2. Bạn sẽ sử dụng các trường nào để kết nối các bảng?
 3. Bạn sẽ cần các trường nào để thực hiện phân tích của mình?
 
+![EX 2.3](../TaiLieu/textbookForPractice/Figures/Ch_02/EX%202.3.png)
+![EX 2.3_1](../TaiLieu/textbookForPractice/Figures/Ch_02/EX%202.3_1.png)
+
 **EX 2.4 (LO 1) Kế toán Thuế (Tax Accounting)**
 **Xác định Dữ liệu và Kết nối Cần thiết cho Việc Tuân thủ Thuế (Identify Data and Joins Needed for Tax Compliance)**
 Bạn đang nộp tờ khai thuế bán hàng cấp bang của Way Cool Stuff cho tháng kết thúc vào ngày 31 tháng 12 năm 2025 đối với tất cả các địa điểm có thu thuế bán hàng. Sử dụng các bảng cơ sở dữ liệu có sẵn để trả lời các câu hỏi.
 1. Bạn cần (các) bảng nào để có thể thu thập dữ liệu cần thiết cho việc tính toán khoản thuế bán hàng phải nộp cho tháng 12 năm 2025?
 2. Bạn sẽ sử dụng các trường nào để kết nối các bảng?
 3. Bạn sẽ cần các trường nào để thu thập thông tin cần thiết nhằm nộp thuế bán hàng năm 2025?
+
+![EX 2.4](../TaiLieu/textbookForPractice/Figures/Ch_02/EX%202.4.png)
+![EX 2.4_1](../TaiLieu/textbookForPractice/Figures/Ch_02/EX%202.4_1.png)
 
 **EX 2.5 (LO 3) > **Data** Kế toán Quản trị (Managerial Accounting)**
 **Áp dụng Bộ cắt lọc PivotTable của Excel (Apply Excel PivotTable Slicers)**
@@ -85,3 +97,7 @@ Bạn đang tham gia vào cuộc kiểm toán báo cáo tài chính của Công 
 2. Tạo một PivotTable trình bày doanh số bán hàng cho năm 2024 và 2025 theo danh mục sản phẩm.
 3. Sử dụng các phương pháp hay nhất được phác thảo trong Hình minh họa 2.57, tạo một biểu đồ đường chỉ ra doanh số cho năm 2024 và 2025 theo danh mục. Trục x phải bao gồm các năm 2024 và 2025, và trục y phải có số tiền đô la doanh thu. Nên có ba đường, mỗi đường cho một danh mục bán hàng: đồ cắm trại (camping gear), mái chèo (paddles), và lều (tents).
 4. Đi Sâu Hơn (Dig Deeper): Sửa đổi biểu đồ đường để trục x có thông tin doanh thu hàng quý cho năm 2024 so với 2025 đối với từng danh mục bán hàng.
+
+
+![ILLUSTRATION 2.57](../TaiLieu/textbookForPractice/Figures/Ch_02/ILLUSTRATION%202.57.png)
+![ILLUSTRATION 2.57_1](../TaiLieu/textbookForPractice/Figures/Ch_02/ILLUSTRATION%202.57_1.png)

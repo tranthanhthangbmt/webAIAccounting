@@ -1,0 +1,388 @@
+6-20
+CHAPTER 6 Analysis: Information Modeling
+ ILLUSTRATION 6.22  Relationships Between the Merchandise Dimensions 
+Brand
+BatchID
+N
+1
+1
+1
+N
+N
+N
+N
+N
+N
+Type
+Category
+ The algorithms in  Illustration 6.23 show that implementing measures to answer ques-
+tions about the number of transactions, agents (who), and resources (what) is straightforward. 
+Implementation is performed with a single-column aggregation–Count. A similar formula 
+was used for the NumberOfCustomers measure earlier in this chapter. 
+ ILLUSTRATION 6.23  How Many Measures for KLUB’s Information Model 
+ Table: Vendor 
+Measure
+Algorithm
+NumberOfVendors
+COUNT(VendorID)
+ Table: Sales 
+Measure
+Algorithm
+NumberOfSales
+COUNT(InvoiceLineID)
+ Table: Purchase 
+Measure
+Algorithm
+NumberOfPurchases
+COUNT(BatchID)
+ Table: Employee 
+Measure
+Algorithm
+NumberOfEmployees
+COUNT(EmployeeID)
+ Table: Merchandise 
+Measure
+Algorithm
+NumberOfBatches
+COUNT(BatchID)
+ Once in place, filters can be applied to the measures. For example, tables that describe agents 
+(who) often contain location information, so it is also possible to determine the number of 
+KLUB customers living in California, or any other location. On the other hand, tables that 
+describe resources (what) often contain information about categories that can be used as fil-
+ters. For example, it is possible to determine how many electronic batches KLUB bought.
+ Analysis
+ The NumberOfCustomers measure can determine how potential customers are spread out 
+across countries by provinces in Canada and states in the U.S. ( Illustration 6.24 ). Clicking a 
+bar in the column chart filters the state/provinces in the table, so management at KLUB could 
+select the Canadian provinces only. 
+
+6.3  Which Patterns Help Develop and Implement Accounting Information Models?  6-21
+ILLUSTRATION 6.24  Analysis with the Number of Customers Measure
+ON
+BC
+QC
+AB
+CA
+TX
+NY
+FL
+SK
+IL
+21,290
+8,641
+7,664
+7,445
+5,286
+3,837
+2,938
+2,606
+2,440
+2,389
+PA
+MI
+OH
+NJ
+MA
+GA
+NC
+VA
+MO
+2,127
+1,979
+1,880
+1,474
+1,472
+1,380
+1,375
+1,172
+1,098
+WA
+WI
+IN
+MN
+MD
+1,068
+1,064
+1,034
+1,031
+1,013
+NumberOfCustomers
+State
+50,151
+49,849
+U.S.
+Country
+Number Of
+Customers
+Number of Customers
+by Location
+CA
+0
+10,000
+20,000
+30,000
+40,000
+50,000
+60,000
+Information Modeling Pattern 9: Participates | 
+Transaction-Who
+The participates relationship describes who is involved in a transaction (Illustration 6.25).
+ILLUSTRATION 6.25  The Participates Relationship
+N
+Participates
+Participates
+N
+1
+1
+Dimension Tables 
+Fact Table
+To/From
+Whom?
+External
+Agent
+Transaction
+Who?
+Internal
+Agent
+In KLUB’s data model there are three participates relationships:
+•	From Sales to Customer (the customer is an external agent).
+•	From Sales to Employee (the employee is an internal agent).
+•	From Purchases to Vendor (the vendor is an external agent).
+
+6-22  CHAPTER 6  Analysis: Information Modeling
+There are also other types of participates relationships that do not appear in the KLUB data set:
+•	CashReceipts to Customer.
+•	CashReceipts to Employee.
+•	CashDisbursements to Vendor.
+•	CashDisbursements to Employee.
+Because the information captured by these relationships is similar, the same types of analyses 
+apply to all of them.
+Information Model
+Following the principles of dimensional modeling, measures must be developed for the sales 
+transactions and broken down by agent dimensions, such as customer tables:
+•	What are relevant measures for transactions that can be broken down by agents? Illus-
+tration 6.26 (A) shows that the number of transactions is a key measure for the partici-
+pates relationship information model. For example, how many flights (transaction) has 
+an airline customer taken (agent)?
+•	What dimensions can be defined for agents? Analysis can be performed for individual 
+customers, but typically customers are grouped in a variety of ways for analysis purposes, 
+including by location, membership group, or performance category.
+ILLUSTRATION 6.26  Information Model Pattern for the Participates Relationship
+Fact Table
+1
+Participates
+Participates
+1
+N
+N
+Dimension Tables
+Who?
+Agent
+AgentDimensions
+CalculatedAgentDimensions
+Transaction
+NumberOfTransactions
+Sales
+NumberOfSales
+Who?
+Customer
+Name
+State
+Country
+AgeCategory
+(A) Generic
+(B) KLUB
+Column
+Calculated column
+Measure
+To implement the participates information model, create relevant measures and calcu-
+lated columns in the Transaction (fact) and Agent (dimension) tables. The actual measures 
+and calculated fields will depend on a business’s specific needs. Illustration 6.26 (B) applies 
+the participates model to KLUB’s Customer-Sales relationship. The additional calculated 
+
+6.3  Which Patterns Help Develop and Implement Accounting Information Models?  6-23
+columns and measures create a richer information model and therefore, a richer analysis. The 
+algorithms to implement the NumberOfSales measure and the AgeCategory calculated field 
+in Illustration 6.26 were discussed earlier in this chapter.
+Analysis
+KLUB could use the participates relationship to answer several questions using data analysis 
+(Illustration 6.27).
+ILLUSTRATION 6.27  Answering 
+Questions with the Participates 
+Relationship
+What is the number of sales
+transactions per customer (name)?
+1
+Who are the customers (name) with the
+highest number of sales transactions?
+2
+What is the number of sales
+transactions per state (customer)?
+3
+What is the number of sales
+transactions per country (customer)?
+4
+What is the number of sales
+transactions per age category?
+5
+What the number of sales per employee
+(name)?
+6
+Who are the employees (name) with the
+highest number of sales transactions?
+7
+Who are the customers (name) with
+a number of transactions of at least two?
+8
+Dimensions
+Measures
+Next, let’s use KLUB’s information model to further explore two of the questions posed 
+in Illustration 6.27.
+•	Question ❷: Who are the customers (name, which is a dimension) with the highest 
+number of sales transactions (measure)? 
+In Illustration 6.28 the number of sales transactions is broken down by customer name, 
+and the top five are shown in descending order.
+ILLUSTRATION 6.28  Number of Sales Transactions Per Customer: Top Five
+14
+14
+13
+13
+13
+11
+12
+10
+8
+6
+4
+2
+0
+Funk, Viola
+Alfonso, Henry
+Reynolds, Steven
+Top 5 Customers
+Top 5 Customers
+Number
+of Sales
+Rippy, Kevin
+Morris, Bonnie
+
+6-24  CHAPTER 6  Analysis: Information Modeling
+•	Question ❽: Who are repeat customers? That is, who are the customers (name, which is 
+a dimension) with a number of transactions (measure) of at least two? 
+Illustration 6.29 is a partial list of customers who have bought at least twice from KLUB.
+ILLUSTRATION 6.29  List of 
+Repeat Customers
+Funk, Viola
+Alfonso, Henry
+Reynolds, Steven
+Rippy, Kevin
+Morris, Bonnie
+Moore, Steven
+Williams, Mary
+Zebrowski, Connie
+Garza, Jeﬀrey
+Uren, Harold
+Barnhart, Richard
+Edens, Blaine
+Jenkins, Toni
+Ward, Jenny
+Younce, Stacey
+14
+13
+13
+13
+11
+9
+9
+9
+8
+8
+7
+7
+7
+7
+7
+Name
+NumberOfSales
+Information Modeling Pattern 10: Flows | 
+Transaction-What
+The flows relationship describes what is involved in a transaction, such as goods and services 
+(Illustration 6.30). A transaction results in either an increase or a decrease of the resources.
+ILLUSTRATION 6.30  The Flows 
+Relationship
+Fact Table
+Flows
+N
+1
+Dimension Table
+What?
+Resource
+Transaction
+In KLUB’s data model there are two flows relationships:
+•	From Sales to Merchandise.
+•	From Purchases to Merchandise.
+There are also other types of flows relationships that do not appear in the KLUB data set:
+•	Cash Receipts to Cash.
+•	Cash Disbursements to Cash.
+Because the information captured by these relationships is similar, the same types of analysis 
+apply to all of them.
+Information Model
+The first step is to develop measures for the transactions, such as sales, that can be broken 
+down by dimensions that are part of the Resource tables, such as merchandise. For flows rela-
+tionships, consider measures that summarize the physical and monetary flows:
+•	The physical flows describe how many. How many units were bought? How many units 
+were sold?
+•	The monetary flows describe how much? What is the value of the units sold, and for how 
+much have they been sold?
+
+6.3  Which Patterns Help Develop and Implement Accounting Information Models?  6-25
+In addition, we can use the number of transactions and number of resources measures dis-
+cussed earlier.
+Illustration 6.31 (A) shows the generic information model for flows relationships. Panel 
+(B) in the same illustration applies this pattern to KLUB’s Sale-Merchandise flows relation-
+ship, which results in four measures: NumberOfSales, TotalCOGS, TotalQuantitySold, and 
+TotalRevenue.
+ILLUSTRATION 6.31  Information Model Pattern for the Flows Relationship
+Fact Table
+1
+Flows
+Flows
+1
+N
+N
+Dimension Table
+What?
+Resource
+ResourceDimensions
+CalculatedResourceDimensions
+What?
+MerchandiseID
+Brand
+Type
+Category
+(A) Generic
+(B) KLUB
+Column
+Calculated column
+Measure
+Merchandise
+NumberOfSales
+TotalCOGS
+TotalQuantitySold
+TotalRevenue
+Sales
+NumberOfTransactions
+TotalQuantity(PhysicalFlow)
+TotalDollarAmount(MonetaryFlow)
+Transaction
+Implementing the flows information model involves creating measures in the Transac-
+tion table and creating Resource dimensions through algorithms. All dimensions in Illustra-
+tion 6.31 are given; that is, additional calculations are unnecessary. How to implement the 
+NumberOfSales, TotalQuantitySold, and TotalRevenue measures was discussed earlier. Total-
+COGS, a measure in the Sales table, is a single-column aggregation that sums all the values in 
+the COGS column–SUM(COGS).
+There are two additional flows-related measures that should be added to the information 
+model (Illustration 6.32). The TotalQuantityBought measure uses the single-column aggre-
+gation pattern to determine the total units bought by KLUB, and it is added to the Purchases 
+table. The TotalQuantityOfPrintersSold measure uses the filtered aggregation pattern to deter-
+mine the total quantity of printers sold.

@@ -1,0 +1,804 @@
+5-46  CHAPTER 5  Analysis: Data Preparation
+Chapter Review and Practice
+Learning Objectives Review
+❶  Explain the process of data profiling.
+Data profiling is the process of investigating data quality and struc-
+ture. It has three parts:
+•  Investigating data quality: Identify if there are anomalies in the 
+data. Stated differently, are the data dirty?
+•  Investigating data structure: Improve the organization of the 
+data for the purpose of analysis. 
+•  Deciding and informing: Decide whether to address the issues 
+identified, the cost of doing so, and the consequences of not 
+addressing the issues.
+❷  Describe the extract-transform-load (ETL) process.
+Extract, transform, load (ETL) is a process that corrects data issues:
+•  Extraction is moving the data to a staging area for transforma-
+tion purposes.
+•  Transformation involves improving the data during three sub-
+processes: cleaning, restructuring, and integration.
+•  Loading occurs when the data are moved to the area where they 
+will be used for analysis.
+❸  Apply patterns to extract data.
+Data preparation patterns are a robust tool for data preparation proj-
+ects. They help identify data issues and provide guidance for detecting 
+and correcting them. Data extraction patterns address:
+•	 The incomplete transfer of data.
+•	 The incorrect transfer of data.
+❹  Apply patterns to transform columns.
+Transformation cleans the data by correcting values (quality) and 
+restructuring and integrating the data structures for analytics (struc-
+ture). It can be gradually conducted at the column, table, and model 
+level. 
+Column transformation patterns deal with data issues in a single col-
+umn. Structure-oriented column patterns address:
+•	 Columns that contain irrelevant and unreliable data.
+•	 Incorrect and ambiguous column names.
+•	 Incorrect data types.
+•	 Combined or multi-valued columns.
+Quality-oriented column patterns address: 
+•	 Columns with incorrect data. 
+•	 Inconsistent data in columns. 
+•	 Columns with incomplete data.
+•	 Columns with invalid data.
+❺  Apply patterns to transform tables.
+Table transformation patterns deal with data problems in a single 
+table. Structure-oriented table patterns address:
+•	 Non-intuitive and ambiguous table names.
+•	 Tables without a primary key.
+•	 Tables with two or more columns with overlapping content.
+Quality-oriented table patterns address:
+•	 Invalid values that can be determined by intra-table rules.
+❻  Apply patterns to transform models.
+Model transformation patterns deal with data issues across tables. 
+Structure-oriented model patterns address:
+•	 Combining tables with a similar structure with a union. Com-
+bining tables tables with different characteristics for the same 
+entity with a merge.
+•	 Compliance with dimensional modeling principles.
+Quality-oriented table patterns address:
+•	 Invalid values that can be determined by inter-table rules.
+❼  Apply patterns to data loading issues.
+Extracting and loading are both transfer processes and have therefore 
+the same data issues:
+•	 The incomplete transfer of data.
+•	 The incorrect transfer of data.
+In addition, once the data have been loaded, it is important to:
+•	 Investigate that the data model is complete and accurate.
+Illustration 5.45 provides an overview of the twenty data preparation patterns. The first column 
+shows an identification number for easy reference, and the code in the second column indicates whether 
+a pattern focuses on values (V) or restructuring the data (S). The chart also includes the data issue and 
+how to detect and correct it. 
+
+Learning Objectives Review  5-47
+ILLUSTRATION 5.45  Overview of 
+Data Preparation Patterns
+Extraction
+Id
+Code
+Issue
+Detect (Data Profiling)
+Correct (ETL)
+1
+V
+All the data did not 
+transfer. 
+Compare row counts.
+Add missing rows.
+2
+V
+Data was not correctly 
+transferred.
+Compare control amounts.
+Modify incorrect values. 
+Transformation
+Id
+Code Issue
+Detect (Data Profiling)
+Correct (ETL)
+Column
+3
+S
+Irrelevant or unreliable 
+data.
+Visually scan columns for 
+irrelevant and unreliable data. 
+Remove columns with 
+irrelevant and unreliable data. 
+4
+S
+Incorrect or ambiguous 
+data.
+Scan column for incorrect or 
+ambiguous names. 
+Rename column.
+5
+S
+Incorrect data types.
+Inspect the data type. 
+Change data type.
+6
+S
+Columns are not 
+single-valued.
+Examine the values in the 
+columns. 
+Split composite columns.
+Create a separate table for 
+multi-valued columns.
+7
+V
+Incorrect values.
+Detect incorrect values with 
+outliers. 
+Modify incorrect values. 
+8
+V
+Inconsistent values.
+Identify inconsistent values. 
+Modify inconsistent values. 
+9
+V
+Incomplete values.
+Investigate null values. 
+Remove the columns or 
+replace the null values.
+10
+V
+Invalid values.
+Create and apply validation 
+rules. 
+Modify invalid values. 
+Table
+11
+S
+Incorrect or ambiguous 
+table names.
+Visually scan the table for 
+incorrect or ambiguous names. 
+Rename tables. 
+12
+S
+Missing primary keys.
+Identify tables missing a 
+primary key. 
+Create a primary key.
+13
+S
+Redundant column 
+content.
+Perform column-by-column 
+comparisons. 
+Delete redundant and 
+dependent data. 
+14
+V
+Invalid values detected 
+with intra-table rules.
+Create and apply intra-table 
+validation rules. 
+Modify the invalid data.
+Model
+15
+S
+Data spread across tables. Identify tables with a similiar 
+structure or tables that describe 
+different characteristics of the 
+same entity. 
+Union or merge tables. 
+16
+S
+Compliance with 
+dimensional modeling 
+principles. 
+Analyze a data model’s 
+compliance with dimensional 
+modeling principles. 
+Restructure model as a star/
+snowflake schema. 
+17
+V
+Invalid values detected 
+with inter-table rules.
+Create and apply inter-table 
+validation rules. 
+Modify the invalid rules. 
+Loading
+Id
+Code Issue
+Detect (Data Profiling)
+Correct (ETL)
+18
+V
+Incomplete data loading. 
+Compare row counts.
+Add the missing data.
+19
+V
+Incorrect data loading. 
+Compare control amounts.
+Modify incorrect values. 
+20
+S
+Missing or incorrect data 
+relationships. 
+Investigate the completeness 
+and accuracy of the data 
+model.
+Create, modify, and delete 
+relationships 
+Modify the data model. 
+Data Preparation Patterns
+
+5-48
+CHAPTER 5 Analysis: Data Preparation
+ Key Terms Review
+ Analytical database  5-5 
+ Cardinality  5-8 
+ Composite column  5-5 
+ Data connectors  5-10 
+ Data dictionary  5-15 
+ Data extraction  5-10 
+ Data integration  5-13 
+ Data loading  5-14 
+ Data matching  5-13 
+ Data model  5-7 
+ Data preparation  5-2 
+ Data profiling  5-2 
+ Data restructuring  5-13 
+ Data transformation  5-10 
+ Data warehouse  5-10 
+ Dimensions  5-8 
+ Dirty data  5-2 
+ Extract-transform-load (ETL) 5-10 
+ Facts  5-7 
+Flat tables  5-6 
+Merge  5-13 
+Multi-valued column  5-6 
+Outlier  5-25 
+ Referential integrity  5-39 
+ Single-valued column  5-5 
+Slicing 5-5
+Snowflake schema  5-36 
+ Star schema  5-7 
+ Union  5-13 
+Validation rules 5-3
+ HOW TO 5.1 
+Profile Data With Power Query 
+ Power Query integrates excellent data profiling tools. Let’s examine how it can help with row 
+counts, control amounts, and distribution information. 
+ What You Need:
+Data
+The How To 5.1 data file. 
+ STEP 1:  Extract the data from the data file. There are different steps for extracting data from 
+Excel versus Power BI. If you are using Excel: 
+• First, open a Blank workbook and click Data > From File > From Excel Workbook
+(Illustration 5.46).
+How To
+ILLUSTRATION 5.46 Extract Data from an Excel File
+Properties
+Queries & Connectior
+Edit Links
+Get
+Data
+From Text/CSV
+From Web
+From Table/Range
+Existing Connections
+Recent Sources
+File
+Home
+Insert
+Formulas
+Page Layout
+From Excel
+Import data
+workbook
+Review
+View
+Help
+Refresh
+All
+Properties
+Queries & Connectior
+Edit Links
+From Text/CSV
+From Web
+From Table/Range
+Existing Connections
+Recent Sources
+Refresh
+All
+All
+From File
+From Database 
+From Azure
+From Excel Workbook
+From Text/CSV
+From XML
+From JSON
+X
+JSON
+From Power BI (Northern III...))
+Data
+1
+2
+3
+H
+How To Walk-Throughs
+
+How To Walk-Throughs 5-49
+• Next, select the Beans Excel file and click Import. A Navigator dialog box will open. Select 
+the Service table and click Load (Illustration 5.47).
+ ILLUSTRATION 5.47 Select and Load the Service Table
+Display Options
+Navigator
+Select multiple items
+Date
+ActualTime
+BudgetedTime
+ID_1
+ID
+ID
+1/1/2025
+1/2/2025
+1/2/2025
+1/2/2025
+1/2/2025
+1/2/2025
+1/2/2025
+1/2/2025
+1/2/2025
+Area
+Accountin
+Accountin
+Accountin
+Accountin
+Accountin
+Accountin
+Accountin
+Accountin
+Accountin
+2
+1
+1
+1
+1
+1
+1
+1
+1
+3.5
+2.5
+0.1
+0.3
+0.1
+0.4
+0.1
+0.3
+0.2
+1
+2
+3
+4
+5
+6
+7
+8
+9
+Service
+3.75
+2.65
+0.07
+0.35
+0.1
+0.35
+0.07
+0.25
+0.25
+Service
+ClData
+E-Dem
+Beans (1).xlsx [4]
+Employee
+Cancel
+Transform Data
+Load
+From Text/CSV
+From Web
+From Table/Range
+Existing Connections
+Recent Sources
+File
+Home
+Insert
+Page Layout
+Formulas
+Data
+Refresh
+All
+Geted time
+ID
+3.5
+2.5
+0.1
+0.3
+0.1
+0.4
+0.1
+0.3
+0.2
+0.5
+0.5
+0.1
+0.7
+0.1
+Combine Queries
+Launch Power Query Editor...
+Data Source Settings...
+Query Options
+From File
+From Database 
+From Azure
+From Other Sources
+From Online Services
+From Power BI (Northern III...)
+From Text/CSV
+From Web
+From Table/Range
+Existing Connections
+Recent Sources
+Refresh
+All
+All
+Get
+Data
+ILLUSTRATION 5.48 Open Power Query
+• Finally, click the Data tab and then the down arrow in Get Data. Next, you will see the 
+option to Launch Power Query Editor. Click to open the Query Editor (Illustration 5.48). 
+
+5-50
+CHAPTER 5 Analysis: Data Preparation
+If you are using Power BI: 
+• Open a new Power BI file and select Excel in the Data group. Illustration 5.49 shows 
+Power BI’s Home tab, which includes the Data group.
+ ILLUSTRATION 5.49 Extract Data from an Excel File
+Get
+data
+File
+Modeling
+Insert
+View
+Help
+Data
+Home
+Power BI
+datasets
+SQL
+Server
++
+Enter
+data
+Recent
+sources
+Paste
+Cut
+Copy
+Format
+painter
+Excel
+X
+Dataverse
+Data
+Power BI
+datasets
+SQL
+Server
++
+Enter
+data
+Recent
+sources
+Dataverse
+Clipboard
+Get
+data
+Paste
+Cut
+Copy
+Format
+painter
+Clipboard
+• Next, select the Beans Excel file and click Open. A Navigator dialog box will open. Select 
+the Service table and click Load (Illustration 5.50).
+ ILLUSTRATION 5.50 Select and Load the Service Table
+Preview downloaded on Wednesday, March 9, 2022
+Display Options
+Navigator
+Service
+Beans.xlsx [4]
+Service
+ClData
+E-Dem
+Employee
+Date
+ActualTime
+BudgetedTime
+ID_1
+ID
+ID
+Area
+Accountin
+Accountin
+Accountin
+Accountin
+Accountin
+Accountin
+Accountin
+Accountin
+Accountin
+Accountin
+Tax
+Accountin
+Tax
+Accountin
+Accountin
+Accountin
+Accountin
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+1/1/2025
+1/2/2025
+1/2/2025
+1/2/2025
+1/2/2025
+1/2/2025
+1/2/2025
+1/2/2025
+1/2/2025
+1/2/2025
+1/2/2025
+1/2/2025
+1/2/2025
+1/2/2025
+1/2/2025
+1/2/2025
+1/2/2025
+1/2/2025
+1/2/2025
+1/2/2025
+1/2/2025
+1/2/2025
+3.75
+2.65
+0.07
+0.35
+0.1
+0.35
+0.07
+0.25
+0.25
+0.75
+0.75
+0.1
+0.75
+0.1
+0.25
+0.07
+0.35
+0.07
+0.07
+0.35
+3.95
+4
+3.5
+2.5
+0.1
+0.3
+0.1
+0.4
+0.1
+0.3
+0.2
+0.5
+0.5
+0.1
+0.7
+0.1
+0.2
+0.1
+0.4
+0.1
+0.1
+0.5
+3.8
+2.8
+Accountin
+Accountin
+Accountin
+Accountin
+Accountin
+2
+1
+1
+1
+1
+1
+1
+1
+1
+2
+8
+1
+8
+1
+1
+1
+1
+4
+1
+1
+1
+2
+Load
+Transform Data
+Cancel
+
+How To Walk-Throughs 5-51
+• Finally, click Transform data in the Queries group of the Home tab to launch Power 
+Query (Illustration 5.51). 
+The remaining steps are identical for Excel and Power BI. 
+ STEP 2:  Click the View tab in the main menu ( Illustration 5.52 ). Select Column quality, 
+Column distribution, and Column profile.
+ ILLUSTRATION 5.51 Open Power Query
+Get
+data
+File
+Home
+Modeling
+Insert
+View
+Help
+Clipboard
+Refresh
+Transform
+data
+Data
+Excel
+X
+Power BI
+datasets
+SQL
+Server
++
+Enter
+data
+Recent
+sources
+Power BI
+Paste
+Cut
+Copy
+Format
+painter
+Get
+data
+Clipboard
+Data
+Excel
+X
+Power BI
+datasets
+SQL
+Server
++
+Enter
+data
+Recent
+sources
+Paste
+Cut
+Copy
+Format
+painter
+Refresh
+1
+ ILLUSTRATION 5.52  Column Profiling Options 
+Query
+Settings
+Formula Bar
+Monospaced
+Column quality
+Show whitespace
+Column profile
+Column distribution
+Go to
+Column
+Columns
+Advanced
+Editor
+Advanced
+Query
+Dependencies
+Dependencies
+Always allow
+Parameters
+Data Preview
+Layout
+File
+Home
+Transform
+Add Column
+Tools
+Help
+View
+Query
+Settings
+Formula Bar
+Layout
+Go to
+Column
+Columns
+Advanced
+Editor
+Advanced
+Query
+Dependencies
+Dependencies
+Always allow
+Parameters
+2
+Illustration 5.53 shows that Power Query now displays detailed profiling information for each 
+column. The valid, error, and empty percentages appear when Column quality is checked. The 
+frequency distributions appear when you check Column distribution. 
+ ILLUSTRATION 5.53 Column Quality and Distribution Information
+Valid
+Error
+Empty
+100%
+0%
+0%
+Valid
+Error
+Empty
+100%
+0%
+0%
+Valid
+Error
+Empty
+100%
+0%
+0%
+1000 distinct, 1000 unique
+45 distinct, 5 unique
+103 distinct, 38 unique
+1.2 ActualTime
+Date
+ID
+123
+3
+ STEP 3:  Select the ID column. As the bottom left corner of the Power Query window shows
+ (Illustration 5.54) , the column profiling is currently based on the top 1000 row.
+ ILLUSTRATION 5.54 Column Profiling Based on Sample
+10 COLUMNS, 999+ ROWS       Column profiling based on top 1000 rows

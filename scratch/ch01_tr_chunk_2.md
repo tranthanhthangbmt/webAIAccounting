@@ -3,6 +3,8 @@
 
 Ví dụ trong ILLUSTRATION 1.4 đã sử dụng trực quan hóa dữ liệu (Data Visualization) để so sánh doanh thu kỳ vọng và thực tế nhằm xác định xem có tháng nào cần phân tích thêm hay không. Nó cho thấy doanh thu thực tế cao hơn dự kiến vào tháng Hai, tháng Bảy và tháng Mười Hai, do đó kiểm toán viên có thể quyết định tập trung vào ba tháng đó để kiểm tra bổ sung.
 
+![ILLUSTRATION 1.4](../TaiLieu/textbookForPractice/Figures/Ch_01/ILLUSTRATION%201.4.png)
+
 Các thủ tục kiểm toán cũng đang thay đổi. Do nhiều công ty đang đầu tư vào phần mềm Tự động hóa Quy trình bằng Robot (RPA - Robotic Process Automation) và phần mềm tự động hóa phân tích để tự động hóa các tác vụ kiểm toán thủ công, các kiểm toán viên có thể tập trung vào việc phân tích và cung cấp những hiểu biết sâu sắc có giá trị.
 
 #### Kế toán Tài chính (Financial Accounting)
@@ -38,6 +40,8 @@ Phân tích dữ liệu cũng có thể được sử dụng để phân tích t
 - Các bảng điều khiển thuế có thể giúp các tổ chức giám sát các vị thế thuế trong thời gian thực.
 
 ILLUSTRATION 1.7 là một bảng điều khiển thuế sử dụng trực quan hóa dữ liệu để hiển thị động thông tin thuế tiểu bang, nhằm giúp các chuyên gia thuế theo dõi vị thế thuế của tổ chức. Các menu ở trên cùng bên trái cho phép người dùng tương tác với dữ liệu để đi sâu (Drill Down) vào các chi tiết hỗ trợ. Người dùng có thể chọn thực thể công ty (Corporate Entity), loại thuế, khu vực tài phán (tiểu bang), và số lượng thực thể cần hiển thị. Hình ảnh trực quan ở trên cùng của bảng điều khiển là một tổng quan về thuế tiền lương (Payroll Taxes) theo từng bang cho thực thể được chọn. Hình ảnh trực quan dưới cùng hiển thị tổng số tiền của thuế tiền lương.
+
+![ILLUSTRATION 1.7](../TaiLieu/textbookForPractice/Figures/Ch_01/ILLUSTRATION%201.7.png)
 
 #### **English**
 *Nội dung tiếng Anh gốc sẽ được giữ lại trong quá trình hợp nhất tài liệu...*

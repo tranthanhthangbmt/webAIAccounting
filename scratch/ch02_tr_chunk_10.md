@@ -21,12 +21,17 @@ Bạn là một kiểm toán viên đang thực hiện cuộc kiểm toán báo 
 6. Sử dụng các số liệu thống kê mô tả sau và biểu đồ phân tán để xác định bất kỳ điểm bất thường nào trong các khoản hoàn trả của thành phố trong năm 2025: Mean, Median, Mode, Standard deviation.
 7. Đi Sâu Hơn (Dig Deeper): Mở rộng các phân tích này để bao gồm một cuộc thảo luận về số tiền hoàn trả theo phòng ban (department) hoặc theo chức danh công việc (job title).
 
+![PR 2.2](../TaiLieu/textbookForPractice/Figures/Ch_02/PR%202.2.png)
+
 **PR 2.3 (LO 2, 5) > **Data** Kiểm toán (Auditing)**
 **Các Hàm Excel Cơ Bản và Biểu Đồ Tròn (Basic Excel Functions and Pie Chart)**
 Bạn là một kiểm toán viên được phân công kiểm toán báo cáo tài chính của Outdoor Adventure Company cho năm kết thúc vào ngày 31 tháng 12 năm 2025. Trưởng nhóm của bạn muốn hiểu dữ liệu bán hàng và xác định các khách hàng trọng yếu để thực hiện kiểm tra chi tiết. Tổng doanh số bán hàng cho năm kết thúc ngày 31 tháng 12 năm 2025, theo sổ cái của công ty là $273,323. (Lưu ý: doanh thu được ghi nhận khi sản phẩm được vận chuyển cho khách hàng.) Sử dụng tệp Excel do khách hàng cung cấp, hãy thực hiện những việc sau:
 1. Xác minh rằng tập dữ liệu đã đầy đủ bằng cách tính tổng cột doanh số và đối chiếu với số liệu doanh số được ghi lại trong sổ cái chung (general ledger) của khách hàng. Viết một câu chỉ ra rằng bạn đã đối chiếu số tiền bán hàng khớp với số tiền trong sổ cái chung của khách hàng.
 2. Bằng cách sử dụng các phương pháp hay nhất (best practices) được nêu trong Hình minh họa 2.57, hãy tạo một biểu đồ tròn mô tả doanh số bán hàng theo khu vực cho năm 2025 và xác định khu vực có doanh số cao nhất. Biểu đồ tròn có phải là hình ảnh tốt nhất cho câu hỏi này không? Tại sao có hoặc tại sao không?
 3. Đi Sâu Hơn (Dig Deeper): Phân tích tập dữ liệu để hiểu các khách hàng lớn nhất của công ty. Trình bày phân tích của bạn dưới dạng một trực quan hóa.
+
+![ILLUSTRATION 2.57](../TaiLieu/textbookForPractice/Figures/Ch_02/ILLUSTRATION%202.57.png)
+![ILLUSTRATION 2.57_1](../TaiLieu/textbookForPractice/Figures/Ch_02/ILLUSTRATION%202.57_1.png)
 
 **PR 2.4 (LO 2, 5) > **Data** Kế toán Tài chính, Kế toán Quản trị**
 **PivotTables và Biểu đồ Cột (PivotTables and Bar Charts)**

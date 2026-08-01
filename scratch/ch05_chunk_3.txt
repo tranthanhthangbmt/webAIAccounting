@@ -1,0 +1,653 @@
+5-14  CHAPTER 5  Analysis: Data Preparation
+Load Data
+Once the data are cleaned and transformed, they are loaded into the software for analysis. 
+Data loading is the process of making the analytical database available for use. Analytical 
+databases are often posted in the cloud where they can be used simultaneously by many users. 
+Like extraction, part of transferring the data is validating whether all records were transferred 
+and whether they were transferred correctly.
+Apply It 5.2
+Combine Tables for 
+Analysis
+Stufan CEO Shanice suggests organizing product data in three separate tables, with one table for 
+each product category. She asks if there would be issues combining the three tables for analysis. How 
+would you respond?
+BERL
+DUCH
+MAR
+THO
+TOU
+Berlioz
+Duchess
+Marie
+Thomas
+Toulouse
+Code
+Description
+23
+44
+34
+19
+32
+QOH
+Aristocats
+CAPH
+SNO
+TINL
+TINS
+Captain Haddock
+Snowy
+Tintin Large
+Tintin Small
+Code
+Description
+14
+22
+23
+44
+QOH
+Tintin
+BASHL
+BASHS
+DOCL
+DOCS
+DOPL
+Bashful Large
+Bashful Small
+Doc Large
+Doc Small
+Dopey Large
+DOPS
+Dopey Small
+GRUML Grumpy Large
+Grumpy Small
+Happy Large
+Happy Small
+Sneezy Large
+Sneezy Small
+Snow White Large
+Snow White Small
+Sleepy Big
+Sleepy Small
+GRUMS
+HAPL
+HAPS
+SLB
+SNEL
+SLS
+SNES
+SNOWL
+SNWS
+Code
+Description
+Dwarfs
+SOLUTION
+•	 The three tables cannot be combined using a union since the table structure for the Dwarfs 
+table is different from the table structures of the Aristocats and Tintin tables. The QOH 
+column is missing.
+•	 A product’s category is determined by its table name and cannot be used for analysis pur-
+poses. A Category column needs to be added to each of the three tables.
+5.3  Which Patterns Extract Data?
+LEARNING OBJECTIVE ➌
+Apply patterns to extract data.
+Each data analytics project has unique data preparation challenges. While there is not a single, 
+common approach for all projects, a structured set of data preparation patterns can address most 
+challenges. These patterns signal potential problems and provide guidance for finding them 
+within the data set and correcting them. Each pattern identifies a data issue, discusses how to 
+detect it with a profiling method, and explains one or more ETL methods to correct it. Think of 
+the patterns as a menu; you can select those which are most appropriate for your needs.
+
+5.3  Which Patterns Extract Data?  5-15
+Data   Let’s use a case to illustrate how to apply data preparation patterns in a real-world 
+scenario. You can also use the available data to work through each pattern yourself. 
+Beans is an accounting firm in Okemos, Michigan providing accounting and tax services. 
+Petra, their managing partner, has made improving analysis of their services a priority in the 
+new year. Petra does not mind doing the analytics but struggles to integrate the different data 
+sources. Imagine you are one of the staff accountants helping with the data preparation.
+The data set for Beans consists of four worksheets in an Excel file (Illustration 5.12). 
+$
+ILLUSTRATION 5.12  Worksheets in the Beans Data Set
+Worksheet
+Description
+ClData
+Information about Beans’ clients.
+Employee
+General information about Beans’ employees.
+E-Dem
+Demographic information about Bean’s employees.
+Service
+Information about the services provided for the period January-July 2025.
+The first step is identifying the available data and creating a data dictionary, a chart that 
+indicates what data are available and where they can be found. A data dictionary records differ-
+ent pieces of information for each field, including a name, a brief description of content, the data 
+type, whether the field is a primary or foreign key, and whether the field is mandatory or optional.
+A data dictionary is often referred to as metadata–it is data about data. It is built gradually 
+throughout the data preparation process, but creating column names and descriptions is a good 
+starting point. Illustration 5.13 shows the first draft of a data dictionary for the Beans data set. 
+(See Illustration 5.44 at the end of the chapter for an example of the completed data dictionary.)
+ILLUSTRATION 5.13  Beans Data Dictionary
+ClData
+Name
+Description
+ID
+A client’s unique ID.
+Name
+A client’s name.
+Industry Name
+A client’s industry.
+Employee
+Name
+Description
+ID
+An employee’s ID.
+Name
+An employee’s name.
+Job Title
+An employee’s job title.
+Rate
+An employee’s hourly rate.
+Office
+An employee’s office.
+MS
+An employee’s marital status.
+E-Dem
+Name
+Description
+First
+An employee’s first name.
+Last
+An employee’s last name.
+Age
+An employee’s age.
+CertList
+List of an employee’s certifications.
+University
+The university from which the employee received an undergraduate degree.
+(Continued)
+
+5-16  CHAPTER 5  Analysis: Data Preparation
+Service
+Name
+Description
+ID
+A unique ID for a service provided.
+Date
+The date the service occurred.
+Actual Time
+The actual time spent on a service provided.
+Budgeted Time
+The budgeted time for a service provided.
+ID
+The ID of the task performed.
+Area
+The task’s area.
+Task
+The name of the task performed.
+EmployeeID
+The ID of the employee performing the task.
+ILLUSTRATION 5.13  (Continued)
+ILLUSTRATION 5.14  Row Count for Excel Worksheet
+fx
+AutoSave
+Oﬀ
+Client
+Employee
+Task
+Area
+ID
+BudgetedTime
+ActualTime
+Date
+1 
+ID
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+1
+2
+3
+4
+5
+6
+7
+8
+9
+Accounting
+Accounting
+Accounting
+Accounting
+Accounting
+Accounting
+Accounting
+Accounting
+Accounting
+1/5/2023
+1/6/2023
+1/6/2023
+1/6/2023
+1/6/2023
+1/6/2023
+1/6/2023
+1/6/2023
+1/6/2023
+3.75
+2.65
+0.25
+0.25
+0.07
+0.07
+0.35
+0.35
+0.1
+3.5
+2.5
+0.3
+0.2
+0.1
+0.1
+0.3
+0.4
+0.1
+2
+1
+1
+1
+1
+1
+1
+1
+1
+Review
+Prep
+Prep
+Prep
+Prep
+Prep
+Prep
+Prep
+Prep
+18
+15
+12
+9
+2
+9
+12
+15
+17
+42
+103
+178
+178
+2
+2
+2
+2
+2
+A
+B
+C
+D
+E
+F
+G
+H
+I
+J
+Service
+CLdate Employee E-DEM
+Workbook Statistics
+Caps Lock
+Average: 2316.5
+Sum: 10730028
+Count: 4633
+Numerical Count: 4632
+Min: 1
+Max: 4632
+Select “ID”
+Column
+Status
+Bar
+Control Total:
+Average
+Control Total:
+Sum
+Number of
+Rows
+Starting from the data dictionary in Illustration 5.13, we are ready to prepare the data by apply-
+ing twenty patterns. The first two are extraction patterns to determine if all data have been 
+extracted and if they were transferred correctly.
+Data Preparation Pattern 1: Incomplete Data 
+Transfer
+Extraction transfers data from the source files to the ETL tool for further processing. An 
+incomplete transfer of data and missing data leads to unreliable results.
+Compare Row Counts
+Comparing row counts is one way to check completeness. Working with the Beans data set, 
+test completeness by comparing the Excel worksheet’s row count with the corresponding 
+table’s row count in the ETL tool. Illustration 5.14 shows the Service Excel worksheet. When 
+the ID column is selected, Excel’s status bar shows that there are 4,632 rows in the worksheet.
+
+5.3  Which Patterns Extract Data?  5-17
+Next, determine the row count for the Service table in the ETL tool used for extraction. Illus-
+tration 5.15 shows that information as part of the ID column profile in Power Query. The 
+matching numbers indicate that all rows have been transferred. If the numbers do not match, 
+we must determine which data were not transferred and what caused the problem. Given the 
+sequential nature of the IDs, gap analysis might be a useful tool to do this. In this case, there 
+were no transfer issues when extracting the data from the Beans data set into Power Query.
+ILLUSTRATION 5.15  Row Count with Power Query
+Column Statistics
+Count
+4,632
+Error
+0
+Empty
+0
+Distinct
+4,632
+Unique
+4,632
+NaN
+0
+Zero
+0
+Min
+1
+Max
+4,632
+Average
+2,316.5
+Standard deviation
+1,337.28...
+Even
+2,316
+Odd
+2,316
+Number of Rows
+Control Total:
+Average
+Add Missing Rows
+If the row counts don’t match, add the missing rows to the source data, the Service worksheet 
+in the Beans data set file, or to the ETL’s data set.
+Pattern 1 Summary
+Problem
+All the data did not transfer.
+Detect (Data Profiling)
+Compare row counts.
+Correct (ETL)
+Add the missing rows.
+Data Preparation Pattern 2: Incorrect Data 
+Transfer
+Even when all the rows have been transferred, the data might not have been transferred cor-
+rectly. This is often caused by differences in data types.
+Compare Control Amounts
+This issue can be detected using control amounts. In the Beans data set, compare the Average 
+in the Excel worksheet (Illustration 5.14) with the same number for the Service table in the 
+ETL tool (Illustration 5.15). Matching numbers indicate a correct transfer of the values for the 
+ID column in the Service table. Similar tests can be run for the other columns.
+
+5-18  CHAPTER 5  Analysis: Data Preparation
+Modify Incorrect Values
+There were no differing control amounts when pulling the data from the Beans Excel spread-
+sheet into Power Query. But if the numbers do not match, the next step is to determine which 
+data were transferred incorrectly and what caused the problem. Once identified, the incor-
+rectly transferred values in the ETL’s data set can be modified.
+Pattern 2 Summary
+Problem
+Data was not correctly transfered.
+Detect (Data Profiling)
+Compare control amounts.
+Correct (ETL)
+Modify incorrect values.
+Checking the completeness and correctness of data transfers is a common practice for audi-
+tors. Clients provide data through emails, cloud sharing, USB transfers, etc. Comparing data 
+statistics generated at the originator and receiver sides helps detect transfer issues.
+Apply It 5.3
+Extract Data with 
+Patterns
+Data   Shanice gives you, an accountant working for Stufan, a text file with Stufan’s sales transac-
+tion information. She also provides the following information:
+•  Number of transactions: 28
+•  Average price charged: 25.32
+1.	 Extract the sales data into your ETL tool.
+2.	 Determine if all transactions are transferred and whether all data transferred correctly.
+SOLUTION
+	 1.	 First, extract the data into Excel. Next, open the Power Query editor and examine the profile 
+for the Price column.
+Column Statistics
+Count
+28
+Error
+0
+Empty
+0
+Distinct
+8
+Unique
+4
+NaN
+0
+Zero
+0
+Min
+10
+Max
+40
+Average
+25.3214...
+	 2.	 As the visual shows, the information provided indicates all transactions were transferred–
+Count: 28– and that they were transferred correctly–Average: 25.32.
+
+5.4  Which Patterns Transform Columns?  5-19
+5.4  Which Patterns Transform 
+Columns?
+LEARNING OBJECTIVE ❹
+Apply patterns to transform columns.
+Once all data are transferred to the ETL tool, it is time to transform them. Transformation has 
+two purposes–cleaning the data by correcting values and restructuring and integrating the 
+data for analytics.
+An analytical database consists of an integrated set of tables, which is a data model, 
+and each table has several columns. This means that transformations can be conducted 
+gradually at the column level, table level, and model level. This section focuses on trans-
+formation patterns at the column level. These patterns look for data problems in a single 
+column, such as ambiguous names, data type issues, and incorrect, inconsistent, incomplete, 
+or invalid values.
+Data Preparation Pattern 3: Irrelevant and  
+Unreliable Data
+Data that are irrelevant for decisions bloat the data model. It is also important to avoid inte-
+grating unreliable data into the data model (recall the old adage, “garbage in, garbage out”). 
+Keep in mind that excluding data from an analytical database is not the same as deleting the 
+data. The raw data still exist and can be integrated if necessary.
+Scan Columns for Irrelevant and Unreliable Data
+Irrelevant columns can be identified primarily by scanning the data visually. The data dictio-
+nary can also be a helpful tool. For example, the Employee table contains information regard-
+ing offices. How would you use the data in this column for decision making?
+Scanning data can also determine whether a column contains unreliable data. In 
+Illustration 5.16 (A), the Age column in the E-Dem table mixes null values, numbers, dates, 
+and text, which would make it challenging to generate reliable insights. Most ETL tools provide 
+statistics about errors, null values, and more, that can help determine a column’s reliability.  
+( Data See How to 5.1 at the end of the chapter to learn how to use Power Query to profile data.) 
+Remove Columns With Irrelevant or Unreliable Data
+To correct the issue, delete the columns with irrelevant and unreliable data from the analyt-
+ical database. Illustration 5.16 (B) shows how to do this with Power Query. Select a column, 
+such as Age, and then select Remove Columns. For the Beans data set, the irrelevant column, 
+Office, and the unreliable column, Age, were deleted.
+How To
+
+5-20
+CHAPTER 5 Analysis: Data Preparation
+ Pattern 3 Summary 
+Problem
+ Irrelevant data bloat a data set. Unreliable data increases 
+the risk of making bad decisions. 
+Detect (Data Profiling)
+Visually scan columns for irrelevant and unreliable data. 
+Correct (ETL)
+ Remove columns with irrelevant or unreliable data. 
+Data Preparation Pattern 4: Incorrect and 
+Ambiguous Column Names
+ Column names become variables during data exploration and interpretation. Their names are 
+important because other people might use the analytical database. Essentially, column names 
+become part of the database’s vocabulary. Recall that Beans’ managing partner wants to perform 
+the necessary analytics but struggles with the data preparation. Column names that are correct, 
+intuitive, and unambiguous make it easier for other people to use a database and explore data. 
+ Scan Columns for Incorrect or Ambiguous Names
+ Visually scanning a column’s content and its data dictionary definition can reveal whether the 
+column name accurately reflects its content. Here are four rules for naming columns:
+ ILLUSTRATION 5.16  Detecting and Correcting Unreliable Data 
+Close &
+Apply
+File
+Home Transform Add Column
+Tools
+Help
+View
+?
+Close
+New
+Source
+Recent
+Sources
+Enter
+Data
+New Query
+Data Source
+Settings
+Data Sources
+Manage
+Parameters
+Parameters
+Refresh
+Preview
+Advanced Editor
+Manage
+Properties
+Query
+E-DEM
+EMPLOYEE
+CLdata
+SERVICE
+Queries [4]
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+John
+Diego
+Kim
+Marcus
+Gail
+Shiela
+Ed
+Kayne
+Sara
+Ivan
+Federer
+Asare
+Bush
+Clay
+David
+Diamond
+Diamond
+James
+Lee
+Lenk
+thirty two
+??
+??
+34
+null
+45
+1998
+55
+22
+CPA
+CPA, CMA, CFA
+CPA
+CPA
+null
+null
+null
+null
+null
+null
+University of Michigan
+Grand Valley State University
+University of Delaware
+MSU
+UM
+Michigan State University
+MSU
+Michigan State University
+Michigan State University
+University of Michigan
+First
+ABC
+Last
+ABC
+Age
+ABC
+123
+Certlist
+ABC
+University
+ABC
+(B) Removing a Column with Unreliable Data 
+Age
+45
+1998
+thirty two
+55
+34
+22
+??
+51
+??
+9/2/1998
+(A) Column with
+Unreliable Data 
+Manage    Columns
+Choose
+Columns
+Remove
+Columns
+Reduce
+Rows
+Close &
+Apply
+Close
+New
+Source
+Recent
+Sources
+Enter
+Data
+New Query
+Data Source
+Settings
+Data Sources
+Manage
+Parameters
+Parameters
+Refresh
+Preview
+Advanced Editor
+Manage
+Properties
+Query
+Manage 
+Choose
+Columns
+Reduce
+Rows

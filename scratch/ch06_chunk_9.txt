@@ -1,0 +1,360 @@
+6-50  CHAPTER 6  Analysis: Information Modeling
+19.  (LO 3)  What type of analysis is performed with this stacked area chart?
+$140,000
+$120,000
+$100,000
+$80,000
+$60,000
+$40,000
+$20,000
+$0
+January
+February
+March
+Month
+Profit
+April
+May
+June
+Electronics
+Garden
+Oﬀice
+a.	 Who-what
+b.	 Who-when
+c.	 What-when
+d.	 Who-what-when
+1.  (LO 1)  Describe the goal of information modeling.
+2.  (LO 1)  What are the two main tasks involved in information modeling?
+3.  (LO 1)  What is the difference between a data model and an information model?
+4.  (LO 1)  What are the two different types of information fields and how do they differ?
+5.  (LO 1)  What are the two goals of star schema information models?
+6.  (LO 1)  What is an algorithm? Provide an example of an accounting algorithm. 
+7.  (LO 2)  Provide two examples of text calculations.
+8.  (LO 2)  What is Boolean logic and how can it be used for classification purposes?
+9.  (LO 2)  Calculations might require information from multiple tables. Describe the mechanism that is 
+used to connect tables.
+10.  (LO 2)  Describe the one measure, multiple analyses principle.
+11.  (LO 2)  For each operator, describe whether you most likely would use it to create a calculated col-
+umn or a measure. 
+Mathematical Operator
+Type of Information Field
+Sum
+Multiplication
+Count
+Concatenation
+Average
+Division
+Exponentiation
+Standard Deviation
+12.  (LO 2)  What are filtered measures?
+13.  (LO 2)  For what purpose is a measure hierarchy used?
+14.  (LO 3)  What are the who, what, and when dimensions of accounting transactions?
+15.  (LO 3)  What accounting information is captured by a flows relationship?
+16.  (LO 3)  What is the difference between physical and monetary flow information?
+Review Questions
+
+17.  (LO 3)  Examine this model.
+N
+N
+Participates
+Occurs
+Participates
+Flows
+N
+N
+1
+1
+1
+1
+Dimension Tables
+Fact Table
+Dimension Tables
+Employee
+State
+Customer
+TotalProfit
+InvoiceLine
+Category
+Product
+Year
+Calendar
+	 1.	 What are you comparing?
+	 2.	 What field do you use for comparison purposes?
+	 3.	 What fields are you using for filtering purposes?
+18.  (LO 3)  What kind of information do calendar tables contain?
+19.  (LO 3)  Describe the difference between internal and external agents. For purchase transactions, who 
+are the internal and external agents?
+20.  (LO 3)  What information is captured by the occurs relationship, and why is such information crucial 
+in an accounting context? 
+21.  (LO 3)  For the Customer table, what relationships between the dimensions can you identify? 
+Describe how such relationships can be used for analysis purposes by identifying a few questions that 
+can be answered using these relationships. 
+CustomerName
+State
+LoyaltyGroup
+LoyaltyProgramEnrollmentDate
+Customer
+CustomerID
+Brief Exercises  6-51
+Brief Exercises
+BE 6.1  (LO 1)  Use the following terms to complete the sentence. 
+	 a.	 algorithm
+	 b.	 data 
+	 c.	 information model
+	 d.	 star schema
+	 1.	 A(n) __________ is a data model extended with calculated columns and measures. 
+	 2.	 The formula that determines the break-even point is an example of a(n) __________. 
+	 3.	 A(n) __________ is the preferred data structure for data analysis. 
+	 4.	 __________ is the input of an information model.
+
+6-52  CHAPTER 6  Analysis: Information Modeling
+BE 6.2  (LO 1)  Match the appropriate term to each definition.
+	 a.	 Algorithm
+	 b.	 Calculated column
+	 c.	 Data model
+	 d.	 Information model
+	 e.	 Measure
+	 f.	 Star schema
+Definition
+Term
+1.  An aggregate that is calculated from a set of data that can be used for analytical 
+purposes.
+2.  A specification of the structure of a data set showing what concepts are described 
+as tables and what characteristics are used to describe the concepts.
+3.  An extension to the data model that consists of calculated columns and measures.
+4.  A set of instructions that transform data into information.
+BE 6.3  (LO 1)  The two building blocks of an information model are calculated columns and measures. Deter-
+mine how the following five algorithms are best implemented: Either as a calculated column or measure.
+	 1.	 A publisher would like to determine, for each salesperson, the number of units sold for a specific 
+title during the third quarter of 2025. 
+	 2.	 Determine the standard deviation for all prices paid in 2025 for a specific type of tire used by a bike 
+manufacturer.
+	 3.	 Given a fixed asset’s net price, its number of useful years, and its salvage value, you are asked to 
+determine its annual depreciation expense.
+	 4.	 A company selling electronic gadgets would like to determine the product with the highest number 
+of customer complaints. 
+	 5.	 For a company with more than a thousand employees, determine each employee’s seniority starting 
+from the hiring date.
+BE 6.4  (LO 1, 3)  Agree or disagree with each of the following statements. If you disagree, provide a brief 
+explanation why.
+	 1.	 Depreciation data describe a flows (inflow) relationship.
+	 2.	 Data describing all the services a public accounting firm has offered to clients last month is an exam-
+ple of a flows relationship.
+	 3.	 An audit procedure checking the vendors involved in purchases against an approved list of vendors 
+is an analysis of a participates relationship.
+	 4.	 Calendar tables are used for occurs relationships.
+BE 6.5  (LO 2)  Data   Financial Accounting   Tesla is an Austin, Texas, based electric vehicle and 
+clean energy company. You just downloaded its inside trading report for the first quarter of 2022.
+	 1.	 Build an information model for this data set that lets you compare the fluctuations in the total value 
+of shares sold during the first three months of 2022.
+	 2.	 Use your information model to create the following line chart.
+$30,000,000
+$25,000,000
+$20,000,000
+$15,000,000
+$10,000,000
+$5,000,000
+$0
+January
+February
+Month
+TotalValue
+March
+
+BE 6.6  (LO 2)  Data   Managerial Accounting   OCE is a large chemical company with headquarters 
+in Birmingham (UK). One of the responsibilities of their controller is to manage projects. In January 
+2025, 200 projects were completed. The controller would like to know how many of them did not exceed 
+their budgeted expenses. 
+	 1.	 Create the information model by writing the algorithms. 
+	 2.	 Create a pie chart that shows the number of projects that did and did not exceed their budgeted 
+expenses.
+BE 6.7  (LO 2)  Data   Financial Accounting   Bellafonte is a small university with a sizeable endow-
+ment. Part of their endowment is invested in stocks. At the end of their fiscal year, they provide you the 
+following information regarding their stocks: 
+•  Ticker symbol
+•  Market Sector
+•  Price
+•  Number of stocks
+They ask you to determine the total value of their stock portfolio and the relative importance of each 
+market sector in it, presented as a pie chart. 
+	 1.	 Build the information model needed to generate such chart.
+	 2.	 Create the pie chart. 
+BE 6.8  (LO 2)  Data   Managerial Accounting   Somnum is a startup company that engineered a rev-
+olutionary mattress, the Meglio. They start with a week long sale to test the market reaction to the ­Meglio. 
+A salesperson was placed in ten different malls, each with the goal of selling twenty-five mattresses per 
+day. For each of the following questions, build an information model and perform the analysis. 
+	 1.	 Was the overall goal, which was selling 1,750 mattresses, achieved?
+	 2.	 Which salespeople reached the goal of selling 175 mattresses?
+	 3.	 Which salespeople made their target at least four out of seven days?
+BE 6.9  (LO 2)  Data   Financial Accounting   KOE is a small dairy company in southeast Canada. 
+They track a variety of financial information on a monthly basis. They provide you with some finan-
+cial information for the year 2025 and ask you to determine their 2025 net profit margin and compare 
+the 2025 monthly net profit margins.  
+	 1.	 Build the information model. 
+	 2.	 Use the information model to perform this analysis. 
+BE 6.10  (LO 2)  Data   Managerial Accounting   Charmes is a high-end clothing manufacturer. They 
+offer three product lines: bags, coats, and shoes. Every item produced at Charmes goes through a rigor-
+ous inspection process. Last month the total inspection cost for all items was $45,750. You are asked to 
+determine how much of the inspection cost pool is allocated to each product line, using the number of 
+units as the cost driver. 
+	 1.	 Build the information model. 
+	 2.	 Create a pie chart that shows how much of the inspection costs (in dollars) was allocated to each 
+product line. 
+Brief Exercises  6-53
+
+6-54  CHAPTER 6  Analysis: Information Modeling
+BE 6.11  (LO 2)  Data   Tax Accounting   Danski is a shoe manufacturer in Oxford, PA. Five years ago, 
+they hired a tax accountant, and the company is wondering whether the tax accountant was able to lower 
+their effective tax rate. Danski’s CEO gives you this worksheet.
+2021 Income Before Tax
+2021
+2022
+2022
+2023
+2023
+2024
+2024
+2025
+2025
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+14,365,450
+1,120,505
+15,299,804
+1,254,584
+165,998,110
+12,947,853
+13,489,990
+1,025,239
+175,009,898
+12,950,732
+Income Tax Expense
+Income Before Tax
+Income Tax Expense
+Income Before Tax
+Income Tax Expense
+Income Before Tax
+Income Tax Expense
+Income Before Tax
+Income Tax Expense
+Year
+Account
+Amount
+	 1.	 Develop the information model that calculates the effective tax rate.
+	 2.	 Use it to create the following report. 
+8.2%
+8.0%
+7.8%
+7.80%
+7.80%
+7.60%
+7.40%
+8.20%
+7.6%
+7.4%
+2021
+2022
+2023
+Year
+2024
+2025
+Eﬀective
+TaxRate
+2021
+2022
+2023
+2024
+2025
+Year
+EﬀectiveTaxRate
+7.80%
+8.20%
+7.80%
+7.60%
+7.40%
+
+BE 6.12  (LO 3)  Identify three issues with this star schema for sales orders. Briefly discuss how you 
+would address each.
+CustomerID
+Email
+FirstName
+Gender
+LastName
+Ssn
+Name
+NumberOfCustomers
+Customer
+SocialSecurityNumber
+Age
+Name
+Position
+DateOfHire
+DateOfBirth
+NumberOfSalesPeople
+SalesPerson
+Dimension Tables
+Fact Table
+Dimension Tables
+ItemID
+Color
+Cost
+Description
+ProductCategory
+NumberOfItems
+ProductType
+Date
+Weekday
+Month
+Year
+Calendar
+1
+1
+1
+1
+N
+N
+N
+N
+Date
+Item
+SalesPerson
+Discount
+QuantitySold
+SalesOrder
+SalesPrice
+SalesOrderLineAmount
+SalesOrderLineNetAmount
+NumberOfSalesOrders
+TotalDiscount
+TotalSalesOrderAmount
+TotalSalesOrderNetAmount
+SalesOrder
+SalesOrderLineID
+Key
+Column
+Calculated column
+Measure
+Foreign key
+BE 6.13  (LO 3)  Determine which pattern applies for each of the analyses described.
+	 a.	 flows
+	 b.	 how many
+	 c.	 occurs
+	 d.	 participates
+Analysis
+Pattern
+1.  Comparing the relative proportion of customers per sales region.
+2.  An airline determining the number of hours flown on each type of airplane 
+(e.g., Airbus 321 or Boeing 787) in use.
+3.  The monthly fluctuations in the number of pesticide applications for a 
+farm.
+4.  A comparison of the number of sales completed by freelance salespeople 
+versus full-time salespeople.
+Brief Exercises  6-55

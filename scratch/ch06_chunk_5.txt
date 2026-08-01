@@ -1,0 +1,391 @@
+6-26  CHAPTER 6  Analysis: Information Modeling
+ILLUSTRATION 6.32  Additional 
+Measures for KLUB’s Flows 
+Information Model
+Table: Purchases
+Measure
+Algorithm
+TotalQuantityBought 
+SUM(QuantityBought)
+Table: Sales
+Measure
+Algorithm
+TotalQuantityOfPrintersSold
+SUM(QuantitySold) WHERE Type = “Printer”
+Analysis
+In the KLUB flows information model, the TotalQuantityBought measure in the Purchases table 
+and the TotalQuantitySold measure in the Sales table summarize the physical flows, while the 
+TotalCost measure in the Purchases table and the TotalRevenue and TotalCOGS measures in the 
+Sales table summarize the monetary flows. Brand, Type, and Category are resource dimensions.
+What questions can the data described by a flows relationship answer? Illustration 6.33 
+presents some that can be analyzed using KLUB’s flows information model.
+ILLUSTRATION 6.33  Answering 
+Questions with the Flows 
+Relationship
+What is the number of sales
+transactions per batch (MerchandiseID)?
+What is the total cost per batch
+(MerchandiseID)?
+What is the total revenue generated
+per batch (MerchandiseID)?
+What is the total revenue generated
+per brand?
+What is the total revenue generated
+per type?
+What is the total revenue generated
+per category?
+What is the total number of printers
+(type) sold?
+What is the number of units bought
+per batch (MerchandiseID)?
+What is the number of units sold
+per batch (MerchandiseID)?
+What is the number of items sold
+per brand?
+What is the number of items sold
+per type?
+What is the number of items sold
+per category?
+What is the relative contribution of each
+category to the total revenue generated?
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+Dimensions
+Measures
+Next, use KLUB’s information model to explore two of the questions posed in this 
+illustration. 
+•	Question ➐: What is the relative contribution of each category (dimension) to the Total-
+Revenue (measure)? 
+In Illustration 6.34, the TotalRevenue measure in the Sales table is broken down by the 
+category dimension in the Merchandise table. Pie chart slices represent the relative impor-
+tance of each category. The pie chart shows that KLUB generates most of its revenue from its 
+office products.
+
+6.3  Which Patterns Help Develop and Implement Accounting Information Models?  6-27
+ILLUSTRATION 6.34  Relative 
+Contribution of Categories to Total 
+Revenue
+Oﬀice
+431,308 (69.39%)
+Electronics
+58,025 (9.33%)
+Garden
+132,300 (21.28%)
+Contribution to Total Revenue
+Now, explore another question. 
+•	Question ⓭: What is the total number (measure) of printers (type, which is a dimension) 
+sold?
+Illustration 6.35 shows the total quantity of printers sold and breaks that number down 
+by brand using a column chart. 
+ILLUSTRATION 6.35  Total 
+Number of Printers Sold
+100
+80
+60
+40
+HP
+99
+74
+Brand
+Total Quantity of
+Printers Sold
+Total Printers Sold
+EPSON
+20
+0
+Total Quantity
+of Printers Sold
+Total Quantity
+of Printers Sold
+173
+Information Modeling Pattern 11: Occurs | 
+Transaction-When
+The occurs relationship describes when a transaction takes place by connecting it to a Calen-
+dar table (Illustration 6.36).
+ILLUSTRATION 6.36  The Occurs 
+Relationship
+Fact Table 
+Occurs
+N
+1
+Dimension Table
+When?
+Transaction
+Calendar
+
+6-28  CHAPTER 6  Analysis: Information Modeling
+There are two occurs relationships in KLUB’s data model:
+•	Sales to Calendar.
+•	Purchases to Calendar.
+There are other occurs relationships that do not appear in the KLUB data set:
+•	CashReceipts to Calendar.
+•	CashDisbursements to Calendar.
+Because the information captured by these relationships is similar, the same types of analyses 
+apply to all of them.
+Information Model
+Following the principles of dimensional modeling, measures must be developed for the trans-
+actions (such as Sales) and broken down by dimensions that are part of the Calendar table:
+•	The measures developed earlier for the Transaction tables, such as NumberOfSales, can 
+also be used here.
+•	In addition to dates, a Calendar table contains a series of time units as dimensions for 
+analysis, including weekday, week number, month, quarter, and year. Because there are 
+only six months of data for KLUB, year dimensions are not relevant.
+Illustration 6.37 (A) shows the generic information model for occurs relationships. Panel (B) 
+of the same illustration applies this pattern to KLUB’s Sales-Calendar occurs relationship. 
+NumberOfSales can be analyzed by weekday, month, and quarter.
+A calendar table contains all dates between a start date and an end date. Software such as 
+Power BI makes it easy to create a Calendar table. Once that is done, time unit dimensions such as 
+month, quarter, and year can be added and used for analysis. Creating these dimensions is usually 
+easy. An example of this is Excel’s year function, which returns the year component of a date.
+ILLUSTRATION 6.37  Information 
+Model Pattern for the Occurs 
+Relationship
+Fact Table
+1
+Occurs
+Occurs
+1
+N
+N
+Dimension Table
+When?
+Calendar
+Date
+TimeUnits
+When?
+Calendar
+Date
+WeekDay
+Month
+Quarter
+Sales
+NumberOfSales
+Transaction
+NumberOfTransactions
+(A) Generic
+(B) KLUB
+Column
+Calculated column
+Measure
+Analysis
+Illustration 6.38 presents some example questions that can be analyzed using KLUB’s occurs 
+relationships.
+
+6.3  Which Patterns Help Develop and Implement Accounting Information Models?  6-29
+ILLUSTRATION 6.38  Answering 
+Questions With the Occurs 
+Relationship
+How do the number of sales
+transactions compare across weekdays?
+How do the number of purchase
+transactions compare across weekdays?
+1
+2
+What is the trend for the number of
+sales transactions during the first six
+months of 2023?
+How do the number of sales
+transactions for the first and
+second quarters compare?
+3
+4
+Dimensions
+Measures
+Once again, we can use the information model to explore two of these questions. Illustration 
+6.39 explores the first question with KLUB’s occurs information model. 
+•	Question ❶: How do the number of sales transactions (measure) compare across week-
+days (dimension)? 
+The column chart breaks down the number of sales transactions by weekday.
+ILLUSTRATION 6.39  Comparing 
+Number of Sales Transactions 
+Across Weekdays
+200
+150
+183
+180
+174
+141
+132
+110
+87
+100
+50
+0
+Fri.
+Mon.
+Tue.
+Wed.
+Weekday
+Number
+of Sales
+Weekday Sales Comparison
+Thu.
+Sat.
+Sun.
+Illustration 6.40 explores another question.
+•	Question ❸: What is the trend for the number of sales transactions (measure) during 
+the first six months (dimension) of 2023? 
+The line chart breaks down the number of sales transactions by month and helps identify 
+trends.
+ILLUSTRATION 6.40  Identifying 
+Trends for the Number of Sales 
+Transactions Across Months
+250
+200
+150
+100
+Jan.
+88
+110
+137
+140
+264
+268
+Feb.
+Mar.
+Month
+Number
+of Sales
+Sales Trends by Month
+Apr.
+May
+Jun.
+50
+300
+
+6-30  CHAPTER 6  Analysis: Information Modeling
+Information Modeling Pattern 12: Who-What-
+When Star Schema
+While patterns 9, 10, and 11 analyze the who, what, and when dimensions of accounting 
+transactions, this pattern integrates these three relationships (Illustration 6.41).
+ILLUSTRATION 6.41  The Who-What-When Star Schema Pattern
+N
+N
+Participates
+Occurs
+Participates
+Flows
+N
+N
+1
+1
+1
+1
+Dimension Tables
+Fact Table
+Dimension Tables
+Who?
+External
+Agent
+Transaction
+Who?
+Internal
+Agent
+When?
+Calendar
+What?
+Resource
+KLUB’s data model integrates two instances of the who-what-when pattern. The first is 
+for the acquisition of items, which are purchases (Illustration 6.42). There is no employee 
+information to record for purchases because the owner of the company oversees the acquisi-
+tion process.
+ILLUSTRATION 6.42  The Purchases Who-What-When Star Schema Pattern
+N
+N
+Participates
+Occurs
+Flows
+N
+1
+1
+1
+Dimension Table
+Fact Table
+Dimension Tables
+Vendor
+Purchases
+Calendar
+What
+does KLUB
+buy?
+When
+does KLUB
+buy?
+From Whom
+does KLUB
+buy?
+Merchandise
+
+6.3  Which Patterns Help Develop and Implement Accounting Information Models?  6-31
+The second is for selling the items, or sales (Illustration 6.43).
+ILLUSTRATION 6.43  The Sales Who-What-When Star Schema Pattern
+N
+N
+Participates
+Occurs
+Participates
+Flows
+N
+N
+1
+1
+1
+1
+Dimension Tables
+Fact Table
+Dimension Tables
+Customer
+Sales
+Who
+Sells?
+Employee
+Calendar
+What
+does KLUB
+sell?
+When
+does KLUB
+sell?
+To Whom
+does KLUB
+sell?
+Merchandise
+Information Model
+Recall that a data model contains all fields, while the information model also contains cal-
+culated columns and measures created for analysis purposes. Information models can be 
+extended depending on business’ specific needs. Illustration 6.44 is the data model and infor-
+mation model for KLUB’s Sales star schema. 
+To create a richer information model for KLUB, we added an extra calculated column 
+called TargetAmount, as well as the three extra measures of TotalTargetAmount, Discrepancy, 
+and Discrepancy% to the Sales star schema: 
+•	For each batch, KLUB has a minimum target price per unit called MinimumSalePrice.
+•	The Discrepancy measure determines the difference between the actual price charged to 
+the customer and the target price.
+•	Disrepancy% results from dividing the sales price by the target price. It indicates by what 
+percentage the minimum target price is exceeded.
+Among others, these measures can be used to analyze the negotiation skills of KLUB’s 
+­salespeople. Illustration 6.45 shows formulas to create the new calculated column 
+(­TargetAmount) and measures (TotalTargetAmount, Discrepancy, and Discrepancy%).
+The calculated column and measures determine specific pieces of information:
+•	The TargetAmount column determines the dollar amount for an invoice line if the 
+minimum sale price had been charged to the customer. Its algorithm follows Pattern 4: 
+Across-Table Calculation.
+•	The TotalTargetAmount measure determines the total amount KLUB would have 
+received if the company had charged the target prices for all its sales. Its algorithm fol-
+lows Pattern 5: Single-Column Aggregation.
+•	The Discrepancy measure determines the discrepancy between total revenues and total 
+target amounts. The “−” symbol represents subtraction. This is an aggregate that can be 
+sliced in many ways. Its algorithm follows Pattern 7: Measure Hierarchies.
+•	The Discrepancy% measure compares actual revenues with targeted revenues as a per-
+centage. Its algorithm also follows Pattern 7: Measure Hierarchies.

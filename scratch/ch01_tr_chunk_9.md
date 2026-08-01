@@ -22,6 +22,8 @@ Bạn đang thực hiện một cuộc kiểm toán độc lập về báo cáo 
 **EX 1.3 (LO 2, 4) Kế toán tài chính (Financial Accounting) | Áp dụng Quy trình phân tích dữ liệu**
 Bonnie, Giám đốc tài chính (CFO) của một công ty bán lẻ lớn, đã yêu cầu bạn thực hiện phân tích dữ liệu để xác định hàng tồn kho lỗi thời và tính toán khoản dự phòng giảm giá hàng tồn kho cho báo cáo tài chính cuối năm. Hàng tồn kho là một trong những tài sản lớn nhất trên bảng cân đối kế toán của bạn. Hãy hoàn thành bảng sau.
 
+![EX 1.3](../TaiLieu/textbookForPractice/Figures/Ch_01/EX%201.3.png)
+
 | Giai đoạn quy trình phân tích dữ liệu | Phản hồi (Response) |
 | --- | --- |
 | **Lên kế hoạch (Plan)** | 1. Động lực (Motivation) thực hiện phân tích của bạn là gì? <br> 2. Mục tiêu dự án phân tích dữ liệu của bạn là gì? <br> 3. Chiến lược để đạt được mục tiêu của bạn là gì? |
@@ -31,6 +33,8 @@ Bonnie, Giám đốc tài chính (CFO) của một công ty bán lẻ lớn, đ�
 **EX 1.4 (LO 2, 4) Hệ thống thông tin kế toán (Accounting Information Systems) | Kiểm toán (Auditing) | Tư duy phản biện và Quy trình phân tích dữ liệu**
 Bạn đang làm việc trong bộ phận kiểm toán nội bộ của một công ty niêm yết đại chúng. Đây là năm đầu tiên công ty phải phân tích và báo cáo về tính hiệu quả hoạt động của các kiểm soát nội bộ đối với báo cáo tài chính.
 Hito, giám đốc kiểm toán nội bộ, yêu cầu bạn kiểm tra các kiểm soát liên quan đến việc ủy quyền và xác thực người dùng vào hệ thống thông tin của công ty. Cụ thể, bạn được yêu cầu xác định xem có bất kỳ nhân viên nào đã nghỉ việc mà vẫn tiếp tục có quyền đăng nhập vào hệ thống thông tin hay không. Bạn dự định yêu cầu các tệp từ nhóm nhân sự và nhóm công nghệ thông tin. Đối với mỗi bước trong quy trình phân tích dữ liệu (MOSAIC), hãy sử dụng khung tư duy phản biện bằng cách áp dụng ít nhất hai yếu tố tư duy phản biện.
+
+![EX 1.4](../TaiLieu/textbookForPractice/Figures/Ch_01/EX%201.4.png)
 
 | Giai đoạn quy trình phân tích dữ liệu | Tư duy phản biện (Critical Thinking) |
 | --- | --- |
@@ -42,11 +46,15 @@ Hito, giám đốc kiểm toán nội bộ, yêu cầu bạn kiểm tra các ki�
 Bạn là một kiểm toán viên độc lập năm nhất được phân công cho một khách hàng có hoạt động kinh doanh chính là nhân giống và chăn nuôi bò rừng. Họ bán thịt cho các cửa hàng tạp hóa và nhà phân phối, những người này sau đó bán lại cho các nhà hàng. Bạn sẽ kiểm toán khoản dự phòng nợ phải thu khó đòi của công ty. Khách hàng đã lập một bảng tiến độ cho thấy họ có hơn 200 khách hàng với số dư nợ phải thu chưa thanh toán tính đến cuối năm. Trưởng nhóm kiểm toán (audit senior) của bạn đã chỉ ra rằng cơ sở dẫn liệu (assertion) chính mà bạn nên tập trung vào là việc định giá khoản dự phòng nợ khó đòi. Bạn phải thực hiện một phân tích để tính toán lại số dư đã ghi nhận của công ty.
 Đối với mỗi bước trong quy trình phân tích dữ liệu, hãy sử dụng khung tư duy phản biện bằng cách áp dụng ít nhất hai yếu tố tư duy phản biện. (Tương tự như bảng trong EX 1.4)
 
+![EX 1.5](../TaiLieu/textbookForPractice/Figures/Ch_01/EX%201.5.png)
+
 **EX 1.6 (LO 2, 4) Kế toán tài chính (Financial Accounting) | Tư duy phản biện và Quy trình phân tích dữ liệu**
 Bạn là một nhà phân tích tài chính làm việc cho bộ phận kế toán của một công ty hàng không lớn. CFO muốn hiểu khả năng thanh toán nợ của công ty (nghĩa là khả năng đáp ứng các nghĩa vụ nợ của họ) so với các đối thủ cạnh tranh chính (Southwest, Delta, American, và Alaska Air). Bạn đã được giao nhiệm vụ tính toán, diễn giải và đánh giá các tỷ số sau:
 - Tỷ số Nợ trên Vốn chủ sở hữu (Debt to equity): Tổng nợ / Vốn chủ sở hữu
 - Tỷ số Nợ trên Tài sản (Debt to assets): Tổng nợ / Tổng tài sản
 - Tỷ số khả năng trả lãi (Times interest earned): (Thu nhập ròng + Chi phí lãi vay + Chi phí thuế) / Chi phí lãi vay
+
+![EX 1.6](../TaiLieu/textbookForPractice/Figures/Ch_01/EX%201.6.png)
 
 Đối với mỗi bước trong quy trình phân tích dữ liệu, hãy sử dụng khung tư duy phản biện bằng cách áp dụng ít nhất hai yếu tố tư duy phản biện. (Tương tự bảng trong EX 1.4).
 

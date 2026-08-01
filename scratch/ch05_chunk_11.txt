@@ -1,0 +1,705 @@
+5-64  CHAPTER 5  Analysis: Data Preparation
+BE 5.7  (LO 3, 4)  You face five different data preparation scenarios. Match a data quality issue to each 
+scenario. Each data quality issue can be used only once. 
+	 a.	 The column names are incorrect or ambiguous.
+	 b.	 All columns are not single-valued.
+	 c.	 All the data have not been transferred correctly.
+	 d.	 The columns do not have the correct data type.
+	 e.	 All the data have not been transferred.
+#
+Scenario
+Data Quality Issue
+1.
+Grace received a data set that had a column titled ClientInfo. 
+Each record in that field contained a client’s mailing address.
+2.
+The data in the Sales column are the dollar amounts of the 
+sale transactions. However, Quinn noted that the data type was 
+classified as alphanumeric characters or text data.
+3.
+Upon inspection of data transferred from the payroll system to a 
+data warehouse, Molly noticed that employee payroll records only 
+included employees with last names beginning A through S.
+4.
+Barnes received a table of data from the IT group. One of the 
+columns contains both customer name data and payment term data.
+5.
+Devon extracted data from the company’s shipping department 
+log. In addition to shipment data, the log also contains summary 
+statistics such as the total quantity shipped. Upon inspection of 
+the extracted data, Devon notes that the total quantity shipped 
+for the extracted data does not match the total quantity shipped 
+number in the log.
+BE 5.8  (LO 3)  Data   You receive a text file with December purchase order information. Before you 
+start your analysis, use Power Query (Excel or Power BI) to determine whether the data have been com-
+pletely and correctly transferred. A total of 34 purchases with an average total cost per product (orderline) 
+of $610.98 were made during the month of December. 
+	 1.	 Name the preparation pattern you used to verify all transactions were transferred and explain how 
+you verified this.
+	 2.	 Name the preparation pattern you used to verify that all data were transferred correctly and explain 
+how you verified this.
+BE 5.9  (LO 4)  Simply Salon Beautiful collects customer information and assigns a unique customer ID 
+to track the customer’s rewards, purchases, and appointments. 
+CustomerID CustomerName
+Emily Boyd
+Artie Burns
+Mario Edwards Jr.
+Javon Wims
+Tierna Davidson
+Sarah Gorden
+Female
+Male
+Male
+Male
+Female
+Female
+10/21/1978
+9/21/2008
+6/28/2906
+1/4/2009
+6/14/1982
+7/22/1955
+A283
+$ 490.12
+$    48.01
+$ 287.89
+$ 476.45
+$ 393.99
+$ 593.07
+1
+0
+1
+1
+0
+1
+A493
+A393
+B382
+C494
+C948
+Gender DateOfBirth
+1
+3
+6
+2
+4
+6
+Rewards YTDSales
+NumberOf
+AppointmentScheduled
+For each column, identify the most appropriate data type. Each data type can be used once, more than 
+once, or not at all.
+	 a.	 Date
+	 b.	 Date/Time
+	 c.	 Decimal number
+	 d.	 Percentage
+	 e.	 Text
+	 f.	 Time
+	 g.	 Whole number
+Column
+Data Type
+CustomerId
+1.
+CustomerName
+2.
+Gender
+3.
+DateofBirth
+4.
+Rewards
+5.
+YTDSales
+6.
+NumberofAppointmentsScheduled
+7.
+
+Brief Exercises  5-65
+BE 5.10  (LO 4)  Data   With the provided data, use an ETL tool to perform the following.
+	 1.	 Modify the data type for the CustomerId column from text to whole number. How many records 
+report an error after this change?
+	 2.	 Determine the highest number of rewards a customer earned.
+	 3.	 Identify any incorrect data in the AppointmentDuration column.
+BE 5.11  (LO 5)  Data   Your boss gives you a text file that contains sales information including 
+amounts, discounts, and coupons. An excerpt is shown here.
+InvoiceNo
+1/6/2025
+1/8/2025
+1/9/2025
+1/10/2025
+1/10/2025
+1/6/2025
+1/7/2025
+1/7/2025
+1/8/2025
+1/8/2025
+1203
+1208
+1209
+Cash
+Cash
+1210
+1211
+Cash
+1212
+1/10/2025
+1/10/2025
+1/11/2025
+1/11/2025
+$ 398
+$ 354
+$ 863
+$ 944
+0
+2
+0
+5
+5
+2
+0
+0
+0
+0
+5
+10
+0
+2
+25
+0
+5
+25
+0
+0
+10
+5
+2
+0
+0
+0
+5
+15
+23
+144
+233
+17
+101
+224
+301
+24
+144
+1204
+Cash
+1206
+1207
+Cash
+SaleDate
+$ 621
+$ 233
+$ 539
+$ 985
+$ 320
+$ 682
+$ 477
+$ 779
+$ 742
+$ 452
+Amount Discount Coupon Customer
+Based on a discussion with your boss, you put together the following data dictionary.
+Name
+Description
+InvoiceNo
+A unique code given to Credit sales for which an invoice is prepared. The label 
+Cash is used for cash sales.
+SaleDate
+The date the sale occurred.
+Amount
+The dollar amount the customer owes before discounts and coupons.
+Discount
+The discount percentage given to the customer.
+Coupon
+A coupon with a dollar provided by the customer. It should be noted that a 
+coupon can only be considered when no discount applies.
+Customer
+A customer’s ID. For cash sales, this field is left blank. 
+List the table transformation patterns (patterns 11–14) that are relevant for this data set and explain how 
+you would apply each.
+BE 5.12  (LO 5)  Your supervisor has asked you to understand sales and the discounts and coupons applied 
+to them. They provided you with a spreadsheet for your analysis. Here is an excerpt of that spreadsheet:
+0
+32
+1
+0
+0
+45
+0
+0
+1
+10
+SaleDate
+$     197
+$ 4,680
+$     584
+$     997
+$     258
+$     113
+$     155
+$     423
+$        88
+$     250
+10/21/2025
+10/27/2025
+10/28/2025
+10/29/2025
+10/30/2025
+10/22/2025
+10/23/2025
+10/24/2025
+10/25/2025
+10/26/2026
+Amount
+0
+2
+0
+1
+2
+2
+0
+12
+10
+3
+Discount Coupon
+1
+2
+1
+2
+3
+1
+1
+Approved
+	 1.	 Apply data preparation Pattern 11. The table is titled Amounts & Discounts. Propose a table name 
+that is less ambiguous.
+	 2.	 Apply data preparation pattern 12. Does the table have a primary key? If not, describe how you 
+would create a primary key for this table.
+
+5-66  CHAPTER 5  Analysis: Data Preparation
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+James
+Lenk
+Richards
+Lozano
+David
+Petroni
+Diamond
+Sutherland
+Clay
+McCarthy
+Kayne
+Ivan
+Mick
+Juan
+Gail
+Ann
+Shiela
+Yvonne
+Marcus
+Molly
+Houston
+Texarcane
+Chicago
+Boston
+Chicago
+Houston
+Boston
+Chicago
+Boston
+Chicago
+Male
+Male
+Male
+Male
+Female
+Female
+Female
+Female
+Male
+Female
+1
+3
+5
+4
+7
+1
+3
+4
+5
+1
+27
+35
+39
+37
+40
+27
+35
+37
+39
+27
+3,521
+3,811
+2,901
+3,477
+3,420
+1,709
+2,331
+3,871
+1,942
+3,665
+LastName
+ABC
+FirstName
+ABC
+Location
+ABC
+Gender
+ABC
+Level
+123
+2024Hours
+123
+RateperHour
+123
+BE 5.13  (LO 6)  Data   You are given two files. One file contains employee information and the other 
+contains employee performance information. These are the data dictionaries for both tables.
+Employee (Generic employee information)
+Name
+Description
+LastName
+An employee’s last name.
+FirstName
+An employee’s first name.
+Location
+The city where the employee is located.
+Gender
+An employee’s gender.
+EmployeePerformance (Information about employee performance)
+Name
+Description
+LastName
+An employee’s last name.
+FirstName
+An employee’s first name.
+Level
+An employee’s level with 1 being the lowest and 7 being the 
+highest.
+2024Hours
+The number of hours an employee worked in 2024.
+RatePerHour
+An employee’s hourly rate.
+Using data preparation pattern 15, combine both files to achieve the result shown here.
+BE 5.14  (LO 6)  Data   HoneyBees is a high-end restaurant in Northern California. They just installed 
+tableside point-of-sale (POS) systems on each of their 20 tables. They provide you the data for the first 
+two days of using the new system. The data dictionary describes the data captured by the POS systems 
+on both days.
+HoneyBees Day 1 Data Dictionary
+Name
+Description
+Date
+The day the sales transaction occurred.
+Time
+The time the sales transaction occurred.
+Amount
+The dollar amount of the sales transaction.
+Tip
+The tip received as a percentage.
+Customer
+Name of the customer–name on the credit card used.
+Server
+The name of the server (employee).
+POS
+The POS number–between 1 and 20–that was used to record 
+the sales transaction.
+
+Brief Exercises  5-67
+HoneyBees Day 2 Data Dictionary
+Name
+Description
+Date
+The day sales transaction occurred.
+Time
+The time the sales transaction occurred.
+Amount
+The dollar amount of the sales transaction.
+Tip
+The tip received as a percentage.
+Server
+The name of the server (employee).
+Customer
+Name of the customer–name on the credit card used.
+POS
+The POS number–between 1 and 20–that was used to record the sales 
+transaction.
+Combine the data in the two files for analysis purposes. The new file should have 46 transactions. 
+BE 5.15  (LO 6)  You are evaluating a data set to determine if the data are valid. The data model for the 
+data set is shown.
+ID
+ActualTime
+JobType
+VarianceRatio
+Job
+N
+1
+Code
+BudgetedTime
+JobType
+VarianceRatio is a measure, and this is its formula: 
+VarianceRatio = (ActualTime – BudgetedTime) / BudgetedTime
+You note that the minimum budgeted time for all jobs is two hours. Your team designs a number of vali-
+dation rules, including the following inter-table validation rule:
+IF VARIANCERATIO > 1 
+THEN RED 
+OTHERWISE GREEN 
+	 1.	 Specify the validation rule in terms that are easy to understand for a business person. 
+	 2.	 Discuss what might cause the formula to generate the value red.
+
+5-68  CHAPTER 5  Analysis: Data Preparation
+BE 5.16  (LO 7)  Tin Fos, a midsize information service company, received a data set from one of its 
+­clients. They are trying to design analytics reports, but the results are either empty or wrong. Evaluate 
+the following data dictionary and data model to identify the two issues that are causing the problems.
+Data Dictionary
+PurchaseOrder (Information about orders placed)
+Name
+Description
+Amount
+The dollar amount to be paid to the vendor.
+Date
+The date on which the order was placed.
+ID
+The purchase order’s unique ID.
+Vendor
+The ID of the vendor from whom the goods were purchased.
+Delivery (Information about goods delivered)
+Name
+Description
+Date
+The date on which the goods were delivered.
+DeliveryNo
+The delivery’s unique ID.
+PurchaseOrder
+The purchase order number associated with the delivery.
+Vendor (Information about vendors)
+Name
+Description
+Address
+The vendor’s address.
+ID
+The vendor’s unique ID.
+Name
+The vendor’s name.
+Data Model:
+PurchaseOrder
+Date
+ID
+Vendor
+1
+1
+Amount
+Vendor
+ID
+Name
+Address
+Delivery
+DeliveryNo
+PurchaseOrder
+Date
+N
+N
+Relationships:
+Active
+From: Table (Column)
+To: Table (Column)
+PurchaseOrder (ID)
+Vendor (Name)
+Delivery (DeliveryNo)
+PurchaseOrder (Vendor)
+Manage Relationships
+
+Exercises  5-69
+Exercises
+EX 5.1  (LO 1, 2, 4, 5)  Data   Basic Data Transformations You are running your own accounting 
+practice. Your clients are small to midsize companies that need assistance with transaction processing, 
+bookkeeping, and financial reporting. Your newest client, Healthy Pets, is a pet supply retailer with ten 
+locations across the region. The company owner has provided you with customer loyalty data. Each cus-
+tomer can join the customer loyalty program to earn points for discounted purchases.
+	 1.	 Remove duplicate customer entries (Hint: There are 11 records in the original table; the clean table 
+should only include 9 records).
+	 2.	 Replace values in the gender column so that records labeled “M” are replaced with Male, and 
+records with “F” are replaced with Female.
+	 3.	 Rename the Date column as DOB, (date of birth of the customer).
+	 4.	 Transform the CustInfo column into two single-valued columns. Label one column Name and the 
+second column Street.
+EX 5.2  (LO 1, 2, 4, 6)  Data   Column and Model Transformations You are an accountant for Bar-
+gain, which is a franchise that buys items all over North America, fixes and cleans them, and then sells them 
+with a substantial markup. You have been asked to create an analytical database to understand purchases 
+in anticipation of a business cycle review and efficiency project. Your supervisor provided you with three 
+CSV files and a PDF file with the data dictionaries for each. Apply the appropriate data preparation pat-
+terns to the three files to create an analytical database that is consistent with the one shown here. 
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+US1
+US2
+US3
+US4
+US5
+CAN1
+CAN2
+CAN3
+CAN4
+CAN5
+Cohen, Sandra
+Gray, Sev
+Leroy, Shanice
+Morales, Benita
+Wang, CeCe
+Zhu, Jim
+Coyle, Irene
+Dabrowski, Elizbieta
+King, Laura
+Jackson, Kiara
+scohen@vstores.com
+sev-gray@Ibox.com
+sleroy@google.com
+bmor@hf.com
+cece@cch.com
+jzhu@outlook.com
+Irene@coyle.com
+ElzDab@gmail.com
+LauraKing@fmh.com
+kiaraj@ncn.com
+ID
+ABC
+Name
+ABC
+Email
+ABC
+2
+1
+1
+5
+1
+1
+1
+1
+2
+2
+Vendor
+ABC
+Price
+123
+Type
+ABC
+Date
+Quantity
+123
+Category
+ABC
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+8992
+8993
+8994
+8894
+8896
+8897
+8897
+8898
+8898
+8899
+1/2/2025
+1/2/2025
+1/2/2025
+1/2/2025
+1/2/2025
+1/3/2025
+1/3/2025
+1/3/2025
+1/3/2025
+1/3/2025
+Rice Cooker
+Phone
+Fryer
+Stuﬀed Animal
+TV
+Stuﬀed Animal
+Microwave
+Headphone
+Jewelry
+Printer
+Kitchen
+Electronics
+Kitchen
+Toys
+Electro
+Toys
+Kitchen
+Electronics
+Toys
+Electro
+$    69
+$ 113
+$ 181
+$    14
+$    79
+$    67
+$ 205
+$    45
+$    13
+$ 199
+US1
+CAN3
+CAN5
+US2
+CAN2
+CAN1
+US1
+US4
+CAN1
+CAN3
+OrderNo
+123
+LineItemID
+123
+BargainPurchases
+BargainVendors

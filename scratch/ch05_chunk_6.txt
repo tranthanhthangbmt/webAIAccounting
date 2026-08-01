@@ -1,0 +1,542 @@
+5-34  CHAPTER 5  Analysis: Data Preparation
+Transformation patterns at the model level search for data issues across tables, such as data 
+that describe the same entity spread across multiple tables, data models with a structure that 
+is difficult to understand, and data models that do not support efficient processing.
+Data Preparation Pattern 15: Data Spread  
+Across Tables
+Analysis becomes more challenging when data that describe the same entity are spread across 
+multiple tables. Illustration 5.32 shows two possible scenarios.
+	 1.	 In panel (A) both tables, JanuarySales and FebruarySales, have the same structure but 
+different rows. It is the sales table shown in panel (C) split horizontally. Questions about 
+total sales amounts are easier to answer if all data are in one table.
+	 2.	 In panel (B) the two tables describe different characteristics of the same entity–Product. 
+Some information for the product with ID 1 is in the ProductDescriptions table. Other 
+information for the same product, ID = 1, is in the ProductAccounting table. In this case, 
+it is the product table shown in panel (D) split vertically.
+ILLUSTRATION 5.32  Combining Tables
+189
+190
+191
+Number
+Date
+JanuarySales
+(A) Monthly Sales Data
+Across Tables
+(C) Monthly Sales Data Union
+(D) Product Information Merge
+(B) Product Information
+Across Tables
+1/10/2025
+1/15/2025
+1/24/2025
+$ 17,450
+$ 23,890
+$ 19,001
+Amount
+192
+193
+194
+Date
+FebruarySales
+2/9/2025
+2/10/2025
+2/14/2025
+$ 25,451
+$ 34,881
+$   7,282
+195
+2/23/2025
+$ 13,209
+Amount
+189
+190
+191
+Date
+Sales
+1/10/2025
+1/15/2025
+1/24/2025
+$ 17,450
+$ 23,890
+$ 19,001
+Amount
+192
+193
+194
+2/9/2025
+2/10/2025
+2/14/2025
+$ 25,451
+$ 34,881
+$   7,282
+195
+2/23/2025
+$ 13,209
+1
+2
+3
+ID
+Type
+ProductDescriptions
+Stuﬀed Animals
+Radio
+Soccer Balls
+Toys
+Electronics
+Toys
+Category
+1
+2
+3
+ID
+QOH 
+ProductAccounting
+84
+133
+354
+1
+2
+3
+ID
+Type
+Product
+Stuﬀed Animals
+Radio
+Soccer Balls
+Toys
+Electronic
+Toys
+Category
+QOH 
+84
+133
+354
+Number
+Number
+5.6  Which Patterns Transform Models?
+LEARNING OBJECTIVE ❻
+Apply patterns to transform models.
+
+5.6  Which Patterns Transform Models?  5-35
+Identify Similarly Structured Tables/Tables Describing Different 
+Characteristics of the Same Entity
+To identify similiarly structured tables, look for two or more tables with the same structure. 
+These tables would have the same columns and similar data. Another option is to search 
+for tables that describe different characteristics of the same entity. In the Beans case, Employee 
+and EmployeeDemographics are such tables. The goal is to create a single table with all the 
+employee information.
+Combine Tables
+Recall from earlier in the chapter that combining two tables with a similar structure is called a 
+union. In Illustration 5.32, the table in panel (C) combines the two tables in panel (A). Combin-
+ing two tables with different characteristics for the same entity is a merge or a join. The table 
+in panel (D) combines the two tables in panel (B). For the Beans case, both the Employee and 
+EmployeeDemographics tables contain employee information, so they should be merged into 
+one table ( Data See How To 5.2 to learn how to merge these tables with Power Query.).
+Illustration 5.33 shows the structure of the combined table, which is named Employee.
+How To
+Employee
+EmployeeID
+FirstName
+LastName
+JobTitle
+Rate
+CertificationList
+MaritalStatus
+University
+ILLUSTRATION 5.33  
+Combined Employee Table
+Pattern 15 Summary
+Problem
+An entity’s data are spread across multiple tables, which 
+complicates analysis.
+Detect (Data Profiling)
+Identify tables with a similar structure or tables that describe 
+different characteristics of the same entity.
+Correct (ETL)
+Union or merge tables.
+Data Preparation Pattern 16: Data Models Do Not 
+Comply with Principles of Dimensional Modeling
+Dimensional modeling is the technique of creating data models with fact tables surrounded by 
+dimension tables. These data models, such as star schemas, are easy to understand and result 
+in efficient data processing. 
+Analyze a Data Model’s Compliance with Dimensional 
+Modeling Principles
+Use these dimensional modeling principles by determining the fact and dimension tables 
+and ensuring all fields belong to the correct table. In an accounting context, fact tables 
+correspond to business transactions. Dimension tables, on the other hand, describe who 
+participates in the transactions, when the transactions occurred, and what was given up or 
+acquired. (The chapter on information modeling discusses who, what, and when analysis of 
+accounting transactions in more detail.) 
+
+5-36  CHAPTER 5  Analysis: Data Preparation
+Illustration 5.34 structures the current analytical database as a star schema. The 
+Service table is the fact table, the Employee table is a who dimension, and the Client table is 
+also a who dimension.
+ILLUSTRATION 5.34  Current Beans Star Schema
+Who?
+Transaction
+?
+Employee
+EmployeeID
+FirstName
+LastName
+JobTitle
+Rate
+MaritalStatus
+CertificationList
+University 
+Client
+ClientID
+Name
+IndustryName
+Service
+N
+N
+1
+1
+ServiceID
+Date
+ActualTime
+BudgetedTime
+TaskName
+TaskID
+Area
+Dimension Tables
+Fact Table
+Dimension Tables
+Key
+Column
+Foreign Key
+Who?
+What?
+Employee
+Client
+Note that the when and what dimensions seem to be missing. There is only the Date field in 
+the Service table, and we opted not to specify a separate when dimension. However, TaskId, 
+TaskName, and Area are all what descriptions–What does Beans sell to their clients? There-
+fore, a new dimension table named Task can be created. Further, recall from Pattern 6 that 
+the CertificationList column in the Employee table is a multi-valued column. Creating a new 
+table transforms it into a single-valued column. Illustration 5.35 shows the data model we 
+would like to create.
+Creating a separate table for Certifications, results in a snowflake schema. In a snow-
+flake schema, the information for a dimension is spread across multiple tables. The schema 
+in Illustration 5.35 can be created using Power Query as the ETL tool.
+
+5.6  Which Patterns Transform Models?  5-37
+Reconfigure the Data Model as a Star/Snowflake Schema
+First, create a Task Dimension table that captures the descriptions for services. 
+Step 1: 
+Duplicate the Service table and rename the duplication “Task” (Illustration 5.36). 
+For both the Service and Task tables, keep only the columns that are shown in Illustration 5.35.
+ILLUSTRATION 5.36  Duplicate Service Table
+ServiceID
+123
+Client
+EmployeeDemographi...
+Employee
+Service
+Close
+Data Source
+Settings
+Close &
+Apply
+Enter
+Data
+New
+Source
+Recent
+Sources
+Data Sources
+Manage
+Parameters
+Parameters
+New Query
+Queries [4]
+1
+2
+3
+4
+Copy
+Paste
+Delete
+Rename
+Enable load
+Include in report refresh
+Reference
+Duplicate
+ILLUSTRATION 5.35  An Ideal Beans Star/Snowflake Schema
+Transaction
+Who?
+Who?
+Who?
+What?
+N
+N
+1
+1
+N
+1
+N
+1
+Certifications
+EmployeeID
+Certification
+Employee
+EmployeeID
+FirstName
+LastName
+JobTitle
+Rate
+MaritalStatus
+University
+Client
+ClientID
+Name
+IndustryName
+Task
+TaskID
+Area
+TaskName
+Service
+Client
+Employee
+Task
+Date
+ActualTime
+BudgetedTime
+ServiceID
+Dimension Tables
+Fact Table
+Dimension Tables
+Key
+Column
+Foreign Key
+
+5-38  CHAPTER 5  Analysis: Data Preparation
+ILLUSTRATION 5.37  Task Dimension Table
+TaskID
+1
+2
+3
+4
+5
+6
+7
+8
+1
+2
+3
+4
+5
+6
+7
+8
+Accounting
+Accounting
+Accounting
+Accounting
+Tax
+Tax
+Tax
+Tax
+Prep
+Review
+Admin
+Other
+Prep
+Review
+Admin
+Other
+123
+TaskName
+Area
+ABC
+ABC
+Be sure to retain the TaskID field in the Service table and to rename it “Task.” The Service 
+table has now been split into two tables. Service is a fact table, and Task is a dimension table. 
+Step 2: 
+Delete the duplicate rows in the Task table by selecting the Home tab in Power 
+Query’s main menu. Select Remove Rows, then select Remove Duplicates. 
+The Task table should now mirror the one shown in Illustration 5.37. 
+Second, address the problem of CertificationList, which is a multi-valued column in the 
+Employee table: 
+Step 1: 
+Use the same process as before to create the CertificationList table:
+•	Duplicate the Employee table and name the duplication “Certifications.” 
+•	Remove the CertificationList column from the Employee table. 
+•	In the new Certifications table, keep only the EmployeeID and the CertificationsList 
+columns. 
+Step 2: 
+Transform the CertificationList from a multi-valued column into a single-valued 
+column: 
+•	In Power Query, split the CertificationList column and select the Each Occurrence of 
+the delimeter option. 
+•	Click on the EmployeeID column and select Transform in the main menu.
+•	Finally, select Unpivot Columns in the ribbon, and choose Unpivot other Columns 
+(Illustration 5.38). 
+Step 3: 
+In the resulting table, delete the Attribute column and change the Value column’s 
+name to “Certificate.” An employees’s certifications are now recorded in a single-valued 
+­column.
+This completes the transformation of the Bean’s data set into a star/snowflake schema. 
+
+5.6 Which Patterns Transform Models? 5-39
+ Pattern 16 Summary 
+ Problem 
+ Data models that are not structured following the 
+principles of dimensional modeling are typically 
+more difficult to analyze. 
+ Detect (Data Profiling) 
+ Analyze a data model’s compliance with 
+dimensional modeling principles. 
+ Correct (ETL) 
+ Reconfigure the data model as a star/snowflake 
+schema. 
+Data Exploration Pattern 17: Find Invalid Values 
+with Inter-Table Rules
+ Patterns 10, 14, and 17 are similar because they define the acceptable values for a column. 
+However, Pattern 17 determines the validity of a column’s values based on the values in one 
+or more other tables. An example of a widely used inter-table validation rule is  referential 
+integrity , which refers to the fact that all values in a foreign key should also exist as values in 
+the corresponding primary key. ( Data How To 5.3 at the end of the chapter explains how to 
+implement referential integrity with Microsoft Access.) 
+ Create and Apply Inter-Table Validation Rules
+ Inter-table validation rules identify invalid data. Their creation requires in-depth knowledge 
+of the business.  Illustration 5.39 shows an example of an inter-table validation rule applied
+to the Beans case. It is part of the Service table, and it specifies that only managers, sr. man-
+agers, and partners can review an engagement. The rule has detected that service 3971 was 
+reviewed by a senior, and a staff employee reviewed service 4193. 
+How To
+ ILLUSTRATION 5.39  Design and Implementation of an Inter-Table Validation Rule 
+ Description 
+ Sample Code 
+ Only managers, sr. managers, 
+and partners can review an 
+engagement. 
+NOAUTHORITY = 
+ IF TASK.TASKNAME = “REVIEW” AND 
+  EMPLOYEE[JOBTITLE] IN {“MANAGER”, “SR. MANAGER”, “PARTNER”}, 
+ THEN “OK”, 
+ ELSE “ISSUE”
+ILLUSTRATION 5.38 Unpivoting Columns
+File
+Home
+Transform
+Add Column
+View
+Tools
+Help
+Table
+Group
+By
+Use First Row
+as Headers
+1
+2
+Transpose
+Reverse Rows
+Count Rows
+Any Column
+Data Type: Whole Number
+Detect Date Type
+Rename
+?
+1 2Replace Values
+Fill
+Pivot Column
+Queries [6]
+Task
+EmployeeDemographics
+Employee
+Service
+Client
+Certifications
+EmployeeID
+123
+CertificationList.1
+ABC
+CertificationList.2
+ABC
+CertificationList.3
+ABC
+CertificationList.4
+ABC
+1
+2
+3
+4
+5
+6
+7
+CPA
+1
+2
+3
+4
+5
+6
+7
+null
+null
+null
+null
+null
+null
+null
+CMA
+CMA
+CFA
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+CPA
+CPA
+CPA
+A&C
+Unpivot Columns
+abc
+ABC
+123
+Unpiv ot Column
+Unpivot Columns
+Unpivot Other Columns
+Unpivot Only Selected Columns
+Merge Columns
+Parse
+Extract
+Table
+Group
+By
+Use First Row
+as Headers
+1
+2
+Transpose
+Reverse Rows
+Count Rows
+Any Column
+Data Type: Whole Number
+Detect Date Type
+Rename
+?
+1 2Replace Values
+Fill
+Pivot Column
+abc
+ABC
+123
+ot Column
+Merge Columns
+Parse
+Extract
