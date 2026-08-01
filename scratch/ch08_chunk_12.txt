@@ -1,0 +1,446 @@
+Professional Application Case: Ortho Inc. 
+8-59
+Unit
+Unit of transaction (lb or kg for orders, ea for sales)
+UnitPrice
+Price per unit
+TransDate
+Sales/purchase order date
+CompleteDate
+Shipping/receiving date (sales/orders)
+Item
+The material purchased or product sold
+CreatedBy
+The source of the data (e.g., daily batch)
+Subtotal
+Transaction total before tax (UnitPrice * Quantity) 
+Tax
+Tax amount
+Notes: The Transactions table contains a combination of purchase order, sales order, and sales return transactions
+SITES TABLE
+Name
+Primary Key
+Definition
+SiteCode
+✓
+Identified for company sites (five state abbreviations)
+SiteName
+Name of site (states)
+Notes: The Sites table contains the name of each site, which is the name of the state where the site is located.
+EMPLOYEE MASTER TABLE 
+Name
+Primary Key
+Description
+EmployeeID
+✓
+Employee identifier
+FirstName
+Employee first name
+LastName
+Employee last name
+SiteCode
+Company site identified (state)
+Position
+Employee position
+OrderApproval
+Employee order approval authority
+Notes: The Employee Master table contains information about employees associated with the sales order and pur-
+chase order transactions, e.g., sales and product managers.
+ENTITY MASTER TABLE
+Name
+Primary Key
+Description
+EntityID
+✓
+Entity (supplier/customer/Ortho, Inc.) identifier
+SiteCode
+Indicates which Ortho site the entity is associated with
+EntityName
+Entity company name
+ContactFirstName
+Entity contact first name
+ContactLastName
+Entity contact last name
+Phone
+Entity phone
+Email
+Entity email
+StreetAddress
+Entity street address
+City
+Entity city
+State
+Entity state
+Zip
+Entity zip code
+EntityType
+Entity type (“S” for customer and “O” for supplier)
+
+8-60 
+Chapter 8  Interpreting Data Analysis Results 
+Entity-Relationship Diagram (ERD)
+Product Master
+Product
+MaterialCategory
+MaterialDescription
+ProductCategory
+ProductDescription
+Material Master
+Sites
+SiteCode
+SiteName
+Employee Master
+EmployeeID
+FirstName
+LastName
+SiteCode
+Position
+OrderApproval
+Entity Master
+EntityID
+SiteCode
+EntityName
+ContactFirstName
+ContactLastName
+Phone
+Email
+StreetAddress
+City
+State
+Zip
+EntityType
+Transactions
+TransType
+TransNumber
+SiteCode
+Manager
+EntityID
+Quantity
+Unit
+UnitPrice
+TransDate
+CompleteDate
+Item
+CreatedBy
+Subtotal
+Tax
+1
+1
+1
+N
+N
+N
+1
+1
+N
+Material
+(Notes: The ERD indicates which tables to join and which columns to use in the joins.)
+The entity-relationship diagram (ERD) shows the relationships among the tables in the information 
+system.
+The comparative income statement shows income for 2024 and 2025.
+Ortho Inc. Comparative Income Statement
+Comparative Income Statement
+$ in Millions
+2024
+(audited)
+2025
+(unaudited)
+Net Sales
+$913 
+$854 
+Cost of Sales
+  579 
+  542 
+Gross Profit
+334 
+312 
+Research and development
+57 
+59 
+Selling, general and administrative
+191 
+196 
+Recall charges, net of insurance proceeds
+5 
+5 
+Intangible asset amortization
+      3 
+      2 
+Total operating expenses
+  256 
+  262 
+Operating Income
+78 
+50 
+Other income (expenses), Net
+      1 
+      2 
+Earnings before income taxes
+79 
+52 
+Income taxes
+    11 
+      8
+Net earnings
+$  68 
+$  44 
+
+Professional Application Case: Ortho Inc. 
+8-61
+PAC 8.1  Auditing: Interpret Descriptive and Diagnostic Analytics
+Data   Auditing   You are on the external audit team auditing Ortho’s financial statements as of and for 
+the year ended December 31, 2025: 
+•	 Note that the amounts presented in the comparative income statement for 2024 are audited, 
+whereas the amounts presented for 2025 are unaudited. 
+•	 For the year ended December 31, 2024, your audit firm issued an unqualified opinion on the finan-
+cial statements and noted that the company’s internal controls over financial reporting were appro-
+priately designed and operating effectively. 
+You have been asked to consider risks of material misstatement related to net sales. Specifically, 
+your audit senior has asked you to interpret the descriptive analytics provided by your firm’s data analysis 
+team. The Tableau output is provided. 
+Grand Total
+2024
+Distinct Count of TR Subtotal
+TR TransDate
+Sales Frequency Distribution
+TR Subtotal
+Prod ProductDescription
+4,196
+4,378
+7,217
+9,567
+20,457
+4,153
+9,714
+20,331
+4,306
+16,526
+2025
+2024
+2025
+Ceramic-on-Ceramic Knee
+Metal and Crosslinked Polyethylene Knee
+Metal and Plastic Knee
+Metal-on-Metal Knee (Cobalt chrome)
+Metal-on-Metal Knee (Stainless steel)
+Metal-on-Metal Knee (Titanium)
+7,208
+60,424
+853,505,611
+60,102
+16,760
+113,844,112
+103,546,449
+185,198,302
+106,320,616
+145,197,885
+199,398,247
+107,545,175
+198,397,781
+116,722,920
+220,828,360
+116,040,741
+153,572,138
+913,107,114
+	 1.	 Consider the validity of the Tableau output 
+provided by your information technology 
+team. Is the sales frequency distribution table 
+analysis valid and reliable? Why or why not?
+	 2.	 Compare the sales mix from 2025 to 2024. 
+How does sales mix contribute to consider-
+ation of the risk of material misstatement? 
+	 3.	 During inquiry with the vice president of 
+sales, your engagement team learned that 
+the largest customer purchases only metal-
+on-metal knee products, and that these pur-
+chases account for approximately 35% of all 
+sales of these products. This customer has 
+recently requested significant modifications 
+to their sales order contract and credit terms 
+because of possible bankruptcy concerns. 
+How might this information, combined with 
+the sales frequency distribution table, con-
+tribute to the risk of material misstatement? 
+	 4.	 The technology team has provided a scat-
+terplot of sales for the metal-on-metal knee 
+(cobalt chrome) product for the month of 
+October. The technology team has identi-
+fied certain points on the diagram. Explain 
+whether each of the identified points on the 
+diagram would need further investigation, or 
+if they should be included in normal substan-
+tive testing for sales. 
+Sales Transaction Total
+$80,000
+$60,000
+$40,000
+$20,000
+$(20,000)
+$(40,000)
+$(60,000)
+$(80,000)
+Sep. 27
+Oct. 02
+Oct. 07
+Oct. 12
+Oct.  17
+2025
+Oct. 22
+Oct. 27
+Nov. 01
+Nov. 06
+$−
+1
+3
+2
+	 5.	 Use the Ortho, Inc data sets to create addi-
+tional descriptive analytics. Consider creating 
+a cross tabulation analysis of sales by product 
+description and/or sales by site code. These 
+descriptive statistics provide insight into the 
+company’s net sales for the year under audit. 
+Describe your analysis, and interpret your 
+results. 
+
+8-62 
+Chapter 8  Interpreting Data Analysis Results 
+PAC 8.2  Managerial Accounting: Interpret Diagnostic Analytics 
+Data   Managerial Accounting   You have been tasked with understanding the relationship between 
+sales orders and purchase orders to acquire raw materials. Currently, production sites are individually 
+responsible for all purchases. The benefit of this decentralized organization is that the sites can quickly 
+respond to changes in production demand. The downside is that sourcing for purchases is not coordi-
+nated between the sites. There is a concern that some sites’ purchasing departments have been buying 
+more raw materials than needed.
+Your manager has asked you to analyze purchases compared to sales. You prepared the following 
+analyses.
+2022
+2023
+2024
+2025
+Jan. Apr. Jul. Oct.
+Jan. Apr. Jul. Oct.
+Jan. Apr. Jul. Oct.
+Jan. Apr. Jul. Oct.
+$20,000,000
+$40,000,000
+$60,000,000
+$80,000,000
+$100,000,000
+Purchase Orders
+Sales Orders
+Ortho Inc.
+Sales Orders Vs. Purchase Orders
+Purchase Orders
+Correlation between Purchases and Sales
+Ortho Inc.
+Sales Orders
+Purchase Orders
+1
+0.750363942
+1
+Sales Orders
+	 1.	 How do these analyses help evaluate if the 
+sites are purchasing more raw materials than 
+they need?
+	 2.	 List some additional analyses that would be 
+useful.
+	 3.	 Create additional analyses and interpret your 
+results.
+PAC 8.3  Financial Accounting: Interpret Descriptive Analytics
+Data   Financial Accounting   The Controller at Ortho Inc. has asked you to understand the require-
+ments of ASC 606 Revenue Recognition regarding the disclosure of sales data by geographic or product 
+categories. You have prepared the cross tabulation analysis for 2025 and 2024 as a starting point for pre-
+paring the disclosure. 
+Total
+2025
+Site
+164,530,136.81
+174,888,045.18
+172,934,662.11
+183,493,309.15
+175,041,416.59
+193,364,104.19
+188,249,027.51
+2024
+Diﬀerence
+CA
+FL
+IL
+NY
+TX
+174,872,628.25
+853,505,610.67
+913,082,519.55
+163,660,289.73
+175,554,510.70
+18,963,172.34
+–1,953,383.07
+168,788.34
+59,576,908.88
+29,703,814.46
+12,694,516.81
+	 1.	 Who are the key stakeholders of the analysis? 
+	 2.	 What knowledge do you need to provide 
+a valid interpretation of the descriptive 
+analysis? 
+	 3.	 Is this analysis sufficient for segment report-
+ing or will you need additional analyses?
+	 4.	 Create additional analyses of results by year.
+
+Le Grind Continuing Case: Verify and Interpret the Gross Profit Analysis 
+8-63
+PAC 8.4 Tax Accounting: Interpret Descriptive and Diagnostic Analytics 
+Data
+Tax Accounting
+Ortho’s management would like to identify potential opportunities for cost 
+savings. One aspect of purchasing costs that management has not yet considered is sales tax paid on 
+purchases. Management has requested an analysis of sales tax paid by site. As a staff tax accountant for 
+Ortho, you have prepared the following trend analysis of sales tax paid by location.
+$0
+0.00
+1.00
+2.00
+3.00
+4.00
+5.00
+6.00
+7.00
+8.00
+9.00
+10.00%
+California
+Florida
+Illinois
+New York
+Texas
+$50,000,000
+$100,000,000
+$150,000,000
+$200,000,000
+$250,000,000
+$300,000,000
+$350,000,000
+$400,000,000
+8.68%
+7.50%
+8.80%
+8.52%
+8.19%
+Ortho Inc. ‒ Sales Tax Analysis
+Tax Rate
+in
+Percent
+Taxes in
+Thousands
+State
+Purchases
+Sales Tax Paid
+Tax Rate
+ 1. Prepare an interpretation of the analysis.
+ 2. Is this analysis sufficient or will you need additional analyses?
+ 3. Create additional analyses of results by year.
+Le Grind Continuing Case: Verify and Interpret the Gross 
+Profit Analysis
+Data
+Visit Wiley’s online learning platform for additional questions, data, and more details about the 
+continuing case. 

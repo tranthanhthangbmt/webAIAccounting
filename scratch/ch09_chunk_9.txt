@@ -1,0 +1,574 @@
+9-42
+CHAPTER 9 Communicating Data Analysis Results
+ STEP 5: Recreate the dashboard shown in  Illustration 9.13 by dropping the visualizations into 
+the dashboard. ( Illustration 9.51 ) 
+ STEP 6: Move the visualizations around the dashboard by clicking on the visual and 
+dragging it. It can be re-sized by clicking on the visual and then hovering at the corner. 
+( Illustration 9.51 ) 
+ ILLUSTRATION 9.51  Moving Visualizations and Sizing Dashboard Visualizations 
+Dashboard
+Layout
+Default
+Phone
+Size
+Sheets
+Device Preview 
+Profit Margin By Brand
+Gross Sales by Brand  
+Cost Analysis
+Objects
+Horizontal
+Vertical
+Text
+Image
+Web Page
+Blank
+Navigation
+Download
+Extension
+Ask Data
+A
+Tiled
+Floating
+Show dashboard title
+File
+Data
+Worksheet
+Story
+Analysis
+Map
+Format
+Server
+Window
+Help
+Dashboard
+Tableau-DA_1e_Chapter 09 - How To  9.1 - Tableau Packaged Workbook
++
+II
+Desktop Browser (1000 × 800)
++
+File
+Data
+Worksheet
+Story
+Analysis
+Map
+Format
+Server
+Window
+Help
+Dashboard
+Tableau-DA_1e_Chapter 09 - How To  9.1 - Tableau Packaged Workbook
+Entire View
+Profit Margin By Brand
+Apechete
+Jackson
+Tatra
+20.4%
+13.0%
+5.6%
+5.6%
+20.4%
+Avg. Profit Mar..
+$10M
+$0M
+$20M
+$30M
+$40M
+Apechete Jackson
+Tatra
+$18.6M
+$35.0M
+$33.5M
+Gross Sales by Brand
+Sum of
+Gross Sales
+6
+5
+Labor
+Materials
+Total
+Variable
+Cost
+Cost Analysis
+$20M
+$0M
+$40M
+$60M
+Value
+ HOW TO 9.2 Create an Interactive Dashboard in Tableau 
+ The interactive dashboard in  Illustration 9.48 was created using the visualization software 
+Tableau.  Follow these steps to create it. 
+ What You Need:
+Data
+The How To 9.2 data file. 
+ STEP 1:  Open the workbook. There are three visualizations that have already been created: 
+gross sales by region, gross sales by brand, and profit margin by brand. 
+ STEP 2:  In each visualization, confirm there is a filter for model and region. This will allow 
+you to filter to the lowest level of detail within the dashboard ( Illustration 9.52 ) .
+How To
+
+How To Walk-Throughs 9-43
+ ILLUSTRATION 9.52  Confirm 
+Filters for Region and Model 
+Color
+Detail
+Size
+Label
+Columns
+Rows
+Marks
+Square
+Pages
+Filters
+Tooltip
+Region: Europe
+Model: Advantage
+SUM(Gross Sal..
+SUM(Gross Sal..
+YEAR(Sold Date)
+Region
+2
+$0.5M
+$0.2M
+Region
+Gross Sales by Region
+Europe
+Europe
+2025
+2024
+ STEP 3:  Follow the instructions in How To 9.1 to drag all three visualizations onto the dash-
+board canvas and format to mirror the dashboard in Illustration  9.48 . 
+ STEP 4:  To link the worksheets in the dashboard so the filters will apply to each, click on 
+the  Filter List . Choose the option  Apply to Worksheets and then  Selected Worksheets
+ ( Illustration 9.53 ). 
+ ILLUSTRATION 9.53  View of 
+Dashboard after the Filter List 
+Down Arrow is Selected 
+Model
+(All)
+Advantage
+Bloom
+Brutus
+Chare
+Crux
+Fiddle
+Island
+Jespie
+Mortimer
+Pebble
+Rambler
+Rebel
+All Using Related Data Sources
+All Using This Data Source
+Selected Worksheet...
+Only This Worksheet...
+All Using Related Data Sources
+All Using This Data Source
+Selected Worksheets...
+Only This Worksheet
+Edit Filter...
+Format Filter and Set Controls..
+Apply to Worksheets
+Customize
+Title
+Edit Title...
+Single Value (list)
+Single Value (dropdown)
+Single Value (slider)
+Multiple Values (list)
+Multiple Values (dropdown)
+Multiple Values (custom list)
+Wildcard Match
+Only Relevant Values
+All Values in Database
+Include Values
+Exclude Values
+Floating
+Floating Order
+Deselect
+Remove from Dashboard
+Rename Dashboard Item...
+Add Show/Hide Button
+(All)
+Europe
+North America
+Region
+4
+Filter List Down Arrow
+Profit Margin by Brand: 2024–2025
+2024
+2025
+2024
+2025
+6.2%
+5.0%
+Jackson
+Tatra
+0.00
+0.10
+0.20
+0.25
+Average
+Profit Margin
+0.05
+0.15
+13.2%
+12.7% 13.2%
+12.7%
+Gross Sales by Brand: 2024–2025
+Apechete
+Jackson
+Tatra
+2025
+2024
+2025
+2024
+2025
+2024
+$5M
+$15M
+$16.7M
+$9.1M $9.5M
+$16.3M $17.2M
+Gross
+Sales
+$20M
+$10M
+$0M
+$18.3M
+
+9-44
+CHAPTER 9 Communicating Data Analysis Results
+ STEP 5:  Click each visual in the dashboard and create a filter by selecting the filter icon. 
+Profit Margin by Brand: 2024–2025
+2024
+2025
+2024
+2025
+Jackson
+Tatra
+2024
+0.0
+0.2
+2025
+20.6%
+20.2%
+Apechete
+Average
+Profit Margin
+0.1
+0.3
+13.2%
+12.7% 13.2%
+12.7%
+6.2%
+5.0%
+6.2%
+5.0%
+Model
+(All)
+Advantage
+Bloom
+Brutus
+Chare
+Crux
+Fiddle
+Island
+Jespie
+Mortimer
+Pebble
+Rambler
+Rebel
+(All)
+Europe
+North America
+Region
+5
+$19.5M
+$27.4M
+$12.8M
+$9.7M
+$12.6M
+$5.0M
+Region
+Europe
+Europe
+South
+America
+North
+America
+2025
+2024
+Gross Sales by Region
+Gross Sales
+$5.0M
+$27.4M
+Gross Sales by Brand: 2024–2025
+Apechete
+Jackson
+Tatra
+2025
+2024
+2025
+2024
+2025
+2024
+$5M
+$15M
+$16.7M
+$9.1M $9.5M
+$16.3M $17.2M
+Gross
+Sales
+$20M
+$10M
+$0M
+$18.3M
+ That will allow clicking on one visual and applying the selection to all of them. For example, 
+clicking the $12.6M in Europe 2025 means that all the visuals will show only Europe 2025 
+results. ( Illustration 9.54 ) 
+ ILLUSTRATION 9.54  Interactive Dashboard 
+Profit Margin by Brand: 2024–2025
+2025
+2025
+9.3%
+Jackson
+Tatra
+0.0
+0.2
+0.3
+2025
+21.3%
+Apechete
+Average
+Profit
+Margin 0.1
+13.5%
+Model
+(All)
+Advantage
+Bloom
+Brutus
+Chare
+Crux
+Fiddle
+Island
+Jespie
+Mortimer
+Pebble
+Rambler
+Rebel
+(All)
+Europe
+North America
+Region
+Gross Sales by Brand: 2024–2025
+Apechete Jackson
+Tatra
+2025
+2025
+2025
+$0M
+$3.7M
+$1.7M
+Gross
+Sales
+$8M
+$4M
+$6M
+$2M
+$19.5M
+$27.4M
+$12.8M
+$9.7M
+$12.6M
+$5.0M
+Region
+Europe
+Europe
+South
+America
+North
+America
+2025
+2024
+Gross Sales by Region
+Gross Sales
+$5.0M
+$27.4M
+$27.4M
+$9.7M
+$5.0M
+$19.5M
+$12.8M
+$7.3M
+
+Multiple Choice Questions  9-45
+Multiple Choice Questions
+1.  (LO 1)  The ability to read, write, and communicate data in context 
+is/are referred to as
+a.	 data communication skills.
+b.	 effective data communication.
+c.	 data literacy.
+d.	 data storytelling skills.
+2.  (LO 1)  Dara prepared a data analysis of profitability by product 
+for the current year for her company. She felt it was also important to 
+show how this year’s profitability compared to prior years. This is an 
+example of
+a.	 putting the analysis in context.
+b.	 understanding the audience.
+c.	 creating a memorable story.
+d.	 a composition analysis.
+3.  (LO 1)  Sara is a financial accountant for a retail company who was 
+asked to do an analysis of sales over the past five years to prepare a 
+sales forecast. The company is seeking additional investors so they 
+can expand their operations. Sara’s supervisor has asked her to pre-
+pare a report that will be given to the potential investors. The investors 
+would be considered the ____________ of the report.
+a.	 stakeholders
+b.	 preparers
+c.	 purchasers
+d.	 regulators
+4.  (LO 1)  Marcus is a financial accountant for a computer software 
+company. He was asked to do an analysis of cashflows over the past 
+five years and to prepare a revenue forecast. The company is seeking 
+additional investors so that they can expand their operations. Marcus’ 
+supervisor has asked him to prepare a report that will be given to the 
+potential investors. If the investors have a bias against the type of soft-
+ware the company sells, Marcus should consider this bias as a(n)
+a.	 key alternative.
+b.	 uncontrollable event.
+c.	 risk.
+d.	 negative outcome.
+5.  (LO 1)  The combination of narrative and data __________ the 
+story.
+a.	 explain
+b.	 enlighten
+c.	 engage
+d.	 evolve
+6.  (LO 1)  Methodically peeling back layers of the analysis in a data 
+story is the __________ section of the story.
+a.	 exposition
+b.	 rising action
+c.	 climax
+d.	 falling action
+7.  (LO 2)  A well-designed __________ conveys the results of an anal-
+ysis in a clear and concise manner.
+a.	 analysis
+b.	 data visualization
+c.	 statistic
+d.	 report
+8.  (LO 2)  A(n) __________ audience is primarily concerned with 
+actionable results.
+a.	 novice
+b.	 managerial
+c.	 expert
+d.	 executive
+9.  (LO 2)  An area chart is best used for which of the following 
+objectives?
+a.	 Showing composition.
+b.	 Showing relationships.
+c.	 Showing distributions.
+d.	 Showing comparisons.
+10.  (LO 2)  A scatterplot is best used for which of the following 
+objectives?
+a.	 Showing composition.
+b.	 Showing relationships.
+c.	 Indicating trends.
+d.	 Showing comparisons.
+11.  (LO 2)  Jamie was preparing a visualization to show the results 
+of an analysis of sales trends. Jamie has data for each month’s sales 
+from all the company’s regions. All the sales data is reported in whole 
+dollars except for the east region. The east region reports sales in thou-
+sands. This is an example of what type of data verification attribute?
+a.	 Accuracy
+b.	 Completeness
+c.	 Consistency
+d.	 Freshness
+12.  (LO 3)  An example of a preattentive attribute is
+a.	 clutter.
+b.	 accuracy.
+c.	 timeliness.
+d.	 color.
+13.  (LO 3)  If there are 9 categories in a column chart, which of the 
+following would improve the visualization and make it easier for 
+the reader to interpret?
+a.	 Using vertical bars.
+b.	 Using horizontal bars.
+c.	 Using 9 different colors to differentiate the categories.
+d.	 Using vertical labels to fit all the category descriptions in the 
+graph.
+14.  (LO 3)  When showing correlation between two variables, which 
+is the most appropriate chart to use?
+a.	 Tree map
+b.	 Stacked bar chart
+c.	 Bubble chart
+d.	 Scatterplot
+Data   The Data tag appears when the data required to answer a question or complete an 
+exercise are available on Wiley’s online learning platform. 
+
+9-46  CHAPTER 9  Communicating Data Analysis Results
+15.  (LO 4)  Identify how the following visualization may be misleading.
+Top Selling Pizza‒Second Quarter 2025
+$2,000
+$2,800
+$3,200
+$3,600
+$4,400
+$4,000
+Cheese
+Pepperoni
+Vegetarian
+Total Sale
+$2,400
+April
+May
+June
+April
+May
+June
+April
+May
+June
+Years
+a.	 There are too many colors.
+b.	 The data has been manipulated.
+c.	 The axis does not start at zero.
+d.	 The wrong type of visualization was used.
+16.  (LO 4)  The following visualization was prepared to allow the viewer to compare sales quantity by 
+type of product for Pizza My Heart Food truck. 
+Product Name
+Beef
+Breadsticks
+Cheese
+Chicken Wings
+Deep Dish
+Hawaiian
+Meat Lover’s
+Mushroom
+Pepperoni
+Sausage
+Steak
+Supreme
+Vegetarian
+White Pizza
+How might this visualization be misleading?
+a.	 There is no baseline.
+b.	 The data has been selectively chosen.
+c.	 The wrong type of visualization was used.
+d.	 The color scale goes against conventions.
+17.  (LO 4)  The following visualization was prepared for a management dashboard to monitor profit 
+margin. 
+Profit Margin By Brand‒2025
+Apechete
+Jackson
+Tatra
+20.4%
+13.0%
+5.6%
+How might this visualization be misleading?
+a.	 There is no baseline.
+b.	 The data has been selectively chosen.
+c.	 The wrong type of visualization was used.
+d.	 The color scale goes against conventions.

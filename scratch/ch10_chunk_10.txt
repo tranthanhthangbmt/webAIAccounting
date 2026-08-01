@@ -1,0 +1,271 @@
+Exercises 
+10-51
+EX 10.4  (LO 1)  Managerial Accounting   Data Characteristics You are the managerial accountant for 
+a national chain fitness company that owns several gyms and health food stores in populated locations. Your 
+company also offers nutrition and personal training services. You have been asked to analyze sales revenues 
+and cost of goods sold by comparing this year to the prior year. Your data strategy is to analyze the following 
+data fields and measures. For each, discuss its data characteristics in terms of data volume, variety, velocity, 
+veracity, and value.
+	 1.	 The quantity of products sold in the health food stores.
+	 2.	 The number of memberships sold each month.
+	 3.	 The percentage of members who book appointments with nutrition or personal training professionals.
+	 4.	 Member evaluations about experiences with nutritional or personal training professionals, including 
+star ratings and comments.
+EX 10.5 (LO 2)  Accounting Information Systems   Robotic Process Automation Your company 
+asked you to automate the process of performing the three-way match control in the expenditure cycle. 
+­Currently, the AP clerk manually matches the vendor’s name, quantity, and price between the vendor 
+invoice, the purchase order, and the receiving report. This manual process takes the AP clerk all day, leaving 
+no time to perform other tasks. Discuss how RPA can automate this internal control to reduce the hours 
+engaged in this task.
+EX 10.6  (LO 2)  Data   Managerial Accounting   Textual Analysis You work in the corporate office 
+of Sassy Seasonings, a large restaurant chain. The operations team has implemented new kitchen man-
+agement policies at its most popular location. To understand whether these policies have improved cus-
+tomer satisfaction over time, the manager asks you to analyze data collected as part of the customer 
+satisfaction survey. This data contains the date of the review and the customers’ food and service ratings.
+	 1.	 Classify the customer’s food rating key words into one of three groups: 1. Good, 2. Average, and 
+3. Poor. 
+(Hint: First, sort the Customer Food Rating in alphabetical order by selecting all the data, not the 
+headers, and checking the box for Headers in the Data. Then, create a new column for these food 
+rating groups and manually code each row by typing one of the categories for each group: “1. Good”, 
+“2. Average”, or “3. Poor” in the new column. Critical thinking tip: all coders have their own per-
+sonal bias, so your coding may differ from others. A good control would be to have more than one 
+coder and to analyze inter-coder reliability).
+	 2.	 Create a frequency distribution table using the COUNTIF function in Excel.
+(Hint: Starting in cell G3, use the COUNTIF function to total each food rating into one of the three 
+categories, such as =COUNTIF(D3:D91,“1. Good”). Create a total row to show the total number of 
+customer food ratings by category.)
+	 3.	 Next, create another frequency distribution table by month for each of the customer food rating 
+categories. Create a pivot table on a new worksheet (name the worksheet “Frequency Table”), select 
+the food rating groups as both rows and values, and then select Months as columns. Format the 
+resulting table as necessary with column width changes.
+	 4.	 Finally, create a line chart where months is on the x-axis and count of each rating is on the y-axis. 
+(Hint: Create a pivot chart line graph using the frequency distribution table from question part 3. 
+Select the pivot table rows where the Jan, Feb, and March data resides for columns A-E (Not the 
+blue shaded header and Grand Total rows.) Then, create the line chart. You may need to switch the 
+row/columns to present the months on the x-axis. Make any other formatting edits. Save the file.)
+	 5.	 Based on your analyses, did the kitchen management policies implemented by your operations 
+manager improve customer food ratings over these months?
+
+10-52 
+CHAPTER 10  Recent Data and Analyses Developments in Accounting
+EX 10.7  (LO 2)  Data   Financial Accounting   Process Automation You are a financial accountant 
+for Water Sports, Inc. Every month you create comparative income statements for your product lines in 
+the U.S. GAAP format, a repeated process which consumes much of your time. You have decided to use 
+process automation in Alteryx to generate comparative income statements faster and more efficiently.
+	 1.	 Create a workflow in Alteryx to automate the process of creating comparative income statements 
+with the following rows:
+•  Sales Revenues
+•  Less Cost of Goods Sold
+•  = Gross Profit
+•  Less Selling and Administrative Expenses
+•  = Net Income
+	 2.	 What is your interpretation of your analysis results? How would your interpretation be different if 
+some of your production was not sold and still in ending inventory?
+(Hint: Refer to How To 10.2 for the steps to create the workflow in Alteryx. Some of the Alteryx new 
+columns and their formulas will be different from How To 10.2. For example, new columns include cost 
+of goods sold rather than contribution margin, selling and administrative expenses rather than traceable 
+fixed expenses, segment margin, and common fixed expenses. Assume that all variable costs and the 
+traceable fixed costs are production costs that flow through inventory to cost of goods sold and that the 
+common fixed costs are all selling and administrative expenses. Finally, assume that all products are sold 
+in the period that they are produced and there are no ending inventory.)
+EX 10.8  (LO 2)  Data   Auditing   Financial Accounting   Robotic Process Automation Your cli-
+ent, OneStopShop, Inc., is a public company with six independent business divisions: floor cleaning; lawn 
+care; pest control; household cleaning; corporate office cleaning; and plumbing products. Your manager 
+has asked you to calculate the following financial ratios for each of the divisions and compare their values 
+between the current and previous years:
+•  Return on assets (net income / average total assets)
+•  Profit margin (net income / sales)
+•  Asset turnover (sales/ average total assets)
+•  Current ratio (current assets / current liabilities)
+The client has provided a data set with select income statement and balance sheet data for each division. 
+Because this is a task that you are likely to perform for other engagements, you decide to build a macro in 
+Excel to calculate these financial statement ratios. Record a macro for the floor cleaning division. Then, 
+run this macro on each of the divisions to calculate the ratios for the remaining divisions.
+EX 10.9  (LO 2)  Financial Accounting   Blockchain Technologies You are a financial accountant in 
+a large retail company whose supply chain partners want to use blockchain technologies to record all 
+transactions. Explain the financial reporting benefits from using blockchain technology and factors that 
+need to be considered for this decision.
+EX 10.10  (LO 2, 3)  Auditing   Accounting Information Systems   Technology Developments 
+You are a systems accountant working with your company’s internal auditor to analyze the compliance 
+of your company’s authorized purchase credit card (e.g., “P-card”) transactions with company policies. 
+A new analysis technology helps you easily identify the spending transactions by several employees that 
+do not comply with the policies. Explain which technology development described in the chapter would 
+best help you find and document where controls in the P-card process either must be improved or added 
+to prevent these unauthorized transactions.
+EX 10.11  (LO 2, 3)  Financial Accounting   Technology Developments You work for an investment 
+manager who asks you to retrieve a large portfolio of different companies’ closing stock market prices 
+each trading day. Which data analysis technology would make this daily task more efficient?
+EX 10.12  (LO 2, 3)  Data   Auditing   Financial Accounting   Textual Analysis As the external 
+auditor for a computer manufacturing client, you are asked to examine the company’s warranty expense 
+and related accrual adjusting entry for GAAP compliance in valuation calculations. The client provided 
+the following summary of warranty expense related data from the prior year (audited) and the current 
+year (unaudited).
+F/S
+Income
+Statement
+Warranty
+Warranty
+Expense
+Liability
+32153
+23829
+$ 347,954
+$ 121,784
+$ 535,849
+$ 241,132
+$ (187,895)
+$ (119,348)
+–35%
+–49%
+Account
+Balance Sheet
+Account
+AcctNo AcctDescription 6/30/2025 6/30/2024
+Diﬀerence
+%Change
+
+Professional Application Case: Adventure Sports 
+10-53
+Both the warranty expense and warranty liability decreased significantly compared to the prior year. 
+You asked your client’s financial accountant why there was such a drastic decrease in the expense and 
+liability. The accountant responded,  “We have had significant increases in product quality and therefore 
+we don’t have a lot of warranty claims these days. Customers are happier.” 
+The objective was finding evidence to support or deny this explanation, so you obtained customer 
+satisfaction text data about the computers from social media postings. You planned to perform textual 
+analysis regarding whether there was an increase in positive customer sentiment about the computer 
+product quality. 
+ 1. Classify the customer comments into three groups: 1 = low quality, 2 = neutral, and 3 = high quality. 
+(Hint: Sort the product ratings or customer comments in alphabetical order to make it easier to 
+assign categories to each comment. Use the COUNTIF function to total each comment into one of 
+the three groups. Critical thinking note: Your coding may disagree with other coders, and you might 
+be inconsistent within your own coding.)
+2. Create a frequency distribution table that shows the total number of customer comments by group,
+by month, and in total for each of the customer comment groups.
+(Hint: Transform the date column into months from the Home menu. In the Number section, select 
+Custom formatting, then type “mmm” in the type (no quotes). This does not change the date data, 
+just its presentation, preserving your original dates. Then, create a pivot table using your groups as 
+rows and values and months as columns.)
+3. Create two time series visualizations to determine if customer sentiments about their computer 
+products are improving or not. One visualization should use customer text comments and the other 
+their product ratings. 
+ 4. Interpret these results and determine if any further audit steps are necessary to properly estimate 
+the warranty expense and related accrual for the first six months. Suggest internal controls for the 
+critical thinking risks mentioned in question 1. 
+ Professional Application Case: Adventure Sports 
+PurchaseOrder
+PONo
+PODate
+POItemID
+POItemDescription
+POItemCost
+POItemQty
+POExpectedPreceiptDate
+VendorID
+VendorName
+Invoices
+InvoiceNO
+PONo
+VendorID
+VendorName
+ItemID
+ItemDescription
+InvoiceQty
+InvoiceItemCost
+InvoiceTotal
+ReceivingReport
+RECNO 
+PONo
+VendorID
+VendorName
+ItemID
+ItemDescription
+RecItemQty
+RecDate
+VendorMasterFile
+VendorID
+VendorName
+VendorAddress
+VendorCity
+VendorState
+VendorZip
+VendorPayterms
+ Adventure Sports is a new chain of retail stores with both online and brick-and-mortar locations. They 
+sell a variety of outdoor activity and sports products ranging from water sports to mountaineering and 
+camping. The company is growing quickly, currently operating ten stores across five states. These stores 
+are supplied with products from a distribution center that receives all its purchased products from ven-
+dors. Online sales are processed out of Adventure Sports’ distribution center. The brick-and-mortar stores 
+focus on high-quality customer service and offer classes for new outdoor sports enthusiasts. The com-
+pany has developed strong relationships with its vendors and its customers. Customers tend to return to 
+the stores, demonstrating significant customer loyalty. 
+ Because Adventure Sports is growing so quickly, they want to automate more inventory purchasing 
+processes to make them more efficient and effective, with better internal controls. What follows is an 
+entity-relationship diagram (ERD) showing the tables and variables involved in the process.
+
+10-54 
+CHAPTER 10  Recent Data and Analyses Developments in Accounting
+PAC 10.1  Accounting Information Systems: Use Process Automation for Accounts Payable
+Data   Accounting Information Systems   You are the systems accountant reviewing the accounts 
+payable process to approve vendor invoices for payment. Currently, the process requires manual match-
+ing between the invoice, receiving report, and purchase order to approve the invoice for payment. You 
+have interviewed the AP clerk and the financial accountant and noted that to approve an invoice for 
+payment, the following conditions must be met:
+•	 The invoice data must match the data included on the purchase order including, VendorID, ItemID, 
+and Quantity. 
+•	 The invoice data must match the data included on the receiving report including VendorID, ItemID, 
+and Quantity 
+Use Alteryx to build a workflow that results in two outputs: a file that is “Okay to Pay” invoices and a file 
+that is “Exceptions.”
+PAC 10.2  Auditing: Continuous Auditing of Company Purchases
+Auditing   You are an audit senior on the Adventure Sports’ annual audit. Your audit manager has asked 
+you to develop a plan for the engagement team to use continuous audit methodologies to reduce the 
+amount of audit work and testing performed at year-end. Your assigned audit area is the order-to-pay 
+cycle. Draft a memo for the audit files discussing continuous auditing and outlining your plan for contin-
+uous monitoring of the purchasing data for your client.
+PAC 10.3  Financial Accounting: Automate Procedures for Approving Vendor Payments
+Data   Financial Accounting   Accounting Information Systems   You are a financial accountant 
+for Adventure Sports. Currently, your process for approving vendor invoices for payment is matching the 
+hardcopy invoice from the vendor to the relevant purchase order and receiving data in the AIS:
+•	 Purchase orders are keyed into the AIS in the PurchaseOrder table by the purchasing group after 
+they are sent to the vendor.
+•	 Receiving report data is keyed into the AIS in the receiving department after items are received by 
+the vendor.
+•	 Upon receipt of a vendor invoice, the invoice is keyed into the AIS VendorInvoices table and filed 
+by due date in the hardcopy file in the AP clerk’s office.
+•	 Daily, the AP clerk pulls the invoices that are due within the next few days and performs the 
+following:
+Step 1: For each invoice, the AP clerk looks up the corresponding PO number to the PO in the Pur-
+chaseOrders table. The AP clerk verifies that the quantity purchased was the quantity invoiced. If 
+the quantities agree within a 2% tolerance level, then the AP clerk moves to the next step.
+Step 2: For each invoice, the AP clerk looks up the PO number that corresponds to the PO number 
+in the ReceivingReport table. The AP clerk verifies that the quantity received was the quantity 
+invoiced. If the quantities agree within a 2% tolerance level, then the clerk moves to the next step.
+Step 3: For each invoice that passes step 1 and 2, the AP clerk stamps “Okay to Pay” on the invoice 
+and adds it to the Ok to Pay list, which is sent to the treasurer who prepares, signs, and sends 
+checks.
+	 1.	 Match and compare the quantities from the purchase orders, the receiving reports, and the vendor 
+invoices. The matched invoice information within the 2% quantity deviation tolerance should be 
+labeled as “Okay to Pay.” Any invoices above the 2% quantity deviation should be labeled “Excep-
+tion” so the AP clerk can follow up with the vendor. 
+	 2.	 Discuss the benefits of using Excel to increase efficiencies and potentially reduce errors in the 
+approval of vendor invoices.
+PAC 10.4  Managerial Accounting: Create a Vendor Performance Dashboard
+Data   Managerial Accounting   Accounting Information Systems   As a managerial accountant 
+for Adventure Sports, you want to know if there are patterns in the purchasing data. Create a visualiza-
+tion dashboard to to measure the following metrics related to vendor purchases:
+•	 The count of purchase orders for each vendor during this period.
+•	 The percentage of purchase costs incurred during this period by vendor.
+•	 The percentage of purchase costs incurred by product.
+
+Le Grind Continuing Case: Prepare Gross Profit Data With an Alteryx Workflow
+Data
+Visit Wiley’s online learning platform for the case background, additional questions, data, and 
+more information about the continuing case. 
+Le Grind Continuing Case: Prepare Gross Profit Data With an Alteryx Workflow
+10-55
+PAC 10.5 Tax Accounting: Explain Robotic Process Automation for Current Tax Rates
+Tax Accounting
+Currently the data needed to complete the corporate tax return comes from several 
+different data sources. Each month you download the data into Excel spreadsheets and use the Excel 
+spreadsheet to complete the tax accrual analysis.  Discuss how technology might be used to automate 
+this process. Are there other technologies that Adventure Sports should consider for use in the tax 
+department? 

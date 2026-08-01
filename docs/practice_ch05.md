@@ -3,6 +3,18 @@
 
 # Chương 5: Phân tích: Chuẩn bị Dữ liệu (Analysis: Data Preparation)
 
+> [!NOTE]
+> **Dữ liệu thực hành Chương 5:**
+> Để thực hành các bài tập trong chương này, bạn có thể tải về các bộ dữ liệu mô phỏng dưới đây. Bạn có thể tải về để mở ra xem trước dữ liệu:
+> - 📥 **<a href="TaiLieu/textbookForPractice/Data/Hikko_Revenue_Data.csv" download target="_blank"><strong>Hikko_Revenue_Data.csv</strong></a>** (EX 5.7)
+> - 📥 **<a href="TaiLieu/textbookForPractice/Data/Wilkinson_Timecards.csv" download target="_blank"><strong>Wilkinson_Timecards.csv</strong></a>** (EX 5.8)
+> - 📥 **<a href="TaiLieu/textbookForPractice/Data/Vroomba_Sales.csv" download target="_blank"><strong>Vroomba_Sales.csv</strong></a>** (EX 5.11)
+> - 📥 **<a href="TaiLieu/textbookForPractice/Data/Fluffy_SalesOrders.csv" download target="_blank"><strong>Fluffy_SalesOrders.csv</strong></a>** (PAC 5.1 - 5.3)
+> - 📥 **<a href="TaiLieu/textbookForPractice/Data/Fluffy_CashReceipts.csv" download target="_blank"><strong>Fluffy_CashReceipts.csv</strong></a>** (PAC 5.1 - 5.3)
+> - 📥 **<a href="TaiLieu/textbookForPractice/Data/Fluffy_Vendors.csv" download target="_blank"><strong>Fluffy_Vendors.csv</strong></a>** (PAC 5.1 - 5.3)
+> - 📥 **<a href="TaiLieu/textbookForPractice/Data/HomePrinter_Data.csv" download target="_blank"><strong>HomePrinter_Data.csv</strong></a>** (EX 5.9)
+> - 📥 **<a href="TaiLieu/textbookForPractice/Data/Creighton_Payroll.csv" download target="_blank"><strong>Creighton_Payroll.csv</strong></a>** (EX 5.10)
+
 Xem trước chương Cho đến giờ trong khóa học này, bạn đã học cách lập kế hoạch cho một dự án phân tích dữ liệu bằng cách trình bày rõ những gì thúc đẩy nó, xác định các mục tiêu của nó và thiết kế một chiến lược để hoàn thành nó một cách thành công. Bây giờ kế hoạch đã sẵn sàng, đã đến lúc chuyển sang giai đoạn phân tích dữ liệu. Có ba nhiệm vụ trong giai đoạn này: chuẩn bị dữ liệu, xây dựng mô hình thông tin và khám phá dữ liệu. Ở đây, chúng ta sẽ tập trung vào nhiệm vụ đầu tiên là chuẩn bị dữ liệu để phân tích. Việc chuẩn bị dữ liệu có thể hoạt động tốn nhiều thời gian nhất trong dự án phân tích dữ liệu. Bạn có thể chi tiêu hơn 75% số tiền tổng thời gian làm việc của dự án cho riêng nhiệm vụ này! Nhưng có lý do chính đáng cho việc này, vì việc chuẩn bị dữ liệu hoạt động bao gồm nhiều hoạt động. Có hai yếu tố chính cần lưu ý khi chuẩn bị dữ liệu để phân tích:
 
 1. Chất lượng dữ liệu sẽ ảnh hưởng đến chất lượng của những hiểu biết sâu sắc và các quyết định dựa trên họ. Nói cách khác, dữ liệu xấu dẫn đến những quyết định sai lầm.

@@ -1,0 +1,515 @@
+Review Questions  7-47
+19.  (LO 3)  What are the two relationships integrated by a treemap? Explain how the following tree map 
+shows these relationships. 
+Bonds
+25.80%
+Cash
+13.32%
+Commodities
+7.27%
+Cash
+Equivalents
+12.24%
+Stocks
+41.37%
+20.  (LO 3)  ESpin is a company in Surprise, AZ, manufacturing revolutionary toothbrushes that provide 
+deeper cleaning than average toothbrushes. They give you data for their 2021–2025 sales in their three 
+current regions. The data is shown here.
+Region
+Asia
+789,112
+1,256,111
+2,667,112
+977,111
+1,238,771
+2,402,776
+2,288,911
+1,009,112
+1,398,814
+Europe
+U.S.
+2021
+2022
+2023
+2,000,112
+1,125,521
+1,199,765
+2024
+1,991,127
+1,344,572
+1,290,914
+2025
+You develop the following interactive report for them.
+10,000,000
+11,350,038
+6,384,375
+5,245,428
+4,800,000
+4,696,837
+4,626,613
+4,712,335
+4,618,658
+4,325,398
+12,000,000
+6,000,000
+8,000,000
+2,000,000
+4,000,000
+0
+Total
+Amount
+Region
+Europe
+US
+Asia
+5,000,000
+4,600,000
+4,200,000
+4,400,000
+4,000,000
+Total
+Amount
+Year
+2023
+2022
+2021
+2024
+2025
+The corresponding exploration structure follows:
+Year
+Filters
+Region
+Total Amount
+Columns
+Rows
+Values
+Bar Chart
+Line Chart
+Region
+Filters
+Year
+Total Amount
+Columns
+Rows
+Values
+Determine at least three questions that can be answered with this report.
+
+7-48  CHAPTER 7  Analysis: Data Exploration
+BE 7.1  (LO 1)  Match the appropriate term to each definition. Terms can be used once, more than once, 
+or not at all.
+	 a.	 Outlier	
+e.	 Drag and drop
+	 b.	 Correlation	
+f.	 Data interpretation
+	 c.	 Insight	
+g.	 Data exploration
+	 d.	 Analytical database
+Statement
+Term
+	 1.	An observation that might significantly affect a 
+business’ decision-making.
+	 2.	Input of data exploration.
+	 3.	Output of data exploration.
+	 4.	The discovery process of learning something new 
+and previously unknown from data.
+BE 7.2  (LO 1)  Data exploration is based on three elements: (1) the number being analyzed, (2) variables 
+that break down the number, and (3) ________________.
+BE 7.3  (LO 1)  Data   Financial Accounting   Mario runs a Food Truck, the Treat Buggy, in Atlantic 
+City, NJ. Use the data file provided by Mario to determine the percentage of his revenues during summer 
+months (June, July, August) generated from ice cream sales compared to sales from other items. 
+BE 7.4  (LO 1)  Data   Managerial Accounting   Mauretius is a boutique Monegask car builder. They 
+manufacture 5,000 cars each year. There are two different car models: Perfic and Fortis. A critical compo-
+nent for all their cars is a high-performance battery. The company outsources the manufacturing of the 
+batteries for both models to three vendors: Optima, Champion, and Diehard. Specifications and prices 
+are the same for all three vendors. Because of this, vendors are rated based on reliability. They are eval-
+uated as to the extent they comply with Mauretius’ specifications. Batteries that are not compliant are 
+returned. Using the data set provided by Mauretius, compare vendors’ reliability as a percentage for both 
+models. Based on reliability, who should be the preferred vendor for each battery type?
+BE 7.5  (LO 2)  Managerial Accounting   Wallmark is a fast-growing manufacturer of musical greeting 
+cards in Tallahassee, FL. To improve their business and manage growth they are heavily investing in 
+data analytics. Match each of the data exploration scenarios with one of the following data relationships.
+	 a.	 Correlation
+	 b.	 Deviation
+	 c.	 Distribution
+	 d.	 Part-to-whole
+Data Exploration
+Data Relationship
+1.
+A strong growth in Wallmark’s number of 
+employees has resulted in strong growth in 
+office expenses.
+2.
+Last year Wallmark’s labor costs 
+systematically exceeded their estimates. This 
+might have been caused by the premiums 
+Wallmark paid related to the pandemic.
+3.
+Last month the average price Wallmark paid 
+for a button battery, a key element in musical 
+greeting cards, was $7. However, prices for 
+the exact same product ranged from $3 to $18.
+4.
+Batteries represent 20% of the cost of making 
+a standard musical greeting card.
+BE 7.6  (LO 2)  Managerial Accounting   Monar is a trendy shoe store on Fifth Avenue in New York 
+that employs ten in-store salespeople. Monar’s CEO uses the following chart when analyzing the per-
+formance of the company’s salespeople. The chart shows salespeople in descending order of seniority. 
+Freddy Fender is the most recent hire.
+Brief Exercises
+
+Brief Exercises  7-49
+J. Doku
+J. Lukaku
+E. Mertens
+J. Swiatek
+K. Rogers
+L. Bryant
+A. Lafonte
+B. Turf
+B. Benson
+F. Fender
+$0
+$800,000
+$700,000
+$600,000
+$500,000
+$400,000
+$300,000
+$200,000
+$100,000
+Budgeted Sales
+Actual Sales
+	 1.	 What data relationship is being explored? 
+	 2.	 What insights can be generated from this chart? 
+BE 7.7  (LO 2)  Data   Managerial Accounting   Raisin is an electronics manufacturer with head-
+quarters in Dijon, France. Its CEO wants a dashboard that shows the progress made for each product 
+line compared to last year’s unit sales. The goal is a 10% increase in unit sales for each of the four product 
+lines. The CEO provides you the data. 
+122322
+789112
+67891
+322112
+132889
+998325
+32445
+401223
+Computers
+Phones
+Printers
+TVs
+LastYear
+ProductLine
+ThisYear
+	 1.	 What data relationship are you exploring?
+	 2.	 What visuals would you use to explore this relationship?
+	 3.	 What insights can you collect from your exploration?
+BE 7.8  (LO 2, 3)  Managerial Accounting   QB (Quality Breads) is a bakery in downtown Los Angeles 
+selling artisanal breads. The estimated daily fixed costs are $4,000. The cost to make one loaf of bread is 
+$3, and the selling price for each loaf is $5. As a result, the daily breakeven point for QBs, ignoring unsold 
+bread, is 2,000 loaves of bread. Unsold bread, or spoilage, is disposed of at the end of the day. At the end 
+of last week, QB generated the following report. 
+Units Manufactured, Sold, and Spoiled
+Sunday
+Monday
+Tuesday
+Wednesday
+Thursday
+Friday
+Saturday
+Day
+Breakeven
+0
+2,000
+4,000
+Manufactured
+Sold
+Units Spoiled
+Cost, Revenue, and Profit
+Sunday
+Monday
+Tuesday
+Wednesday
+Thursday
+Friday
+Saturday
+Day
+0
+($10,000)
+10,000
+$20,000
+Cost
+Revenue
+Profit
+Discuss the data relationships explored in this report.
+
+7-50  CHAPTER 7  Analysis: Data Exploration
+BE 7.9  (LO 2, 3)  Data   Financial Accounting   CITREX is a biotech company in Miami, FL. One of 
+the goals in their 2020 strategic plan was to improve their accounts receivable turnover ratio to 10. The 
+table shows (net) sales and (average) accounts receivable information from their 2021–2025 financial 
+statements.
+Account
+Sales
+ $ 3,129,666
+$    425,662
+$ 3,518,891
+ $    436,771
+$ 4,015,671
+$    491,223
+Accounts Receivable
+2021
+2022
+2023
+$ 5,913,556
+$    549,901
+2024
+$ 6,123,411
+$    618,891
+2025
+Explore CITREX’s success in accomplishing this goal. Create two visualizations. Briefly describe what 
+data relationships they represent and the insights you derived from each.
+BE 7.10  (LO 3)  Data   Financial Accounting   Poisson is a manufacturer of swimwear. They provide 
+you the following financial summary for the last five years.
+Account
+Revenues
+ $ 3,476,811
+$ 1, 890,556
+$ 3,337,714
+$ 1,735,551
+$ 3,197,633
+$ 1,640,941
+Gross Profit
+2021
+2022
+2023
+$ 3,159,912
+$ 1,554,891
+2024
+$ 3,087,761
+$ 1,438,664
+$     753,891 $    827,714 $    970,022
+Net Profit
+$ 1,000,033 $ 1,110,989
+2025
+Explore the data. Create two visualizations. Briefly describe what data relationships they represent and 
+the insights you derived from each.
+BE 7.11  (LO 2, 3)  Napigem is a Florida biotech company. They invest some of their assets in stocks, 
+bonds, and mutual funds. The following dashboard helps them manage their investment portfolio. 
+$13,663.07
+$17,445.12
+$23,131.89
+$34,856.11
+$44,721.89
+$47,811.67
+$75,398.27
+$125,679.14
+Johnson & Johnson
+Microsof
+Netflix
+Costco Wholesale
+Kraf Heinz
+Home Depot
+Airbnb
+United Airlines
+Paypal Holdings
+Walt Disney
+$0
+$50,000 $100,000 $150,000
+Value
+$200,000 $250,000 $300,000
+$256,772.89
+$245,991.09
+Mutual
+funds
+33.11%
+Stocks
+43.41%
+Bonds
+23.48%
+Pie Chart
+Bar Chart
+	 1.	 What data relationships are explored in this dashboard?
+	 2.	 Complete the exploration structure for this dashboard using the following field names. 
+Field Name
+Description
+InvestmentName
+The name of a specific stock, mutual fund, or bond (e.g., Home Depot).
+InvestmentType
+Type of investment: bond, mutual fund, or stock.
+TotalValue
+The total portfolio value ($)
+The same field name can be used more than once. (Some of the areas in the exploration structure will 
+remain empty.)
+
+Brief Exercises  7-51
+Austria
+Belgium
+Croatia
+Denmark
+Finland
+France
+Germany
+Greece
+Hungary
+Iceland
+Ireland
+Italy
+Luxemburg
+Netherlands
+Norway
+Poland
+Portugal
+Spain
+Sweden
+Switzerland
+United Kingdom
+$0
+$10,000,000
+$20,000,000
+Budgeted Sales
+Actual Sales
+Norwegian Sea
+Iceland
+Norway
+Sweden
+Finland
+North
+Sea
+Ireland
+United
+Kingdom
+Denmark
+Belarus
+Poland
+Ukraine
+Black Sea
+Romania
+Turkey
+Syria
+Libya Egypt
+Spain
+Italy
+France Austria
+Greece
+Algeria
+Morocco
+Portugal
+Mediterranean Sea
+Norwegian Sea
+Iceland
+Norway
+Sweden
+Finland
+North
+Sea
+Ireland
+United
+Kingdom
+Denmark
+Poland
+Libya
+Spain
+Italy
+France Austria
+Greece
+Algeria
+Morocco
+Portugal
+Mediterranean Sea
+Norwegian Sea
+Iceland
+Norway
+Sweden
+Finland
+North
+Sea
+Ireland
+United
+Kingdom
+Denmark
+Belarus
+Poland
+Ukraine
+Black Sea
+Romania
+Turkey
+Syria
+Libya Egypt
+Spain
+Italy
+France Austria
+Greece
+Algeria
+Morocco
+Portugal
+Mediterranean Sea
+Norwegian Sea
+Iceland
+Norway
+Sweden
+Finland
+North
+Sea
+Ireland
+United
+Kingdom
+Denmark
+Poland
+Libya
+Spain
+Italy
+France Austria
+Greece
+Algeria
+Morocco
+Portugal
+Mediterranean Sea
+Americas
+Asia Pacific
+Europe
+Middle East and Africa
+Clustered Bar Chart
+Slicer
+Map
+BE 7.12  (LO 3)  Sof*tee is company with headquarters in Dallas, TX, that sells baby care products 
+­worldwide. They created the following dashboard to make it easy for the C-Suite to monitor sales. 
+	 1.	 What data relationships are explored in this dashboard?
+	 2.	 Complete the exploration structure for this dashboard using the following field names.
+Filters
+Pie Chart
+Bar Chart
+Columns
+Rows
+Values
+Filters
+Columns
+Rows
+Values
+Field Name
+Description
+ActualSales
+Total actual sales. 
+BudgetedSales
+Total budgeted sales in dollars. 
+Country
+Name of the country. 
+Region
+Name of the regio. 
+Variance
+Total sales − total budgeted sales
+Each field name can be used more than once. There will be some blank areas in the completed explora-
+tion structure. 
+Filters
+Slicer
+Columns
+Rows
+Values
+Clustered Bar Chart
+Filters
+Columns
+Rows
+Values
+Map
+Filters
+Columns
+Rows
+Values

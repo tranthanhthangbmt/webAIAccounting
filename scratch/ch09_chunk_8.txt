@@ -1,0 +1,449 @@
+9.5  How are Data Used in Live Presentations?  9-37
+This static visualization does not have the functionality to dive deeper into the data. 
+What if, during the presentation for this analysis, the CEO of HMC asked how the model 
+Advantage performed? An interactive visualization would make it possible to answer the 
+CEO’s question quickly. How do we make visualizations interactive? The most common 
+method is to add a filter that allows filtering for the specific information. The best interactive 
+visualizations allow the user to view detailed information.
+Adding filters to the dashboard in Illustration 9.47 makes it interactive, letting the user 
+see the same information at a more detailed level–by region and model ­(Illustration 9.48).
+ILLUSTRATION 9.48  Interactive Dashboard of Gross Sales and Profit Margin
+Profit Margin by Brand
+2024
+2025
+Tatra
+–0.4
+0.0
+Average
+Profit
+Margin
+–0.1
+–0.2
+–0.3
+–25.6%
+–25.3%
+–25.6%
+–25.3%
+Europe
+North America
+South America
+Region
+Advantage
+Bloom
+Summet
+Wood
+Robin
+Rebel
+Rambler
+Pebble
+Mortimer
+Jespie
+Island
+Fiddle
+Crux
+Chare
+Brutus
+Model
+$1.9M
+$1.8M
+Region
+North
+America
+2025
+2024
+Gross Sales by Region
+Gross Sales
+$1.8M
+$1.9M
+Gross Sales by Brand
+Tatra
+2025
+2024
+$0M
+$1M
+$1.9M
+Gross
+Sales
+$2M
+$1.8M
+Users of Illustration 9.48 can choose the region and the car model and see either all the 
+data or any combination of the data. In this illustration the user has chosen the North Ameri-
+can region and the Mortimer model. They can quickly see how that model performed in 2024 
+and 2025. ( Data How To 9.2 illustrates how to create an interactive dashboard in Tableau.)
+The benefit of interactive data visualization is that it allows engagement with the data. An 
+interactive visualization helps users:
+•	Quickly identify trends.
+•	Efficiently identify relationships.
+•	Provide useful data storytelling.
+•	Simplify complex data.
+Keep in mind that interactive data visualization is not limited to live presentations. In 
+general, the more interactive the visual, the more engaged the user will be regardless of the 
+communication medium.
+How To
+
+9-38  CHAPTER 9  Communicating Data Analysis Results
+Apply It 9.5 
+Create an Interactive 
+Visualization
+Financial Accounting As a financial accountant at U.S. Outdoor Adventures, you prepared an 
+analysis of net sales by product category. As part of the presentation of its results, you prepared the 
+following visualization:
+Net Sales by Product Category
+$460K
+$480K
+$440K
+$420K
+$400K
+$380K
+$360K
+$340K
+$320K
+$300K
+$280K
+$240K
+$260K
+$220K
+Camping Gear
+Paddle
+Tents
+Net Sales
+$200K
+$180K
+$120K
+$140K
+$160K
+$174K
+$207K
+$288K
+$139K $138K
+$173K
+$204K
+$305K
+$329K
+$400K
+$442K
+$159K
+$174K
+$207K
+$288K
+$139K $138K
+$173K
+$204K
+$305K
+$329K
+$400K
+$442K
+$159K
+$60K
+$80K
+$100K
+$40K
+$20K
+$0K
+2025
+2024
+2023
+2022
+2025
+2024
+2023
+2022
+Years
+2025
+2024
+2023
+2022
+During the presentation of the analysis to the accounting team, you were asked about the sales 
+for a specific product (Micro Cooking Set) in the Camping Gear product category for the year 2024 
+in California. List what should be included in this visual to make it interactive so you can answer the 
+question posed during the presentation.
+SOLUTION
+To create an interactive visualization, identify which aspects of the visual a user would 
+be interested in ­changing. In this example a filter is necessary to see how a specific sub-­
+category of the product is performing. To quickly answer questions about sales in a specific 
+state, a filter for state is also necessary. It is also a good idea to have a filter for product 
+­category to answer questions about the entire category, as well as specific sub-categories.
+APPLYING CRITICAL THINKING 9.5: Plan the Best 
+Presentation
+Creating data visualizations for a presentation takes planning. Part of that planning should 
+include considering different ways to present your findings as well as possible alternative visu-
+alizations (Alternatives):
+•	 Be opened-minded about visualizations so that you consider all possible options and create 
+the best presentation.
+•	 For example, when preparing the presentation of the HMC dashboard, considering an interac-
+tive versus static visualization opens the opportunity for a more powerful presentation.
+
+Learning Objectives Review  9-39
+Chapter Review and Practice
+Learning Objectives Review
+❶  Explain how a data story communicates data analy-
+sis results.
+The final step in data analysis is to summarize the findings and com-
+municate them to the intended audience:
+•  Data literacy is the ability to understand data and communicate 
+their meaning clearly and concisely. 
+•  Communicate data analysis results effectively by understanding 
+the audience, focusing on the message rather than the numbers, 
+providing context for the data, making it easy to understand the 
+results, and telling a data story. 
+•  A data story includes three elements: data, narrative, and ­visuals. 
+Effective data stories have a specific structure. First, the problem 
+or issue is introduced and explored. Next, the main insight is 
+identified and a solution is shared. The final part of the story is a 
+conclusion that includes next steps.
+❷  Summarize the steps for creating effective data 
+visualizations.
+There are three steps to follow before creating effective data 
+visualizations:
+•  Verify the data: Make sure they are accurate, complete, consis-
+tent, fresh, and timely.
+•  Consider the audience: Who will be viewing the visualizations? 
+Consider what the audience needs so that they are engaged and 
+understand the visualization.
+$0K
+$15K
+$16K
+$14K
+$13K
+$12K
+$11K
+$10K
+$9K
+$8K
+$7K
+$6K
+$5K
+$4K
+$3K
+$2K
+$3K
+$2K
+$4K
+$14K
+$1K
+Net Sales
+2025
+2024
+2023
+2022
+Camping Gear
+$3K
+$2K
+$4K
+$14K
+Alabama
+Arizona
+Indiana
+Illinois
+Idaho
+Georgia
+Florida
+District of Colum..
+Delaware
+Connecticut
+Colorado
+California
+Arkansas
+State
+Camping Gear
+Paddle
+Tents
+Category
+Backpacking Tent
+Base Camp Model
+Camp Stove
+Chairs
+Fasteners
+Cook Set
+Firestarter Kit
+First Aid Kit
+Life Vest
+Kayak
+Micro Cooking Unit
+Mountain Tent - 4 Person
+Northface Subzero
+Sub-Category
+Years
+
+9-40  CHAPTER 9  Communicating Data Analysis Results
+❹  Recognize misleading data visualizations.
+Ethics and data visualization are intertwined. It is important to be 
+able to identify misleading visualizations and to not create them. The 
+common ways visualizations are misleading include:
+•  Omitting the baseline: This occurs when the baseline does not 
+start at zero and therefore gives the impression that changes are 
+more dramatic.
+•  Manipulating the y-axis: Increasing or decreasing the axis range 
+can alter perception of the data.
+•  Going against conventions: Unusual color conventions can con-
+fuse and mislead an audience.
+•  Selectively choosing the data: Omitting data points to alter the 
+perception of trends in the data can be misleading.
+•  Using the wrong type of graph: Choosing a visualization that is 
+not easily interpretable based on the data.
+❺  Create an interactive data visualization presentation.
+A common way to communicate the results of data analyses is an oral 
+presentation to the intended audience:
+•  There are certain practices for oral presentations:
+•  Make sure the audience can see the data.
+•  Explain the meaning of the data.
+•  Share one point per chart.
+•  Label visualizations clearly.
+•  Highlight the important insights or discoveries.
+•  Slides should reinforce the data’s point.
+•  Look at the audience and not at your slides.
+•  Create an interactive data visualization that allows the viewer to 
+explore, manipulate, and interact with graphical representations 
+of data.
+•  Define the objective: Is the objective to show composition, rela-
+tionships, distributions, trends, or comparisons? Choose the 
+visual that matches the project’s goal.
+❸  Describe the characteristics of an effective data 
+visualization.
+Once the visualization is chosen, follow best practices to be sure it 
+effectively communicates the results.
+Consider the principles of visual perception:
+•  Continuity: Effective visualizations arrange visual objects in a 
+line to simplify grouping and comparison.
+•  Similarity: Items similar in color, shape, size, or locations evoke 
+the perception that they belong to the same group.
+•  Proximity: People perceive visual elements are related by how 
+closely they are positioned to one another.
+•  Focal point: The viewer of a visualization will pay more atten-
+tion to whatever stands out visually.
+Preattentive attributes are visual properties we notice without real-
+izing it:
+•  Size: Relative size is interpreted as relative importance.
+•  Color: Use color sparingly and consistently.
+•  Position: People typically start at the top left corner of a visual-
+ization and then scan it in a zig-zag motion. Put important infor-
+mation at the top left of a visualization.
+•  Titles: They should be factual and neutral. Avoid using unnec-
+essary descriptive words. Titles should include a noun that rep-
+resents what was measured and when.
+Avoid cluttering visualizations:
+•  Remove any non-data related details from the visualization.
+•  Eliminate redundant information.
+Key Terms Review
+Context  9-4
+Data literacy  9-2
+Data visualization  9-8
+Gestalt principles of visual perception  9-16
+Interactive data visualization  9-36
+Law of continuity  9-16
+Law of focal point  9-18
+Law of proximity  9-18
+Law of similarity  9-17
+Preattentive attributes  9-19
+
+How To Walk-Throughs 9-41
+How To Walk-Throughs
+ HOW TO 9.1 Create a Dashboard in Tableau 
+ The dashboard in  Illustration 9.13 was created using the visualization software Tableau.
+Follow these steps to create it yourself. 
+ What You Need :
+Data
+The How To 9.1 data file. 
+ STEP 1: Open the workbook to find the three visualizations that have already been created: 
+profit margin by brand, gross sales by brand, and cost analysis. 
+ STEP 2:  Open a dashboard worksheet by selecting  Dashboard in the main toolbar or by 
+ clicking the dashboard icon next to the worksheets ( Illustration 9.49 ). 
+How To
+ ILLUSTRATION 9.49  Tableau 
+Dashboard Option in the Toolbar
+File
+Data
+Worksheet
+Story
+Analysis
+Map
+Format
+Server
+Window
+Help
+Tableau - Dashboard How To- 11-1
++
+II
++
+Dashboard
+File
+Data
+Worksheet
+Story
+Analysis
+Map
+Format
+Server
+Window
+Help
++
+II
++
+2
+ STEP 3: In the dashboard worksheet, click and drag any of the visualizations listed under 
+Sheets to the box  Drop Sheets Here . 
+ STEP 4: In the  Objects section on the left, choose  Floating (See Illustratiuon 9.50). Manu-
+ally locate and size the visualizations. 
+ ILLUSTRATION 9.50  Tableau 
+Dashboard Canvas 
+Tiled
+Floating
+Show dashboard title
+File
+Data
+Worksheet
+Story
+Analysis
+Map
+Format
+Server
+Window
+Help
+Dashboard
+Tableau-DA_1e_Chapter 09 - How To  9.1 - Tableau Packaged Workbook
++
+II
++
+Data Source  Profit Margin By Brand Gross Sales by Brand  Cost Analysis
+Dashboard 1 
++
++
++
+File
+Data
+Worksheet
+Story
+Analysis
+Map
+Format
+Server
+Window
+Help
+Dashboard
+Tableau-DA_1e_Chapter 09 - How To  9.1 - Tableau Packaged Workbook
+Dashboard
+Layout
+Default
+Phone
+Size
+Sheets
+Device Preview 
+Profit Margin By Brand
+Gross Sales by Brand  
+Cost Analysis
+Objects
+Horizontal
+Vertical
+Text
+Image
+Web Page
+Blank
+Navigation
+Download
+Extension
+Ask Data
+A
+Desktop Browser (1000 × 800)
+Drop sheets here
+3
+4

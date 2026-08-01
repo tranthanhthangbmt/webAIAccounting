@@ -1,0 +1,358 @@
+9-52  CHƯƠNG 9  Truyền đạt kết quả phân tích dữ liệu
+BE 9.15  (LO 5)  Dữ liệu   Kế toán tài chính   Kế toán quản trị   Hình ảnh sau đây-
+đã được chuẩn bị cho Cuộc phiêu lưu ngoài trời ở Hoa Kỳ để giúp họ phân tích doanh số bán hàng.
+Doanh thu thuần theo danh mục sản phẩm: 2022–2025
+$460K
+$480K
+$440K
+$420K
+$400K
+$380K
+$360K
+$340K
+$320K
+$300K
+$280K
+$240K
+$260K
+$220K
+Dụng cụ cắm trại
+mái chèo
+Lều
+Doanh thu thuần
+$200K
+$180K
+$120K
+$140K
+$160K
+$174K
+$207K
+$288K
+$139K $138K
+$173K
+$204K
+$305K
+$329K
+$400K
+$442K
+$159K
+$174K
+$207K
+$288K
+$139K $138K
+$173K
+$204K
+$305K
+$329K
+$400K
+$442K
+$159K
+$60K
+$80K
+$100K
+$40K
+$20K
+$0K
+2025
+2024
+2023
+2022
+2025
+2024
+2023
+2022
+Năm
+2025
+2024
+2023
+2022
+Xác định các cách làm cho hình ảnh trực quan này mang tính tương tác để người dùng có thể đi sâu vào và xem các phương pháp khác nhau như thế nào. 
+sản phẩm đang hoạt động. Sau đó, tạo hình ảnh trực quan.
+Bài tập
+EX 9.1  (LO 1, 2, 3, 5)  Dữ liệu   Kế toán quản lý   Tạo hình ảnh trực quan để phân tích doanh số 
+và Profitability Super Scooters là một công ty sản xuất và bán bốn loại xe tay ga khác nhau: 
+Thuyền trưởng, Celeritas, Kicks và Lazer. Bạn là kế toán tại Super Scooters và CEO đã yêu cầu 
+phân tích doanh thu và lợi nhuận của các mô hình trong ba năm qua. 
+	 1. Chuẩn bị phân tích doanh thu và lợi nhuận. Thực hiện theo các phương pháp hay nhất được nêu trong chương.
+	 2. Thảo luận cách bạn có thể làm cho các phân tích trở nên hấp dẫn đối với khán giả mà bạn đang trình bày.
+EX 9.2  (LO 2, 3, 5)  Dữ liệu   Kế toán thuế   Sử dụng hình ảnh trực quan để phân tích chi phí được khấu trừ 
+Bạn là nhân viên kế toán thuế cho Ace Software, một công ty phần mềm máy tính, được giao nhiệm vụ thực hiện một công việc 
+phân tích chi phí giải trí của doanh nghiệp. Theo luật thuế hiện hành, bữa ăn công tác được khấu trừ 50%
+ible. Chi phí giải trí (golf, vé sự kiện thể thao, v.v.) không được khấu trừ. 
+	 1. Chuẩn bị một hình ảnh tóm tắt chi tiêu cho việc giải trí. Thực hiện theo các phương pháp hay nhất được nêu 
+trong chương.
+	 2.  Thiết kế trực quan hóa tương tác cho phép phân tích ở cấp độ nhân viên.
+EX 9.3  (LO 2, 3)  Dữ liệu   Kế toán quản lý   Tạo trực quan hóa để phân tích biến 
+Chi phí Super Scooters sản xuất và bán bốn loại xe tay ga khác nhau: Captain, Celeritas, Kicks và Lazer. 
+Bạn được yêu cầu thực hiện phân tích chi phí biến đổi theo mẫu mã và năm.
+	 1. Chuẩn bị trực quan hóa dữ liệu giải thích về chi phí biến đổi. Bạn có thể sử dụng Excel, PowerBI hoặc Tableau 
+để chuẩn bị các hình ảnh trực quan. Hãy chắc chắn làm theo tất cả các thực hành tốt nhất.
+
+Bài tập  9-53
+	 2.  Thảo luận cách bạn truyền đạt phân tích của mình tới từng đối tượng sau:
+•  Người mới
+•  Chuyên gia
+•  Quản lý
+•  Điều hành
+EX 9.4  (LO 1, 2, 3)  Dữ liệu   Kiểm toán   Sử dụng Trực quan hóa để Phân tích Xu hướng Doanh thu Bạn là một 
+kiểm toán viên cho công ty kế toán Banes, Kent và Williams. Là một phần của quá trình kiểm tra Super Scooters, bạn 
+đã được yêu cầu tạo một hình ảnh trực quan để hiển thị phân tích xu hướng về doanh thu bán hàng. Mục tiêu của 
+phân tích là để xác định xem có bất kỳ thay đổi bất thường nào về doanh số bán hàng so với những năm trước hoặc các xu hướng khác hay không 
+có thể ảnh hưởng đến rủi ro có sai sót trọng yếu.
+	 1. Chuẩn bị một bản trực quan có thể phân tích những thay đổi trong doanh số và xu hướng bán hàng.
+	 2. Thảo luận tại sao những hình ảnh trực quan bạn chọn là phù hợp.
+	 3. Thảo luận cách bạn truyền đạt phân tích của mình tới từng đối tượng sau:
+•  Người mới
+•  Chuyên gia
+•  Quản lý
+•  Điều hành
+EX 9.5  (LO 3)  Dữ liệu   Kế toán tài chính   Tạo trực quan hóa để phân tích dữ liệu bảng lương 
+Thực hiện phân tích tiền làm thêm giờ được trả theo bộ phận và tháng cho thành phố Chicago. Sử dụng trực quan 
+phần mềm để tạo trực quan hiển thị như sau:
+	 1. Các bộ phận có tổng số giờ làm thêm cao nhất.
+	 2. Xu hướng làm thêm hàng tháng của bộ phận có tổng số giờ làm thêm cao nhất.
+	 3. Những nhân viên có tổng số giờ làm thêm cao nhất trong năm ở bộ phận có tổng số giờ làm thêm cao nhất 
+số tiền làm thêm giờ.
+EX 9.6  (LO 5)  Dữ liệu   Kế toán tài chính   Tạo trực quan hóa tương tác Ngoài trời Hoa Kỳ 
+Adventures muốn sử dụng bảng điều khiển tương tác để đánh giá doanh số và lợi nhuận của sản phẩm. Xem lại 
+trực quan hóa tĩnh trong một trong các tệp Excel, PowerBI hoặc Tableau do bộ phận kế toán chuẩn bị 
+tại Cuộc phiêu lưu ngoài trời của Hoa Kỳ. Chuyển đổi trực quan hóa tĩnh thành trực quan hóa tương tác để quản lý-
+ment có thể sử dụng để theo dõi lợi nhuận của sản phẩm theo danh mục phụ và vị trí.
+EX 9.7  (LO 1, 2, 3)  Dữ liệu   Kế toán quản lý   Tạo hình ảnh trực quan để đưa ra quyết định 
+Bạn là nhà phân tích tài chính làm việc trong nhóm vận hành tại Super Scooters. Nhóm điều hành là liên
+nằm trong xu hướng bán hàng của các mẫu xe tay ga. Cụ thể, họ muốn hiểu tổng doanh thu theo mô hình 
+và khối lượng bán hàng theo mẫu mã để xác định những mẫu mã nào đang tăng lên theo các thước đo này. Những cái cao đó 
+những người mẫu hoạt động tốt sẽ nhận được nhiều phân bổ đô la tiếp thị hơn.
+	 1. Phân tích số tiền bán hàng, khối lượng bán hàng và khối lượng bán hàng theo mô hình trong ba năm qua. hiện tại 
+trực quan hóa để truyền đạt kết quả cho nhóm điều hành. Bạn sẽ cần nhiều hơn một hình ảnh
+Alization để tạo ra một câu chuyện thích hợp cho đội ngũ điều hành.
+	 2. Sử dụng kim tự tháp Freytag để kể câu chuyện. Đưa ra các khuyến nghị cho đội ngũ điều hành về 
+việc phân bổ đô la tiếp thị cho các mô hình có hiệu suất cao.
+EX 9.8  (LO 2, 3)  Dữ liệu   Kế toán tài chính   Tạo hình ảnh trực quan để mô tả bảo hành 
+Expenses High-End Hubs (HEH) là một đơn vị tư nhân sản xuất và bán các bộ phận bánh xe đạp. 
+Khách hàng chính của họ là các nhà sản xuất xe đạp leo núi cao cấp. Bộ điều khiển đã yêu cầu bạn 
+hiểu lợi nhuận bảo hành năm nay so với năm ngoái. Mục tiêu của bạn là xác định các mô hình và bộ phận 
+những con số có vấn đề về bảo hành trong năm hiện tại và để xác định các giả định để sử dụng trong bảo hành 
+tính lũy kế cuối năm. Chuẩn bị hình ảnh mô tả về lợi nhuận bảo hành so với doanh số bán hàng 
+theo mô hình cho năm nay và năm ngoái.
+EX 9.9  (LO 1, 2, 3)  Dữ liệu   Kiểm toán   Truyền đạt rủi ro có sai sót trọng yếu bằng cách sử dụng 
+Hình dung Bạn là kiểm toán viên cho công ty kế toán Banes, Kent và Williams. Là một phần của cuộc kiểm toán 
+của Super Scooters, bạn phải tạo hình ảnh trực quan để truyền đạt xu hướng doanh thu bán hàng theo từng mẫu xe. 
+Mục tiêu của việc phân tích là truyền đạt những thay đổi trong xu hướng bán hàng từ năm trước để thông báo cho bạn 
+xem xét rủi ro có sai sót trọng yếu liên quan đến việc ghi nhận doanh thu cho cuộc kiểm toán năm hiện tại.
+	 1. Tạo hình ảnh trực quan để hiển thị tổng doanh thu hàng năm theo địa điểm.
+	 2. Tạo hình ảnh trực quan để hiển thị tổng doanh thu hàng năm theo mô hình và địa điểm.
+	 3. Sử dụng kim tự tháp của Freytag để kể câu chuyện về từng hình ảnh trực quan và cách nó có thể cung cấp thông tin cho quá trình kiểm tra 
+Siêu xe tay ga. Hãy nhớ rằng đối tượng của bạn đối với những hình ảnh và câu chuyện này là nhóm kiểm tra 
+và các hồ sơ kiểm toán.
+
+9-54  CHƯƠNG 9  Truyền đạt kết quả phân tích dữ liệu
+EX 9.10  (LO 1, 2)  Kế toán tài chính   Kế toán quản trị   Tạo câu chuyện dựa trên 
+Khán giả Bạn là nhà phân tích tài chính của SWI, Inc. SWI là nhà sản xuất và phân phối các thiết bị vi mô
+chip và bộ vi xử lý. Công ty bán sản phẩm của mình cho khách hàng ở một số quốc gia và khu vực 
+bao gồm Úc, Liên minh Châu Âu, Bắc Mỹ và Nam Mỹ. Bạn đã chuẩn bị hồ sơ
+bảng hạ thấp và trực quan hóa hiển thị doanh số bán hàng ở từng khu vực khác nhau vào năm 2024 so với năm 2025.
+Úc
+Liên minh châu Âu
+Bắc Mỹ
+Nam Mỹ
+$ 1,417,584
+$ 1,252,712
+$1,239,689
+$ 1,515,744
+Vị trí
+2024
+Bán hàng theo địa điểm
+$ 1,134,785
+$ 1,376,503
+$1,624,719
+$ 1,742,311
+2025
+Tổng cộng
+$ 5,425,729 $ 5,878,318
+Ngày bán
+Địa điểm/Ngày bán
+Bán hàng theo địa điểm
+$0K
+$1,600K
+$1,515,444
+$1,742,311
+$1,624,719
+$1,252,712
+$1,376,503 $1,417,584
+$1,134,785
+$1,239,689
+$1,515,744
+$1,742,311
+$1,624,719
+$1,252,712
+$1,376,503 $1,417,584
+$1,134,785
+$1,239,689
+2.000 nghìn USD
+$1,800K
+$1,400K
+$1,200K
+Nam Mỹ
+Bắc Mỹ
+Liên minh châu Âu
+Úc
+Tổng
+Doanh thu $1,000K
+$600K
+$800K
+$400K
+$200K
+2025
+2024
+2025
+2024
+2025
+2024
+2025
+2024
+Năm
+Với hình ảnh trực quan và bảng biểu, hãy sử dụng kim tự tháp Freytag để kể câu chuyện về doanh số bán hàng của công ty bạn bằng cách 
+quốc gia từ góc độ của một nhà điều hành đang thảo luận về kết quả thực hiện cuộc gọi của nhà đầu tư. Sau đó, hãy kể cho 
+câu chuyện từ quan điểm của một nhà điều hành đưa ra quyết định quản lý về hiệu suất bán hàng.
+
+Bài tập  9-55
+EX 9.11  (LO 2, 3, 4)  Dữ liệu   Kiểm toán   Đánh giá tài liệu phân tích dữ liệu Giả sử bạn là một 
+nhân viên kiểm toán cấp cao phụ trách hợp đồng với SWI, Inc. SWI là công ty đại chúng sản xuất và phân phối
+tôn vinh vi mạch và bộ vi xử lý trên phạm vi quốc tế. Nhân viên nhóm đính hôn của bạn đã chuẩn bị một 
+một loạt hình ảnh trực quan để xác định mức độ thử nghiệm cần được thực hiện ở từng khu vực theo mô hình. 
+Cụ thể, nhóm tham gia cần hiểu rõ các khu vực và mô hình có sự thay đổi lớn nhất 
+trong năm trước.
+Tổng doanh thu
+Tổng doanh thu theo năm
+Doanh số theo mẫu mã, khu vực và năm
+Năm bán..
+người mẫu
+500K
+Vi1×7
+Vi1×9
+Mitoxi1×4
+Mitoxi1×7
+1.000K
+0K
+1.500K
+2.000K
+2.500K
+3.000K
+4.000K
+3.500K
+4.500K
+2024
+2025
+5.000K
+5.500K
+2024
+2025
+Năm bán ngày
+Úc
+Liên minh châu Âu
+Bắc Mỹ
+Nam Mỹ
+Vị trí
+	 1. Cung cấp nhận xét đánh giá để cải thiện trang tổng quan. Xác định các hình ảnh trực quan gây hiểu lầm và cung cấp 
+phản hồi để nâng cao hiệu quả tổng thể của việc trực quan hóa.
+	 2. Chuẩn bị hình ảnh trực quan trên trang tổng quan để truyền đạt sự khác biệt về doanh số bán hàng theo khu vực theo mẫu mã.
+EX 9.12  (LO 3)  Dữ liệu   Kế toán tài chính   Tạo trực quan hóa để phân tích dữ liệu bảng lương 
+Thực hiện phân tích mức lương được trả theo bộ phận và tháng cho thành phố Chicago. Sử dụng trực quan 
+phần mềm để tạo trực quan hiển thị như sau:
+	 1. Bộ phận có tổng mức lương dành cho nhân viên toàn thời gian cao nhất trong 3 bộ phận.
+	 2. Năm phòng ban có số lượng nhân viên đông nhất.
+	 3. 10 tổng lương cao nhất theo chức danh công việc.
+EX 9.13  (LO 5)  Dữ liệu   Kế toán quản lý   Tạo trực quan hóa tương tác Ngoài trời Hoa Kỳ 
+Adventures muốn sử dụng bảng điều khiển tương tác để đánh giá chi phí sản phẩm và vận chuyển. Xem lại tĩnh 
+trực quan hóa bằng một trong các tệp Excel, PowerBI hoặc Tableau do bộ phận kế toán quản lý chuẩn bị.
+tâm trí. Chuyển đổi trực quan hóa tĩnh thành trực quan hóa tương tác để ban quản lý có thể giám sát chi phí 
+sản phẩm theo danh mục phụ và vị trí cũng như chi phí vận chuyển theo danh mục phụ, địa điểm và phương thức vận chuyển.
+EX 9.14  (LO 2, 3)  Dữ liệu   Kiểm toán   Sử dụng hình ảnh trực quan để truyền đạt tạp chí bất thường 
+Bài viết HEH, Inc. là một công ty tư nhân có lịch cuối năm. Bạn là nhân viên kiểm toán được giao nhiệm vụ 
+hợp đồng và chuyên gia kiểm toán của bạn đã yêu cầu bạn phân tích các giao dịch sổ cái chung trong 
+năm hiện tại và xác định bất kỳ khoản mục bất thường nào có thể đã được ghi lại. Tạo hình ảnh trực quan 
+minh họa các mục nhật ký bất thường. Ví dụ, hãy xem xét những điều sau đây:
+	 1. Nhật ký được ghi vào ngày thứ Bảy.
+	 2. Mục nhật ký trong đó mục ghi nhớ có điều chỉnh từ.
+	 3. Các mục nhật ký trong đó mục ghi nhớ có từ “plug”.
+
+9-56  CHƯƠNG 9  Truyền đạt kết quả phân tích dữ liệu
+EX 9.15  (LO 2, 3)  Dữ liệu   Hệ thống thông tin kế toán   Sử dụng hình ảnh trực quan để truyền đạt
+cate Nhật ký phân tích kết quả Bạn là nhân viên kế toán hệ thống thông tin tại công ty của bạn, TBARk, một công ty 
+công ty bán lẻ nhỏ bán cả trực tuyến và tại các cửa hàng truyền thống. Hàng quý, nhóm của bạn kiểm tra 
+phân tích nhật ký của nhân viên để đảm bảo tuân thủ chính sách của công ty. Các chính sách chính tại công ty bao gồm:
+	 1. Nhân viên chỉ nên đăng nhập vào một hệ thống POS tại một thời điểm.
+	 2. Nhân viên phải đăng xuất khi không sử dụng hệ thống POS để bán hàng cho khách hàng.
+	 3. Nhân viên công ty và văn phòng hỗ trợ không nên đăng nhập vào hệ thống POS.
+Bạn sẽ thông báo kết quả của mình cho người quản lý nhóm của bạn, một chuyên gia về thông tin kế toán.
+hệ thống quản lý, điều khiển và phân tích nhật ký. Chuẩn bị hình ảnh trực quan để kiểm tra từng chính sách bằng cách sử dụng tốt nhất 
+thực tiễn để truyền đạt kết quả phân tích của bạn về từng chính sách.
+EX 9.16  (LO 3, 4)  Dữ liệu   Kế toán tài chính   Xác định hình ảnh hóa dữ liệu gây hiểu lầm mà bạn 
+là nhà phân tích tài chính của Adventure Sports and Outdoors, một công ty bán lẻ chuyên bán thuyền, 
+phụ kiện chèo thuyền và thiết bị an toàn. Nhóm mua hàng của bạn đang xem xét các hợp đồng với nhà cung cấp chính. Mục đích
+nhóm theo đuổi đã thực hiện các phân tích liên quan đến số tiền chi tiêu với mỗi nhà cung cấp và 
+đã đưa ra kết luận về hành vi mua hàng. Phân tích của nhóm mua hàng sau đây và 
+kết luận đã được trình bày cho bạn. 
+Tên nhà cung cấp
+Bertram
+Hiệu suất cao...
+An toàn đầu tiên
+Wow Sports, Inc.
+Người săn cá voi ở Boston
+MasterCraf
+Nút thắt SGT
+Wakesurf, Inc.
+Số lượng hóa đơn
+hóa đơn TTL
+Số lượng hóa đơn theo nhà cung cấp
+Tên nhà cung cấp
+Chi phí hóa đơn theo nhà cung cấp
+Tên nhà cung cấp
+0
+Bertram
+Boston...
+CaoP...
+Thầy...
+An toàn...
+SGT Kn...
+Wakesu...
+Ôi S...
+Bertram
+Boston...
+CaoP...
+Thầy...
+An toàn...
+SGT Kn...
+Wakesu...
+Ôi S...
+10
+20
+–10
+30
+40
+50
+60
+70
+90
+80
+100
+110
+120
+130
+5K
+10K
+15K
+20K
+25K
+30K
+35K
+40K
+50K
+45K
+55K
+60K
+65K
+70K
+	 1. Xác định các yếu tố gây hiểu lầm hoặc không hiệu quả trong những hình dung này.
+	 2. Chuẩn bị hình ảnh trực quan thể hiện chính xác hơn hoạt động mua hàng của từng nhà cung cấp.

@@ -1,0 +1,490 @@
+Bài tập  9-57
+EX 9.17  (LO 4)  Dữ liệu   Hệ thống thông tin kế toán   Xác định hình ảnh trực quan gây hiểu lầm 
+trong Kiểm tra kiểm soát Bạn là nhân viên kế toán hệ thống thông tin kế toán tại SWI Inc. Nhóm của bạn là 
+đánh giá các biện pháp kiểm soát công nghệ thông tin liên quan đến quy trình phê duyệt bán hàng cho năm 2025. 
+Kiểm soát quy trình phê duyệt bán hàng của SWI được thiết kế như sau:
+•  Tất cả doanh số bán hàng trên $10.000 và doanh số bán hàng có sửa đổi đối với điều khoản bán hàng chung phải được phê duyệt 
+bởi người quản lý bán hàng được chỉ định.
+•  Có ba giám đốc bán hàng tại SWI: Mary Ann Parola quản lý thị trường Úc và Nam Mỹ 
+khu vực, Hamish Rundan quản lý các khu vực Bắc Mỹ và Shonie Oscenbono quản lý 
+khu vực Liên minh Châu Âu.
+Nhân viên kế toán AIS của bạn đã chuẩn bị các hình ảnh trực quan sau đây để truyền đạt hiệu quả hoạt động-
+tính chất của việc kiểm soát. 
+Không
+2
+5
+0
+10
+20
+30
+40
+50
+60
+70
+80
+90
+100
+110
+120
+130
+Mary Ann
+Parola
+Mary Ann
+Parola
+Shonie
+Oscebono
+Hamish
+Rundan
+Không
+Không
+Không
+88
+98
+88
+122
+8
+3
+Vị trí/Bán hàng được phê duyệt
+Úc
+Liên minh Châu Âu
+Bắc Mỹ
+Nam Mỹ
+Số lượng
+Tổng doanh thu
+Kiểm soát phê duyệt bán hàng
+Xem lại hình ảnh trực quan cùng với dữ liệu: 
+	 1. Xác định các trường hợp trong đó hình ảnh trực quan không truyền đạt kết luận một cách thích hợp.
+	 2. Chuẩn bị hình ảnh đã chỉnh sửa
+EX 9.18  (LO 4)  Kế toán quản trị   Xác định những hình ảnh trực quan gây hiểu lầm Với tư cách là chuyên gia tài chính cấp cao 
+nhà phân tích tại Super Scooters, nhóm của bạn đang chuẩn bị cho buổi thuyết trình với một nhóm sinh viên để giáo dục họ 
+về chi phí biến đổi trong quá trình sản xuất. Bạn đã nhận được sự chấp thuận từ người điều hành 
+nhóm chia sẻ dữ liệu công ty, nhưng bạn biết rằng đây là đối tượng mới làm quen.
+Nhân viên của bạn đã chuẩn bị hình ảnh trực quan sau đây để truyền đạt xu hướng lao động, vật chất, 
+chi phí chung và tổng chi phí được phân bổ liên quan đến việc sản xuất và bán mẫu Celeritas. 
+Lao động
+$500K
+1.000 nghìn USD
+$1,500K
+2.000 nghìn USD
+Vật liệu
+Chi phí chung
+Tổng số được phân bổ
+Chi phí cố định
+Chi phí thay đổi thuyền trưởng
+người mẫu
+Giá trị
+thuyền trưởng
+Xem lại hình ảnh trực quan do nhân viên của bạn chuẩn bị và giải thích cách nó có thể được cải thiện để trình bày.
+tiếp cận khán giả mới làm quen.
+
+9-58  CHƯƠNG 9  Truyền đạt kết quả phân tích dữ liệu
+EX 9.19  (LO 5)  Dữ liệu   Kế toán tài chính   Xây dựng trình bày trực quan hóa dữ liệu tương tác-
+Bán hàng HEH, Inc. bán phụ tùng xe đạp B2B, nghĩa là họ chủ yếu bán cho các công ty 
+sản xuất và lắp ráp xe đạp. Tạo hai hình ảnh trực quan bán hàng và bảng thông tin tương tác 
+điều đó sẽ cho phép bạn trình bày phân tích của mình với người quản lý bán hàng của công ty. Nhớ sử dụng tốt nhất 
+thực tiễn trong việc tạo hình ảnh trực quan và tạo trang tổng quan tương tác.
+EX 9.20  (LO 2, 3, 4)  Dữ liệu   Kiểm toán   Đánh giá bản phân tích do khách hàng chuẩn bị về xu hướng bán hàng này 
+là năm đầu tiên công ty của bạn thực hiện kiểm toán One Stop Shop. Nhóm đang thực hiện các phân tích để đạt được hiểu biết sâu sắc
+vị thế của khách hàng và ngành. One Stop Shop cung cấp cho nhóm của bạn bản phân tích về doanh số bán hàng của họ 
+xu hướng và kết hợp sản phẩm từ năm 2022 đến năm 2025.
+2022
+160 triệu USD
+165 triệu USD
+170 triệu USD
+175 triệu USD
+180 triệu USD
+185 triệu USD
+190 triệu USD
+195 triệu USD
+2025
+Phân tích xu hướng bán hàng: 2022–2025
+Tổng lợi nhuận
+Cơ cấu doanh số sản phẩm: 2022–2025
+Loại sản phẩm Mô tả
+Thức ăn trẻ em
+Đồ uống
+ngũ cốc
+Quần áo
+Mỹ phẩm
+trái cây
+hộ gia đình
+Thịt
+Vật tư văn phòng
+Chăm sóc cá nhân
+Đồ ăn nhẹ
+Rau củ
+9,4%
+27,7%
+21,9%
+2022
+0,3%
+16,4%
+0,4%
+4,3%
+13,8%
+22,5%
+6,3%
+3,8%
+14,8%
+0,4%
+21,8%
+2024
+13,3%
+21,2%
+4,5%
+2,3%
+15,0%
+0,3%
+27,2%
+2025
+23,0%
+14,4%
+23,5%
+15,2%
+2023
+0,4%
+5,5%
+3,1%
+	 1. Đánh giá các hình ảnh trực quan do khách hàng cung cấp và xác định các vấn đề hoặc vấn đề tiềm ẩn với 
+trực quan hóa.
+	 2. Tạo hình ảnh trực quan hiệu quả hơn.
+Vấn đề
+Pueblo Hospitality, Inc. (PHI) vận hành chuỗi 48 khách sạn ở một số bang. Stephanie Putnam 
+là chủ tịch và giám đốc điều hành của PHI. Các khách sạn của PHI nằm trong phân khúc lưu trú bình dân. Một nền kinh tế điển hình 
+khách sạn lưu trú có trung bình 84 phòng, mặc dù khách sạn của PHI có trung bình 117 phòng. Tài sản có nhân viên 
+bởi một tổng giám đốc, nhân viên lễ tân gồm 6 người, một quản gia trưởng, 7 quản gia và một nhân viên bảo trì.
+công nhân tài chính. Ngoại trừ tổng giám đốc, nhân viên được trả lương theo giờ và số giờ được phân công của họ khác nhau 
+dựa trên nhu cầu.
+
+Trường hợp đăng ký chuyên nghiệp: Thư viện công cộng Madison 9-59
+ PHI sử dụng các tiêu chuẩn hiệu suất sau.
+ Đo lường 
+ Mục tiêu 
+ Doanh thu trên mỗi phòng trống (RevPAR) 
+ Tăng 2% so với năm trước 
+ Sự hài lòng của khách hàng 
+ 7,5 
+ Năng suất dọn phòng 
+ 30 phút mỗi phòng 
+ Điểm kiểm tra 
+ 7,0 
+ Dữ liệu PR 9.1 (LO 1, 3, 5)
+Kế toán tài chính
+Tạo một câu chuyện dữ liệu để phân tích lợi nhuận 
+phân tích doanh thu trên mỗi phòng có sẵn (RevPAR). Phân tích của bạn phải bao gồm doanh thu, lợi nhuận, trung bình 
+doanh thu trên mỗi phòng sẵn có và doanh thu trung bình của đối thủ cạnh tranh trên mỗi phòng sẵn có. Chuẩn bị dữ liệu tương tác 
+hình ảnh để trình bày với CEO. 
+ Dữ liệu PR 9.2 (LO 1, 2, 3, 5)
+Kế toán quản trị
+Tạo Bảng điều khiển cho Quản lý 
+ Đối tượng Chuẩn bị bản phân tích về hiệu suất của PHI cho từng mục tiêu hiệu suất. Tạo một dấu gạch ngang-
+hội đồng quản trị sẽ hữu ích cho việc quản lý để theo dõi hiệu suất. Đảm bảo rằng bảng điều khiển cho phép 
+các nhà quản lý để xem các khách sạn riêng lẻ đang hoạt động như thế nào cũng như hiệu suất tổng thể của công ty. 
+ Dữ liệu PR 9.3 (LO 1, 2, 3, 5)
+Kiểm toán
+Tạo hình ảnh trực quan để đánh giá rủi ro doanh thu Bạn 
+đã được giao cho nhóm kiểm toán để kiểm toán Pueblo Hospitality. Người quản lý của bạn đã yêu cầu bạn 
+sử dụng hình ảnh hóa dữ liệu để hiểu rõ hơn về doanh thu. Cụ thể, bạn đã được yêu cầu 
+đánh giá mối quan hệ giữa số phòng thuê và doanh thu và xác định những bất thường 
+mô hình hoặc quan sát.
+  1. Lập bản phân tích đánh giá doanh thu năm nay so với năm trước. 
+ 2. Chuẩn bị bản phân tích cho thấy các ngoại lệ tiềm ẩn theo ID thuộc tính. 
+3. Chuẩn bị một câu chuyện dữ liệu kèm theo những hình ảnh trực quan của bạn để cung cấp cho người quản lý và thảo luận về kết quả của bạn.
+ Trường hợp ứng dụng chuyên nghiệp: Thư viện công cộng Madison
+ Thư viện Công cộng Madison (MPL) là một cơ quan của Thành phố Madison, Wisconsin. Sứ mệnh của 
+thư viện là để “cung cấp quyền truy cập miễn phí và công bằng vào các trải nghiệm văn hóa và giáo dục”. Tầm nhìn của nó là 
+trở thành “nơi để học hỏi, chia sẻ và sáng tạo”.  Thư viện được điều hành bởi một ban giám đốc gồm chín thành viên 
+được thị trưởng Madison bổ nhiệm với nhiệm kỳ ba năm. Ban thư viện làm việc với thị trưởng, thư viện 
+nhân viên và Hội đồng chung Madison để lập kế hoạch, tài trợ và triển khai dịch vụ thư viện công cộng ở Madison. 
+ Thư viện được hỗ trợ tài chính bởi thành phố Madison và Quỹ Thư viện Công cộng Madison.
+chuyện. Quỹ này thúc đẩy và hỗ trợ các cơ sở, dịch vụ và chương trình thư viện công cộng của Madison. 
+Hội đồng quản trị của nó bao gồm 30 thành viên. Các sáng kiến của Hội đồng quản trị bao gồm tăng quà tặng hạn chế, cải thiện 
+gây quỹ, xây dựng sự hợp tác chiến lược để tài trợ cho sự đổi mới và các nhu cầu cấp thiết, đồng thời hỗ trợ chủng tộc 
+công bằng và hòa nhập vào các hoạt động của thư viện và tổ chức thông qua tài trợ, nhân viên và thành lập hội đồng quản trị. 
+ Thư viện bao gồm tám địa điểm.
+ Địa điểm thư viện 
+Alicia Ashman
+miền Trung
+táo gai
+Nhìn ra hồ
+đồng cỏ
+Pinney
+Sequoya
+Nam Madison
+733 N Đường High Point
+201 W Mifflin St
+2707 E Đại lộ Washington
+2845 N. Đại lộ Sherman
+5726 Đường Raymond
+Đường 516 Cottage Grove
+4340 Đại lộ Tokay
+222 S Park St
+Địa chỉ đường phố
+Madison
+Madison WI
+Madison
+Madison
+Madison
+Madison
+Madison
+Madison
+Thành phố
+53717
+53703
+53704
+53704
+53711
+53716
+53711
+53713
+Mã Zip
+WI
+WI
+WI
+WI
+WI
+WI
+WI
+tiểu bang
+Tên thư viện
+
+9-60  CHƯƠNG 9  Truyền đạt kết quả phân tích dữ liệu
+MPL hoạt động như một tổ chức phi lợi nhuận. Sau đây là thông tin tài chính của bốn năm trước. 
+Thông tin tài chính thư viện
+Chiếm đoạt Thư viện Thành phố Madison
+Dịch vụ hợp đồng của hệ thống thư viện trung tâm phía Nam
+Dịch vụ theo hợp đồng của Hệ thống Thư viện Quận Dane
+Dịch vụ hợp đồng LINK
+tài trợ
+Khác
+Tiền phạt và lệ phí
+Tài trợ
+Tiền lương và phúc lợi
+Thư viện Sách, Phương tiện và Cơ sở dữ liệu:
+Dịch vụ theo hợp đồng của Hệ thống Thư viện Quận Dane
+Cơ sở vật chất
+Nợ Hưu trí
+Vật tư và tài sản vốn
+LINKcat Hoạt động máy tính trực tuyến
+Dịch vụ đã mua, Khác
+Dòng vào ròng/(Dòng tiền ra)
+13.026.440
+1.040.746
+1.537.180
+1.227.112
+2.826.376
+482.606
+623.845
+541.895
+$
+$
+$
+$
+$
+$
+$
+$
+21.306.200
+$
+(624.450)
+$
+12.659.647
+1.039.586
+1.515.114
+2.648.112
+497.976
+609.444
+745.755
+12.352.852
+1.000.816
+1.456.628
+2.745.463
+390.440
+611.337
+578.811
+$
+$
+$
+$
+$
+$
+$
+11.474.221
+1.046.644
+1.357.358
+2.720.545
+330,283
+592.158
+604.312
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+19.715.634
+19.136.347 $ 18.125.521
+$
+$
+(470.320)
+101.275 $
+(107.047)
+$
+$
+Năm kết thúc ngày 31 tháng 12
+Doanh thu thư viện
+2024
+2023
+2022
+2025
+Chi phí thư viện
+395.478
+17.703.566
+1.144.935
+404.255
+335.984
+602.994
+74.538
+20.000
+337.246
+–
+–
+–
+17.779.030
+454.290
+383,403
+149.459
+121.886
+20.000
+337.361
+16.915.564
+454.255
+395.421
+1.010.390
+104.631
+20.000
+356.336
+16.288.835
+454.255
+404.399
+370.254
+124.395
+20.000
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+19.245.314
+19.237.622
+18.018.474
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+20.681.750
+$
+Thông tin tài chính này cho thấy thư viện đã phải chịu sự gia tăng dòng tiền ra ròng trong hai năm vừa qua. 
+năm. Hội đồng MPL lo ngại rằng nếu luồng tiền ra ròng tiếp tục, các thư viện sẽ phải giảm 
+dịch vụ cộng đồng. Sau đây là danh sách các số liệu có thể được sử dụng để đánh giá hiệu suất MPL.
+Thanh toán
+Thanh toán kỹ thuật số
+Sử dụng Internet
+Đăng ký thẻ thư viện
+Nhân viên thư viện
+Công dụng phòng họp
+Tham dự chương trình (mọi lứa tuổi)
+lượt truy cập
+3,454,156
+462.416
+227.370
+15.544
+137
+22.714
+107.447
+1.779.552
+2025
+3.575.215
+382.068
+247.129
+12.154
+135
+22.278
+136.303
+1.911.287
+2024
+3.800.000
+289.309
+635.363
+13.245
+128
+20.782
+110.744
+2.170.000
+2022
+3.698.903
+564.787
+11.775
+131
+23.010
+134.666
+1.965.014
+2023
+Số liệu:
+PAC 9.1  Hệ thống thông tin kế toán: Trực quan hóa việc sử dụng hệ thống máy tính
+Dữ liệu   Hệ thống thông tin kế toán   MPL đã chứng kiến ​​sự gia tăng việc sử dụng máy tính trong thời gian qua 
+hai năm. Họ muốn đảm bảo rằng họ đang cung cấp máy tính cho các chi nhánh với nhiều khả năng sử dụng nhất và 
+giảm số lượng máy tính tại các chi nhánh có mức sử dụng thấp hơn. Sử dụng dữ liệu sử dụng máy tính MPL 
+để chuẩn bị một hình ảnh trực quan tương tác nhằm giúp bộ phận hệ thống thông tin kế toán đánh giá 
+việc sử dụng máy tính và công nghệ theo chi nhánh.
+Kiểm toán PAC 9.2 : Trình bày phân tích chi phí tiền lương bằng câu chuyện dữ liệu
+Dữ liệu   Kiểm toán   Với tư cách là thành viên của nhóm kiểm toán đang kiểm tra chi phí tiền lương của MPL, bạn đã thu thập được 
+danh sách tên nhân viên hiện tại và số tiền lương. Chuẩn bị một phân tích mô tả về chi phí tiền lương 
+sử dụng trực quan hóa dữ liệu. Tóm tắt những phát hiện của bạn trong một câu chuyện dữ liệu.
+PAC 9.3  Kế toán tài chính: Trực quan hóa phân tích doanh thu và chi phí
+Dữ liệu   Kế toán tài chính   Bạn được yêu cầu chuẩn bị bản phân tích doanh thu và chi phí 
+từ năm 2016 đến năm 2025. Sử dụng dữ liệu tài chính MPL để chuẩn bị các hình ảnh trực quan có thể hiển thị cho bạn 
+người quản lý.
+PAC 9.4  Kế toán quản lý: Xây dựng bảng điều khiển hiệu suất tương tác
+Dữ liệu   Kế toán quản trị   Bạn đã được yêu cầu chuẩn bị một bảng điều khiển cho phép con người-
+để xem cả số liệu tài chính và phi tài chính cho hệ thống thư viện. Sử dụng dữ liệu quản lý 
+để chuẩn bị một bảng điều khiển.
+
+Trường hợp tiếp theo của Le Grind: Truyền đạt kết quả và đề xuất cho phân tích lợi nhuận gộp
+9-61
+Trường hợp tiếp theo của Le Grind: Truyền đạt kết quả và khuyến nghị cho tổng 
+Phân tích lợi nhuận  
+dữ liệu
+Truy cập nền tảng học tập trực tuyến của Wiley để biết thông tin cơ bản về trường hợp, các câu hỏi, dữ liệu bổ sung và 
+biết thêm chi tiết về vụ án đang tiếp tục.

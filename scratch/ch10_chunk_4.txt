@@ -1,0 +1,324 @@
+10-18 
+CHAPTER 10  Recent Data and Analyses Developments in Accounting
+used for stable processes where the steps of the process do not change over time, such as when 
+financial analysts download the closing stock prices of the same set of companies every day.
+Interactive, real-time performance dashboards are a great example of the value creation pos-
+sible from RPA technologies. For example, the objective of a cost accountant for a manufacturing 
+plant that produces breakfast cereals is to control product costs. Without RPA, controlling product 
+costs might involve two hours daily of performing data analyses on the previous day’s activity. 
+RPA technologies could recoup those hours with an automated routine which mines the 
+production data every night and displays the results on the next morning’s dashboard. The 
+results could be interpreted each morning, which would make factory cost control efforts 
+more effective and timely. Illustration 10.14 illustrates a sample production activity dash-
+board that can result from implementing RPA.
+ILLUSTRATION 10.14  Robotic Process Automation (RPA) Example Dashboard
+Total Rejected Products for First Shif
+Damaged 96
+Defective 88
+Others 2
+12,785
+Workers
+26.68%
+Recoverable
+36,230
+Expenses
+KPIs for First Shif
+Plant
+Waste
+Process
+Waste
+Lbs
+Change
+On
+Target
+7:00 8:00 9:00 10:00 11:00
+15:00
+14:00
+13:00
+12:00
+Waste Produced-First Shif
+0
+7k
+6k
+5k
+4k
+3k
+2k
+1k
+7:00
+8:00
+9:00 10:00 11:00
+15:00
+14:00
+13:00
+12:00
+Robotic Process Automation
+KPI met
+KPI missed >10%
+Quality
+Damaged
+Defective
+Workers
+Budgeted 
+= 21,639
+Actual
+5 9
+0
+0
+%
+
+10.2 Which Recent Analyses Developments are Accountants Adopting? 
+10-19
+ILLUSTRATION 10.15 
+Accounting Tasks that Benefit 
+from RPA
+Transaction 
+Processing
+Exception
+Incident
+Distributions
+Performance
+and Control
+Dashboards
+Account 
+Maintenance
+Employee
+Time Records 
+for Payroll
+Recurring
+Adjusting 
+Entries
+End of Period
+Report Generation
+Reconciliations
+Collection of Public 
+Internet Data
+Straight-line
+Depreciation
+Charges
+Completion of
+Documents
+and Forms
+RPA
+ Process Mining
+ Process mining tools measure the timing and flow of data captured as business events 
+occur. They help financial, managerial, and tax accountants better evaluate business process 
+efficiency and effectiveness. Systems accountants also use process mining tools to evaluate 
+AIS risks and control effectiveness. By describing where processes have more exceptions and 
+ Professional Insight 10.1:  How Can RPA Be Used in Financial 
+Accounting? 
+ The summer before the final year of her accounting program, Brigitte completed an internship 
+where she gained valuable experience working for a financial analyst. 
+ The first half of the summer I was gathering financial statement balances 
+and totals for over 400 companies each day so I could calculate and com-
+pare 15 financial ratios.  Evaluating these ratio trends over time and comparing 
+them to a competitor’s ratios or to the industry average can provide insights about prof-
+itability, asset utilization, liquidity, and solvency. 
+ About halfway through my internship, my boss suggested I learn how to 
+use a routine process automation tool, UiPath, to write a routine to auto-
+matically gather the financial data.  My RPA routine opened the SEC data website 
+and sequentially entered each company’s code so the financial statement information would 
+be displayed. My RPA script would then copy the data and paste it into an Excel worksheet, 
+naming the sheet with that company’s code. 
+ I then learned how to write the RPA script for the calculation and com-
+parison of all the financial ratios. What had previously taken me over 
+six hours a day to perform was now running overnight so that I would 
+have the information first thing the following morning.  Then, I could criti-
+cally evaluate the ratios’ meaning. I feel like my internship was much more valuable after 
+automating the routine part of my day and spending my time learning the value of the 
+information models I had created. 
+Illustration 10.15 summarizes more of the common accounting uses for RPA.
+
+10-20 
+CHAPTER 10  Recent Data and Analyses Developments in Accounting
+delays, process mining also helps auditors adjust their audit plans to spend more time on the 
+accounts and processes that have the greatest risk of financial statement errors and omissions.
+Process mining can improve, innovate, or control existing processes:
+•	Available data fields are typically extracted, joined, and transformed to create a process log.
+•	The process log records what happened where, who was involved, when it happened, and 
+can capture which controls were implemented or skipped over.
+Let’s illustrate process mining with an example from a manufacturer of superhero figurines. 
+Illustration 10.16 depicts the three major events in their sales cycle:
+•	The sales department captures the sale and records it in the sales journal.
+•	The shipping department ships all sales notifications received from the sales department 
+and reduces inventory.
+•	Accounts receivable matches sales orders and shipping notifications to create accurate 
+invoices, which are sent to the customers.
+ILLUSTRATION 10.16  Sales Cycle Example of Process Mining Tests
+Capture sale
+Superhero 3D Manufacturing
+Customer arrives
+Sales
+Shipping
+Accounts
+Receivable
+Record sale
+in sales journal
+Match the sales order
+and the shipping
+notification; create the
+invoice and send to
+customer
+Invoice
+Sales Journal
+Inventory Subledger
+Accounts
+Receivable
+Subledger
+Sales Journal
+Record the shipment
+to reduce Inventory
+1
+2
+3
+The red lines in Illustration 10.16 depict the specific tests to be conducted from the pro-
+cess mining, which can be expressed as these questions:
+	 1.	 Are all sales captured reflected in the sales journal? What is the time delay between the 
+capture and the recording of these sales? 
+	 2.	 Are all sales captured in the sales journal shipped? What is the time delay between the 
+sales capture and the shipment to the customer? Are all shipments recorded as reductions 
+in the inventory subledger? Are there any sales journal entries that are made and not 
+shipped in the same accounting period? (GAAP rules state that revenue cannot be recog-
+nized until the sales transaction has been fulfilled.)
+	 3.	 Do all invoices get posted to the accounts receivable subledger? How often and by how 
+much are the sales journal entries different than the invoices? What is the time delay 
+between the shipment and the invoice mailing to the customer?
+The results may show that some captured sales are never shipped or do not ship in a timely 
+fashion. Alternatively, there may be shipments that never turn into invoices, resulting in lost 
+inventory. Finally, there may be differences between what is recorded in the sales journal 
+and what invoice data is posted to the accounts receivable subsidiary ledger. To quickly show 
+
+10.2  Which Recent Analyses Developments are Accountants Adopting? 
+10-21
+where and when the data variance happens for each of these questions, we could present pro-
+cess mining results as dashboard dials, as data tables, or as data visualizations.
+Process mining results may also reveal violation of authorization or segregation of duties 
+controls, such as the sales department both authorizing the sales capture and recording the 
+sales journal entries. This insight would lead to changing the process so that accounts receiv-
+able is recording all sales transactions and sales events would not be recorded until after ship-
+ping and invoicing.
+Two other examples help illustrate the value provided by process mining. In the AIS practice 
+area, analyzing system access logs with process mining can ensure that system access for termi-
+nated employees is revoked in a timely manner. In managerial accounting, process mining can 
+identify bottlenecks in business processes and establish relevant activity bases for activity-based 
+costing systems. These examples document how process mining helps improve the internal con-
+trols over the accounting systems, reducing audit risk for both internal and external auditors.
+Continuous Auditing
+Have you ever wondered why auditors wait until after the year-end to perform their journal and 
+ledger data tests under tremendous time pressure? Or why they use data sampling techniques 
+to infer whether ledger balances are reasonable rather than evaluating the population of data?
+Continuous auditing technologies are programmed modules embedded in an organi-
+zation’s AIS that evaluate transactions as they occur throughout the year:
+•	Routine transactions are typically captured and tested in automated routines for consis-
+tent processing.
+•	If transactions do not pass the tests to be categorized as a routine transaction, they are usu-
+ally copied to an exception file to be evaluated by the external auditors at year end. Exam-
+ples of these exceptions are invoice totals that are too high or too low for what has been 
+sold or payroll cash disbursements which do not match up to an authorized employee.
+This testing of the entire population of transactions helps auditors develop a more accurate 
+assessment of the risks inherent to amounts reported on the financial statements. ­Continuous 
+auditing tools reduce the workload at year end and provide faster audits with higher ­quality. 
+Illustration 10.17 illustrates continuous auditing modules employed at end of quarter 
+throughout the year.
+ILLUSTRATION 10.17  Quarterly Continuous Auditing Throughout the Year
+Q1
+Q2
+Q3
+Q4
+Most of the audit tests on internal controls and routine transactions
+can be completed during the year using automated tests of transactions
+and verification of the eﬀectiveness of internal controls.
+Audit is completed at year end
+on non-routine, adjusting, and
+closing entries, testing
+management assumptions and
+estimations, and confirming
+year-end balances.
+Data is tested
+Data is tested
+Data is tested
+Data is tested
+The first users of continuous auditing were large banks and credit card companies. Both 
+industries have millions of transactions occurring every day, which create a high data volume 
+that is difficult to confidently sample by year end. More recently, companies in extractive and 
+manufacturing industries have joined auditors in embracing continuous auditing technolo-
+gies to support their internal applications.
+Continuous auditing technologies also make audits more proactive rather than reactive. 
+Accounting record issues and errors can be evaluated and corrected when they occur, increas-
+ing the integrity and reliability of internal data gathered after those corrections are made:
+•	Evaluating emerging data patterns earlier in the year can identify new tax strategies or 
+areas where more internal controls are needed.
+•	Logging unusual internet use data points can identify cybersecurity risks earlier, which 
+means that controls can be implemented.
+
+10-22
+CHAPTER 10 Recent Data and Analyses Developments in Accounting
+•  Automated evaluation of routine transaction data frees auditors to focus time and energy 
+on audit process steps that contain more financial statement risk. 
+ Tests of revenue recognition, inventory valuation, and cash flows are a few examples of areas 
+where both internal and external auditors are using continuous auditing. 
+ Textual Analysis
+ Textual analysis tools analyze word choices in footnotes, investor communications, blogs, 
+social media postings, and other documentation, such as contract language for revenue rec-
+ognition treatment.  Textual mining tools evaluate word choice and usage to reveal insights 
+about honesty, transparency, intent, and sentiments in communications by management, 
+elected officials, and customers. Text counts and text patterns can be coded into categories of 
+meaning, which are then analyzed along with numerical data for insights. 
+These tools make harvesting data efficient from sources such as financial footnotes and 
+management emails to online customer feedback. Textual analysis can generate business 
+intelligence, audit intelligence, and tax planning value. There are a few examples of text min-
+ing sources in the accounting profession:
+•  Lease contract language 
+•  Annual reports, financial statement footnotes, and 10K or 10Q filings 
+•  xBRL text data fields 
+•  Auditor letters and reports 
+•  Investor relation press releases 
+•  Correspondence from regulators 
+•  Tax planning and response letters 
+ We can also use textual analysis on formal and informal social media communications by 
+analysts, auditors, and regulators to categorize the favorability or pessimism in those commu-
+nications ( Illustration 10.18 ). 
+ ILLUSTRATION 10.18  Optimistic and Pessimistic 
+Word Categories: Annual Report Examples 
+Applaud
+Favorable
+Successful
+Positive
+Optimistic Terms
+Bleak
+Costly
+Troubled
+Unstable
+Pessimistic Terms
+ Diligent Institute is the leading technology solution designed to improve board of direc-
+tors’ fiduciary responsibilities to oversee management decisions. They create financial and 
+textual analysis dashboard visualizations to focus board members’ attention on the areas of 
+the organization with the greatest risks. For example, they have used textual analysis to show
+
+10.2  Which Recent Analyses Developments are Accountants Adopting? 
+10-23
+Textual analysis that evaluates the use of passive versus active verbs and the ratio of pos-
+itive words to negative words, often called the polarity of the communication, helps to cate-
+gorize communications. These categories can then be analyzed in combination with financial 
+statement totals or ratios to better predict future earnings, bankruptcy risk, or stock prices.
+Cognitive Technologies
+If you have interacted with Apple devices, then you have witnessed the power of Siri, the vir-
+tual assistant feature of Apple’s operating system. Siri is a user-friendly artificial intelligence 
+tool programmed to answer most questions and research requests. Cognitive technologies 
+are artificial intelligence technologies that use a human expert judgment mimicking internal 
+algorithm. Accountants typically use AIS data to train their models for accuracy for diagnos-
+ing and predicting objectives, and then adjust their model as new data is added. Cognitive 
+technologies are used in many fields, including training, production, farming, banking, retail, 
+healthcare, tourism, and utilities, and in a variety of business functions within organizations. 
+They can range from simplistic decision models to dynamic, complex models.
+Complex cognitive tools are also called artificial neural networks, machine learning, and 
+expert systems. These models are programmed to accurately perform data classification tasks 
+for diagnostic or prediction objectives. For the model to be accurate, the underlying phenom-
+ena variables should behave in stable or consistent patterns.
+Cognitive technology tools perform best in stable environments because they use old 
+data to define a complex mathematical algorithm which will, over time, produce an expert 
+ILLUSTRATION 10.19  Diligent Institute’s Board Member Sentiment Tracker
+Source: www.diligentinstitute.com/sentiment-tracker/
+corporate board members’ sentiment rating over time. These results show how optimistic cor-
+porate board members are about the upcoming opportunities and performance possibilities in 
+their organizations (Illustration 10.19).

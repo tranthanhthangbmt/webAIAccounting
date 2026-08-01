@@ -1,0 +1,332 @@
+7.2  How are Data Relationships Visualized for Exploration?  7-17
+Unlike a column chart, a clustered column chart uses multiple variables for comparison pur-
+poses. While the clustered column chart can make comparisons across models, it also provides 
+a comparison within a model. For example, the comparison in Illustration 7.20 is between 
+the actual number of units sold and the budgeted number of units sold, which are the two 
+variables in the Values area:
+•	TotalActualUnits represents the sum of all values in the ActualUnits field.
+•	TotalBudgetedUnits represents the sum of all values in the BudgetedUnits field.
+Exploration and Insights
+Additional variables can be dragged into the Values slot in Illustration 7.21. For example, 
+variance, a variable that is calculated as the difference between the actual and the budgeted 
+units, could be added. There are also three nominal variables in this data set to choose from: 
+country, type, or model.
+Different types of insights can be collected from deviation analysis, including when 
+results are higher or more favorable than expected, lower or less favorable than expected, and 
+if targets are unreasonable. Once we identify these insights, the next step might be explor-
+ing possible causes, such as how to reverse unfavorable deviations. This is particularly useful 
+when the variances are significant.
+Variances have historically been valuable tools for accountants to indicate issues that 
+should be addressed:
+•	Inefficiencies such as inexperience in negotiating prices, ill-qualified employees, employ-
+ees assigned the wrong task, use of low-quality resources, or inadequate training.
+•	Unexpected changes such as changes in prices, or a decrease in demand.
+•	Poor budgeting.
+A possible insight that can be collected from Illustration 7.20 is that most models have a favor-
+able variance, but some (Pilot and Odyssey) have an unfavorable variance. Another is that, 
+except for the CR-V model, most variances are insignificant.
+Data Exploration Pattern 4: Ranking
+A ranking data relationship (Illustration 7.22) orders the values of a variable sequentially 
+based on the values of a second variable. Ranks are determined by some quality, such as high-
+est, lowest, fastest, slowest, as defined by the second variable. The ranking can be displayed in 
+ascending or descending order. It is also possible to calculate a rank explicitly.
+ILLUSTRATION 7.22  Exploration 
+Structure for a Ranking Data 
+Relationship
+What to rank.
+The variable used
+to rank.
+Variable
+Variable
+Visualizations
+There are no specific ranking visualizations, but many integrate ranking information, 
+including tables, bar charts, and column charts. Illustration 7.23 (B) shows a column chart 
+that ranks HNA’s models (what to rank) based on the units sold in the 2021–2025 period 
+
+7-18  CHAPTER 7  Analysis: Data Exploration
+Exploration and Insights
+Different ranking relationships can be explored by dragging and dropping. Customers can 
+be ranked based on their sales amount or their age; employees can be ranked based on their 
+salaries or their seniority. Measures, such as total outstanding debt of at least 60 days, can 
+also be used to rank customers. Ranking can determine, for example, the top 25 or bottom 
+25 customers based on revenue. The column chart in Illustration 7.23 indicates a model’s rank 
+based on units sold during the 2021–2025 period. The Civic is the best-selling model, followed 
+by the Accord.
+Data Exploration Pattern 5: Part-to-Whole
+A part–to-whole data relationship (Illustration 7.24) compares parts to wholes and looks 
+at how the different parts compare to each other. For example, an organization might gen-
+erate $100,000 in sales, which is the whole. The home, office, and garden product categories 
+generate $30,000 (30 %), $50,000 (50%), and $20,000 (20%), respectively. These three product 
+categories represent the parts.
+ILLUSTRATION 7.24  Exploration 
+Structure for a Part-To-Whole Data 
+Relationship
+The variable that
+determines how the 
+whole is broken down
+in parts.
+The whole, or the
+number to be broken
+down.
+Numeric
+Variable
+Nominal
+Variable
+A part-to-whole visualization should define the number that is the whole and how the whole 
+should be broken down into parts. 
+(how to rank). Illustration 7.23 (A) shows this ranking relationship created for a PivotTable 
+in Excel.
+  ILLUSTRATION 7.23    Integrating a Ranking Data Relationship into a Column Chart
+The variable used
+for ranking.
+What to rank.
+Variable
+Variable
+Civic
+Accord
+CR-V
+Odyssey
+Pilot
+Ridgeline
+3,074,040
+2,555,799
+1,603,686
+898,441
+897,807
+517,964
+Model
+Total UnitsSold
+Civic
+Accord
+CR-V
+Odyssey
+Pilot
+Ridgeline
+Models Ranked by Total Units Sold
+(A) Creating a Ranking Relationship for a PivotTable
+(B) Integrating a Ranking Relationship with a Column Chart
+500,000
+0
+1,000,000
+1,500,000
+2,000,000
+2,500,000
+3,000,000
+3,500,000
+2,555,799
+1,603,686
+517,964
+3,074,040
+898,441
+897,807
+Sort Largest to Smallest
+ZA
+AZ
+Sort Smallest to Largest
+
+7.2  How are Data Relationships Visualized for Exploration?  7-19
+Visualizations
+Multiple visualizations can model part-to-whole relationships, including pie charts, donut 
+charts, stacked bar charts, stacked column charts, and treemaps. While treemaps are consid-
+ered superior for portraying part-to-whole relationships, here the more commonly used pie 
+chart is shown. The pie chart in Illustration 7.25 shows the relative importance of each of 
+HNA’s models, which are the parts, in terms of the whole, which is the units sold during the 
+2021–­2025 period. The relative importance is expressed as a percentage, or share.
+ILLUSTRATION 7.25  Visualizing 
+a Part-To-Whole Data Relationship 
+With a Pie Chart
+Breakdown of Units Sold by Model: 2021–2025
+Civic
+32.2%
+Pilot
+9.4%
+Ridgeline
+5.42%
+Accord
+26.77%
+CR-V
+16.8%
+Odyssey
+9.41%
+Illustration 7.26 shows how this pie chart is created using Power BI:
+•	The Values slot defines the what: This refers to the number that is broken down. Here, it 
+is the TotalUnitsSold measure.
+•	The Legend slot defines the how: This refers to how to break down the whole. Here, this is 
+done by model. For each value of model the number of units sold is calculated, determin-
+ing the size of its share of the pie. This visual shows the size of its share as a percentage.
+Exploration and Insights
+Any measure can be dragged to the Values (whole) slot in Illustration 7.26. Measures tailored 
+to specific needs can also be created, such as July sales to non-U.S. customers. Any nominal 
+variable can be dragged to the Legend slot (parts).
+ILLUSTRATION 7.26  Creating a 
+Pie Chart in Power BI
+Legend
+Model
+Details
+Add data fields here
+Values
+TotalUnitsSold
+Nominal
+Variable
+The variable that
+determines how the 
+whole is broken down
+in parts.
+The whole, or the
+number to be broken
+down.
+Numeric
+Variable
+
+7-20  CHAPTER 7  Analysis: Data Exploration
+Part-to-whole relationships are often used in accounting. Examples include the break-
+down of expenses in multiple categories such as administrative expenses, depreciation, mar-
+keting expenses, and the breakdown of costs in terms of materials, labor, and overhead.
+The pie chart in Illustration 7.25 shows how each model contributes, in relative terms, to 
+the total units sold in the 2021–2025 period. It further shows that the Accord and Civic models 
+combined count for more than 50% of the unit sales. The share of other models, such as the 
+Ridgeline, is relatively small.
+Data Exploration Pattern 6: Correlation
+A correlation data relationship indicates the degree to which two variables move in the 
+same or the opposite direction. For example, if the marketing expenses for a product increase, 
+then it is likely that the sales for the same product also increase. There are two key features to 
+consider with these relationships. The first is direction:
+•	The direction is positive if both variables move in the same direction.
+•	The direction is negative if both variables move in opposite directions.
+The second feature is the strength of the correlation. Strength indicates the degree of cor-
+relation between the two variables, ranging from no correlation to perfect correlation. 
+­Illustration 7.27 shows the exploration structure of a correlation data relationship between 
+numeric variables.
+ILLUSTRATION 7.27  Exploration 
+Structure for a Correlation Data 
+Relationship
+Numeric
+Variable
+Numeric
+Variable
+The variables
+for which the
+correlation data
+relationship is
+being explored.
+Visualizations
+The most common visualization for exploring correlation is the scatterplot, which is also 
+referred to as a scatter chart. It plots the coordinates for two variables for each data point.
+Let’s illustrate a scatterplot with an example from a new company. Buzz Cut is a landscap-
+ing business with two owners. These small business owners continuously face tough strategic, 
+financial, and operational decisions, such as price estimates for properties. Data They have a 
+spreadsheet that contains data about the size and average cutting time, in minutes, for all their 
+properties (Illustration 7.28).
+Price estimation is a critical decision for all landscape businesses. Buzz Cut uses the fol-
+lowing decision model to make price estimates:
+•	It takes one minute to mow 1,000 square feet, and Buzz Cut charges a dollar per minute 
+($60 per hour). They would charge $50 for mowing a 50,000 square foot property.
+•	The minimum price per cut is $25.
+•	Reduced rates are offered for large lots.
+All prices are rounded up: $25, $30, $35, and so on. In some cases, Buzz Cut’s owners negotiate 
+with the customers. Price estimation decisions rely on two assumptions:
+	 1.	 The size of a lawn determines the time needed to cut it.
+	 2.	 Time determines the cost and thus price.
+ILLUSTRATION 7.28  First Ten 
+Rows of the Property Data Size 
+Time Spreadsheet
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+9
+6
+50
+45
+8
+18
+17
+55
+120
+25
+Property
+Time
+4500
+3000
+50000
+25000
+4000
+18000
+21000
+22000
+100000
+23000
+Size
+
+7.2  How are Data Relationships Visualized for Exploration?  7-21
+The first assumption can be rephrased: “There is a strong positive correlation between lawn 
+size and time: the bigger the lawn, the more time it will take to mow it.”
+Correlation is a data relationship. Strong correlation and positive direction are assump-
+tions regarding the data relationship made by Buzz Cut. The scatterplot in Illustration 7.29 
+explores the validity of these assumptions.
+ILLUSTRATION 7.29  Scatterplot 
+Showing Correlation Between Size 
+and Time
+0
+0
+20,000
+40,000
+60,000
+80,000
+100,000
+20
+40
+60
+80
+100
+120
+140
+Time
+Lawn Size and Time Correlation
+Size
+This scatterplot was created in Power BI (Illustration 7.30).
+ILLUSTRATION 7.30  Creating a 
+Scatterplot in Power BI
+Details
+Property
+Add data fields here
+Legend
+X Axis
+Size
+Y Axis
+Time
+Unique
+Identifier
+The data 
+points being
+represented.
+Numeric
+Variable
+Numeric
+Variable
+The
+variables
+for which
+the correlation
+data
+relationship
+is being
+explored.
+Exploration and Insights
+Scatterplots are created by dragging and dropping numeric variables from a data set into the 
+two areas shown in Illustration 7.30. Several insights could be collected once the scatterplot is 
+created. For instance, there is a strong, positive correlation between lawn size and time. There 
+are also two additional insights:
+	 1.	 The data point with a yellow background shows an outlier. Talking to the owners of Buzz 
+Cut reveals this is the result of a data entry issue. It takes 18 minutes to cut the property, 
+but “118 minutes” was recorded.
+	 2.	 The chart indicates that there might be other factors than just size influencing time. 
+The data points with a green background in Illustration 7.29 indicate properties that are 
+approximately the same size but require different amounts of time, with times ranging 
+between 17 and 55 minutes (ignore the outlier here).

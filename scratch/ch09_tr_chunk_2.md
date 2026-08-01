@@ -1,0 +1,522 @@
+9-6  CHƯƠNG 9  Truyền đạt kết quả phân tích dữ liệu
+Đi theo mạch kể chuyện được mô tả trong Hình minh họa 9.7 là một cách đơn giản và hiệu quả 
+để cấu trúc một câu chuyện dữ liệu. Sau khi đã thiết lập được cấu trúc, các yếu tố của câu chuyện (dữ liệu, tường thuật, 
+hình ảnh) có thể được áp dụng để làm cho câu chuyện dữ liệu trở nên sống động.
+Cấu trúc này được gọi là kim tự tháp Freytag, đôi khi còn được gọi là công trình kể chuyện 
+cung (Minh họa 9.6). Kim tự tháp được phát triển bởi nhà viết kịch và tiểu thuyết gia người Đức 
+Gustav Freytag để hiểu cấu trúc của kịch Hy Lạp và Shakespeare. Nó là một trong những 
+được dạy nhiều nhất về cấu trúc kịch trên thế giới.
+9Writers.com, 2020. Glatch, S. 5 yếu tố của cấu trúc kịch tính: hiểu về kim tự tháp Freytag. https://
+writer.com/freytags-pyramid (truy cập vào tháng 7 năm 2022). 
+MINH HỌA 9.6  Freytag's 
+Kim tự tháp9
+Triển lãm
+Hành động gia tăng
+hành động rơi
+Độ phân giải
+Kim tự tháp Freytag
+cao trào
+Kim tự tháp của Freytag có thể được áp dụng vào việc kể chuyện bằng dữ liệu bằng ví dụ về HMC:
+• Nhóm kiểm toán nhận được tin báo nặc danh rằng một trong những người quản lý mua hàng đã 
+nhận được tiền lại quả từ các nhà cung cấp.
+• Nhóm đã chuẩn bị một bản phân tích điều tra hành vi gian lận lại quả có thể xảy ra trong giao dịch mua
+bộ phận ing. Họ đã xác định vị trí của hoạt động lại quả có thể xảy ra và 
+nhân viên và nhà cung cấp có khả năng tham gia.
+Nếu bạn ở trong nhóm kiểm toán, bây giờ bạn đã sẵn sàng tạo một câu chuyện bằng cách sử dụng dữ liệu 
+các phân tích được chuẩn bị trong quá trình kiểm toán của bộ phận mua hàng. Hình minh họa 9.7 cung cấp một 
+ví dụ về cách áp dụng kim tự tháp Freytag vào một câu chuyện dữ liệu.
+MINH HỌA 9.7  Cấu tạo của một câu chuyện dữ liệu
+Kim tự tháp Freytag
+Ứng dụng câu chuyện dữ liệu
+Ví dụ về phân tích phản ứng ngược
+Triển lãm
+Giới thiệu vấn đề hoặc vấn đề.
+Thảo luận ngắn gọn về thông tin cơ bản liên quan đến phân tích. Bao gồm 
+chi tiết thú vị để thu hút sự chú ý của người đọc.
+Ví dụ: “Lừa đảo lại quả có xảy ra ở Phòng Mua hàng không? 
+Dựa trên một mẹo ẩn danh, chúng tôi đã xem xét kỹ hơn việc mua hàng 
+sở.”
+Hành động gia tăng
+Đối tượng phân tích là 
+được khám phá ở mức độ sâu hơn.
+Trong phần này của câu chuyện, hãy bóc bỏ các lớp giật ngược một cách có phương pháp 
+phân tích.
+cao trào
+Phát hiện chính hoặc cái nhìn sâu sắc là 
+đã chia sẻ. Đây chính là “khoảnh khắc aha” 
+của câu chuyện.
+Sau khi xây dựng vụ án ở phần trước, công bố nghi phạm 
+(các) nhân viên và (các) nhà cung cấp.
+hành động rơi
+Chia sẻ giải pháp.
+Việc xác định một nhân viên và nhà cung cấp bị nghi ngờ không chứng minh được việc lại quả 
+gian lận đã xảy ra. Tiếp theo, cung cấp thêm chi tiết và đề xuất về 
+giao dịch cụ thể cần được điều tra thêm.
+Độ phân giải
+Kết thúc câu chuyện và đưa ra 
+bước tiếp theo.
+Đưa ra đề xuất về các biện pháp kiểm soát nội bộ bổ sung để tránh hậu quả trong tương lai 
+lừa đảo.
+
+![ILLUSTRATION 9.7](../TaiLieu/textbookForPractice/Figures/Ch_09/ILLUSTRATION%209.7.png)
+
+9.1  Chúng ta kể một câu chuyện dữ liệu như thế nào?  9-7
+Áp dụng nó 9.1 
+giao tiếp 
+Kế toán 
+Thông tin
+Dữ liệu   Kế toán tài chính   U.S. Outdoor Adventures là một công ty bán lẻ bán các chuyến du lịch cắm trại 
+nguồn cung cấp ở Hoa Kỳ. Họ chuyên xây dựng các gói cắm trại với tất cả các vật dụng cần thiết.
+du khách sẽ cần cho chuyến phiêu lưu ngoài trời của họ. Công ty có ba loại sản phẩm: Cắm trại 
+Thiết bị, mái chèo và lều. Khách hàng của Cuộc phiêu lưu ngoài trời ở Hoa Kỳ được phân loại thành các phân khúc: Con-
+Sumer, Công ty và Đại lý Du lịch. Danh sách sản phẩm, doanh số theo phân khúc và thông tin tài chính 
+cho năm 2025 được cung cấp. (Lưu ý: các số liệu trong báo cáo tài chính năm 2025 có thể không cộng do làm tròn số.) 
+Các sản phẩm phiêu lưu ngoài trời ở Hoa Kỳ được cung cấp
+Dụng cụ cắm trại
+mái chèo
+Lều
+Bếp cắm trại
+Thuyền Kayak
+Lều du lịch bụi
+Ghế
+Áo phao
+Mô hình trại căn cứ
+Bộ nấu ăn
+ván chèo
+Lều Núi - 4 Người
+Chốt
+mái chèo
+Northface subzero
+Bộ dụng cụ đánh lửa
+Bộ sơ cứu
+Bộ nấu siêu nhỏ
+Lò nướng di động propan
+Túi ngủ
+Thông tin tài chính về Cuộc phiêu lưu ngoài trời của Hoa Kỳ năm 2025
+Dụng cụ cắm trại
+mái chèo
+Lều
+Tổng cộng
+bán hàng
+$321,964
+$ 243,580
+$ 538,526
+$1,104,070
+Giảm giá
+$
+34.170
+$
+40.030
+$
+96.864
+$
+171.063
+Doanh thu thuần
+$ 287,794
+$ 203,550
+$441,663
+$
+933.006
+Giá vốn hàng bán
+$114,903
+$
+87.682
+$193,681
+$
+396.265
+Chi phí vận chuyển
+$
+36.900
+$
+31.066
+$
+64.646
+$
+132.611
+Lợi nhuận
+$135,992
+$
+84.802
+$183,336
+$
+404.130
+Công ty muốn mở rộng kinh doanh ra quốc tế, nhưng họ phải tăng thêm vốn
+thật đáng để làm như vậy Nếu bạn được giao nhiệm vụ trình bày thông tin này cho một nhóm nhà đầu tư tiềm năng, 
+mô tả lý do tại sao mỗi điều sau đây lại quan trọng cần xem xét và đưa ra ví dụ về mỗi điều liên quan đến 
+Cuộc phiêu lưu ngoài trời của Hoa Kỳ.
+1. Xác định đối tượng.
+2. Tập trung vào thông điệp chứ không phải những con số
+3. Đặt dữ liệu vào ngữ cảnh.
+4. Làm cho nó dễ hiểu.
+5. Tạo một câu chuyện đáng nhớ.
+Tổng cộng
+Đại lý du lịch
+Công ty
+Người tiêu dùng
+$512,711
+$359,264
+232.095 USD
+$1,104,070
+Cuộc phiêu lưu ngoài trời ở Hoa Kỳ
+Doanh số năm 2025 theo phân khúc
+Phân đoạn
+Tổng doanh thu
+GIẢI PHÁP
+1. Cung cấp đủ thông tin cơ bản và giải thích để khán giả có thể theo dõi bài thuyết trình. trong 
+trường hợp này, các nhà đầu tư tiềm năng là khán giả. Họ có thể sẽ hiểu những con số nhưng 
+có thể cần thêm thông tin cơ bản về doanh nghiệp.
+2. Khán giả này có thể muốn biết các con số liên quan như thế nào đến thông điệp được truyền đi.
+xác định, đó là khả năng doanh nghiệp thành công trên phạm vi quốc tế.
+3. Đầu tiên, đó là bối cảnh của mục tiêu tổng thể của việc phân tích, đó là thu hút đầu tư 
+vào công ty. Ngoài ra còn có bối cảnh của các phân tích cá nhân. Chúng bao gồm 
+khách hàng của công ty, sản phẩm họ bán và lợi nhuận hiện tại của họ. Cuối cùng, có 
+bối cảnh công ty so sánh với các đối thủ cạnh tranh như thế nào.
+4. Giải thích rõ ràng số liệu và kết quả. Làm cho việc giao tiếp trở nên dễ hiểu bằng cách sử dụng hiệu quả
+những hình dung trực quan. Trong ví dụ này, việc tạo các hình ảnh trực quan khác ngoài bảng có thể có ý nghĩa.
+5. Thu hút khán giả bằng một câu chuyện dữ liệu giúp người đọc dễ nhớ kết quả hơn. 
+Câu chuyện trong ví dụ này có thể tập trung vào thành công trước đây của Cuộc phiêu lưu ngoài trời ở Hoa Kỳ và cách 
+đầu tư vào việc mở rộng quốc tế sẽ xây dựng dựa trên thành công đó.
+
+![Apply It 9.1](../TaiLieu/textbookForPractice/Figures/Ch_09/Apply%20It%209.1.png)
+
+9-8  CHƯƠNG 9  Truyền đạt kết quả phân tích dữ liệu
+9.2  Các bước tạo là gì 
+Trực quan hóa dữ liệu hiệu quả?
+MỤC TIÊU HỌC TẬP ➋
+Tóm tắt các bước để tạo trực quan hóa dữ liệu hiệu quả.
+Trực quan hóa dữ liệu là quá trình hiển thị dữ liệu để cung cấp ý nghĩa và hiểu biết sâu sắc cho 
+khán giả. Một hình ảnh trực quan được thiết kế tốt sẽ truyền đạt kết quả phân tích một cách rõ ràng và 
+một cách ngắn gọn. Hình minh họa 9.8 là hình ảnh trực quan mà Ford Motor Company sử dụng trong bài trình bày của họ 
+kết quả quý 3 năm 2021 cho các nhà đầu tư.
+MINH HỌA 9.8  Ford Motor 
+Trình bày thu nhập của công ty
+272
+Q2
+2020
+Q3
+2020
+Q4
+2020
+Q1
+2021
+Q2
+2021
+Q3
+2021
+651
+Đơn vị bán buôn (000)
+EBIT ($B)
+540
+533
+327
+546
+$10,9
+$25,3
+Doanh thu ($B)
+$22,0
+$23,0
+$15,0
+$24,0
+Q2
+2020
+Q3
+2020
+Q4
+2020
+Q1
+2021
+Q2
+2021
+Q3
+2021
+$(0,9)
+Q2
+2020
+Q3
+2020
+Q4
+2020
+Q1
+2021
+Q2
+2021
+Q3
+2021
+3,2 USD
+1,1 USD
+$2,9
+0,2 USD
+$2,4
+Biên EBIT (%)
+(8,6)%
+Q2
+2020
+Q3
+2020
+Q4
+2020
+Q1
+2021
+Q2
+2021
+Q3
+2021
+12,6%
+4,9%
+12,8%
+1,3%
+10,1%
+Nguồn: Ford, Đánh giá thu nhập quý 3 năm 2021, ngày 27 tháng 10 năm 2021.
+Để tổng quan về hoạt động của Ford tại Bắc Mỹ, hình minh họa này là một ví dụ về 
+một hình ảnh trực quan được thiết kế tốt. Nó tổng hợp thông tin về số lượng xe bán ra 
+(đơn vị bán buôn), doanh thu được tạo ra từ việc bán hàng đó (doanh thu), thu nhập trước lãi vay và 
+thuế trên doanh thu đó (EBIT) và tỷ suất lợi nhuận phần trăm của thu nhập trước lãi vay và thuế 
+(Tỷ lệ ký quỹ EBIT%). Lưu ý sự khác biệt về màu sắc của dữ liệu quý thứ ba. Bằng cách sử dụng một cách khác 
+màu sắc cho quý 3 năm 2021, mục tiêu của hình ảnh hóa (để truyền đạt kết quả quý 3 năm 2021) 
+là rõ ràng ngay lập tức. Việc tạo các hình ảnh trực quan được thiết kế tốt như thế này bắt đầu bằng việc xác minh 
+dữ liệu, xem xét đối tượng và xác định mục tiêu của việc phân tích.
+
+![ILLUSTRATION 9.8](../TaiLieu/textbookForPractice/Figures/Ch_09/ILLUSTRATION%209.8.png)
+
+9.2  Các bước để tạo trực quan hóa dữ liệu hiệu quả là gì?  9-9
+Xác minh dữ liệu
+Câu nói “rác vào, rác ra” có liên quan đến giao tiếp phân tích dữ liệu cũng như 
+thực hiện phân tích dữ liệu. Dữ liệu không chính xác dẫn đến hình dung không chính xác. Để tránh điều này, dữ liệu 
+phải có các thuộc tính về tính chính xác, đầy đủ, nhất quán, mới mẻ và kịp thời.
+Dữ liệu chính xác
+Dữ liệu chính xác không có sai sót. Họ đáng tin cậy và đại diện cho vấn đề hoặc vấn đề 
+đang được hình dung. Hãy tưởng tượng việc chuẩn bị thông tin cho các cổ đông của HMC hư cấu 
+công ty. Mục tiêu là cung cấp thông tin về doanh số hàng tháng trong năm 2025 cho mỗi thương hiệu. các 
+dữ liệu được cung cấp trong Hình minh họa 9.9 đại diện cho hiệu suất bán hàng năm 2025 của Ape-
+thương hiệu Chet. Nếu dữ liệu được xác nhận là không có lỗi thì chúng cũng đáng tin cậy.
+MINH HỌA 9.9  HMC 2025 
+Hiệu suất bán hàng
+0
+10
+20
+30
+40
+50
+60
+70
+80
+tháng Giêng.
+Tháng Hai
+Tháng ba.
+Tháng Tư.
+tháng 5
+Tháng Sáu.
+Tháng Bảy.
+Tháng 8
+Tháng 9
+Tháng 10
+Tháng 11
+Tháng mười hai
+bán hàng
+khối lượng
+Tháng
+Doanh số bán hàng theo thương hiệu‒2025
+apechete
+Dữ liệu đầy đủ và nhất quán
+Dữ liệu hoàn chỉnh khi không có dữ liệu nào bị thiếu. Hình minh họa 9.9 cho thấy doanh số hàng tháng
+ừm, nhưng nó thiếu dữ liệu của tháng Tư. Sẽ là bất thường nếu chỉ có bốn lần bán hàng 
+trong cả tháng, vì vậy bước tiếp theo là xác nhận xem dữ liệu đã đầy đủ hay chưa.
+Dữ liệu có nhất quán trong tất cả các thời kỳ không? Ví dụ: dữ liệu phải được định dạng
+theo thời gian được hiển thị. Tính nhất quán cũng liên quan đến các thuộc tính của 
+dữ liệu. Nói cách khác, mức độ chi tiết cho từng khoảng thời gian được hiển thị có giống nhau không? 
+Hình minh họa 9.10 là một ví dụ về dữ liệu không nhất quán trong hình ảnh trực quan. Việc trực quan hóa cho 
+tổng doanh thu năm 2024 hiển thị tổng số trên thanh tính bằng nghìn và hình ảnh trực quan cho năm 2025 
+hiển thị tổng doanh thu tính bằng triệu. Điều này có thể gây nhầm lẫn cho những người xem không chú ý 
+các ký hiệu.
+
+![ILLUSTRATION 9.9](../TaiLieu/textbookForPractice/Figures/Ch_09/ILLUSTRATION%209.9.png)
+
+9-10  CHƯƠNG 9  Truyền đạt kết quả phân tích dữ liệu
+Dữ liệu mới và kịp thời
+Dữ liệu được coi là mới nếu chúng là dữ liệu mới nhất hiện có. Tránh sử dụng dữ liệu lỗi thời 
+trong trực quan hóa. Hãy xem xét cách trình bày thu nhập trong Hình minh họa 9.8. Nếu Ford đã sử dụng dữ liệu 
+từ quý thứ hai trong bài thuyết trình về quý thứ ba của họ, các nhà đầu tư sẽ không có lợi ích gì 
+thông tin về kết quả quý 3.
+Dữ liệu được coi là kịp thời khi chúng có sẵn kịp thời để sử dụng cho việc trực quan hóa. 
+Khi thiết kế hình ảnh trực quan, hãy đảm bảo rằng dữ liệu được nhắm mục tiêu có sẵn để hình ảnh trực quan-
+hóa là mới mẻ.
+Hãy xem xét khán giả
+Sau khi xác minh dữ liệu, hãy cân nhắc xem ai sẽ xem hình ảnh trực quan. Khán giả có thể là 
+tách thành bốn loại (Minh họa 9.11).10 
+MINH HỌA 9.10  Tổng HMC 
+Doanh số theo thương hiệu: 2024 và 2025
+Tổng doanh thu theo thương hiệu‒2024
+Thương hiệu
+Thương hiệu
+Tổng doanh thu theo thương hiệu‒2025
+2 triệu USD
+0 triệu USD
+4 triệu USD
+6 triệu USD
+8 triệu USD
+10 triệu USD
+12 triệu USD
+14 triệu USD
+16 triệu USD
+18 triệu USD
+Tổng doanh thu
+Apechete Jackson
+Tatra
+$9,127.6K
+$16,697.2K
+$16,305.4K
+2 triệu USD
+0 triệu USD
+4 triệu USD
+6 triệu USD
+8 triệu USD
+10 triệu USD
+12 triệu USD
+14 triệu USD
+16 triệu USD
+18 triệu USD
+20 triệu USD
+Tổng doanh thu
+Apechete Jackson
+Tatra
+9,5 triệu USD
+18,3 triệu USD
+17,2 triệu USD
+17,2 triệu USD
+10Harvard Business Review, tháng 4 năm 2013. Stikeleather, J. Cách kể một câu chuyện bằng dữ liệu. https://hbr.org/2013/04/
+cách kể một câu chuyện bằng dữ liệu (truy cập vào tháng 7 năm 2022). 
+MINH HỌA 9.11  Các loại 
+Khán giả
+Danh mục
+Mô tả
+Họ muốn gì
+Người mới
+Chưa bao giờ gặp phải thông tin.
+Đủ chi tiết để đạt được sự hiểu biết.
+quản lý
+Có một số kiến thức về chủ đề này.
+Kết quả khả thi.
+chuyên gia
+Có kiến thức sâu sắc về chủ đề.
+Điều tra và khám phá.
+điều hành
+Có kiến thức sâu rộng, trình độ cao về chủ đề.
+Chỉ những hiểu biết quan trọng nhất.
+Khán giả mới làm quen
+Đối tượng mới làm quen, có thể là nội bộ hoặc bên ngoài tổ chức, cần có đủ sự hỗ trợ
+thông tin cơ bản để hiểu được kết quả. Một bản phân tích cho một khách hàng bên ngoài hoặc một khách hàng trước
+được gửi đến một bộ phận nội bộ không quen thuộc với chủ đề này đều sẽ có đối tượng mới làm quen. 
+Hình minh họa 9.12 là một ví dụ về kiểu trực quan hóa có thể được sử dụng để giải thích việc bán hàng 
+xu hướng cho khán giả mới làm quen.
+
+![ILLUSTRATION 9.12](../TaiLieu/textbookForPractice/Figures/Ch_09/ILLUSTRATION%209.12.png)
+
+9.2  Các bước để tạo trực quan hóa dữ liệu hiệu quả là gì?  11-9
+MINH HỌA 9.12  
+Mẫu trực quan cho người mới 
+khán giả
+0,8 triệu USD
+1,0 triệu USD
+1,1 triệu USD
+1,3 triệu USD
+1,4 triệu USD
+1,5 triệu USD
+1,7 triệu USD
+1,9 triệu USD
+0,5 triệu USD
+0,7 triệu USD
+0,2 triệu USD
+0,3 triệu USD
+0,4 triệu USD
+0,0 triệu USD
+0,1 triệu USD
+Tổng của
+Tổng doanh thu
+Tháng
+Xu hướng bán hàng của thương hiệu Tatra‒2025 (Triệu đô la)
+tháng Giêng.
+Tháng Hai
+Tháng ba.
+Tháng Tư.
+tháng 5
+Tháng Sáu.
+Tháng Bảy.
+Tháng 8
+Tháng 9
+Tháng 10
+Tháng 11
+Tháng mười hai
+0,6 triệu USD
+0,9 triệu USD
+1,2 triệu USD
+1,6 triệu USD
+1,8 triệu USD
+tháng ba
+Tổng doanh thu: 1,8 triệu USD
+tháng Tám
+Tổng doanh thu: 1,8 triệu USD
+tháng tư
+Tổng doanh thu: 0,7 triệu USD
+tháng mười hai
+Tổng doanh thu: 1,0 triệu USD
+Hình ảnh trực quan được dán nhãn rõ ràng để hiển thị cho người xem những tháng có doanh thu cao nhất và thấp nhất.
+Đối tượng quản lý
+Khán giả quản lý thường có một số kiến thức về chủ đề này, vì vậy nền tảng chi tiết 
+thông tin có thể không cần thiết. Tuy nhiên, đối tượng này đang tìm kiếm kết quả có thể hành động được, vì vậy 
+trực quan hóa nên bao gồm các khuyến nghị cho các hành động dựa trên kết quả.
+Bảng điều khiển trong Hình minh họa 9.13 cũng truyền đạt tỷ suất lợi nhuận của nhà quản lý 
+như phân tích tổng doanh thu và chi phí. ( Data How To 9.1 ở cuối chương giải thích cách 
+tạo bảng điều khiển này trong Tableau.) Các bộ lọc về năm bán hàng và thương hiệu cho phép người quản lý tùy chỉnh-
+ize hình ảnh theo năm và thương hiệu. Nó cung cấp thông tin nhanh chóng, có thể hành động.
+Làm thế nào để
+MINH HỌA 9.13  
+Mẫu bảng thông tin hiệu suất 
+dành cho đối tượng quản lý
+Tổng doanh thu theo thương hiệu
+5 triệu USD
+0 triệu USD
+10 triệu USD
+15 triệu USD
+20 triệu USD
+25 triệu USD
+30 triệu USD
+35 triệu USD
+Tổng doanh thu
+Thương hiệu
+apechete
+Jackson
+Tatra
+35,0 triệu USD
+18,6 triệu USD
+33,5 triệu USD
+18,6 triệu USD
+33,5 triệu USD
+Trang tổng quan về hiệu suất của đối tượng được quản lý
+Tỷ suất lợi nhuận theo thương hiệu
+apechete
+Jackson
+Tatra
+20,4%
+13,0%
+5,6%
+2024
+2025
+Năm bán Ngày
+apechete
+Jackson
+Tatra
+Thương hiệu
+Chi phí
+Phân tích chi phí
+10 triệu USD
+0 triệu USD
+20 triệu USD
+30 triệu USD
+40 triệu USD
+50 triệu USD
+Giá trị
+Tổng số vật liệu lao động
+Chi phí biến đổi
+Bộ lọc
+
+![ILLUSTRATION 9.13](../TaiLieu/textbookForPractice/Figures/Ch_09/ILLUSTRATION%209.13.png)

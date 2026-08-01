@@ -1,0 +1,432 @@
+8.5  How are Validity and Reliability Assessed in Predictive and Prescriptive Analyses?  8-29
+	 Illustration 8.27 shows the regression statistics for Illustration 8.26: 
+•  The adjusted R square in Illustration 8.27 is 0.778. We would interpret that 77.8% of 
+total expenses can be explained by how many purchase orders are processed and by 
+sales volume.
+•  The standard error in this model is $1,337.16. To determine if this is a large or 
+a small standard error, compare it to the standard deviation of the dependent 
+variable. In this example, compare the standard error to the standard deviation 
+of total expenses. Illustration 8.28 provides the mean and standard deviation for 
+total expenses.
+•  The standard deviation of $2,837.69 is higher than the standard error of $1,337.16 in 
+the regression model. The standard error in this model would be considered some-
+what small.
+The next section of regression summary output is the analysis of variance (ANOVA) output. 
+Illustration 8.29 is the ANOVA section from the regression model. The ANOVA is a test for the 
+significance of the entire model:
+•	In a multiple linear regression such as this, significance is a test of whether the regression 
+model is better than a model with no independent variables. In other words, is the model 
+better than no model at all? 
+•	Generally, a model is considered significant if the F statistic (Significance F in Illustration 
+8.29) is less than 0.05. 
+ILLUSTRATION 8.28  Super 
+Scooters Purchasing Department 
+Expenses
+Super Scooters Purchasing
+Department Costs
+2022 — 2024
+Mean
+Standard Deviation
+$ 3,725.30
+$ 2,837.69
+ILLUSTRATION 8.29  ANOVA 
+Regression Statistics for 
+Purchasing Department Expenses
+ANOVA
+Purchasing Dept. Expenses ANOVA Results
+Residual
+Regression
+Total
+df
+21
+2
+23
+SS
+37547755.8
+147659116.6
+185206872.4
+MS
+1787988.371
+73829558.29
+F
+41.29197
+Significance F
+5.2812E-08
+So, is the model significant? The ANOVA in Illustration 8.29 has a Significance F of 
+5.2812E-08. The notation “E-08” after 5.2812 represents scientific notation, also known as 
+exponential notation. 5.28.12E-08 is the same as 0.000000052812. This is a number well below 
+0.05, so the model is significant. In other words, the independent variables can explain some 
+variation of total expenses, so it is better than no model at all. 
+The last section of the regression summary output provides information to create the 
+equation that predicts the dependent variable. If the adjusted R square and standard error 
+are acceptable and the model is significant, then we can interpret the equation of the model. 
+The intercept and coefficients of the model represent the equation of the line that best 
+fits the data. The key statistic to analyze in this section is the p-value for each of the indepen-
+dent variables. Like the F statistic, the p-value provides a test of significance. It is a test as to 
+whether the independent variable improves the ability of the model to predict the dependent 
+variable. A p-value of 0.05 or less is considered significant. 
+Let’s use the output in Illustration 8.30 to identify the prediction model for Super Scoot-
+ers’ purchasing department total costs, and then interpret the coefficients. Notice that the 
+p-values for all the independent variables meet the test of being less than 0.05 and are there-
+fore significant. 
+
+8-30
+ChAPTER 8 Interpreting Data Analysis Results 
+The prediction model will be equal to the intercept, plus the coefficients of the indepen-
+dent variables, multiplied by the predicted values for those variables. Based on the regression 
+model in Illustration 8.30, the equation to predict total purchasing department costs is:
+($994.57) + $180.01 (number of purchase orders) + $1.19 (sales volume)
+Illustration 8.31 is the calculation of predicted total expenses if 12 purchase orders are pro-
+cessed and 2,200 scooters are sold.
+APPLYING CRITICAL THINKING 8.4: Interpret Predictive 
+Analytics
+If the analysis being interpreted predicts a future outcome, then you will be interpreting pre-
+dictive analytics: 
+• In the Super Scooters’ purchasing department costs example, the purpose of the model is to 
+better understand and predict the department’s costs (Purpose). 
+• Making this prediction requires understanding how to interpret a regression analysis 
+(Knowledge). 
+# of Purchase Orders
+Intercept
+Sales Volume
+Model
+Coeﬀicient
+Purchasing Dept. Predicted Expenses
+$    180.01
+$ (994.57)
+$         1.19
+Variable
+Values
+12
+1
+2,200
+$ 3,786.66
+Prediction
+$   2,160.15
+$    (994.57)
+$   2,621.08
+ILLUSTRATION 8.31 Prediction 
+Model Example
+Add the product of each independent variable coefficient and each variable’s predicted value 
+to the intercept for a total prediction of $3,786.66 purchasing department costs for the year.
+The model could be interpreted like this:
+• Intercept: The intercept does not have a practical interpretation. It is a result of the model 
+that represents the mean for the response when all the independent variables are zero. It 
+is where the equation function crosses the y-axis. 
+• # of Purchase Orders: Each purchase order adds $180.01 to total costs.
+• Sales Volume: For each additional scooter sold, purchasing department costs increase by 
+$1.19.
+Using a model like the one in Illustration 8.31 helps businesses predict future outcomes. The 
+combination of evaluating the variables included in the model to see if they make sense and 
+then assessing the regression model statistics will help determine if the model is both valid 
+and reliable. 
+ILLUSTRATION 8.30 Regression 
+Model Example
+# of Purchase Orders
+Intercept
+Sales Volume
+Coeﬀicients
+180.0127
+−994.572
+1.1914012
+Standard Error
+31.32217805
+877.1183137
+0.351035522
+3.393961854
+t Stat
+5.747132382
+0.002737
+1.05E-05
+−1.133908575
+P-value
+0.269612
+Purchasing Dept. Regression Model 
+Prescriptive Analytics
+Prescriptive analytics prescribe what should happen to achieve desired results. The most com-
+mon prescriptive analytics in accountanting are what-if analyses and optimization models. The 
+
+8.5  How are Validity and Reliability Assessed in Predictive and Prescriptive Analyses?  8-31
+same rules that apply to the other analytics methods also apply here. The analysis must be valid 
+and reliable. Since a prescriptive model prescribes action, it is crucial to verify that inputs and 
+outputs of the model are valid and reliable to avoid making poor business decisions. 
+A spreadsheet model that evaluates how changes to values and assumptions affect an 
+outcome is called a what-if analysis. A what-if analysis is an easy way to change values in a 
+spreadsheet and recalculate the outputs.
+Excel tools that are commonly used for what-if analysis include Scenario Manager and 
+Goal Seek. (Optimization models are discussed in the chapter about data analysis motivations 
+and objectives.) Regardless of which tool is used, assessing the validity and reliability of the 
+model output is the same:
+•	Understand what the model is addressing. 
+•	Determine if the model measures what it is supposed to measure and if it does, in fact, 
+represent the objective (validity). 
+•	Review the model measures to confirm they are accurate and consistent (reliability).
+What-If Analysis: Scenario Manager
+Let’s look at a scenario analysis and assess validity and reliability. An international dance 
+company, Ballet Nuevo, is performing in Atlanta, Georgia. They have three performances 
+scheduled and are determining if they should add a fourth. Illustration 8.32 provides a sum-
+mary model.
+ILLUSTRATION 8.32  Ballet Performance Financial Model
+fx
+1
+B
+A
+C
+Sheet1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+Ballet Nuevo-Additional Performance Scenario Analysis
+Theater Charges
+Ticket Price
+Expected Ticket Sales
+Average Concessions Spending
+per person
+Profit
+Concession Revenue
+Ticket Revenue
+Concession Profit %
+Profit Percentage
+$   18,000.00
+$    31,250.00
+$ 113,250.00
+$ 125,000.00
+$            50.00
+2,500
+$            25.00
+50%
+80%
+AutoSave
+Oﬀ
+per person
+Expected ticket sales and
+concession spending
+(food and drink) by
+ticket holders
+Theater charges, based
+on ticket sales, are expenses
+charged to the ballet company
+from the theater. The higher
+the ticket sales, the
+lower the theater charge
+The theater takes 20%
+of the ticket price and
+50% of concession sales 
+people
+Ballet Nuevo believes there are three possible scenarios, which are shown in Illustration 8.33.
+Expected Ticket Sales
+Concessions Spending
+2,500
+$          25.00
+$ 18,000.00
+4,500
+$         40.00
+$ 10,000.00
+1,500
+$          10.00
+$ 25,000.00
+Theater Charges
+Likely
+Ballet Nuevo Scenario Analysis Model
+Optimistic
+Pessimistic
+ILLUSTRATION 8.33  
+Ballet Nuevo Performance 
+Scenarios
+A scenario analysis was performed using Scenario Manager in Microsoft Excel. The sce-
+nario summary shows the results when cells B3, B4, and B5 (Illustration 8.32) are changed to 
+the values shown in Illustration 8.33.
+
+8-32 
+Chapter 8  Interpreting Data Analysis Results 
+$B$3
+Ballet Nuevo Scenario Analysis Results
+$B$4
+$B$5
+$            25.00
+$    18,000.00
+$B$13
+$ 113,250.00
+$            40.00
+$    10,000.00
+$ 260,000.00
+$          10.00
+$ 25,000.00
+$ 42,500.00
+$            25.00
+$   18,000.00
+$ 113,250.00
+Result Cells
+Changing Cells
+2,500
+4,500
+1,500
+2,500
+Current Values
+Scenario Summary
+Optimistic
+Pessimistic
+Likely
+ILLUSTRATION 8.34  
+Ballet Nuevo Scenario Analysis
+ILLUSTRATION 8.35  Ticket Price and Target Profit – Goal Seek
+fx
+1
+B
+A
+C
+D
+C
+Sheet1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+Ballet Nuevo ‒ Profit Target Goal Seek
+Expected Ticket Sales
+Average Concessions Spending
+Theater Charges
+Concession Revenue
+Profit
+Ticket Revenue
+Ticket Price
+Concession Profit %
+Profit percentage
+2,500
+People
+Per person
+Per person
+$            25.00
+$    18,000.00
+$ 125,000.00
+$    31,250.00
+$ 113,250.00
+$            50.00
+50%
+80%
+AutoSave
+Oﬀ
+OK
+Cancel
+Goal Seek
+Set cell:
+$B$13
+To value:
+150000
+By changing cell:
+$B$6
+?
+The interpretation of this analysis is that even in the pessimistic scenario Ballet Nuevo 
+will make a profit on an additional performance. 
+How do we know this analysis is valid and reliable? Ballet Nuevo would like to evaluate differ-
+ent ticket and concession sales scenarios to determine if they should add an additional performance. 
+A scenario analysis is a valid method to use for this type of analysis, and the model represents three 
+realistic possibilities. As to reliability of the model, that can be confirmed by  verifying the profit 
+calculation is correct and the assumptions are realistic (ticket prices, concession purchases, and 
+theater costs). If the model inputs are accurate and consistent, then the model is reliable. 
+What-If Analysis: Goal Seek
+Another tool for performing what-if analysis is Goal Seek:  
+•	Goal Seek is used if the desired result is already known but the input value to achieve that 
+result is not. 
+•	Goal Seek is limited because it can only use one input variable. If the analysis being per-
+formed requires more than one variable to change, then an optimization model using 
+Excel Solver would be needed.
+In the previous example, Ballet Nuevo wanted an analysis comparing different ticket and 
+concession sales scenarios to determine if they should add a performance. What if an addi-
+tional performance is not possible due to theater availability, and Ballet Nuevo instead must 
+consider how to set ticket prices to meet a specific target profit? 
+•	Ballet Nuevo has determined they need a profit of $150,000 from their performance. 
+•	Currently the ticket prices are $50, and they anticipate 2,500 ticket sales based on last 
+year’s performances. 
+Illustration 8.35 shows the financial information for Ballet Nuevo and the Goal Seek box 
+that appears after clicking the Data tab in Excel and selecting What-If Analysis and Goal Seek. 
+The result of the analysis is shown in Illustration 8.34.
+
+8.5  How are Validity and Reliability Assessed in Predictive and Prescriptive Analyses?  8-33
+•	The Set cell represents the profit calculation in cell B13 in the Excel spreadsheet. 
+•	Note the current profit amount of $113,250. The desired profit is $150,000, so that value 
+was entered in the To value box. 
+•	The variable being manipulated is ticket price, so the cell reference for the ticket price 
+(B6) was entered in the By changing cell box.
+After the user clicks OK, Excel will calculate the ticket price necessary to meet the profit 
+goal of $150,000. Illustration 8.36 is the solution generated by Excel. To meet a profit target 
+of $150,000, Ballet Nuevo must charge $68.38 per ticket. 
+To assess the reliability and validity of a goal seek model, determine if the model mea-
+sures what it is supposed to measure (reliability) and if it represents the reality of the ques-
+tion/objective (validity):  
+•	In this model, confirm the profit calculation is accurate. 
+•	Additionally, determine if the model answers the question of how much Ballet Nuevo 
+should charge per ticket to achieve a profit of $150,000 and if the model’s suggested ticket 
+price is realistic. If $68.38 is unrealistic for a ticket to a performance, then Ballet Nuevo 
+must consider other ways to reach profit goals. 
+ILLUSTRATION 8.36  Ticket Price 
+and Target Profit – Goal Seek 
+Solution
+fx
+1
+B
+A
+C
+Sheet1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+Ballet Nuevo ‒ Profit Target Goal Seek
+Expected Ticket Sales
+Average Concessions Spending
+Theater Charges
+Concession Revenue
+Profit
+Ticket Revenue
+Ticket Price
+Concession Profit %
+Profit percentage
+2,500
+People
+Per person
+Per person
+$             25.00
+$   18,000.00
+$ 170,937.50
+$    31,250.00
+$ 150,000.00
+$            68.38
+50%
+80%
+AutoSave
+Oﬀ
+APPLYING CRITICAL THINKING 8.5: Interpret Prescriptive 
+Analytics
+Use the elements of critical thinking when interpreting a prescriptive model:  
+•	 Knowing who will use predictions helps determine if the model addresses their concerns and con-
+firm that it represents reality (Stakeholders). 
+•	 An understanding of why the analysis is being performed is required to evaluate if the vari-
+ables make sense (Purpose). 
+•	 Knowing how to interpret regression analyses and evaluate optimization models is necessary to 
+interpret them (Knowledge). 

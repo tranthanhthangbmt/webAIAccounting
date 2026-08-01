@@ -1,0 +1,902 @@
+How To Walk-Throughs 
+10-41
+•	 Click Add and select SUM. These fields will automatically populate in the lower section, 
+so you will not have to type the names (shown in the right column of the following table) 
+in the Output field. 
+Field
+Action
+Output Field Name
+TotalRevenues
+Sum
+Sum_TotalRevenues
+RevenuesA 
+Sum
+Sum_RevenuesA
+RevenuesB 
+Sum
+Sum_RevenuesB
+VCforA 
+Sum
+Sum_VCforA
+VCforB 
+Sum
+Sum_VCforB
+TraceFCforA 
+Sum
+Sum_TraceFCforA
+TraceFCforB 
+Sum
+Sum_TraceFCforB
+CommonFCforA 
+Sum
+Sum_CommonFCforA
+CommonFCforB 
+Sum
+Sum_CommonFCforB
+Add the annotation of your choice (small luggage tag) and run the Summarize tool (Illus-
+tration 10.33).
+ILLUSTRATION 10.33  Alteryx Workflow After Step 5
+Input
+Data
+Output
+Data
+File
+Edit
+View
+Options
+Help
+Parse
+Transform
+Favorites
+In/Out
+Preparation
+Recommended
+Join
+Text
+Input
+Data
+Cleansing
+Filter
+Formula Sample
+Select
+Sort
+Join
+Union
+Text To
+Columns
+Browse
+In-Database
+Reporting
+Documentation
+Run
+Create
+Calculated
+Field Columns
+Create the totals
+needed for the
+Income Statement
+Summarize (4) - Configuration
+Summarize (4) - Configuration
+How To 10.2 Workflow.yxmd*
+How To 10.2 Workflow.yxmd*
+20 of 20 Fields
+20 of 20 Fields
+24 records
+displayed
+24 records
+displayed
+Search
+Search
+Input the HowTo_
+10.2 dataset
+Product-
+Ascending
+Select
+Select
+?
+Fields:
+Fields:
+Year
+Month
+Product
+SumUnitsSold
+Price
+Field
+Double
+V_String
+V_String
+Double
+Double
+VCunit
+TraceableFCunit
+CommonFCunit
+TotalRevenues
+TotalDirectVC
+TotalAppliedTraceableFC
+TotalAppliedCommonFC
+RevenueA
+Revenue B
+Double
+Double
+Double
+Double
+Double
+Double
+Double
+Double
+Double
+Type
+∑
+Results - Summarize (4) - Input
+Results - Summarize (4) - Input
+1
+2
+3
+4
+5
+SumUnits
+Sold
+Price
+Traceable
+FCunit
+Common
+FCunit
+6
+7
+8
+9
+10
+VCunit
+Record
+Record
+11
+12
+13
+14
+15
+16
+17
+600
+700
+760
+740
+820
+900
+980
+1040
+1220
+1300
+1380
+1560
+1710
+1640
+1360
+1270
+1200
+60
+60
+60
+60
+60
+60
+60
+60
+60
+60
+60
+60
+100
+100
+100
+100
+100
+17.5
+17.5
+17.5
+17.5
+17.5
+17.5
+17.5
+17.5
+17.5
+17.5
+17.5
+17.5
+18.75
+18.75
+18.75
+18.75
+18.75
+Total
+Revenues
+36000
+42000
+45600
+44400
+49200
+54000
+58800
+62400
+73200
+78000
+82800
+93600
+171000
+164000
+136000
+127000
+120000
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+36
+36
+36
+36
+36
+36
+36
+36
+36
+36
+36
+36
+80
+80
+80
+80
+80
+Metadata
+Metadata
+Data
+Add
+Add
+Actions:
+Actions:
+TotalRevenues
+RevenuesA
+RevenuesB
+VCforA
+VCforB
+Field
+Sum_TotalRevenues
+Sum_RevenuesA
+Sum_RevenuesB
+Sum_VCforA
+Sum_VCforB
+TraceFCforA
+CommonFCforA
+TraceFCforB
+CommonFCforB
+Sum_TraceFCforA
+Sum_TraceFCforB
+Sum_CommonFCforA
+Sum_CommonFCforB
+OutputFieldName
+Action
+Sum
+Sum
+Sum
+Sum
+Sum
+Sum
+Sum
+Sum
+Sum
+Sum
+Sum
+Sum
+Sum
+Sum
+Sum
+Sum
+Sum
+Sum
+?
+Input
+Data
+Output
+Data
+Text
+Input
+Data
+Cleansing
+Filter
+Formula Sample
+Select
+Sort
+Join
+Union
+Text To
+Columns
+Browse
+5
+Summarize
+∑
+Comment
+Comment
+
+10-42 
+CHAPTER 10  Recent Data and Analyses Developments in Accounting
+STEP 6: Attach the Formula icon to the right of the workflow:
+•	 Make the following 13 new columns with their corresponding formulas. (Hint: Save time 
+by selecting the field name from the dropdown list that appears when you type the bracket. 
+This helps avoid typos, which could cause an error when you run the Formula function.) 
+All new column types should be changed to Double.
+New Column
+Formula for the New Column
+ContribMarginA
+[Sum_RevenuesA]-[Sum_VCforA]
+ContribMarginB
+[Sum_RevenuesB]-[Sum_VCforB]
+SegmentMarginA
+[ContribMarginA]-[Sum_TraceFCforA]
+SegmentMarginB
+[ContribMarginB]-[Sum_TraceFCforB]
+NetIncomeA
+[SegmentMarginA]-[Sum_CommonFCforA]
+NetIncomeB
+[SegmentMarginB]-[Sum_CommonFCforB]
+TotalVC
+[Sum_VCforA]+[Sum_VCforB]
+TotalContribMargin
+[ContribMarginA]+[ContribMarginB]
+TotalTraceFC
+[Sum_TraceFCforA]+[Sum_TraceFCforB]
+TotalSegmentMargin
+[SegmentMarginA]+[SegmentMarginB]
+TotalCommonFC
+[SumCommonFCforA]+[Sum_CommonFCforB]
+TotalNetIncome
+[NetIncomeA]+[NetIncomeB]
+NetIncomeOnlyA
+[SegmentMarginA]-[TotalCommonFC]
+•	 Add the annotation of your choice and run the formula tool (Illustration 10.34).
+ILLUSTRATION 10.34  Alteryx Workflow After Step 6 (showing only the first three formulas)
+Run
+Formula (5) - Configuration
+How To 10.2 Workflow.yxmd*
+How To 10.2 Workflow.yxmd*
+?
+Results - Formula (5) - Input
+Input
+Data
+Output
+Data
+File
+Edit
+View
+Options
+Help
+Parse
+Transform
+Favorites
+In/Out
+Preparation
+Recommended
+Join
+Text
+Input
+Data
+Cleansing
+Filter
+Sample
+Select
+Sort
+Join
+Union
+Text To
+Columns
+Browse
+In-Database
+Reporting
+Documentation
+Summarize
+∑
+?
+Formula
+1
+Sum_Total
+Revenues
+Sum_
+RevenuesA
+1920000
+720000
+Sum_
+RevenuesB
+1200000
+Sum_
+VCforA
+432000
+Sum_
+VCforB
+960000
+Sum_Tra
+ceFCforA
+210000
+Record
+Record
+Create the
+totals
+needed for
+the income
+statement
+Calculate
+more totals
+needed for
+the income
+statement
+Product -
+Ascending
+Create
+Calculated
+Field
+Columns
+Input the
+HowTo_
+10.2 dataset
+9 of 9 Fields
+9 of 9 Fields
+1 record
+displayed
+1 record
+displayed
+Search
+Search
+Actions
+Actions
+000
+000
+Metadata
+Metadata
+Data
+Comment
+Double
+Double
+Data type:
+Data type:
+Size:
+Size: 8
+ContribMarginB
+ContribMarginB
+[Sum_RevenuesB]–[Sum_VCforB]
+[Sum_RevenuesB]–[Sum_VCforB]
+240000
+240000
+fx
+x
+×
+Double
+Double
+Data type:
+Data type:
+Size:
+Size: 8
+Output Column
+Output Column
+ContribMarginA
+ContribMarginA
+[Sum_RevenuesA]–[Sum_VCforA]
+[Sum_RevenuesA]–[Sum_VCforA]
+288000
+288000
+Data Preview
+Data Preview
+fx
+x
+×
+Double
+Double
+Data type:
+Data type:
+Size:
+Size: 8
+SegmentMarginA
+SegmentMarginA
+[ContribMarginA]–[Sum_TraceFCforA]
+[ContribMarginA]–[Sum_TraceFCforA]
+78000
+78000
+fx
+x
+×
+6
+
+How To Walk-Throughs 
+10-43
+STEP 7: Attach the Arrange icon to the workflow (it can be found under the Transform 
+menu, not the Favorites menu): 
+•	 In the Key Fields window at the top left, make sure all the key fields have been de-selected, 
+as those fields should not be columns in the income statement table (they should be de- 
+selected already, but ensuring they are de-selected is a control). 
+•	 Below the section with these key fields, click the arrow to the right of Columns, and select 
+Add. A new window will appear in the middle of the screen.
+In this step, you will be adding the four income statement columns and the seven income 
+statement rows (they are called Output fields in Alteryx):
+Product A
+Product B
+Both Products
+Only Product A
+Sales Revenues
+Variable Costs
+Contribution Margin
+Traceable Fixed Costs
+Segment Margin
+Common Fixed Costs
+Net Income
+ILLUSTRATION 10.35  Input Fields for Alteryx Arrange Step
+Output Column Header
+Description Field
+Fields to Select
+Product A
+Add New Description
+SumRevenuesA
+SumVCforA
+ContribMarginA
+SumTraceFCforA
+SegmentMarginA
+SumCommonFCforA
+NetIncomeA
+Product B
+None
+SumRevenuesB
+SumVCforB
+ContribMarginB
+SumTraceFCforB
+SegmentMarginB
+SumCommonFCforB
+NetIncomeB
+Both Products
+None
+SumTotalRevenues
+TotalVC
+TotalContribMargin
+TotalTraceFC
+TotalSegmentMargin
+TotalCommonFC
+TotalNetIncome
+(Continued)
+Illustration 10.35 contains the information that should be entered for each income statement 
+column. 
+
+10-44 
+CHAPTER 10  Recent Data and Analyses Developments in Accounting
+•	 In the new window’s Column Header field name, enter Product A. In the next field, select 
+Add New Description. Note that the Description column only needs to be filled out for 
+this first Product A column. For the other columns, select the Description option None. 
+•	 In the Fields section, select the fields indicated for this column and subsequently, for each 
+of the other columns needed for the income statement. Repeat this process by adding col-
+umns for Product B, Both Products, and Only Product A columns.
+In the left window, find the Output Fields section, where the Description column has a 
+blue highlight. In the Product A column to its left, examine the vertical order of the fields, and 
+re-arrange them in the correct vertical income statement order: 
+•	 Select the pull-down menu to the right of the field name and select the field that corre-
+sponds to the correct row order of the income statement.
+•	 The correct order is listed in the left section of Illustration 10.36 as a guide. 
+New Workflow1*
+New Workflow1*
+File
+Edit
+View
+Options
+Help
+Parse
+Favorites
+In/Out
+Preparation
+Recommended
+Join
+Transform
+Output Fields
+Output Fields
+?
+Column
+Column
+Row
+Row
+Sum_TotalRevenues
+Sum_TotalRevenues
+Sum_RevenuesA
+Sum_RevenuesA
+Sum_RevenuesB
+Sum_RevenuesB
+Sum_VCforA
+Sum_VCforA
+All
+Clear
+Description
+Description
+Revenues
+Revenues
+Variable Costs
+Variable Costs
+Contribution Margin
+Contribution Margin
+Traceable Fixed Costs
+Traceable Fixed Costs
+Segment Margin
+Segment Margin
+Common Fixed Costs
+Common Fixed Costs
+Sum_CommonFCforA
+Sum_CommonFCforA
+Net Income
+Net Income
+Product A
+Sum_RevenuesA
+Sum_VCforA
+ContribMarginA
+Sum_TraceFCforA
+SegmentMarginA
+NetIncomeA
+7
+Text Mining
+Machine Learning
+Computer Vision
+Arrange
+Count
+Records
+Cross
+Tab
+Running
+Total
+Summarize
+Transpose
+Weighted
+Average
+Count
+Records
+Cross
+Tab
+Running
+Total
+Summarize
+Transpose
+Weighted
+Average
+Arrange (6) - Configuration
+Key Fields
+Product B
+Product B
+[None]
+[None]
+Column Header
+Column Header
+Fill in Description Column 
+Fill in Description Column 
+Fields
+Fields
+Add Column
+Add Column
+Sum_RevenuesB
+Sum_RevenuesB
+Sum_VCforB
+Sum_VCforB
+Sum_TraceFCforB
+Sum_TraceFCforB
+Sum_CommonFCforB
+Sum_CommonFCforB
+ContribMarginB
+ContribMarginB
+SegmentMarginB
+SegmentMarginB
+NetIncomeB
+NetIncomeB
+All
+OK
+Clear
+Cancel
+ILLUSTRATION 10.36  Alteryx Workflow Arrange Step 7 When Entering Product B Column.
+Output Column Header
+Description Field
+Fields to Select
+Only Product A
+None
+SumRevenuesA
+SumVCforA
+ContribMarginA
+SumTraceFCforA
+SegmentMarginA
+TotalCommonFC
+NetIncomeOnlyA
+ILLUSTRATION 10.35  (Continued)
+
+How To Walk-Throughs 
+10-45
+STEP 8: In the resulting table, use the arrows to move the fields in each column up and down 
+as needed so they are in the proper income statement order from top (Sales Revenues) to bot-
+tom (Net Income). Annotate as you please (the luggage tag icon), and run the Arrange tool 
+(Illustration 10.37)
+ILLUSTRATION 10.37  Alteryx Workflow After Step 8
+Run
+Arrange (7) - Configuration
+Arrange (7) - Configuration
+How To 10.2 Workflow.yxmd*
+How To 10.2 Workflow.yxmd*
+22 of 22 Fields
+22 of 22 Fields
+1 record
+displayed
+1 record
+displayed
+Results - Arrange (7) - Input
+File
+Edit
+View
+Options
+Help
+Parse
+Transform
+Favorites
+In/Out
+Preparation
+Recommended
+Join
+In-Database
+Reporting
+Documentation
+?
+1
+Sum_Total
+Revenues
+Sum_
+RevenuesA
+1920000
+720000
+Sum_
+RevenuesB
+1200000
+Sum_VC
+forA
+432000
+Sum_VC
+forB
+960000
+Record
+Record
+Create
+the totals
+needed
+for the
+income
+statement
+Create the
+formatted
+income
+statement
+Product -
+Ascen-
+ding
+Create
+Calculated
+Field
+Columns
+Input the
+HowTo_
+10.2 dataset
+Calculate
+more
+totals
+needed
+for the
+income
+statement
+Search
+Search
+Actions
+Actions
+000
+000
+Arrange
+Count
+Records
+Cross
+Tab
+Running
+Total
+Summarize
+Transpose
+Weighted
+Average
+Weighted
+Average
+Count
+Records
+Cross
+Tab
+Running
+Total
+Summarize
+Transpose
+8
+Key Fields
+Key Fields
+Output Fields
+Output Fields
+?
+Column
+Column
+Row
+Row
+Sum_TotalRevenues
+Sum_TotalRevenues
+Sum_RevenuesA
+Sum_RevenuesA
+Sum_RevenuesB
+Sum_RevenuesB
+Sum_VCforA
+Sum_VCforA
+All
+Clear
+Description
+Description
+Sales Revenues
+Variable Costs
+Variable Costs
+Contribution Margin
+Contribution Margin
+ContribMarginB
+Traceable Fixed Costs
+Traceable Fixed Costs
+Product A and B
+Sum_RevenuesA
+Sum_RevenuesB
+Sum_VCforA
+Sum_VCforB
+ContribMarginA
+Sum_TraceFCforA
+TotalCommon
+Both Products
+Sum_TotalRev
+TotalVC
+TotalContribM
+TotalTraceFC
+TotalSegment
+TotalNetIncom
+Segment Margin
+Segment Margin
+Segment Margin
+Segment Margin
+Net Income
+Net Income
+NetIncomeA
+Sum_TraceFCforB
+SegmentMarginA
+SegmentMarginB
+Sum_CommonFCforA
+Sum_CommonFCforB
+NetIncomeB
+TotalCommon
+Sum_TotalRev
+TotalVC
+TotalContribM
+TotalTraceFC
+TotalSegment
+TotalNetIncom
+STEP 9: Attach the Output icon to the workflow, which you will find in the Favorites menu: 
+•	 Select the pull-down menu to the right of Write to File or Database in the Output Data 
+window on the left. 
+•	 Next, a window opens. At the bottom of the middle column, select Microsoft Excel .xlsx 
+format. This will change the window so you can select where to save the output file and 
+how to name it.
+•	 When the Select Excel Output window appears, change the name of Sheet1 to “2025 
+Comparative Income Statement.” Do not specify a range of cells. Compare your Excel file 
+output to Illustration 10.6. Select the annotation of your choice, and run the Output tool. 
+Your workflow should look like Illustration 10.6.
+STEP 10: Self-reflection: Compare your Excel experience and solution (How To 10.1) to your 
+Alteryx experience and solution (How To 10.2). You may feel that Alteryx took much longer to 
+set up (and it may have been more frustrating if you were not familiar with Alteryx). You may 

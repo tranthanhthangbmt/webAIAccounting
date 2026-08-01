@@ -3,6 +3,17 @@
 
 # Chương 6: Phân tích: Mô hình Thông tin (Analysis: Information Modeling)
 
+> [!NOTE]
+> **Dữ liệu thực hành Chương 6:**
+> Để thực hành các bài tập trong chương này, bạn có thể tải về các bộ dữ liệu mô phỏng dưới đây. Bạn có thể tải về để mở ra xem trước dữ liệu:
+> - 📥 **<a href="TaiLieu/textbookForPractice/Data/Ruppetware_Sales.csv" download target="_blank"><strong>Ruppetware_Sales.csv</strong></a>** (EX 6.8)
+> - 📥 **<a href="TaiLieu/textbookForPractice/Data/LTS_Trucks.csv" download target="_blank"><strong>LTS_Trucks.csv</strong></a>** (EX 6.9)
+> - 📥 **<a href="TaiLieu/textbookForPractice/Data/LTS_Pallets.csv" download target="_blank"><strong>LTS_Pallets.csv</strong></a>** (EX 6.9)
+> - 📥 **<a href="TaiLieu/textbookForPractice/Data/LTS_Schedule.csv" download target="_blank"><strong>LTS_Schedule.csv</strong></a>** (EX 6.9)
+> - 📥 **<a href="TaiLieu/textbookForPractice/Data/DTunes_Instructors.csv" download target="_blank"><strong>DTunes_Instructors.csv</strong></a>** (PAC 6.1 - 6.3)
+> - 📥 **<a href="TaiLieu/textbookForPractice/Data/DTunes_Sessions.csv" download target="_blank"><strong>DTunes_Sessions.csv</strong></a>** (PAC 6.1 - 6.3)
+> - 📥 **<a href="TaiLieu/textbookForPractice/Data/DTunes_Registrations.csv" download target="_blank"><strong>DTunes_Registrations.csv</strong></a>** (PAC 6.1 - 6.3)
+
 **Xem trước chương**
 
 Sau khi lập kế hoạch cho dự án và hoàn thành việc chuẩn bị dữ liệu, bạn có thể rất hào hứng cuối cùng khám phá dữ liệu và tạo ra những hiểu biết sâu sắc. Mặc dù dữ liệu có thể đã sẵn sàng để phân tích nhưng vẫn có vẫn còn thiếu một phần – thông tin cần thiết để thực hiện phân tích. Ví dụ, dữ liệu được lựa chọn và chuẩn bị cho việc phân tích có thể bao gồm một tập hợp các giao dịch nhưng không biết tổng doanh thu hoặc lợi nhuận được tạo ra, chúng không thể được phân tích để xác định sản phẩm nào có lãi.

@@ -1,0 +1,459 @@
+8-18 
+Chapter 8  Interpreting Data Analysis Results 
+Descriptive Analytics 
+Descriptive analytics help to better understand the data underlying the analysis being inter-
+preted. To assess validity and reliability of the analyses, ensure the correct method is used and 
+that the data are accurate. Illustration 8.13 is a summary of valid descriptive analyses based 
+on the objective of the analysis. For an analysis to be valid, the method must match the objec-
+tive. In a reliable analysis, the measures used are accurate and consistent.
+Objective
+Example Questions
+Valid Analyses
+Understand categories of 
+data. 
+What product category is selling the 
+most? Which business unit has the 
+highest revenue? 
+Frequency distribution 
+Histogram
+Summarize by categories 
+and subcategories.
+Which products are selling the  
+most in each region? How much were 
+total expenses each year by business 
+unit? 
+Cross tabulation 
+analysis
+Identify an average 
+observation in the data.
+What is the average tax liability for each  
+business unit?
+Mean (if no outliers) 
+Median
+Evaluate the distribution 
+of data.
+How different are the expenses in 
+each business unit from the company 
+average?
+Standard deviation
+ILLUSTRATION 8.13  Descriptive 
+Objectives, Questions, and Valid 
+Analyses
+ILUSTRATION 8.15  Super 
+Scooters Model Frequency 
+Distribution Chart
+1,400
+1,200
+1,000
+800
+600
+400
+200
+0
+Captain
+Celeritas
+Kicks
+Lazer
+Frequency
+Model
+Super Scooters Model Frequency Distribution Chart
+Understand Categories of Data
+Grouping data into categories is sometimes part of an analysis. An example is when the goal is 
+to understand sales by product. If the analysis is based on groups or categories of data, a valid 
+analysis would be a frequency distribution or a cross tabulation analysis. 
+A frequency distribution reveals how many times something has occurred within a 
+group or interval. The example in Illustration 8.14 was prepared using the Super Scooters 
+data set. ( Data How To 8.1 at the end of the chapter shows how to create this visual in Power 
+BI.) The frequency column reports sales orders for each model for the years 2023–2025. The 
+relative frequency column indicates the percentage of total sales orders for each model. 
+ILLUSTRATION 8.14  Super 
+Scooters Model Frequency 
+Distribution
+Model
+Captain
+Celeritas
+892
+Kicks
+Lazer
+Frequency
+1,010
+456
+Total Sales
+3,645
+1,287
+24.5%
+Relative Frequency
+27.7%
+12.5%
+100.0%
+35.3%
+How To
+Sometimes frequency distribution analyses are in chart form (Illustration 8.15).
+
+8.4  How are Validity and Reliability Determined in Descriptive and Diagnostic Analyses?  8-19
+Note that a cross tabulation analysis does not have to be in table format. Illustration 8.17 
+is a column chart visualization of the table in Illustration 8.16. 
+Summarize by Categories of Data
+Suppose the objective is knowing the number of orders each year, from 2023 to 2025, by 
+scooter model. A cross tabulation analysis would answer that question. A cross tabu-
+lation analysis shows the number of observations in a data set for different subcategories 
+­(Illustration 8.16). 
+ILLUSTRATION 8.16  Super 
+Scooters Cross Tabluation Analysis 
+of Sales Orders by Model
+Captain
+Celeritas
+Kicks
+Lazer
+Grand Total
+Number of Orders
+Model
+Year
+317
+2025
+369
+88
+1,337
+563
+248
+2023
+244
+261
+960
+207
+327
+2024
+397
+107
+1,348
+517
+892
+Grand Total
+1,010
+456
+3,645
+1,287
+ILLUSTRATION 8.17  Super 
+Scooters Cross Tabulation Analysis 
+Column Chart
+0
+Captain
+Celeritas
+Kicks
+Lazer
+100
+200
+244
+248
+207
+300
+400
+500
+600
+397
+327 317
+107 88
+517
+2023
+2025
+2024
+Number of Orders Per Year
+Orders
+Models
+563
+261
+369
+What can we interpret from these analyses? First, the Lazer is the best-selling model, 
+accounting for 35.3% of total sales volume (Illustration 8.14). Second, the Lazer is the only 
+model that shows an increase in sales volume each year from 2023 to 2025 (Illustration 8.17). 
+Are these analyses valid and reliable? Since the objective is analyzing sales volume by model, 
+then the frequency distribution and the cross tabulation analyses are valid methods to use. 
+Reliability will be determined by confirming the totals agree to the actual sales volume in the 
+financial records. 
+Identify an Average Observation in the Data
+Sometimes the analysis question is not about groups or categories of data, but instead asks 
+about the averages in the data. In addition to frequency and cross tabulation, measures of 
+location are used in descriptive analytics. When evaluating the validity and reliability of an 
+analysis that includes measures of location, ensure that the correct measure is being used. 
+Measures of location include the mean, median, and mode measures that reveal the aver-
+age or typical observation in the data set:
+•	Mean:  The sum of all observations in a data set divided by the total number of observations. 
+•	Median:  The middle value when the data is arranged from smallest to largest.
+•	Mode:  The observation that occurs most frequently.
+
+8-20 
+Chapter 8  Interpreting Data Analysis Results 
+All three measures are valid measures of location, but under different conditions some mea-
+sures of central tendency will be more appropriate than others. 
+For example, a mean can be affected by extreme values in the data, whereas the median is 
+not affected by these kinds of values, which are outliers. There are two methods to determine 
+if there are outliers in a data set:
+•	Search for a large difference between the mean and median. 
+•	Plot the data to visually determine if there is an outlier. 
+Let’s start by examining the mean and the median. Illustration 8.18 shows descriptive sta-
+tistics for Super Scooters’ monthly sales volume amounts. ( Data   How To 8.2 illustrates how 
+to create these statistics in Microsoft Excel.) The mean monthly sales volume is 2,132 and the 
+median monthly sales volume is 1,879. The mean is much larger than the median. But we 
+know that if we are searching for the central location of the data set, the median is right in the 
+middle. This large difference is a good indication that there are extreme values in the data set. 
+ILUSTRATION 8.19  
+Scatterplot of Super Scooters’ 
+Sales Volume
+8,421
+7,810
+0
+1,000
+Aug-22
+Mar-23
+Oct-23
+Apr-24
+Nov-24
+May-25
+Dec-25
+2,000
+3,000
+4,000
+5,000
+6,000
+7,000
+8,000
+9,000
+Sales Volume
+Super Scooters, Inc.
+Monthly Sales Volume
+Skewness
+Mean
+Median
+Standard Error
+Standard Deviation
+Mode
+Kurtosis
+Sample Variance
+Range
+2.73
+2,132.39
+1,879.00
+275.34
+1,652.02
+#N/A
+8.82
+2,729,183.96
+8,050.00
+Count
+Minimum
+Sum
+Maximum
+36.00
+371.00
+76,766.00
+8,421.00
+ILLUSTRATION 8.18  Descriptive 
+Statistics for Super Scooters’ Sales 
+Volume
+How To
+Now try the second method. A scatterplot shows the relationship between two numeri-
+cal variables. Each observation in the data set is plotted as a point whose coordinates relate to 
+the values of the two variables for that observation. 
+Illustration 8.19 is a scatterplot of Super Scooters’ monthly sales volume from 2023 to 
+2025. Each sales transaction is represented by a dot. Notice the dots labeled 8,421 and 7,810. 
+These observations are outside most of the monthly amounts. Those months are driving up 
+the mean. 
+When evaluating measures of location, keep in mind the potential impact of outliers on 
+the results. If you were responsible for creating the sales budget for Super Scooters, then you 
+might choose between using the mean or the median sales volume from prior year to budget 
+
+8.4  How are Validity and Reliability Determined in Descriptive and Diagnostic Analyses?  8-21
+2Keep in mind that this is a very simplified example of preparing a budget. Sales budgets include more than 
+just estimating a single sale transaction amount, particularly if there are multiple products and locations. 
+However, the danger of using the wrong measure is still a valid concern.
+ILLUSTRATION 8.20  Estimated 
+Sales Using Mean vs. Median Sales 
+Volume
+Estimated Sales Based on Mean Sales Volume
+Diﬀerence Between Estimated Sales Volume = 3,036
+Estimated Sales Based on Median Sales Volume
+2,132 × 12 months = 25,584
+1,879 × 12 months = 22,548
+In summary, when evaluating the validity and reliability of an analysis that includes mea-
+sures of location, confirm the correct measure is being used. If the correct measure is used, 
+then the results are valid. In Illustration 8.20, using the mean instead of the median to esti-
+mate sales volume would not be valid because of the difference between mean and median 
+monthly sales volume. Using the mean sales volume inflates the estimate due to the outliers 
+of higher sales volume in the data. That is not a reliable budget estimate.
+Evaluate the Distribution of Data
+The final type of descriptive analyses discussed here are measures of dispersion. Dispersion 
+refers to the amount of variation in the data. Are the data spread out or are they compact? In 
+other words, how far apart are all the observations (data points) from the mean? The two most 
+widely used measures of dispersion are variance and standard deviation.
+The standard deviation shows how spread out the data are from the mean. It is in the 
+same units as the mean. Standard deviation can help determine validity and reliability of an 
+analysis. Illustration 8.21 shows a list of descriptive statistics for Super Scooters’ sales vol-
+ume. Standard deviation is highlighted. 
+for the next year’s production budget. (Refer to Illustration 8.18 for the calculation of mean 
+and median for Super Scooters’ descriptive statistics.)
+Illustration 8.20 summarizes the two options. Using the mean as a measure of the aver-
+age amount of monthly sales production needs overstates production needs.2 There is a differ-
+ence of 3,036 (13%) between the two options. It would be difficult to explain to your boss next 
+year why you were off by 13% on projected production!
+ILLUSTRATION 8.21  Descriptive 
+Statistics for Super Scooters’ Sales 
+Volume
+Super Scooters, Inc.
+Monthly Sales Volume
+Skewness
+Mean
+Median
+Standard Error
+Standard Deviation
+Mode
+Kurtosis
+Sample Variance
+Range
+2.73
+2,132.39
+1,879.00
+275.34
+1,652.02
+#N/A
+8.82
+2,729,183.96
+8,050.00
+Count
+Minimum
+Sum
+Maximum
+36.00
+371.00
+76,766.00
+8,421.00
+In this example, the mean amount of monthly sales volume is 2,132.39. The standard 
+deviation is 1,652.02. So, the average distance between an observation (in this case a sale vol-
+ume amount) and the mean is 1,652.02. Standard deviation can indicate the data points’ rela-
+tionship to the mean: 
+•	A low standard deviation indicates the data points tend to be close to the mean. 
+•	A high standard deviation indicates the data points are spread out over a large range of 
+values. 
+
+8-22 
+Chapter 8  Interpreting Data Analysis Results 
+Does the amount of 1,652.02 seem like a high or a low standard deviation for sales vol-
+ume? Considering that the standard deviation is about 77% of the mean, it does seem to be 
+a high deviation. Review the scatterplot in Illustration 8.19 to visually determine if there are 
+many observations (data points) far from the mean of 2,132.39. The scatterplot does show data 
+points that are much higher than the mean.
+Taken together, descriptive analytics help us better understand the data underlying the anal-
+ysis being interpreted. Assessing validity and reliability of the analyses involves ensuring the cor-
+rect method is used and that the data are accurate. Frequency distributions and cross tabulations 
+can help group data into meaningful categories. Measures of location can show what the average 
+observation looks like or if there are outliers, while measures of dispersion reveal the distribution 
+of the data underlying the analysis. 
+APPLYING CRITICAL THINKING 8.2: Evaluate Reliability 
+and Validity
+It may not seem like you are applying critical thinking skills when evaluating the reliability and 
+validity of descriptive analytics, but you are thinking critically before you even begin:  
+•	 You must identify the reason behind the analysis to decide if it is a question that should be 
+answered with descriptive analytics (Purpose). 
+•	 Then, you identify the information necessary to interpret the analysis. Do you need to know 
+how to interpret frequency distributions? Cross tabulations? Measures of location? Measures of 
+dispersion? Do you have that knowledge (Knowledge)?
+•	 You could apply experiences with past interpretations of analyses to the current context 
+(Self-reflection).
+Diagnostic Analytics 
+If the objective of the analysis is to understand why something has occurred, then you will be 
+interpreting diagnostic analytics. Illustration 8.22 provides some common diagnostic objec-
+tives and the analyses that could be used. 
+Objective
+Example Questions
+Valid Analyses
+Find anomalies in the data set.
+Are there revenue transactions 
+that are different or 
+suspiciously high? 
+Scatterplot
+Boxplot
+Examine relationships in the data. 
+Is there a relationship 
+between maintenance 
+expense and equipment 
+hours?
+Scatterplot 
+Correlation coefficient
+Identify patterns in the data set.
+Is there a seasonal sales 
+pattern?
+Bar chart
+Column chart
+Line graph
+Trend line
+ILLUSTRATION 8.22  Diagnostic 
+Objectives, Questions and Valid 
+Analyses
+Find Anomalies
+Assessing validity and reliability includes identifying any potential anomalies in the data. An 
+anomaly is an observation in the data set that deviates from what is normal or expected. 
+
+8.4  How are Validity and Reliability Determined in Descriptive and Diagnostic Analyses?  8-23
+Identifying anomalies is a common diagnostic analytic procedure. An anomaly may seem the 
+same as an outlier, discussed in the section on descriptive analytics. However, there are some 
+key differences: 
+•	Outlier: This is a legitimate observation that lies an abnormal distance from other values 
+in the data. For example, in retail stores sales are much higher during the holidays than 
+during the summer. A high sale amount in December may be an outlier, in that it is much 
+higher than the other months, but it is legitimate because sales are expected to be higher 
+in December.
+•	Anomaly: This is an illegitimate observation. Illegitimate observations could be mis-
+takes or unusual occurrences that we do not expect to see again. These observations may 
+be outliers that are determined to be illegitimate, hence an anomaly. An example of this is 
+if supplies expense is significantly higher in one month due to an erroneous journal entry. 
+Detecting anomalies could be the purpose of the analysis, such as when searching for unusu-
+ally large transactions in an audit where fraud is suspected. However, detecting an anomaly 
+could also be unintentional. 
+Recall that Illustration 8.19 identified two potential outliers–the sales volume amounts of 
+8,421 and 7,810. These amounts are much larger than the other monthly volume amounts that 
+occurred over the 2022 to 2025 period. Why are those sale volume amounts so high? This is an 
+example of anomaly detection. These two points might be legitimate observations (outliers), 
+or illegitimate (anomalies).
+The next step in the interpretation is to determine the reason for the high monthly volume 
+amount and investigate other potential anomalies in the data. First, examine all the amounts 
+that are over 1,500 and determine if they are accurate. If they are accurate, then investigate 
+potential reasons for the high volume. 
+Examine Data Relationships
+Part of understanding data is knowing how the data are related. Correlation analysis shows 
+relationships in the data by measuring the linear relationship between two variables. If the 
+goal of the analysis is to determine the strength of a relationship between objects of interest 
+(variables), then a correlation analysis would be appropriate. Assessing validity and reliability 
+of a correlation analysis requires knowing how to interpret the correlation coefficient.
+Linear correlation is measured by the correlation coefficient, also know has the Pear-
+son product-moment correlation coefficient. This measure is a numerical value between –1 
+and +1. The higher the absolute number, the greater the strength of the relationship. A posi-
+tive correlation coefficient indicates that as one variable increases, so does the other variable. 
+There is a positive relationship between ice cream sales and outdoor temperature, for exam-
+ple. As the temperature rises, ice cream sales tend to rise as well. 
+A negative correlation is an inverse relationship. As one variable increases, the other 
+decreases and vice versa. Consider sales of soup. There is a negative relationship between soup 
+sales and temperature. As temperatures decrease, the sales of soup increases. Illustration 
+8.23 is a guide to interpreting the value of the correlation coefficient.
+ILLUSTRATION 8.23 
+ 
+Interpreting Correlation 
+Coefficients
+−0.70
+−0.50
+−0.30
+A moderate negative linear relationship
+A weak negative linear relationship
+0
+No linear relationship
+Exactly −1
++0.50
++0.70
+Exactly +1
++0.30
+A perfect negative linear relationship
+A strong negative linear relationship
+A strong positive linear relationship
+A perfect positive linear relationship
+A weak positive linear relationship
+A moderate positive linear relationship
+Interpretation
+Correlation r

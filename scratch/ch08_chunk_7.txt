@@ -1,0 +1,594 @@
+8-34 
+Chapter 8  Interpreting Data Analysis Results 
+Chapter Review and Practice
+Learning Objectives Review
+❶  Compare data analysis interpretation and data 
+exploration. 
+While data exploration and interpretation seem similiar, there are 
+important differences:
+•  Data exploration is the process of analyzing data to determine 
+whether we need to perform additional analyses. The objective 
+in data exploration is getting to a point where we are sufficiently 
+confident we understand what is happening in the data. 
+•  Data analysis interpretation is the process of evaluating an analysis 
+to understand it and explain its meaning. The insights gained from 
+interpretation lead to good business decisions. 
+❷  Apply critical thinking to data analysis interpretation.
+•  Understanding the stakeholders enables understanding the con-
+text of the analysis and the implications of the results. 
+•  Identifying the purpose of the analysis maintains focus on its 
+goal and avoids misdirection in the interpretation.
+Apply It 8.5
+Interpret Regression 
+Results 
+Data   Managerial Accounting   DHI would like to understand what is driving total expenses for 
+the hotel chain. Luciana feels strongly that the following variables have the most influence on expenses:
+•	 Age of the hotel
+•	 The number of maintenance employees
+•	 Total housekeeping hours
+•	 Total rooms rented 
+She has asked you to prepare a regression model using those variables to predict expenses. The fol-
+lowing illustration is the result of that model. 
+Housekeeping Hours and Rooms Rented by Location Regression Model
+Multiple R
+R Square
+Adjusted R Square
+Standard Error
+Observations
+ANOVA
+0.7215151
+0.520584
+0.4714132
+93901.466
+44
+df
+SS
+MS
+F
+3.73412E+11
+3.43882E+11
+Regression
+Residual
+Total
+4
+39
+43
+7.17293E+11
+9.3353E+10
+8817485253
+10.58724498
+6.62556E-06
+107148.5543
+2.918679199
+Intercept
+Room Rentals
+Hours Worked, Housekeeping
+Age
+Employees, Maintenance
+413314.47
+11.015461
+6.0934507
+−3565.695
+16762.392
+1674.938087
+6906.902129
+5.531393108
+−2.12885155
+2.42690446
+1.1016123
+3.85739665
+3.77412543
+0.039637083
+0.019949355
+0.277382666
+0.000534577
+0.000418405
+Significance F
+Coeﬀicients Standard Error
+t Stat
+P-value
+Regression Statistics
+SOLUTION
+1.	 The adjusted R square is 0.471, meaning that room rentals, housekeeping hours worked, the age 
+of the hotel, and the number of maintenance employees can explain 47.1 % of total expenses. 
+2.	 The model is significant – Significance F is less than 0.05 – so, it is better than no model at all. 
+3.	 The p-value for Hours Worked, Housekeeping is greater than 0.05, so it should be removed 
+from the model. 
+1.	 What does the adjusted R square reveal about the model?
+2.	 Is the model better than not having a model?
+3.	 Are there any variables you would recommend Luciana remove from the model? Why?
+
+How To Walk-Throughs  
+8-35
+•  When interpreting an analysis, consider if there are alternative 
+explanations or alternative analyses that should be conducted.
+•  Identify potential risks such as data risks, analysis risks, and 
+risks of bias. 
+•  All analysis interpretation requires specific knowledge. Identify-
+ing the necessary accounting, industry, and technology knowl-
+edge gives us to the tools to interpret the analysis. 
+•  Similar analysis interpretation performed in the past could be 
+applied in the current context. 
+❸  Determine if the data analysis results answer the 
+question and align with the objective of the analysis.
+The answers to some specific questions can be helpful when interpret-
+ing a data analysis:
+•  Is the method and the result reasonable given current knowl-
+edge about the subject being analyzed? Does the analysis and its 
+interpretation make sense? Consider whether the analysis has 
+clear meaning. Does it address the objective or question posed? 
+Consider also whether the interpretation is reasonable.
+•  Sometimes more information or analysis is needed before a final 
+interpretation can be completed. Avoid risks like the “what you 
+see is all there is” bias or confirmation bias. 
+❹  Evaluate the validity and reliability of descriptive 
+and diagnostic data analysis results.
+Descriptive analytics determine what has happened in the past, while 
+diagnostic analytics investigate why it happened.
+•  Common descriptive analytics techniques include frequency 
+distributions, cross tabulation, measures of location, and mea-
+sures of dispersion. 
+•  Common diagnostic analytics techniques include anomaly 
+detection, correlation analysis, and trend analysis.
+•  A data analysis is valid if it measures what it is supposed to mea-
+sure and represents reality. 
+•  A data analysis is reliable if the measures used in the analysis 
+are accurate and consistent and the data used are dependable 
+and trust worthy.
+❺  Evaluate the validity and reliability of predictive and 
+prescriptive data analysis results.
+Predictive analytics are used when the objective of the analysis is 
+to predict a future outcome. Prescriptive analytics aim to prescribe 
+actions that would result in best outcomes in the future.
+•  Linear regression is the foundation for most predictive model-
+ing techniques. The validity of a regression model is assessed 
+by how well the model represents the phenomenon of inter-
+est. Reliability of the model is assessed by evaluating the 
+regression statistics, model statistics, and the p-value of the 
+coefficients. 
+•  Optimization models and what-if analysis are commonly used 
+for prescriptive analytics. In the accounting profession, what-if 
+analysis can help evaluate several choices (Scenario Analysis) or 
+to determine a specific input (Goal Seek). 
+•  Regardless of the tool used to create the what-if analysis, assess 
+validity by determining if the model is measuring what it is sup-
+posed to measure (validity) and that the measures are accurate 
+and consistent (reliability).
+Key Terms Review
+Accurate  8-17
+Adjusted R square (R2)  8-28
+Anomaly  8-22
+Correlation analysis  8-23
+Correlation coefficient  8-23
+Cross tabulation analysis  8-19
+Data analysis interpretation  8-2
+Frequency distribution  8-18
+Linear regression  8-27
+Mean  8-19
+Median  8-19
+Mode  8-19
+Outlier  8-20
+Regression statistics  8-28
+Reliability  8-17
+Scatterplot  8-20
+Standard deviation  8-21
+Standard error  8-28
+Trend analysis  8-24
+Trendline  8-24
+Validity  8-17
+what-if analysis  8-31
+How To Walk-Throughs 
+HOW TO 8.1 
+Create a Frequency Distribution With Power BI
+Illustration 8.14 is a frequency distribution for Super Scooters’ different models. It was created 
+in Excel, but other tools, such as Power BI, can also create frequency distributions. 
+What You Need:  Data   The How To 8.1 data file.
+STEP 1: Extract the data. Open Power BI and select the Home tab on the top horizontal 
+menu (Illustration 8.37).
+How To
+
+8-36
+ChAPTER 8 Interpreting Data Analysis Results 
+AutoSave
+Share
+Comments
+Paste
+Cut
+Copy
+Format Painter
+File
+Modeling
+Untitled Power BI Desktop
+View
+Help
+Insert
+Home
+Clipboard
+New
+measure
+Quick
+measure
+Sensitivity
+Publish
+Share
+Calculators
+Insert
+Queries
+Data
+X
++
+Excel
+Workbook
+Power B1
+datasets
+SQL
+Server
+Enter
+data
+Dataverse
+Recent
+sources
+Get
+data
++
+A
+New
+Visual
+Text
+box
+More
+visuals
+Refresh
+Transform
+data
+Sensitivity
+Paste
+Cut
+Copy
+Format Painter
+Clipboard
+ries
+Refresh
+New
+measure
+Quick
+measure
+Sensitivity
+Publish
+Share
+Calculators
+Sensitivity
+Navigator
+Display Options
+SuperScootersSales_
+2024−2025.xlsx [2]
+Sales Transactions
+2024–2025
+Sales Transactions 2024–2025
+Sheet2
+Order Number
+Year
+Sales Order Number
+Model
+Sold Date
+13684−2024
+13684
+2024
+Celeritas
+12/31/2024
+13685−2024
+13685
+2024
+Lazer
+12/31/2024
+13682−2024
+13682
+2024
+Captain
+12/30/2024
+13683−2024
+13683
+2024
+Lazer
+12/30/2024
+13677−2024
+13677
+2024
+Lazer
+12/29/2024
+13678−2024
+13678
+2024
+Lazer
+12/29/2024
+13679−2024
+13679
+2024
+Celeritas
+12/29/2024
+13680−2024
+13680
+2024
+Captain
+12/29/2024
+13681−2024
+13681
+2024
+Celeritas
+12/29/2024
+13675−2024
+13675
+2024
+Celeritas
+12/28/2024
+13676−2024
+13676
+2024
+Captain
+12/28/2024
+13671−2024
+13671
+2024
+Captain
+12/27/2024
+13672−2024
+13672
+2024
+Lazer
+12/27/2024
+13673−2024
+13673
+2024
+Lazer
+12/27/2024
+13674−2024
+13674
+2024
+Captain
+12/27/2024
+13668−2024
+13668
+2024
+Captain
+12/26/2024
+13669−2024
+13669
+2024
+Celeritas
+12/26/2024
+13670−2024
+13670
+2024
+Kicks
+12/26/2024
+13665−2024
+13665
+2024
+Lazer
+12/25/2024
+Cancel
+Load
+Transform Data
+! The data in the preview has been truncated due to size limits
+Sheet1
+Be sure you
+check the box
+before “Sales
+Transactions 2024−
+2025.” If you forget
+you will not have
+the option to “Load.” 
+HINT
+1
+2
+ILLUSTRATION 8.37 Extract and Load Super Scooters Data
+• Select the Excel icon below. 
+• When the fi le dialog box opens, navigate to the Super Scooters Excel fi le and select Open
+in the bottom right corner. 
+STEP 2: Load the data (Illustration 8.37). From Power BI’s Navigator window, which auto-
+matically opens once the data source is selected, select the data for this exercise: Sales Trans-
+actions 2023–2025. Next, click Load on the bottom right to upload this data.
+STEP 3: Transform the data to create a frequency table (Illustration 8.38). The screen 
+will return to the main Power BI screen. The Fields column will be on the far right of the 
+screen. 
+• Click the drop-down arrow next to Sales Transactions 2023–2025 to view all column names 
+from the spreadsheet. 
+• Drag the data fi elds Model and Σ Order Number to the spaces provided directly under 
+Values.
+• Each fi eld has a down arrow indicating a menu of options. Select this arrow for the Σ
+Order Number fi eld and the pull-down menu appears. 
+• Select Count. The fi eld name will change to Count of Order Number. 
+• On the left is a table with the results containing the four Super Scooter models, the 
+count of order number, and a grand total. You may enlarge that new table to see all the 
+columns. 
+
+How To Walk-Throughs  
+8-37
+ILLUSTRATION 8.38  Build a Frequency Table
+Values
+Values
+Sales Transactions 20...
+Sales Transactions 20...
+Color
+Color
+Contribution M...
+Contribution M...
+Country
+Country
+Days in Inventory
+Days in Inventory
+Gross Sales
+Gross Sales
+Labor
+Labor
+Location
+Location
+Materials
+Materials
+Model
+Model
+Order Number
+Order Number
+Overhead
+Overhead
+Revenue
+Revenue
+Sales Order Nu...
+Sales Order Nu...
+Sales Tax
+Sales Tax
+Cross-report
+Cross-report
+Oﬀ
+Oﬀ
+Drill through
+Drill through
+Visualizations
+Visualizations
+Fields
+Fields
+123
+Model
+Model
+Order Number
+Order Number
+Search
+Search
+STEP 4: Add a relative frequency table column by returning to the Fields column and se-
+lecting the Order Number field. Drag it below the Count of Order Number field in the 
+Visualizations column. 
+•	 Select the arrow pull down menu for the new Order Number field and select Count. 
+•	 In the arrow pull down menu, choose Show Value As. Select the arrow to the right for 
+Percent of Grand Total. 
+•	 The left of the screen will show a new column with the percentage of total sales for each 
+scooter model and the grand total (Illustration 8.39). Again, it may be necessary to enlarge 
+the table to see the new column.
+ILLUSTRATION 8.39  Final Super 
+Scooters Frequency Table
+Model
+Captain
+Celeritas
+892
+Kicks
+Lazer
+Frequency
+1,010
+456
+Total Sales
+3,645
+1,287
+24.47%
+Relative Frequency
+27.71%
+12.51%
+100.00%
+35.31%
+•	 Finally, it is possible to change the names of the columns to “Frequency” and “Relative 
+Frequency” by clicking the same down arrow used to select Count and instead choosing 
+Rename for this Visual. 
+It is also possible to do a frequency distribution using PivotTables or by using data visualiza-
+tion software. 
+HOW TO 8.2 
+Calculate Descriptive Statistics  
+in Microsoft Excel 
+To create the Illustration of Super Scooters’ sales volume in Illustration 8.18, use the Descriptive 
+Statistics option in the Data Analysis Tool in Microsoft Excel. 
+How To
+
+8-38 
+Chapter 8  Interpreting Data Analysis Results 
+OK
+Cancel
+Help
+Data Analysis
+Analysis Tools
+?
+Anova: Single Factor
+Anova: Two-Factor With Replication
+Anova: Two-Factor Without Replication
+Correlation
+Covariance
+Descriptive Statistics
+Exponential Smoothing
+F-Test Two-Sample for Variances
+Fourier Analysis
+Histogram
+ILLUSTRATION 8.41  Analysis 
+Tools Dialog Box
+OK
+Cancel
+Help
+Descriptive Statistics
+Input
+Columns
+Rows
+Input Range:
+Grouped By:
+Output options
+Output Range:
+New Workbook
+New Worksheet Ply:
+Summary statistics
+Confidence Level for Mean:
+Kth Smallest:
+Kth Largest:
+$B$1:$B$37
+1
+95
+%
+1
+?
+Labels in First Row
+3
+4
+ILLUSTRATION 8.42  Descriptive 
+Statistics Box
+ILLUSTRATION 8.40  Super 
+Scooters Data 
+AutoSave
+File
+Page Layout
+Formulas
+Review
+Insert
+Home
+fx
+1
+Month/
+Year
+Jan-23
+Feb-23
+Mar-23
+154
+182
+126
+Sale
+Volume
+A
+B
+C
+D
+Sheet1
+2
+3
+4
+E
+Data
+1
+F13
+Clipboard
+Undo
+Font
+Paste
+Calibri
+A
+A
+11
+B
+I
+U
+A
+What You Need: Data The How To 8.2 data file.
+STEP 1: Open the worksheet by clicking Data in the toolbar. (Illustration 8.40). 
+STEP 2: Select Descriptive Statistics (Illustration 8.41).
+STEP 3: In the Descriptive Statistics box, designate the input range (Illustration 8.42).

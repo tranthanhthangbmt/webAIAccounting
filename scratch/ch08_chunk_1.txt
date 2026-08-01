@@ -1,0 +1,473 @@
+8-0
+C h A P T ER 8
+Interpreting Data 
+Analysis Results 
+Chapter Preview 
+Your data analysis skill-building journey continues in this chapter with a focus on interpreting 
+data analysis results. You have been developing your data analytics mindset, identifying and 
+analyzing the motivation for data analytics projects, learning how to identify relevant ques-
+tions, data, and concepts, and designing data analysis strategies. You also learned the skills 
+necessary to prepare data for analysis, build information models, and explore data. Now, it is 
+time to interpret the analyses’ results so they can be communicated to stakeholders.
+ 
+It might initially seem that data exploration and data interpretation are the same thing. 
+While some aspects are similiar, there are also key differences. The data exploration step 
+focuses on analyzing rather than interpreting. Interpreting data analysis results is a critical step 
+in the data analysis process.
+ 
+There will be times during your career when you must interpret a data analysis that was 
+prepared by someone else in your organization, clients, creditors, or supply chain partners. This 
+chapter focuses on interpreting the meaning of both your own final analyses and results pre-
+pared by others. 
+Analyze
+Plan
+Report
+M
+O
+S
+A
+I
+C
+Objective
+Strategy
+Analysis
+Interpret
+Communicate
+Motivation
+Understand the
+reason for the
+data analytics
+Verify the process
+and the results
+Explain the results
+and their
+implications
+1. Prepare data
+2. Build information
+     models
+    
+3. Explore data
+Determine the
+goal and specific
+questions the
+analysis will
+answer
+Design the data
+and analysis
+strategy
+Stage 2
+Stage 3
+Stage 1
+
+Chapter Roadmap 
+8-1
+Chapter Roadmap
+LEARNING OBJECTIVES
+TOPICS
+APPLY IT
+ LO 8.1   Compare data analysis 
+interpretation and data 
+exploration.
+•	 Data Analysis Interpretation Versus Data 
+Exploration
+•	 Data Analysis Interpretation
+Interpret Revenue 
+Visualization 
+(Example: Financial 
+Accounting)
+ LO 8.2   Apply critical thinking 
+to data analysis interpretation. 
+•	 Stakeholders: Understand the Context
+•	 Purpose: Define the “Why” of the Analysis
+•	 Alternatives: Investigate Other Interpretations
+•	 Risks: Consider Data, Analysis, and Bias
+•	 Knowledge: What We Need to Know
+•	 Self-reflection: Think About Lessons Learned
+Evaluate a Cost Analysis 
+(Example: Auditing)
+ LO 8.3   Determine if the data 
+analysis results answer the 
+question and align with the 
+objective of the analysis.
+•	 Evaluate the Data and Methods
+•	 Examine the Results
+•	 Determine if More Information or Analyses 
+are Necessary
+Interpret a Refund Analysis
+(Example: Managerial 
+Accounting)
+ LO 8.4   Evaluate the validity 
+and reliability of descriptive and 
+diagnostic data analysis results. 
+•	 Descriptive Analytics
+•	 Diagnostic Analytics 
+Interpret a Scatterplot for 
+Outliers 
+(Example: Auditing)
+ LO 8.5   Evaluate the validity 
+and reliability of predictive and 
+prescriptive data analysis results.
+•	 Predictive Analytics
+•	 Prescriptive Analytics
+Interpret Regression Results 
+(Example: Managerial 
+Accounting)
+Data   The Data tag appears in the chapter when the data for an example, illustration, or application are  
+available on Wiley’s online learning platform.
+Data analytics software is continuously changing, and there may be more recent versions of the software refer-
+enced in this chapter. For more information access the accompanying video on Wiley’s online learning platform. 
+Professional Insight: Do the Analysis Results Make Sense? 
+Megan, a senior tax accountant, works at one of the ten largest U.S. accounting firms. 
+When I first graduated, the firm I worked in outsourced all tax return and analysis 
+preparation. Right away I was expected to review analyses prepared by other peo-
+ple and explain those results to the partner. It was really difficult to suddenly be in a 
+review role rather than a preparer role. I knew how to check the numbers to see if they 
+were correct, but interpreting what the results meant was much more challenging.
+As I have transitioned into a senior role, I have seen the importance of critical think-
+ing even more. My favorite staff to work with are those who review their results and ask 
+questions. They don’t just assume that, because the numbers were input correctly, the 
+results are correct. You can check all the numbers to see if they are correct, but when 
+you do the analysis, you need to be able to determine if the results make sense.
+A staff member once input all the data correctly into the tax software and pre-
+pared a tax liability analysis that showed the client’s tax liability went up. How-
+ever, this didn’t make sense because that client had a $100 thousand loss from one 
+of their businesses. So, the tax liability should have gone down. When I pointed 
+this out, the staff member responded, “I was so caught up in the details that I 
+rationalized the results instead of asking more questions.” Stepping back to evalu-
+ate if something makes sense is difficult. As a student I didn’t practice doing that. I was 
+just focused on getting the right answers and getting a high grade.
+
+8-2 
+Chapter 8  Interpreting Data Analysis Results 
+8.1  How Do We Draw Conclusions from 
+Data Analysis?
+LEARNING OBJECTIVE ➊
+Compare data analysis interpretation and data exploration. 
+Data analysis interpretation is the process of evaluating an analysis to understand and 
+explain its meaning. Similar to interpreting a weather forecast when planning an outdoor 
+party, the insights gained from data analysis interpretation help us make good business 
+decisions. Data analysis interpretation and data exploration probably seem very similar. 
+In fact, you are interpreting even as you are exploring the data. 
+Data Analysis Interpretation Versus Data 
+Exploration 
+The goal of data exploration is understanding the data, whereas data interpretation involves under-
+standing the analysis. The focus, however, is what differentiates exploration and interpretation. 
+An example can illustrate the difference. Imagine conducting an audit of accounts receiv-
+able. The client has given the audit team access to the available accounts receivable data. An 
+excerpt from the data is shown in Illustration 8.1. The first step is exploring the data to under-
+stand it. Recall that data exploration is a process with four steps: 
+	 1.	 Identify questions about the data. 
+	 2.	 Identify data relationships. 
+	 3.	 Explore data relationships. 
+	 4.	 Generate insights. 
+The data could be explored to calculate the total accounts receivable by aging category, and the 
+data and payment information could be used to identify relationships in the data: 
+•	Column G represents accounts where the customer disagrees with the invoice amount. 
+•	Exploration: Is there a relationship between accounts receivable being disputed and how 
+overdue the payment is? 
+fx
+B
+A
+C
+D
+E
+F
+G
+Sheet1
+3
+4
+5
+6
+7
+8
+2466
+2467
+AutoSave
+Oﬀ
+1
+2
+2468
+CustomerID PaperlessDate
+InvoiceNumber
+InvoiceDate
+Client Accounts Receivable Database Excerpt
+DueDate
+InvoiceAmount
+Disputed
+611365
+7900770
+9231909
+0379-NEVHP
+8976-AMJEO
+2820-XGXSB
+9322-YCTQO
+6627-ELFBK
+5148-SYKLB
+7050-KQLDO
+9758-AIEIK
+4/5/2025
+3/2/2024
+1/24/2024
+4/5/2024
+11/25/2024
+8/27/2025
+9/28/2024
+4/22/2024
+9888306
+15752855
+18104516
+9989225541
+9990243864
+H
+SettledDate
+I
+PaperlessBill
+Paper
+Electronic
+Electronic
+Electronic
+Paper
+Paper
+Paper
+Electronic
+1/1/2025
+1/25/2025
+7/2/2025
+2/9/2025
+10/24/2024
+1/25/2024
+4/26/2024
+7/3/2025
+1/31/2025
+2/24/2025
+8/1/2025
+3/11/2025
+11/23/2024
+2/24/2024
+5/26/2024
+8/2/2025
+$   55.94
+$   61.74
+$   65.88
+$ 105.92
+$   72.27
+$   94.00
+$   53.16
+$   68.66
+No
+Yes
+No
+No
+Yes
+Yes
+No
+No
+1/14/2025
+3/2/2025
+7/7/2025
+3/16/2025
+11/27/2024
+2/20/2024
+5/17/2024
+7/17/2025
+ILLUSTRATION 8.1  Accounts Receivable Database
+
+8.1  How Do We Draw Conclusions from Data Analysis? 
+8-3
+An alternative relationship could also be explored: 
+•	Column I data show whether a customer receives an electronic or paper bill. 
+•	Exploration: Does paper or electronic billing have a relationship with how long it takes a 
+customer to pay? 
+The insight gained from analyzing the relationships can be used to estimate uncollectible 
+accounts. Performing many exploratory analyses will eventually lead to the analysis that accu-
+rately explains the accounts receivable and uncollectible accounts. 
+Now, it is time to move into interpretation mode. At this point, we understand the data, 
+but we must understand what the analyses mean in terms of supporting the audit tests of com-
+pleteness and reasonableness of the allowance for doubtful accounts. Data analysis interpreta-
+tion happens at the end of the data exploration process. We move from exploring for insights 
+to interpreting so we can make informed decisions.
+Data Analysis Interpretation
+Data analysis interpretation is the process of reviewing an analysis. There are two steps, each 
+with specific questions that should be answered. 
+Step 1: 
+Determine if the analysis makes sense. 
+•	Question 1: Does the analysis answer the intended question and align with the original 
+objective? 
+•	Question 2: Were the correct data and methods used to perform the analysis? 
+•	Question 3: Are the results reasonable, or are more analyses necessary? 
+Step 2: 
+Verify that the results are valid and reliable. 
+•	Question 4: Does the analysis measure what it was intended to measure? 
+•	Question 5: Are the results accurate? 
+These steps probably seem familiar because they mirror the data analysis process in previous 
+chapters. When interpreting our own analysis, the first two questions in Step 1 are answered 
+during the planning and analyzing stages of the MOSAIC process:  
+•	Does the analysis answer the original question or objective of the analysis? (Motivation 
+and Objective) 
+•	Were the correct data and appropriate method used to perform the analysis? (Strategy 
+and Analysis) 
+The remaining questions from both steps would then be be answered during the reporting 
+stage of the data analysis process (Interpretation). However, if someone else prepared the 
+analysis, then it is necessary to address each question for both steps. This chapter works 
+through the five questions assuming the analysis was prepared by someone else.  
+Let’s continue with the accounts receivable example. During an audit, the audit team will 
+review the accounts receivable balance to confirm two things: 
+	 1.	 The receivables exist and are legitimate. 
+	 2.	 The amount reflected in the balance sheet contains all the accounts receivable and is 
+complete. 
+Understanding accounts receivable involves reviewing an analysis prepared by a client, which 
+must be interpreted. Illustration 8.2, a column chart, is an example of an accounts receivable 
+analysis called an accounts receivable aging report. The chart breaks total accounts receivable 
+into categories based on when the receivables are due. Each bar in the chart represents the 
+total of accounts receivable due for each category of due dates. 
+
+8-4 
+Chapter 8  Interpreting Data Analysis Results 
+This analysis could be one of many that the audit team must interpret. It helps auditors 
+understand the relationship between the accounts receivable total and the breakdown of how 
+much of that total is past due and for how long. 
+Imagine the audit team is testing whether the valuation of the allowance for doubtful 
+accounts is appropriate. The client has provided the visualization in Illustration 8.3.
+ILLUSTRATION 8.2  Accounts 
+Receivable Aging Analysis
+Accounts Receivable Analysis
+$0-
+$50,000
+$100,000
+$150,000
+$200,000
+$250,000
+$300,000
+$350,000
+$400,000
+$450,000
+0
+30
+60
+90
+Over 90
+Days Outstanding
+ILLUSTRATION 8.3  Accounts 
+Receivable Aging and Percent of 
+Uncollectible Accounts
+0
+10
+20
+30
+40
+50
+60
+70
+80%
+Accounts Receivable Balances and
+Percent Uncollectible
+$0-
+$50,000
+$100,000
+$150,000
+$200,000
+$250,000
+$300,000
+$350,000
+$400,000
+$450,000
+0
+30
+60
+90
+Over 90
+72%
+37%
+8%
+5%
+3%
+Days Outstanding
+Accounts Receivable Balance
+Percent Uncollectible
+Some important points about this visualization: 
+•	This is a dual axis chart, which helps illustrate the relationship between variables with 
+different measurement scales. 
+•	This example examines the total amount of accounts receivable in each 
+of the five aging categories and the percentage of those receivables that are 
+uncollectible. 
+•	The left axis shows the amount of accounts receivables in U.S. dollars. The right axis is the 
+percentage of receivables that are uncollectible. 
+•	Including both variables in the visualization shows the total accounts receivable by aging 
+category and what percent of those receivables are considered uncollectible. 
+
+8.1  How Do We Draw Conclusions from Data Analysis? 
+8-5
+Recall from your first financial accounting course that the allowance for doubtful 
+accounts is an estimate of uncollectible accounts receivable. This amount is then deducted 
+from the accounts receivable balance reported on the company’s balance sheet. 
+The audit team asked the client for information related to the age of the current 
+receivable balances (accounts receivable aging report) and an estimate of what percent-
+age of the balances are uncollectible. Now it is time to interpret the analysis the client has 
+provided. 
+One of the most valued skills of accountants is their ability to be independent and 
+skeptical evaluators of financial information. Illustration 8.4 is a brief example of data 
+analysis interpretation of the visual in Illustration 8.3. Each step is covered in more detail 
+throughout the chapter.
+ 
+Interpretation Process 
+ 
+Example: Interpretation of Illustration 8.23
+Learning 
+Objective 
+Step 1: Determine if the analysis makes sense. 
+	 1.	Does the analysis 
+answer the intended 
+question and align with 
+the original objective?
+•	 The question is whether the allowance for doubtful accounts seems reasonable. 
+The analysis does reveal some insight, but more information is needed. 
+•	 For example, we do not know the balance in the allowance for doubtful accounts. 
+LO 3 
+	 2.	Were the correct data 
+and methods used to 
+perform the analysis? 
+Data:
+•	 To make this judgment, check the data to confirm the correct accounts receivable 
+data were used in the analysis. 
+•	 Confirm that the data used to calculate the uncollectible percentage amounts are 
+correct.
+LO 3
+Methods:
+•	 The analysis is descriptive in nature. The totals for accounts receivable by due 
+date are provided in the left axis, and the percent uncollectible is illustrated with a 
+call out for each percentage by category. Determine if this is the most appropriate 
+method. 
+•	 Since the goal is determining if the valuation is reasonable, perhaps a comparison 
+of the allowance for doubtful accounts over the past five years to account 
+receivable balances would be more appropriate. 
+LO 3
+	 3.	Are the results 
+reasonable, or is more 
+analysis necessary? 
+•	 To make this judgement, compare the information in the analysis with what is 
+known about the client’s accounts receivable. If the totals agree with the financial 
+statements and estimates of uncollectible accounts, then the analysis is  
+reasonable. 
+•	 We can also evaluate if the visualization is reasonable. For example, most 
+receivables should be in the under 30-day category, and the receivable most likely 
+to not be collectable would be in the 90 days late or over category. 
+LO 3
+Step 2: Verify the results are valid and reliable. 
+	 4.	Does the analysis 
+measure what was 
+intended? 
+Validity refers to how well the analysis represents reality:
+•	 In this example, determine if the visualization represents an analysis of the 
+allowance for doubtful accounts valuation. 
+LO 4 and LO 5
+	 5.	Are the results 
+accurate? 
+Accuracy means that the measures used in the analysis are correct and without 
+mistakes: 
+•	 The measures used in the visualization are account balances, days outstanding, 
+and a calculation of the percent of uncollectible accounts. These are all correct 
+measures. 
+•	 Confirm the amounts are correct by comparing the accounts receivable to the 
+amounts in the financial statements. 
+LO 4 and LO 5
+ILLUSTRATION 8.4  Overview of Data Analysis Interpretation

@@ -19,6 +19,8 @@ Josh, một sinh viên kế toán năm cuối, giải thích cách việc học 
 **LO 2.4** Nhận diện các thước đo mô tả được sử dụng để thực hiện phân tích dữ liệu. | • Các thước đo vị trí (Measures of Location)<br>• Các thước đo độ phân tán (Measures of Dispersion)<br>• Các thước đo hình dạng (Measures of Shape)<br>• Phân tích tương quan (Correlation Analysis) | Sử dụng Thống kê Mô tả để Kiểm toán Chi phí Bảo hành *(Ví dụ: Kiểm toán)*
 **LO 2.5** Tóm tắt cách trực quan hóa dữ liệu khám phá và giải thích dữ liệu. | • Hiểu Các Tập Dữ Liệu Lớn<br>• Trực quan hóa và Khi nào nên Sử dụng chúng<br>• Trực quan hóa bằng Microsoft Excel | Phân tích Chi phí Sản phẩm bằng Trực quan hóa Dữ liệu *(Ví dụ: Kế toán Quản trị)*
 
+![LO 2.4](../TaiLieu/textbookForPractice/Figures/Ch_08/LO%202.4.png)
+
 > **Data** Thẻ Data xuất hiện trong chương khi dữ liệu cho một ví dụ, hình ảnh minh họa hoặc ứng dụng có sẵn trên nền tảng học tập trực tuyến của Wiley. Các phần mềm phân tích dữ liệu liên tục thay đổi, và có thể có những phiên bản mới hơn của phần mềm được đề cập trong chương này. Để biết thêm thông tin, hãy truy cập video đi kèm trên nền tảng học tập trực tuyến của Wiley.
 
 ---

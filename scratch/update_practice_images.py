@@ -8,7 +8,7 @@ figures_dir = os.path.join(base_dir, "TaiLieu", "textbookForPractice", "Figures"
 
 # Get all images
 images_by_id = {}
-for ch in [1, 2, 3, 4, 5, 6]:
+for ch in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]:
     ch_str = f"Ch_{ch:02d}"
     ch_dir = os.path.join(figures_dir, ch_str)
     if not os.path.isdir(ch_dir):
@@ -97,7 +97,7 @@ def process_chunk_file(filepath):
         print(f"Updated {os.path.basename(filepath)}")
 
 # Process all tr_chunk files for Ch_01, Ch_02, Ch_03, etc.
-for ch in [1, 2, 3, 4, 5, 6]:
+for ch in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]:
     pattern = os.path.join(scratch_dir, f"ch{ch:02d}_tr_chunk_*.md")
     for filepath in glob.glob(pattern):
         process_chunk_file(filepath)

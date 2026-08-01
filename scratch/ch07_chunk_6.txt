@@ -1,0 +1,342 @@
+7.3  How are Data Explored by Integrating Data Relationships?  7-27
+7.3  How are Data Explored by Integrating 
+Data Relationships?
+LEARNING OBJECTIVE ❸
+Explore data by integrating foundational relationships.
+While patterns one to eight explore a single, foundational data relationship with one visualiza-
+tion, data exploration often requires integrating two or more data relationships. Integrated data 
+relationships can be represented with a single visualization or by using different visualizations 
+as part of a report. Composite trends and Pareto analysis are two examples of combined data 
+relationships that can be represented in one chart, both of which are discussed next.
+Data Exploration Pattern 9: Composite Trends
+A composite trend data relationship, or the change in a part-to-whole relationship over 
+time, is an integrated data relationship that is often analyzed. One example is an analysis of 
+how a business’ sales mix changes over time:
+•	Sales mix is the relative proportion of each product in a business’ total sales, which means 
+that it is a part-to-whole relationship.
+•	Change over time is a time series.
+We explore HNA’s sales mix to illustrate this relationship, but keep in mind that there are 
+many other business and accounting examples of composite trends, such as the changes in 
+the structure of an investment portfolio or how the different accounts in an income statement 
+change over time.
+The exploration structure for composite trends has three variables and combines the 
+exploration structures of the time series data relationship and part-to-whole data relationship 
+(Illustration 7.37).
+ILLUSTRATION 7.37  Exploration 
+Structure for Composite Trend 
+Data Relationships
+Time Unit
+Variable
+The time unit used for
+analysis.
+Numeric
+Variable
+The variable that determines
+how the whole is broken
+down in parts.
+Nominal
+Variable
+The variable
+being
+analyzed
+The whole, or the
+number to be
+broken down.
+Time Series Exploration Structure
+Part-to-Whole Exploration Structure
+
+7-28  CHAPTER 7  Analysis: Data Exploration
+Visualizations
+Several visualizations, all of which rely on the exploration structure shown in Illustration 7.37, 
+can explore composite trends. In Illustration 7.38, the stacked area chart is used to explore 
+changes in HNA’s unit sales mix.
+ILLUSTRATION 7.38  Exploring 
+Changes in HNA’s Sales Mix with a 
+Stacked Area Chart
+Year
+0
+500,000
+1,000,000
+1,500,000
+2,000,000
+2021
+2022
+2023
+2024
+2025
+Units Sold
+Stacked Area Chart Showing Changes
+in HNA’s Sales Mix: 2021‒2025
+438,424
+446,870
+544,880
+290,695
+174,884
+178,652
+87,784
+442,106
+567,998
+316,593
+177,853
+179,252
+98,890
+673,000
+563,873
+334,996
+172,980
+186,042
+110,988
+736,294
+664,526
+350,096
+158,831
+172,419
+142,972
+551,868
+311,306
+213,893
+181,442
+1,774,263
+1,723,765
+1,782,692
+2,041,879
+2,225,138
+Accord
+Civic
+CR-V
+Odyssey
+Pilot
+Ridgeline
+ILLUSTRATION 7.39  Power BI 
+Definition of Stacked Area Chart
+Axis
+Year
+Values
+UnitsSold
+Time Unit
+Variable
+The time unit used for
+analysis.
+The variable that determines
+how the whole is broken
+down in parts.
+Nominal
+Variable
+Numeric
+Variable
+The variable
+being
+analyzed.
+The whole, or the
+number to be
+broken down.
+Legend
+Model
+Time Series Exploration Structure
+Part-to-Whole Exploration Structure
+Illustration 7.39 shows how to build this chart with Power BI.
+
+7.3  How are Data Explored by Integrating Data Relationships?  7-29
+There are a few things to note about Illustration 7.38:
+•	The top shows how the total units sold (the numeric variable) has changed during the 
+2021–2025 period (the time unit variable).
+•	For each year, the total units sold (numeric variable) is broken down by model (the nom-
+inal variable).
+•	The horizontal bands reveal how the share of each model changed during the 2021–2025 
+period (composite trend).
+•	Although the data labels are helpful, the stacked columns make it challenging to under-
+stand the exact changes for most of the models.
+A 100% stacked column chart (Illustration 7.40) using the same data is created in Power BI 
+in the same way.
+ILLUSTRATION 7.40  Exploring 
+HNA’s Sales Mix with a 100% 
+Stacked Column Chart
+100%
+60%
+80%
+17.55%
+10.23%
+4.36%
+12.06%
+31.10%
+40%
+20%
+2021
+2022
+Units Sold
+100% Stacked Column Chart Showing Changes in
+HNA’s Sales Mix: 2021‒2025
+Year
+0%
+2023
+2024
+2025
+Accord
+Civic
+CR-V
+Odyssey
+Pilot
+Ridgeline
+24.71%
+16.86%
+10.36%
+5.09%
+10.15%
+31.61%
+25.92%
+17.76%
+10.06%
+5.55%
+9.98%
+31.86%
+24.80%
+16.41%
+8.47%
+9.11%
+5.44%
+32.96%
+27.62%
+15.73%
+7.14%
+7.75%
+6.43%
+33.09%
+29.86%
+While the data labels in the 100% stacked chart shown in Illustration 7.40 are more precise, 
+this chart no longer shows the overall trend.
+Exploration and Insights
+Composite trends can be explored for any combination of ­measures (numeric variable), 
+dimensions (nominal variable), and time units by dragging and dropping.
+The stacked area chart in Illustration 7.38 integrates three insights:
+•	It highlights changes in the number of units sold during the 2021–2025 period (time 
+series). The line chart in Illustration 7.32 represents the same overall trend, and both charts 
+provide the same insight: there is an upward trend for HNA’s unit sales starting from 2023.
+•	It reveals how much each model contributes to the annual totals (part-to-whole). In 2025, 
+the Civic model was the best seller, followed by the Accord.
+•	Data labels and shaded areas indicate whether models have become more or less import-
+ant in the sales mix during the 2021–2025 period (composite trend). The Accord model 
+has grown in importance while the Odyssey model has become less important.
+Compare these to the insights from the 100% stacked column chart:
+•	It does not show an overall trend.
+•	It shows the exact share each model contributes to the annual totals (part-to-whole). 33.09% 
+of the cars sold in 2025 were Civics, and 29.86% of the cars sold in the same year were Accords.
+
+7-30  CHAPTER 7  Analysis: Data Exploration
+•	Expressed as percentages, it reveals how a model’s share in the sales mix has changed 
+during the 2021–2025 period. The share of the Accord model grew from 31.1% in 2021 to 
+33.09% in 2025.
+Applying the composite trend pattern can also provide insights for a business exploring how 
+the contribution of its different regions (nominal variable) to its revenue (numeric variable) 
+has changed during the last five years (time unit variable). A composite trend pattern can also 
+show how the relative importance of the different accounts in an income statement changed 
+in a specific period. This is a combination of vertical (part-to-whole) and horizontal (time 
+series) financial statement analysis.
+Data Exploration Pattern 10: Pareto Analysis
+Pareto analysis (Illustration 7.41) determines the importance of different categories, which 
+is nominal comparison, ranks them, and shows how each, based on that ranking, contributes 
+to the cumulative percentage (part-to-whole).
+The numeric variable that
+determines the contribution
+to the cumulative percentage.
+The numeric variable used
+to compare and rank the
+nominal variable.
+Numeric
+Variable:
+Cumulative
+Values
+Numeric
+Variable:
+Values
+Nominal
+Variable
+What catagories are being
+analyzed.
+ILLUSTRATION 7.41  Exploration Structure for Pareto Analysis
+Visualizations
+A Pareto chart visualizes the combination of the relationships shown in the exploration struc-
+ture. Some tools, like Excel, offer Pareto charts. They can also be created as line and column 
+charts, which are supported by most tools. ( Data How To 7.2. shows how to create a Pareto 
+chart using both Power BI and Excel.)
+Here, a line and column chart was created using Excel. Illustration 7.42 (A) shows a 
+PivotTable created from the HNA Unit Sales data set. It contains the different models, units 
+sold per model, and cumulative units sold per model. Models are ranked in descending order 
+(ranking) based on units sold. In terms of the exploration model:
+•	Model represents the nominal variable.
+•	Total units sold represents the numeric variable (values).
+•	Cumulative percentage represents the numeric value (cumulative values).
+How To
+
+7.3  How are Data Explored by Integrating Data Relationships?  7-31
+Exploration and Insights
+The Pareto chart helps determine if there is a small group of models generating most sales. 
+In this case, the Accord, Civic, and CR-V models together generate more than 75% of the sales, 
+while the other three models generate less than 25%.
+Pareto analysis has a range of applications in business and accounting:
+•	Identifying the most significant customer complaints. If a small group of issues causes 
+most complaints, removing these issues could positively impact customer satisfaction.
+•	Indicating main cost categories for a specific project.
+•	Identifying the employees that generate the most new clients.
+•	Illustrating which group of holdings in a portfolio is responsible for most of its growth.
+Reports Using Multiple Visualizations
+Data relationships are often integrated using multiple visualizations as part of a report. Mostly 
+interactive, these visualizations provide endless exploration opportunities. A report that com-
+bines part-to-whole and time series relationships explores trends for not only the whole, but 
+also for each of the individual parts. A more advanced example, with multiple interactive 
+visualizations representing different relationships, can illustrate this.
+Visualizations
+Illustration 7.43 is an HNA Interactive Report, which integrates data relationships with 
+­multiple visualizations.
+Total
+Odyssey
+CR-V
+Accord
+Ridgeline
+Pilot
+Civic
+3,074,040
+2,555,799
+1,603,686
+898,441
+897,807
+517,964
+9,547,737
+Model
+TotalUnitsSold
+32.20%
+58.97%
+75.76%
+85.17%
+94.58%
+100.00%
+CumulativePercentage
+(A) PivotTable
+(B): Line and Column Chart
+2,500,000
+2,000,000
+3,000,000
+3,500,000
+1,000,000
+500,000
+1,500,000
+0
+80.00%
+60.00%
+100.00%
+20.00%
+40.00%
+0.00%
+Accord
+CR-V
+Civic
+Odyssey
+Pilot Ridgeline
+Total UnitsSold
+CumulativePercentage
+ILLUSTRATION 7.42  Exploring HNA’s Unit Sales with Pareto Analysis
+Illustration 7.42 (B) is the line and column chart created from the PivotTable. Along 
+the x-axis are the different models ranked based on total units sold. They are the items 
+being analyzed. The line indicates the cumulative number of units sold. A second y-axis 
+was added to emphasize that the line is expressed as a percentage. A point on the line 
+shows how the models to the left of it cumulatively contribute to the total unit sales, as 
+a percentage.

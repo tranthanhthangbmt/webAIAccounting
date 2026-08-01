@@ -1,0 +1,360 @@
+9-22  CHAPTER 9  Communicating Data Analysis Results
+ILLUSTRATION 9.31  Using Color to Alert the Viewer
+($1,000K)
+($500K)
+$0K
+$500K
+$1,000K
+$1,500K
+$2,000K
+$2,500K
+$3,000K
+$3,500K
+$4,000K
+Apechete
+Jackson
+Tatra
+Net Revenue
+Model
+Income Before Taxes by Brand and Model‒2025
+Chare
+Island
+Pebble
+Robin Summet Brutus
+Crux
+Fiddle
+Rebel
+Wood Advan.. Bloom
+Jespie
+Morti.. Rambl..
+Net Revenue
+–$4M
+$4M
+Color evokes emotion, so be thoughtful of the tone conveyed by the color. For example, 
+red evokes a sense of urgency. In visuals with financial information, red is also an indication 
+of poor performance. By highlighting the models with negative net revenue (Illustration 9.31) 
+the viewer can quickly see that the Crux, Jespie, and Mortimer are losing money. Regardless 
+of its tone, color should be used both consistently and sparingly:
+•	If the visualization includes color, variables should be indicated by the same color to 
+avoid confusion.
+•	Interpreting too many colors can overwhelm the audience, so only add color that makes 
+it easier to interpret the visualization.
+Illustrations 9.32 visualizes net revenue by region using multiple colors in a diverging 
+color scale.
+ILLUSTRATION 9.32  
+Visualization with Too Much Color 
+Apechete
+Region
+Income before Taxes by Region
+$ 1,246,353
+$ 2,013,345
+$ 2,372,282
+$ 1,010,446
+$     963,145
+$    625,278
+Jackson
+Tatra
+Europe
+North America
+South America
+Net Revenue
+$124,690
+$3M
+$ 2,719,779
+$     136,006
+$     124,690
+Highlighting the brands with net losses and making all the other bars fade out encourages 
+the audience to immediately focus on the darker bars. Using color this way is also another exam-
+ple of applying Focal Point Law.
+What if the intention is to grab the audience’s attention and alert them to an issue or 
+problem? Illustration 9.31 changes the color of the losses in Illustration 9.30 to convey a 
+sense of urgency.
+
+9.3  What Are the Characteristics of Effective Visualizations?  9-23
+Due to the additional cognitive load created by the colors, interpreting the table is more 
+difficult. The viewer must interpret the numbers, regions, brands, and seven different colors 
+to understand the table.
+On the other hand, the single-color gradient scale in Illustration 9.33 makes it easier 
+for the audience to quickly see that the Tatra in North America has the highest net revenue.
+ILLUSTRATION 9.33  Revised 
+Visualization Using a Single-Color 
+Gradient Scale
+Apechete
+Region
+Income before Taxes by Region
+$ 1,246,353
+$ 2,013,345
+$ 2,372,282
+$ 1,010,446
+$ 963,145
+$ 625,278
+Jackson
+Tatra
+Europe
+North America
+South America
+Income before Taxes
+$ 2,719,779
+$     136,006
+$     124,690
+$124,690
+$3M
+Finally, consider users with colorblindness when creating visualizations. Color blindness 
+affects 8% of men and 0.5% of women. The most common color blindness is the inability to dis-
+tinguish between red and green shades, so avoid using red and green in the same visualization.
+Position
+Item placement in visualizations and dashboards matters. Most people begin viewing a visu-
+alization from the top left corner and then scan in a zig-zag motion through the entire visual-
+ization (Illustration 9.34). Think about viewing the dashboard visualization in Illustration 
+9.26. You may have started by reading the title “Profit Margin by Brand.” Therefore, be sure to 
+put the most important information at the top left of the visualization.
+Titles
+Finally, include a factual and neutral title. Avoid using unnecessary descriptive words. The title 
+should be a noun that represents what was measured and when. In Illustration 9.31 the title is simply: 
+Income before Taxes by Model–2025. Income before taxes is being measured, so the reader knows 
+what the measurement is and the time period. Illustration 9.35 is an example of what not to do.
+ILLUSTRATION 9.34  How 
+Information is Viewed on a Screen 
+or Page
+1
+2
+3
+4
+ILLUSTRATION 9.35  Incorrect Way to Title a Visualization
+Chare
+($1,000K)
+($500K)
+$0K
+$500K
+$1,000K
+$1,500K
+$2,000K
+$2,500K
+$3,000K
+$3,500K
+$4,000K
+Apechete
+Jackson
+Tatra
+Island
+Pebble
+Robin Summet Brutus
+Crux
+Fiddle
+Rebel
+Wood Advan.. Bloom
+Jespie
+Morti.. Rambl..
+Income
+before Taxes
+Model
+Comparison of Model Performance
+
+9-24  CHAPTER 9  Communicating Data Analysis Results
+The title of the visual does not give the reader a clear description of what is being mea-
+sured (income before taxes by model) or the time period represented (2025). A better title 
+would be: “Income before Taxes by Model–2025.”
+Avoid Clutter
+After considering principles of perception and preattentive attributes, consider visual clut-
+ter in visualizations. Clutter is the enemy of a good visualization. The more cluttered the 
+visualization, the harder it is for the viewer to understand the results. Remove any non-data 
+related details from the visualization and check for redundant information. The purpose of 
+­Illustration 9.36 is to show gross sales for each model produced under the Jackson Brand 
+and identify the bestselling model.
+ILLUSTRATION 9.36  
+Visualization Containing Clutter
+Jackson Brand: Gross Sales by Model
+Model
+Model
+$1,000,000
+$1,500,000
+$500,000
+$0
+$2,000,000
+$2,500,000
+$3,000,000
+Brutus
+$3,500,000
+$4,000,000
+$4,500,000
+$5,000,000
+$5,500,000
+Gross Sales
+Rebel
+Crux
+Fiddle
+Brutus
+Wood
+Crux
+Fiddle
+Rebel
+Wood
+Model: Crux
+Gross Sales: $4,841,168
+Model: Brutus
+Gross Sales: $2,149,039
+HMC Gross Sales Jackson Models: 2024–2025
+The visual does show sales for the Jackson brand models. However, there are so many ele-
+ments that the viewer could become overwhelmed. Illustration 9.37 uses the same data but 
+removes the unnecessary aspects of the visualization.
+ILLUSTRATION 9.37  Revised 
+Visualization with Clutter 
+Removed
+Jackson Brand: Gross Sales by Model: 2024–2025
+Fiddle
+Wood
+Rebel
+Crux
+$4.8M
+$4.6M
+$3.9M
+$3.2M
+$2.1M
+Brutus
+
+9.3  What Are the Characteristics of Effective Visualizations?  9-25
+Recall that the purpose of the visualization was to show how the various models are per-
+forming for the Jackson brand. The changes are summarized in Illustration 9.38.
+The background in Illustration 9.36 was shaded a gray color, but it is not necessary to 
+shade the background of visualizations. It is especially important to avoid using a black back-
+ground because although it might look striking, a black background can make lighter colors 
+and words appear blurry to anyone with an astigmatism. According to the World Health Orga-
+nization (WHO), 43 % of the population have astigmatism, a visual condition where there is a 
+refractive error that impedes the eye from focusing light evenly on the retina.
+Illustration 9.39 is a checklist, based on the best practices discussed here, to use when 
+evaluating your data visualizations.
+ILLUSTRATION 9.38  Summary: 
+Before and After Reducing 
+Visualization Clutter
+Cluttered Visualization 
+Revised Visualization
+Too many colors are not adding to the meaning 
+of the graph because the models are also 
+directly labeled.
+The visual is a single color.
+Axis labels are provided, but the audience must 
+guess the exact amount.
+Label each bar directly with the sales volume 
+amount and remove the axis.
+Sales volume is in the title of the graph, so 
+remove the axis header.
+Annotation text boxes identify the bestselling 
+model.
+Sort the data from highest to lowest.
+Background color of the graph is unnecessary.
+Remove background color. Remove gridlines 
+since we are removing the axis and labeling the 
+columns directly.
+Models are listed in alphabetical order. There is 
+no indication which model the audience should 
+focus on.
+The bestselling model is highlighted and the 
+others are grayed out to draw attention to it.
+ILLUSTRATION 9.39  Data Visualization Checklist
+1.
+Data have been verified.
+11.
+Graph does not have border line (reducing clutter).
+2.
+Visualization addresses the objective or question being 
+addressed in the analysis.
+12.
+Data are labeled directly rather than in a separate legend.
+3.
+It is appropriate for the intended audience.
+13.
+Redundant labels are removed.
+4.
+The type of visual is appropriate for the data and the level of  
+precision needed.
+14.
+Y-axis scales start at zero.
+5.
+A descriptive title is left-justified in the upper left corner.
+15.
+Proportions are accurate.
+6.
+Subtitle and/or annotations provide additional information.
+16.
+Data are intentionally ordered.
+7.
+Significant findings or conclusions are highlighted. 
+17.
+Display is free from distractions.
+8.
+Text size is hierarchical and readable.
+18.
+Color is used sparingly and consistently.
+9.
+Text is horizontal when possible.
+19.
+Color is legible for people with colorblindness.
+10.
+Gridlines, if used, are muted.
+20.
+Spatial flow is intuitive for the viewer. 
+
+9-26  CHAPTER 9  Communicating Data Analysis Results
+Use Visualization-Specific Best Practices
+The best practices previously discussed and those listed in Illustration 9.39 are an essential 
+starting point, but there are also best practices based on the type of visualization to consider. 
+­Illustration 9.40 is a summary of best practices for common data visualizations.
+ILLUSTRATION 9.40  Best 
+Practices by Visualization Type
+Visualization
+Best Practices
+Area Chart
+ 
+•	 Do not use with more than four categories to avoid confusion and 
+clutter.
+•	 Start the y-axis at zero.
+•	 Put highly variable data on the top and data with low variability on 
+the bottom.
+Bar Chart
+ 
+Column Chart
+ 
+•	 Use horizontal bars if there are more than 7 categories or long category 
+labels.
+•	 Use horizontal labels for better readability.
+•	 Space bars appropriately and consistently.
+•	 Use color sparingly, or as an accent.
+•	 Always have a zero baseline (the y-axis begins at zero).
+•	 Compare 2–7 categories with vertical columns.
+Bubble Chart
+ 
+•	 Label bubbles and make sure they are visible.
+•	 Scale bubble size by area and not diameter.
+•	 Do not use bubbles if they are all similar in size.
+Histogram Chart
+ 
+•	 Use a zero baseline.
+•	 Choose an appropriate number of bins:
+•	 Bins are numbers that represent the intervals into which the data 
+will be grouped.
+•	 Bins define the groups used for the frequency distribution.
+•	 Generally, include between 5–15 bins.
+Line Graph
+ 
+•	 Time runs from left to right.
+•	 Be consistent when plotting time points.
+•	 Use solid lines, not dotted.
+•	 Use a zero baseline.
+•	 Do not plot more than four lines. Use multiple charts, instead.
+Pie Chart
+ 
+•	 Most impactful with small data sets.
+•	 Best to use when showing differences within groups based on one 
+variable.
+•	 Ensure the data adds to 100%.
+•	 Limit the chart to a maximum of five segments.
+•	 Start the first segment at 12 o’clock position.
+Stacked Bar Chart
+ 
+•	 Can be vertical or horizontal.
+•	 Follow same best practices as bar charts.
+•	 Used to show comparisons of subcomponents between categories.
+•	 Best used when there are not too many subcomponents.
+•	 Consider using a 100% stacked bar to make comparisons between the 
+bars and subcomponents easier.
+(Continued)

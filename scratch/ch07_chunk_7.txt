@@ -1,0 +1,402 @@
+7-32  CHAPTER 7  Analysis: Data Exploration
+ILLUSTRATION 7.43  Interactive Report Integrating Multiple Data Relationships
+Interactive Report Integrating Multiple Data Relationships
+6,000,000
+3,941,846
+5,605,891
+5,000,000
+4,000,000
+3,000,000
+2,000,000
+1,000,000
+Canada
+Country
+UnitsSold
+USA
+0
+3
+0%
+50%
+100%
+Year
+UnitsSold
+2021
+2022
+2023
+2024
+2025
+24.71%
+17.55%
+12.06%
+10.23%
+31.10%
+25.92%
+16.86%
+10.15%
+10.36%
+31.61%
+24.80%
+17.76%
+9.98%
+10.06%
+31.86%
+27.62%
+16.41%
+8.47%
+9.11%
+32.96%
+29.86%
+15.73%
+7.14%
+7.75%
+6.43%
+33.09%
+5
+9,547,737
+Items Sold
+2
+3,000,000
+2,000,000
+1,000,000
+2,041,879
+2,225,138
+0
+Year
+UnitsSold
+2021
+2022
+2023
+2024
+2025
+1,723,765
+1,782,692
+1,774,263
+4
+2021
+2021
+2022
+2023
+2024
+2025
+1
+Accord
+Civic
+CR-V
+Odyssey
+Pilot
+Ridgeline
+The report in Illustration 7.43 integrates five elements:
+	 1.	 A slicer to select one or more years, which operates as a filter.6
+	 2.	 A card showing the total number of units sold.
+	 3.	 A column chart showing a nominal comparison—countries are compared by the total 
+number of units sold.
+	 4.	 A line chart representing a time series that reveals how the total number of units sold 
+changed during the 2021–2025 period.
+	 5.	 A 100% stacked column chart that shows composite trends.
+Additionally, the report shows three different part-to-whole relationships. First, the column 
+chart (3) breaks down the total number of units (2) by country. Second, the line chart (4) 
+breaks down the total number of units (2) by year. Finally, the 100% stacked column chart 
+reveals how models break down each total (per year) as percentages.
+Since the report is interactive, different variables can be used for filtering purposes. The 
+total units sold (2) can be filtered by year (1), country (3), and model (5). Also, the trendline 
+(4) can be filtered by country (3) and model (5).
+Illustration 7.44 is the exploration structure of the report in Illustration 7.43. Note that 
+fields in one visualization, such as countries represented as bars in the column chart (3), can 
+6We wanted to show the use of slicers as part of a report. However, this slicer is redundant since the years in 
+the line chart and the 100% stacked column charts can be used for the same purpose.
+
+7.3  How are Data Explored by Integrating Data Relationships?  7-33
+be used as filters for the other visualizations. How this structure is supported might differ 
+across different software tools.
+ILLUSTRATION 7.44  Exploration Structure for an Interactive Report that Integrates Multiple Relationships
+Model
+Year
+Filters
+Country
+TotalUnitsSold
+Columns
+Rows
+Values
+Country
+Model
+Year
+Filters
+Card
+Column chart
+100% Stacked column chart
+Line chart
+TotalUnitsSold
+Columns
+Rows
+Values
+Filters
+Year
+TotalUnitsSold
+Columns
+Rows
+Values
+Country
+Model
+Filters
+Year
+TotalUnitsSold
+Columns
+Rows
+Values
+Country
+Model
+2
+Year
+Filters
+Slicer
+Columns
+Rows
+Values
+1
+3
+4
+5
+Exploration and Insights
+What follows is an overview of the data relationships that can be explored, the insights that 
+can be generated, and questions that can be answered with the exploration structure shown 
+in Illustration 7.44:
+•	As shown in the upper-left corner of Illustration 7.44, the value shown by the card (2)—Total-
+UnitsSold—can be filtered by any combination of Country, Model, and Year. One example of 
+this is how many units were sold in the USA (country) of the Pilot model (model) in 2022 (year).
+•	The column chart (3) compares the units sold (TotalUnitsSold) across countries. Using 
+Model and Year as filters (from the other visualizations), makes it possible to compare 
+Canadian and USA sales of the Accord and Civic models in 2025.
+•	The line chart (4) analyzes the overall sales trend. However, trends could also be shown 
+for specific combinations of country and model, such as exploring trends for Ridgeline 
+sales in Canada.
+•	The 100% stacked column chart (5) determines the units sold per model per year and 
+presents them as a percentage. 
+Once again, using filters allows exploring more specific scenarios, such as selecting USA 
+in the column chart (3) and 2025 in the line chart (4).
+
+7-34  CHAPTER 7  Analysis: Data Exploration
+ILLUSTRATION 7.45    U.S. 2025 Sales Mix
+U.S. 2025 Sales Mix
+1,200,000
+1,000,000
+800,000
+600,000
+400,000
+200,000
+Canada
+Country
+UnitsSold
+USA
+0
+3
+5
+4
+1,053,935
+1,171,203
+0%
+50%
+100%
+Year
+UnitsSold
+2025
+29.44%
+21.52%
+11.87%
+10.68%
+21.81%
+Accord
+Civic
+CR-V
+Odyssey
+Pilot
+Ridgeline
+3,000,000
+2,000,000
+1,000,000
+1,127,486
+1,074,766
+1,060,975
+1,171,461
+1,171,203
+0
+Year
+UnitsSold
+2021
+2022
+2023
+2024
+2025
+1,171,203
+Items Sold
+2
+2021
+2021
+2022
+2023
+2024
+2025
+1
+Data exploration patterns are best practices for performing analysis. They make us more aware 
+of data relationships, how they can be represented and explored, the insights that can be gen-
+erated, and how they can be integrated. 
+­Illustration 7.45 shows how the report would look after using these filters.
+Apply It 7.3
+Build an Interactive 
+Report 
+Data   Managerial Accounting   Defective paint cans are an issue for Mika at Happy Colors, so 
+she would like to explore the following: 
+•	 Compare the overall number of defective units (paint cans) per employee.
+•	 Determine how the relative proportion of defective units across products differs among 
+employees.
+•	 Compare the relative number of defective units per employee.
+Implement the following four steps to help perform the analysis:
+1.	 Determine what data relationships underlie this analysis.
+2.	 Identify the visualizations that could be used to explore these data relationships.
+3.	 Build an interactive report with these visualizations and draw the report’s exploration structure.
+4.	 Identify the insights generated by your analysis.
+
+7.3  How are Data Explored by Integrating Data Relationships?  7-35
+SOLUTION
+1.	 The data relationships underlying this analysis:
+•	 Nominal comparison: Compare the overall number of defective units per employee.
+•	 Part-to-whole: Per employee, relative proportion of defective units across products.
+•	 Nominal comparison: Compare the relative number of defective units per employee.
+2.	 Different visualizations can be selected for these data relationships. We will use column charts 
+to explore nominal comparison and a 100% stacked column chart to explore the part-to-whole 
+relationship. For further exploration with different scenarios, we are adding month and 
+­product filters.
+3.	 There are many ways to conduct this analysis. The following is a possible interactive report 
+implemented with Power BI.
+Interactive Report Integrating Multiple Data Relationships
+January
+February
+March
+High
+Low
+Premium
+1
+0%
+50%
+100%
+34.94%
+47.54%
+17.53%
+11.26%
+40.27%
+48.46%
+13.54%
+57.25%
+29.21%
+Number of
+Defective Cans
+Andre
+Bianca
+Employee
+Camille
+Product
+Low
+High
+Premium
+3
+8730
+Andre
+0K
+5K
+10K
+Bianca
+Employee
+Number of
+Defective Cans
+Camille
+8472
+7325
+2
+35.59%
+40%
+30%
+20%
+10%
+0%
+34.54%
+29.87%
+Andre
+Bianca
+Employee
+Percentage
+of Defective
+Cans
+Camille
+4
+
+7-36  CHAPTER 7  Analysis: Data Exploration
+The exploration structure for this report looks as follows:
+Exploration Space: Happy Colors Defective Cans Analysis
+Month
+Filters
+Employee
+Total Number
+of Defective Cans
+Columns
+Rows
+Values
+Product
+Month
+Product
+Filters
+Employee
+Total Number
+of Defective Cans
+Columns
+Rows
+Values
+Filters
+Employee
+Relative Number
+of Defective Cans
+Columns
+Rows
+Values
+Month
+Product
+Month
+Product
+Filters
+Columns
+Rows
+Values
+Slicers
+100% Stacked column chart
+Column chart
+Column chart
+1
+3
+2
+4
+4.	 These insights can be collected from the report:
+•	 The column chart (2) can compare the number of defective cans per employee. This is nomi-
+nal comparison. Andre has the highest number and Camille the lowest.
+•	 The 100% stacked column chart (3) breaks down the number of defective cans by employee 
+and product. This is a part-to-whole relationship. Most of Bianca’s defective cans are for Low 
+products. For Camille, most of the defective cans are for High products.
+•	 The second column (4) chart mirrors the first column chart (2) and is also a nominal compar-
+ison. However, here, an employee’s number of defective cans is shown as a percentage of the 
+total number of defective cans (part-to-whole relationship).
+•	 Using filters (1), select any combination of month and product, which generates additional 
+insights. For example, in January, Andre had more defective cans than Rebecca. However, in 
+February it was the other way around.
+Chapter Review and Practice
+Learning Objectives Review
+❶  Describe the process of data exploration.
+Data exploration is the discovery process of looking for something 
+new and previously unknown:
+•  Data exploration has four steps: identifying questions, identify-
+ing data relationships, exploring those relationships, and gener-
+ating insights.
+•  A widely used tool for data exploration is the Excel PivotTable. 
+It enables exploration by selecting, from a list of fields, the 
+numbers to be analyzed, how the numbers will be broken down 
+in terms of rows and columns, and the filters that apply to the 
+data.
+•  PivotTables integrate the key techniques of data exploration: 
+identifying data relationships, filtering, and dragging and 
+dropping.
