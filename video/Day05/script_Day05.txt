@@ -1,0 +1,161 @@
+Slide 1: TRANG BÌA
+Người 1: Chào mừng các em đến với Buổi 5 của học phần Trí tuệ Nhân tạo Ứng dụng trong Kế toán. Hôm nay chúng ta sẽ giải quyết bài toán hóc búa nhất của quản trị: Đương đầu với rủi ro và sự bất định.
+Người 2: Em chào thầy. Bất định nghĩa là mình không thể đoán trước được tương lai đúng không ạ?
+
+Slide 2: NỘI DUNG BÀI HỌC
+Người 1: Chính xác! Bài học hôm nay chia làm 3 phần lớn. Phần 1 và 2 chúng ta sẽ dùng AI để xử lý sự bất định rình rập từ bên ngoài chuỗi cung ứng. Phần 3, ta sẽ dùng Dữ liệu để dập tắt những quyết định cảm tính mang đầy rủi ro từ bên trong nội bộ doanh nghiệp.
+
+Slide 3: CHUYỂN GIAO CHỦ ĐỀ: SỰ BẤT ĐỊNH
+Người 1: Từ trước đến nay, học Kế toán là các em quen làm việc với những con số rõ ràng rành mạch trên sổ sách. Nhưng hôm nay, hãy bước ra khỏi vùng an toàn tĩnh lặng đó. Thế giới kinh doanh luôn biến động. Trọng tâm của Kế toán quản trị hiện đại là kiểm soát tương lai mờ mịt đó.
+
+Slide 4: BẤT ĐỊNH TRONG KINH DOANH
+Người 1: Tưởng tượng em là Giám đốc chuỗi bán lẻ. Nửa đêm, nhà máy báo nguồn cung chiếc smartphone đang hot nhất mùa sẽ bị cắt giảm một nửa. Em sẽ làm gì? Tuần sau trả lại tiền cho khách đã đặt cọc? Hay treo biển "Hết hàng" và đứng nhìn doanh thu rơi vào tay đối thủ?
+Người 2: Ca này căng quá thầy ạ. Trả tiền thì mất uy tín, mà nhận thêm đơn thì không có hàng giao.
+
+Slide 5: ĐỈNH CAO CỦA SỰ BẤT ĐỊNH
+Người 1: Đó chính là đỉnh cao của sự bất định! Nhiệm vụ của Trí tuệ Nhân tạo là phải thắp sáng cái "vùng nước đục" đó, biến một thứ mù mờ thành những rủi ro có thể tính toán thành con số được.
+
+Slide 6: SỰ THIẾU HỤT HÀNG HÓA (BACKORDER)
+Người 1: Khi khách đặt mua mà công ty không có hàng giao ngay, đó gọi là Backorder. Công ty sẽ hứa hẹn: "Vài hôm nữa có hàng tôi giao liền!". Nhìn bề ngoài, có vẻ doanh nghiệp rất khôn ngoan khi vẫn giữ được đơn hàng.
+
+Slide 7: VẤN ĐỀ THỰC SỰ CỦA BACKORDER
+Người 2: Nhưng bắt khách đợi lâu thì họ cáu đúng không thầy?
+Người 1: Cực kỳ cáu! Dữ liệu chỉ ra rằng, khách hàng từng bị ngâm đơn sẽ giảm hẳn tỷ lệ quay lại mua sắm. Em giữ được đơn hàng hôm nay, nhưng vĩnh viễn mất đi người khách đó trong tương lai!
+
+Slide 8: THẢM HỌA: HIỆU ỨNG CHIẾC ROI DA (BULLWHIP EFFECT)
+Người 1: Không chỉ mất khách, nó còn gây ra thảm họa dây chuyền gọi là "Hiệu ứng chiếc roi da". Em cứ tưởng tượng nó giống hệt trò chơi truyền tin hồi bé. Một sai lệch rất nhỏ ở đầu chuỗi sẽ bị phóng đại thành một cơn hoảng loạn khổng lồ ở cuối chuỗi cung ứng.
+
+Slide 9: VÍ DỤ CHIẾC ROI DA: CƠN SỐT GIẤY VỆ SINH
+Người 1: Nhớ lại đợt dịch Covid, một nhóm nhỏ mua dư vài lốc giấy vệ sinh. Siêu thị thấy trống kệ, hoảng hốt đặt gấp đôi. Nhà phân phối thấy siêu thị đặt gấp đôi, sợ cháy hàng, đặt gấp bốn lần từ Nhà máy. Nhà máy hì hục sản xuất ngày đêm tạo ra một núi hàng hóa thừa mứa mà vài tháng sau không ai thèm mua!
+
+Slide 10: SỰ PHÓNG ĐẠI HOẢNG LOẠN
+Người 1: Đó! Từ một tiếng thì thầm rất nhỏ của người tiêu dùng, nó biến thành một tiếng thét hoảng loạn ở nhà máy. Nhiệm vụ của Kế toán là phải có công cụ AI dự báo chính xác khi nào thì sự thiếu hụt hàng hóa (Backorder) thực sự xảy ra để chặn đứng cái roi da này.
+
+Slide 11: TẬP DỮ LIỆU MẤT CÂN BẰNG (IMBALANCED DATA)
+Người 2: Vậy mình gom dữ liệu các đợt thiếu hàng rồi nạp cho máy học thôi thầy?
+Người 1: Bài toán đau đầu nhất nằm ở đây. Đứt gãy nguồn cung hiếm khi xảy ra. Trong 1 triệu đơn hàng giao suôn sẻ, chỉ có vài trăm đơn bị thiếu hụt. Sự chênh lệch khổng lồ giữa "bình thường" và "bất thường" tạo ra Tập dữ liệu mất cân bằng.
+
+Slide 12: TẠI SAO THỐNG KÊ TRUYỀN THỐNG THẤT BẠI?
+Người 1: Khi đưa bộ dữ liệu lệch pha này vào các công cụ thống kê truyền thống, chúng hoàn toàn vô dụng. Khắc tinh trị được loại dữ liệu khó nhằn này chỉ có thể là Machine Learning (Học máy).
+
+Slide 13: HỌC MÁY: CÂY QUYẾT ĐỊNH (DECISION TREE)
+Người 1: Công cụ đầu tiên là Cây Quyết định. Nó rẽ nhánh như một cái cây thực sự. Nó cầm một loạt biến số như: Dự báo doanh số, Thời gian vận chuyển... và tự động rẽ trái, rẽ phải để chốt lại: "Đơn hàng này có bị thiếu (Yes) hay không (No)?".
+
+Slide 14: PHÂN CHIA NÚT GỐC BẰNG ĐỘ VẨN ĐỤC GINI
+Người 2: Làm sao nó biết nên lấy cái gì để rẽ nhánh đầu tiên ạ? Ví dụ sao không rẽ theo Thời gian trước mà lại rẽ theo Doanh số?
+Người 1: Thuật toán tính toán một thông số gọi là Độ vẩn đục Gini. Gini đại diện cho sự hỗn loạn. Chia biến nào mà Gini thấp nhất (tức là phân loại rõ ràng, rạch ròi nhất) thì nó sẽ lấy làm Nút gốc để rẽ nhánh đầu tiên.
+
+Slide 15: SƠ ĐỒ CÂY PHÂN LOẠI (DECISION TREE SPLITS)
+Người 1: Nhìn vào hình vẽ, Nút gốc đầu tiên rẽ theo Dự báo doanh số (Cao hay Thấp). Rẽ tiếp theo là Thời gian vận chuyển. Cứ tiếp tục rẽ xuống đến tận chiếc lá cuối cùng, nó sẽ đưa ra kết luận Yes hoặc No.
+
+Slide 16: ĐIỂM YẾU CHÍ MẠNG CỦA CÂY QUYẾT ĐỊNH ĐƠN LẺ
+Người 1: Rất trực quan và dễ hiểu, đúng không? Nhưng đây là một cái bẫy! Cây quyết định đơn lẻ quá nhạy cảm và mỏng manh. Chỉ cần dữ liệu đầu vào hơi khác một tí tẹo, cái cây lập tức mọc ra các nhánh hoàn toàn khác biệt, và đưa ra một dự đoán sai bét!
+
+Slide 17: GIẢI PHÁP ĐỘT PHÁ: RỪNG NGẪU NHIÊN (RANDOM FOREST)
+Người 2: Vậy làm sao để nó hết nhạy cảm ạ? Trồng thêm cây à thầy?
+Người 1: Một suy luận xuất sắc! Người ta phát minh ra thuật toán Rừng ngẫu nhiên. Thay vì tin tưởng 1 cái cây, ta trồng hàng trăm cái cây để tạo thành một khu rừng. Nó khắc phục sự mong manh bằng 2 cơ chế: Bagging và Lấy mẫu không gian con.
+
+Slide 18: CƠ CHẾ 1: BOOTSTRAP AGGREGATION (BAGGING)
+Người 1: Cơ chế đầu tiên: Bagging. Thay vì đưa toàn bộ 100% dữ liệu cho tất cả các cây (như thế chúng sẽ học y hệt nhau), thuật toán bốc ngẫu nhiên một vốc dữ liệu cho cây số 1 học. Xong thả vào rổ, bốc tiếp vốc khác cho cây số 2 học. 100 cái cây sẽ học trên các phần dữ liệu hơi khác nhau.
+
+Slide 19: CƠ CHẾ 2: LẤY MẪU KHÔNG GIAN CON (SUBSPACE SAMPLING)
+Người 1: Cơ chế hai, thầy lấy ẩn dụ: Em nhờ 100 vị bác sĩ hội chẩn một ca bệnh. Nếu đưa y hệt 1 cuốn bệnh án, cả 100 bác sĩ sẽ chỉ chăm chăm nhìn vào triệu chứng rõ nhất, ví dụ "ho ra máu", và tất cả đều kết luận ra cùng 1 bệnh. Đám đông hoàn toàn thiếu đi sự khách quan!
+
+Slide 20: GIẢI PHÁP: "GIẤU BỆNH ÁN" ĐỂ ÉP TƯ DUY ĐỘC LẬP
+Người 2: Vậy phải làm sao để các bác sĩ không nghĩ giống nhau ạ?
+Người 1: Thuật toán Lấy mẫu không gian con sẽ cố tình "Giấu" một số hồ sơ xét nghiệm. Đưa cho bác sĩ A, nó giấu kết quả X-quang. Đưa cho bác sĩ B, nó giấu chỉ số huyết áp. Nghe rất khắc nghiệt, nhưng nó ép 100 bác sĩ phải Tư duy Độc lập, đào sâu bới móc các triệu chứng nhỏ nhặt để tìm ra bệnh.
+
+Slide 21: SỨC MẠNH CỦA ĐÁM ĐÔNG (WISDOM OF THE CROWD)
+Người 1: Cuối cùng, 100 bác sĩ với 100 góc nhìn hoàn toàn độc lập đó sẽ tiến hành bỏ phiếu (Majority Vote). Số đông bầu cho bệnh nào thì chốt bệnh đó. Rõ ràng quyết định của cả một hội đồng sẽ vững chãi và chính xác hơn một bác sĩ đơn lẻ rất nhiều!
+
+Slide 22: VẤN ĐỀ: DỮ LIỆU MẤT CÂN BẰNG
+Người 1: Nhưng khoan đã, chúng ta vừa quên mất một điều chí mạng: Dữ liệu của ta vẫn đang bị mất cân bằng (Hiếm khi xảy ra thiếu hụt). Nếu để khu rừng tự học một cách tự nhiên, mô hình AI sẽ nhiễm "Căn bệnh lười biếng"!
+
+Slide 23: CĂN BỆNH LƯỜI BIẾNG CỦA MÔ HÌNH
+Người 2: Lười biếng là sao ạ? Máy tính mà cũng biết lười ạ?
+Người 1: Rất khôn lỏi là đằng khác! Mô hình nhận ra rằng: "Ồ, 99% đơn hàng đều giao suôn sẻ. Mình chẳng việc gì phải học tính toán cho mệt. Cứ nhắm mắt đoán bừa là Không Thiếu Hàng, kiểu gì tỷ lệ chính xác (Accuracy) của mình chẳng được 99%!". Nếu thế, doanh nghiệp sẽ sụp đổ vì mô hình bỏ lọt 100% các ca thiếu hàng thực sự!
+
+Slide 24: XỬ LÝ LƯỜI BIẾNG: LẤY MẪU GIẢM (DOWNSAMPLING)
+Người 1: Để trị tính khôn lỏi này, ta dùng kỹ thuật Downsampling. Ta chủ động chặt bỏ bớt số lượng dữ liệu của nhóm "giao thành công" khổng lồ đi. Ép tỷ lệ xuống sao cho hai nhóm gần bằng nhau.
+
+Slide 25: MÔ HÌNH BUỘC PHẢI HỌC THẬT SỰ
+Người 1: Khi nhóm "bình thường" không còn áp đảo lực lượng nữa, mô hình mà nhắm mắt đoán bừa thì sẽ ăn ngay điểm 0. Bị dồn vào chân tường, nó buộc phải căng não ra để thực sự học cách nhận diện các đặc trưng ẩn giấu của những ca đứt gãy.
+
+Slide 26: TẠI SAO ACCURACY TRỞ NÊN VÔ NGHĨA?
+Người 2: Thế lúc này mình không được dùng cái tỷ lệ chính xác (Accuracy) để khoe khoang nữa đúng không thầy?
+Người 1: Chuẩn! Trong các bài toán rủi ro (gian lận thẻ, đứt gãy chuỗi cung ứng, hay chẩn đoán ung thư), dùng Accuracy là lừa mình dối người. Ta phải dùng bảng điểm khắt khe hơn: Độ nhạy (Sensitivity) và Độ đặc hiệu (Specificity).
+
+Slide 27: ĐÁNH GIÁ MỚI: ĐỘ NHẠY (SENSITIVITY)
+Người 1: Đầu tiên là Độ nhạy (Sensitivity). Nó đo lường khả năng "Đánh hơi trúng phóc" tội phạm của mô hình. Tức là trong 10 ca thiếu hàng thực sự, máy bắt được mấy ca? Nếu độ nhạy thấp, máy sẽ "bỏ lọt tội phạm".
+
+Slide 28: ĐÁNH GIÁ MỚI: ĐỘ ĐẶC HIỆU (SPECIFICITY)
+Người 1: Đánh giá thứ hai là Độ đặc hiệu (Specificity). Nó đo khả năng "Không báo động nhầm". Công ty đang làm ăn yên ổn mà suốt ngày chuông báo cháy réo ầm ĩ do máy nhầm lẫn, thì chi phí dự phòng rủi ro sẽ tăng vọt vô ích.
+
+Slide 29: BẢNG ĐIỂM THỰC SỰ: ĐƯỜNG CONG ROC & AUC
+Người 1: Ta vẽ hai cái độ này lên một biểu đồ, gọi là Đường cong ROC. Diện tích bên dưới đường cong đó gọi là điểm AUC (Từ 0 đến 1). Chấm điểm bằng AUC là cái cân công lý sắc bén nhất. Điểm càng sát 1 thì mô hình thực sự xuất sắc.
+
+Slide 30: ƯU ĐIỂM TUYỆT VỜI CỦA RỪNG NGẪU NHIÊN
+Người 1: Tóm lại, Rừng ngẫu nhiên là cứu cánh hoàn hảo cho Chuỗi cung ứng. Rất dễ tính, chịu được nhiễu loạn ngoại lai, kháng được cả đa cộng tuyến. Một cỗ máy cực kỳ bền bỉ!
+
+Slide 31: SỰ CHUYỂN GIAO: RỦI RO NỘI BỘ
+Người 1: Xong Phần 2. Rừng ngẫu nhiên làm khiên chắn bảo vệ ta khỏi sự điên rồ của bên ngoài (bão lụt, kẹt cảng). Nhưng nếu nguồn cơn bất định lại đến từ chính quyết định chủ quan của Ban giám đốc ở bên trong thì sao? Ví dụ: Đổi giao diện app, đổi cốt truyện game?
+
+Slide 32: RA MẮT SẢN PHẨM CHƯA TỪNG TỒN TẠI
+Người 2: Thì mình lại lấy dữ liệu cũ ra dự báo xem khách hàng có thích giao diện mới không thôi thầy.
+Người 1: Chết dở! Sản phẩm mới toanh vừa nghĩ ra sáng nay thì làm gì có dữ liệu lịch sử ngày hôm qua mà dự báo! Sự thay đổi bối cảnh này buộc ta phải cất công cụ Dự báo đi, và lấy vũ khí "Thử nghiệm nhân quả" ra dùng.
+
+Slide 33: CẠM BẪY THỐNG KÊ: TƯƠNG QUAN & NHÂN QUẢ
+Người 1: Để hiểu sức mạnh thử nghiệm, em phải thoát khỏi một cạm bẫy thống kê kinh điển: Đánh tráo khái niệm giữa Tương quan (Hai thứ đi cùng nhau) và Nhân quả (Cái này đẻ ra cái kia). 
+
+Slide 34: TƯƠNG QUAN GIẢ TẠO (SPURIOUS CORRELATION)
+Người 1: Lấy ví dụ: Dữ liệu thống kê chỉ ra rằng, số người ăn kem tăng lên cùng lúc với số vụ cháy rừng. Nhưng ăn kem thì làm sao gây cháy rừng được? Trùng hợp là vì cả 2 đều xảy ra vào mùa hè nắng nóng tột độ! Nếu Giám đốc nào thấy hai đường trên đồ thị chạy song song mà kết luận bừa, thì đang ném tiền qua cửa sổ.
+
+Slide 35: THIÊN KIẾN TỰ CHỌN (SELF-SELECTION BIAS)
+Người 1: Áp dụng vào làm Game. Dữ liệu công ty báo cáo: "Nhóm người chơi xài giao diện Màu Xanh nạp tiền nhiều gấp đôi nhóm màu Đỏ". Giám đốc kết luận: "Màu xanh kích thích mua sắm! Ép toàn bộ người dùng đổi sang màn hình màu xanh lập tức!".
+
+Slide 36: SỰ THẬT VỀ THIÊN KIẾN TỰ CHỌN
+Người 2: Hình như lại mắc bẫy rồi đúng không thầy?
+Người 1: Rất tỉnh táo! Sự thật là game cho phép người dùng tự do chọn màu sắc. Vô tình, mấy ông "Đại gia" vip nạp nhiều tiền lại có gu thẩm mỹ thích màu xanh. Bản thân màu xanh chả có ma lực thôi miên nào cả. Đây gọi là Thiên kiến Tự chọn (Self-Selection Bias).
+
+Slide 37: GIẢI PHÁP PHÁ VỠ BẪY: THỬ NGHIỆM A/B (A/B TESTING)
+Người 1: Để đập nát cái thiên kiến này, ta dùng Thử nghiệm A/B. Bí quyết của nó nằm ở 2 chữ: Phân bổ Ngẫu nhiên (Randomization). Hệ thống sẽ khóa chức năng đổi màu, ném ngẫu nhiên 50\% khách vào phòng Xanh, 50\% khách vào phòng Đỏ. Tước đoạt quyền tự chọn của khách.
+
+Slide 38: SỨC MẠNH CỦA SỰ NGẪU NHIÊN
+Người 1: Khi em lấy một mẫu thử đủ lớn, sự ngẫu nhiên sẽ cào bằng mọi thứ. Nhóm Xanh và Đỏ sẽ có tỷ lệ người nghèo, người giàu, nam nữ, già trẻ ngang bằng nhau chằn chặn. Mọi yếu tố nhiễu loạn bị triệt tiêu! Lúc này nếu nhóm Xanh vẫn nạp nhiều tiền hơn, ta mới có quyền dõng dạc khẳng định: Màu Xanh tạo ra Nhân Quả!
+
+Slide 39: CASE STUDY GAME VIP: THIẾT KẾ NGUYÊN MẪU
+Người 1: Bây giờ, công ty thiết kế 3 nguyên mẫu Game với 3 mức độ khó: Mức 25 (Dễ), Mức 35 (Vừa) và Mức 45 (Rất khó). Mục tiêu là xem mức nào giữ chân người chơi lâu nhất. Chia khách hàng vào 3 nhóm, mỗi nhóm chỉ được chơi đúng 1 mức độ.
+
+Slide 40: GIẢ THUYẾT KHÔNG (NULL HYPOTHESIS)
+Người 2: Thế lỡ kết quả nhóm 35 chơi lâu hơn thật, nhưng lại do ăn may thì sao ạ? Ý em là nhỡ đâu cái lúc thử nghiệm thì trùng hợp họ rảnh rỗi.
+Người 1: Em tư duy rất giống một nhà khoa học dữ liệu! Trong thống kê luôn có một Gã Giám khảo bảo thủ mang tên "Giả thuyết Không". Gã khoanh tay bĩu môi nói: "Chẳng có mức độ khó nào làm nên chuyện. Thời gian chơi khác nhau là do ăn may ngẫu nhiên thôi!".
+
+Slide 41: NHIỆM VỤ ĐẬP TAN SỰ HOÀI NGHI
+Người 1: Nhiệm vụ của Khoa học dữ liệu là phải tung ra bằng chứng toán học để đập tan cái gã hoài nghi kia. Vì ta có 3 nhóm, ta không dùng T-test được, mà phải gọi đại ca của nó ra: Phân tích Phương sai (ANOVA) đi kèm Kiểm định F (F-Test).
+
+Slide 42: PHÂN TÍCH PHƯƠNG SAI (ANOVA) & F-TEST
+Người 1: Thằng F-Test này sẽ cân đo đong đếm 2 thứ. Một bên là Sự khác biệt giữa các nhóm (do mức độ khó 25, 35, 45 tạo ra). Bên kia là Sự khác biệt nội bộ lộn xộn bên trong từng nhóm (người rảnh thì chơi lâu, người bận thì chơi ít).
+
+Slide 43: CƠ CHẾ KẾT LUẬN CỦA ANOVA
+Người 1: Nếu F-Test chỉ ra rằng: Lực tác động của mức độ khó (giữa các nhóm) lớn áp đảo hoàn toàn cái sự lộn xộn nội bộ kia. Hệ thống sẽ kết luận: Sự chênh lệch này là Có ý nghĩa thực sự (Statistically Significant)! Không phải do ăn may.
+
+Slide 44: GIÁ TRỊ P (P-VALUE) - QUYỀN LỰC TỐI THƯỢNG
+Người 1: Cuối cùng, kết quả sẽ đúc kết lại bằng con số quyền lực tuyệt đối: P-Value. Nếu hệ thống báo P < 0.05. Nghĩa là xác suất để cái Gã giám khảo bảo thủ hoài nghi kia đúng chỉ còn chưa tới 5%. Chúng ta hiên ngang Bác bỏ Giả thuyết Không của gã!
+
+Slide 45: RA QUYẾT ĐỊNH TỰ TIN
+Người 1: Khi P < 0.05, Ban giám đốc không cần phải ngồi cãi vã đập bàn trong phòng họp nữa. Họ có thể tự tin 100% chi hàng chục triệu đô để đẩy phiên bản game đó ra toàn cầu, vì toán học đã bảo chứng.
+
+Slide 46: TỔNG KẾT: TRÍ TUỆ NHÂN TẠO - TẤM KHIÊN BẢO VỆ VÔ HÌNH
+Người 1: Tổng kết lại, Rừng ngẫu nhiên giúp lùng sục rủi ro đứt gãy. A/B Testing giúp dập tắt sự hoài nghi ngớ ngẩn. Trí tuệ Nhân tạo thực chất đang hoạt động như một Tấm khiên chắn vô hình cho sự sống còn của doanh nghiệp.
+
+Slide 47: DỮ LIỆU KHÔNG BIẾT TỰ ÁI
+Người 2: Dữ liệu đúng là dẹp tan được cái tôi của mấy ông Giám đốc thích chỉ đạo bằng cảm tính thầy nhỉ.
+Người 1: Rất đúng! Dữ liệu không biết tự ái, nó không quan tâm Giám đốc vui hay buồn, nó chỉ phản chiếu sự thật khách quan nhất.
+
+Slide 48: CÂU HỎI SUY NGẪM
+Người 1: Nhưng thầy để ngỏ một câu hỏi. Nếu tương lai máy móc tiến hóa, mọi thứ đều được toán học bảo chứng an toàn tuyệt đối. Rủi ro bằng 0. Liệu sự liều lĩnh và những ý tưởng điên rồ của con người - thứ tạo ra các cuộc cách mạng vĩ đại - có bị diệt vong? Có lẽ, đôi khi trong chính sự mịt mờ của bất định lại là nơi duy nhất để sự sáng tạo đích thực nở hoa!
+
+Slide 49: LỜI CẢM ƠN
+Người 1: Cảm ơn các em đã theo dõi một học phần cực kỳ ý nghĩa và sâu sắc hôm nay. Các em có thắc mắc gì không? Hẹn gặp lại các em ở buổi học thực hành nhé!
+Người 2: Dạ cảm ơn thầy, bài học quá tuyệt vời ạ.
+```

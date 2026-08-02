@@ -9,3 +9,54 @@ python scratch/rename_figures.py "D:\DongAUniversity\TÀI LIỆU DẠY HỌC_202
 =============================
 
 tương tự như đã dịch cho chương 1-9, giờ làm tiếp cho chương 10. Hãy xem depPlan/translateAIAccPractice_ChXX.md để xem cách nó đã dịch file pdf ra như thế nào để từ đó dịch file TaiLieu\textbookForPractice\Ch_10_Recent Data and Analyses Developments in Accounting.pdf ra và đưa vào trang web, trong đó lấy các ảnh trong TaiLieu\textbookForPractice\Figures\Ch_10 đưa vào nội dung. Tôi muốn phần dịch thật chi tiết. Hãy lập kế hoạch ra file depPlan/translateAIAccPractice_Ch10.md
+
+==========================
+[tạo video script]
+**[VAI TRÒ]**
+Hãy đóng vai một chuyên gia thiết kế chương trình giảng dạy đại học và biên kịch nội dung giáo dục. Bạn có kiến thức chuyên sâu về Kế toán và Trí tuệ nhân tạo (AI).
+
+**[MỤC TIÊU]**
+Nhiệm vụ của bạn là dựa trên các tài liệu tôi cung cấp để xây dựng một kịch bản bài giảng (lecture script) tương tác, sinh động, chuẩn học thuật cho chương "Day 01 - AI in Accounting". Kịch bản này sẽ được dùng để tạo video bài giảng tự động (text-to-speech).
+
+**[TÀI LIỆU ĐẦU VÀO CẦN XỬ LÝ]**
+
+* Slide bài giảng: `webAIAccounting\TaiLieu\slideAIAcc\Slide_AIAcc_Day01.pdf` (và bản gốc `.tex`).
+* Sách giáo trình (Textbook): Các file trong thư mục `webAIAccounting\TaiLieu\textbook\Buoi_01_...`
+* Kịch bản mẫu tham khảo: `webAIAccounting\video\Chapter01\demoScript.txt` và `webAIAccounting\TaiLieu\script\audioScript_Day01.txt`.
+
+**[YÊU CẦU THỰC THI CHI TIẾT]**
+
+**Bước 1: Quản lý thư mục (File Management)**
+
+* Hãy xác nhận lệnh copy file `Slide_AIAcc_Day01.pdf` vào thư mục `webAIAccounting\video\Chapter01\`.
+
+**Bước 2: Phác thảo Kế hoạch (Outline Planning)**
+
+* Lập dàn ý kịch bản chi tiết và lưu thành file `planScript_Ch01.md` tại thư mục `webAIAccounting\video\Chapter01\`.
+* Dàn ý cần map (khớp) chính xác nội dung từng slide với bối cảnh kiến thức trong textbook.
+
+**Bước 3: Viết Kịch bản chi tiết (Script Writing)**
+
+* Tạo file `script_Chapter01.txt` dựa trên dàn ý vừa lập.
+* **Cấu trúc tách rời từng slide:** Toàn bộ kịch bản phải được chia tách chi tiết từ Slide 1 cho đến Slide 46. Tuyệt đối không được nhóm gộp các slide lại với nhau.
+
+
+* **Tiêu đề:** Nội dung hội thoại được phân bổ bám sát tiêu đề của từng slide tương ứng trong file `.tex`.
+
+
+* **Hình thức diễn đạt:** Sử dụng định dạng hội thoại với tên nhân vật được đổi thành **Người 1:** (đóng vai Giảng viên) và **Người 2:** (đóng vai Sinh viên).
+
+
+* **Giọng điệu (Tone & Vibe):** Chuyên nghiệp, logic như giảng đường đại học nhưng phải lôi cuốn. Người 1 dẫn dắt bằng phương pháp Gợi mở (Socratic method), Người 2 hay hỏi những câu hỏi phản biện, thắc mắc thực tế.
+* **Nội dung lý thuyết:** Phải bao phủ toàn bộ các khái niệm cơ bản và tính chất được nêu trong Slide và Textbook. Không bỏ sót ý chính.
+* **Xử lý công thức toán học:** Tuyệt đối KHÔNG giữ nguyên ký hiệu toán học phức tạp. Bắt buộc phải "chuyển ngữ" các công thức này thành văn xuôi nói (tự nhiên, dễ hiểu) để phần mềm Text-to-Speech (audio) có thể đọc trôi chảy mà người nghe vẫn nắm được bản chất logic của công thức.
+* **Ví dụ thực tiễn (Bắt buộc):** Chủ động bổ sung thêm các case-study, ví dụ thực tế liên quan đến nghiệp vụ Kế toán/Kiểm toán/Tài chính để minh họa cho lý thuyết, giúp bài học sinh động hơn nữa.
+
+**[ĐỊNH DẠNG ĐẦU RA YÊU CẦU]**
+Hãy output cho tôi 2 nội dung sau:
+
+1. Nội dung file `planScript_Ch01.md`.
+2. Nội dung file `script_Chapter01.txt` trình bày theo format chuẩn xác sau:
+Slide [STT]: [TIÊU ĐỀ SLIDE]
+Người 1: [Nội dung thoại...]
+Người 2: [Nội dung thoại...]

@@ -140,6 +140,10 @@ Cấu trúc nói trên quy định sự giám sát liên tục (constant monitor
 - **Ngân hàng HDFC**: Ngân hàng này đã sử dụng các phương pháp chấm điểm tín dụng (credit scoring methods) do AI cung cấp, bao gồm các thuật toán học máy, để đánh giá những người nộp đơn xin vay. Tuy nhiên, đã xảy ra các tình huống trong đó các đánh giá do AI thúc đẩy này có vẻ bị thiên vị (biased), đặc biệt là trong các lựa chọn cho vay. Những nghiên cứu như vậy đã tạo ra các câu hỏi đạo đức về tính khách quan của xếp hạng tín dụng do AI thúc đẩy. Câu chuyện này minh họa một cách rõ ràng tầm quan trọng sống còn của việc chủ động giải quyết sự thiên vị (bias) trong các thuật toán AI để đảm bảo rằng các hoạt động cho vay là công bằng và không có sự phân biệt đối xử. Nó nhấn mạnh trách nhiệm của các tổ chức tài chính trong việc thường xuyên đánh giá và tinh chỉnh các mô hình AI của họ để thúc đẩy sự công bằng và cởi mở trong các quy trình đánh giá tín dụng, từ đó duy trì các chuẩn mực đạo đức trong các dịch vụ tài chính.
 - **Aditya Birla Capital**: Sử dụng AI, bao gồm các thuật toán xử lý ngôn ngữ tự nhiên (NLP), để cung cấp cho khách hàng các dịch vụ quản lý danh mục đầu tư và tư vấn đầu tư được cá nhân hóa. Mặc dù sự tích hợp AI này hứa hẹn sẽ cải thiện trải nghiệm của người tiêu dùng bằng cách cung cấp lời khuyên tài chính được cá nhân hóa, nhưng nó cũng làm nổi bật những lo ngại về đạo đức liên quan đến quyền riêng tư và bảo mật của dữ liệu tài chính nhạy cảm. Trường hợp này nhấn mạnh nhu cầu cấp thiết về luật bảo vệ dữ liệu toàn diện và cập nhật trong lĩnh vực tài chính. Những luật này không chỉ nên bảo vệ thông tin khách hàng mà còn tạo ra các hướng dẫn rõ ràng cho việc sử dụng AI một cách có đạo đức.
 
+#### ** 🎬 Video **
+
+<iframe src="video/Day03/index.html" style="width: 100%; aspect-ratio: 16/9; max-height: 75vh; border: none; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"></iframe>
+
 #### ** 🎦 Slide Bài Giảng **
 
 <object data="TaiLieu/slideAIAcc/Slide_AIAcc_Day03.pdf#view=FitH" type="application/pdf" class="pdf-container" width="100%" height="800px">

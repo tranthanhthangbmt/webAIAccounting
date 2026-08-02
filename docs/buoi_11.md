@@ -1172,6 +1172,10 @@ Trường hợp tiếp theo của Le Grind: Sử dụng số liệu thống kê 
 
 - 3. Pizza My Heart đang coi Tallahassee là thành phố tiềm năng cho loại xe tải mới. Sal ước tính doanh thu trong năm đầu tiên sẽ là 150.000 USD. Thuế bán hàng sẽ được thu là bao nhiêu? Trường hợp tiếp theo của Le Grind: Sử dụng thống kê mô tả để phân tích Hoạt động bán hàng trong ba năm đầu kinh doanh dữ liệu Truy cập nền tảng học tập trực tuyến của Wiley để biết thông tin cơ bản về trường hợp, các câu hỏi, dữ liệu bổ sung và biết thêm chi tiết về vụ án đang tiếp tục.
 
+#### ** 🎬 Video **
+
+<iframe src="video/Day11/index.html" style="width: 100%; aspect-ratio: 16/9; max-height: 75vh; border: none; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"></iframe>
+
 #### ** 🎦 Slide Bài Giảng **
 
 <object data="TaiLieu/slideAIAcc/Slide_AIAcc_Day11.pdf#view=FitH" type="application/pdf" class="pdf-container" width="100%" height="800px">

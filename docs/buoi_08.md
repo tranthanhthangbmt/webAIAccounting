@@ -331,6 +331,10 @@ có nghĩa là họ khó làm việc cùng hơn. Sau đây cuộc biểu tình s
 
 Ở bên trái, bạn thấy ba bộ dữ liệu có nền trắng. Đi từ trái sang phải, mỗi cột đại diện cho một loại thuật toán học máy cố gắng tách các chấm đen từ các chấm trắng chỉ sử dụng một phần của tập dữ liệu được gọi là kiểm tra dữ liệu. Hãy nhớ rằng chúng tôi đã thông báo từng thuật toán rồi mỗi chấm có màu gì. Thuật toán chỉ đang cố gắng tạo ra một quy tắc chung để xác định khu vực xuất hiện các chấm đen, và khu vực xuất hiện các chấm trắng. Như hiển nhiên, cách tiếp cận và kết quả khá đa dạng. Góc dưới bên phải của mỗi ô vuông cho thấy cách chính xác thuật toán đã tách hai loại dấu chấm. Một lần nữa, điểm số này dựa trên một nhóm dấu chấm khác với nhóm chúng tôi được sử dụng để huấn luyện thuật toán. Tại sao chúng ta lại làm điều này? Nếu bạn đã thử nghiệm
 
+#### ** 🎬 Video **
+
+<iframe src="video/Day08/index.html" style="width: 100%; aspect-ratio: 16/9; max-height: 75vh; border: none; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"></iframe>
+
 #### ** 🎦 Slide Bài Giảng **
 
 <object data="TaiLieu/slideAIAcc/Slide_AIAcc_Day08.pdf#view=FitH" type="application/pdf" class="pdf-container" width="100%" height="800px">

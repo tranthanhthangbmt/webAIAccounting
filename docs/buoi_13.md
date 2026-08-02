@@ -216,6 +216,10 @@ Buổi 13 là sự giao thoa hoàn hảo giữa công nghệ hiện đại (**K�
 3. **Trong khung tư duy SPARKS, bước nào thường dễ bị bỏ qua nhất nhưng lại quyết định thành công của một báo cáo quản trị kế toán?**  
    - *Trả lời:* Bước **R – Refine the Analysis (Tinh chỉnh phân tích)** và **K – Communicate the Insights (Truyền đạt thông tin)**. Việc không kiểm chứng rủi ro ngoại lai (Outliers) có thể dẫn đến kết luận sai; trong khi việc trình bày biểu đồ phức tạp, khó hiểu sẽ khiến Ban Giám đốc không thể ra quyết định hành động kịp thời.
 
+#### ** 🎬 Video **
+
+<iframe src="video/Day13/index.html" style="width: 100%; aspect-ratio: 16/9; max-height: 75vh; border: none; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"></iframe>
+
 #### ** 🎦 Slide Bài Giảng **
 
 <object data="TaiLieu/slideAIAcc/Slide_AIAcc_Day13.pdf#view=FitH" type="application/pdf" class="pdf-container" width="100%" height="800px">

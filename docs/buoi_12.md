@@ -254,6 +254,10 @@ Cửa hàng GPT (GPT Store) và công nghệ GPT tùy chỉnh trong ChatGPT đá
 3. **Làm thế nào để doanh nghiệp xây dựng một văn hóa ứng dụng GPT an toàn và hiệu quả trong phòng kế toán?**  
    - *Trả lời:* Ban hành hướng dẫn sử dụng AI minh bạch, tổ chức đào tạo prompt chuyên nghiệp, chia sẻ các mẫu GPT hiệu quả nội bộ và thực hiện kiểm tra thường xuyên tính chính xác của các kết quả đầu ra.
 
+#### ** 🎬 Video **
+
+<iframe src="video/Day12/index.html" style="width: 100%; aspect-ratio: 16/9; max-height: 75vh; border: none; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"></iframe>
+
 #### ** 🎦 Slide Bài Giảng **
 
 <object data="TaiLieu/slideAIAcc/Slide_AIAcc_Day12.pdf#view=FitH" type="application/pdf" class="pdf-container" width="100%" height="800px">

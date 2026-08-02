@@ -1,0 +1,144 @@
+Slide 1: TRANG BÌA
+Người 1: Chào các em! Ở bài trước chúng ta đã xử lý dữ liệu bằng các thuật toán máy học phân tích. Hôm nay ở Buổi 12, chúng ta sẽ bước sang một cảnh giới hoàn toàn khác: Thực hành AI Nhận thức và AI Tạo sinh trong Kế toán.
+Người 2: Có phải là ChatGPT không thầy? Bạn bè em ai cũng dùng nó để làm bài tập, nhưng áp dụng vào công việc kế toán thì nó làm được gì ạ?
+Người 1: Nó làm được nhiều hơn em tưởng, và cũng nguy hiểm hơn em tưởng! Hôm nay ta sẽ giải phẫu cách đưa một "cộng sự AI" vào doanh nghiệp sao cho bảo mật và hiệu quả nhất.
+
+Slide 2: MỤC TIÊU BÀI HỌC
+Người 1: Bài học có 5 mục tiêu: Đầu tiên là sự dịch chuyển từ việc ghi chép thụ động sang dự báo chiến lược. Hai là hiểu cơ chế thấu hiểu ngữ nghĩa của GenAI so với công cụ cũ. Ba là căn bệnh Ảo giác AI. Bốn là cách dùng GPT Store và RAG. Và cuối cùng là Quản trị rủi ro bảo mật với "Con người trong vòng lặp".
+
+Slide 3: NỘI DUNG CHÍNH (AGENDA)
+Người 1: Bài học sẽ đi qua 5 nội dung cốt lõi để trả lời trọn vẹn 5 mục tiêu vừa nêu. Bắt đầu nào!
+
+Slide 4: NỘI DUNG
+Người 1: Phần đầu tiên: Khởi động và định vị lại sự dịch chuyển cốt lõi của nghề kế toán.
+
+Slide 5: ẨN DỤ: CHIẾC Ô TÔ & KÍNH CHẮN GIÓ
+Người 1: Hãy tưởng tượng, nghề kế toán truyền thống giống như việc em lái ô tô trên cao tốc với vận tốc 120km/h. Nhưng kính chắn gió trước mặt bị bịt kín đen ngòm. Em chỉ có thể điều khiển xe bằng cách nhìn chằm chằm vào... kính chiếu hậu!
+Người 2: Tức là chúng ta chỉ cặm cụi ghi chép và đối chiếu những giao dịch đã xảy ra trong quá khứ thôi đúng không thầy? Lái xe kiểu đó thì đâm sầm mất!
+Người 1: Chính xác! Đó là nỗi đau của nghề kế toán bao năm qua. Không thể nhìn thấy ổ gà phía trước mặt.
+
+Slide 6: CUỘC LỘT XÁC VỚI TRÍ TUỆ NHÂN TẠO TẠO SINH (GENAI)
+Người 1: Và rồi GenAI xuất hiện. Sự can thiệp của AI giống như gỡ tung tấm màn đen che kính chắn gió đó đi! Không những thế, nó còn gắn thêm một hệ thống định vị GPS báo hiệu ổ gà phía trước theo thời gian thực. Từ "Tư duy ghi chép", kế toán chuyển thẳng sang "Tư duy cố vấn".
+
+Slide 7: SỰ TIẾN HÓA TỪ "MÁY TÍNH SƠ KHAI"
+Người 1: Sam Altman - CEO của OpenAI từng nói: "AI bây giờ chậm và nhiều lỗi, giống y hệt như những cỗ máy tính khổng lồ to bằng căn phòng hàng chục năm trước". Nếu máy tính sơ khai chỉ biết cộng trừ, thì GenAI ngày nay đã tiến hóa đến mức thấu hiểu ngôn ngữ và sáng tạo nội dung.
+
+Slide 8: NỘI DUNG
+Người 1: Cụ thể sự tiến hóa đó khác biệt ra sao? Ta sang Phần 2: Cơ chế khác biệt của AI và Machine Learning.
+
+Slide 9: CASE STUDY: TẬP ĐOÀN GLOBAL TECH ENTERPRISES
+Người 1: Thầy đưa một Case study: Tập đoàn đa quốc gia Global Tech Enterprises với hàng tỷ giao dịch. Luật thuế các nước đan chéo nhau và thay đổi liên tục mỗi ngày. Chuyện gì xảy ra nếu họ dùng phần mềm kế toán tự động kiểu cũ?
+
+Slide 10: PHẦN MỀM CŨ: CỖ MÁY DÒ TỪ KHÓA CỨNG NHẮC
+Người 1: Phần mềm kiểu cũ dựa trên Rule-based (Nếu - Thì). Nó là cỗ máy dò từ khóa cứng nhắc. Nếu luật thuế viết một kiểu, nhưng hóa đơn của nhà cung cấp lỡ đánh máy chệch đi một chữ... Lập tức máy tính báo lỗi đỏ chót, réo gọi con người vào xử lý. Hệ thống tự động bỗng nhiên bị kẹt cứng!
+
+Slide 11: GENAI: SỰ THẤU HIỂU NGỮ NGHĨA SÂU SẮC
+Người 1: Nhưng GenAI không dò từ khóa! Mạng Neural sâu phân tích hàng tỷ tham số để "thấu hiểu" ý nghĩa câu văn. Dù hóa đơn viết sai chính tả, nó vẫn hiểu mục đích của khoản chi đó y hệt như một chuyên gia thuế lão làng. Nó tự tin duyệt hàng triệu hóa đơn đa ngôn ngữ một cách mượt mà.
+
+Slide 12: PHÂN TÍCH DỰ BÁO (PREDICTIVE ANALYTICS)
+Người 1: Hơn thế nữa, GenAI giúp dự báo. Nó phân tích biến động tỷ giá và lập tức hú còi: "Với tỷ giá hiện tại, tháng tới công ty sẽ thiếu thanh khoản nhé!". Không cần đợi đến cuối quý để kế toán vò đầu bứt tai vì két sắt cạn tiền.
+
+Slide 13: CỐ VẤN CHIẾN LƯỢC THỰC THỤ
+Người 1: Nhờ AI làm hết việc dọn rác quá khứ. Đội ngũ tài chính có thời gian ngồi xuống cùng CEO để trả lời những câu hỏi sống còn: "Nên cắt giảm chi phí phòng ban nào? Năm sau nên thâu tóm đối thủ nào?". AI không cướp việc, nó nâng cấp công việc của các em lên tầm cao mới!
+
+Slide 14: KỸ NĂNG SINH TỒN: HIỂU BIẾT DỮ LIỆU (DATA LITERACY)
+Người 2: Nghe vĩ đại quá, nhưng để làm được thế, tụi em có phải đi học viết code lập trình Python không thầy?
+Người 1: Hoàn toàn không! Em không cần viết một dòng code nào. Nhưng em bắt buộc phải có Hiểu biết dữ liệu. Nghĩa là phải hiểu cơ chế: Máy này nạp dữ liệu gì vào, thì nó sẽ mớm ra kết quả gì. Hiểu bản chất để không bị nó lừa.
+
+Slide 15: NĂNG LỰC DIỄN GIẢI DỮ LIỆU (DATA STORYTELLING)
+Người 1: Khi AI phun ra một bản Dashboard chi chít biểu đồ xanh đỏ. Con người phải dùng năng lực diễn giải để biến đống biểu đồ vô tri đó thành một "câu chuyện kinh doanh" mạch lạc, thuyết phục Sếp chốt phương án. Đó là Kỹ năng kể chuyện dữ liệu.
+
+Slide 16: NỘI DUNG
+Người 1: Tuy nhiên, không phải máy móc lúc nào cũng đúng. Ta sang Phần 3: Tư duy phản biện và chứng Ảo giác AI.
+
+Slide 17: NGHỊCH LÝ NIỀM TIN VÀO MÁY TÍNH
+Người 1: Chúng ta lớn lên với niềm tin: Máy tính thì không biết nói dối, 1 cộng 1 luôn bằng 2. Nhưng trong thế giới AI Tạo sinh, các chuyên gia tài chính truyền tai nhau quy tắc sống còn: "Không bao giờ được tin tưởng AI 100%!". Tại sao vậy?
+
+Slide 18: BẢN CHẤT CỦA LLMS
+Người 1: Vì Bản chất của Mô hình ngôn ngữ lớn (LLM) không phải là "suy nghĩ" như con người. Bản chất toán học của nó là "Đoán xác suất của từ tiếp theo". Nếu tài liệu huấn luyện dính thiên kiến, nó sẽ tự tin kết luận sai bét một cách rành rọt.
+
+Slide 19: CĂN BỆNH "ẢO GIÁC AI" (HALLUCINATION)
+Người 1: Đó gọi là Ảo giác AI (Hallucination). Là hiện tượng AI bịa ra một điều khoản luật không có thật, hoặc số liệu ma, nhưng trình bày nó với một thái độ đĩnh đạc, cực kỳ thuyết phục. 
+Người 2: Trời! Nếu em bê nguyên đoạn luật thuế mà nó bịa ra để nộp cho cơ quan thuế thì hậu quả tàn khốc lắm ạ!
+
+Slide 20: ẨN DỤ: CẬU CHUYÊN VIÊN PHÂN TÍCH SƠ CẤP
+Người 1: Em hãy coi AI như một cậu Chuyên viên phân tích (Junior Analyst) siêu phàm nhưng rất non nớt. Cậu ta có thể đọc 10.000 báo cáo tài chính trong 1 giây để tìm điểm lạ. Nhưng cậu ta lại thiếu hoàn toàn sự "nhạy bén thương trường" của một Kế toán trưởng.
+
+Slide 21: BÁO ĐỘNG ĐỎ "MÙ QUÁNG"
+Người 1: Ví dụ, hệ thống AI báo động đỏ kêu inh ỏi, đòi khóa hạn mức tín dụng của đối tác vì thấy một khoản chi khổng lồ bất thường chạy ra ngoài. Nhưng Kế toán trưởng nhìn qua là cười ngay: "Cái này là thương vụ sáp nhập công ty con đã chốt từ nửa năm trước rồi!". Máy móc hoàn toàn mù tịt về bối cảnh!
+
+Slide 22: ẨN DỤ: BẾP TRƯỞNG VÀ PHỤ BẾP
+Người 1: Mối quan hệ giữa Kế toán viên và AI là mối quan hệ Bếp trưởng và Phụ bếp. AI là gã phụ bếp thái thịt băm hành siêu nhanh. Nhưng em là Bếp trưởng, em là người nêm nếm cuối cùng, nếm thấy độc thì đổ đi, thấy ngon mới mang lên cho khách!
+
+Slide 23: YẾU TỐ CHỐT HẠ: TƯ DUY PHẢN BIỆN
+Người 1: Chốt lại, vũ khí tối thượng của kế toán viên là Tư duy phản biện. Luôn hoài nghi kết quả AI đưa ra. Vì nhớ kỹ, khi có kiện cáo pháp lý, tòa án không gõ búa kết án cái thuật toán. Họ sẽ bỏ tù Người đặt bút ký duyệt bản báo cáo đó!
+
+Slide 24: NỘI DUNG
+Người 1: Dù có rủi ro, nhưng ta không thể từ chối AI. Mời các em sang Phần 4: Kỷ nguyên cá nhân hóa với Cửa hàng GPT (GPT Store).
+
+Slide 25: SỰ PHẪN NỘ VỚI TÌM KIẾM
+Người 1: Sam Altman nói: "Mọi người ghét tìm kiếm". Khi em đang làm báo cáo, em ghét việc phải bật chục cái tab Google, cuộn mỏi tay để tìm một con số thuế. Chúng ta thèm khát một trợ lý nghe lệnh bằng tiếng người và đưa đáp án ngay lập tức.
+
+Slide 26: SỰ KIỆN DÂN CHỦ HÓA TRÍ TUỆ NHÂN TẠO
+Người 1: Ngày xưa, muốn có AI nội bộ, công ty phải thuê kỹ sư, chi hàng triệu đô mua máy chủ. Ngày nay, AI được Dân chủ hóa. Bất kỳ Kế toán viên nào cũng có thể trở thành "Kiến trúc sư AI" tạo ra con Bot riêng cho mình, chỉ bằng cách trò chuyện với hệ thống mà không gõ một dòng code nào.
+
+Slide 27: APP STORE VS. GPT STORE
+Người 1: App Store trên điện thoại là nơi tải các công cụ vô tri (bản đồ, máy tính). Còn GPT Store là nơi em tải về những "Bộ não kỹ thuật số". Em có thể tải một Bot Chuyên gia Thuế Quốc tế, Bot Soạn thảo Hợp đồng 24/7. Nó mang tính cách và trình độ chuyên môn cụ thể!
+
+Slide 28: XÂY DỰNG CUSTOM GPTS (GPT TÙY CHỈNH)
+Người 1: Tuyệt vời hơn, em có thể tạo một Custom GPT riêng cho doanh nghiệp mình. Cách làm là ném toàn bộ Sổ tay kế toán, quy chế thu chi nội bộ của công ty vào bụng nó. Lập tức, nó trở thành nhân viên gạo cội nắm rõ mọi ngóc ngách luật lệ của công ty em.
+
+Slide 29: CƠ CHẾ RAG: KHẮC TINH CỦA ẢO GIÁC AI
+Người 2: Nhưng nãy thầy nói AI hay bị ảo giác, bịa chuyện mà. Nhỡ nó bịa ra quy chế công ty thì sao ạ?
+Người 1: Câu hỏi cực kỳ sắc sảo! Đó là lý do ta phải dùng cơ chế RAG (Truy xuất tăng cường). Em thiết lập RAG để khóa mỏ con AI lại. Ép nó: "Mỗi khi có người hỏi, mày bắt buộc phải chạy đi lật tung đống Sổ tay nội bộ tao vừa nạp, tìm thấy đoạn đó thì mới được dựa vào đó trả lời!". Nhờ RAG, ảo giác AI bị triệt tiêu gần như hoàn toàn!
+
+Slide 30: SỨC MẠNH CỦA CỬA SỔ NGỮ CẢNH (CONTEXT WINDOW)
+Người 1: AI ngày nay có một Cửa sổ Ngữ cảnh (Context Window) khổng lồ. Nó giống như bộ nhớ ngắn hạn siêu phàm. Khác với mấy chatbot hồi xưa nói câu sau quên câu trước. Con AI mới nhớ dai dẳng toàn bộ lịch sử 100 trang chat của em để đối chiếu chuỗi nghiệp vụ tài chính phức tạp mà không bị vấp.
+
+Slide 31: HIỆU SUẤT TRONG THỰC TẾ
+Người 1: Thực tế, kế toán viên có thể ném mớ báo cáo công tác phí cuối tháng vào Custom GPT. Yêu cầu nó rà soát xem có ai tiêu tiền vé máy bay vượt mức quy định nội bộ không. Thay vì dò bằng mắt mất 3 ngày, AI nhặt ra ngay những biên lai vi phạm chỉ trong 3 phút! 
+
+Slide 32: NỘI DUNG
+Người 1: Khủng khiếp đúng không? Nhưng, có một cái bẫy lớn! Ta sang Phần 5: Bảo mật dữ liệu và Quản trị rủi ro.
+
+Slide 33: GẮN NÃO AI VÀO "TỦY SỐNG" DOANH NGHIỆP
+Người 1: Viễn cảnh có chục nhân viên AI làm việc 24/7 không than phiền quả là giấc mơ. Nhưng thế giới tài chính cực kỳ khốc liệt, đưa AI vào tủy sống doanh nghiệp là em đang đùa với lửa bảo mật!
+
+Slide 34: DỮ LIỆU LÀ TÍNH MẠNG CHIẾN LƯỢC
+Người 1: Dữ liệu tài chính không phải vài số vô tri. Nó là kế hoạch sinh tử của công ty. Nếu rò rỉ, công ty sẽ đối mặt với các án phạt hàng tỷ đô la từ luật GDPR hay CCPA vì làm lộ thông tin khách hàng cá nhân.
+
+Slide 35: THẢM HỌA RÒ RỈ THÔNG TIN
+Người 1: Điều gì xảy ra nếu Kế toán trưởng copy Bản kế hoạch Mua lại đối thủ, vứt lên trang ChatGPT công cộng nhờ nó tóm tắt? Đống bí mật đó sẽ biến thành Mồi huấn luyện cho AI. Ngày mai, đối thủ cũng lên hỏi AI và AI ngây thơ kể sạch sành sanh kế hoạch của công ty em!
+Người 2: Chết thật! Vậy là vô tình cống nạp tuyệt mật của công ty cho toàn thế giới rồi. Lãnh đạo chắc bị đi tù mất!
+
+Slide 36: GIẢI PHÁP: PHIÊN BẢN ENTERPRISE
+Người 1: Chính xác! Do đó, luật bất thành văn: Công ty tài chính BẮT BUỘC phải dùng phiên bản AI Enterprise (dành cho doanh nghiệp) có đóng dấu pháp lý SOC 2. Dữ liệu nạp vào được cô lập trong một "Bong bóng kín", nhà cung cấp cấm không được lấy nó đi huấn luyện ngược lại!
+
+Slide 37: CHIẾN LƯỢC PHÒNG THỦ NỘI BỘ
+Người 1: Ngay cả khi dùng bản Enterprise, Kế toán viên vẫn phải tuân thủ kỷ luật: Luôn Mã hóa hoặc làm mờ (ẩn đi tên khách hàng thật, thẻ tín dụng) trước khi nạp tài liệu vào máy tính.
+
+Slide 38: QUY TẮC VÀNG: HUMAN-IN-THE-LOOP (HITL)
+Người 1: Và đây là Quy tắc Vàng: Con người phải luôn ở trong Vòng lặp (HITL). Tuyệt đối, không bao giờ cấp quyền cho AI tự động chốt bấm nút "Chuyển tiền". Mọi luồng lệnh tài chính sinh ra từ AI phải chui qua khe cửa cuối cùng là cái nhấp chuột duyệt của con người!
+
+Slide 39: NỘI DUNG
+Người 1: Phần cuối cùng: Tương lai kiểm toán liên tục và Tổng kết.
+
+Slide 40: CẨM NANG SINH TỒN
+Người 1: Thầy nhắc lại, đây không phải kiến thức để nói về 10 năm sau. Việc ứng dụng AI, chống ảo giác bằng RAG, và bảo vệ dữ liệu là Cẩm nang sinh tồn ngay ngày mai khi các em đi làm!
+
+Slide 41: SỰ ĐỊNH NGHĨA LẠI NGHỀ KẾ TOÁN
+Người 1: Kế toán viên thời đại tới không cạnh tranh nhau bằng tốc độ bấm máy tính nữa. Họ cạnh tranh bằng kỹ năng biến AI thành vũ khí để trở thành một Business Partner (Đối tác chiến lược kinh doanh).
+
+Slide 42: CHÂN TRỜI MỚI: KIỂM TOÁN LIÊN TỤC (CONTINUOUS AUDITING)
+Người 1: Ngành kiểm toán đang dịch chuyển. Quá khứ, ta gom 1 tháng hay 3 tháng mới kiểm 1 lần. Tương lai gần, hệ thống AI sẽ bám đuôi từng giao dịch một cách thầm lặng. Chỉ 1 phần nghìn giây sau khi nhân viên bấm gửi, AI lập tức quét ra lỗi sai! Đó là Kiểm toán liên tục.
+
+Slide 43: HỆ THỐNG TÀI CHÍNH TỰ CHỮA LÀNH (SELF-HEALING)
+Người 1: Hệ thống vĩ đại đó gọi là Mạng lưới tự chữa lành. Mọi mầm mống gian lận, bòn rút ngầm, hay sai sót kế toán sẽ bị bóp nghẹt ngay từ trong trứng nước, trước khi đồng tiền bẩn kịp thoát ra ngoài. Và các em chính là những Thuyền trưởng đứng điều khiển mạng lưới vô hình đó!
+
+Slide 44: TỔNG KẾT BUỔI HỌC
+Người 1: Tổng kết lại: Ta đã đi từ việc gỡ bỏ kính chắn gió của GenAI. Hiểu cách tạo cộng sự AI qua GPT Store và trị ảo giác bằng RAG. Cảnh giác cao độ với tính mạng dữ liệu bằng vòng lặp con người (HITL). Kỷ nguyên Kiểm toán liên tục đã mở cửa chờ các em!
+
+Slide 45: HỎI ĐÁP
+Người 1: Bài học vô cùng thực chiến hôm nay khép lại ở đây! Có ai có thắc mắc gì về việc bảo mật hay RAG không?
+Người 2: Dạ kiến thức này quá thiết thực luôn ạ. Em đã hiểu được tại sao các công ty kiểm toán Big 4 lại cấm nhân viên dùng bản ChatGPT miễn phí mà phải dùng bản nội bộ rồi ạ!
+```

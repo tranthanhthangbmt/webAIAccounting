@@ -257,6 +257,10 @@ Với sự phổ biến ngày càng tăng của công nghệ AI sáng tạo tron
 
 - Các tổ chức tài chính có trách nhiệm bảo vệ các thông tin nhạy cảm thông tin tài chính với mức độ quan tâm cao nhất. Để làm được điều này, cần phải thiết lập và thực thi nghiêm ngặt các biện pháp bảo mật và an ninh thông tin.
 
+#### ** 🎬 Video **
+
+<iframe src="video/Day09/index.html" style="width: 100%; aspect-ratio: 16/9; max-height: 75vh; border: none; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"></iframe>
+
 #### ** 🎦 Slide Bài Giảng **
 
 <object data="TaiLieu/slideAIAcc/Slide_AIAcc_Day09.pdf#view=FitH" type="application/pdf" class="pdf-container" width="100%" height="800px">

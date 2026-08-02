@@ -1,0 +1,171 @@
+Slide 1: TRANG BÌA
+Người 1: Chào mừng các bạn sinh viên đến với Buổi học số 4 của môn Trí tuệ Nhân tạo trong Kế toán. Hôm nay chúng ta sẽ đi sâu vào thực chiến: Phân khúc Thị trường và Dự báo Sức khỏe Tài chính.
+Người 2: Em chào thầy. Hôm nay chúng ta sẽ được học cách các cỗ máy AI trực tiếp phân tích số liệu tài chính phải không ạ?
+
+Slide 2: NỘI DUNG BÀI HỌC
+Người 1: Đúng vậy! Bài học hôm nay gồm hai chương lớn. Chương đầu là cách dùng thuật toán để phân khúc nhóm khách hàng. Chương sau là ứng cứu một doanh nghiệp khỏi bờ vực phá sản bằng các mô hình dự báo tiên tiến.
+
+Slide 3: CHUYỂN MÌNH SANG THUẬT TOÁN THỰC CHIẾN
+Người 1: Ở những buổi trước, chúng ta bàn về lý thuyết chung, khái niệm. Nhưng từ Buổi 4 này là một bước ngoặt lớn. Chúng ta chuyển sang ứng dụng thuật toán thực chiến (hands-on algorithms). Các em sẽ thấy máy móc xé nhỏ các con số để ra quyết định thay chúng ta như thế nào.
+
+Slide 4: HAI CỘT MỐC LỚN CỦA BÀI HỌC
+Người 1: Hai cột mốc lớn tương ứng với hai bài toán đau đầu nhất của doanh nghiệp. Cột mốc 1: Làm sao để bóc tách tệp khách hàng tiềm năng khỏi một mớ dữ liệu khổng lồ mà không phải "mò kim đáy bể". Cột mốc 2: Ngân hàng làm cách nào để dự báo một doanh nghiệp sắp phá sản chỉ bằng báo cáo tài chính.
+
+Slide 5: CASE STUDY: NHÀ HÀNG VEGAN-ALWAYS
+Người 1: Để dễ hình dung, thầy có một tình huống thực tế. Nhà hàng chay Vegan-Always ở thành phố Phoenix chuẩn bị khai trương. Giám đốc muốn in hàng nghìn voucher giảm giá và ném rải thảm vào hộp thư của mọi người dân trong thành phố.
+Người 2: Em thấy hồi xưa siêu thị hay làm thế, cũng thu hút được người đến mà thầy.
+
+Slide 6: VẤN ĐỀ CỦA "MARKETING ĐẠI TRÀ"
+Người 1: Nhưng đó là Marketing Đại trà, và nó là một sai lầm đốt tiền! In voucher tốn kém, mà 90% gửi nhầm đối tượng. Em thử nghĩ xem, nếu gửi voucher món chay cho một người theo chế độ ăn 100% thịt bò, họ sẽ làm gì?
+Người 2: Chắc chắn họ ném thẳng vào sọt rác rồi ạ. Vừa lãng phí tiền của nhà hàng lại vừa làm phiền họ.
+Người 1: Chuẩn! Bài học là phải tìm đúng nhóm người thích ăn chay.
+
+Slide 7: KHÁI NIỆM PHÂN KHÚC THỊ TRƯỜNG
+Người 1: Quá trình tìm đúng nhóm đó gọi là Phân khúc Thị trường (Market Segmentation). Ta xé lẻ một thị trường khổng lồ thành các nhóm nhỏ có chung một đặc điểm nào đó, để tập trung tiếp thị chính xác vào họ, tăng tỷ lệ chuyển đổi mua hàng.
+
+Slide 8: SỰ PHÁT TRIỂN NHỜ DỮ LIỆU & AI: VI PHÂN KHÚC
+Người 1: Nhưng ngày nay, AI không chỉ dừng ở phân khúc thông thường mà nó tạo ra "Vi phân khúc" (Microsegments). Không phải cứ "Phụ nữ 30 tuổi" là giống nhau. AI sẽ chia thành nhóm siêu nhỏ: "Phụ nữ 30 tuổi, thích tập Yoga, và hay lướt app mua đồ lúc 10h đêm".
+Người 2: Y như cách Netflix luôn gợi ý đúng bộ phim em thích xem vào cuối tuần đúng không thầy?
+
+Slide 9: PHÂN KHÚC ĐỘNG (DYNAMIC SEGMENTATION)
+Người 1: Chính xác. Đỉnh cao hơn nữa là Phân khúc Động (Real-time). Khách hàng không bao giờ đứng im. Hành vi và ví tiền của họ thay đổi từng ngày. AI cho phép hệ thống cập nhật và đổi nhóm cho khách hàng ngay lập tức.
+
+Slide 10: VÍ DỤ VỀ PHÂN KHÚC ĐỘNG
+Người 1: Ví dụ tháng trước em hay mua Sô-cô-la đen nguyên chất. Tháng này em bỗng tìm kiếm thực phẩm "ít calo". Lập tức AI gỡ tên em khỏi cụm "Tín đồ đồ ngọt", đẩy thẳng sang cụm "Quan tâm sức khỏe", và sáng hôm sau màn hình của em ngập tràn quảng cáo bánh ăn kiêng!
+
+Slide 11: KHÁI NIỆM HỌC KHÔNG GIÁM SÁT
+Người 2: Thầy ơi, dữ liệu hàng triệu khách hàng đổ về như thế thì làm sao máy tính biết ai thuộc nhóm nào ạ? Mình có phải gán nhãn cho nó không?
+Người 1: Không! Nếu em có một bộ dữ liệu hoàn toàn không dán nhãn, ta phải dùng "Học Không giám sát" (Unsupervised Learning). Đừng hiểu nhầm là ném dữ liệu vào đó rồi bỏ đi chơi. Nó mang ý nghĩa kỹ thuật: Máy tính phải tự bơi trong đống dữ liệu thô.
+
+Slide 12: DỮ LIỆU KHÔNG NHÃN TRÔNG NHƯ THẾ NÀO?
+Người 1: Dữ liệu không nhãn nghĩa là em chỉ có bảng Excel ghi Độ tuổi, Thu nhập, Số lần quẹt thẻ. Tuyệt đối KHÔNG có cột nào ghi chữ "Khách hàng Vip" hay "Người thích ăn chay" để máy tính copy theo.
+
+Slide 13: KHÓ KHĂN KHI PHÂN TÍCH DỮ LIỆU KHÔNG NHÃN
+Người 1: Nếu đưa cho con người một bảng Excel 100 ngàn dòng và 50 cột dữ liệu như thế để bắt chia nhóm, não chúng ta sẽ bốc khói! Trực giác con người chỉ nhìn được trong không gian 2 chiều, hoặc cùng lắm 3 chiều. 50 chiều không gian là bất khả thi.
+
+Slide 14: SỨ MỆNH CỦA HỌC KHÔNG GIÁM SÁT
+Người 1: Vì thế, sứ mệnh của thuật toán Không giám sát là lặn xuống đáy của khối dữ liệu đó, tự mò mẫm tìm ra các "Cấu trúc ẩn" (hidden structure) bên trong mà không cần em phải mớm bài trước.
+
+Slide 15: PHÂN CỤM (CLUSTERING) LÀ GÌ?
+Người 1: Công cụ sắc bén nhất để làm việc này là Phân cụm (Clustering). Những khách hàng có hành vi tương đồng sẽ bị "lực hấp dẫn" hút về chung một Cụm. Và "ngôi sao" của phần này chính là thuật toán k-Means.
+
+Slide 16: CHUYỂN Ý: ĐI SÂU VÀO THUẬT TOÁN
+Người 2: Làm sao một đoạn code toán học k-Means lại biết hai con người có "hành vi giống nhau" để xếp chung mâm ạ?
+Người 1: Một câu hỏi rất sắc bén! Chúng ta cùng đi sâu vào phần mổ xẻ cơ chế hoạt động của thuật toán này.
+
+Slide 17: THUẬT TOÁN K-MEANS: CƠ CHẾ ĐO KHOẢNG CÁCH
+Người 1: Để biết hai người có giống nhau không, k-Means quy đổi hành vi con người thành "Khoảng cách" (Distance) trên trục tọa độ. 
+
+Slide 18: MỐI QUAN HỆ: KHOẢNG CÁCH & SỰ TƯƠNG ĐỒNG
+Người 1: Đơn giản thôi: Khoảng cách ngắn tức là Hành vi giống nhau. Nếu hai điểm dữ liệu nằm sát sạt vào nhau, chứng tỏ số tiền họ tiêu, độ tuổi của họ gần như y hệt nhau. K-Means liên tục đo khoảng cách để gom những người "đứng gần nhau" vào một cụm.
+
+Slide 19: VÍ DỤ TRỰC QUAN: BỮA TIỆC KHỔNG LỒ & LỘN XỘN
+Người 1: Để hiểu toán học của k-Means, thầy kể ví dụ này: Em đang tổ chức một bữa tiệc khổng lồ. Đầu tiên em phải quyết định xem mình muốn chia thành mấy nhóm - ta gọi con số đó là $k$. Em mang $k$ chiếc bàn tiệc đặt ngẫu nhiên vào giữa căn phòng lộn xộn. Mỗi chiếc bàn là một "Tâm cụm" (Centroid).
+
+Slide 20: VÍ DỤ TRỰC QUAN: BỮA TIỆC KHỔNG LỒ & LỘN XỘN (TIẾP)
+Người 1: Bước 2, các vị khách bước vào phòng. Phản xạ tự nhiên của họ là gì? Họ sẽ nhìn quanh và chạy ngay đến chỗ chiếc bàn nào nằm gần họ nhất để đứng bu quanh đó. Đây chính là bước Gán dữ liệu vào tâm cụm.
+
+Slide 21: VÍ DỤ TRỰC QUAN: BỮA TIỆC KHỔNG LỒ & LỘN XỘN (TIẾP)
+Người 1: Bước 3. Sau khi khách đã đứng quanh bàn, em chợt nhận ra: Chiếc bàn nằm lệch mép mất rồi, không còn nằm ở giữa nhóm người đó nữa. Thế là em phải hì hục khiêng chiếc bàn, dời nó vào đúng trung tâm (trọng tâm) của đám đông đó. Đây là bước Cập nhật tâm điểm.
+
+Slide 22: VÍ DỤ TRỰC QUAN: BỮA TIỆC KHỔNG LỒ & LỘN XỘN (TIẾP)
+Người 1: Bước 4. Khi em dời bàn đi, một số người đang đứng ở rìa bỗng thấy: "Ủa, cái bàn của nhóm kế bên giờ lại gần mình hơn bàn cũ rồi!". Thế là họ lập tức chạy sang nhóm kia. Em lại tiếp tục phải dời bàn lần nữa. Vòng lặp này cứ tiếp diễn đến khi không còn vị khách nào muốn đổi bàn nữa, gọi là trạng thái "Hội tụ" (Ổn định nhất).
+
+Slide 23: CẤU TRÚC LẶP CỦA K-MEANS (TÓM TẮT)
+Người 2: Ồ, nghe như kiểu chia phe phái vậy. Tóm lại máy tính chỉ làm vòng lặp: Chọn tâm ngẫu nhiên $\rightarrow$ Gán điểm vào tâm gần nhất $\rightarrow$ Tính trung bình để dời tâm mới $\rightarrow$ Lặp đến khi hội tụ.
+Người 1: Khá khen cho em, em vừa tóm tắt chính xác 100% thuật toán k-Means trị giá hàng tỷ đô rồi đấy!
+
+Slide 24: HẠN CHẾ CỦA K-MEANS
+Người 1: Nhưng k-Means có một tử huyệt cực lớn: Rất sợ Điểm ngoại lai (Outliers). Tâm cụm của nó được tính bằng phép Toán Trung Bình Cộng. Nếu trong bữa tiệc có một "vị khách khổng lồ" đứng tách biệt tít ngoài góc tường, phép tính trung bình sẽ kéo lê cái bàn trượt về phía góc đó, làm hỏng toàn bộ nhóm!
+
+Slide 25: TẠI SAO DỮ LIỆU KẾ TOÁN LẠI NHIỀU OUTLIERS?
+Người 2: Mà dữ liệu kế toán thì đầy rẫy các khách VIP mua sỉ đúng không thầy?
+Người 1: Chính xác. 100 khách lẻ tiêu 1 triệu, bỗng lòi ra 1 ông tiêu 500 triệu. Sự bất thường (skewed) này sẽ bóp méo hoàn toàn mô hình k-Means cổ điển.
+
+Slide 26: GIẢI PHÁP: THUẬT TOÁN K-MEDOID
+Người 1: Do đó người ta chế ra thuật toán mạnh hơn: k-Medoid. Khác biệt cốt lõi là thay vì dùng điểm Trung bình vô hình để làm tâm, nó sẽ lấy một "người thực tế" tiêu biểu nhất trong nhóm làm Trưởng bàn. Trưởng bàn là người thực nên không bị lực kéo của "gã khổng lồ góc tường" bóp méo nữa. K-Medoid chống nhiễu (Robust) tốt hơn k-Means rất nhiều!
+
+Slide 27: LÀM SAO BIẾT K BẰNG BAO NHIÊU?
+Người 2: Có một vấn đề em thắc mắc nãy giờ: Làm sao mình biết nên chọn $k$ (số cái bàn) là 3, 5 hay 10 ngay từ đầu ạ? Lỡ đoán sai thì hỏng bét.
+Người 1: Câu hỏi triệu đô! Cả k-Means và k-Medoid đều không tự biết được. Nếu con người chỉ đoán mò, máy tính sẽ đưa ra kết quả ngớ ngẩn. Ta bắt buộc phải dùng một công cụ chấm điểm học thuật để tìm số $k$ tối ưu.
+
+Slide 28: HỆ SỐ SILHOUETTE (SILHOUETTE WIDTH)
+Người 1: Công cụ đó gọi là Hệ số Silhouette. Nó sẽ chấm điểm từ -1 đến 1. Điểm số càng bám sát số 1, chứng tỏ nhóm đó được chia rất tự nhiên, hoàn hảo!
+
+Slide 29: HAI TIÊU CHÍ CỐT LÕI CỦA SILHOUETTE
+Người 1: Silhouette chấm điểm dựa trên 2 yếu tố. Thứ nhất: Độ gắn kết (Cohesion) - Các thành viên trong nhóm có dính chặt lấy nhau không? Càng chặt càng tốt. Thứ hai: Độ tách biệt (Separation) - Nhóm này có nằm xa tít nhóm kia không? Càng xa càng tốt để tránh nhầm lẫn ranh giới.
+
+Slide 30: ỨNG DỤNG KẾ TOÁN: PHÂN KHÚC ĐỂ TỐI ƯU LỢI NHUẬN
+Người 1: Áp dụng vào nghiệp vụ nhé. Nếu chạy hệ số Silhouette và k-Means trên tập khách hàng với 2 biến: "Số tiền chi" và "Thời gian gắn bó". Hệ thống chỉ ra 2 cụm: Cụm 1 gắn bó siêu lâu nhưng lại bo bo giữ tiền, rất keo kiệt. Cụm 2 vừa trung thành vừa chi vung tay.
+Người 2: Rõ ràng Cụm 2 là Khách hàng Vàng! Kế toán quản trị sẽ phải tư vấn dồn toàn bộ ngân sách Marketing vào chăm sóc Cụm 2 để tối đa tỷ suất lợi nhuận (ROI) thầy nhỉ.
+
+Slide 31: THỰC HÀNH R: CODE K-MEANS CƠ BẢN
+Người 1: Em nhìn đoạn code R trên bảng. Chỉ tốn đúng 3 dòng lệnh. Ta chuẩn hóa dữ liệu bằng \texttt{scale()}, sau đó gọi lệnh \texttt{kmeans()} với tham số \texttt{centers = 3}. Rất nhẹ nhàng và quyền lực!
+
+Slide 32: KẾT QUẢ TRỰC QUAN: BIỂU ĐỒ K-MEANS
+Người 1: Và đây là kết quả đồ họa của nó. Dùng hàm \texttt{fviz\_cluster()}, thuật toán sẽ tự động vẽ một vòng bao quanh các nhóm khách hàng (cluster). Hình ảnh này mà em mang vào slide thuyết trình trình chiếu cho Ban Giám đốc thì thuyết phục tuyệt đối!
+
+Slide 33: BẢO VỆ SINH MỆNH DOANH NGHIỆP
+Người 1: Bây giờ, ta chuyển sang Phần 3. Tìm khách hàng giỏi, bán nhiều doanh thu là tốt. Nhưng doanh thu khủng không có nghĩa là doanh nghiệp không thể phá sản nếu dòng tiền đang rỉ máu từ bên trong.
+
+Slide 34: DỰ BÁO PHÁ SẢN: GÓC NHÌN NGƯỜI CHO VAY
+Người 1: Đặt vị trí em là nhân viên quản trị rủi ro của UltraBank. Có một doanh nghiệp nộp hồ sơ vay vốn lớn. Em phải đánh giá xem trong 2 năm tới, nó có sống sót để trả nợ không. Truyền thống thì ta sẽ lôi các tỷ số tài chính ra tính toán.
+
+Slide 35: CÁC CHỈ SỐ TÀI CHÍNH PHỔ BIẾN
+Người 2: Mấy tỷ số kinh điển như Nợ trên Vốn chủ (Debt-to-Equity), Thanh toán hiện hành, hay Biên lợi nhuận ròng phải không thầy?
+
+Slide 36: VẤN ĐỀ: SỬ DỤNG QUÁ NHIỀU CHỈ SỐ
+Người 1: Đúng. Nhưng hiện tại máy tính có thể giúp em tính ra hàng trăm tỷ số phức tạp khác. Lòng tham nổi lên, em ném tất tay hàng chục tỷ số đó vào một mô hình Hồi quy Cổ điển (OLS). Và Bùm! Mô hình sụp đổ vì mắc một căn bệnh nan y tên là Đa cộng tuyến (Multicollinearity).
+
+Slide 37: HIỆN TƯỢNG ĐA CỘNG TUYẾN LÀ GÌ?
+Người 1: Về mặt thống kê, Đa cộng tuyến xảy ra khi các biến độc lập mà em ném vào tương quan cực kỳ chặt chẽ với nhau. Thông tin cứ bị xào đi xào lại thừa thãi.
+
+Slide 38: VÍ DỤ TRỰC QUAN: LÁI XE VỚI 5 CHIẾC GPS
+Người 2: Em chưa hiểu rõ sự nghiêm trọng của nó lắm ạ.
+Người 1: Hãy tưởng tượng, em vừa lái xe vừa bật 5 cái máy GPS chỉ đường cùng lúc. 5 cái GPS này chỉ đường gần y hệt nhau, nhưng thỉnh thoảng một cái lại kêu trễ pha. Tiếng gào thét "Rẽ trái", "Rẽ phải" vang lên hỗn loạn. Kết quả là thay vì đến đích an toàn, em phát điên và đâm sầm xe vào gốc cây!
+
+Slide 39: HẬU QUẢ VỚI HỒI QUY CỔ ĐIỂN (OLS)
+Người 1: Thuật toán OLS truyền thống rất yếu đuối trước hiện tượng này. Giả định sống còn của nó là các biến tuyệt đối không được tương quan mạnh (Không được dùng nhiều GPS giống nhau). Khi xảy ra đa cộng tuyến, OLS sẽ hoảng loạn và đưa ra trọng số sai bét.
+
+Slide 40: TẠI SAO OLS THẤT BẠI TRƯỚC ĐA CỘNG TUYẾN?
+Người 1: Khi đa cộng tuyến xảy ra, Sai số chuẩn trong tính toán sẽ tăng vọt. Dẫn đến Sai lầm Loại II cực kỳ nguy hiểm: Chuông báo cháy (dấu hiệu phá sản) đang kêu lên, nhưng các biến nhiễu đã triệt tiêu âm thanh đó. OLS báo cáo "Công ty này rất khỏe". Thế là ngân hàng giải ngân, và năm sau công ty đó tuyên bố phá sản!
+
+Slide 41: PHÁT HIỆN ĐA CỘNG TUYẾN (CORRELATION PLOT)
+Người 1: Làm sao để phát hiện? Nhìn lên ma trận Tương quan (Correlation Plot) này, những ô màu đỏ quạch hoặc xanh thẫm là biểu hiện của tỷ lệ tương quan trên 0.9. Kiểm tra hệ số VIF thậm chí nó có thể vọt lên 600 - trong khi trên 10 đã là mức báo động đỏ rồi.
+
+Slide 42: GIẢI PHÁP AI: RỜI BỎ OLS, CHUYỂN SANG HỒI QUY CÓ PHẠT
+Người 2: Chết thật! Vậy UltraBank phải dùng gì để dự đoán phá sản cho an toàn ạ?
+Người 1: Ta phải loại bỏ Hồi quy OLS, mời lên sàn một thuật toán AI sát thủ: Hồi quy có phạt (Penalized Regression), tiêu biểu nhất là thuật toán LASSO.
+
+Slide 43: SỰ TRỪNG PHẠT DỮ LIỆU CỦA LASSO
+Người 2: "Trừng phạt" nghe bạo lực quá thầy. Máy tính trừng phạt dữ liệu kiểu gì ạ?
+Người 1: Nghĩa đen luôn đấy em! LASSO thêm một tham số $\lambda$ (Lambda) vào phương trình toán học. Khi mô hình thấy có nhiều biến (nhiều GPS) đang xúm vào gây nhiễu, $\lambda$ sẽ ra tay trừng phạt các hệ số của những biến tọc mạch đó.
+
+Slide 44: CƠ CHẾ TRỪNG PHẠT: ÉP VỀ 0
+Người 1: Sức mạnh đáng sợ nhất của LASSO là nó siết chặt các hệ số nhiễu cho đến khi nhỏ dần, nhỏ dần... và vỡ vụn bằng đúng số 0. Khi một tỷ số tài chính bị gán hệ số bằng 0, nghĩa là nó đã bị đuổi thẳng cổ khỏi mô hình!
+
+Slide 45: TỰ ĐỘNG LỰA CHỌN BIẾN (VARIABLE SELECTION)
+Người 1: Ví dụ UltraBank có 16 tỷ số. LASSO vung gươm chém 4 tỷ số nhiễu ép về 0. Chắt lọc lại chỉ giữ đúng 12 tỷ số vàng ngọc cốt lõi nhất. Sự vi diệu ở chỗ máy tự động làm nhiệm vụ Lựa chọn biến (Variable Selection) mà kế toán viên không cần phải đoán mò biến nào quan trọng.
+
+Slide 46: ĐÁNH GIÁ MÔ HÌNH: ĐƯỜNG CONG AUC ROC
+Người 2: Nhưng làm sao Giám đốc ngân hàng dám tin tưởng thuật toán LASSO để giao phó cả tỷ bạc ạ? Phải có bằng chứng chứ.
+Người 1: Dĩ nhiên! Ta đưa bằng chứng bằng Đường cong chấm điểm ROC. Trục Y là số công ty bị đoán trúng phá sản. Trục X là báo động nhầm. Tính toán diện tích dưới đường cong ta sẽ ra một điểm số gọi là AUC.
+
+Slide 47: Ý NGHĨA CỦA ĐIỂM SỐ AUC (AREA UNDER THE CURVE)
+Người 1: Nếu điểm AUC = 0.5, thì quăng cái máy tính đi, vì nó dự báo vô giá trị hệt như nhắm mắt tung đồng xu. Nếu AUC = 1.0 thì mô hình là một vị thần hoàn hảo tuyệt đối. Vậy trong ngành tài chính khốc liệt, điểm bao nhiêu là dùng được?
+
+Slide 48: KẾT QUẢ ĐÁNH GIÁ MÔ HÌNH LASSO
+Người 1: Nhìn vào biểu đồ trên, đường cong vồng lên rất đẹp. Điểm AUC đạt 0.8. Đây là con số cực kỳ tuyệt vời và mạnh mẽ trong thực tế. UltraBank có thể an tâm cắm nguồn dữ liệu vào mô hình LASSO. Nếu máy nhổ ra số 0 - Từ chối vay; nếu máy nhổ số 1 - An toàn, duyệt hồ sơ!
+
+Slide 49: TỔNG KẾT: SỰ VA CHẠM GIỮA CON NGƯỜI & MÁY MÓC
+Người 1: Tóm lại bài hôm nay, ta thấy Máy móc quá xuất sắc. k-Means tìm ra tệp Khách hàng Vàng. LASSO loại trừ tỷ số rác để bảo vệ ngân hàng. Ở đây xảy ra sự va chạm: Thuật toán có thể nhẫn tâm thẳng tay chém bỏ một tỷ số tài chính mà "Sách giáo khoa xưa nay coi là vô cùng quan trọng"!
+
+Slide 50: CÂU HỎI MỞ: TRỰC GIÁC VS. THUẬT TOÁN
+Người 1: Thầy có một câu hỏi mở cho các em: Nếu cỗ máy AI với điểm AUC cao ngất ngưởng, phán một doanh nghiệp sắp vỡ nợ. Nhưng trực giác của vị Kế toán trưởng già đời 20 năm kinh nghiệm lại tin rằng họ sẽ vượt qua. Em với tư cách Giám đốc sẽ chọn nghe theo ai? 
+Người 2: Ôi, một câu hỏi quá khó thầy ạ. Chắc chắn phải có một buổi họp nảy lửa giữa phe con người và phe công nghệ.
+
+Slide 51: TƯƠNG LAI CỦA NGÀNH KẾ TOÁN - TÀI CHÍNH
+Người 1: Đó chính là tương lai của các em! Tương lai không phải là việc cúi đầu phục tùng thuật toán một cách mù quáng. Máy móc tính rất nhanh, nhưng em phải học cách "diễn dịch", "kiểm soát" và "tranh luận" tay đôi với kết quả của máy. Quyết định và Đạo đức nghề nghiệp, mãi mãi nằm ở phía con người.
+
+Slide 52: LỜI CẢM ƠN
+Người 1: Cảm ơn các em đã theo dõi một buổi học cực kỳ căng thẳng nhưng hấp dẫn. Có bạn nào còn câu hỏi thắc mắc không? Hẹn gặp lại các em ở những bài tập tình huống sắp tới!

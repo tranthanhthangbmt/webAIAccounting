@@ -208,6 +208,10 @@ Yao, M., Jia, M., & Zhou, A. (2018). Applied artificial intelligence: A handbook
 
 
 
+#### ** 🎬 Video **
+
+<iframe src="video/Day01/index.html" style="width: 100%; aspect-ratio: 16/9; max-height: 75vh; border: none; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"></iframe>
+
 #### ** 🎦 Slide Bài Giảng **
 
 <object data="TaiLieu/slideAIAcc/Slide_AIAcc_Day01.pdf#view=FitH" type="application/pdf" class="pdf-container" width="100%" height="800px">

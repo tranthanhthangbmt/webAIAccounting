@@ -374,6 +374,10 @@ Ngai, E. W. T., Hu, Y., Wong, Y. H., Chen, Y., and Sun, X. (2011) The applicatio
 West, J. and Bhattacharya, M. (2016) Intelligent financial fraud detection: A comprehensive review. Computers and Security, 57: 47–66.
 Wolfe, D. T. and Hermanson, D. R. (2004) The Fraud diamond: Considering the four elements of fraud: Certified public accountant. The CPA Journal, 74 (12): 38–42.
 
+#### ** 🎬 Video **
+
+<iframe src="video/Day07/index.html" style="width: 100%; aspect-ratio: 16/9; max-height: 75vh; border: none; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"></iframe>
+
 #### ** 🎦 Slide Bài Giảng **
 
 <object data="TaiLieu/slideAIAcc/Slide_AIAcc_Day07.pdf#view=FitH" type="application/pdf" class="pdf-container" width="100%" height="800px">

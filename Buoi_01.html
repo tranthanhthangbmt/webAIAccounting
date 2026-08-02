@@ -22,8 +22,9 @@
     
     <div class="tabs">
         <div class="tab active" onclick="openTab('en-tab', this)">English (Bản gốc)</div>
-        <div class="tab" onclick="openTab(\'vi-tab\', this)">Tiếng Việt</div>
-        <div class="tab" onclick="openTab(\'slide-tab\', this)">Slide Bài Giảng</div>
+        <div class="tab" onclick="openTab('vi-tab', this)">Tiếng Việt</div>
+        <div class="tab" onclick="openTab('video-tab', this)">Video</div>
+        <div class="tab" onclick="openTab('slide-tab', this)">Slide Bài Giảng</div>
     </div>
 
     <div id="en-tab" class="content active">
@@ -632,6 +633,10 @@ for business leaders (N. Zhang, Ed.). TOPBOTS Inc.  18 What Accountants Need to 
 
     <div id="vi-tab" class="content">
         <div id="vi-content" class="vi-text"></div>
+    </div>
+
+    <div id="video-tab" class="content">
+        <iframe src="video/Day01/index.html" width="100%" height="800px" style="border: none;"></iframe>
     </div>
 
     <div id="slide-tab" class="content">

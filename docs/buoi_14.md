@@ -535,6 +535,10 @@ Kế toán viên hiện đại có thể kết hợp PivotTable Excel và AI t�
 > *   **Đạo đức nghề nghiệp:** Luôn duy trì tỷ lệ Data-Ink tối đa, bắt đầu trục Y của biểu đồ cột từ 0, không lạm dụng 3D và tuyệt đối trung thực với sự thật phía sau những con số tài chính!
 
 
+#### ** 🎬 Video **
+
+<iframe src="video/Day14/index.html" style="width: 100%; aspect-ratio: 16/9; max-height: 75vh; border: none; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"></iframe>
+
 #### ** 🎦 Slide Bài Giảng **
 
 <object data="TaiLieu/slideAIAcc/Slide_AIAcc_Day14.pdf#view=FitH" type="application/pdf" class="pdf-container" width="100%" height="800px">

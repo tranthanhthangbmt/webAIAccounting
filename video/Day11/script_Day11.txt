@@ -1,0 +1,141 @@
+Slide 1: TRANG BÌA
+Người 1: Chào các em! Ở các buổi trước chúng ta đã bàn về vĩ mô, hôm nay ở Buổi 11, chúng ta sẽ quay trở lại với "Vũ khí" cốt lõi nhất của một kiểm toán viên kỷ nguyên số: Kỹ năng Phân tích Dữ liệu Nền tảng.
+Người 2: Dạ, có phải chúng ta sẽ học cách soi báo cáo tài chính bằng Excel không thầy?
+Người 1: Hơn thế nữa! Chúng ta sẽ đi từ gốc rễ: Từ Cơ sở dữ liệu SQL, qua Excel, xoay các góc nhìn bằng PivotTable, lật tẩy các con số lừa dối bằng Thống kê mô tả, và cuối cùng vẽ nó ra bằng đồ thị Trực quan hóa.
+
+Slide 2: MỤC TIÊU BÀI HỌC
+Người 1: Bài hôm nay có 5 mục tiêu cốt lõi: Thứ nhất, hiểu Khóa chính, Khóa ngoại trong Database. Thứ hai, hiểu sức mạnh của SQL JOIN. Thứ ba, nắm vững hàm SUMIFS trong Excel. Thứ tư, phát hiện sự lừa dối của "Số trung bình". Và cuối cùng, nghệ thuật vẽ biểu đồ khám phá và giải thích.
+
+Slide 3: NỘI DUNG CHÍNH (AGENDA)
+Người 1: Bài học chia làm 5 phần chính, bám sát một quy trình chuẩn xác từ lúc lấy dữ liệu thô cho đến lúc nộp báo cáo cho Ban giám đốc.
+
+Slide 4: NỘI DUNG
+Người 1: Trước khi học công cụ, thầy muốn các em hiểu tại sao ta phải học phân tích dữ liệu qua phần Khởi động: Ảo ảnh của Số Trung Bình.
+
+Slide 5: TÌNH HUỐNG KIỂM TOÁN THỰC TẾ
+Người 1: Thầy có một Case study thế này: Công ty Super Scooters chuyên cho thuê xe điện. Báo cáo cuối tháng cho thấy chi phí bảo hành trung bình của mỗi chiếc xe là 600 đô la. Trong khi đó, ngân sách cho phép là 650 đô. Thấy con số 600 đô này, em có yên tâm ký đóng hồ sơ kiểm toán không?
+Người 2: Ngân sách 650 mà thực chi có 600, tức là vẫn đang tiết kiệm được 50 đô. Theo em thì hệ thống đang hoạt động rất ổn định ạ!
+
+Slide 6: ẢO ẢNH 600 USD: CON SỐ "HOÀN HẢO"
+Người 1: Đó chính là cái bẫy chết người của kiểm toán viên! Trong phân tích dữ liệu, "Số trung bình" (hay Mean) là một ảo ảnh toán học. Nó có một sức mạnh đáng sợ: Nó "san bằng" mọi sự bất thường để cho ra một con số đẹp đẽ, sạch sẽ.
+
+Slide 7: CÚ SỐC ĐẰNG SAU CON SỐ 600 ĐÔ LA
+Người 1: Khi thầy dùng công cụ đào sâu vào dữ liệu thô, sự thật hiện ra: Hoàn toàn không có chiếc xe nào sửa tốn 600 đô cả! Thực chất, chi phí tập trung ở hai nhóm: Một nhóm lỗi rất nhỏ tốn 200 đô, và một nhóm xe bị lỗi hệ thống cực kỳ nghiêm trọng ngốn đến 1.200 đô la một chiếc!
+Người 2: Trời! Vậy là con số 600 đô kia chỉ là trung bình cộng cộng gộp lại, nó hoàn toàn che giấu việc hệ thống đang có một dòng xe bị lỗi nặng gây thất thoát tiền 1.200 đô!
+
+Slide 8: HÀNH TRÌNH KHÁM PHÁ DỮ LIỆU
+Người 1: Rất chính xác! Con số trung bình không đại diện cho giao dịch thực tế nào cả. Vậy làm sao để tóm gọn những "kẻ cắp tàng hình" đang bào mòn 1.200 đô kia? Đó là hành trình 4 bước: Rút dữ liệu (SQL), Nhào nặn (Excel), Xoay khối (PivotTable), và Lật tẩy (Thống kê - Trực quan hóa).
+
+Slide 9: NỘI DUNG
+Người 1: Ta bước vào chặng đầu tiên: Cơ sở dữ liệu quan hệ và nghệ thuật kết nối.
+
+Slide 10: CƠ SỞ DỮ LIỆU QUAN HỆ LÀ GÌ?
+Người 1: Em hãy vứt bỏ tư duy rằng dữ liệu của tập đoàn là một cái bảng Excel khổng lồ chứa 1 triệu dòng đi. Cơ sở dữ liệu quan hệ lưu trữ dữ liệu dưới dạng các "Bảng" (Tables) nhỏ lẻ, phân tán. Chữ "Quan hệ" nằm ở chỗ các bảng này có thể nói chuyện và nối lại với nhau bằng hệ thống Khóa.
+
+Slide 11: THÀNH PHẦN CƠ BẢN: BẢNG, HÀNG, CỘT
+Người 1: Một bảng gồm các Hàng (chứa 1 bản ghi giao dịch trọn vẹn) và Cột (thể hiện thuộc tính giao dịch đó, như ngày tháng, số tiền).
+
+Slide 12: KHÓA CHÍNH (PRIMARY KEY)
+Người 1: Khóa chính là gì? Nó là cột có giá trị ĐỘC NHẤT cho mỗi hàng. Không bao giờ có 2 hàng trùng khóa chính. Nó giống hệt như Số Căn cước Công dân của em. Trong dữ liệu hàng triệu người, mã số đó chỉ định danh duy nhất mình em!
+
+Slide 13: KHÓA NGOẠI (FOREIGN KEY)
+Người 1: Khóa ngoại là cột trong bảng này nhưng lại lấy dữ liệu từ Khóa chính của bảng khác. Nó như một chiếc mỏ neo. Khi em ra ngân hàng, em chỉ cần điền Khóa ngoại là số CCCD. Ngân hàng lập tức dùng chiếc mỏ neo đó, kéo sang Cơ sở dữ liệu Quốc gia để lấy thông tin Tên tuổi, Quê quán của em.
+
+Slide 14: BÀI TOÁN DƯ THỪA THÔNG TIN
+Người 2: Tại sao người ta không gộp hết vào 1 bảng cho dễ nhìn mà phải cắt ra nhiều bảng làm gì cho cực vậy thầy?
+Người 1: Để chống dư thừa! Ví dụ công ty mua 10.000 cái laptop. Nếu gộp 1 bảng, em sẽ phải gõ "Tỷ lệ khấu hao 30%" lặp đi lặp lại 10.000 lần. Sai một ly là đi ngàn dặm! Thay vào đó, họ tạo Bảng "Danh mục Tài sản" lưu 1 lần tỷ lệ khấu hao. Sau đó dùng Khóa ngoại nối sang Bảng "Lịch sử mua hàng".
+
+Slide 15: TRUY XUẤT DỮ LIỆU: NGÔN NGỮ SQL
+Người 1: Khi dữ liệu bị băm nhỏ ra nhiều bảng như vậy, kiểm toán viên làm sao gom chúng lại để xem? Ta dùng ngôn ngữ SQL. Từ khóa quyền lực nhất trong SQL chính là lệnh JOIN (Kết nối).
+
+Slide 16: BỐN PHƯƠNG PHÁP KẾT NỐI (JOIN)
+Người 1: Có 4 phương pháp kết nối cơ bản: Inner Join, Left Join, Right Join, và Full Join. Chúng ta sẽ xem xét 2 lệnh quan trọng nhất đối với kiểm toán: Inner và Left.
+
+Slide 17: INNER JOIN: BỨC TRANH "SẠCH SẼ" NHƯNG LỪA DỐI
+Người 1: Inner Join là phép giao. Nó chỉ lấy những dòng nào khớp nhau ở cả Bảng A và Bảng B. Ví dụ A là bảng "Hóa đơn chi tiền", B là bảng "Danh sách nhà cung cấp hợp lệ". Kết quả Inner Join trả ra một danh sách sạch sẽ, hoàn hảo. 
+Người 2: Khoan đã! Inner Join chỉ lấy phần chung, vậy những hóa đơn chi cho các nhà cung cấp KHÔNG nằm trong danh sách hợp lệ sẽ bị vứt bỏ hoàn toàn sao thầy? Thế thì làm sao kiểm toán bắt lỗi được ạ!
+
+Slide 18: LEFT JOIN TRONG KIỂM TOÁN: TRUY TÌM "KẺ CẮP TÀNG HÌNH"
+Người 1: Quá xuất sắc! Inner Join là cái bẫy che giấu sự thật. Để bắt gian lận, ta phải dùng LEFT JOIN. Nó ép hệ thống: "Giữ lại TOÀN BỘ 100% hóa đơn chi tiền bên Bảng Trái. Sau đó cố gắng nhét thông tin nhà cung cấp Bảng Phải vào". Điều gì sẽ xảy ra nếu một hóa đơn chi cho một công ty ma?
+
+Slide 19: SỰ THẬT VỀ GIÁ TRỊ NULL
+Người 1: Khi Hóa đơn không tìm thấy Nhà cung cấp tương ứng, nó sẽ sinh ra giá trị NULL (Rỗng). Nhớ kỹ: NULL không phải là số 0. Số 0 là có tiền nhưng bằng 0. NULL là lỗ hổng đen ngòm! Nhìn thấy một đống NULL ở cột tên nhà cung cấp, kiểm toán viên hiểu ngay: Tiền đang bị tuồn ra ngoài hệ thống cho các công ty ma!
+
+Slide 20: NỘI DUNG
+Người 1: Rút xong dữ liệu bằng SQL, ta chuyển sang Phần 3: Chế ngự cục dữ liệu khổng lồ đó bằng Excel.
+
+Slide 21: TỪ SQL SANG EXCEL: BỨC TRANH HÀNG TRĂM NGÀN DÒNG
+Người 1: Sau khi JOIN xong, em xuất ra một file Excel chứa 500.000 dòng. Logic của cơ sở dữ liệu kết thúc ở đây. Giờ là lúc dùng các Hàm (Functions) của Excel để nhào nặn.
+
+Slide 22: HẠN CHẾ CỦA HÀM CƠ BẢN
+Người 1: Hàm SUM hay COUNT rất nhanh. Nhưng thực tế, Ban Giám đốc hiếm khi hỏi những câu đơn giản kiểu: "Tổng tài sản là bao nhiêu?"
+
+Slide 23: NHU CẦU PHÂN TÍCH ĐA CHIỀU
+Người 1: Sếp thường hỏi những câu đánh đố: "Hãy tính tổng tài sản, NHƯNG chỉ tính thiết bị y tế, mua sau năm 2022, và nằm ở chi nhánh phía Nam". Một hàm SUM bình thường sẽ bó tay. Nếu em ngồi bấm filter lọc từng cái rồi copy cộng tay thì sáng mai mới xong báo cáo!
+
+Slide 24: GIẢI PHÁP: CÁC HÀM CÓ ĐIỀU KIỆN
+Người 1: Để giải quyết, ta dùng các hàm SUMIFS (Tổng nhiều điều kiện) hoặc COUNTIFS. Nó xử lý hàng trăm ngàn dòng tích tắc.
+
+Slide 25: CƠ CHẾ CỦA SUMIFS: "NGƯỜI BẢO VỆ KHẮT KHE"
+Người 1: Thầy hay gọi SUMIFS là một "Người bảo vệ khắt khe". Hãy tưởng tượng hắn cầm một danh sách tiêu chí, đi dọc qua 500.000 dòng giao dịch. Chỉ những dòng nào thỏa mãn ĐỒNG THỜI mọi tiêu chí (Thiết bị y tế + sau 2022 + miền Nam) thì mới được ông bảo vệ mở cửa cho cộng vào Tổng. Rất kỷ luật!
+
+Slide 26: SỨC MẠNH & HẠN CHẾ CỦA CÁC HÀM EXCEL
+Người 2: Hàm này mạnh quá, vậy nó có điểm yếu nào không thầy?
+Người 1: Có chứ! Điểm yếu của nó là em CHỈ dùng được khi sếp đưa ra CÂU HỎI CỤ THỂ. Nếu sếp ném cho em file dữ liệu và bảo: "Em xem có xu hướng gì lạ không?". Không có điều kiện, em không viết hàm SUMIFS được! Đó là lúc ta cần vũ khí hạng nặng khác.
+
+Slide 27: NỘI DUNG
+Người 1: Đó chính là Pivot Table ở Phần 4: Tư duy phân tích khám phá.
+
+Slide 28: VŨ KHÍ TỐI THƯỢNG: PIVOT TABLE
+Người 1: Khi em không biết phải đặt câu hỏi gì, PivotTable là công cụ hoàn hảo. Không cần viết công thức! Nó dựa trên giao diện Kéo và Thả (Drag & Drop) để biến hình dữ liệu.
+
+Slide 29: NĂM VÙNG CỐT LÕI CỦA PIVOT TABLE
+Người 1: PivotTable có 4 vùng chính: Filters (Bộ lọc toàn cục), Columns (Xé dữ liệu theo chiều ngang), Rows (Gom nhóm theo chiều dọc), và Values (Thực hiện tính tổng, trung bình...).
+
+Slide 30: PHÉP MÀU KÉO & THẢ: 10 GIẢY CHO 450.000 DÒNG
+Người 1: Chỉ cần kéo cột "Loại tài sản" thả vào vùng ROWS. Lập tức máy tính quét 450.000 dòng, gom lại thành 5 danh mục tài sản duy nhất. Kéo cột "Chi phí" vào VALUES. Bùm! Từ bãi chiến trường, em có ngay 1 bảng báo cáo đẹp mắt trong 10 giây.
+
+Slide 31: BẢNG ĐIỀU KHIỂN TƯƠNG TÁC (INTERACTIVE DASHBOARD)
+Người 1: Hơn nữa, PivotTable có thể gắn thêm Slicers (Bộ lọc trực quan). Khi thuyết trình, sếp hỏi "Năm ngoái sao?". Em bấm vào nút 2023 trên Slicers, toàn bộ biểu đồ, bảng biểu tự nhảy số theo thời gian thực (Real-time). Báo cáo tĩnh trở thành một Cỗ máy tương tác!
+
+Slide 32: CẠM BẪY CỦA SỰ GỌN GÀNG
+Người 2: Gọn gàng và kỳ diệu quá! Xong việc báo cáo rồi đúng không thầy?
+Người 1: Khoan đã! Em vừa tự đào hố chôn mình đấy! Báo cáo Pivot đưa ra những con số Tổng và Trung bình cực kỳ gọn gàng. Nhưng nhớ bài học đầu giờ không? Sự sạch sẽ của số trung bình đang che giấu mớ hỗn độn bên dưới! Ta phải lột mặt nạ của nó ở Phần 5.
+
+Slide 33: NỘI DUNG
+Người 1: Phần 5: Thống kê mô tả và Vạch trần sự thật.
+
+Slide 34: THỐNG KÊ MÔ TẢ (DESCRIPTIVE STATISTICS)
+Người 1: Khi có dữ liệu, hãy đưa nó lên bàn mổ! Đừng chỉ nhìn vào Mean (Số trung bình). Em phải đo lường độ phân tán bằng Phương sai (Variance) và Độ lệch chuẩn (Standard Deviation).
+
+Slide 35: HÌNH DÁNG PHÂN BỔ: ĐỘ LỆCH & ĐỘ NHỌN
+Người 1: Ta phải đo xem Hình dáng ngọn núi dữ liệu đó méo về bên trái hay bên phải (Độ lệch - Skewness). Ngọn núi đó nhọn hoắt chứng tỏ dữ liệu ổn định tập trung vào giữa (Kurtosis cao), hay thấp tè và trải dài?
+
+Slide 36: LẬT TẨY ẢO ẢNH 600 USD: LƯNG LẠC ĐÀ
+Người 1: Quay lại vụ xe Scooter đầu giờ. Khi vẽ bằng đồ thị, dữ liệu thực tế không phải là 1 ngọn núi nhọn ở giữa 600 đô. Mà nó là đồ thị 2 đỉnh (Bimodal) giống hệt "Lưng lạc đà". Một bướu ở 200 đô, một bướu ở 1.200 đô. Con số 600 đô nằm lọt thỏm dưới thung lũng, không có thật! Thống kê mô tả đã lột mặt nạ báo cáo tài chính!
+
+Slide 37: ĐỘ LỆCH CHUẨN: HỆ THỐNG "RADAR AN NINH"
+Người 1: Độ lệch chuẩn còn đóng vai trò như một Radar an ninh. Nó vạch ra vùng không phận an toàn chứa 99% giao dịch. Ngay khi có một khoản chi lọt ra ngoài vùng này, Radar chớp đỏ, đánh dấu nó là Ngoại lệ (Outlier). Kiểm toán viên lập tức nhào tới kiểm tra chứng từ của giao dịch đó ngay!
+
+Slide 38: NỘI DUNG
+Người 1: Và bước cuối cùng, trình bày sự thật đó ở Phần 6: Trực quan hóa dữ liệu.
+
+Slide 39: GIỚI HẠN CỦA NÃO BỘ
+Người 1: Tại sao phải vẽ biểu đồ? Vì não người không sinh ra để đọc nửa triệu dòng chữ. Nếu em cố nhìn bảng số để tìm lỗi, em sẽ bị "mù lòa nhận thức". Nhưng vỏ não thị giác lại phân tích hình ảnh nhanh gấp vạn lần!
+
+Slide 40: BIỂU ĐỒ PHÂN TÁN (SCATTER PLOT)
+Người 1: Dùng Scatter Plot (Biểu đồ phân tán), mỗi giao dịch là một dấu chấm. Chỉ mất 0,1 giây, mắt em lập tức nhận ra một dấu chấm đơn độc bay lơ lửng tít trên góc phải, cách xa đám đông. Outlier đấy! Gian lận nằm ở đó! Bảng số không làm được điều này.
+
+Slide 41: HAI GIAI ĐOẠN: KHÁM PHÁ & GIẢI THÍCH
+Người 1: Nhớ kỹ, vẽ đồ thị có 2 giai đoạn. Giai đoạn Khám phá (Exploratory) là cho chính em xem. Nó lộn xộn, xấu xí như phòng của một thám tử. Nhưng khi mang vào phòng họp trình chiếu, em phải chuyển sang Giải thích (Explanatory): Cắt bỏ mọi râu ria, làm nổi bật duy nhất thông điệp muốn kể cho Sếp nghe.
+
+Slide 42: CHỌN ĐÚNG BIỂU ĐỒ
+Người 1: Chọn sai biểu đồ là bóp méo thông tin. Dùng Biểu đồ cột (Bar Chart) để so sánh to nhỏ. Dùng Biểu đồ tần suất (Histogram) để xem hình dáng ngọn núi, xem lưng con lạc đà có bị cắt làm đôi như vụ Scooter không.
+
+Slide 43: TỔNG KẾT BUỔI HỌC
+Người 1: Tóm lại, kiểm toán viên thời đại số mang 4 trọng trách: Làm Kiến trúc sư nối SQL JOIN. Làm Người điều phối dùng SUMIFS/Pivot. Làm Thám tử dùng Thống kê mô tả tìm bướu lạc đà. Và làm Nhà kể chuyện vẽ Scatter plot chỉ ra ngoại lệ. 
+
+Slide 44: HỎI ĐÁP
+Người 1: Bài hôm nay trang bị công cụ cứng cực kỳ quan trọng! Cảm ơn các em đã theo dõi. Có ai thắc mắc về các lệnh SQL hay PivotTable không?
+Người 2: Hay quá thầy! Giờ em mới thấm thía việc nhìn báo cáo số trung bình nguy hiểm đến mức nào. Em sẽ về thực hành Left Join ngay ạ!
+```

@@ -333,6 +333,10 @@ Dưới đây là **11 Hình ảnh & Bảng trực quan hóa học thuật** đ�
 > **Lời giải chi tiết:**  
 > Theo Bảng 1.3 (Scott Dell), lộ trình cần bắt đầu từ **Bước 1: Đánh giá chiến lược và Quy trình (Strategic Assessment & Planning)** – xác định rõ các điểm nghẽn nghiệp vụ và vùng có rủi ro gian lận cao nhất, kèm theo sự cam kết từ Ban Giám đốc (CFO). Sau đó, doanh nghiệp áp dụng **thử nghiệm thí điểm (Pilot testing)** trên một quy trình nhỏ (như đối chiếu hóa đơn hoặc thu hồi công nợ) trước khi tích hợp toàn diện vào hệ thống ERP.
 
+#### ** 🎬 Video **
+
+<iframe src="video/Day06/index.html" style="width: 100%; aspect-ratio: 16/9; max-height: 75vh; border: none; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"></iframe>
+
 #### ** 🎦 Slide Bài Giảng **
 
 <object data="TaiLieu/slideAIAcc/Slide_AIAcc_Day06.pdf#view=FitH" type="application/pdf" class="pdf-container" width="100%" height="800px">
