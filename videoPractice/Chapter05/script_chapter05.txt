@@ -1,0 +1,411 @@
+KỊCH BẢN BÀI GIẢNG THỰC HÀNH CHƯƠNG 5
+Chuẩn bị và Làm sạch Dữ liệu (Data Preparation)
+
+=========================================
+Người 1 (Giảng viên): Chuyên gia thực chiến, hướng dẫn kỹ thuật xử lý dữ liệu lỗi.
+Người 2 (Sinh viên): Chăm chỉ, xưng "thầy", thích thú với các hàm xử lý dữ liệu.
+=========================================
+
+Slide 1: TRANG BÌA
+Người 1: Chào mừng các em đến với Chương 5. Đây là phần "đổ mồ hôi" nhất nhưng lại quan trọng nhất của phân tích dữ liệu: Chuẩn bị và Làm sạch Dữ liệu. Quá trình này thường chiếm đến 80% thời gian của một dự án.
+Người 2: Dạ em chào thầy. Thưa thầy, tại sao lại mất nhiều thời gian đến vậy ạ? Chẳng phải dữ liệu từ hệ thống xuất ra là dùng được luôn sao thầy?
+
+Slide 2: GÓC NHÌN CHUYÊN GIA (PROFESSIONAL INSIGHT)
+Người 1: Phần "Góc nhìn Chuyên gia (Professional Insight)" này chính là mấu chốt để tránh rủi ro dữ liệu rác (Garbage in).
+Người 2: Dạ, em đang theo dõi sát sao tiến trình bài giảng ạ.
+
+Slide 3: LỘ TRÌNH CHƯƠNG (CHAPTER ROADMAP)
+Người 1: Ở nội dung "Lộ trình Chương (Chapter Roadmap)", chúng ta cần đặc biệt lưu ý những điểm cốt lõi về kỹ thuật chuẩn bị dữ liệu.
+Người 2: Thưa thầy, em đã gạch chân những từ khóa cốt lõi rồi ạ.
+
+Slide 4: 5.1 QUÁ TRÌNH ĐỊNH HÌNH DỮ LIỆU (DATA PROFILING)
+Người 1: Phần "5.1 Quá trình Định hình Dữ liệu (Data Profiling)" này chính là mấu chốt để tránh rủi ro dữ liệu rác (Garbage in).
+Người 2: Vâng, em đang ghi chú lại các ý chính này rồi thưa thầy.
+
+Slide 5: ILLUSTRATION 5.1
+Người 1: Slide tiếp theo là một ví dụ thực tế qua Minh họa 5.1. Cụ thể: ". shows, data preparation is an ongo - ing collaboration between the data profiling process, which is the subject of this discussion,  and the ETL...". Phân tích kỹ sẽ giúp các em hiểu sâu hơn.
+Người 2: Dạ, kết hợp lý thuyết với minh họa thực tế thế này rất hiệu quả ạ.
+
+Slide 6: ILLUSTRATION 5.1A
+Người 1: Chuyển sang phần Minh họa 5.1A, các em chú ý quan sát cách xử lý lỗi trên màn hình nhé.
+Người 2: Dạ vâng thưa thầy.
+
+Slide 7: ILLUSTRATION 5.2
+Người 1: Các em xem minh họa ở Minh họa 5.2 trên slide. Đoạn này đề cập đến: "Composite vs. Single-Valued Column Cole, Lak eisha, NA Lopez, Alejandro, CP A Key, Kim, NA David, Julie, CP A Malone, Moses, NA Buslepp, Bill, CP A...". Rất sát với tình huống doanh nghiệp.
+Người 2: Vâng thưa thầy, hình ảnh này giải thích rất trực quan dễ hiểu.
+
+Slide 8: ILLUSTRATION 5.3
+Người 1: Slide tiếp theo là một ví dụ thực tế qua Minh họa 5.3. Cụ thể: "Multi-Valued vs. Single-Valued Column Cole, Lak eisha  Lopez, Alejandr o Lopez, Alejandr o Key, Kim David, Julie David, Julie David, Julie Malone,...". Phân tích kỹ sẽ giúp các em hiểu sâu hơn.
+Người 2: Dạ, kết hợp lý thuyết với minh họa thực tế thế này rất hiệu quả ạ.
+
+Slide 9: ILLUSTRATION 5.4
+Người 1: Chúng ta cùng phân tích Minh họa 5.4 nhé. Trọng tâm của phần này là: "(A) shows a crosstabulation table representing a relationship between  the two variables of car model and salesperson: • In the first column are the...". Các em hãy lưu ý cách áp dụng vào thực tế.
+Người 2: Em đã nắm được ý chính của phần này rồi thưa thầy.
+
+Slide 10: ILLUSTRATION 5.5
+Người 1: Slide tiếp theo là một ví dụ thực tế qua Minh họa 5.5. Cụ thể: "). As the top of". Phân tích kỹ sẽ giúp các em hiểu sâu hơn.
+Người 2: Em đã nắm được ý chính của phần này rồi thưa thầy.
+
+Slide 11: ILLUSTRATION 5.6
+Người 1: Nhìn vào Minh họa 5.6, chúng ta có thể rút ra điều gì? Tài liệu có ghi: "Slicing Measures by Dimensions What is the total sales amount  (dollars) for a specific customer?1 What is the total sales amount (dollars) for all...". Đây là một điểm rất đáng chú ý.
+Người 2: Dạ, kết hợp lý thuyết với minh họa thực tế thế này rất hiệu quả ạ.
+
+Slide 12: ILLUSTRATION 5.7
+Người 1: Các em xem minh họa ở Minh họa 5.7 trên slide. Đoạn này đề cập đến: "shows, the ETL process builds an ana - lytical database using one or more sources of raw data.". Rất sát với tình huống doanh nghiệp.
+Người 2: Vâng thưa thầy, hình ảnh này giải thích rất trực quan dễ hiểu.
+
+Slide 13: ILLUSTRATION 5.8
+Người 1: Các em xem minh họa ở Minh họa 5.8 trên slide. Đoạn này đề cập đến: "(A) shows some data connectors that are available in Excel,  while panel (B) does the same for Power BI. Transform Data  Raw data are rarely ready...". Rất sát với tình huống doanh nghiệp.
+Người 2: Vâng thưa thầy, hình ảnh này giải thích rất trực quan dễ hiểu.
+
+Slide 14: 5.2 MÔ TẢ QUÁ TRÌNH ETL (EXTRACT, TRANSFORM, LOAD)
+Người 1: Bước sang phần "5.2 Mô tả quá trình ETL (Extract, Transform, Load)", đây là một khái niệm rất hay xuất hiện trong thực tế làm sạch dữ liệu.
+Người 2: Dạ, em đang theo dõi sát sao tiến trình bài giảng ạ.
+
+Slide 15: ILLUSTRATION 5.9
+Người 1: Chúng ta cùng phân tích Minh họa 5.9 nhé. Trọng tâm của phần này là: "Removing  Rows with Power Query  Remove RowsA Z Z ASplit ColumnGroup By Remove Top Rows Remove Bottom Rows Remove Alternate Rows + Remove Duplicates...". Các em hãy lưu ý cách áp dụng vào thực tế.
+Người 2: Em đã nắm được ý chính của phần này rồi thưa thầy.
+
+Slide 16: ILLUSTRATION 5.10
+Người 1: Chúng ta cùng phân tích Minh họa 5.10 nhé. Trọng tâm của phần này là: "shows how Power Query’s Find and  Replace option can fix an inconsistency problem.". Các em hãy lưu ý cách áp dụng vào thực tế.
+Người 2: Vâng thưa thầy, hình ảnh này giải thích rất trực quan dễ hiểu.
+
+Slide 17: ILLUSTRATION 5.11
+Người 1: Mời các em quan sát Minh họa 5.11. Điểm cốt lõi ở đây là: ". Ilustration 5.11 (A) contains financial information, and panel (B) contains  demographic information about  customers. How would we reconcile, or...".
+Người 2: Dạ, kết hợp lý thuyết với minh họa thực tế thế này rất hiệu quả ạ.
+
+Slide 18: ILLUSTRATION 5.12
+Người 1: Slide tiếp theo là một ví dụ thực tế qua Minh họa 5.12. Cụ thể: "). $". Phân tích kỹ sẽ giúp các em hiểu sâu hơn.
+Người 2: Dạ, kết hợp lý thuyết với minh họa thực tế thế này rất hiệu quả ạ.
+
+Slide 19: ILLUSTRATION 5.13A
+Người 1: Chuyển sang phần Minh họa 5.13A, các em chú ý quan sát cách xử lý lỗi trên màn hình nhé.
+Người 2: Dạ vâng thưa thầy.
+
+Slide 20: ILLUSTRATION 5.13B
+Người 1: Chuyển sang phần Minh họa 5.13B, các em chú ý quan sát cách xử lý lỗi trên màn hình nhé.
+Người 2: Dạ vâng thưa thầy.
+
+Slide 21: ILLUSTRATION 5.14
+Người 1: Chúng ta cùng phân tích Minh họa 5.14 nhé. Trọng tâm của phần này là: "Row Count for Excel Worksheet fxAutoSave Oﬀ Client Employee Task Area ID BudgetedTime ActualTime Date1 ID1 2 3 4 5 6 7 8 9 101 2 3 4 5 6 7 8...". Các em hãy lưu ý cách áp dụng vào thực tế.
+Người 2: Dạ, kết hợp lý thuyết với minh họa thực tế thế này rất hiệu quả ạ.
+
+Slide 22: ILLUSTRATION 5.15
+Người 1: Nhìn vào Minh họa 5.15, chúng ta có thể rút ra điều gì? Tài liệu có ghi: "Row Count with Power Query Column Statistics Count 4,632 Error 0 Empty 0 Distinct 4,632 Unique 4,632 NaN 0 Zero 0 Min 1 Max 4,632 Average 2,316.5...". Đây là một điểm rất đáng chú ý.
+Người 2: Em đã nắm được ý chính của phần này rồi thưa thầy.
+
+Slide 23: ILLUSTRATION 5.16
+Người 1: Chúng ta cùng phân tích Minh họa 5.16 nhé. Trọng tâm của phần này là: "(A), the A ge column in the E-D em table mixes null values, numbers, dates,  and text, which would make it challenging to generate reliable...". Các em hãy lưu ý cách áp dụng vào thực tế.
+Người 2: Em đã nắm được ý chính của phần này rồi thưa thầy.
+
+Slide 24: 5.3 ÁP DỤNG CÁC MẪU ĐỂ TRÍCH XUẤT DỮ LIỆU (EXTRACTION PATTERNS)
+Người 1: Bước sang phần "5.3 Áp dụng các mẫu để Trích xuất Dữ liệu (Extraction Patterns)", đây là một khái niệm rất hay xuất hiện trong thực tế làm sạch dữ liệu.
+Người 2: Vâng thưa thầy, phần này rất logic và dễ áp dụng.
+
+Slide 25: ILLUSTRATION 5.17
+Người 1: Các em xem minh họa ở Minh họa 5.17 trên slide. Đoạn này đề cập đến: "shows how to rename a column in Power Query. First, right-click on the ID column in the  ClData table and then select Rename  and enter the new...". Rất sát với tình huống doanh nghiệp.
+Người 2: Dạ, ví dụ này làm em thấy rõ hơn hẳn ạ.
+
+Slide 26: ILLUSTRATION 5.18
+Người 1: Các em xem minh họa ở Minh họa 5.18 trên slide. Đoạn này đề cập đến: "shows some potential name changes for columns. Note that, because  two columns in the same  table cannot have the same name, Power Query...". Rất sát với tình huống doanh nghiệp.
+Người 2: Dạ, ví dụ này làm em thấy rõ hơn hẳn ạ.
+
+Slide 27: ILLUSTRATION 5.19
+Người 1: Các em xem minh họa ở Minh họa 5.19 trên slide. Đoạn này đề cập đến: "(A) shows the raw spread - sheet data. Panel (B) shows the same data set after extraction in Power Query. Notice that  the data type is ABC  123,...". Rất sát với tình huống doanh nghiệp.
+Người 2: Dạ, nhờ minh họa này mà các khái niệm trở nên gần gũi hơn rất nhiều ạ.
+
+Slide 28: ILLUSTRATION 5.20
+Người 1: Chúng ta cùng phân tích Minh họa 5.20 nhé. Trọng tâm của phần này là: "shows  the different data types available in Power Query.". Các em hãy lưu ý cách áp dụng vào thực tế.
+Người 2: Dạ, nhờ minh họa này mà các khái niệm trở nên gần gũi hơn rất nhiều ạ.
+
+Slide 29: ILLUSTRATION 5.21
+Người 1: Nhìn vào Minh họa 5.21, chúng ta có thể rút ra điều gì? Tài liệu có ghi: "). c05AnalysisDataPreparation.indd   23 13/10/22   6:40 AM 5-24 CHAPTER 5 Analysis: Data Preparation". Đây là một điểm rất đáng chú ý.
+Người 2: Dạ, ví dụ này làm em thấy rõ hơn hẳn ạ.
+
+Slide 30: ILLUSTRATION 5.22
+Người 1: Chúng ta cùng phân tích Minh họa 5.22 nhé. Trọng tâm của phần này là: "will appear. Power Query already selected Comma as the delimiter, and since there is only one comma for each name, it does not matter which  of the...". Các em hãy lưu ý cách áp dụng vào thực tế.
+Người 2: Dạ, nhờ minh họa này mà các khái niệm trở nên gần gũi hơn rất nhiều ạ.
+
+Slide 31: ILLUSTRATION 5.23
+Người 1: Nhìn vào Minh họa 5.23, chúng ta có thể rút ra điều gì? Tài liệu có ghi: "(A) displays  the column profile statistics generated by Power Query. Panel (B) shows the values of the  ActualTime  in descending order. The top...". Đây là một điểm rất đáng chú ý.
+Người 2: Dạ, kết hợp lý thuyết với minh họa thực tế thế này rất hiệu quả ạ.
+
+Slide 32: ILLUSTRATION 5.24
+Người 1: Các em xem minh họa ở Minh họa 5.24 trên slide. Đoạn này đề cập đến: "shows the ActualTime values modified for the Beans example. Pattern 7 Summary Problem Incorrect data might result in poor decision-making. Detect...". Rất sát với tình huống doanh nghiệp.
+Người 2: Dạ, kết hợp lý thuyết với minh họa thực tế thế này rất hiệu quả ạ.
+
+Slide 33: ILLUSTRATION 5.25
+Người 1: Slide tiếp theo là một ví dụ thực tế qua Minh họa 5.25. Cụ thể: "(A) shows the distinct values for the JobTitle  column in the E mployee  table.  This information is available for all columns in Power Query. The". Phân tích kỹ sẽ giúp các em hiểu sâu hơn.
+Người 2: Dạ, kết hợp lý thuyết với minh họa thực tế thế này rất hiệu quả ạ.
+
+Slide 34: 5.4 ÁP DỤNG MẪU ĐỂ CHUYỂN ĐỔI CỘT (COLUMN TRANSFORMATION)
+Người 1: Bước sang phần "5.4 Áp dụng mẫu để Chuyển đổi Cột (Column Transformation)", đây là một khái niệm rất hay xuất hiện trong thực tế làm sạch dữ liệu.
+Người 2: Dạ em hiểu rồi, việc làm sạch cẩn thận giúp tránh sai số rất lớn.
+
+Slide 35: ILLUSTRATION 5.26
+Người 1: Nhìn vào Minh họa 5.26, chúng ta có thể rút ra điều gì? Tài liệu có ghi: "were made to the University column.  Most ETL software, including Power Query, offer find and replace tools to modify values. Pattern 8 Summary...". Đây là một điểm rất đáng chú ý.
+Người 2: Dạ, ví dụ này làm em thấy rõ hơn hẳn ạ.
+
+Slide 36: ILLUSTRATION 5.27
+Người 1: Các em xem minh họa ở Minh họa 5.27 trên slide. Đoạn này đề cập đến: "shows this information for the MaritalStatus  column in the  Employee table. This information is useful in many ways: • For each column, decide...". Rất sát với tình huống doanh nghiệp.
+Người 2: Dạ, ví dụ này làm em thấy rõ hơn hẳn ạ.
+
+Slide 37: ILLUSTRATION 5.28
+Người 1: Nhìn vào Minh họa 5.28, chúng ta có thể rút ra điều gì? Tài liệu có ghi: "shows a few  examples of validation rules that apply to the Beans case. The syntax used in the sample code  column is general, as no specific...". Đây là một điểm rất đáng chú ý.
+Người 2: Dạ, nhờ minh họa này mà các khái niệm trở nên gần gũi hơn rất nhiều ạ.
+
+Slide 38: ILLUSTRATION 5.29
+Người 1: Mời các em quan sát Minh họa 5.29. Điểm cốt lõi ở đây là: ", provides the information necessary to  identify a candidate key:  • The value for Empty should be zero.  • The values for Count, Distinct, and...".
+Người 2: Vâng thưa thầy, hình ảnh này giải thích rất trực quan dễ hiểu.
+
+Slide 39: ILLUSTRATION 5.30
+Người 1: Slide tiếp theo là một ví dụ thực tế qua Minh họa 5.30. Cụ thể: "shows, ETL tools can help with that: c05AnalysisDataPreparation.indd   30 13/10/22   6:41 AM 5.5 Which Patterns Transform Tables?  5-31 • In Power...". Phân tích kỹ sẽ giúp các em hiểu sâu hơn.
+Người 2: Dạ, ví dụ này làm em thấy rõ hơn hẳn ạ.
+
+Slide 40: ILLUSTRATION 5.32
+Người 1: Nhìn vào Minh họa 5.32, chúng ta có thể rút ra điều gì? Tài liệu có ghi: "shows two possible scenarios.  1. In panel (A) both tables , JanuarySales and FebruarySales , have the same structure but  different rows. It is ...". Đây là một điểm rất đáng chú ý.
+Người 2: Dạ, ví dụ này làm em thấy rõ hơn hẳn ạ.
+
+Slide 41: ILLUSTRATION 5.33
+Người 1: Các em xem minh họa ở Minh họa 5.33 trên slide. Đoạn này đề cập đến: "shows the structure of the combined table, which is named Employee.How To Employee EmployeeID FirstName LastName JobTitle Rate CertificationList...". Rất sát với tình huống doanh nghiệp.
+Người 2: Dạ, kết hợp lý thuyết với minh họa thực tế thế này rất hiệu quả ạ.
+
+Slide 42: ILLUSTRATION 5.34
+Người 1: Chúng ta cùng phân tích Minh họa 5.34 nhé. Trọng tâm của phần này là: "structures the current analytical database as a star schema. The   Service  table is the fact table, the E mployee  table is a who  dimension, and...". Các em hãy lưu ý cách áp dụng vào thực tế.
+Người 2: Vâng thưa thầy, hình ảnh này giải thích rất trực quan dễ hiểu.
+
+Slide 43: ILLUSTRATION 5.35
+Người 1: Chúng ta cùng phân tích Minh họa 5.35 nhé. Trọng tâm của phần này là: "shows the data model we  would like to create. Creating a separate table for Certifications, results in a snowflake schema. In a snow - flake schema...". Các em hãy lưu ý cách áp dụng vào thực tế.
+Người 2: Dạ, nhờ minh họa này mà các khái niệm trở nên gần gũi hơn rất nhiều ạ.
+
+Slide 44: 5.5 ÁP DỤNG MẪU ĐỂ CHUYỂN ĐỔI BẢNG (TABLE TRANSFORMATION)
+Người 1: Các em tập trung vào slide "5.5 Áp dụng mẫu để Chuyển đổi Bảng (Table Transformation)" nhé, đây là nền tảng rất quan trọng khi trực tiếp thao tác với cơ sở dữ liệu.
+Người 2: Dạ em hiểu rồi, việc làm sạch cẩn thận giúp tránh sai số rất lớn.
+
+Slide 45: ILLUSTRATION 5.36
+Người 1: Các em xem minh họa ở Minh họa 5.36 trên slide. Đoạn này đề cập đến: ").  For both the Service and Task tables, keep only the columns that are shown in". Rất sát với tình huống doanh nghiệp.
+Người 2: Dạ, kết hợp lý thuyết với minh họa thực tế thế này rất hiệu quả ạ.
+
+Slide 46: ILLUSTRATION 5.37
+Người 1: Slide tiếp theo là một ví dụ thực tế qua Minh họa 5.37. Cụ thể: "Task Dimension Table TaskID 1 2 3 4 5 6 7 81 2 3 4 5 6 7 8Accounting Accounting Accounting Accounting Tax Tax Tax TaxPrep Review Admin Other Prep...". Phân tích kỹ sẽ giúp các em hiểu sâu hơn.
+Người 2: Em đã nắm được ý chính của phần này rồi thưa thầy.
+
+Slide 47: ILLUSTRATION 5.38
+Người 1: Chúng ta cùng phân tích Minh họa 5.38 nhé. Trọng tâm của phần này là: ").  Step 3: In the resulting table , delete the Attribute column and change the Value column’s  name to “Certificate.”  An employees’s...". Các em hãy lưu ý cách áp dụng vào thực tế.
+Người 2: Em đã nắm được ý chính của phần này rồi thưa thầy.
+
+Slide 48: ILLUSTRATION 5.39
+Người 1: Các em xem minh họa ở Minh họa 5.39 trên slide. Đoạn này đề cập đến: "shows an example of an inter-table validation rule applied to the Beans case. It is part of the Service table, and it specifies that only managers,...". Rất sát với tình huống doanh nghiệp.
+Người 2: Em đã nắm được ý chính của phần này rồi thưa thầy.
+
+Slide 49: ILLUSTRATION 5.40
+Người 1: Các em xem minh họa ở Minh họa 5.40 trên slide. Đoạn này đề cập đến: "shows  how to transfer data from the ETL tool, in this case Power Query, to the analytical database. There are three options:  • Close and apply:...". Rất sát với tình huống doanh nghiệp.
+Người 2: Vâng thưa thầy, hình ảnh này giải thích rất trực quan dễ hiểu.
+
+Slide 50: ILLUSTRATION 5.41
+Người 1: Các em xem minh họa ở Minh họa 5.41 trên slide. Đoạn này đề cập đến: "Beans Data Model Certifications Certification EmployeeID... Employee EmployeeID FirstName JobTitle LastName MaritalStatus Rate University...Service...". Rất sát với tình huống doanh nghiệp.
+Người 2: Em đã nắm được ý chính của phần này rồi thưa thầy.
+
+Slide 51: ILLUSTRATION 5.42
+Người 1: Nhìn vào Minh họa 5.42, chúng ta có thể rút ra điều gì? Tài liệu có ghi: "will appear. Select the buttons at  the bottom of the window to create, edit, or delete a relationship.". Đây là một điểm rất đáng chú ý.
+Người 2: Dạ, kết hợp lý thuyết với minh họa thực tế thế này rất hiệu quả ạ.
+
+Slide 52: ILLUSTRATION 5.42\_1
+Người 1: Chuyển sang phần Minh họa 5.42\_1, các em chú ý quan sát cách xử lý lỗi trên màn hình nhé.
+Người 2: Dạ vâng thưa thầy.
+
+Slide 53: ILLUSTRATION 5.43
+Người 1: Nhìn vào Minh họa 5.43, chúng ta có thể rút ra điều gì? Tài liệu có ghi: "shows some of the aspects of a relationship that can be defined: • The data fields between which the relationship is specified. • The cardinalities...". Đây là một điểm rất đáng chú ý.
+Người 2: Dạ, nhờ minh họa này mà các khái niệm trở nên gần gũi hơn rất nhiều ạ.
+
+Slide 54: 5.6 ÁP DỤNG MẪU ĐỂ CHUYỂN ĐỔI MÔ HÌNH (MODEL TRANSFORMATION)
+Người 1: Tiếp tục với phần "5.6 Áp dụng mẫu để Chuyển đổi Mô hình (Model Transformation)", các em hãy xâu chuỗi với các kỹ năng đã học trước đó.
+Người 2: Dạ em hiểu rồi, việc làm sạch cẩn thận giúp tránh sai số rất lớn.
+
+Slide 55: ILLUSTRATION 5.43\_1
+Người 1: Chuyển sang phần Minh họa 5.43\_1, các em chú ý quan sát cách xử lý lỗi trên màn hình nhé.
+Người 2: Dạ vâng thưa thầy.
+
+Slide 56: ILLUSTRATION 5.44
+Người 1: Chúng ta cùng phân tích Minh họa 5.44 nhé. Trọng tâm của phần này là: "at the end of the chapter for an example of the completed data dictionary.)". Các em hãy lưu ý cách áp dụng vào thực tế.
+Người 2: Vâng thưa thầy, hình ảnh này giải thích rất trực quan dễ hiểu.
+
+Slide 57: ILLUSTRATION 5.45
+Người 1: Nhìn vào Minh họa 5.45, chúng ta có thể rút ra điều gì? Tài liệu có ghi: "provides an overview of the twenty data preparation patterns. The first column  shows an identification number for easy reference, and the code in...". Đây là một điểm rất đáng chú ý.
+Người 2: Dạ, ví dụ này làm em thấy rõ hơn hẳn ạ.
+
+Slide 58: ILLUSTRATION 5.46
+Người 1: Mời các em quan sát Minh họa 5.46. Điểm cốt lõi ở đây là: ").How To".
+Người 2: Dạ, ví dụ này làm em thấy rõ hơn hẳn ạ.
+
+Slide 59: ILLUSTRATION 5.47
+Người 1: Các em xem minh họa ở Minh họa 5.47 trên slide. Đoạn này đề cập đến: ").". Rất sát với tình huống doanh nghiệp.
+Người 2: Dạ, ví dụ này làm em thấy rõ hơn hẳn ạ.
+
+Slide 60: ILLUSTRATION 5.48
+Người 1: Chúng ta cùng phân tích Minh họa 5.48 nhé. Trọng tâm của phần này là: "Open Power Query• Finally, click the Data  tab and then the down arrow in Get Data . Next, you will see the  option to Launch Power Query Editor ....". Các em hãy lưu ý cách áp dụng vào thực tế.
+Người 2: Dạ, kết hợp lý thuyết với minh họa thực tế thế này rất hiệu quả ạ.
+
+Slide 61: ILLUSTRATION 5.49
+Người 1: Mời các em quan sát Minh họa 5.49. Điểm cốt lõi ở đây là: "shows  Power BI’s Home tab, which includes the Data group.".
+Người 2: Dạ, nhờ minh họa này mà các khái niệm trở nên gần gũi hơn rất nhiều ạ.
+
+Slide 62: ILLUSTRATION 5.50
+Người 1: Chúng ta cùng phân tích Minh họa 5.50 nhé. Trọng tâm của phần này là: ").". Các em hãy lưu ý cách áp dụng vào thực tế.
+Người 2: Dạ, nhờ minh họa này mà các khái niệm trở nên gần gũi hơn rất nhiều ạ.
+
+Slide 63: ILLUSTRATION 5.51
+Người 1: Slide tiếp theo là một ví dụ thực tế qua Minh họa 5.51. Cụ thể: ").  The remaining steps are identical for Excel and Power BI.      STEP 2:      Click the View  tab in the main menu (". Phân tích kỹ sẽ giúp các em hiểu sâu hơn.
+Người 2: Dạ, ví dụ này làm em thấy rõ hơn hẳn ạ.
+
+Slide 64: 5.7 ÁP DỤNG MẪU CHO VẤN ĐỀ TẢI DỮ LIỆU (DATA LOADING)
+Người 1: Ở nội dung "5.7 Áp dụng mẫu cho vấn đề Tải Dữ liệu (Data Loading)", chúng ta cần đặc biệt lưu ý những điểm cốt lõi về kỹ thuật chuẩn bị dữ liệu.
+Người 2: Thưa thầy, em đã gạch chân những từ khóa cốt lõi rồi ạ.
+
+Slide 65: ILLUSTRATION 5.52
+Người 1: Các em xem minh họa ở Minh họa 5.52 trên slide. Đoạn này đề cập đến: "). Select Column quality,  Column distribution , and Column profile .". Rất sát với tình huống doanh nghiệp.
+Người 2: Vâng thưa thầy, hình ảnh này giải thích rất trực quan dễ hiểu.
+
+Slide 66: ILLUSTRATION 5.53
+Người 1: Nhìn vào Minh họa 5.53, chúng ta có thể rút ra điều gì? Tài liệu có ghi: "shows that Power Query now displays detailed profiling information for each  column. The valid, error, and empty percentages appear when Column...". Đây là một điểm rất đáng chú ý.
+Người 2: Vâng thưa thầy, hình ảnh này giải thích rất trực quan dễ hiểu.
+
+Slide 67: ILLUSTRATION 5.54
+Người 1: Nhìn vào Minh họa 5.54, chúng ta có thể rút ra điều gì? Tài liệu có ghi: ") , the column profiling is currently based on the top 1000 row.". Đây là một điểm rất đáng chú ý.
+Người 2: Vâng thưa thầy, hình ảnh này giải thích rất trực quan dễ hiểu.
+
+Slide 68: ILLUSTRATION 5.55
+Người 1: Các em xem minh họa ở Minh họa 5.55 trên slide. Đoạn này đề cập đến: "). Column profiling based on top 1000 rows Column profiling based on entire data set". Rất sát với tình huống doanh nghiệp.
+Người 2: Dạ, ví dụ này làm em thấy rõ hơn hẳn ạ.
+
+Slide 69: ILLUSTRATION 5.56
+Người 1: Chúng ta cùng phân tích Minh họa 5.56 nhé. Trọng tâm của phần này là: "will appear. This results from checking the Column  profile  option. Among others, the information provided includes the row count and the aver -...". Các em hãy lưu ý cách áp dụng vào thực tế.
+Người 2: Vâng thưa thầy, hình ảnh này giải thích rất trực quan dễ hiểu.
+
+Slide 70: ILLUSTRATION 5.57
+Người 1: Mời các em quan sát Minh họa 5.57. Điểm cốt lõi ở đây là: ".How ToClick Column profiling based on 1000 rows  and then select Column profiling based on  entire data set  (".
+Người 2: Vâng thưa thầy, hình ảnh này giải thích rất trực quan dễ hiểu.
+
+Slide 71: CÁC TÌNH HUỐNG APPLY IT
+Người 1: Phần "Các Tình huống Apply It" này chính là mấu chốt để tránh rủi ro dữ liệu rác (Garbage in).
+Người 2: Vâng, em đang ghi chú lại các ý chính này rồi thưa thầy.
+
+Slide 72: ILLUSTRATION 5.58
+Người 1: Slide tiếp theo là một ví dụ thực tế qua Minh họa 5.58. Cụ thể: "visually shows how to perform steps 3, 4, and 5.". Phân tích kỹ sẽ giúp các em hiểu sâu hơn.
+Người 2: Dạ, nhờ minh họa này mà các khái niệm trở nên gần gũi hơn rất nhiều ạ.
+
+Slide 73: ILLUSTRATION 5.59
+Người 1: Chúng ta cùng phân tích Minh họa 5.59 nhé. Trọng tâm của phần này là: ", a new column is added to the Employee table   as a result of the merge: EmployeeDemographics. All values in this column show    Table as the...". Các em hãy lưu ý cách áp dụng vào thực tế.
+Người 2: Dạ, ví dụ này làm em thấy rõ hơn hẳn ạ.
+
+Slide 74: ILLUSTRATION 5.60
+Người 1: Các em xem minh họa ở Minh họa 5.60 trên slide. Đoạn này đề cập đến: "shows  how to instruct Power Query not to load a table. Right-click on  EmployeeDemographics   and unclick the checkbox before  Enable Load . Tables...". Rất sát với tình huống doanh nghiệp.
+Người 2: Dạ, nhờ minh họa này mà các khái niệm trở nên gần gũi hơn rất nhiều ạ.
+
+Slide 75: ILLUSTRATION 5.61
+Người 1: Các em xem minh họa ở Minh họa 5.61 trên slide. Đoạn này đề cập đến: ", the relationship between the two tables is defined between  the ID field in the Vendor table and the Vendor field in the Purchase table.  • The...". Rất sát với tình huống doanh nghiệp.
+Người 2: Vâng thưa thầy, hình ảnh này giải thích rất trực quan dễ hiểu.
+
+Slide 76: ILLUSTRATION 5.62
+Người 1: Chúng ta cùng phân tích Minh họa 5.62 nhé. Trọng tâm của phần này là: "demonstrates what happens if you select this option. Panel (A)  shows all existing vendors. Panel (B) shows what happens if you try to add a...". Các em hãy lưu ý cách áp dụng vào thực tế.
+Người 2: Dạ, ví dụ này làm em thấy rõ hơn hẳn ạ.
+
+Slide 77: APPLY IT 5.1
+Người 1: Bước sang phần "Apply It 5.1", đây là một khái niệm rất hay xuất hiện trong thực tế làm sạch dữ liệu.
+Người 2: Vâng thưa thầy, phần này rất logic và dễ áp dụng.
+
+Slide 78: APPLY IT 5.2
+Người 1: Các em tập trung vào slide "Apply It 5.2" nhé, đây là nền tảng rất quan trọng khi trực tiếp thao tác với cơ sở dữ liệu.
+Người 2: Thưa thầy, em đã gạch chân những từ khóa cốt lõi rồi ạ.
+
+Slide 79: APPLY IT 5.3
+Người 1: Bước sang phần "Apply It 5.3", đây là một khái niệm rất hay xuất hiện trong thực tế làm sạch dữ liệu.
+Người 2: Vâng, em đang ghi chú lại các ý chính này rồi thưa thầy.
+
+Slide 80: APPLY IT 5.5
+Người 1: Ở nội dung "Apply It 5.5", chúng ta cần đặc biệt lưu ý những điểm cốt lõi về kỹ thuật chuẩn bị dữ liệu.
+Người 2: Vâng thưa thầy, phần này rất logic và dễ áp dụng.
+
+Slide 81: APPLY IT 5.6
+Người 1: Bước sang phần "Apply It 5.6", đây là một khái niệm rất hay xuất hiện trong thực tế làm sạch dữ liệu.
+Người 2: Vâng, em đang ghi chú lại các ý chính này rồi thưa thầy.
+
+Slide 82: APPLY IT 5.7
+Người 1: Bước sang phần "Apply It 5.7", đây là một khái niệm rất hay xuất hiện trong thực tế làm sạch dữ liệu.
+Người 2: Thưa thầy, em đã gạch chân những từ khóa cốt lõi rồi ạ.
+
+Slide 83: PHẦN BÀI TẬP NGẮN (BRIEF EXERCISES)
+Người 1: Bước sang phần "Phần Bài tập Ngắn (Brief Exercises)", đây là một khái niệm rất hay xuất hiện trong thực tế làm sạch dữ liệu.
+Người 2: Dạ, em đang theo dõi sát sao tiến trình bài giảng ạ.
+
+Slide 84: BE 5.1 \& BE 5.2
+Người 1: Chúng ta cùng thực hành với BE 5.1 \& BE 5.2. Các em hãy vận dụng kiến thức chuẩn bị dữ liệu vừa học nhé.
+Người 2: Vâng, em sẽ đọc kỹ đề và phân tích từ khóa thưa thầy.
+
+Slide 85: BE 5.3 \& BE 5.4
+Người 1: Chúng ta cùng thực hành với BE 5.3 \& BE 5.4. Các em hãy vận dụng kiến thức chuẩn bị dữ liệu vừa học nhé.
+Người 2: Vâng, em sẽ đọc kỹ đề và phân tích từ khóa thưa thầy.
+
+Slide 86: BE 5.5 \& BE 5.6
+Người 1: Chúng ta cùng thực hành với BE 5.5 \& BE 5.6. Các em hãy vận dụng kiến thức chuẩn bị dữ liệu vừa học nhé.
+Người 2: Vâng, em sẽ đọc kỹ đề và phân tích từ khóa thưa thầy.
+
+Slide 87: BE 5.13 \& BE 5.15
+Người 1: Chúng ta cùng thực hành với BE 5.13 \& BE 5.15. Các em hãy vận dụng kiến thức chuẩn bị dữ liệu vừa học nhé.
+Người 2: Vâng, em sẽ đọc kỹ đề và phân tích từ khóa thưa thầy.
+
+Slide 88: BE 5.16
+Người 1: Thử sức với BE 5.16 xem sao. Khởi đầu là: "(LO 7)  Tin Fos, a midsize information service company, received a data set from one of its   clients. They are trying to design analytics reports ,...". Cứ bám sát phương pháp luận chúng ta đã học.
+Người 2: Bài tập này rất thực tế ạ, em sẽ áp dụng kỹ thuật làm sạch dữ liệu để làm ngay.
+
+Slide 89: PHẦN BÀI TẬP (EXERCISES)
+Người 1: Bước sang phần "Phần Bài tập (Exercises)", đây là một khái niệm rất hay xuất hiện trong thực tế làm sạch dữ liệu.
+Người 2: Dạ, em đang theo dõi sát sao tiến trình bài giảng ạ.
+
+Slide 90: EX 5.2 \& EX 5.3
+Người 1: Chúng ta cùng thực hành với EX 5.2 \& EX 5.3. Các em hãy vận dụng kiến thức chuẩn bị dữ liệu vừa học nhé.
+Người 2: Vâng, em sẽ đọc kỹ đề và phân tích từ khóa thưa thầy.
+
+Slide 91: EX 5.6 \& EX 5.7
+Người 1: Chúng ta cùng thực hành với EX 5.6 \& EX 5.7. Các em hãy vận dụng kiến thức chuẩn bị dữ liệu vừa học nhé.
+Người 2: Vâng, em sẽ đọc kỹ đề và phân tích từ khóa thưa thầy.
+
+Slide 92: EX 5.8
+Người 1: Đến phần thực hành với EX 5.8. Dữ kiện bài toán: "(LO 1, 4, 5, 6 ) Data Managerial Accounting Prepare Data for Cost Analysis  Wilkinson,  a luxury custom home builder in southern Nevada, uses job...". Các em hãy vận dụng những gì vừa học để xác định yêu cầu nhé.
+Người 2: Bài tập này rất thực tế ạ, em sẽ áp dụng kỹ thuật làm sạch dữ liệu để làm ngay.
+
+Slide 93: TÌNH HUỐNG ỨNG DỤNG CHUYÊN MÔN (PAC)
+Người 1: Tiếp tục với phần "Tình Huống Ứng Dụng Chuyên Môn (PAC)", các em hãy xâu chuỗi với các kỹ năng đã học trước đó.
+Người 2: Vâng, em đang ghi chú lại các ý chính này rồi thưa thầy.
+
+Slide 94: PAC 5.1 \& PAC 5.2
+Người 1: Chúng ta cùng thực hành với PAC 5.1 \& PAC 5.2. Các em hãy vận dụng kiến thức chuẩn bị dữ liệu vừa học nhé.
+Người 2: Vâng, em sẽ đọc kỹ đề và phân tích từ khóa thưa thầy.
+
+Slide 95: PAC 5.3 \& PAC 5.4A
+Người 1: Chúng ta cùng thực hành với PAC 5.3 \& PAC 5.4A. Các em hãy vận dụng kiến thức chuẩn bị dữ liệu vừa học nhé.
+Người 2: Vâng, em sẽ đọc kỹ đề và phân tích từ khóa thưa thầy.
+
+Slide 96: PAC 5.4B \& PAC 5.4A\_1
+Người 1: Chúng ta cùng thực hành với PAC 5.4B \& PAC 5.4A\_1. Các em hãy vận dụng kiến thức chuẩn bị dữ liệu vừa học nhé.
+Người 2: Vâng, em sẽ đọc kỹ đề và phân tích từ khóa thưa thầy.
+
+Slide 97: TÓM TẮT MỤC TIÊU HỌC TẬP CHƯƠNG 5
+Người 1: Phần "Tóm tắt Mục tiêu Học tập Chương 5" này chính là mấu chốt để tránh rủi ro dữ liệu rác (Garbage in).
+Người 2: Vâng, em đang ghi chú lại các ý chính này rồi thưa thầy.
+
+Slide 98: APPLYING CRITICAL THINKING 5.3
+Người 1: Tiếp tục với phần "Applying critical thinking 5.3", các em hãy xâu chuỗi với các kỹ năng đã học trước đó.
+Người 2: Dạ em hiểu rồi, việc làm sạch cẩn thận giúp tránh sai số rất lớn.
+
+Slide 99: LO 6.0
+Người 1: Phần "LO 6.0" này chính là mấu chốt để tránh rủi ro dữ liệu rác (Garbage in).
+Người 2: Dạ, em đang theo dõi sát sao tiến trình bài giảng ạ.
+
+Slide 100: LO 7.0
+Người 1: Các em tập trung vào slide "LO 7.0" nhé, đây là nền tảng rất quan trọng khi trực tiếp thao tác với cơ sở dữ liệu.
+Người 2: Dạ, em đang theo dõi sát sao tiến trình bài giảng ạ.
+
+Slide 101: KẾT THÚC
+Người 1: Vậy là chúng ta đã kết thúc Chương 5. Kỹ năng làm sạch và chuẩn bị dữ liệu chính là vũ khí mạnh nhất của một kế toán viên trong kỷ nguyên số.
+Người 2: Dạ vâng, hôm nay em đã học được rất nhiều thủ thuật để dọn dẹp "dữ liệu rác". Cảm ơn thầy rất nhiều ạ!
