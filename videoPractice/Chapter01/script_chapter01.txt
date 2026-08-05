@@ -1,183 +1,190 @@
+
 Slide 1: TRANG BÌA
-Người 1: Chào mừng các bạn sinh viên đến với môn học Trí tuệ Nhân tạo cho Kế toán. Hôm nay chúng ta bắt đầu Buổi 1. Mục tiêu tối thượng của bài giảng hôm nay là giúp các bạn định vị lại chính nghề nghiệp của mình: Từ một người ghi chép sổ sách truyền thống, chúng ta sẽ tiến hóa thành những nhà phân tích chiến lược nhờ sức mạnh của AI và Dữ liệu.
-Người 2: Dạ em chào thầy/cô. Em đang rất háo hức muốn biết dữ liệu và công nghệ sẽ làm thay đổi công việc kế toán thực tế như thế nào ạ.
+Người 1: Chào mừng các em đến với Chương 1: Dữ liệu và Phân tích trong Nghề Kế toán. Đây là chương nền tảng, thiết lập toàn bộ tư duy (Mindset) cho kỷ nguyên Kế toán số. Chúng ta sẽ không học cách bấm máy tính, mà học cách tư duy như một Chuyên gia Phân tích Dữ liệu (Data Analyst).
+Người 2: Dạ thưa thầy, em nhận thấy sự dịch chuyển rất rõ rệt khi đi thực tập. Các anh chị kế toán trưởng không còn hỏi "Hạch toán nghiệp vụ này thế nào?" mà họ hỏi "Dữ liệu này đang kể câu chuyện gì về rủi ro của công ty?". Phải chăng Phân tích dữ liệu (Data Analytics) đã trở thành kỹ năng sinh tồn của nghề Kế toán?
 
-Slide 2: TỔNG QUAN CHƯƠNG (CHAPTER PREVIEW)
-Người 1: Các chuyên gia từ KPMG và Deloitte đều khẳng định: "Công nghệ không thay thế kế toán viên, mà nó tăng cường năng lực của họ". Bạn sẽ không bị AI cướp việc, nếu bạn biết dùng AI để trở thành một người giải quyết vấn đề (Problem-solver) có tư duy phản biện.
-Người 2: Có nghĩa là thay vì cắm mặt gõ số liệu, chúng ta sẽ được công nghệ làm thay phần "chân tay" để tập trung vào phần "đầu óc" đúng không ạ?
+Slide 2: INTRO
+Người 1: Chính xác. Hãy nhìn vào Minh họa 1.1 và 1.2: Một luồng công việc (Workflow) trên phần mềm Alteryx.
+Người 2: Thưa thầy, phần mềm chỉ mất 0.5 giây để nhập, làm sạch, lọc và xuất ra kết quả cho hơn 2,000 dòng dữ liệu giao dịch! Nếu làm thủ công trên Excel bằng hàm VLOOKUP, chắc chắn Kế toán viên sẽ mất nửa ngày và dễ sai sót. Tốc độ này thực sự là một cuộc cách mạng!
 
-Slide 3: BẢN ĐỒ CHƯƠNG (CHAPTER ROADMAP)
-Người 1: Đúng vậy! Và để làm được điều đó, lộ trình hôm nay của chúng ta đi qua 4 mục tiêu (LO). Đầu tiên là hiểu tác động của dữ liệu. Thứ 2 là quy trình phân tích. Thứ 3 là các kỹ năng cần thiết, và thứ 4 là Tư duy phân tích dữ liệu.
-Người 2: Dạ vâng, em đã sẵn sàng đi vào Mục tiêu số 1 rồi ạ.
+Slide 3: MỤC TIÊU HỌC TẬP (LEARNING OBJECTIVES)
+Người 1: Slide 3 nêu bật 4 Mục tiêu học tập (LO). Trọng tâm của chúng ta là nắm vững Quy trình Phân tích Dữ liệu (Data Analysis Process) và hình thành Tư duy Phân tích (Analytics Mindset).
+Người 2: Em hiểu ạ. Công cụ như Alteryx hay Power BI có thể thay đổi sau 5 năm, nhưng Quy trình (Process) và Tư duy (Mindset) thì sẽ đi theo chúng ta suốt cả chặng đường nghề nghiệp.
 
-Slide 4: 1.1 DỮ LIỆU VÀ PHÂN TÍCH ĐANG CHUYỂN ĐỔI NGHỀ KẾ TOÁN
-Người 1: Hiện nay, kế toán viên có thể hoàn thành các chức năng lặp đi lặp lại chỉ trong một phần nhỏ thời gian so với trước. Chúng ta đang chuyển hướng sang các hoạt động mang lại giá trị gia tăng như cung cấp Insight tài chính và hỗ trợ ra quyết định.
-Người 2: Em cũng thấy các kỳ thi chứng chỉ danh giá như CPA hay CMA đều đã bổ sung môn học về "Công nghệ và Phân tích dữ liệu". Nghề của chúng ta đang thực sự chuyển mình!
+Slide 4: SỰ THAY ĐỔI CỦA NGHỀ KẾ TOÁN
+Người 1: Slide 4 chỉ ra sự dịch chuyển: Kế toán viên hiện nay dùng một phần nhỏ thời gian cho các chức năng lặp đi lặp lại. Thời gian còn lại, họ tập trung vào các hoạt động mang lại giá trị gia tăng.
+Người 2: Có nghĩa là thay vì ngồi cộng sổ, Kế toán sẽ tập trung đánh giá hiệu lực của Hệ thống Kiểm soát Nội bộ (Internal Controls), hoặc tư vấn M&A (Sáp nhập & Mua lại). Thảo nào các kỳ thi chứng chỉ danh giá như CPA hay CMA đều bắt buộc phải thi môn Công nghệ & Phân tích dữ liệu!
 
-Slide 5: DỮ LIỆU VÀ CÔNG NGHỆ (DATA AND TECHNOLOGY)
-Người 1: Ở đây có khái niệm SSBI - Kinh doanh Thông minh Tự phục vụ. Hãy nhớ, dữ liệu chỉ là những con số thô. SSBI (như Power BI, Tableau, Alteryx) giúp ta biến nó thành Thông tin và Insight mà không cần bằng cấp Khoa học Máy tính.
-Người 2: Nghĩa là chúng em không cần biết viết code lập trình phức tạp mà vẫn có thể phân tích được dữ liệu lớn ạ? Tuyệt quá!
+Slide 5: DATA VS INFORMATION & SSBI
+Người 1: Slide 5 làm rõ 3 khái niệm: Dữ liệu (Data) là sự kiện thô, Thông tin (Information) là kiến thức rút ra sau khi xử lý dữ liệu. Và Phân tích (Analytics) là quá trình đi từ Data đến Information.
+Người 2: Thưa thầy, ở đây có nhắc đến SSBI (Self-Service Business Intelligence - Kinh doanh Thông minh Tự phục vụ) như Tableau hay Power BI. Chữ "Self-Service" (Tự phục vụ) nghĩa là Kế toán viên có thể tự kéo thả để phân tích dữ liệu mà không cần phải viết code phức tạp hay nhờ tới bộ phận IT (Công nghệ thông tin) đúng không ạ?
 
-Slide 6: VÍ DỤ SSBI (ALTERYX WORKFLOW)
-Người 1: Hãy xem minh họa 1.1 về Alteryx. Mọi thứ chỉ là kéo thả! Kéo icon để Nhập liệu, kéo icon để Làm sạch, sau đó Lọc và Xuất báo cáo. 
-Người 2: Em thấy nó giống như vẽ một sơ đồ tư duy (workflow) vậy, nhìn rất trực quan và dễ hiểu.
+Slide 6: ILLUSTRATION 1.1 (ALTERYX WORKFLOW)
+Người 1: Đúng vậy! Minh họa 1.1 là minh chứng rõ nhất cho SSBI. Đây là giao diện của Alteryx.
+Người 2: Sơ đồ hiển thị các Node (Nút) được nối với nhau: Import Data (Nhập dữ liệu) -> Cleanse (Làm sạch) -> Filter (Lọc) -> Output (Xuất kết quả). Mọi thứ đều trực quan hóa. Nếu Kế toán viên hiểu luồng đi của dữ liệu (Data flow), họ hoàn toàn có thể tự xây dựng các Workflow này mà không cần bằng cấp về Khoa học Máy tính!
 
-Slide 7: HIỆU NĂNG CỦA SSBI (ALTERYX RUN TIME)
-Người 1: Điểm mấu chốt là tốc độ! Nhìn vào góc dưới màn hình minh họa 1.2, Alteryx chỉ mất 0.5 giây để chạy xong quy trình làm sạch và lọc hơn 2.000 dòng dữ liệu. 
-Người 2: 0.5 giây! Nếu làm thủ công trên Excel bằng các hàm thì chắc em phải mất cả buổi sáng mất. Công nghệ đúng là tiết kiệm thời gian khủng khiếp.
+Slide 7: ILLUSTRATION 1.2 (HIỆU NĂNG CỦA SSBI)
+Người 1: (Minh họa 1.2). Hiệu năng (Run time) của workflow vừa rồi.
+Người 2: Như em đã thốt lên lúc nãy: 0.5 giây! Việc giải phóng hàng trăm giờ làm việc tẻ nhạt (tedious work) sẽ giúp Kế toán viên không bị "chết chìm" trong dữ liệu, mà đứng trên dữ liệu để nhìn bao quát toàn bộ doanh nghiệp.
 
 Slide 8: TÁC ĐỘNG ĐẾN KIỂM TOÁN (AUDITING)
-Người 1: Chính nhờ tốc độ đó, ngành Kiểm toán đã thay đổi. Thay vì "chọn mẫu" một vài giao dịch ngẫu nhiên, giờ đây kiểm toán viên có thể đưa 100% dữ liệu vào SSBI để phân tích toàn bộ quần thể, tìm ra các điểm bất thường.
-Người 2: Phân tích 100% dữ liệu sẽ giảm thiểu rủi ro kiểm toán xuống mức thấp nhất, không còn lo bỏ sót lỗi hay gian lận nữa đúng không ạ?
+Người 1: Slide 8 bàn về sự lột xác của Kiểm toán. Chúng ta mở rộng phạm vi từ "Kiểm tra chọn mẫu" (Sample-based Testing) sang phân tích toàn bộ 100% quần thể dữ liệu.
+Người 2: Thưa thầy, nếu máy tính đã làm hết việc phân tích 100% và chỉ ra các giao dịch bất thường (Anomaly detection), vậy giá trị cốt lõi mà một Kiểm toán viên mang lại nằm ở khâu nào? Có phải là dùng "Xét đoán chuyên môn" (Professional Judgment) để kết luận xem sự bất thường đó là do lỗi hệ thống (Error) hay là gian lận cố ý (Fraud)?
+Người 1: Rất sắc bén! Máy tính chỉ tìm ra "Điều bất thường", còn con người mới kết luận được "Bản chất" của sự bất thường đó.
 
-Slide 9: TRỰC QUAN HÓA DỮ LIỆU TRONG KIỂM TOÁN (1/2)
-Người 1: Đúng thế. Các em nhìn Hình 1.3, đây là Dashboard đánh giá rủi ro sổ cái chung. Thay vì nhìn bảng số liệu, kiểm toán viên nhìn vào biểu đồ để thấy ngay các tài khoản có biến động bất thường.
-Người 2: Các thanh biểu đồ cao vọt lên sẽ là mục tiêu cần phải xoáy sâu kiểm tra ngay lập tức!
+Slide 9: ILLUSTRATION 1.3 (TRỰC QUAN HÓA TRONG KIỂM TOÁN 1)
+Người 1: Minh họa 1.3. Áp dụng Phân tích dữ liệu vào khâu Đánh giá Rủi ro (Risk Assessment).
+Người 2: Đây là biểu đồ so sánh biến động của các tài khoản Sổ cái (General Ledger) giữa 2 năm. Nhìn vào màu sắc và độ lớn của thanh biểu đồ, Kiểm toán viên sẽ ngay lập tức thấy Tài khoản "Tiền" (Cash) hoặc "Chi phí dở dang" có biến động đột biến, từ đó quyết định khoanh vùng tập trung kiểm toán vào các tài khoản này (Focus areas) để tối ưu hóa thời gian!
 
-Slide 10: TRỰC QUAN HÓA DỮ LIỆU TRONG KIỂM TOÁN (2/2)
-Người 1: Tương tự, ở Hình 1.4, ta so sánh được ngay doanh thu kỳ vọng và doanh thu thực tế. Đường xu hướng cho thấy thực tế đang chênh lệch như thế nào.
-Người 2: Việc trực quan hóa thực sự giúp "bắt bệnh" nhanh hơn rất nhiều so với nhìn bảng tính.
+Slide 10: ILLUSTRATION 1.4 (TRỰC QUAN HÓA TRONG KIỂM TOÁN 2)
+Người 1: Minh họa 1.4: Thủ tục Phân tích Cơ bản (Substantive Analytical Procedure) - So sánh Doanh thu Thực tế (Actual) vs Kỳ vọng (Expected).
+Người 2: Đường màu xám là Kỳ vọng, đường màu cam là Thực tế. Khoảng vênh ở tháng 2, tháng 7 và tháng 12 là quá lớn. Thay vì cắm đầu đi xin hàng ngàn hóa đơn, Kiểm toán viên chỉ cần chất vấn Giám đốc Kinh doanh: "Tại sao doanh thu tháng 7 lại vượt xa đường cơ sở (Baseline) như vậy?". Đó là sức mạnh của Trực quan hóa dữ liệu thưa thầy.
 
-Slide 11: TÁC ĐỘNG ĐẾN KẾ TOÁN TÀI CHÍNH & QUẢN TRỊ
-Người 1: Kế toán tài chính thì dùng RPA (Tự động hóa Robot) và SSBI để tự động lên báo cáo. Còn Kế toán quản trị thì dùng Bảng tô sáng (Highlight Table) để theo dõi hiệu suất cao/thấp.
-Người 2: Em hiểu rồi, dữ liệu được ứng dụng để tối ưu hóa trong mọi phân ngành của kế toán chứ không riêng gì kiểm toán.
+Slide 11: KẾ TOÁN TÀI CHÍNH & QUẢN TRỊ
+Người 1: Slide 11 thảo luận về tác động đối với Kế toán Tài chính và Kế toán Quản trị. Kế toán Tài chính dùng Dashboards để lập báo cáo, còn Kế toán Quản trị dùng Bảng tô sáng (Highlight Table) để xác định hiệu suất.
+Người 2: Có sự phân vai rõ rệt ạ. Kế toán Tài chính hướng ra bên ngoài (External reporting) - họ cần sự chính xác tuyệt đối. Kế toán Quản trị hướng vào bên trong (Internal decision making) - họ cần sự nhanh nhạy để tối ưu hóa ngân sách và dự báo tương lai.
 
-Slide 12: BẢNG ĐIỀU KHIỂN KẾ TOÁN TÀI CHÍNH
-Người 1: Minh họa 1.5 là một Bảng điều khiển kế toán tài chính. Nó giám sát hiệu suất tổng thể, từ tỷ suất sinh lời, dòng tiền, đến các tỷ số thanh toán hiện hành theo thời gian thực.
-Người 2: Có một cái Dashboard thế này thì sếp hỏi số liệu lúc nào, mình chỉ việc bật lên và trả lời ngay tắp lự.
+Slide 12: ILLUSTRATION 1.5 (FINANCIAL ACCOUNTING DASHBOARD)
+Người 1: Minh họa 1.5 là Bảng điều khiển (Dashboard) của Kế toán Tài chính.
+Người 2: Rất trực quan! Nhìn vào biểu đồ "Total Revenue vs Expenses" (Doanh thu so với Chi phí), CFO có thể thấy ngay bức tranh dòng tiền hàng tháng. Biểu đồ này giúp Ban Giám đốc không phải đau đầu đọc các Báo cáo Kết quả Kinh doanh (Income Statement) dày đặc số liệu nữa.
 
-Slide 13: BẢNG ĐIỀU KHIỂN KẾ TOÁN QUẢN TRỊ
-Người 1: Với quản trị nội bộ, Hình 1.6 dùng bảng tô sáng (Highlight Table) để làm nổi bật các sản phẩm mang lại biên lợi nhuận cao nhất và thấp nhất.
-Người 2: Màu sắc giúp mắt chúng ta phân loại dữ liệu tức thì. Kế toán quản trị sẽ biết ngay nên cắt giảm chi phí ở mặt hàng nào.
+Slide 13: ILLUSTRATION 1.6 (MANAGERIAL ACCOUNTING DASHBOARD)
+Người 1: Minh họa 1.6. Bảng tô sáng (Highlight Table) của Kế toán Quản trị phân tích hiệu suất sản phẩm.
+Người 2: Bảng này dùng thang màu (Heatmap). Màu càng đậm, lợi nhuận càng cao. Giám đốc có thể liếc qua và ra quyết định ngay: "Cắt giảm ngân sách marketing của khu vực màu nhạt, dồn nguồn lực cho dòng sản phẩm đang báo màu đậm". Tốc độ ra quyết định (Decision-making speed) tăng lên hàng chục lần!
 
-Slide 14: TÁC ĐỘNG ĐẾN KẾ TOÁN THUẾ
-Người 1: Hình 1.7 là ví dụ về Bảng điều khiển thuế. Nó theo dõi vị thế thuế của tổ chức, giúp đảm bảo tính hiệu quả về thuế và tuân thủ pháp luật chặt chẽ.
-Người 2: Vậy là mọi mảng nghiệp vụ: Kiểm toán, Tài chính, Quản trị và Thuế đều đã được "nâng cấp" bởi dữ liệu.
+Slide 14: ILLUSTRATION 1.7 (TAX ACCOUNTING DASHBOARD)
+Người 1: Minh họa 1.7. Tác động đến Kế toán Thuế.
+Người 2: Dashboard này thể hiện thuế thu nhập bang (State Income Tax) với bản đồ nước Mỹ. Người dùng có thể Drill-down (khoan sâu) vào từng bang để xem nghĩa vụ thuế. Nó giúp Kế toán Thuế tối ưu hóa Dòng tiền nộp thuế (Tax Planning) và đảm bảo tính tuân thủ pháp luật (Compliance).
 
-Slide 15: 1.2 CÁC GIAI ĐOẠN CỦA QUY TRÌNH PHÂN TÍCH DỮ LIỆU
-Người 1: Vậy làm sao để tạo ra các Dashboard đó? Chúng ta phải tuân theo Quy trình 3 giai đoạn ở Hình 1.8: Lên kế hoạch (Plan) -> Phân tích (Analyze) -> Báo cáo (Report). 
-Người 2: Em thấy quy trình này có vẻ giống một chu trình khép kín, làm xong Report lại có thể dẫn tới những câu hỏi Plan mới.
+Slide 15: 1.2 QUY TRÌNH PHÂN TÍCH DỮ LIỆU
+Người 1: Chúng ta sang phần 1.2. Mọi phân tích đều phải tuân theo một quy trình chuẩn. Ở đây, chúng ta sẽ làm quen với quy trình MOSAIC.
+Người 2: Dạ, công cụ là phần ngọn, quy trình là phần gốc. Nếu làm sai quy trình, dù có dùng phần mềm xịn đến đâu, kết quả vẫn là vô nghĩa (Garbage in, Garbage out) ạ.
 
-Slide 16: GIAI ĐOẠN 1: LÊN KẾ HOẠCH (PLAN)
-Người 1: Ở giai đoạn Plan, chúng ta phải hiểu rõ Động lực (tại sao phải phân tích?), sau đó Xác định mục tiêu và Thiết kế chiến lược. Mọi phân tích dữ liệu đều vô nghĩa nếu không giải quyết một bài toán kinh doanh nào đó.
-Người 2: Tức là không phải cứ có dữ liệu là cắm đầu vào vẽ biểu đồ, mà phải biết mình vẽ để tìm câu trả lời cho vấn đề gì.
+Slide 16: HIỂU ĐỘNG LỰC, MỤC TIÊU VÀ CHIẾN LƯỢC
+Người 1: Slide 16. Ba bước đầu tiên: Hiểu Động lực (Motivation), Xác định Mục tiêu (Objective), và Thiết kế Chiến lược (Strategy).
+Người 2: Thưa thầy, bước "Hiểu động lực" cực kỳ quan trọng. Nếu CFO hỏi "Tại sao biên lợi nhuận quý này giảm?", Kế toán viên phải hiểu rằng Động lực của CFO là muốn tìm ra yếu tố chi phí nào đang phình to để cắt giảm, từ đó mới Xác định Mục tiêu là "Phân tích cấu trúc chi phí giá vốn (COGS)". Nếu sai mục tiêu ngay từ đầu thì đi lạc hoàn toàn!
 
-Slide 17: HIỂU RÕ ĐỘNG LỰC (PHÂN TÍCH DOANH SỐ OSS)
-Người 1: Chính xác! Hãy nhìn Hình 1.9, động lực ở đây là tổng doanh số đã giảm 9,4% từ 2024 đến 2025. Ban giám đốc đang rất lo lắng.
-Người 2: Động lực nội bộ này yêu cầu chúng ta phải tìm ra nguyên nhân: Khu vực nào giảm? Mặt hàng nào giảm? 
+Slide 17: ILLUSTRATION 1.9 (ĐỘNG LỰC TỪ CÔNG TY OSS)
+Người 1: Minh họa 1.9 về công ty One Stop Shop (OSS). Tổng lợi nhuận giảm từ năm 2024 (229 triệu) xuống 2025 (207 triệu).
+Người 2: Sự sụt giảm 9.4% này chính là "Động lực" (Motivation) thúc đẩy ban quản trị yêu cầu Kế toán phải tìm ra nguyên nhân cốt lõi (Root cause).
 
-Slide 18: BỐN PHƯƠNG PHÁP PHÂN TÍCH DỮ LIỆU
-Người 1: Dựa vào động lực đó, ta chọn phương pháp phân tích ở Hình 1.10. Có 4 cấp độ: Mô tả (Điều gì đã xảy ra), Chẩn đoán (Tại sao), Dự đoán (Tương lai), Đề xuất (Hành động).
-Người 2: Trả lời câu hỏi "Tại sao doanh số giảm" chính là đang dùng phương pháp Chẩn đoán đúng không thầy/cô?
+Slide 18: ILLUSTRATION 1.10 (BỐN PHƯƠNG PHÁP PHÂN TÍCH)
+Người 1: Minh họa 1.10 giới thiệu 4 Phương pháp phân tích: Descriptive (Mô tả), Diagnostic (Chẩn đoán), Predictive (Dự đoán), Prescriptive (Đề xuất).
+Người 2: Thưa thầy, em xin lấy ví dụ thực tế luôn để đối chiếu:
+- Mô tả: "Tổng nợ xấu năm nay là 10 tỷ" (What happened?).
+- Chẩn đoán: "Nợ xấu tăng do nới lỏng chính sách tín dụng ở khu vực miền Trung" (Why did it happen?).
+- Dự đoán: "Nếu giữ nguyên chính sách, nợ xấu năm sau sẽ lên 15 tỷ" (What will happen?).
+- Đề xuất: "Nên siết chặt tỷ lệ cho vay/tài sản thế chấp (LTV) xuống 60%" (What should we do?).
+Người 1: Tuyệt vời! Sự chuyển dịch từ "Mô tả" sang "Đề xuất" chính là hành trình nâng tầm giá trị của Kế toán viên.
 
-Slide 19: GIAI ĐOẠN 2: PHÂN TÍCH (ANALYZE)
-Người 1: Đúng vậy! Giai đoạn 2 là Analyze. Bước mệt mỏi nhất ở đây là ETL (Extract - Transform - Load). Dữ liệu thô rất "bẩn", ta phải làm sạch (Transform) nó, rồi mới xây dựng mô hình tính toán KPI.
-Người 2: ETL là Trích xuất, Làm sạch, và Tải. Xong bước ETL thì mới "Khám phá dữ liệu" để tìm ra xu hướng được ạ.
+Slide 19: ETL VÀ KHÁM PHÁ DỮ LIỆU
+Người 1: Slide 19. Bước tiếp theo là Chuẩn bị Dữ liệu với quy trình ETL (Extract, Transform, Load).
+Người 2: Theo kinh nghiệm thực tế, quy trình ETL (Trích xuất, Làm sạch, Tải) chiếm đến 80% thời gian của một Data Analyst! Lập hồ sơ dữ liệu (Data Profiling) để loại bỏ các dòng bị rỗng (Null), hoặc sai định dạng ngày tháng trước khi đưa vào mô hình là bắt buộc, nếu không biểu đồ sẽ chạy ra sai bét!
 
-Slide 20: MÔ HÌNH THÔNG TIN: PHÂN TÍCH LỢI NHUẬN THEO QUỐC GIA
-Người 1: Xem Hình 1.12 nhé. Sau khi làm sạch, ta đưa lên biểu đồ cột ngang. Rất rõ ràng, lợi nhuận đang sụt giảm mạnh nhất ở Canada và Mexico.
-Người 2: Nhìn là thấy ngay vấn đề nằm ở hai thị trường này. Nhưng cụ thể là vùng nào ở Canada và Mexico thì mình phải đào sâu thêm nữa.
+Slide 20: ILLUSTRATION 1.12 (MÔ HÌNH THÔNG TIN)
+Người 1: Minh họa 1.12. Phân tích lợi nhuận theo quốc gia (Information Model).
+Người 2: Nhìn vào biểu đồ cột, ta thấy ngay thủ phạm: Lợi nhuận của OSS tại Canada và Mexico bị sụt giảm nghiêm trọng, trong khi Mỹ lại tăng nhẹ. Bước "Mô tả" (Descriptive) đã hoàn thành, bây giờ ta phải khoan sâu hơn (Drill down) để "Chẩn đoán" (Diagnostic).
 
-Slide 21: KHÁM PHÁ DỮ LIỆU: LỢI NHUẬN KHU VỰC
-Người 1: Để đào sâu, ta dùng bản đồ nhiệt ở Hình 1.13. Các vùng màu cam đỏ cho thấy sự sụt giảm tập trung ở một số khu vực cụ thể ở bờ Tây Canada và vài tiểu bang ở Mexico.
-Người 2: Việc bóc tách dữ liệu từ tổng quan (Quốc gia) xuống chi tiết (Khu vực) thực sự rất hiệu quả.
+Slide 21: ILLUSTRATION 1.13 (KHÁM PHÁ DỮ LIỆU)
+Người 1: Minh họa 1.13. Khám phá sâu hơn: Sự thay đổi doanh số theo Khu vực của Canada và Mexico.
+Người 2: Rất rõ ràng! Ở Mexico, khu vực Bờ Tây (West Coast) giảm tận 100%. Đây chính là "Insight" (Thông tin chi tiết) cực kỳ đắt giá. Từ một sự sụt giảm lợi nhuận chung chung, nhờ trực quan hóa dữ liệu, Kế toán viên đã chỉ đích danh được khu vực đang gặp sự cố để Ban giám đốc điều tra.
 
-Slide 22: GIAI ĐOẠN 3: BÁO CÁO (REPORT)
-Người 1: Cuối cùng là Giai đoạn Báo cáo (Report). Các em phải Diễn giải kết quả xem nó có hợp lý không, rồi Truyền đạt lại cho sếp bằng ngôn ngữ dễ hiểu nhất để ra quyết định hành động.
-Người 2: Báo cáo không chỉ là nộp cái bảng số, mà phải là kể một câu chuyện từ những con số đó.
+Slide 22: DIỄN GIẢI VÀ TRUYỀN ĐẠT KẾT QUẢ
+Người 1: Slide 22. Diễn giải (Interpret) và Truyền đạt (Communicate).
+Người 2: Dù biểu đồ có đẹp đến đâu, nếu Kế toán viên không có Kỹ năng Giao tiếp (Communication Skills) để kể câu chuyện dữ liệu (Data Storytelling) cho Ban giám đốc nghe một cách dễ hiểu, thì dự án phân tích đó coi như thất bại!
 
-Slide 23: BẢNG ĐIỀU KHIỂN TRUYỀN ĐẠT THÔNG TIN (DASHBOARD)
-Người 1: Hình 1.14 là một ví dụ. Dashboard này kết hợp nhiều biểu đồ để truyền tải toàn diện bức tranh về phần trăm thay đổi lợi nhuận và doanh thu, giúp người xem ra quyết định ngay lập tức.
-Người 2: Nhìn rất chuyên nghiệp. Nó tổng hợp tất cả những phân tích rải rác lại thành một thông điệp duy nhất.
+Slide 23: ILLUSTRATION 1.14 (TRUYỀN ĐẠT QUA DASHBOARD)
+Người 1: Minh họa 1.14. Dashboard của OSS.
+Người 2: Bảng điều khiển này tổng hợp toàn bộ câu chuyện: Từ thay đổi Lợi nhuận gộp theo từng ngành hàng (Thịt, Đồ dùng văn phòng giảm mạnh) đến xu hướng Lợi nhuận tổng theo thời gian. Nó trao quyền ra quyết định (Empowerment) cho người xem.
 
-Slide 24: MOSAIC: KẾT HỢP TẤT CẢ LẠI VỚI NHAU
-Người 1: Để nhớ dễ hơn, người ta gọi đó là quy trình MOSAIC (Hình 1.15) - Một khuôn khổ tích hợp việc định hình tư duy và giải quyết bài toán kinh doanh bằng dữ liệu.
-Người 2: MOSAIC nghe như một bức tranh khảm nghệ thuật, được ghép từ nhiều mảnh dữ liệu nhỏ lại với nhau vậy.
+Slide 24: ILLUSTRATION 1.15 (MÔ HÌNH MOSAIC)
+Người 1: Minh họa 1.15 chốt lại Mô hình MOSAIC: Motivation, Objective, Strategy, Analysis, Interpret, Communicate.
+Người 2: Một Framework (Khung tư duy) quá hoàn hảo. MOSAIC chia quy trình làm 3 giai đoạn lớn: Plan (Lên kế hoạch), Analyze (Phân tích), và Report (Báo cáo). Kế toán viên luôn phải ghi nhớ: Phân tích chỉ là khúc giữa, Kế hoạch và Báo cáo mới quyết định sự thành bại.
 
-Slide 25: 1.3 TƯ DUY PHÂN TÍCH DỮ LIỆU LÀ GÌ?
-Người 1: Vậy yếu tố sống còn để thực hiện tốt quy trình đó là gì? Đó là "Tư duy Phân tích dữ liệu" (Data Analytics Mindset). Nó là sự kết hợp của Tư duy phản biện, Sự am hiểu dữ liệu, Kỹ năng công nghệ và Giao tiếp.
-Người 2: Không ngừng hỏi "Tại sao?", luôn giữ cái đầu lạnh và hoài nghi nghề nghiệp chính là tư duy phản biện.
+Slide 25: TƯ DUY PHÂN TÍCH (DATA ANALYTICS MINDSET)
+Người 1: Slide 25. Thế nào là Tư duy Phân tích dữ liệu? Đó là sự kết hợp của Tư duy Phản biện (Critical Thinking), Am hiểu Dữ liệu, Kỹ năng Công nghệ, và Giao tiếp.
+Người 2: Thưa thầy, "Am hiểu dữ liệu" (Data Literacy) nghĩa là Kế toán viên phải biết dữ liệu đó được kéo từ bảng (table) nào trong hệ thống ERP, các trường (fields) đó có ý nghĩa tài chính gì, chứ không chỉ mù quáng bấm nút chạy phần mềm ạ. Luôn đặt câu hỏi "Tại sao?" (Why?).
 
-Slide 26: KỸ NĂNG CÔNG NGHỆ & GIAO TIẾP (KHẢO SÁT)
-Người 1: Hình 1.16 và 1.17 cho thấy kết quả khảo sát: Nhà tuyển dụng đánh giá cực kỳ cao kỹ năng phân tích bằng Excel, SQL... nhưng Kỹ năng giao tiếp và Phản biện mới là điểm khác biệt lớn nhất!
-Người 2: Có nghĩa là nếu chỉ giỏi dùng Tool mà không biết diễn đạt kết quả cho sếp hiểu thì cũng bỏ đi ạ.
+Slide 26: ILLUSTRATION 1.16 & 1.17 (KỸ NĂNG TUYỂN DỤNG)
+Người 1: Minh họa 1.16 và 1.17. Phân tích các thông báo tuyển dụng Kế toán.
+Người 2: Những con số biết nói! Hơn 80% yêu cầu kỹ năng Excel nâng cao, hơn 50% yêu cầu biết ERP và Database. Và đặc biệt, Tư duy phản biện (73%) và Giao tiếp (66%) là những kỹ năng mềm được săn đón hàng đầu. Thị trường đang khát những "Kế toán viên biết kể chuyện bằng dữ liệu"!
 
-Slide 27: 1.4 ÁP DỤNG TƯ DUY PHÂN TÍCH DỮ LIỆU (SPARKS)
-Người 1: Để rèn luyện Tư duy phản biện, chúng ta dùng bộ khung SPARKS ở Hình 1.18. SPARKS gồm 6 yếu tố: Stakeholders, Purpose, Alternatives, Risks, Knowledge, và Self-reflection.
-Người 2: SPARKS giúp mình nhìn nhận một vấn đề phân tích từ đủ mọi góc độ, không bị thiên kiến cá nhân làm mờ mắt.
+Slide 27: 1.4 ÁP DỤNG TƯ DUY PHÂN TÍCH (SPARKS)
+Người 1: Chúng ta sang phần 1.4: Mô hình SPARKS, đại diện cho 6 yếu tố của Tư duy phản biện.
+Người 2: SPARKS giúp Kế toán viên không rơi vào "Hiệu ứng tầm nhìn ống" (Tunnel Vision) - chỉ nhìn chằm chằm vào những con số mà quên mất bức tranh kinh doanh toàn cảnh.
 
-Slide 28: S - STAKEHOLDERS (CÁC BÊN LIÊN QUAN)
-Người 1: Chữ S đầu tiên (Stakeholders) ở Hình 1.19 yêu cầu ta xác định xem ai sẽ dùng dữ liệu này. Nội bộ thì có nhân viên, quản lý. Bên ngoài thì có nhà đầu tư, đối tác. Mỗi nhóm cần một cách báo cáo khác nhau.
-Người 2: Chuẩn ạ. Viết báo cáo cho giám đốc đọc sẽ phải tóm gọn và chiến lược hơn nhiều so với báo cáo cho nhân viên nghiệp vụ.
+Slide 28: ILLUSTRATION 1.19 (S - STAKEHOLDERS)
+Người 1: Minh họa 1.19. Chữ S đầu tiên: Stakeholders (Các bên liên quan).
+Người 2: Kế toán phải nhận diện ai sẽ dùng báo cáo này? Nhà đầu tư (Investors) quan tâm đến Tỷ suất sinh lời (ROI), trong khi Cơ quan Thuế (Regulators) quan tâm đến tính tuân thủ. Cùng một bộ dữ liệu, nhưng phục vụ Stakeholders khác nhau thì cách trình bày và phân tích phải khác biệt hoàn toàn!
 
-Slide 29: R - RISKS (ĐÁNH GIÁ RỦI RO)
-Người 1: Chữ R (Risks) nhắc ta về rủi ro dữ liệu (Hình 1.20). Liệu dữ liệu có bị sai sót? Giả định phân tích của ta có quá chủ quan? Có bị định kiến (Bias) chi phối không?
-Người 2: Rất dễ bị "Rác vào - Rác ra" nếu ta bỏ qua bước đánh giá rủi ro chất lượng dữ liệu.
+Slide 29: ILLUSTRATION 1.20 (R - RISKS)
+Người 1: Minh họa 1.20. Chữ R: Risks (Rủi ro trong phân tích). Gồm Rủi ro Dữ liệu, Phân tích, và Nhận thức.
+Người 2: Rủi ro Nhận thức (Cognitive Risk) là nguy hiểm nhất. Ví dụ như "Thiên kiến xác nhận" (Confirmation Bias): Kế toán viên đã có sẵn định kiến là Doanh thu giảm do dịch bệnh, nên khi chạy mô hình phân tích, họ chỉ lọc ra các dữ liệu chứng minh cho định kiến đó, lờ đi sự thật là chất lượng sản phẩm đang đi xuống!
 
-Slide 30: TỔNG HỢP SPARKS
-Người 1: Nhìn Hình 1.21, SPARKS chính là bộ công cụ định hướng suy nghĩ. Hãy áp dụng nó mỗi khi các em đứng trước một tệp dữ liệu lớn. Nó giúp các em trở thành "nhà tư vấn" chứ không chỉ là "người làm thuê".
-Người 2: Em đã ghi nhớ kỹ bộ khung SPARKS này rồi ạ. 
+Slide 30: ILLUSTRATION 1.21 (TỔNG HỢP SPARKS)
+Người 1: Minh họa 1.21. Chữ S cuối cùng: Self-Reflection (Tự phản tỉnh).
+Người 2: Sau mỗi dự án Phân tích, Kế toán viên phải ngồi lại tự đánh giá (Post-project audit). "Mình đã chọn sai mô hình ở đâu? Dữ liệu bị nhiễu chỗ nào?". Sự Tự phản tỉnh liên tục này chính là chìa khóa để rèn giũa Tư duy phản biện (Critical Thinking) sắc bén hơn theo thời gian thưa thầy!
 
-Slide 31: ĐÁNH GIÁ VÀ THỰC HÀNH CHƯƠNG
-Người 1: Bây giờ, chúng ta sẽ bước sang phần Bài tập Thực hành để củng cố toàn bộ kiến thức về Quy trình phân tích và Tư duy SPARKS.
-Người 2: Vâng, học đi đôi với hành thì mới ngấm được kiến thức ạ. Em đã sẵn sàng!
+Slide 31: ĐÁNH GIÁ VÀ THỰC HÀNH CHƯƠNG 1
+Người 1: Chúng ta đã đi qua toàn bộ lý thuyết nền tảng. Bây giờ là lúc bước vào phần "Đánh giá và Thực hành" (Assessment and Practice). Từ Slide 31 trở đi, chúng ta sẽ áp dụng các khung tư duy MOSAIC và SPARKS vào giải quyết các bài toán thực tế.
+Người 2: Dạ vâng, học Kế toán số (Digital Accounting) không thể chỉ dừng ở lý thuyết được. Chúng ta phải "nhúng tay vào bùn" (hands-on) với dữ liệu!
 
-Slide 32: BÀI TẬP NGẮN (BRIEF EXERCISES)
-Người 1: Ở BE 1.1, các bạn hãy nhìn vào màn hình và phân loại xem các hoạt động nghiệp vụ này thuộc Giai đoạn nào: Plan, Analyze hay Report nhé.
-Người 2: Việc xác định động lực chắc chắn là Plan, còn dùng công cụ dọn dẹp dữ liệu là Analyze ạ!
+Slide 32: BE 1.1 (BÀI TẬP NGẮN)
+Người 1: Bắt đầu với Bài tập Ngắn (Brief Exercises) - BE 1.1.
+Người 2: Yêu cầu của bài này là phân biệt rõ 3 khái niệm: Dữ liệu (Data), Thông tin (Information) và Phân tích (Analytics). Sinh viên hay nhầm lẫn giữa Dữ liệu và Thông tin. Dữ liệu chỉ là con số thô "Doanh thu 10 tỷ", nhưng Thông tin là "Doanh thu 10 tỷ, tăng 20% so với cùng kỳ nhờ chiến dịch marketing tháng trước" thưa thầy.
 
-Slide 33: BÀI TẬP NGẮN (BRIEF EXERCISES - TIẾP)
-Người 1: Rất tốt. Tiếp theo BE 1.1_1, hành động "Viết báo cáo trình bày diễn giải kết quả" sẽ thuộc giai đoạn nào?
-Người 2: Dễ quá, đây chính là bước cuối cùng: Report - Báo cáo!
+Slide 33: BE 1.1 (TIẾP)
+Người 1: (Slide 33 tiếp tục BE 1.1).
+Người 2: Kế toán viên phải biết cách chuyển hóa sự kiện thô thành những Insight (thông tin chi tiết) có ý nghĩa kinh doanh.
 
-Slide 34: BÀI TẬP NGẮN (BRIEF EXERCISES - TIẾP)
-Người 1: Chuyển sang BE 1.6, hãy kết nối các yếu tố của SPARKS với ý nghĩa của chúng. "Xác định ai sẽ chịu tác động" là chữ cái nào?
-Người 2: Là chữ S đầu tiên - Stakeholders (Các bên liên quan) ạ!
+Slide 34: BE 1.6
+Người 1: BE 1.6. Áp dụng Mô hình MOSAIC.
+Người 2: Bài này yêu cầu sinh viên đặt mình vào vị trí Giám đốc Tài chính (CFO), xác định Động lực (Motivation) khi nhìn thấy Chi phí Logistics tăng vọt. Sinh viên phải biết đặt câu hỏi đúng trước khi đâm đầu vào chạy Excel ạ.
 
-Slide 35: BÀI TẬP (EXERCISES - EX 1.3)
-Người 1: Bây giờ khó hơn chút. Ở EX 1.3, chúng ta có một bảng câu hỏi phân tích kinh doanh. Hãy phân loại chúng vào 4 phương pháp: Mô tả, Chẩn đoán, Dự đoán, hay Đề xuất. "Tại sao chi phí marketing lại tăng vọt?" thuộc loại nào?
-Người 2: Hỏi "Tại sao" thì chắc chắn là phương pháp Chẩn đoán (Diagnostic) ạ.
+Slide 35: EX 1.3 (BÀI TẬP)
+Người 1: Slide 35. Sang phần Bài tập dài (Exercises). EX 1.3.
+Người 2: Bài này đi sâu vào 4 Phương pháp phân tích (Descriptive, Diagnostic, Predictive, Prescriptive). Sinh viên sẽ được cung cấp 10 tình huống thực tế trong công ty và phải dán nhãn (tag) xem mỗi tình huống thuộc phương pháp nào. Rất rèn luyện tư duy phân tích (Analytical Mindset)!
 
-Slide 36: BÀI TẬP (EXERCISES - EX 1.4)
-Người 1: Sang EX 1.4, giả sử sếp yêu cầu các em dự báo doanh thu tháng sau. Đó là phương pháp phân tích nào?
-Người 2: Dự báo thì là phương pháp Dự đoán (Predictive Analytics) thưa thầy/cô.
+Slide 36: EX 1.4
+Người 1: EX 1.4. Phân tích các loại hình Kế toán.
+Người 2: Phân biệt rõ sự khác nhau về nhu cầu dữ liệu giữa Kế toán Thuế (Tính tuân thủ) và Kế toán Quản trị (Tính định hướng tương lai). Mỗi vai trò sẽ có cách ứng xử với dữ liệu hoàn toàn khác nhau.
 
-Slide 37: BÀI TẬP (EXERCISES - EX 1.5)
-Người 1: Ở EX 1.5, bài tập này rèn luyện tư duy phản biện. Nếu hệ thống báo cáo có sự sai lệch số liệu so với sổ phụ ngân hàng, bước đầu tiên theo quy trình Plan - Analyze - Report là gì?
-Người 2: Em nghĩ là phải xác định động lực (đang bị lệch sổ) và lên kế hoạch (Plan) trích xuất dữ liệu để đối chiếu ạ.
+Slide 37: EX 1.5
+Người 1: EX 1.5. Kỹ năng cốt lõi của Kế toán.
+Người 2: Bài tập này nhấn mạnh lại việc: Kỹ năng công nghệ (như biết dùng SQL hay Python) chỉ là công cụ (Tool). Kỹ năng Tư duy Phản biện (Critical Thinking) mới là thứ khó đào tạo và là yếu tố sống còn để Kế toán viên không bị đào thải thưa thầy.
 
-Slide 38: BÀI TẬP (EXERCISES - EX 1.6)
-Người 1: Tốt lắm! EX 1.6 sẽ yêu cầu các em đánh giá "Sự am hiểu dữ liệu" (Data Literacy). Khi đọc một bảng dữ liệu lạ, các em cần xem xét điều gì đầu tiên?
-Người 2: Em sẽ xem các tiêu đề cột đại diện cho cái gì, và kiểu dữ liệu là dạng số (để tính toán) hay dạng chữ (để phân loại).
+Slide 38: EX 1.6
+Người 1: EX 1.6. Khung tư duy SPARKS.
+Người 2: Sinh viên phải lập sơ đồ các Bên liên quan (Stakeholders) và Đánh giá rủi ro (Risks) cho một dự án triển khai ERP mới. Đừng chỉ nhìn vào số tiền tiết kiệm được, hãy nhìn vào Rủi ro (R - Risks) khi thay đổi thói quen của hàng trăm nhân viên!
 
-Slide 39: BÀI TẬP (EXERCISES - EX 1.7)
-Người 1: EX 1.7 tập trung vào rủi ro (Risks trong SPARKS). Nếu lấy dữ liệu từ một nguồn trôi nổi trên mạng để làm báo cáo tài chính thì sao?
-Người 2: Dạ, rủi ro sai sót rất cao. Nguyên tắc là phải luôn thẩm định nguồn gốc và độ tin cậy của dữ liệu trước khi "Load" vào phần mềm.
+Slide 39: EX 1.7
+Người 1: EX 1.7. Đánh giá tính minh bạch và Giao tiếp.
+Người 2: Truyền đạt kết quả (Communicate) không chỉ là vẽ biểu đồ cho đẹp. Dashboard phải không có định kiến (Unbiased). Việc dùng thang đo màu sắc sai (ví dụ dùng màu xanh lá cho một chỉ số đang báo động rủi ro) có thể bóp méo hoàn toàn nhận thức của Ban giám đốc!
 
 Slide 40: TÌNH HUỐNG ỨNG DỤNG CHUYÊN MÔN (PAC)
-Người 1: Tuyệt vời. Để kết thúc bài học, chúng ta sẽ xử lý một case study thực tế toàn diện: Little Tots Daycare. Một hệ thống nhà trẻ đang gặp vấn đề về dữ liệu chi phí và doanh thu.
-Người 2: Ồ, một case study thực tế! Chúng ta sẽ đóng vai trò tư vấn viên phân tích dữ liệu cho nhà trẻ này đúng không ạ?
+Người 1: Sang Slide 40. Phần Tình huống Ứng dụng Chuyên môn (Professional Application Cases - PAC). Đây là lúc đối mặt với dữ liệu thật.
+Người 2: Những bài PAC này mô phỏng chính xác áp lực công việc của một Data Analyst trong phòng Tài chính Kế toán. Không có đáp án đúng sai tuyệt đối, chỉ có lập luận (Argument) nào chặt chẽ hơn thôi ạ.
 
-Slide 41: DỮ LIỆU TÌNH HUỐNG 1
-Người 1: Mọi người xem Tình huống 1. Đây là tệp dữ liệu thô (raw data) của họ. Rất lộn xộn, có cột trống, có lỗi font.
-Người 2: Đúng là thực trạng chung của nhiều doanh nghiệp nhỏ. Bước đầu tiên chắc chắn phải là "Transform" - làm sạch cái mớ hỗn độn này bằng công cụ SSBI.
+Slide 41: LITTLE TOTS DAYCARE (DỮ LIỆU TÌNH HUỐNG 1)
+Người 1: Tình huống Little Tots Daycare. Minh họa 1.1B. Chúng ta xem xét bảng dữ liệu đầu tiên.
+Người 2: Thưa thầy, ở đây là dữ liệu về Nhân sự và Lương của một chuỗi nhà trẻ. Vấn đề của doanh nghiệp này là Chi phí nhân công (Labor cost) đang phình to. Nhiệm vụ của Kế toán là phải tìm ra nguyên nhân bằng cách mổ xẻ dữ liệu phân ca (Timesheet) của giáo viên.
 
-Slide 42: DỮ LIỆU TÌNH HUỐNG 2
-Người 1: Sang Tình huống 2, sau khi làm sạch, ta có bảng số liệu chuẩn. Nhiệm vụ của các em là dùng Excel hoặc Tableau để chạy một bảng phân tích doanh thu theo từng chi nhánh.
-Người 2: Dạ vâng, thao tác kéo thả Pivot Table hoặc Dashboard sẽ giúp làm nổi bật chi nhánh nào đang kinh doanh kém hiệu quả.
+Slide 42: LITTLE TOTS DAYCARE (DỮ LIỆU TÌNH HUỐNG 2)
+Người 1: Minh họa 1.1C. Bảng dữ liệu thứ hai của Little Tots Daycare.
+Người 2: Bảng này chi tiết hơn về số lượng học sinh theo từng độ tuổi và tỷ lệ Giáo viên/Học sinh. Nếu tỷ lệ này vượt định mức pháp luật, nhà trẻ sẽ bị phạt. Nếu dưới định mức, nhà trẻ lãng phí quỹ lương. Bài toán Kế toán Quản trị cực kỳ thực tế!
 
-Slide 43: PHÂN TÍCH TÌNH HUỐNG (PAC 1.1)
-Người 1: Yêu cầu của PAC 1.1 là các em hãy chỉ ra Động lực (Motivation) của Ban Giám đốc nhà trẻ.
-Người 2: Dựa vào đề bài, động lực là họ muốn tối ưu hóa chi phí vận hành và tìm hiểu nguyên nhân tại sao chi nhánh B lại bị sụt giảm lợi nhuận trong quý 3.
+Slide 43: PAC 1.1 (PHÂN TÍCH TÌNH HUỐNG)
+Người 1: PAC 1.1. Bắt tay vào xử lý tình huống.
+Người 2: Sinh viên sẽ dùng quy trình ETL để Làm sạch (Cleanse) dữ liệu bảng lương này. Sẽ có những dòng bị trống giờ làm, hoặc chức danh bị nhập sai chính tả. Nếu không có kỹ năng Am hiểu Dữ liệu (Data Literacy), bước này sẽ bị nghẽn hoàn toàn.
 
-Slide 44: PHÂN TÍCH TÌNH HUỐNG (PAC 1.3)
-Người 1: PAC 1.3 yêu cầu các em đưa ra các rủi ro có thể gặp phải (chữ R trong SPARKS) khi phân tích tệp dữ liệu này.
-Người 2: Rủi ro lớn nhất là dữ liệu điểm danh của các bé có thể bị nhập sai ngày tháng, dẫn đến tính sai học phí. Ta phải kiểm tra lại tính toàn vẹn của dữ liệu ạ.
+Slide 44: PAC 1.3
+Người 1: PAC 1.3. Diễn giải kết quả.
+Người 2: Sau khi chạy Pivot Table (Bảng tổng hợp), Kế toán viên phải đọc vị (Interpret) được các con số: "Cơ sở ở khu vực phía Bắc đang trả quá nhiều tiền ngoài giờ (Overtime) so với cơ sở phía Nam". Nguyên nhân sâu xa là gì? Do thiếu nhân sự hay do gian lận chấm công?
 
-Slide 45: PHÂN TÍCH TÌNH HUỐNG (PAC 1.4)
-Người 1: Câu cuối cùng, PAC 1.4 yêu cầu các em viết Báo cáo (Report) kiến nghị cho Ban Giám đốc dựa trên kết quả.
-Người 2: Em sẽ tóm tắt lại bằng một biểu đồ doanh thu, và đưa ra Đề xuất (Prescriptive Analytics) là nên cắt giảm chi phí ăn uống dư thừa ở chi nhánh B.
+Slide 45: PAC 1.4
+Người 1: PAC 1.4. Đưa ra Đề xuất (Prescriptive Analytics).
+Người 2: Đây là đỉnh cao của Phân tích! Không chỉ dừng ở việc "Báo cáo nợ xấu", Kế toán phải đưa ra Đề xuất: "Cần tự động hóa hệ thống xếp ca, cắt giảm 20% giờ làm thêm của cơ sở phía Bắc để tăng Biên lợi nhuận lên 3%". CFO rất thích nghe những con số mang tính Hành động (Actionable Insights) này ạ!
 
 Slide 46: KẾT THÚC
-Người 1: Rất xuất sắc! Qua bài thực hành hôm nay, các bạn đã hình dung rõ nét sự chuyển đổi của nghề kế toán, và cách vận dụng Tư duy SPARKS vào quy trình phân tích. Nếu có câu hỏi nào, các bạn cứ thoải mái đặt ra nhé.
-Người 2: Bài học hôm nay rất trực quan và thực tế. Em đã hiểu được giá trị thực sự của một người làm kế toán trong kỷ nguyên số. Cảm ơn thầy/cô rất nhiều!
+Người 1: Vâng, và Slide 46 khép lại Chương 1. Chúng ta đã đặt xong móng nhà, xác định rõ bản đồ đi đường và vũ khí cần thiết.
+Người 2: Thưa thầy, bài học lớn nhất em rút ra từ Chương 1 là: Kế toán tương lai không phải là những cái máy nhập liệu, mà là những Kiến trúc sư hệ thống và Nhà tư vấn chiến lược. Tư duy Phản biện (Critical Thinking) mới là loại tài sản không bao giờ khấu hao! Cảm ơn thầy vì một chương khởi động quá năng lượng!

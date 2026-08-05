@@ -1,423 +1,424 @@
+
 Slide 1: TRANG BÌA
-Người 1: Chào mừng các em đến với Chương 9. Tiếp tục chủ đề Diễn dịch Kết quả, chúng ta sẽ ứng dụng sâu hơn vào các bài toán kế toán thực tế.
-Người 2: Dạ em chào thầy. Em đã sẵn sàng cho bài học hôm nay ạ.
+Người 1: Chào mừng các em đến với Chương 9: Giao tiếp và Trình bày Kết quả Phân tích Dữ liệu (Communicating Data Analysis Results). Đây là bước cuối cùng, nhưng lại quyết định sự thành bại của toàn bộ quá trình phân tích.
+Người 2: Dạ thưa thầy, em hiểu là dù mô hình AI của mình có tính toán siêu việt đến đâu, nhưng nếu mình trình bày khiến Ban giám đốc không hiểu gì, thì toàn bộ bản báo cáo đó cũng chỉ đáng vứt vào sọt rác phải không ạ?
 
 Slide 2: INTRO 9.0
-Người 1: Các em tập trung vào slide "Intro 9.0" nhé, đây là nền tảng rất quan trọng.
-Người 2: Vâng thưa thầy, phần này rất logic và dễ áp dụng.
+Người 1: Đúng vậy! Intro 9.0 mở đầu bằng một thông điệp cốt lõi: Giao tiếp là cầu nối. Nó chuyển hóa các con số kỹ thuật thành các Quyết định Chiến lược (Strategic Decisions).
+Người 2: Vậy vai trò của Kế toán viên lúc này không còn là "người tính toán" nữa, mà phải trở thành một "Người kể chuyện bằng Dữ liệu" (Data Storyteller) ạ.
 
 Slide 3: ILLUSTRATION 9.1
-Người 1: Chúng ta cùng phân tích Minh họa 9.1 nhé. Trọng tâm của phần này là: ").9.1 How Do We Tell a Data Story? LEARNING OBJECTIVE ➊ Explain how a data story communicates data analysis results. 1McKinsey & Company, 2009. Hal...". Các em hãy lưu ý cách áp dụng vào thực tế.
-Người 2: Em đã nắm được ý chính của phần này rồi thưa thầy.
+Người 1: (Hiển thị Minh họa 9.1). Hãy nhìn vào những bản báo cáo truyền thống này. Toàn chữ và những bảng số liệu chằng chịt.
+Người 2: Nếu em đưa bảng này cho Giám đốc Marketing, chắc chắn họ sẽ bị ngợp (Information Overload). Chúng ta cần một phương thức truyền đạt thân thiện hơn thưa thầy.
 
 Slide 4: ILLUSTRATION 9.2
-Người 1: Nhìn vào Minh họa 9.2, chúng ta có thể rút ra điều gì? Tài liệu có ghi: "HMC Brands  and ModelsBrands Apechete Jackson Tatra ModelsChare Brutus Advantage Island Crux Bloom Pebble Fiddle Jespie Robin Rebel Mortimer Summet...". Đây là một điểm rất đáng chú ý.
-Người 2: Dạ, kết hợp lý thuyết với minh họa thực tế thế này rất hiệu quả ạ.
+Người 1: (Minh họa 9.2). Đây là lúc các phần mềm trực quan hóa (Data Visualization tools) như Tableau hay Power BI vào cuộc.
+Người 2: Dạ vâng, việc dùng màu sắc và hình khối giúp bộ não con người xử lý thông tin nhanh hơn gấp hàng nghìn lần so với việc đọc từng dòng trong bảng Excel ạ.
 
 Slide 5: ILLUSTRATION 9.3
-Người 1: Mời các em quan sát Minh họa 9.3. Điểm cốt lõi ở đây là: "provides sales information by brand for each month, but does it show what  you need to understand about sales trends?".
-Người 2: Vâng thưa thầy, hình ảnh này giải thích rất trực quan dễ hiểu.
+Người 1: (Minh họa 9.3). Tuy nhiên, có công cụ xịn không có nghĩa là sẽ tạo ra biểu đồ đúng. Một biểu đồ sai có thể dẫn dắt người xem đến một kết luận hoàn toàn sai lệch.
+Người 2: Thưa thầy, đó là tính hai mặt của Visualization! Nếu ta cố tình thay đổi tỷ lệ trục Y, ta có thể phóng đại một mức tăng trưởng rất nhỏ trông như một sự bùng nổ. Đây là ranh giới giữa Nghệ thuật trình bày và Sự lừa dối dữ liệu (Data Manipulation) ạ!
 
-Slide 6: CHƯƠNG 9: TRÌNH BÀY KẾT QUẢ PHÂN TÍCH DỮ LIỆU
-Người 1: Các em tập trung vào slide "Chương 9: Trình bày Kết quả Phân tích Dữ liệu" nhé, đây là nền tảng rất quan trọng.
-Người 2: Thưa thầy, em đã gạch chân những từ khóa cốt lõi rồi ạ.
+Slide 6: MỤC TIÊU VÀ TẦM QUAN TRỌNG
+Người 1: Slide 6 tóm tắt lại mục tiêu của chúng ta: Xây dựng năng lực phân tích và kể chuyện. Nhận diện các biểu đồ gây hiểu lầm (Misleading charts).
+Người 2: Em đã sẵn sàng để học cách trở thành cầu nối giữa Dữ liệu kỹ thuật (Technical Data) và Quyết định kinh doanh (Business Decisions) thưa thầy.
 
 Slide 7: ILLUSTRATION 9.4
-Người 1: Các em xem minh họa ở Minh họa 9.4 trên slide. Đoạn này đề cập đến: ").". Rất sát với tình huống doanh nghiệp.
-Người 2: Vâng thưa thầy, hình ảnh này giải thích rất trực quan dễ hiểu.
+Người 1: (Minh họa 9.4). Đây là một ví dụ về một bảng Dashboard sơ khai. 
+Người 2: Mọi thứ bắt đầu được gom gọn vào một màn hình duy nhất, giúp người xem có cái nhìn toàn cảnh (Bird's-eye view) trước khi đi vào chi tiết ạ.
 
 Slide 8: ILLUSTRATION 9.5
-Người 1: Mời các em quan sát Minh họa 9.5. Điểm cốt lõi ở đây là: "Elements of  Effective Storytelling DataNarr ative NarrativeVisualsVisuals DataNarr ative Data Data Explain Enlighte nVisualsNarr ativeVisualsEngage...".
-Người 2: Vâng thưa thầy, hình ảnh này giải thích rất trực quan dễ hiểu.
+Người 1: (Minh họa 9.5). Các mảnh ghép của một câu chuyện dữ liệu bắt đầu được hình thành.
+Người 2: Chắc chắn nó phải bao gồm Dữ liệu (Data), Hình ảnh (Visuals), và đặc biệt là Lời bình (Narrative) để dẫn dắt sự chú ý của người nghe.
 
 Slide 9: ILLUSTRATION 9.6
-Người 1: Slide tiếp theo là một ví dụ thực tế qua Minh họa 9.6. Cụ thể: "). The pyramid was developed by the German playwright and novelist   Gustav Freytag to understand the structure of Greek and Shakespearian drama. It...". Phân tích kỹ sẽ giúp các em hiểu sâu hơn.
-Người 2: Dạ, ví dụ này làm em thấy rõ hơn hẳn ạ.
+Người 1: (Minh họa 9.6). Giao điểm của Data, Visuals và Narrative chính là điểm bùng nổ của một Data Story.
+Người 2: Thiếu Narrative, biểu đồ chỉ là một bức tranh vô hồn. Thiếu Data, câu chuyện chỉ là lời nói suông. Sự kết hợp hoàn hảo này mới tạo ra Insight đột phá thưa thầy!
 
-Slide 10: 9.1 KỂ CHUYỆN BẰNG DỮ LIỆU
-Người 1: Bước sang phần "9.1 Kể Chuyện Bằng Dữ Liệu", đây là một khái niệm rất hay xuất hiện trong thực tế.
-Người 2: Thưa thầy, em đã gạch chân những từ khóa cốt lõi rồi ạ.
+Slide 10: CÂU CHUYỆN DỮ LIỆU (DATA STORY) LÀ GÌ?
+Người 1: Slide 10 định nghĩa rất rõ: Data Story không chỉ là vẽ biểu đồ. Nó phải trả lời được câu hỏi tột cùng: "Dữ liệu này có ý nghĩa gì đối với công ty?"
+Người 2: Dạ vâng! Nếu biểu đồ chỉ ra Doanh thu giảm 20%, Data Story của Kế toán phải chỉ ra được: "Doanh thu giảm 20% này sẽ làm công ty vi phạm Hợp đồng vay vốn ngân hàng (Debt Covenant) vào tháng sau, chúng ta cần hành động ngay lập tức!" - Đó mới là kể chuyện mang tính chiến lược ạ.
 
 Slide 11: ILLUSTRATION 9.7
-Người 1: Các em xem minh họa ở Minh họa 9.7 trên slide. Đoạn này đề cập đến: "is a simple and effective  way  to structure a data story. Once the structure is set, the elements of a story (data, narrative,   visuals) can be...". Rất sát với tình huống doanh nghiệp.
-Người 2: Dạ, ví dụ này làm em thấy rõ hơn hẳn ạ.
+Người 1: (Minh họa 9.7). Kể chuyện phải dựa trên hiểu biết sâu sắc về người nghe.
+Người 2: Đúng vậy thưa thầy, "Biết người biết ta". Không thể dùng chung một kịch bản báo cáo cho cả Giám đốc Tài chính (CFO) và Giám đốc Nhân sự (CHRO) được ạ.
 
 Slide 12: ILLUSTRATION 9.8
-Người 1: Nhìn vào Minh họa 9.8, chúng ta có thể rút ra điều gì? Tài liệu có ghi: "is a visualization Ford Motor Company used in their presentation  of third quarter 2021 results to investors.". Đây là một điểm rất đáng chú ý.
-Người 2: Em đã nắm được ý chính của phần này rồi thưa thầy.
+Người 1: (Minh họa 9.8). Mỗi khán giả có một lăng kính (Lens) khác nhau khi nhìn vào dữ liệu.
+Người 2: Kế toán viên phải là người "phiên dịch". Dịch ngôn ngữ lợi nhuận sang ngôn ngữ của từng phòng ban.
 
 Slide 13: ILLUSTRATION 9.9
-Người 1: Slide tiếp theo là một ví dụ thực tế qua Minh họa 9.9. Cụ thể: "are representative of 2025 sales performance of the Ape - chete brand. If the data are confirmed to be free of error, then they are also reliable.". Phân tích kỹ sẽ giúp các em hiểu sâu hơn.
-Người 2: Dạ, kết hợp lý thuyết với minh họa thực tế thế này rất hiệu quả ạ.
+Người 1: (Minh họa 9.9). Mức độ hiểu biết về dữ liệu (Data Literacy) của khán giả sẽ quyết định độ phức tạp của biểu đồ.
+Người 2: Nếu khán giả có Data Literacy thấp, ta nên dùng các biểu đồ cơ bản như Bar Chart, Pie Chart. Nếu quăng cho họ một biểu đồ Scatterplot chằng chịt, họ sẽ lập tức đóng não lại (Cognitive Overload) thưa thầy!
 
-Slide 14: PHÁT TRIỂN NĂNG LỰC DỮ LIỆU
-Người 1: Phần "Phát triển Năng lực Dữ liệu" này chính là mấu chốt quan trọng.
-Người 2: Dạ em hiểu rồi ạ, phần này rất quan trọng.
+Slide 14: DATA LITERACY & VAI TRÒ CỦA KẾ TOÁN
+Người 1: Slide 14 nhấn mạnh: Kế toán viên ở vị thế lý tưởng nhất để kể chuyện. Vì các em hiểu dòng tiền, hiểu chi phí, hiểu doanh thu gốc rễ từ đâu mà ra.
+Người 2: Dạ, kỹ năng vẽ biểu đồ thì có thể học trong 1 tuần, nhưng Business Acumen (Sự nhạy bén kinh doanh) của Kế toán thì phải rèn luyện nhiều năm. Đó là lợi thế cạnh tranh cốt lõi của chúng ta trước các bạn IT thuần túy ạ!
 
 Slide 15: ILLUSTRATION 9.10
-Người 1: Nhìn vào Minh họa 9.10, chúng ta có thể rút ra điều gì? Tài liệu có ghi: "HMC Gross  Sales by Brand: 2024 and 2025Gross Sales by Brand‒2024 Brand BrandGross Sales by Brand‒2025 $2M $0M$4M$6M$8M$10M$12M$14M$16M$18M Gross...". Đây là một điểm rất đáng chú ý.
-Người 2: Vâng thưa thầy, hình ảnh này giải thích rất trực quan dễ hiểu.
+Người 1: (Minh họa 9.10). Hãy nhìn vào cách cấu trúc một bài báo cáo tài chính hiệu quả.
+Người 2: Nó giống như một cấu trúc Kim tự tháp ngược (Inverted Pyramid). Đi thẳng vào Kết luận quan trọng nhất (Key Takeaways) ở ngay trang đầu tiên, rồi mới diễn giải chi tiết sau ạ.
 
 Slide 16: ILLUSTRATION 9.11
-Người 1: Slide tiếp theo là một ví dụ thực tế qua Minh họa 9.11. Cụ thể: ").10". Phân tích kỹ sẽ giúp các em hiểu sâu hơn.
-Người 2: Dạ, ví dụ này làm em thấy rõ hơn hẳn ạ.
+Người 1: (Minh họa 9.11). Sử dụng màu sắc (Color usage) để dẫn dắt ánh nhìn (Focal point).
+Người 2: Dạ, não người có xu hướng bị thu hút bởi các màu tương phản. Nếu muốn nhấn mạnh một chi nhánh đang bị lỗ, hãy tô đỏ chi nhánh đó, và để toàn bộ các chi nhánh khác màu xám nhạt (Muted colors) thưa thầy.
 
 Slide 17: ILLUSTRATION 9.12
-Người 1: Nhìn vào Minh họa 9.12, chúng ta có thể rút ra điều gì? Tài liệu có ghi: "is an example of the type of visualization that might be used to explain sales  trends to a novice audience....". Đây là một điểm rất đáng chú ý.
-Người 2: Dạ, ví dụ này làm em thấy rõ hơn hẳn ạ.
+Người 1: (Minh họa 9.12). Một ví dụ về việc cung cấp quá ít bối cảnh (Context).
+Người 2: Báo cáo mà không có đường Baseline (Đường cơ sở) hoặc Target (Mục tiêu) thì người xem không thể biết con số hiện tại là Tốt hay Xấu. 5 tỷ là cao hay thấp nếu mục tiêu là 10 tỷ ạ?
 
-Slide 18: KỸ THUẬT XÂY DỰNG CÂU CHUYỆN
-Người 1: Các em tập trung vào slide "Kỹ thuật Xây dựng Câu chuyện" nhé, đây là nền tảng rất quan trọng.
-Người 2: Vâng, em đang ghi chú lại các ý chính này rồi thưa thầy.
+Slide 18: BỐI CẢNH VÀ CẤU TRÚC CỐT TRUYỆN
+Người 1: Slide 18 định hình lại Cấu trúc cốt truyện: Thực trạng -> Nút thắt (Vấn đề) -> Giải pháp. Hãy trình bày thông điệp một cách trực diện.
+Người 2: Thưa thầy, quy tắc vàng ở đây là "Don't make them think" (Đừng bắt khán giả phải suy nghĩ). Biểu đồ phải tự nói lên được vấn đề ngay trong 5 giây đầu tiên nhìn vào ạ.
 
-Slide 19: ILLUSTRATION 9.13
-Người 1: Nhìn vào Minh họa 9.13, chúng ta có thể rút ra điều gì? Tài liệu có ghi: "communicates to the managers profit margin as well  as gross sales and cost analysis. ( Data How To 9.1 at the end of the chapter  explains  how to ...". Đây là một điểm rất đáng chú ý.
-Người 2: Dạ, nhờ minh họa này mà các khái niệm trở nên gần gũi hơn rất nhiều ạ.
+Slide 19: ILLUSTRATION 9.13 (MANAGERIAL AUDIENCE)
+Người 1: Từ Minh họa 9.13 đến 9.15, chúng ta phân tích 3 đối tượng khán giả. Đầu tiên là Illustration 9.13 - Dashboard dành cho Managerial Audience (Cấp Quản lý). Ở đây có Gross Sales, Profit Margin, và các bộ lọc (Filters).
+Người 2: Đối với Cấp quản lý vận hành, họ cần công cụ Tương tác (Interactive). Bộ lọc (Filters) giúp họ tự Drill-down vào từng nhãn hàng (Apechete, Jackson) để tìm nguyên nhân. Biểu đồ này thiết kế rất chuẩn xác cho mục đích Điều hành hàng ngày (Day-to-day Operations) ạ.
 
-Slide 20: ILLUSTRATION 9.14
-Người 1: Các em xem minh họa ở Minh họa 9.14 trên slide. Đoạn này đề cập đến: "is a visualization used to communicate an analysis of profit margin  by model.". Rất sát với tình huống doanh nghiệp.
-Người 2: Dạ, kết hợp lý thuyết với minh họa thực tế thế này rất hiệu quả ạ.
+Slide 20: ILLUSTRATION 9.14 (EXPERT AUDIENCE)
+Người 1: Sang Minh họa 9.14, biểu đồ dành cho Expert Audience (Khán giả Chuyên gia). Trục ngang có cả tỷ lệ âm (-5.5%) và vạch Average (Trung bình).
+Người 2: Thưa thầy, với các Chuyên gia (Expert), ta không cần giải thích rườm rà. Họ muốn nhìn sâu vào Phương sai (Variance). Việc đặt vạch Average rõ ràng giúp họ ngay lập tức soi ra dòng xe Crux đang tụt thê thảm (-5.5%) dưới mức trung bình. Họ sẽ yêu cầu mổ xẻ cấu trúc chi phí của dòng xe này ngay!
 
-Slide 21: ILLUSTRATION 9.15
-Người 1: Các em xem minh họa ở Minh họa 9.15 trên slide. Đoạn này đề cập đến: ". the audience are executives, so they under - stand how to use contribution margin, total fixed costs, and income before taxes to decide  whether...". Rất sát với tình huống doanh nghiệp.
-Người 2: Em đã nắm được ý chính của phần này rồi thưa thầy.
+Slide 21: ILLUSTRATION 9.15 (EXECUTIVE AUDIENCE)
+Người 1: Minh họa 9.15 dành cho Executive Audience (Cấp Điều hành/C-level). Biểu đồ so sánh Contribution Margin (Biên lợi nhuận gộp), Total Fixed Cost (Định phí) và Income (Thu nhập) của 2 dòng xe Mortimer và Jespie.
+Người 2: Cấp C-level không có thời gian cho tiểu tiết! Họ nhìn vào đây để ra quyết định sinh tử: "Có nên khai tử dòng xe Jespie không?". Biểu đồ cho thấy Jespie đang lỗ đậm (-$919K). Thông điệp rất rõ ràng: "Cắt bỏ ngay để cứu dòng tiền!" - Đó là một Executive Dashboard hoàn hảo thưa thầy!
 
-Slide 22: 9.2 QUY TRÌNH TẠO TRỰC QUAN HÓA
-Người 1: Tiếp tục với phần "9.2 Quy Trình Tạo Trực Quan Hóa", các em hãy xâu chuỗi với các kỹ năng đã học trước đó.
-Người 2: Vâng, em đang ghi chú lại các ý chính này rồi thưa thầy.
+Slide 22: QUY TRÌNH 3 BƯỚC TRỰC QUAN HÓA
+Người 1: Slide 22 hệ thống hóa Quy trình 3 bước: Xác minh Dữ liệu (Verify Data) -> Thấu hiểu Khán giả (Consider Audience) -> Xác định Mục tiêu (Define Objective).
+Người 2: Ba bước này phải đi theo đúng trình tự. Nếu chưa Verify Data (Xác minh tính sạch của dữ liệu) mà đã lao vào vẽ biểu đồ, thì ta đang vẽ ra một lời nói dối rất đẹp mắt (A beautiful lie) thưa thầy.
 
-Slide 23: ILLUSTRATION 9.16
-Người 1: Các em xem minh họa ở Minh họa 9.16 trên slide. Đoạn này đề cập đến: ").Executive Audiences An audience composed of executives will be interested in only the most important insights.   Discuss the important insights ...". Rất sát với tình huống doanh nghiệp.
-Người 2: Em đã nắm được ý chính của phần này rồi thưa thầy.
+Slide 23: ILLUSTRATION 9.16 (VISUALIZATION OBJECTIVES)
+Người 1: Minh họa 9.16 tóm tắt các Mục tiêu Trực quan hóa (Objectives). Có 4 nhóm chính: Composition (Thành phần), Relationships (Mối quan hệ), Distributions (Phân phối), và Trends/Comparisons (Xu hướng/So sánh).
+Người 2: Cái bảng này nên được in ra và dán trước mặt mọi Data Analyst! Nó định hướng tư duy ngay từ đầu, tránh tình trạng lấy râu ông nọ cắm cằm bà kia trong việc chọn biểu đồ ạ.
 
-Slide 24: ILLUSTRATION 9.17
-Người 1: Chúng ta cùng phân tích Minh họa 9.17 nhé. Trọng tâm của phần này là: "is a decision tree for selecting a   visualization if the objective is to show composition, relationships, or distributions.". Các em hãy lưu ý cách áp dụng vào thực tế.
-Người 2: Vâng thưa thầy, hình ảnh này giải thích rất trực quan dễ hiểu.
+Slide 24: ILLUSTRATION 9.17 (DECISION TREE 1)
+Người 1: Minh họa 9.17 là một Cây quyết định (Decision Tree) cực kỳ giá trị. Nếu mục tiêu là Show Composition (Thành phần), nó dẫn ta đến Pie Chart hoặc Stacked Bar Chart.
+Người 2: Thưa thầy, nếu muốn xem Tỷ trọng chi phí của từng chi nhánh so với tổng công ty, em sẽ nhìn vào nhánh Composition và chốt ngay biểu đồ Stacked Bar Chart (Cột chồng). Rất nhanh và chuẩn xác!
 
-Slide 25: ILLUSTRATION 9.18
-Người 1: Chúng ta cùng phân tích Minh họa 9.18 nhé. Trọng tâm của phần này là: "provides guidance when the objective  is to show trends or comparisons.". Các em hãy lưu ý cách áp dụng vào thực tế.
-Người 2: Dạ, kết hợp lý thuyết với minh họa thực tế thế này rất hiệu quả ạ.
+Slide 25: ILLUSTRATION 9.18 (DECISION TREE 2)
+Người 1: Minh họa 9.18 là Cây quyết định cho Trends (Xu hướng) hoặc Comparisons (So sánh). Nếu So sánh theo thời gian (Over time), nó chỉ định dùng Line Chart hoặc Column Chart.
+Người 2: Vâng, không ai dùng Pie Chart (Biểu đồ tròn) để hiển thị Doanh thu qua 12 tháng cả! Nó sẽ cắt ra thành 12 miếng lắt nhắt không thể đọc nổi. Thời gian (Time-series) thì mặc định phải là Line Chart (Đường) thưa thầy.
 
-Slide 26: BƯỚC 1 \& 2: XÁC MINH \& THẤU HIỂU KHÁN GIẢ
-Người 1: Các em tập trung vào slide "Bước 1 \& 2: Xác minh \& Thấu hiểu Khán giả" nhé, đây là nền tảng rất quan trọng.
-Người 2: Thưa thầy, em đã gạch chân những từ khóa cốt lõi rồi ạ.
+Slide 26: XÁC MINH DỮ LIỆU & KHÁN GIẢ
+Người 1: Slide 26 nhấn mạnh lại: Xác minh Dữ liệu là chống lại nguyên lý Garbage In, Garbage Out. Còn Khán giả thì quyết định Độ phức tạp (Complexity) của biểu đồ.
+Người 2: Dạ, mang một mô hình Hồi quy Phức hợp (Multiple Regression) ra trình bày với Cổ đông đại chúng là tự sát! Hãy tóm tắt nó thành các biểu đồ Cột (Bar chart) đơn giản, tập trung vào Lợi nhuận và Cổ tức (Dividends) ạ.
 
-Slide 27: ILLUSTRATION 9.19
-Người 1: Nhìn vào Minh họa 9.19, chúng ta có thể rút ra điều gì? Tài liệu có ghi: "shows gross sales by model for HMC  sales  in the United Kingdom. The bars in this chart are in alphabetical order, an organization that makes it ...". Đây là một điểm rất đáng chú ý.
-Người 2: Vâng thưa thầy, hình ảnh này giải thích rất trực quan dễ hiểu.
+Slide 27: ILLUSTRATION 9.19 (UNSORTED BAR CHART)
+Người 1: Hãy nhìn vào Minh họa 9.19. Biểu đồ cột này sắp xếp các Model xe theo vần Alphabet (A, B, C...). Các cột cao thấp lởm chởm.
+Người 2: Ui, nhìn vào biểu đồ này mắt em bị giật liên tục lên xuống! Sắp xếp Alphabet trong Bar Chart là một thảm họa thị giác (Visual Disaster), nó khiến người xem không thể nhận diện được ai là Top 1, ai là chót bảng một cách nhanh chóng thưa thầy.
 
-Slide 28: ILLUSTRATION 9.20
-Người 1: Mời các em quan sát Minh họa 9.20. Điểm cốt lõi ở đây là: "shows the bars in descend - ing order by gross sales.".
-Người 2: Dạ, kết hợp lý thuyết với minh họa thực tế thế này rất hiệu quả ạ.
+Slide 28: ILLUSTRATION 9.20 (SORTED BAR CHART)
+Người 1: Giải pháp nằm ở Minh họa 9.20. Cùng là dữ liệu đó, nhưng biểu đồ đã được Sắp xếp giảm dần (Descending order). 
+Người 2: Quá mượt mà! Mắt người xem chỉ cần trượt từ trái sang phải là biết ngay Crux là "ngôi sao sáng" (Best-seller), còn Summet là "kẻ bám đuôi". Đôi khi chỉ một thao tác Sort (Sắp xếp) đã nâng tầm biểu đồ lên một đẳng cấp khác hẳn ạ!
 
-Slide 29: ILLUSTRATION 9.21
-Người 1: Mời các em quan sát Minh họa 9.21. Điểm cốt lõi ở đây là: "is a bar chart showing sales by quarter for four HMC car   models. This chart makes it easy to compare the brands within each quarter, but it is...".
-Người 2: Dạ, nhờ minh họa này mà các khái niệm trở nên gần gũi hơn rất nhiều ạ.
+Slide 29: ILLUSTRATION 9.21 (GROUPED BAR VS LINE CHART)
+Người 1: Minh họa 9.21 so sánh Bar Chart theo Quý. Ở đây, họ gộp 4 dòng xe (Wood, Fiddle, Crux, Brutus) vào từng Quý (Q1, Q2, Q3, Q4).
+Người 2: Biểu đồ này tốt để so sánh các dòng xe TRONG CÙNG 1 QUÝ. Nhưng thưa thầy, nếu câu hỏi của Sếp là: "Dòng xe Crux đang tăng hay giảm qua 4 quý?", thì biểu đồ này lại thất bại thảm hại! Khán giả phải nhảy mắt qua 4 cụm khác nhau để tìm thanh của Crux.
 
-Slide 30: BƯỚC 3: XÁC ĐỊNH MỤC TIÊU (DEFINE THE OBJECTIVE)
-Người 1: Tiếp tục với phần "Bước 3: Xác định Mục tiêu (Define the Objective)", các em hãy xâu chuỗi với các kỹ năng đã học trước đó.
-Người 2: Dạ em hiểu rồi ạ, phần này rất quan trọng.
+Slide 30: CHỌN ĐÚNG BIỂU ĐỒ THEO MỤC TIÊU
+Người 1: Hoàn toàn chính xác! Đó là lý do Slide 30 kết luận: Phải chọn đúng biểu đồ phù hợp với Mục tiêu. Nếu muốn xem xu hướng của Crux qua 4 quý, bắt buộc phải dùng Line Chart.
+Người 2: Dạ vâng, bài học rút ra là: Một bộ dữ liệu (Dataset) có thể sinh ra nhiều góc nhìn. Nhưng người Kế toán phải chọn đúng góc nhìn (Perspective) trả lời trực diện nhất cho Nỗi đau (Pain point) của Ban giám đốc ngay tại thời điểm đó ạ!
 
 Slide 31: ILLUSTRATION 9.22
-Người 1: Slide tiếp theo là một ví dụ thực tế qua Minh họa 9.22. Cụ thể: ".". Phân tích kỹ sẽ giúp các em hiểu sâu hơn.
-Người 2: Em đã nắm được ý chính của phần này rồi thưa thầy.
+Người 1: Minh họa 9.22, chúng ta thấy một Dashboard được thiết kế theo tư duy của một Kế toán viên.
+Người 2: Dạ vâng, thay vì ném ra một mớ số liệu hỗn độn, Dashboard này đã được phân cấp thông tin rõ ràng. Ban giám đốc nhìn vào là biết ngay lợi nhuận gộp đang giảm ở mảng nào ạ.
 
 Slide 32: ILLUSTRATION 9.23
-Người 1: Các em xem minh họa ở Minh họa 9.23 trên slide. Đoạn này đề cập đến: "is an  individual sale. It is obvious that there are two groupings of sales:  1.  Sales between $70,000 and $85,000.  2.  Sales between $11,000 and...". Rất sát với tình huống doanh nghiệp.
-Người 2: Dạ, nhờ minh họa này mà các khái niệm trở nên gần gũi hơn rất nhiều ạ.
+Người 1: Sang Minh họa 9.23, đây là một ví dụ về việc trình bày sai mục tiêu.
+Người 2: Việc dùng sai biểu đồ khiến khán giả phải tự đi tìm câu trả lời, dẫn đến sự mệt mỏi về nhận thức (Cognitive fatigue). Kế toán phải dọn cỗ sẵn, chứ không bắt Sếp vào bếp nấu ăn thưa thầy!
 
 Slide 33: ILLUSTRATION 9.24
-Người 1: Các em xem minh họa ở Minh họa 9.24 trên slide. Đoạn này đề cập đến: ".". Rất sát với tình huống doanh nghiệp.
-Người 2: Dạ, ví dụ này làm em thấy rõ hơn hẳn ạ.
+Người 1: (Minh họa 9.24). Một cách tiếp cận tốt hơn.
+Người 2: Ở đây, biểu đồ đã làm đúng nhiệm vụ của nó. Khi nhìn vào, thông điệp "Sản phẩm A đang bán ế" đập thẳng vào mắt người xem.
 
-Slide 34: 9.3 ĐẶC ĐIỂM TRỰC QUAN HÓA HIỆU QUẢ
-Người 1: Các em tập trung vào slide "9.3 Đặc Điểm Trực Quan Hóa Hiệu Quả" nhé, đây là nền tảng rất quan trọng.
-Người 2: Dạ em hiểu rồi ạ, phần này rất quan trọng.
+Slide 34: NHẬN THỨC THỊ GIÁC (VISUAL PERCEPTION)
+Người 1: Slide 34 đi sâu vào khoa học não bộ: Nhận thức Thị giác. Não chúng ta xử lý hình ảnh nhanh gấp 60,000 lần so với văn bản.
+Người 2: Điều đó giải thích vì sao một bảng Cân đối kế toán dài 5 trang không thể tạo ấn tượng mạnh bằng một biểu đồ Cột thể hiện Dòng tiền (Cash flow) đang cạn kiệt thưa thầy.
 
 Slide 35: ILLUSTRATION 9.25
-Người 1: Mời các em quan sát Minh họa 9.25. Điểm cốt lõi ở đây là: "still provides the information about the other South American countries,  but using a different color for Venezuela focuses the viewers’ attention...".
-Người 2: Dạ, nhờ minh họa này mà các khái niệm trở nên gần gũi hơn rất nhiều ạ.
+Người 1: (Minh họa 9.25). Thử nghiệm về Nhận thức thị giác.
+Người 2: Thử đếm số lượng số 5 trong một đoạn văn bản toàn số, cực kỳ mất thời gian! Nhưng nếu ta bôi đậm (Bold) hoặc tô màu đỏ các số 5 đó, não bộ sẽ nhận diện ngay lập tức trong 0.1 giây.
 
 Slide 36: ILLUSTRATION 9.26
-Người 1: Mời các em quan sát Minh họa 9.26. Điểm cốt lõi ở đây là: "is a dashboard designed to help management monitor the sales and  revenue of their brands. The visualization with the largest font size in the...".
-Người 2: Dạ, kết hợp lý thuyết với minh họa thực tế thế này rất hiệu quả ạ.
+Người 1: Minh họa 9.26 áp dụng nguyên lý đó vào Dashboard.
+Người 2: Rất rõ ràng! Các số liệu quan trọng nhất (KPIs) được để to, in đậm và đặt ở góc trên cùng bên trái. Đây là Vị trí Vàng (Golden Spot) vì mắt người phương Tây luôn đọc từ trái sang phải, từ trên xuống dưới ạ.
 
 Slide 37: ILLUSTRATION 9.27
-Người 1: Slide tiếp theo là một ví dụ thực tế qua Minh họa 9.27. Cụ thể: ").". Phân tích kỹ sẽ giúp các em hiểu sâu hơn.
-Người 2: Dạ, ví dụ này làm em thấy rõ hơn hẳn ạ.
+Người 1: (Minh họa 9.27). Việc sử dụng màu sắc không có chủ đích sẽ phá hỏng biểu đồ.
+Người 2: Thưa thầy, biểu đồ mà dùng tới 10 màu sắc sặc sỡ cầu vồng (Rainbow colors) thì chẳng khác nào một mớ bòng bong. Nó làm người xem bị phân tâm khỏi dữ liệu thực sự.
 
-Slide 38: CÁC THUỘC TÍNH TIỀN-CHÚ-Ý (PREATTENTIVE ATTRIBUTES)
-Người 1: Phần "Các Thuộc tính Tiền-chú-ý (Preattentive Attributes)" này chính là mấu chốt quan trọng.
-Người 2: Dạ em hiểu rồi ạ, phần này rất quan trọng.
+Slide 38: ĐẶC TÍNH TIỀN CHÚ Ý (PRE-ATTENTIVE ATTRIBUTES)
+Người 1: Slide 38 giải thích khái niệm Tiền chú ý (Pre-attentive attributes) - thứ mà não bộ xử lý vô thức. Đó là Màu sắc, Kích thước và Hình dạng.
+Người 2: Áp dụng vào Kế toán: Nếu em muốn Sếp chú ý vào chi nhánh bị lỗ, em chỉ cần tô duy nhất cột đó Màu Đỏ (Color), và làm nó To hơn (Size). Toàn bộ các cột khác để màu xám. Mắt Sếp sẽ tự động dính chặt vào cột màu đỏ đó!
 
 Slide 39: ILLUSTRATION 9.28
-Người 1: Slide tiếp theo là một ví dụ thực tế qua Minh họa 9.28. Cụ thể: ").  This type of scale is useful for showing gains and losses.". Phân tích kỹ sẽ giúp các em hiểu sâu hơn.
-Người 2: Dạ, kết hợp lý thuyết với minh họa thực tế thế này rất hiệu quả ạ.
+Người 1: (Minh họa 9.28). Ví dụ về sử dụng Kích thước (Size).
+Người 2: Bong bóng (Bubble) càng to thì doanh thu càng lớn. Rất trực quan để so sánh quy mô (Scale) giữa các phòng ban.
 
 Slide 40: ILLUSTRATION 9.29
-Người 1: Chúng ta cùng phân tích Minh họa 9.29 nhé. Trọng tâm của phần này là: "shows how contrasting colors  can be used in a column chart. c09CommunicatingDataAnalysisResults.indd   20 27/09/22   9:52 AM 9.3 What Are the...". Các em hãy lưu ý cách áp dụng vào thực tế.
-Người 2: Dạ, kết hợp lý thuyết với minh họa thực tế thế này rất hiệu quả ạ.
+Người 1: (Minh họa 9.29). Ví dụ về sử dụng Hình dạng (Shape).
+Người 2: Việc đánh dấu (Mark) các điểm dữ liệu bất thường bằng hình ngôi sao hoặc dấu X giúp Cảnh báo rủi ro (Risk Alert) vô cùng hiệu quả.
 
 Slide 41: ILLUSTRATION 9.30
-Người 1: Chúng ta cùng phân tích Minh họa 9.30 nhé. Trọng tâm của phần này là: "shows the use of highlighting. The visualization is identical to". Các em hãy lưu ý cách áp dụng vào thực tế.
-Người 2: Dạ, kết hợp lý thuyết với minh họa thực tế thế này rất hiệu quả ạ.
+Người 1: Minh họa 9.30 kết hợp tất cả các yếu tố trên.
+Người 2: Dạ vâng, nhưng phải cẩn thận không lạm dụng. Nếu cái gì cũng tô đỏ và in đậm thì cuối cùng không có cái gì nổi bật cả (When everything is emphasized, nothing is emphasized) thưa thầy.
 
-Slide 42: TỐI GIẢN HÓA VÀ TRÁNH LỘN XỘN
-Người 1: Ở nội dung "Tối Giản Hóa và Tránh Lộn Xộn", chúng ta cần đặc biệt lưu ý những điểm cốt lõi.
-Người 2: Vâng, em đang ghi chú lại các ý chính này rồi thưa thầy.
+Slide 42: TỐI GIẢN HÓA (AVOID CLUTTER)
+Người 1: Slide 42 đưa ra nguyên tắc sống còn: Tránh sự rối rắm (Avoid Clutter). Hãy vứt bỏ Chartjunk - những thứ rác trang trí!
+Người 2: Thưa thầy, đó chính là Nguyên lý Tỷ lệ Dữ liệu/Mực in (Data-ink ratio) của Edward Tufte! Các hiệu ứng 3D, bóng đổ, hay lưới nền (Gridlines) quá đậm là kẻ thù của phân tích dữ liệu. Chúng ngốn "Mực in" nhưng không cung cấp thêm "Dữ liệu" nào cả!
 
 Slide 43: ILLUSTRATION 9.31
-Người 1: Chúng ta cùng phân tích Minh họa 9.31 nhé. Trọng tâm của phần này là: "Using Color to Alert the Viewer ($1,000K)($500K)$0K$500K$1,000K$1,500K$2,000K$2,500K$3,000K$3,500K$4,000KApechete Jackson Tatra Net Revenue...". Các em hãy lưu ý cách áp dụng vào thực tế.
-Người 2: Dạ, nhờ minh họa này mà các khái niệm trở nên gần gũi hơn rất nhiều ạ.
+Người 1: (Minh họa 9.31). Một biểu đồ bị nhồi nhét quá nhiều Chartjunk.
+Người 2: Nhìn biểu đồ 3D này em thực sự không thể gióng chính xác đỉnh của cột sang trục Y. Hiệu ứng 3D đã làm sai lệch góc nhìn (Distortion), gây ảo giác về mặt số liệu. Nó phải bị loại bỏ ngay!
 
 Slide 44: ILLUSTRATION 9.32
-Người 1: Slide tiếp theo là một ví dụ thực tế qua Minh họa 9.32. Cụ thể: "Visualization with Too Much Color  Apechete RegionIncome before Taxes by Region $ 1,246,353 $ 2,013,345 $ 2,372,282$ 1,010,446 $     963,145 $   ...". Phân tích kỹ sẽ giúp các em hiểu sâu hơn.
-Người 2: Vâng thưa thầy, hình ảnh này giải thích rất trực quan dễ hiểu.
+Người 1: (Minh họa 9.32). Một sự nâng cấp khi bỏ 3D.
+Người 2: Đã dễ nhìn hơn, nhưng vẫn còn quá nhiều màu thừa thãi. Kế toán cần sự chuyên nghiệp (Professionalism), không phải rạp xiếc.
 
-Slide 45: ILLUSTRATION 9.33
-Người 1: Mời các em quan sát Minh họa 9.33. Điểm cốt lõi ở đây là: "makes it easier  for the audience to quickly see that the Tatra in North America has the highest net revenue.".
-Người 2: Dạ, ví dụ này làm em thấy rõ hơn hẳn ạ.
+Slide 45: ILLUSTRATION 9.33 (SINGLE-COLOR GRADIENT)
+Người 1: Tuyệt vời! Minh họa 9.33 giải quyết triệt để vấn đề: Dùng thang màu Gradient Đơn sắc (Single-Color Gradient Scale).
+Người 2: Cực kỳ tinh tế! Thay vì dùng 5 màu cho 5 khu vực, ta chỉ dùng 1 màu Xanh lam. Khu vực nào có Lợi nhuận (Income before taxes) càng cao thì màu xanh càng đậm (Tatra - Bắc Mỹ). Sếp nhìn lướt qua là biết ngay "bò sữa" của công ty đang nằm ở đâu ạ!
 
-Slide 46: 9.4 NHẬN DIỆN TRỰC QUAN HÓA GÂY HIỂU LẦM
-Người 1: Phần "9.4 Nhận Diện Trực Quan Hóa Gây Hiểu Lầm" này chính là mấu chốt quan trọng.
-Người 2: Dạ, em đang theo dõi sát sao tiến trình bài giảng ạ.
+Slide 46: BIỂU ĐỒ GÂY HIỂU LẦM (MISLEADING VISUALIZATIONS)
+Người 1: Slide 46 là một lời cảnh báo đạo đức nghề nghiệp: "Dữ liệu không biết nói dối, nhưng biểu đồ thì có".
+Người 2: Kế toán viên có thể bị thao túng (Manipulated) nếu không tỉnh táo. Hoặc tệ hơn, chính Kế toán viên dùng biểu đồ để che giấu bức tranh tài chính bết bát của công ty!
 
-Slide 47: ILLUSTRATION 9.34
-Người 1: Các em xem minh họa ở Minh họa 9.34 trên slide. Đoạn này đề cập đến: "). Think about viewing the dashboard visualization in". Rất sát với tình huống doanh nghiệp.
-Người 2: Dạ, ví dụ này làm em thấy rõ hơn hẳn ạ.
+Slide 47: ILLUSTRATION 9.34 (Z-PATTERN)
+Người 1: Minh họa 9.34 giải thích cách mắt người lướt trên màn hình theo hình chữ Z (Z-pattern).
+Người 2: Đó là lý do Tiêu đề (Title) và các Kết luận chốt hạ (Takeaways) luôn phải nằm ở Góc trên cùng Bên trái (Top-left). Chứ không ai giấu kết luận xuống góc dưới cùng bên phải cả.
 
-Slide 48: ILLUSTRATION 9.35
-Người 1: Slide tiếp theo là một ví dụ thực tế qua Minh họa 9.35. Cụ thể: "is an example of what not to do.". Phân tích kỹ sẽ giúp các em hiểu sâu hơn.
-Người 2: Vâng thưa thầy, hình ảnh này giải thích rất trực quan dễ hiểu.
+Slide 48: ILLUSTRATION 9.35 (INCORRECT TITLE)
+Người 1: (Minh họa 9.35). Cách viết tiêu đề (Title) sai lầm.
+Người 2: Tiêu đề mà chỉ ghi "Doanh thu 2025" thì quá vô dụng! Một Data Storyteller phải viết tiêu đề mang tính Tuyên bố (Declarative title), ví dụ: "Dòng xe Crux thúc đẩy doanh thu 2025 tăng kỷ lục 40%". Tiêu đề phải tự nó là một Insight thưa thầy!
 
-Slide 49: ILLUSTRATION 9.36
-Người 1: Slide tiếp theo là một ví dụ thực tế qua Minh họa 9.36. Cụ thể: "Visualization Containing Clutter Jackson Br and: Gross Sales by Model ModelModel $1,000,000$1,500,000 $500,000...". Phân tích kỹ sẽ giúp các em hiểu sâu hơn.
-Người 2: Dạ, kết hợp lý thuyết với minh họa thực tế thế này rất hiệu quả ạ.
+Slide 49: ILLUSTRATION 9.36 (CLUTTER)
+Người 1: Minh họa 9.36 là một biểu đồ chứa đầy Clutter (rác).
+Người 2: Vâng, màu xám làm nền (Background) làm các con số bị chìm nghỉm. Trục X lại bị nghiêng chữ rất khó đọc. Nếu em trình bày cái này trong Board Meeting, em sẽ bị trừ điểm thanh lịch ngay lập tức!
 
-Slide 50: LỖI 1: BỎ QUA ĐƯỜNG CƠ SỞ (OMITTING BASELINE)
-Người 1: Ở nội dung "Lỗi 1: Bỏ qua đường cơ sở (Omitting Baseline)", chúng ta cần đặc biệt lưu ý những điểm cốt lõi.
-Người 2: Vâng, em đang ghi chú lại các ý chính này rồi thưa thầy.
+Slide 50: OMITTED BASELINE (BỎ QUA ĐƯỜNG CƠ SỞ 0)
+Người 1: Slide 50 chỉ ra thủ thuật lừa đảo phổ biến nhất: Cắt xén trục Y, không bắt đầu từ số 0 (Omitted Baseline) đối với Bar Chart.
+Người 2: Thủ thuật này rất nguy hiểm! Sự chênh lệch doanh thu giữa 2 năm thực tế chỉ là 1%, nhưng do cắt trục Y từ gốc, người xem sẽ tưởng tượng cột năm sau cao gấp Đôi cột năm trước. Đây là sự lừa dối thị giác nghiêm trọng!
 
-Slide 51: ILLUSTRATION 9.37
-Người 1: Chúng ta cùng phân tích Minh họa 9.37 nhé. Trọng tâm của phần này là: "uses the same data but  removes the unnecessary aspects of the visualization.". Các em hãy lưu ý cách áp dụng vào thực tế.
-Người 2: Dạ, ví dụ này làm em thấy rõ hơn hẳn ạ.
+Slide 51: ILLUSTRATION 9.37 (CLUTTER REMOVED)
+Người 1: Trở lại với Minh họa 9.37, biểu đồ rối rắm ở 9.36 đã được dọn sạch rác (Clutter Removed).
+Người 2: Quá đỉnh cao! Trục Y đã bị xóa bỏ hoàn toàn. Các con số ($4.8M, $4.6M) được gắn trực tiếp lên đầu mỗi thanh cột (Direct Labeling). Người xem không cần đảo mắt dò từ đỉnh cột sang mép trái màn hình nữa. Đây là minh chứng của "Less is More" ạ.
 
-Slide 52: ILLUSTRATION 9.38
-Người 1: Slide tiếp theo là một ví dụ thực tế qua Minh họa 9.38. Cụ thể: ". The background in". Phân tích kỹ sẽ giúp các em hiểu sâu hơn.
-Người 2: Em đã nắm được ý chính của phần này rồi thưa thầy.
+Slide 52: ILLUSTRATION 9.38 (SUMMARY CLUTTER)
+Người 1: Minh họa 9.38 tóm tắt lại sự khác biệt Before - After.
+Người 2: Sự chuyển đổi từ một biểu đồ 7 màu, có viền, có trục... sang một biểu đồ Đơn sắc, dán nhãn trực tiếp. Khán giả mất ít nỗ lực nhận thức (Cognitive Load) hơn rất nhiều.
 
-Slide 53: ILLUSTRATION 9.39
-Người 1: Mời các em quan sát Minh họa 9.39. Điểm cốt lõi ở đây là: "is a checklist, based on the best practices discussed here, to use when  evaluating your data visualizations.".
-Người 2: Vâng thưa thầy, hình ảnh này giải thích rất trực quan dễ hiểu.
+Slide 53: ILLUSTRATION 9.39 (CHECKLIST)
+Người 1: Minh họa 9.39 là một Checklist 12 bước để đánh giá Biểu đồ.
+Người 2: Khung Checklist này nên trở thành Tiêu chuẩn Kiểm toán Nội bộ (Internal Audit Standard) đối với mọi Báo cáo Quản trị. Đảm bảo mọi bản trình bày ra khỏi phòng Kế toán đều chuẩn mực và đáng tin cậy.
 
-Slide 54: LỖI 2: THAO TÚNG TRỤC Y
-Người 1: Phần "Lỗi 2: Thao Túng Trục Y" này chính là mấu chốt quan trọng.
-Người 2: Vâng, em đang ghi chú lại các ý chính này rồi thưa thầy.
+Slide 54: ĐẢO NGƯỢC TRỤC & TỶ LỆ KHÔNG ĐỀU
+Người 1: Slide 54 nói về hai "Trò bịp" (Tricks) khác: Đảo ngược trục Y (Inverted Y-axis) và Chia tỷ lệ không đều (Uneven scaling).
+Người 2: Đảo ngược trục Y là tội ác! Người ta thường mặc định trục Y hướng lên là Tăng. Giả sử biểu đồ báo lỗ mà lại vẽ hướng lên trên, cổ đông nhìn lướt qua sẽ vỗ tay ăn mừng vì tưởng công ty đang lãi khủng thưa thầy!
 
-Slide 55: ILLUSTRATION 9.40A
-Người 1: Chuyển sang phần Minh họa 9.40A, các em chú ý quan sát chi tiết trên màn hình nhé.
-Người 2: Dạ vâng thưa thầy.
+Slide 55: ILLUSTRATION 9.40A (BEST PRACTICES)
+Người 1: Minh họa 9.40A bắt đầu liệt kê Best Practices (Thực hành tốt nhất) cho từng loại biểu đồ.
+Người 2: Ví dụ Area Chart (Biểu đồ miền) không nên dùng quá 4 danh mục. Quá 4 là nó đè lên nhau nát bét, không ai đọc được phần diện tích giao nhau ạ.
 
-Slide 56: ILLUSTRATION 9.40B
-Người 1: Chuyển sang phần Minh họa 9.40B, các em chú ý quan sát chi tiết trên màn hình nhé.
-Người 2: Dạ vâng thưa thầy.
+Slide 56: ILLUSTRATION 9.40B (BEST PRACTICES TIẾP)
+Người 1: Minh họa 9.40B tiếp tục các tiêu chuẩn.
+Người 2: Đặc biệt chú trọng vào việc sắp xếp dữ liệu (Sorting) và đặt Label (Nhãn).
 
-Slide 57: ILLUSTRATION 9.41
-Người 1: Mời các em quan sát Minh họa 9.41. Điểm cốt lõi ở đây là: "is a visualization that was posted in a USA Today blog.".
-Người 2: Em đã nắm được ý chính của phần này rồi thưa thầy.
+Slide 57: ILLUSTRATION 9.41 (OMITTED BASELINE EXAMPLE)
+Người 1: Minh họa 9.41 lấy ví dụ thực tế từ báo chí: Một biểu đồ chi tiêu phúc lợi bị cắt trục Y.
+Người 2: Nhìn biểu đồ 9.41, đường chi tiêu vọt lên trông như một quả tên lửa! Nhưng thực tế họ đã cố tình cắt trục Y bắt đầu từ 94 triệu (Thay vì 0). Góc nhìn bị phóng đại cực độ.
 
-Slide 58: LỖI 3: ĐI NGƯỢC QUY ƯỚC THIẾT KẾ
-Người 1: Tiếp tục với phần "Lỗi 3: Đi Ngược Quy Ước Thiết Kế", các em hãy xâu chuỗi với các kỹ năng đã học trước đó.
-Người 2: Dạ em hiểu rồi ạ, phần này rất quan trọng.
+Slide 58: ĐI NGƯỢC QUY ƯỚC (GOING AGAINST CONVENTIONS)
+Người 1: Slide 58: Going Against Conventions. Bạn không thể chống lại các quy ước ngầm của xã hội.
+Người 2: Đỏ là Lỗ, Xanh là Lãi. Nếu Kế toán nổi hứng nghệ sĩ, thiết kế Báo cáo lợi nhuận màu Đỏ, các nhà đầu tư sẽ đứng tim! Đừng bao giờ đùa giỡn với các quy ước Ngữ nghĩa học (Semantics) của não bộ thưa thầy!
 
-Slide 59: ILLUSTRATION 9.42
-Người 1: Mời các em quan sát Minh họa 9.42. Điểm cốt lõi ở đây là: "Federal  Welfare Spending: Zero Baseline Q1 2009Q2 2009Q3 2009Q4 2009Q1 2010Q2 2010Q3 2010Q4 2010Q1 2011Federal Welfare Received in U.S. Number of  ...".
-Người 2: Em đã nắm được ý chính của phần này rồi thưa thầy.
+Slide 59: ILLUSTRATION 9.42 (ZERO BASELINE)
+Người 1: Minh họa 9.42 trả lại sự trong sạch cho biểu đồ phúc lợi lúc nãy bằng cách kéo trục Y về Zero Baseline.
+Người 2: Sự thật được phơi bày! Đường xu hướng trông phẳng lì, chứng tỏ mức tăng chi tiêu phúc lợi là vô cùng nhỏ giọt, không hề bùng nổ như biểu đồ lừa đảo ở 9.41. Đây là sức mạnh của sự thật dữ liệu (Data Truth).
 
-Slide 60: ILLUSTRATION 9.43
-Người 1: Các em xem minh họa ở Minh họa 9.43 trên slide. Đoạn này đề cập đến: "is a comparison of two visualizations using  the same data.". Rất sát với tình huống doanh nghiệp.
-Người 2: Vâng thưa thầy, hình ảnh này giải thích rất trực quan dễ hiểu.
+Slide 60: ILLUSTRATION 9.43 (MANIPULATING Y-AXIS)
+Người 1: Cuối cùng, Minh họa 9.43 cho thấy hậu quả của việc "co kéo" trục Y.
+Người 2: Cùng một dải dữ liệu, chỉ cần kéo giãn hoặc thu hẹp khoảng cách các mốc trên trục Y (ví dụ từ $200K lên $400K), người Kế toán có thể hô biến một xu hướng Lạm phát (Inflation) đang tăng phi mã trông giống như một đường thẳng đi ngang êm đềm! Việc hiểu những chiêu trò này giúp Kế toán viên giữ được tính Chính trực (Integrity) của nghề nghiệp ạ!
 
 Slide 61: ILLUSTRATION 9.44
-Người 1: Các em xem minh họa ở Minh họa 9.44 trên slide. Đoạn này đề cập đến: "provides an example of what happens when that standard is violated.". Rất sát với tình huống doanh nghiệp.
-Người 2: Dạ, ví dụ này làm em thấy rõ hơn hẳn ạ.
+Người 1: Minh họa 9.44 tiếp tục cho thấy một ví dụ về việc biểu diễn dữ liệu sai tỷ lệ.
+Người 2: Dạ vâng, Kế toán viên phải luôn giữ một cái đầu lạnh (Skeptical mindset). Không bao giờ tin ngay vào những biểu đồ trông có vẻ lộng lẫy mà không kiểm tra trục tọa độ (Axes) của nó ạ.
 
-Slide 62: LỖI 4: CHỌN LỌC DỮ LIỆU \& DÙNG SAI BIỂU ĐỒ
-Người 1: Bước sang phần "Lỗi 4: Chọn Lọc Dữ Liệu \& Dùng Sai Biểu Đồ", đây là một khái niệm rất hay xuất hiện trong thực tế.
-Người 2: Vâng thưa thầy, phần này rất logic và dễ áp dụng.
+Slide 62: CHERRY-PICKING VÀ WRONG GRAPH
+Người 1: Slide 62 đề cập đến hai lỗi cực kỳ nghiêm trọng: Cherry-picking (Hái anh đào) và Wrong Graph (Chọn sai biểu đồ).
+Người 2: Cherry-picking là gian lận trắng trợn thưa thầy! Giám đốc dự án chỉ chọn báo cáo dữ liệu của những tháng có lãi để che đậy một năm thua lỗ toàn diện. Kế toán phải yêu cầu bóc tách toàn bộ Dữ liệu thô (Raw Data) để đối chiếu ạ!
 
-Slide 63: ILLUSTRATION 9.45
-Người 1: Slide tiếp theo là một ví dụ thực tế qua Minh họa 9.45. Cụ thể: "is an example of what happens when data are selectively used.". Phân tích kỹ sẽ giúp các em hiểu sâu hơn.
-Người 2: Dạ, nhờ minh họa này mà các khái niệm trở nên gần gũi hơn rất nhiều ạ.
+Slide 63: ILLUSTRATION 9.45 (CHERRY-PICKING)
+Người 1: Minh họa 9.45 là bằng chứng rõ nhất của Cherry-picking. Biểu đồ bên trái chỉ hiển thị một vài tháng tăng trưởng rực rỡ, giấu đi đợt suy thoái.
+Người 2: Nếu chỉ nhìn biểu đồ trái, Ban giám đốc sẽ quyết định "Bơm thêm tiền đầu tư" ngay lập tức. May mắn là biểu đồ bên phải đã trả lại bức tranh toàn cảnh (Full Picture). Kế toán phải luôn đặt câu hỏi: "Có dữ liệu nào bị cố tình giấu đi không?"
 
-Slide 64: ILLUSTRATION 9.46
-Người 1: Nhìn vào Minh họa 9.46, chúng ta có thể rút ra điều gì? Tài liệu có ghi: "Using the  Wrong Type of Graph ExampleBrand Sales Comparison (Accurate) Apechete Jackson Tatra $2M $0M$4M$6M$8M$10M$12M$14M$16M$18M Gross Sales...". Đây là một điểm rất đáng chú ý.
-Người 2: Dạ, kết hợp lý thuyết với minh họa thực tế thế này rất hiệu quả ạ.
+Slide 64: ILLUSTRATION 9.46 (WRONG GRAPH)
+Người 1: (Minh họa 9.46). Hậu quả của việc dùng sai biểu đồ (Wrong Graph). Dùng Pie Chart (Biểu đồ tròn) cho tổng số không bằng 100%.
+Người 2: Đây là lỗi toán học cơ bản! Biểu đồ tròn dùng để thể hiện Tỷ trọng (Proportion). Tổng các lát cắt (Slices) phải chính xác bằng 100%. Nếu các yếu tố đè lên nhau (Overlap) mà vẫn cố nhét vào Pie Chart thì người xem sẽ hiểu sai hoàn toàn cấu trúc tài chính ạ.
 
-Slide 65: ILLUSTRATION 9.47
-Người 1: Các em xem minh họa ở Minh họa 9.47 trên slide. Đoạn này đề cập đến: ", which is a dash - board that reflects gross sales and profit margin by brand of vehicle sold by Huskie Motor  Corporation (HMC).". Rất sát với tình huống doanh nghiệp.
-Người 2: Dạ, nhờ minh họa này mà các khái niệm trở nên gần gũi hơn rất nhiều ạ.
+Slide 65: ILLUSTRATION 9.47 (STATIC DASHBOARD)
+Người 1: Sang Minh họa 9.47, chúng ta bàn về Static Dashboard (Dashboard tĩnh). Nó chỉ là một bản báo cáo chết, không thể tương tác.
+Người 2: Báo cáo PDF hay Excel gửi qua email hàng tháng là một ví dụ. Nó chỉ trả lời được câu hỏi "What" (Cái gì) chứ không thể trả lời "Why" (Tại sao) ngay lập tức khi Sếp thắc mắc trong cuộc họp thưa thầy.
 
-Slide 66: 9.5 THIẾT KẾ BÀI THUYẾT TRÌNH TƯƠNG TÁC
-Người 1: Ở nội dung "9.5 Thiết Kế Bài Thuyết Trình Tương Tác", chúng ta cần đặc biệt lưu ý những điểm cốt lõi.
-Người 2: Vâng thưa thầy, phần này rất logic và dễ áp dụng.
+Slide 66: BÁO CÁO TƯƠNG TÁC (INTERACTIVE DASHBOARDS)
+Người 1: Slide 66 mở ra giải pháp: Interactive Dashboards. Tương lai của Kế toán quản trị!
+Người 2: Nhờ các tính năng Filter (Lọc) và Drill-down (Khoan sâu dữ liệu), khi Sếp hỏi "Vì sao chi phí vùng Bắc Mỹ tăng?", Kế toán chỉ cần 1 cú click chuột để hiển thị ngay chi tiết hóa đơn (Invoices level). Tốc độ giải quyết vấn đề tăng lên hàng trăm lần ạ!
 
-Slide 67: ILLUSTRATION 9.48
-Người 1: Mời các em quan sát Minh họa 9.48. Điểm cốt lõi ở đây là: ").".
-Người 2: Dạ, nhờ minh họa này mà các khái niệm trở nên gần gũi hơn rất nhiều ạ.
+Slide 67: ILLUSTRATION 9.48 (INTERACTIVE DASHBOARD)
+Người 1: Minh họa 9.48 chính là phiên bản Tương tác của biểu đồ trước đó. Người dùng có thể tự chọn vùng (Region) và dòng xe (Model).
+Người 2: Sự phân quyền dữ liệu (Data Democratization)! Giao quyền cho chính các Giám đốc chi nhánh tự khám phá số liệu của mình thay vì chờ đợi phòng Kế toán gửi báo cáo thụ động thưa thầy.
 
-Slide 68: ILLUSTRATION 9.49
-Người 1: Chúng ta cùng phân tích Minh họa 9.49 nhé. Trọng tâm của phần này là: ").   How To". Các em hãy lưu ý cách áp dụng vào thực tế.
-Người 2: Em đã nắm được ý chính của phần này rồi thưa thầy.
+Slide 68: ILLUSTRATION 9.49 (DASHBOARD CREATION)
+Người 1: Các minh họa từ 9.49 đến 9.51 hướng dẫn cách xây dựng một Dashboard tương tác trong Tableau.
+Người 2: Kéo-thả (Drag and drop) các sheet vào chung một không gian (Canvas). Nhưng điều quan trọng nhất là phải cấu hình các Bộ lọc (Filters) hoạt động đồng bộ trên toàn Dashboard (Apply to all worksheets).
 
-Slide 69: KINH NGHIỆM THUYẾT TRÌNH TRỰC TIẾP
-Người 1: Bước sang phần "Kinh Nghiệm Thuyết Trình Trực Tiếp", đây là một khái niệm rất hay xuất hiện trong thực tế.
-Người 2: Thưa thầy, em đã gạch chân những từ khóa cốt lõi rồi ạ.
+Slide 69: THUYẾT TRÌNH TRỰC TIẾP (LIVE PRESENTATIONS)
+Người 1: Đã làm xong Dashboard, Slide 69 hướng dẫn Kỹ năng Thuyết trình trực tiếp (Live Presentations). Khán giả đến để nghe bạn nói, không phải để đọc chữ trên màn hình.
+Người 2: Dạ vâng, "Death by PowerPoint" (Chết vì PowerPoint). Kế toán không được copy-paste toàn bộ Báo cáo tài chính lên Slide! Chỉ để lại Biểu đồ (Visuals) và Những thông điệp chính (Key Messages). Những con số râu ria hãy để vào phần Phụ lục (Appendix) ạ.
 
 Slide 70: ILLUSTRATION 9.50
-Người 1: Chúng ta cùng phân tích Minh họa 9.50 nhé. Trọng tâm của phần này là: "Tableau  Dashboard Canvas  Tiled Floating Show dashboard titleFile Data Worksheet Story Analysis Map Format Server Window Help...". Các em hãy lưu ý cách áp dụng vào thực tế.
-Người 2: Vâng thưa thầy, hình ảnh này giải thích rất trực quan dễ hiểu.
+Người 1: (Minh họa 9.50). Tableau Dashboard Canvas. Việc sắp xếp vị trí các biểu đồ trên không gian làm việc.
+Người 2: Một Dashboard tốt phải như một tờ báo trang nhất. Những tin tức "chấn động" (Lợi nhuận gộp, Dòng tiền tự do) phải nằm ở "Above the fold" - phần nửa trên màn hình để Sếp thấy ngay khi vừa mở lên ạ.
 
 Slide 71: ILLUSTRATION 9.51
-Người 1: Nhìn vào Minh họa 9.51, chúng ta có thể rút ra điều gì? Tài liệu có ghi: ")        STEP 6:      Move the visualizations around the dashboard by clicking on the visual and  dragging it. It can be re-sized by clicking on the...". Đây là một điểm rất đáng chú ý.
-Người 2: Dạ, kết hợp lý thuyết với minh họa thực tế thế này rất hiệu quả ạ.
+Người 1: (Minh họa 9.51). Tinh chỉnh kích thước và giao diện cho phù hợp với các thiết bị khác nhau (Device Preview).
+Người 2: Rất thực tế! Sếp thường xuyên xem báo cáo trên Điện thoại (Mobile) khi đang di chuyển. Nếu Dashboard không Responsive (Tự động thu phóng), biểu đồ sẽ co dúm lại và chẳng ai đọc được gì cả thưa thầy.
 
-Slide 72: CASE STUDY: BÁO CÁO KẾ TOÁN TRỰC QUAN
-Người 1: Ở nội dung "Case Study: Báo Cáo Kế Toán Trực Quan", chúng ta cần đặc biệt lưu ý những điểm cốt lõi.
-Người 2: Vâng, em đang ghi chú lại các ý chính này rồi thưa thầy.
+Slide 72: ỨNG DỤNG THỰC TẾ (MADISON PUBLIC LIBRARY)
+Người 1: Slide 72 đưa ra một Case study thực tế bên ngoài doanh nghiệp: Thư viện Công cộng Madison.
+Người 2: Điều này chứng tỏ Kế toán công (Public Sector Accounting) cũng rất cần Data Visualization. Họ dùng nó để minh bạch hóa ngân sách (Budget Transparency), giải trình với người nộp thuế (Taxpayers) xem tiền của họ đang được chi tiêu hiệu quả ra sao.
 
-Slide 73: ILLUSTRATION 9.52
-Người 1: Mời các em quan sát Minh họa 9.52. Điểm cốt lõi ở đây là: ")   .How To c09CommunicatingDataAnalysisResults.indd   42 27/09/22   9:53 AM How To Walk-Throughs 9-43".
-Người 2: Em đã nắm được ý chính của phần này rồi thưa thầy.
+Slide 73: ILLUSTRATION 9.52 (CONFIRM FILTERS)
+Người 1: Minh họa 9.52. Thiết lập kỹ thuật cho các Filters. Đảm bảo chúng lọc đến tận cùng chi tiết.
+Người 2: Dạ, tính năng "Show relevant values" (Chỉ hiện các giá trị liên quan) là chìa khóa. Nếu Sếp chọn Vùng Châu Á, bộ lọc Quốc gia chỉ nên hiện Nhật Bản, Hàn Quốc... chứ đừng hiện ra cả Mỹ hay Đức để tránh nhiễu thông tin ạ.
 
 Slide 74: ILLUSTRATION 9.53A
-Người 1: Chuyển sang phần Minh họa 9.53A, các em chú ý quan sát chi tiết trên màn hình nhé.
-Người 2: Dạ vâng thưa thầy.
+Người 1: (Minh họa 9.53A). Khi cấu hình bộ lọc sai, Dashboard sẽ trả về kết quả mâu thuẫn.
+Người 2: Vâng, một bộ lọc hoạt động sai có thể làm biến mất hàng tỷ đồng doanh thu trên màn hình, gây hoang mang cho toàn bộ Hội đồng quản trị (Board of Directors). Kế toán phải test đi test lại trước khi Publish (Phát hành) báo cáo!
 
-Slide 75: TỔNG KẾT CHƯƠNG
-Người 1: Tiếp tục với phần "Tổng Kết Chương", các em hãy xâu chuỗi với các kỹ năng đã học trước đó.
-Người 2: Dạ em hiểu rồi ạ, phần này rất quan trọng.
+Slide 75: TÓM TẮT LO 9.1 - LO 9.5
+Người 1: Slide 75 là trạm dừng nghỉ. Tóm tắt lại 5 mục tiêu học tập cốt lõi của việc Truyền đạt dữ liệu.
+Người 2: Tựu trung lại: Trực quan hóa dữ liệu không phải là nghệ thuật trang trí, mà là Nghệ thuật Tối ưu hóa Quyết định (Decision Optimization Art). Trình bày tốt = Hành động đúng thưa thầy.
 
 Slide 76: ILLUSTRATION 9.53B
-Người 1: Chuyển sang phần Minh họa 9.53B, các em chú ý quan sát chi tiết trên màn hình nhé.
-Người 2: Dạ vâng thưa thầy.
+Người 1: Minh họa 9.53B. Thiết lập bộ lọc "Apply to Worksheets" -> "Selected Worksheets" trong Tableau.
+Người 2: Đây là tính năng kết nối các biểu đồ. Khi em click vào Cột "Sản phẩm A" ở biểu đồ Doanh thu, thì biểu đồ Chi phí tự động nhảy theo để chỉ hiển thị chi phí của Sản phẩm A. Sức mạnh của Interactivity (Tương tác) là đây ạ!
 
 Slide 77: ILLUSTRATION 9.55
-Người 1: Chuyển sang phần Minh họa 9.55, các em chú ý quan sát chi tiết trên màn hình nhé.
-Người 2: Dạ vâng thưa thầy.
+Người 1: (Minh họa 9.55). Một góc nhìn khác về dữ liệu sau khi đã tương tác.
+Người 2: Sếp có thể tự mình khám phá (Self-service Analytics) mà không cần gọi Kế toán viên lúc nửa đêm để làm lại một bản báo cáo mới thưa thầy.
 
 Slide 78: LO 4.15
-Người 1: Bước sang phần "LO 4.15", đây là một khái niệm rất hay xuất hiện trong thực tế.
-Người 2: Thưa thầy, em đã gạch chân những từ khóa cốt lõi rồi ạ.
+Người 1: (Slide 78 hiển thị Mục tiêu học tập cũ). Ôn tập lại việc kết nối dữ liệu.
+Người 2: Các kiến thức cũ ở Chương 4 (Data Preparation) luôn là nền tảng. Dữ liệu phải sạch thì biểu đồ mới sáng.
 
 Slide 79: LO 4.16
-Người 1: Các em tập trung vào slide "LO 4.16" nhé, đây là nền tảng rất quan trọng.
-Người 2: Dạ em hiểu rồi ạ, phần này rất quan trọng.
+Người 1: (Slide 79). Tiếp tục ôn tập. 
+Người 2: Vâng ạ.
 
 Slide 80: LO 4.17
-Người 1: Phần "LO 4.17" này chính là mấu chốt quan trọng.
-Người 2: Thưa thầy, em đã gạch chân những từ khóa cốt lõi rồi ạ.
+Người 1: (Slide 80).
+Người 2: Dạ, em nắm vững.
 
 Slide 81: APPLY IT 9.1
-Người 1: Phần "Apply It 9.1" này chính là mấu chốt quan trọng.
-Người 2: Vâng thưa thầy, phần này rất logic và dễ áp dụng.
+Người 1: Bắt đầu phần Thực hành (Apply It). Bài tập 9.1: Tạo các biểu đồ trực quan đầu tiên.
+Người 2: Bài này yêu cầu sinh viên phải lựa chọn giữa Bar Chart hay Line Chart tùy theo yêu cầu của bài toán. Rất thiết thực.
 
 Slide 82: MADISON PUBLIC LIBRARY 9.1
-Người 1: Tiếp tục với phần "Madison public library 9.1", các em hãy xâu chuỗi với các kỹ năng đã học trước đó.
-Người 2: Dạ em hiểu rồi ạ, phần này rất quan trọng.
+Người 1: Quay lại case study Thư viện Madison phần 1.
+Người 2: Xây dựng biểu đồ cột để so sánh số lượng sách mượn giữa các chi nhánh. Một bài toán phân bổ nguồn lực (Resource Allocation) điển hình của Kế toán quản trị.
 
 Slide 83: APPLY IT 9.2
-Người 1: Ở nội dung "Apply It 9.2", chúng ta cần đặc biệt lưu ý những điểm cốt lõi.
-Người 2: Dạ em hiểu rồi ạ, phần này rất quan trọng.
+Người 1: Apply It 9.2. Phân tích xu hướng (Trend Analysis).
+Người 2: Kẻ một đường Line Chart từ tháng 1 đến tháng 12. Dữ liệu thời gian luôn đi với đường thẳng, đó là luật bất thành văn thưa thầy.
 
 Slide 84: MADISON PUBLIC LIBRARY 9.2
-Người 1: Ở nội dung "Madison public library 9.2", chúng ta cần đặc biệt lưu ý những điểm cốt lõi.
-Người 2: Vâng, em đang ghi chú lại các ý chính này rồi thưa thầy.
+Người 1: Thư viện Madison phần 2. 
+Người 2: Tìm kiếm mối tương quan (Correlation) giữa Ngân sách marketing của thư viện và Số lượt đăng ký thẻ mới. Ta sẽ dùng Scatterplot (Biểu đồ phân tán) cho bài này ạ.
 
 Slide 85: APPLY IT 9.3A
-Người 1: Tiếp tục với phần "Apply It 9.3A", các em hãy xâu chuỗi với các kỹ năng đã học trước đó.
-Người 2: Thưa thầy, em đã gạch chân những từ khóa cốt lõi rồi ạ.
+Người 1: Apply It 9.3A. Rà soát các biểu đồ gây hiểu lầm (Misleading charts).
+Người 2: Trò chơi tìm lỗi sai! Sinh viên Kế toán phải là những thợ săn (Hunters) đi bắt lỗi: Trục Y có bị cắt xén không? Có bị đảo ngược không?
 
 Slide 86: APPLY IT 9.3B
-Người 1: Phần "Apply It 9.3B" này chính là mấu chốt quan trọng.
-Người 2: Dạ em hiểu rồi ạ, phần này rất quan trọng.
+Người 1: Apply It 9.3B. Khắc phục lỗi của 9.3A.
+Người 2: Không chỉ bắt lỗi, ta phải sửa lại cho đúng. Đưa trục Y về 0 (Zero Baseline), loại bỏ hiệu ứng 3D và màu mè không cần thiết (Chartjunk).
 
 Slide 87: MADISON PUBLIC LIBRARY 9.3
-Người 1: Bước sang phần "Madison public library 9.3", đây là một khái niệm rất hay xuất hiện trong thực tế.
-Người 2: Dạ, em đang theo dõi sát sao tiến trình bài giảng ạ.
+Người 1: Thư viện Madison phần 3. Đánh giá sự hài lòng.
+Người 2: Dữ liệu Khảo sát (Survey Data). Dùng Stacked Bar Chart (Cột chồng 100%) để thể hiện tỷ lệ Rất Hài Lòng, Hài Lòng, và Không Hài Lòng ạ.
 
 Slide 88: APPLY IT 9.4A
-Người 1: Tiếp tục với phần "Apply It 9.4A", các em hãy xâu chuỗi với các kỹ năng đã học trước đó.
-Người 2: Vâng thưa thầy, phần này rất logic và dễ áp dụng.
+Người 1: Apply It 9.4A. Bắt tay vào xây dựng Dashboard tổng hợp.
+Người 2: Kéo các biểu đồ riêng lẻ vào chung một màn hình. Bố trí theo Z-pattern (Z-layout) để tối ưu hóa ánh nhìn.
 
 Slide 89: APPLY IT 9.4B
-Người 1: Bước sang phần "Apply It 9.4B", đây là một khái niệm rất hay xuất hiện trong thực tế.
-Người 2: Vâng thưa thầy, phần này rất logic và dễ áp dụng.
+Người 1: Apply It 9.4B. Tinh chỉnh (Fine-tuning) Dashboard.
+Người 2: Lược bỏ những thành phần thừa (Clutter). Thêm Filters và thiết lập tương tác chéo (Cross-filtering) giữa các biểu đồ.
 
 Slide 90: APPLY IT 9.4C
-Người 1: Các em tập trung vào slide "Apply It 9.4C" nhé, đây là nền tảng rất quan trọng.
-Người 2: Dạ, em đang theo dõi sát sao tiến trình bài giảng ạ.
+Người 1: Cuối cùng, Apply It 9.4C. Viết Báo cáo Kể chuyện (Data Storytelling Report).
+Người 2: Trình bày lên Ban giám đốc. Bắt đầu bằng 1 Thông điệp cốt lõi (Core Message), giải thích Insight từ Dashboard, và chốt lại bằng Đề xuất Hành động (Actionable Recommendations)! Hoàn hảo thưa thầy!
 
 Slide 91: APPLY IT 9.4D
-Người 1: Phần "Apply It 9.4D" này chính là mấu chốt quan trọng.
-Người 2: Dạ, em đang theo dõi sát sao tiến trình bài giảng ạ.
+Người 1: Apply It 9.4D. Tiếp tục với bài tập nhóm. Đóng vai trò là Giám đốc chi nhánh.
+Người 2: Việc nhập vai (Role-playing) giúp sinh viên thoát khỏi tư duy Kế toán truyền thống, và đặt mình vào vị trí của người ra quyết định. Họ sẽ tự hỏi: "Nếu mình là Giám đốc, mình muốn xem số liệu nào nhất?".
 
 Slide 92: APPLY IT 9.4E
-Người 1: Bước sang phần "Apply It 9.4E", đây là một khái niệm rất hay xuất hiện trong thực tế.
-Người 2: Thưa thầy, em đã gạch chân những từ khóa cốt lõi rồi ạ.
+Người 1: Apply It 9.4E. Yêu cầu sinh viên thuyết trình trước lớp.
+Người 2: Giao tiếp bằng miệng (Oral Communication) kết hợp với Trực quan hóa (Visualization) là combo hủy diệt! Một Kế toán viên biết thuyết trình sẽ có cơ hội thăng tiến lên CFO nhanh gấp 10 lần thưa thầy.
 
 Slide 93: APPLY IT 9.4F
-Người 1: Ở nội dung "Apply It 9.4F", chúng ta cần đặc biệt lưu ý những điểm cốt lõi.
-Người 2: Dạ em hiểu rồi ạ, phần này rất quan trọng.
+Người 1: Apply It 9.4F. Sinh viên khác đóng vai trò Hội đồng quản trị để chất vấn (Q&A).
+Người 2: Rất hay! Người thuyết trình phải bảo vệ (Defend) được các luận điểm của mình trước những câu hỏi hóc búa. Nếu biểu đồ bị sai lệch, "Hội đồng quản trị" sẽ vạch trần ngay lập tức!
 
 Slide 94: APPLY IT 9.5A
-Người 1: Bước sang phần "Apply It 9.5A", đây là một khái niệm rất hay xuất hiện trong thực tế.
-Người 2: Thưa thầy, em đã gạch chân những từ khóa cốt lõi rồi ạ.
+Người 1: Apply It 9.5A. Chuyển sang một case study mới.
+Người 2: Sinh viên phải liên tục thay đổi bối cảnh dữ liệu (Context switching). Từ bán lẻ sang dịch vụ, từ lợi nhuận sang rủi ro. Điều này rèn luyện sự linh hoạt (Agility) ạ.
 
 Slide 95: APPLY IT 9.5B
-Người 1: Phần "Apply It 9.5B" này chính là mấu chốt quan trọng.
-Người 2: Thưa thầy, em đã gạch chân những từ khóa cốt lõi rồi ạ.
+Người 1: Apply It 9.5B. So sánh các phiên bản Dashboard khác nhau và chọn ra bản tối ưu nhất.
+Người 2: Giống như việc A/B Testing trong Marketing vậy! Ta phải thử nghiệm xem cách sắp xếp nào, màu sắc nào mang lại Trải nghiệm người dùng (UX) tốt nhất cho Ban giám đốc.
 
 Slide 96: BÀI TẬP NGẮN (BRIEF EXERCISES)
-Người 1: Ở nội dung "Bài tập Ngắn (Brief Exercises)", chúng ta cần đặc biệt lưu ý những điểm cốt lõi.
-Người 2: Vâng thưa thầy, phần này rất logic và dễ áp dụng.
+Người 1: Slide 96 mở đầu phần Bài tập Ngắn (BE). Mục đích là để củng cố lý thuyết.
+Người 2: Các bài tập này thường xoay quanh việc nhận diện lỗi sai trong biểu đồ (Misleading charts) và cách sửa chúng (Fixing Clutter).
 
-Slide 97: BE 9.8 \& BE 9.9
-Người 1: Chúng ta cùng thực hành với BE 9.8 \& BE 9.9. Các em hãy vận dụng kiến thức vừa học nhé.
-Người 2: Vâng, em sẽ đọc kỹ đề và phân tích từ khóa thưa thầy.
+Slide 97: BE 9.8 & BE 9.9
+Người 1: BE 9.8 và 9.9. Sinh viên phải xác định xem một biểu đồ có đang tuân thủ nguyên tắc "Data-ink ratio" hay không.
+Người 2: Nếu có quá nhiều lưới nền (Gridlines) hoặc nhãn trục (Axis labels) không cần thiết, sinh viên phải dùng bút đỏ gạch bỏ ngay lập tức thưa thầy.
 
-Slide 98: BE 9.10 \& BE 9.11
-Người 1: Chúng ta cùng thực hành với BE 9.10 \& BE 9.11. Các em hãy vận dụng kiến thức vừa học nhé.
-Người 2: Vâng, em sẽ đọc kỹ đề và phân tích từ khóa thưa thầy.
+Slide 98: BE 9.10 & BE 9.11
+Người 1: BE 9.10 và 9.11. Các bài tập về Đảo ngược trục (Inverted Axis) và Bỏ qua đường cơ sở (Omitted Baseline).
+Người 2: Sinh viên phải chỉ ra được: "Trục Y ở đây đang bắt đầu từ 50 thay vì 0, điều này làm phóng đại sự khác biệt lên 5 lần!". Một bài tập luyện mắt (Eye-training) rất tốt ạ.
 
-Slide 99: BE 9.12 \& BE 9.13
-Người 1: Chúng ta cùng thực hành với BE 9.12 \& BE 9.13. Các em hãy vận dụng kiến thức vừa học nhé.
-Người 2: Vâng, em sẽ đọc kỹ đề và phân tích từ khóa thưa thầy.
+Slide 99: BE 9.12 & BE 9.13
+Người 1: BE 9.12 và 9.13. Lựa chọn biểu đồ phù hợp với mục tiêu (Objective-based Chart Selection).
+Người 2: Cho một tình huống: "So sánh tỷ trọng chi phí marketing của 4 khu vực". Sinh viên phải lập tức bật ra đáp án: "Pie Chart" hoặc "Stacked Bar Chart", tuyệt đối không dùng "Line Chart".
 
-Slide 100: BE 9.14 \& BE 9.15
-Người 1: Chúng ta cùng thực hành với BE 9.14 \& BE 9.15. Các em hãy vận dụng kiến thức vừa học nhé.
-Người 2: Vâng, em sẽ đọc kỹ đề và phân tích từ khóa thưa thầy.
+Slide 100: BE 9.14 & BE 9.15
+Người 1: BE 9.14 và 9.15. Thiết kế Dashboard tương tác (Interactive Dashboard).
+Người 2: Sinh viên phải liệt kê được những Bộ lọc (Filters) nào là cần thiết nhất cho một Giám đốc Bán hàng (Sales Manager) so với một Giám đốc Tài chính (CFO).
 
 Slide 101: BÀI TẬP (EXERCISES)
-Người 1: Bước sang phần "Bài tập (Exercises)", đây là một khái niệm rất hay xuất hiện trong thực tế.
-Người 2: Dạ, em đang theo dõi sát sao tiến trình bài giảng ạ.
+Người 1: Slide 101 chuyển sang phần Bài tập (Exercises - EX) dài hơn, đòi hỏi tính tổng hợp cao hơn.
+Người 2: Đây là lúc sinh viên phải vận dụng cả Quy trình 3 bước: Xác minh dữ liệu -> Phân tích khán giả -> Xác định mục tiêu ạ.
 
-Slide 102: EX 9.10 \& EX 9.11
-Người 1: Chúng ta cùng thực hành với EX 9.10 \& EX 9.11. Các em hãy vận dụng kiến thức vừa học nhé.
-Người 2: Vâng, em sẽ đọc kỹ đề và phân tích từ khóa thưa thầy.
+Slide 102: EX 9.10 & EX 9.11
+Người 1: EX 9.10 và 9.11. Xây dựng một Báo cáo Kể chuyện (Data Storytelling Report) hoàn chỉnh.
+Người 2: Không chỉ nộp file Excel hay Tableau, sinh viên phải nộp một bản Word (Memo) viết tay. Trình bày từ Thực trạng (Current State) -> Vấn đề (Problem) -> Giải pháp (Solution).
 
-Slide 103: EX 9.16 \& EX 9.17
-Người 1: Chúng ta cùng thực hành với EX 9.16 \& EX 9.17. Các em hãy vận dụng kiến thức vừa học nhé.
-Người 2: Vâng, em sẽ đọc kỹ đề và phân tích từ khóa thưa thầy.
+Slide 103: EX 9.16 & EX 9.17
+Người 1: EX 9.16 và 9.17. Phân tích một Dashboard bị lỗi thực tế từ một doanh nghiệp.
+Người 2: Sinh viên đóng vai trò là Tư vấn viên (Consultant), viết báo cáo phê bình (Critique report) chỉ ra 5 lỗi thiết kế nghiêm trọng và đề xuất bản vẽ lại (Redesign).
 
-Slide 104: EX 9.18 \& EX 9.20A
-Người 1: Chúng ta cùng thực hành với EX 9.18 \& EX 9.20A. Các em hãy vận dụng kiến thức vừa học nhé.
-Người 2: Vâng, em sẽ đọc kỹ đề và phân tích từ khóa thưa thầy.
+Slide 104: EX 9.18 & EX 9.20A
+Người 1: EX 9.18 và 9.20A. Tiếp tục các bài tập làm sạch dữ liệu (Data Cleaning) trước khi trực quan hóa.
+Người 2: Như đã nói: Garbage In, Garbage Out! Phải dùng kỹ năng của Chương 4 để loại bỏ các dữ liệu Outliers (Ngoại lai) trước khi vẽ biểu đồ, nếu không biểu đồ sẽ bị méo mó (Distorted).
 
 Slide 105: EX 9.20B
-Người 1: Chúng ta cùng thực hành với EX 9.20B. Các em hãy vận dụng kiến thức vừa học nhé.
-Người 2: Vâng, em sẽ đọc kỹ đề và phân tích từ khóa thưa thầy.
+Người 1: EX 9.20B. Bài tập cuối cùng. Trình bày bảo vệ trước lớp.
+Người 2: Bài thi chốt hạ! Sinh viên phải dùng kỹ năng Thuyết trình (Presentation skills) để thuyết phục giảng viên (đóng vai Chủ tịch HĐQT) cấp vốn cho dự án của mình dựa trên dữ liệu. Một kết thúc hoàn hảo cho hành trình Phân tích dữ liệu ạ!
 
 Slide 106: KẾT THÚC
-Người 1: Vậy là chúng ta đã kết thúc Chương 9. Các em hãy ứng dụng ngay những kỹ năng này vào công việc thực tế.
-Người 2: Dạ vâng, em cảm ơn thầy rất nhiều ạ!
+Người 1: Vâng, Slide 106 đã khép lại toàn bộ Chương 9, cũng là chương cuối cùng của học phần này.
+Người 2: Thưa thầy, hành trình từ Chương 1 (Hiểu về AI) đến Chương 9 (Giao tiếp dữ liệu) đã trang bị cho chúng em một "Vũ khí sắc bén". Kế toán viên giờ đây không sợ AI cướp việc nữa, mà sẽ dùng chính Data và AI để trở thành những "Người cố vấn chiến lược" (Strategic Advisors) quyền lực nhất trong doanh nghiệp! Em xin chân thành cảm ơn thầy!

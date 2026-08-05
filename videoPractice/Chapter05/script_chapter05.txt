@@ -7,405 +7,404 @@ Người 2 (Sinh viên): Chăm chỉ, xưng "thầy", thích thú với các hà
 =========================================
 
 Slide 1: TRANG BÌA
-Người 1: Chào mừng các em đến với Chương 5. Đây là phần "đổ mồ hôi" nhất nhưng lại quan trọng nhất của phân tích dữ liệu: Chuẩn bị và Làm sạch Dữ liệu. Quá trình này thường chiếm đến 80% thời gian của một dự án.
-Người 2: Dạ em chào thầy. Thưa thầy, tại sao lại mất nhiều thời gian đến vậy ạ? Chẳng phải dữ liệu từ hệ thống xuất ra là dùng được luôn sao thầy?
+Người 1: Chào các em. Hôm nay chúng ta bước sang Chương 5: Chuẩn bị Dữ liệu (Data Preparation). Nếu AI là một siêu đầu bếp, thì dữ liệu chính là nguyên liệu. Đầu bếp có giỏi đến đâu mà nguyên liệu ôi thiu thì món ăn cũng không thể nuốt nổi.
+Người 2: Dạ vâng thưa thầy, em rất thích sự ví von này. Bước chuẩn bị này chính là việc nhặt rau, thái thịt, đảm bảo mọi thứ sạch sẽ trước khi đưa vào nồi nấu (các thuật toán Machine Learning) đúng không ạ?
 
 Slide 2: GÓC NHÌN CHUYÊN GIA (PROFESSIONAL INSIGHT)
-Người 1: Phần "Góc nhìn Chuyên gia (Professional Insight)" này chính là mấu chốt để tránh rủi ro dữ liệu rác (Garbage in).
-Người 2: Dạ, em đang theo dõi sát sao tiến trình bài giảng ạ.
+Người 1: Chính xác. Slide này nêu một thực tế phũ phàng: Nguyên tắc 80/20. Trong một dự án phân tích dữ liệu, các chuyên gia phải dành tới 80% thời gian chỉ để dọn dẹp và chuẩn bị dữ liệu, chỉ 20% thời gian là chạy mô hình. Nếu không làm kỹ, nguyên lý GIGO (Rác vào - Rác ra) sẽ phá hỏng tất cả.
+Người 2: 80% thời gian cơ ạ? Điều đó cho thấy khâu Trích xuất, Chuyển đổi và Tải (ETL) cực kỳ gian nan. Thưa thầy, quy trình ETL này có bắt buộc đối với một Kế toán viên thời nay không ạ?
 
 Slide 3: LỘ TRÌNH CHƯƠNG (CHAPTER ROADMAP)
-Người 1: Ở nội dung "Lộ trình Chương (Chapter Roadmap)", chúng ta cần đặc biệt lưu ý những điểm cốt lõi về kỹ thuật chuẩn bị dữ liệu.
-Người 2: Thưa thầy, em đã gạch chân những từ khóa cốt lõi rồi ạ.
+Người 1: Rất bắt buộc! Kế toán ngày nay không chỉ gõ phím nhập liệu, mà phải biết xử lý dữ liệu lớn. Lộ trình chương này sẽ đi qua 7 mục tiêu chính: Từ việc Định hình dữ liệu (Data Profiling), thiết lập quy trình ETL, cho đến việc sử dụng các Mẫu chuyển đổi cột và bảng.
+Người 2: Dạ, với 7 mục tiêu này, em tin là chúng ta sẽ có một bộ công cụ hoàn chỉnh để biến một bảng Excel lộn xộn thành một kho dữ liệu (Data Warehouse) chuẩn chỉnh ạ.
 
 Slide 4: 5.1 QUÁ TRÌNH ĐỊNH HÌNH DỮ LIỆU (DATA PROFILING)
-Người 1: Phần "5.1 Quá trình Định hình Dữ liệu (Data Profiling)" này chính là mấu chốt để tránh rủi ro dữ liệu rác (Garbage in).
-Người 2: Vâng, em đang ghi chú lại các ý chính này rồi thưa thầy.
+Người 1: Bắt đầu với Data Profiling (Định hình dữ liệu). Giống như khám sức khỏe tổng quát, ta có 2 bước: Điều tra chất lượng (tìm dữ liệu thiếu, sai định dạng) và Điều tra cấu trúc (xem các cột và hàng tổ chức thế nào).
+Người 2: Việc khám sức khỏe này rất quan trọng. Thưa thầy, nếu phát hiện dữ liệu thiếu quá nhiều (Missing values) thì Kế toán nên báo cáo lại cho bộ phận nhập liệu hay tự ý điền số 0 vào ạ?
 
 Slide 5: ILLUSTRATION 5.1
-Người 1: Slide tiếp theo là một ví dụ thực tế qua Minh họa 5.1. Cụ thể: ". shows, data preparation is an ongo - ing collaboration between the data profiling process, which is the subject of this discussion,  and the ETL...". Phân tích kỹ sẽ giúp các em hiểu sâu hơn.
-Người 2: Dạ, kết hợp lý thuyết với minh họa thực tế thế này rất hiệu quả ạ.
+Người 1: Một câu hỏi rất sắc bén! Nếu dữ liệu thiếu quá nhiều, Kế toán không được tự ý điền bừa, mà phải thảo luận với các bên liên quan để tìm hiểu nguyên nhân gốc rễ. Minh họa 5.1 cho thấy Data Profiling và quy trình ETL luôn là một vòng lặp hợp tác liên tục.
+Người 2: À em hiểu rồi. Profiling đóng vai trò là 'bác sĩ' bắt bệnh (detect issues), còn ETL đóng vai trò là 'dược sĩ' bốc thuốc và chữa bệnh (correct issues) đúng không thưa thầy?
 
 Slide 6: ILLUSTRATION 5.1A
-Người 1: Chuyển sang phần Minh họa 5.1A, các em chú ý quan sát cách xử lý lỗi trên màn hình nhé.
-Người 2: Dạ vâng thưa thầy.
+Người 1: Sự so sánh rất tuyệt vời! Minh họa 5.1A nhấn mạnh lại vòng lặp đó. Em sẽ phải chạy Data Profiling, phát hiện lỗi, dùng ETL để sửa, rồi lại Profiling lại để kiểm tra xem lỗi đã hết thật chưa, cứ thế cho đến khi dữ liệu đạt chuẩn.
+Người 2: Vòng lặp này giúp đảm bảo chất lượng dữ liệu được kiểm soát chặt chẽ ở từng bước, tránh tình trạng lỗi bị tích tụ về sau thưa thầy.
 
 Slide 7: ILLUSTRATION 5.2
-Người 1: Các em xem minh họa ở Minh họa 5.2 trên slide. Đoạn này đề cập đến: "Composite vs. Single-Valued Column Cole, Lak eisha, NA Lopez, Alejandro, CP A Key, Kim, NA David, Julie, CP A Malone, Moses, NA Buslepp, Bill, CP A...". Rất sát với tình huống doanh nghiệp.
-Người 2: Vâng thưa thầy, hình ảnh này giải thích rất trực quan dễ hiểu.
+Người 1: Sang Minh họa 5.2, chúng ta thấy một lỗi cấu trúc phổ biến: Cột dữ liệu phức hợp (Composite Column). Ví dụ, một cột chứa cả 'Họ, Tên, và Chứng chỉ' (Cole, Lakeisha, CPA). Nếu để nguyên thế này, em có lọc được danh sách những người có bằng CPA không?
+Người 2: Dạ không thể nào lọc chính xác được ạ. Hàm Excel sẽ rất bối rối. Ta bắt buộc phải tách (Split) nó thành các cột Đơn trị (Single-Valued): một cột Họ, một cột Tên, và một cột Chứng chỉ riêng biệt.
 
 Slide 8: ILLUSTRATION 5.3
-Người 1: Slide tiếp theo là một ví dụ thực tế qua Minh họa 5.3. Cụ thể: "Multi-Valued vs. Single-Valued Column Cole, Lak eisha  Lopez, Alejandr o Lopez, Alejandr o Key, Kim David, Julie David, Julie David, Julie Malone,...". Phân tích kỹ sẽ giúp các em hiểu sâu hơn.
-Người 2: Dạ, kết hợp lý thuyết với minh họa thực tế thế này rất hiệu quả ạ.
+Người 1: Tốt lắm. Tiếp theo là Minh họa 5.3: Cột chứa đa giá trị (Multi-Valued). Một nhân viên tên Alejandro Lopez có 2 chứng chỉ trong cùng một ô Excel, cách nhau bằng dấu phẩy. Điều này vi phạm nguyên tắc cơ sở dữ liệu quan hệ.
+Người 2: Thưa thầy, để xử lý cột đa giá trị này, có phải ta sẽ phải nhân bản dòng của nhân viên Lopez thành hai dòng riêng biệt, mỗi dòng chứa một chứng chỉ không ạ?
 
 Slide 9: ILLUSTRATION 5.4
-Người 1: Chúng ta cùng phân tích Minh họa 5.4 nhé. Trọng tâm của phần này là: "(A) shows a crosstabulation table representing a relationship between  the two variables of car model and salesperson: • In the first column are the...". Các em hãy lưu ý cách áp dụng vào thực tế.
-Người 2: Em đã nắm được ý chính của phần này rồi thưa thầy.
+Người 1: Đúng vậy! Minh họa 5.4 so sánh giữa cấu trúc Bảng chéo (Crosstabulation) và Bảng phẳng (Flat table). Bảng chéo nhìn bằng mắt thì rất dễ, nhưng máy tính lại rất ghét. Bảng phẳng tuy dài nhưng máy tính lại cực kỳ thích để chạy phân tích.
+Người 2: Dạ, bảng Crosstab hay có các cột theo tên tháng hoặc tên sản phẩm, rất khó để dùng hàm SUMIFS. Mình phải dùng tính năng Unpivot trong Power Query để 'duỗi thẳng' nó ra thành Bảng phẳng (Flat table) ạ.
 
 Slide 10: ILLUSTRATION 5.5
-Người 1: Slide tiếp theo là một ví dụ thực tế qua Minh họa 5.5. Cụ thể: "). As the top of". Phân tích kỹ sẽ giúp các em hiểu sâu hơn.
-Người 2: Em đã nắm được ý chính của phần này rồi thưa thầy.
+Người 1: Chuẩn xác! Minh họa 5.5 giới thiệu Mô hình Ngôi sao (Star Schema). Mô hình này gồm một Bảng Sự kiện (Fact table) ở trung tâm, lưu trữ các giao dịch hàng ngày; và các Bảng Danh mục (Dimension tables) bao quanh như vệ tinh.
+Người 2: Mô hình Star Schema này chính là trái tim của Power BI và các phần mềm ERP! Bảng Fact lưu doanh thu, còn Bảng Dimension lưu chi tiết tên Khách hàng, tên Hàng hóa để phục vụ việc trích xuất báo cáo.
 
 Slide 11: ILLUSTRATION 5.6
-Người 1: Nhìn vào Minh họa 5.6, chúng ta có thể rút ra điều gì? Tài liệu có ghi: "Slicing Measures by Dimensions What is the total sales amount  (dollars) for a specific customer?1 What is the total sales amount (dollars) for all...". Đây là một điểm rất đáng chú ý.
-Người 2: Dạ, kết hợp lý thuyết với minh họa thực tế thế này rất hiệu quả ạ.
+Người 1: Rất hiểu bài. Minh họa 5.6 mô tả sức mạnh của Star Schema. Nhờ nó, ta có thể 'Cắt lát' (Slicing) dữ liệu đo lường theo bất kỳ chiều (Dimension) nào. Ví dụ: Tính tổng doanh thu (Measure) theo từng nhân viên bán hàng (Dimension).
+Người 2: Hay quá thưa thầy. Tức là chỉ với một bảng dữ liệu trung tâm, Ban giám đốc có thể hỏi 'Doanh thu theo vùng', 'Doanh thu theo tháng' và hệ thống sẽ tự động bóc tách (Slice) ra ngay lập tức!
 
 Slide 12: ILLUSTRATION 5.7
-Người 1: Các em xem minh họa ở Minh họa 5.7 trên slide. Đoạn này đề cập đến: "shows, the ETL process builds an ana - lytical database using one or more sources of raw data.". Rất sát với tình huống doanh nghiệp.
-Người 2: Vâng thưa thầy, hình ảnh này giải thích rất trực quan dễ hiểu.
+Người 1: Bây giờ, hãy nhìn vào Minh họa 5.7 để tổng quan lại toàn bộ quy trình ETL. Dữ liệu thô (Raw Data) từ rất nhiều nguồn khác nhau (Web, ERP, Excel) sẽ được Trích xuất, Chuyển đổi và Tải vào một Analytical Database tập trung.
+Người 2: Dạ, kho dữ liệu (Analytical Database) này sẽ đóng vai trò là một 'Single Source of Truth' (Nguồn chân lý duy nhất), chấm dứt tình trạng mỗi phòng ban báo cáo một số liệu khác nhau ạ.
 
 Slide 13: ILLUSTRATION 5.8
-Người 1: Các em xem minh họa ở Minh họa 5.8 trên slide. Đoạn này đề cập đến: "(A) shows some data connectors that are available in Excel,  while panel (B) does the same for Power BI. Transform Data  Raw data are rarely ready...". Rất sát với tình huống doanh nghiệp.
-Người 2: Vâng thưa thầy, hình ảnh này giải thích rất trực quan dễ hiểu.
+Người 1: Để kéo dữ liệu thô vào, ta phải dùng Data Connectors (Bộ kết nối dữ liệu) như ở Minh họa 5.8. Hiện nay Excel và Power BI có sẵn hàng chục bộ kết nối, cho phép em lấy dữ liệu từ SQL Server, Oracle, hoặc thậm chí từ Facebook, Web.
+Người 2: Việc có sẵn các Data Connectors giúp Kế toán viên không cần phải biết code vẫn có thể kéo dữ liệu trực tiếp từ máy chủ (Server), tiết kiệm rất nhiều thời gian xuất/nhập file thủ công thưa thầy.
 
 Slide 14: 5.2 MÔ TẢ QUÁ TRÌNH ETL (EXTRACT, TRANSFORM, LOAD)
-Người 1: Bước sang phần "5.2 Mô tả quá trình ETL (Extract, Transform, Load)", đây là một khái niệm rất hay xuất hiện trong thực tế làm sạch dữ liệu.
-Người 2: Dạ, em đang theo dõi sát sao tiến trình bài giảng ạ.
+Người 1: Slide 14 định nghĩa rõ 3 khái niệm E-T-L. Extract (Trích xuất) là lấy dữ liệu về. Transform (Chuyển đổi) là khâu nặng nhọc nhất: Làm sạch, định dạng lại. Cuối cùng, Load (Tải) là đổ dữ liệu sạch đó vào kho.
+Người 2: Theo em thấy, chữ T (Transform) chính là linh hồn của toàn bộ quy trình. Nếu chuyển đổi sai logic kế toán, ví dụ như tính sai tỷ giá ngoại tệ, thì mọi báo cáo đằng sau đều vô giá trị.
 
 Slide 15: ILLUSTRATION 5.9
-Người 1: Chúng ta cùng phân tích Minh họa 5.9 nhé. Trọng tâm của phần này là: "Removing  Rows with Power Query  Remove RowsA Z Z ASplit ColumnGroup By Remove Top Rows Remove Bottom Rows Remove Alternate Rows + Remove Duplicates...". Các em hãy lưu ý cách áp dụng vào thực tế.
-Người 2: Em đã nắm được ý chính của phần này rồi thưa thầy.
+Người 1: Rất sâu sắc. Bắt đầu với các bước Transform cơ bản. Minh họa 5.9 hướng dẫn thao tác Xóa dòng (Removing Rows). Trong Power Query, em có thể dễ dàng xóa các dòng rỗng (Blank rows), dòng bị lỗi (Errors) hoặc dòng trùng lặp (Duplicates).
+Người 2: Các dòng Blank hay Duplicates thường xuất hiện khi kế toán Copy/Paste dữ liệu từ nhiều file Excel khác nhau. Tính năng Remove Duplicates này sẽ cứu nguy cho báo cáo doanh thu không bị đôn lên gấp đôi ạ.
 
 Slide 16: ILLUSTRATION 5.10
-Người 1: Chúng ta cùng phân tích Minh họa 5.10 nhé. Trọng tâm của phần này là: "shows how Power Query’s Find and  Replace option can fix an inconsistency problem.". Các em hãy lưu ý cách áp dụng vào thực tế.
-Người 2: Vâng thưa thầy, hình ảnh này giải thích rất trực quan dễ hiểu.
+Người 1: Kế tiếp, Minh họa 5.10 sử dụng chức năng Thay thế giá trị (Replace Values). Ví dụ, cột Giới tính có lúc ghi là 'M', có lúc ghi là 'Male'. Ta dùng Find and Replace để quy tất cả về 'Male' cho đồng nhất.
+Người 2: Sự không đồng nhất này rất hay xảy ra do người dùng nhập liệu tự do. Việc quy chuẩn hóa (Standardization) này giúp hàm đếm COUNTIFS chạy chính xác tuyệt đối.
 
 Slide 17: ILLUSTRATION 5.11
-Người 1: Mời các em quan sát Minh họa 5.11. Điểm cốt lõi ở đây là: ". Ilustration 5.11 (A) contains financial information, and panel (B) contains  demographic information about  customers. How would we reconcile, or...".
-Người 2: Dạ, kết hợp lý thuyết với minh họa thực tế thế này rất hiệu quả ạ.
+Người 1: Minh họa 5.11 nêu lên vấn đề Khớp dữ liệu (Data Matching). Em có bảng Khách hàng từ phần mềm Kế toán và bảng Khách hàng từ phần mềm CRM. Có người bên này tên 'Margarita David', bên kia lại là 'David, Margarita'. Làm sao để ghép chúng lại?
+Người 2: Đây là một cơn ác mộng thực sự! Nếu không có một Mã Khách Hàng (Customer ID) duy nhất, việc nối (Merge) hai bảng bằng tên riêng sẽ gây ra hàng loạt lỗi thất lạc dữ liệu thưa thầy.
 
 Slide 18: ILLUSTRATION 5.12
-Người 1: Slide tiếp theo là một ví dụ thực tế qua Minh họa 5.12. Cụ thể: "). $". Phân tích kỹ sẽ giúp các em hiểu sâu hơn.
-Người 2: Dạ, kết hợp lý thuyết với minh họa thực tế thế này rất hiệu quả ạ.
+Người 1: Để thực hành các khái niệm trên, ta sẽ dùng bộ dữ liệu công ty Beans, gồm 4 sheet Excel như Minh họa 5.12: ClData (Thông tin khách hàng), Employee (Nhân viên), E-Dem (Nhân khẩu học) và Service (Dịch vụ).
+Người 2: Bốn sheet Excel này mô phỏng rất sát thực tế của các doanh nghiệp SME. Ta sẽ phải kết nối 4 sheet này lại với nhau thông qua Power Query đúng không ạ?
 
 Slide 19: ILLUSTRATION 5.13A
-Người 1: Chuyển sang phần Minh họa 5.13A, các em chú ý quan sát cách xử lý lỗi trên màn hình nhé.
-Người 2: Dạ vâng thưa thầy.
+Người 1: Đúng vậy! Nhưng trước khi xử lý, ta phải lập một Từ điển dữ liệu (Data Dictionary) như Minh họa 5.13A. Đây là bảng mô tả chi tiết tên cột, định nghĩa cột đó làm gì, và kiểu dữ liệu mong muốn (Số, Chữ, hay Ngày tháng).
+Người 2: Việc có Data Dictionary giúp cả team Kế toán và team IT hiểu chung một ngôn ngữ. Chẳng hạn, cột 'BudgetedTime' ai cũng hiểu thống nhất là thời gian dự toán, tính bằng giờ.
 
 Slide 20: ILLUSTRATION 5.13B
-Người 1: Chuyển sang phần Minh họa 5.13B, các em chú ý quan sát cách xử lý lỗi trên màn hình nhé.
-Người 2: Dạ vâng thưa thầy.
+Người 1: Minh họa 5.13B là phần tiếp theo của Từ điển dữ liệu. Nó cho biết cột nào đóng vai trò là Khóa chính (Primary Key) - tức là cột ID duy nhất không được phép trùng lặp hoặc bỏ trống.
+Người 2: Khóa chính (Primary Key) cực kỳ quan trọng! Nếu không xác định được cột nào là Khóa chính, ta sẽ không thể tạo Model quan hệ (Relationships) giữa các bảng trong Power BI được ạ.
 
 Slide 21: ILLUSTRATION 5.14
-Người 1: Chúng ta cùng phân tích Minh họa 5.14 nhé. Trọng tâm của phần này là: "Row Count for Excel Worksheet fxAutoSave Oﬀ Client Employee Task Area ID BudgetedTime ActualTime Date1 ID1 2 3 4 5 6 7 8 9 101 2 3 4 5 6 7 8...". Các em hãy lưu ý cách áp dụng vào thực tế.
-Người 2: Dạ, kết hợp lý thuyết với minh họa thực tế thế này rất hiệu quả ạ.
+Người 1: Giờ ta bắt đầu kiểm tra (Auditing) dữ liệu. Ở Minh họa 5.14, ta đếm thử số dòng trong file Excel gốc bằng cách nhìn vào Status bar. Bảng Service có 4.632 dòng.
+Người 2: Bước đếm dòng thủ công này giống như việc chốt số dư tiền mặt đầu kỳ vậy. Ta phải biết chắc chắn nguồn gốc có bao nhiêu dòng để tiện đối chiếu về sau.
 
 Slide 22: ILLUSTRATION 5.15
-Người 1: Nhìn vào Minh họa 5.15, chúng ta có thể rút ra điều gì? Tài liệu có ghi: "Row Count with Power Query Column Statistics Count 4,632 Error 0 Empty 0 Distinct 4,632 Unique 4,632 NaN 0 Zero 0 Min 1 Max 4,632 Average 2,316.5...". Đây là một điểm rất đáng chú ý.
-Người 2: Em đã nắm được ý chính của phần này rồi thưa thầy.
+Người 1: Chuẩn! Tiếp theo ở Minh họa 5.15, sau khi kéo dữ liệu vào Power Query, ta bật tính năng Column Statistics và thấy chỉ số Count cũng đúng bằng 4.632. Điều đó chứng tỏ quá trình Trích xuất (Extract) không bị rơi rớt dữ liệu.
+Người 2: Một thủ thuật đối chiếu chéo (Cross-check) cực kỳ bén! Nếu số Count trong Power Query mà nhỏ hơn Excel, Kế toán viên phải dừng lại ngay để tìm nguyên nhân thất thoát dữ liệu thưa thầy.
 
 Slide 23: ILLUSTRATION 5.16
-Người 1: Chúng ta cùng phân tích Minh họa 5.16 nhé. Trọng tâm của phần này là: "(A), the A ge column in the E-D em table mixes null values, numbers, dates,  and text, which would make it challenging to generate reliable...". Các em hãy lưu ý cách áp dụng vào thực tế.
-Người 2: Em đã nắm được ý chính của phần này rồi thưa thầy.
+Người 1: Ở Minh họa 5.16, Profiling phát hiện cột Tuổi (Age) chứa dữ liệu 'rác' (Unreliable Data): Lúc thì ghi số, lúc thì để trống (null), lúc lại ghi chữ. Kế toán không thể dùng cột này để phân tích nhân khẩu học được.
+Người 2: Gặp cột rác thế này thì hàm AVERAGE tính tuổi trung bình sẽ bị lỗi #VALUE ngay. Tùy thuộc vào mức độ nghiêm trọng, ta có thể dùng Power Query chọn Remove Columns để xóa hẳn nó đi cho nhẹ mô hình ạ.
 
 Slide 24: 5.3 ÁP DỤNG CÁC MẪU ĐỂ TRÍCH XUẤT DỮ LIỆU (EXTRACTION PATTERNS)
-Người 1: Bước sang phần "5.3 Áp dụng các mẫu để Trích xuất Dữ liệu (Extraction Patterns)", đây là một khái niệm rất hay xuất hiện trong thực tế làm sạch dữ liệu.
-Người 2: Vâng thưa thầy, phần này rất logic và dễ áp dụng.
+Người 1: Chuyển sang chiến lược Trích xuất (Extraction Patterns). Có 2 loại: Trích xuất toàn bộ (Full) là kéo lại từ đầu, áp dụng cho bảng nhỏ. Và Trích xuất tăng dần (Incremental) là chỉ kéo những dòng giao dịch mới phát sinh ngày hôm nay.
+Người 2: Incremental Extraction giúp tiết kiệm tài nguyên máy chủ rất lớn. Kế toán sẽ không phải ngồi chờ cả tiếng đồng hồ để hệ thống tải lại toàn bộ 10 triệu dòng lịch sử bán hàng cũ thưa thầy.
 
 Slide 25: ILLUSTRATION 5.17
-Người 1: Các em xem minh họa ở Minh họa 5.17 trên slide. Đoạn này đề cập đến: "shows how to rename a column in Power Query. First, right-click on the ID column in the  ClData table and then select Rename  and enter the new...". Rất sát với tình huống doanh nghiệp.
-Người 2: Dạ, ví dụ này làm em thấy rõ hơn hẳn ạ.
+Người 1: Bắt tay vào Transform nhé! Minh họa 5.17 hướng dẫn Đổi tên cột (Modify Column Names). Tên cột trong phần mềm ERP thường là những mã khó hiểu như 'Cus_Grp_Cd'. Ta phải click chuột phải, Rename thành 'Nhóm Khách hàng' để ai cũng đọc được.
+Người 2: Đổi tên cột cho thân thiện với người dùng (User-friendly) là bắt buộc. Nếu để nguyên mã code kỹ thuật, Giám đốc nhìn vào báo cáo sẽ không hiểu biểu đồ này đang nói về cái gì ạ.
 
 Slide 26: ILLUSTRATION 5.18
-Người 1: Các em xem minh họa ở Minh họa 5.18 trên slide. Đoạn này đề cập đến: "shows some potential name changes for columns. Note that, because  two columns in the same  table cannot have the same name, Power Query...". Rất sát với tình huống doanh nghiệp.
-Người 2: Dạ, ví dụ này làm em thấy rõ hơn hẳn ạ.
+Người 1: Minh họa 5.18 cung cấp các gợi ý đổi tên. Nguyên tắc là không được để 2 cột trong cùng một bảng trùng tên nhau, vì Power Query sẽ tự động gắn thêm hậu tố .1, .2 gây rối mắt.
+Người 2: Dạ vâng, tên cột nên viết liền (CamelCase) hoặc dùng dấu gạch dưới, hạn chế có dấu cách để sau này nếu dùng DAX hoặc Python xử lý sẽ không bị lỗi cú pháp thưa thầy.
 
 Slide 27: ILLUSTRATION 5.19
-Người 1: Các em xem minh họa ở Minh họa 5.19 trên slide. Đoạn này đề cập đến: "(A) shows the raw spread - sheet data. Panel (B) shows the same data set after extraction in Power Query. Notice that  the data type is ABC  123,...". Rất sát với tình huống doanh nghiệp.
-Người 2: Dạ, nhờ minh họa này mà các khái niệm trở nên gần gũi hơn rất nhiều ạ.
+Người 1: Vấn đề đau đầu nhất là Kiểu dữ liệu (Data Types). Ở Minh họa 5.19, cột ID chứa cả số (1, 2) lẫn chữ (Error). Nếu biểu tượng trên cột là ABC/123 (Kiểu Any), máy tính sẽ không biết phải thực hiện phép toán cộng trừ hay phép nối chuỗi.
+Người 2: Dữ liệu hỗn tạp kiểu Any này là tác nhân số 1 gây treo hệ thống. Kế toán viên phải luôn chủ động định nghĩa kiểu dữ liệu dứt khoát cho từng cột trước khi thực hiện bất kỳ phép tính nào.
 
 Slide 28: ILLUSTRATION 5.20
-Người 1: Chúng ta cùng phân tích Minh họa 5.20 nhé. Trọng tâm của phần này là: "shows  the different data types available in Power Query.". Các em hãy lưu ý cách áp dụng vào thực tế.
-Người 2: Dạ, nhờ minh họa này mà các khái niệm trở nên gần gũi hơn rất nhiều ạ.
+Người 1: Rất chính xác. Minh họa 5.20 cho thấy các kiểu dữ liệu của Power Query: Decimal (Số thập phân) dùng cho tiền tệ, Whole Number (Số nguyên) cho số lượng, Date cho ngày tháng. Đừng chọn nhầm nhé!
+Người 2: Đặc biệt với Kế toán, nếu cột Giá trị Hóa đơn mà bị ép kiểu thành Whole Number (Số nguyên) thì phần thập phân của tiền tệ sẽ bị làm tròn, dẫn đến lệch sổ cái hàng triệu đồng thưa thầy!
 
 Slide 29: ILLUSTRATION 5.21
-Người 1: Nhìn vào Minh họa 5.21, chúng ta có thể rút ra điều gì? Tài liệu có ghi: "). c05AnalysisDataPreparation.indd   23 13/10/22   6:40 AM 5-24 CHAPTER 5 Analysis: Data Preparation". Đây là một điểm rất đáng chú ý.
-Người 2: Dạ, ví dụ này làm em thấy rõ hơn hẳn ạ.
+Người 1: Minh họa 5.21 hướng dẫn tính năng Tách cột (Split Column). Khi có một cột chứa cả Họ và Tên dính liền, ta dùng lệnh Split by Delimiter (Tách theo dấu phân cách) để xé nó ra làm đôi.
+Người 2: Tính năng này vô cùng mạnh mẽ, thay thế hoàn toàn chuỗi hàm LEFT, RIGHT, FIND phức tạp trong Excel. Ta chỉ cần xác định ký tự phân cách là dấu phẩy hoặc khoảng trắng là xong.
 
 Slide 30: ILLUSTRATION 5.22
-Người 1: Chúng ta cùng phân tích Minh họa 5.22 nhé. Trọng tâm của phần này là: "will appear. Power Query already selected Comma as the delimiter, and since there is only one comma for each name, it does not matter which  of the...". Các em hãy lưu ý cách áp dụng vào thực tế.
-Người 2: Dạ, nhờ minh họa này mà các khái niệm trở nên gần gũi hơn rất nhiều ạ.
+Người 1: Cuối cùng trong cụm này, Minh họa 5.22 hiển thị giao diện thiết lập của Split Column. Power Query rất thông minh, nó tự nhận diện có dấu phẩy (Comma) và đề xuất chia cột dựa trên dấu phẩy đó.
+Người 2: Dạ vâng, giao diện người dùng (GUI) của Power Query giúp dân Kế toán không cần viết code lập trình mà vẫn thực hiện được các thao tác làm sạch dữ liệu (Data Cleansing) cực kỳ chuyên sâu ạ!
 
 Slide 31: ILLUSTRATION 5.23
-Người 1: Nhìn vào Minh họa 5.23, chúng ta có thể rút ra điều gì? Tài liệu có ghi: "(A) displays  the column profile statistics generated by Power Query. Panel (B) shows the values of the  ActualTime  in descending order. The top...". Đây là một điểm rất đáng chú ý.
-Người 2: Dạ, kết hợp lý thuyết với minh họa thực tế thế này rất hiệu quả ạ.
+Người 1: Chúng ta tiếp tục với Minh họa 5.23. Ở đây ta đang Profiling (Định hình) cột ActualTime - thời gian thực tế nhân viên làm việc. Chạy thống kê xong, ta thấy có những giá trị kỳ lạ như số âm hoặc vượt quá 24 giờ/ngày.
+Người 2: Dạ, thời gian làm việc mà là số âm thì chắc chắn do lỗi gõ phím, hoặc lỗi công thức tính nhầm. Kế toán viên phải dùng Power Query để khoanh vùng và sửa các giá trị vô lý này ngay ạ.
 
 Slide 32: ILLUSTRATION 5.24
-Người 1: Các em xem minh họa ở Minh họa 5.24 trên slide. Đoạn này đề cập đến: "shows the ActualTime values modified for the Beans example. Pattern 7 Summary Problem Incorrect data might result in poor decision-making. Detect...". Rất sát với tình huống doanh nghiệp.
-Người 2: Dạ, kết hợp lý thuyết với minh họa thực tế thế này rất hiệu quả ạ.
+Người 1: Chính xác. Minh họa 5.24 cho thấy kết quả sau khi đã sửa lỗi cột ActualTime. Ta dùng lệnh Replace Values hoặc viết một hàm điều kiện (IF) để đưa các số âm về 0, hoặc ép kiểu về định dạng Giờ chuẩn.
+Người 2: Nhờ vậy mà các hàm SUM tính tổng chi phí nhân công sau này sẽ không bị trừ lẹm đi một cách vô cớ. Mọi con số đều phản ánh đúng thực tế thưa thầy.
 
 Slide 33: ILLUSTRATION 5.25
-Người 1: Slide tiếp theo là một ví dụ thực tế qua Minh họa 5.25. Cụ thể: "(A) shows the distinct values for the JobTitle  column in the E mployee  table.  This information is available for all columns in Power Query. The". Phân tích kỹ sẽ giúp các em hiểu sâu hơn.
-Người 2: Dạ, kết hợp lý thuyết với minh họa thực tế thế này rất hiệu quả ạ.
+Người 1: Tiếp theo là Minh họa 5.25: Profiling cột JobTitle (Chức danh). Nhìn vào danh sách Distinct Values (Các giá trị duy nhất), em sẽ thấy sự hỗn loạn. Cùng là Kế toán trưởng nhưng có người gõ 'Chief Accountant', người gõ 'C.A', người gõ 'Kế toán trưởng'.
+Người 2: Lỗi Inconsistent Data (Dữ liệu không đồng nhất) này là bệnh kinh niên ở các công ty. Nếu không gom chúng lại, hệ thống sẽ báo cáo công ty có tới 3 chức danh khác nhau, làm sai lệch bảng lương ạ.
 
 Slide 34: 5.4 ÁP DỤNG MẪU ĐỂ CHUYỂN ĐỔI CỘT (COLUMN TRANSFORMATION)
-Người 1: Bước sang phần "5.4 Áp dụng mẫu để Chuyển đổi Cột (Column Transformation)", đây là một khái niệm rất hay xuất hiện trong thực tế làm sạch dữ liệu.
-Người 2: Dạ em hiểu rồi, việc làm sạch cẩn thận giúp tránh sai số rất lớn.
+Người 1: Slide 34 tóm tắt 6 nghiệp vụ Chuyển đổi Cột (Column Transformation) mà các em phải thuộc nằm lòng: Làm sạch, Định dạng, Tách cột, Ghép cột, Rút trích và Tính toán. Power Query sinh ra là để làm 6 việc này.
+Người 2: Quá đầy đủ thưa thầy! Ví dụ như ghép cột 'Mã vùng' và 'Số điện thoại', hay tính cột 'Thành tiền' bằng Số lượng nhân Đơn giá, Power Query làm những việc này nhanh hơn Excel thủ công rất nhiều.
 
 Slide 35: ILLUSTRATION 5.26
-Người 1: Nhìn vào Minh họa 5.26, chúng ta có thể rút ra điều gì? Tài liệu có ghi: "were made to the University column.  Most ETL software, including Power Query, offer find and replace tools to modify values. Pattern 8 Summary...". Đây là một điểm rất đáng chú ý.
-Người 2: Dạ, ví dụ này làm em thấy rõ hơn hẳn ạ.
+Người 1: Quay lại Minh họa 5.26, đây là ví dụ cho nghiệp vụ 'Làm sạch'. Cột University (Trường đại học) đang bị gõ lung tung. Ta dùng Find and Replace để quy chuẩn tất cả các biến thể về một tên trường duy nhất.
+Người 2: Dạ vâng, việc Standardization (Chuẩn hóa danh pháp) này giúp báo cáo nhân sự phân loại chính xác nhân viên theo bằng cấp, phục vụ cho việc tính phụ cấp thưa thầy.
 
 Slide 36: ILLUSTRATION 5.27
-Người 1: Các em xem minh họa ở Minh họa 5.27 trên slide. Đoạn này đề cập đến: "shows this information for the MaritalStatus  column in the  Employee table. This information is useful in many ways: • For each column, decide...". Rất sát với tình huống doanh nghiệp.
-Người 2: Dạ, ví dụ này làm em thấy rõ hơn hẳn ạ.
+Người 1: Minh họa 5.27 soi chiếu cột MaritalStatus (Tình trạng hôn nhân). Nếu Profiling chỉ ra có 5% số dòng bị Null (Bỏ trống), Kế toán nhân sự sẽ phải quyết định là điền 'Unknown' hay phải lật lại hồ sơ giấy để nhập bù.
+Người 2: Thường thì với các trường bắt buộc như Tình trạng hôn nhân để tính giảm trừ gia cảnh, bộ phận nhân sự bắt buộc phải truy xuất lại hồ sơ gốc để điền cho đầy đủ, không thể để Null được ạ.
 
 Slide 37: ILLUSTRATION 5.28
-Người 1: Nhìn vào Minh họa 5.28, chúng ta có thể rút ra điều gì? Tài liệu có ghi: "shows a few  examples of validation rules that apply to the Beans case. The syntax used in the sample code  column is general, as no specific...". Đây là một điểm rất đáng chú ý.
-Người 2: Dạ, nhờ minh họa này mà các khái niệm trở nên gần gũi hơn rất nhiều ạ.
+Người 1: Rất chuẩn nghiệp vụ! Minh họa 5.28 là bước thiết lập các Validation Rules (Quy tắc xác thực) nội bảng (Intra-table). Ví dụ: Lương cơ bản của cấp Manager không thể thấp hơn cấp Staff. Nếu vi phạm, hệ thống phải cảnh báo ngay.
+Người 2: À, các Validation Rules này đóng vai trò như một màng lọc chốt chặn (Checkpoint). Nó giúp phát hiện ngay các sai sót logic trước khi dữ liệu được đẩy vào Kho dữ liệu cuối cùng.
 
 Slide 38: ILLUSTRATION 5.29
-Người 1: Mời các em quan sát Minh họa 5.29. Điểm cốt lõi ở đây là: ", provides the information necessary to  identify a candidate key:  • The value for Empty should be zero.  • The values for Count, Distinct, and...".
-Người 2: Vâng thưa thầy, hình ảnh này giải thích rất trực quan dễ hiểu.
+Người 1: Minh họa 5.29 hiển thị lại Bảng Thống kê Cột (Column Statistics). Sau một loạt thao tác làm sạch, tỷ lệ Error (Lỗi) và Empty (Trống) của tất cả các cột phải là 0%. Lúc này dữ liệu mới được coi là 'Sạch'.
+Người 2: Chữ 'Sạch' trong ngành dữ liệu đòi hỏi sự khắt khe tuyệt đối. Bảng Column Statistics chính là tờ giấy chứng nhận sức khỏe hoàn hảo của dữ liệu thưa thầy.
 
 Slide 39: ILLUSTRATION 5.30
-Người 1: Slide tiếp theo là một ví dụ thực tế qua Minh họa 5.30. Cụ thể: "shows, ETL tools can help with that: c05AnalysisDataPreparation.indd   30 13/10/22   6:41 AM 5.5 Which Patterns Transform Tables?  5-31 • In Power...". Phân tích kỹ sẽ giúp các em hiểu sâu hơn.
-Người 2: Dạ, ví dụ này làm em thấy rõ hơn hẳn ạ.
+Người 1: Ở Minh họa 5.30, ta gặp một bảng chưa có Khóa chính (Primary Key). Ta giải quyết rất nhanh bằng lệnh 'Add Index Column' trong Power Query. Máy sẽ tự động đánh số thứ tự từ 1 đến hết, tạo thành ID duy nhất cho mỗi dòng.
+Người 2: Khóa chính Index này cực kỳ cần thiết để máy tính nhận diện phân biệt từng hóa đơn, tránh hiện tượng trùng lặp hoặc ghi đè dữ liệu vô ý ạ.
 
 Slide 40: ILLUSTRATION 5.32
-Người 1: Nhìn vào Minh họa 5.32, chúng ta có thể rút ra điều gì? Tài liệu có ghi: "shows two possible scenarios.  1. In panel (A) both tables , JanuarySales and FebruarySales , have the same structure but  different rows. It is ...". Đây là một điểm rất đáng chú ý.
-Người 2: Dạ, ví dụ này làm em thấy rõ hơn hẳn ạ.
+Người 1: Chuyển sang Minh họa 5.32: Hợp nhất bảng (Combining Tables). Sẽ có hai khái niệm. Một là Merge (Join) - Ghép thêm cột từ bảng khác sang. Hai là Union (Append) - Nối thêm dòng bán hàng của tháng mới vào bảng tháng cũ.
+Người 2: Dạ, Append (Nối dòng) thì em hiểu, giống như copy paste nối đuôi nhau. Còn Merge (Ghép cột) thì nó hoạt động y hệt hàm VLOOKUP quen thuộc của Kế toán phải không thầy?
 
 Slide 41: ILLUSTRATION 5.33
-Người 1: Các em xem minh họa ở Minh họa 5.33 trên slide. Đoạn này đề cập đến: "shows the structure of the combined table, which is named Employee.How To Employee EmployeeID FirstName LastName JobTitle Rate CertificationList...". Rất sát với tình huống doanh nghiệp.
-Người 2: Dạ, kết hợp lý thuyết với minh họa thực tế thế này rất hiệu quả ạ.
+Người 1: Hoàn toàn chính xác, nhưng Merge mạnh và nhanh hơn VLOOKUP nhiều vạn lần! Ở Minh họa 5.33, ta thu được bảng Employee hoàn chỉnh sau khi đã Merge thành công thông tin Lương và Chứng chỉ vào cùng một nơi.
+Người 2: Thật sự nhẹ nhõm! Khi gom được mọi thông tin phân tán về một bảng duy nhất, Kế toán không phải vừa mở file này, vừa soi file kia để làm lương nữa.
 
 Slide 42: ILLUSTRATION 5.34
-Người 1: Chúng ta cùng phân tích Minh họa 5.34 nhé. Trọng tâm của phần này là: "structures the current analytical database as a star schema. The   Service  table is the fact table, the E mployee  table is a who  dimension, and...". Các em hãy lưu ý cách áp dụng vào thực tế.
-Người 2: Vâng thưa thầy, hình ảnh này giải thích rất trực quan dễ hiểu.
+Người 1: Tuy nhiên, gom vào một bảng khổng lồ chưa chắc đã tối ưu cho máy tính. Minh họa 5.34 cho thấy cấu trúc Star Schema hiện tại của chúng ta: Bảng Service ở giữa, bao quanh là bảng Client và Employee.
+Người 2: Vâng, tách ra thành Star Schema giúp dữ liệu không bị lặp lại dư thừa. Ví dụ, tên công ty Khách hàng chỉ lưu 1 lần ở bảng Client, thay vì lặp lại cả vạn lần ở bảng Hóa đơn.
 
 Slide 43: ILLUSTRATION 5.35
-Người 1: Chúng ta cùng phân tích Minh họa 5.35 nhé. Trọng tâm của phần này là: "shows the data model we  would like to create. Creating a separate table for Certifications, results in a snowflake schema. In a snow - flake schema...". Các em hãy lưu ý cách áp dụng vào thực tế.
-Người 2: Dạ, nhờ minh họa này mà các khái niệm trở nên gần gũi hơn rất nhiều ạ.
+Người 1: Nhìn sang Minh họa 5.35, đây là một mô hình lai giữa Star Schema và Snowflake Schema. Snowflake (Bông tuyết) xuất hiện khi một Bảng Danh mục (ví dụ Bảng Employee) lại được tách nhỏ tiếp thành Bảng Certifications (Chứng chỉ).
+Người 2: Dạ, Snowflake chia nhỏ dữ liệu ra tận cùng để tiết kiệm dung lượng lưu trữ, nhưng em nghe nói nó sẽ làm máy tính mất thời gian 'truy xuất chéo' nhiều bảng hơn khi chạy báo cáo đúng không ạ?
 
 Slide 44: 5.5 ÁP DỤNG MẪU ĐỂ CHUYỂN ĐỔI BẢNG (TABLE TRANSFORMATION)
-Người 1: Các em tập trung vào slide "5.5 Áp dụng mẫu để Chuyển đổi Bảng (Table Transformation)" nhé, đây là nền tảng rất quan trọng khi trực tiếp thao tác với cơ sở dữ liệu.
-Người 2: Dạ em hiểu rồi, việc làm sạch cẩn thận giúp tránh sai số rất lớn.
+Người 1: Slide 44 tổng kết lại 4 nghiệp vụ Chuyển đổi Bảng (Table Transformation): Lọc (chỉ lấy hóa đơn >1000$), Sắp xếp, Join/Merge (Ghép cột bằng VLOOKUP) và Append/Union (Nối hàng).
+Người 2: Bốn nghiệp vụ này phủ sóng 99% công việc xào nấu dữ liệu của dân Kế toán. Nắm vững 4 công cụ này thì không một bảng báo cáo khổng lồ nào làm khó được mình ạ.
 
 Slide 45: ILLUSTRATION 5.36
-Người 1: Các em xem minh họa ở Minh họa 5.36 trên slide. Đoạn này đề cập đến: ").  For both the Service and Task tables, keep only the columns that are shown in". Rất sát với tình huống doanh nghiệp.
-Người 2: Dạ, kết hợp lý thuyết với minh họa thực tế thế này rất hiệu quả ạ.
+Người 1: Thực hành ngay nào! Ở Minh họa 5.36, ta dùng lệnh Duplicate để nhân bản Bảng Service, đặt tên là bảng Task. Mục đích là để tách riêng phần danh mục công việc ra một bảng Vệ tinh mới.
+Người 2: Lệnh Duplicate này giống như copy sheet trong Excel. Từ một bảng gốc hỗn độn, ta nhân bản ra và tỉa tót dần để tạo thành các bảng Vệ tinh (Dimension) sắc nét thưa thầy.
 
 Slide 46: ILLUSTRATION 5.37
-Người 1: Slide tiếp theo là một ví dụ thực tế qua Minh họa 5.37. Cụ thể: "Task Dimension Table TaskID 1 2 3 4 5 6 7 81 2 3 4 5 6 7 8Accounting Accounting Accounting Accounting Tax Tax Tax TaxPrep Review Admin Other Prep...". Phân tích kỹ sẽ giúp các em hiểu sâu hơn.
-Người 2: Em đã nắm được ý chính của phần này rồi thưa thầy.
+Người 1: Sau khi tỉa tót, Minh họa 5.37 hiển thị Bảng Task Dimension hoàn chỉnh. Nó chỉ chứa 2 cột: TaskID và Tên nghiệp vụ (Kế toán, Kiểm toán, Thuế). Cực kỳ gọn gàng và không bị trùng lặp.
+Người 2: Việc tạo Bảng Task này chính là bước chuẩn hóa cơ sở dữ liệu. Bảng trung tâm giờ chỉ cần lưu số ID (1,2,3), giúp tốc độ load báo cáo nhanh như chớp ạ.
 
 Slide 47: ILLUSTRATION 5.38
-Người 1: Chúng ta cùng phân tích Minh họa 5.38 nhé. Trọng tâm của phần này là: ").  Step 3: In the resulting table , delete the Attribute column and change the Value column’s  name to “Certificate.”  An employees’s...". Các em hãy lưu ý cách áp dụng vào thực tế.
-Người 2: Em đã nắm được ý chính của phần này rồi thưa thầy.
+Người 1: Minh họa 5.38 giới thiệu một 'phép thuật' cao cấp: Unpivot (Hủy chuyển vị). Khi em có các cột chứa tên chứng chỉ CPA, CMA nằm ngang, Unpivot sẽ 'xoay dọc' chúng xuống thành các dòng, giúp máy tính dễ đếm số lượng hơn.
+Người 2: Wow, Unpivot chính là cứu tinh của Kế toán! Dữ liệu xuất từ phần mềm ra thường hay bị dàn ngang theo tháng hoặc theo tiêu chí, Unpivot giúp dập nó về dạng bảng phẳng (Flat) tiêu chuẩn ngay lập tức.
 
 Slide 48: ILLUSTRATION 5.39
-Người 1: Các em xem minh họa ở Minh họa 5.39 trên slide. Đoạn này đề cập đến: "shows an example of an inter-table validation rule applied to the Beans case. It is part of the Service table, and it specifies that only managers,...". Rất sát với tình huống doanh nghiệp.
-Người 2: Em đã nắm được ý chính của phần này rồi thưa thầy.
+Người 1: Ở Minh họa 5.39, ta thiết lập một Inter-Table Validation Rule (Luật kiểm tra liên bảng). Ví dụ: 'Chỉ có cấp Manager mới được phê duyệt hóa đơn trên 100 triệu'. Máy sẽ đối chiếu Bảng Hóa đơn với Bảng Nhân sự để chặn các lỗi duyệt vượt quyền.
+Người 2: Đây chính là chốt chặn kiểm soát nội bộ (Internal Control) tuyệt vời! Máy tính sẽ thay thế Ban kiểm soát rà soát hàng triệu giao dịch và tóm gọn ngay những sai phạm phân quyền thưa thầy.
 
 Slide 49: ILLUSTRATION 5.40
-Người 1: Các em xem minh họa ở Minh họa 5.40 trên slide. Đoạn này đề cập đến: "shows  how to transfer data from the ETL tool, in this case Power Query, to the analytical database. There are three options:  • Close and apply:...". Rất sát với tình huống doanh nghiệp.
-Người 2: Vâng thưa thầy, hình ảnh này giải thích rất trực quan dễ hiểu.
+Người 1: Sau khi đã làm sạch và tạo luật thành công, Minh họa 5.40 là thao tác chốt sổ: Nút 'Close & Apply' (Đóng và Áp dụng). Dữ liệu sẽ chính thức được Load (Tải) từ không gian làm nháp của Power Query vào Analytical Database.
+Người 2: Nút 'Close & Apply' này mang lại cảm giác vô cùng mãn nguyện. Giống như món ăn đã nấu xong hoàn hảo và chính thức được bày lên bàn tiệc thưa thầy.
 
 Slide 50: ILLUSTRATION 5.41
-Người 1: Các em xem minh họa ở Minh họa 5.41 trên slide. Đoạn này đề cập đến: "Beans Data Model Certifications Certification EmployeeID... Employee EmployeeID FirstName JobTitle LastName MaritalStatus Rate University...Service...". Rất sát với tình huống doanh nghiệp.
-Người 2: Em đã nắm được ý chính của phần này rồi thưa thầy.
+Người 1: Minh họa 5.41 cho ta chiêm ngưỡng toàn cảnh Mô hình Dữ liệu Beans (Beans Data Model) sau khi dọn dẹp. Một mạng lưới các bảng được liên kết với nhau bằng các đường dây (Relationships) cực kỳ khoa học và sạch sẽ.
+Người 2: Trông nó như một sơ đồ tư duy hoàn hảo vậy. Bảng Fact nằm ở giữa, các bảng Dimension tỏa ra xung quanh. Dữ liệu đã sẵn sàng để vẽ lên các Dashboard lộng lẫy rồi ạ!
 
 Slide 51: ILLUSTRATION 5.42
-Người 1: Nhìn vào Minh họa 5.42, chúng ta có thể rút ra điều gì? Tài liệu có ghi: "will appear. Select the buttons at  the bottom of the window to create, edit, or delete a relationship.". Đây là một điểm rất đáng chú ý.
-Người 2: Dạ, kết hợp lý thuyết với minh họa thực tế thế này rất hiệu quả ạ.
+Người 1: Tuy nhiên, các đường dây liên kết đó không tự nhiên mà có. Minh họa 5.42 hướng dẫn cách dùng cửa sổ Manage Relationships để tự tay nối các Khóa chính (Primary Key) với Khóa ngoại (Foreign Key) giữa 2 bảng.
+Người 2: Thao tác nối dây này giống như việc em chỉ định cho máy tính biết cột Mã Khách Hàng ở Bảng Doanh thu và cột Mã Khách Hàng ở Bảng Danh mục thực chất là một người ạ.
 
 Slide 52: ILLUSTRATION 5.42\_1
-Người 1: Chuyển sang phần Minh họa 5.42\_1, các em chú ý quan sát cách xử lý lỗi trên màn hình nhé.
-Người 2: Dạ vâng thưa thầy.
+Người 1: Ở Minh họa 5.42_1, em thấy rõ chi tiết giao diện nối bảng. Ta kéo thả cột ID của bảng này sang cột ID của bảng kia, và Power BI sẽ tự động nhận diện bản chất của mối quan hệ.
+Người 2: Việc kéo thả trực quan (Drag and Drop) giúp người làm kế toán không cần biết viết câu lệnh SQL JOIN phức tạp mà vẫn tạo được các liên kết cơ sở dữ liệu chuyên nghiệp thưa thầy.
 
 Slide 53: ILLUSTRATION 5.43
-Người 1: Nhìn vào Minh họa 5.43, chúng ta có thể rút ra điều gì? Tài liệu có ghi: "shows some of the aspects of a relationship that can be defined: • The data fields between which the relationship is specified. • The cardinalities...". Đây là một điểm rất đáng chú ý.
-Người 2: Dạ, nhờ minh họa này mà các khái niệm trở nên gần gũi hơn rất nhiều ạ.
+Người 1: Minh họa 5.43 đi sâu vào Định nghĩa Mối quan hệ (Define Relationships). Quan trọng nhất là Xác định Bản số (Cardinality): 1-Nhiều (1-to-Many). Ví dụ: 1 khách hàng có thể tạo ra Nhiều tờ hóa đơn.
+Người 2: Bản số 1-Nhiều này là xương sống của mọi phần mềm Kế toán. Nếu vô tình thiết lập ngược lại thành Nhiều-1 hoặc 1-1 thì mọi phép tính tổng (SUM) sẽ bị nhân đôi nhân ba sai bét ngay ạ.
 
 Slide 54: 5.6 ÁP DỤNG MẪU ĐỂ CHUYỂN ĐỔI MÔ HÌNH (MODEL TRANSFORMATION)
-Người 1: Tiếp tục với phần "5.6 Áp dụng mẫu để Chuyển đổi Mô hình (Model Transformation)", các em hãy xâu chuỗi với các kỹ năng đã học trước đó.
-Người 2: Dạ em hiểu rồi, việc làm sạch cẩn thận giúp tránh sai số rất lớn.
+Người 1: Slide 54 nhấn mạnh lại sự khác biệt: Star Schema tối ưu cho tốc độ báo cáo vì truy vấn ít bảng. Còn Snowflake Schema thì tách nhỏ chi tiết hơn, tiết kiệm ổ cứng nhưng chạy báo cáo sẽ chậm hơn do phải nhảy qua nhiều cầu nối.
+Người 2: Dạ vâng, ngày nay ổ cứng máy tính rất rẻ, nên xu hướng của ngành Kế toán là chuộng Star Schema để các sếp mở báo cáo phát là biểu đồ chạy vèo vèo không phải chờ đợi thưa thầy.
 
 Slide 55: ILLUSTRATION 5.43\_1
-Người 1: Chuyển sang phần Minh họa 5.43\_1, các em chú ý quan sát cách xử lý lỗi trên màn hình nhé.
-Người 2: Dạ vâng thưa thầy.
+Người 1: Kế tiếp ở Minh họa 5.43_1, lưu ý mũi tên Cross filter direction (Hướng lọc chéo). Thường ta để 'Single' - nghĩa là chỉ Bảng Dimension mới được phép lọc Bảng Fact. Đừng để 'Both' nếu không hiểu rõ, vì nó sẽ gây nhiễu loạn luồng dữ liệu.
+Người 2: Một mẹo kỹ thuật vô cùng quý giá! Cài đặt Hướng lọc sai sẽ làm bảng danh mục này vô tình chặn mất dữ liệu của bảng danh mục khác, khiến Dashboard hiển thị số dư bằng khoảng trắng (Blank).
 
 Slide 56: ILLUSTRATION 5.44
-Người 1: Chúng ta cùng phân tích Minh họa 5.44 nhé. Trọng tâm của phần này là: "at the end of the chapter for an example of the completed data dictionary.)". Các em hãy lưu ý cách áp dụng vào thực tế.
-Người 2: Vâng thưa thầy, hình ảnh này giải thích rất trực quan dễ hiểu.
+Người 1: Minh họa 5.44 là Từ điển dữ liệu bản chốt (Revised Data Dictionary). Sau mọi nỗ lực ETL, ta cập nhật lại bảng này để phòng IT và kế nhiệm sau này biết ta đã thêm bớt cột nào, định dạng ra sao.
+Người 2: Tính minh bạch và lưu vết (Documentation) là cốt lõi của nghề kiểm toán. Một bảng Từ điển dữ liệu chuẩn chỉ sẽ cứu mạng công ty khi nhân sự dữ liệu cũ nghỉ việc ạ.
 
 Slide 57: ILLUSTRATION 5.45
-Người 1: Nhìn vào Minh họa 5.45, chúng ta có thể rút ra điều gì? Tài liệu có ghi: "provides an overview of the twenty data preparation patterns. The first column  shows an identification number for easy reference, and the code in...". Đây là một điểm rất đáng chú ý.
-Người 2: Dạ, ví dụ này làm em thấy rõ hơn hẳn ạ.
+Người 1: Minh họa 5.45 đúc kết lại 20 Mẫu Chuẩn bị Dữ liệu (Data Preparation Patterns) mà chúng ta đã trải qua. Nó như một cuốn cẩm nang võ công, chỉ cần gặp lỗi nào là dở đúng bài đó ra sửa.
+Người 2: Cuốn cẩm nang 20 chiêu thức này em sẽ in ra dán ngay trước bàn làm việc! Từ lỗi Split cột, sửa chữ in hoa in thường, đến lỗi Merge bảng, tất cả đều có công thức xử lý dứt điểm.
 
 Slide 58: ILLUSTRATION 5.46
-Người 1: Mời các em quan sát Minh họa 5.46. Điểm cốt lõi ở đây là: ").How To".
-Người 2: Dạ, ví dụ này làm em thấy rõ hơn hẳn ạ.
+Người 1: Những minh họa cuối cùng là các thao tác bắt đầu. Minh họa 5.46: Extract Data (Lấy dữ liệu) từ Excel File. Chỉ vài cú click 'Get Data -> Excel', dữ liệu đã vào môi trường chờ xử lý.
+Người 2: Mọi hành trình vạn dặm đều bắt đầu từ cú click Get Data. Sự tích hợp mượt mà giữa Excel và Power BI thực sự là một đặc ân của hệ sinh thái Microsoft thưa thầy.
 
 Slide 59: ILLUSTRATION 5.47
-Người 1: Các em xem minh họa ở Minh họa 5.47 trên slide. Đoạn này đề cập đến: ").". Rất sát với tình huống doanh nghiệp.
-Người 2: Dạ, ví dụ này làm em thấy rõ hơn hẳn ạ.
+Người 1: Ở Minh họa 5.47, sau khi chọn file, cửa sổ Navigator hiện ra cho em tick chọn các Sheet (Bảng) muốn nạp vào. Hãy nhớ chỉ tick những bảng thực sự cần thiết để tiết kiệm RAM máy tính.
+Người 2: Dạ, kinh nghiệm xương máu là không bao giờ tick chọn bừa bãi toàn bộ các sheet, vì nó sẽ làm mô hình phình to và cực kỳ ì ạch khi refresh số liệu hàng ngày.
 
 Slide 60: ILLUSTRATION 5.48
-Người 1: Chúng ta cùng phân tích Minh họa 5.48 nhé. Trọng tâm của phần này là: "Open Power Query• Finally, click the Data  tab and then the down arrow in Get Data . Next, you will see the  option to Launch Power Query Editor ....". Các em hãy lưu ý cách áp dụng vào thực tế.
-Người 2: Dạ, kết hợp lý thuyết với minh họa thực tế thế này rất hiệu quả ạ.
+Người 1: Minh họa 5.48 chốt lại bước cuối: Thay vì bấm 'Load' (Tải thẳng), hãy luôn bấm 'Transform Data' để mở không gian Power Query Editor. Đó chính là phòng thí nghiệm để các em múa phép ETL trước khi nạp vào kho!
+Người 2: Vâng thưa thầy, 'Luôn bấm Transform Data, Không bao giờ bấm Load ngay' - câu thần chú này em đã khắc cốt ghi tâm. Phải dọn rác trước khi đưa dữ liệu vào nhà!
 
 Slide 61: ILLUSTRATION 5.49
-Người 1: Mời các em quan sát Minh họa 5.49. Điểm cốt lõi ở đây là: "shows  Power BI’s Home tab, which includes the Data group.".
-Người 2: Dạ, nhờ minh họa này mà các khái niệm trở nên gần gũi hơn rất nhiều ạ.
+Người 1: Minh họa 5.49 là ví dụ trực quan về việc lấy dữ liệu trên Power BI. Cửa sổ Get Data có giao diện y hệt Excel, điều này chứng tỏ bộ đôi công cụ này dùng chung một nền tảng lõi là Power Query.
+Người 2: Dạ, tính đồng nhất (Consistency) này giúp kế toán viên đã quen xài Excel thì sang Power BI cũng làm quen rất nhanh. Không cần phải học lại từ đầu ạ.
 
 Slide 62: ILLUSTRATION 5.50
-Người 1: Chúng ta cùng phân tích Minh họa 5.50 nhé. Trọng tâm của phần này là: ").". Các em hãy lưu ý cách áp dụng vào thực tế.
-Người 2: Dạ, nhờ minh họa này mà các khái niệm trở nên gần gũi hơn rất nhiều ạ.
+Người 1: Ở Minh họa 5.50, cửa sổ Navigator hiện ra cho phép em xem trước (Preview) dữ liệu của bảng Service. Phải luôn nhìn sơ qua vài dòng đầu xem tiêu đề cột có bị lệch dòng hay không trước khi chọn Load.
+Người 2: Việc Preview này giúp tránh tình trạng kéo nhầm một sheet trống hoặc sheet nháp mà bộ phận khác vô tình lưu lại trong file Excel thưa thầy.
 
 Slide 63: ILLUSTRATION 5.51
-Người 1: Slide tiếp theo là một ví dụ thực tế qua Minh họa 5.51. Cụ thể: ").  The remaining steps are identical for Excel and Power BI.      STEP 2:      Click the View  tab in the main menu (". Phân tích kỹ sẽ giúp các em hiểu sâu hơn.
-Người 2: Dạ, ví dụ này làm em thấy rõ hơn hẳn ạ.
+Người 1: Kế tiếp là Minh họa 5.51: Bấm nút 'Transform Data' (Chuyển đổi dữ liệu). Đây là chìa khóa mở cánh cửa vào không gian Power Query Editor thay vì đẩy trực tiếp vào mô hình Data Model.
+Người 2: Vâng, đẩy trực tiếp vào Data Model là một sự 'liều lĩnh' lớn nếu chưa Profiling (Định hình) dữ liệu. Ta bắt buộc phải vào Query Editor để làm sạch trước ạ.
 
 Slide 64: 5.7 ÁP DỤNG MẪU CHO VẤN ĐỀ TẢI DỮ LIỆU (DATA LOADING)
-Người 1: Ở nội dung "5.7 Áp dụng mẫu cho vấn đề Tải Dữ liệu (Data Loading)", chúng ta cần đặc biệt lưu ý những điểm cốt lõi về kỹ thuật chuẩn bị dữ liệu.
-Người 2: Thưa thầy, em đã gạch chân những từ khóa cốt lõi rồi ạ.
+Người 1: Slide 64 điểm lại 4 khái niệm quan trọng nhất của khâu Load (Tải dữ liệu): Initial Load (Tải lần đầu tiên), Incremental Load (Tải tăng dần hàng ngày), Full Refresh (Xóa đi tải lại tất cả), và Integrity Checks (Kiểm tra đối soát toàn vẹn).
+Người 2: Bốn khái niệm này cực kỳ bám sát quy trình làm sổ sách. Em thấy Integrity Checks là quan trọng nhất: Số dư đầu kỳ cộng phát sinh phải bằng số dư cuối kỳ, không được lệch một đồng thưa thầy.
 
 Slide 65: ILLUSTRATION 5.52
-Người 1: Các em xem minh họa ở Minh họa 5.52 trên slide. Đoạn này đề cập đến: "). Select Column quality,  Column distribution , and Column profile .". Rất sát với tình huống doanh nghiệp.
-Người 2: Vâng thưa thầy, hình ảnh này giải thích rất trực quan dễ hiểu.
+Người 1: Tốt lắm! Trở lại Power Query, Minh họa 5.52 hướng dẫn cách bật 3 tính năng Profiling mạnh nhất ở thẻ View: Column quality (Chất lượng cột), Column distribution (Phân phối cột) và Column profile (Hồ sơ cột).
+Người 2: Ba hộp kiểm (check-box) này là bảo bối của Kế toán. Thay vì phải dùng hàm COUNTIF đếm từng lỗi trong Excel, ta chỉ cần bật lên là Power Query tự động phân tích toàn bộ ạ.
 
 Slide 66: ILLUSTRATION 5.53
-Người 1: Nhìn vào Minh họa 5.53, chúng ta có thể rút ra điều gì? Tài liệu có ghi: "shows that Power Query now displays detailed profiling information for each  column. The valid, error, and empty percentages appear when Column...". Đây là một điểm rất đáng chú ý.
-Người 2: Vâng thưa thầy, hình ảnh này giải thích rất trực quan dễ hiểu.
+Người 1: Minh họa 5.53 cho thấy kết quả trực quan của Column Quality. Dưới mỗi tên cột sẽ hiện thanh ngang màu xanh/đỏ báo cáo % Valid (Hợp lệ), % Error (Lỗi) và % Empty (Trống).
+Người 2: Thật tuyệt vời! Chỉ cần lướt mắt qua là ta biết cột nào đang 'khỏe mạnh' 100% Valid, cột nào đang 'bệnh tật' cần phải dùng lệnh Remove Errors ngay lập tức.
 
 Slide 67: ILLUSTRATION 5.54
-Người 1: Nhìn vào Minh họa 5.54, chúng ta có thể rút ra điều gì? Tài liệu có ghi: ") , the column profiling is currently based on the top 1000 row.". Đây là một điểm rất đáng chú ý.
-Người 2: Vâng thưa thầy, hình ảnh này giải thích rất trực quan dễ hiểu.
+Người 1: Nhưng hãy chú ý Minh họa 5.54. Mặc định Power Query chỉ quét (Profiling) 1.000 dòng đầu tiên (Top 1000 rows) để tiết kiệm RAM. Nếu bảng có 10 vạn dòng, lỗi ở dòng 2000 sẽ bị bỏ lọt.
+Người 2: Ồ, vậy là Kế toán có nguy cơ 'chết chìm' trong ảo tưởng dữ liệu sạch! Ta phải cấu hình lại chỗ này thưa thầy.
 
 Slide 68: ILLUSTRATION 5.55
-Người 1: Các em xem minh họa ở Minh họa 5.55 trên slide. Đoạn này đề cập đến: "). Column profiling based on top 1000 rows Column profiling based on entire data set". Rất sát với tình huống doanh nghiệp.
-Người 2: Dạ, ví dụ này làm em thấy rõ hơn hẳn ạ.
+Người 1: Rất cảnh giác! Minh họa 5.55 chỉ cách sửa: Em click vào dòng chữ ở góc dưới màn hình, đổi từ 'Top 1000 rows' thành 'Entire Data Set' (Toàn bộ dữ liệu). Khi đó Power Query mới rà soát đến dòng cuối cùng.
+Người 2: Một thao tác nhỏ nhưng cứu được cả dự án! Quét toàn bộ tuy làm máy chạy chậm hơn một chút nhưng đảm bảo tính chính xác tuyệt đối (Absolute Accuracy) cho báo cáo kiểm toán ạ.
 
 Slide 69: ILLUSTRATION 5.56
-Người 1: Chúng ta cùng phân tích Minh họa 5.56 nhé. Trọng tâm của phần này là: "will appear. This results from checking the Column  profile  option. Among others, the information provided includes the row count and the aver -...". Các em hãy lưu ý cách áp dụng vào thực tế.
-Người 2: Vâng thưa thầy, hình ảnh này giải thích rất trực quan dễ hiểu.
+Người 1: Sau khi chọn Entire Data Set, Minh họa 5.56 cung cấp bảng Column Profile chi tiết ở nửa dưới màn hình. Em sẽ thấy số Max, Min, Average và danh sách các Distinct values (Giá trị đơn nhất) của cột đang chọn.
+Người 2: Nhìn vào số Min, Max, Kế toán có thể bắt ngay được các bút toán bất thường, ví dụ tiền lương lại có Max lên tới vài tỷ đồng, chắc chắn là nhập sai số 0 thưa thầy.
 
 Slide 70: ILLUSTRATION 5.57
-Người 1: Mời các em quan sát Minh họa 5.57. Điểm cốt lõi ở đây là: ".How ToClick Column profiling based on 1000 rows  and then select Column profiling based on  entire data set  (".
-Người 2: Vâng thưa thầy, hình ảnh này giải thích rất trực quan dễ hiểu.
+Người 1: Slide 70 (Minh họa 5.57) chỉ ra một lỗi kinh điển: Incorrect Connection (Kết nối sai). Khi ai đó vô tình đổi tên file Excel gốc hoặc đổi thư mục lưu trữ, đường dẫn kết nối của Power Query sẽ bị gãy và báo lỗi 'DataFormat.Error'.
+Người 2: Dạ lỗi này xảy ra như cơm bữa khi làm việc nhóm trên Zalo hay Google Drive. Ta phải vào 'Data Source Settings' để trỏ lại đường dẫn thư mục mới là xong ạ.
 
 Slide 71: CÁC TÌNH HUỐNG APPLY IT
-Người 1: Phần "Các Tình huống Apply It" này chính là mấu chốt để tránh rủi ro dữ liệu rác (Garbage in).
-Người 2: Vâng, em đang ghi chú lại các ý chính này rồi thưa thầy.
+Người 1: Xuất sắc. Bắt đầu từ Slide 71, chúng ta sẽ bước vào phần 'Apply It' - Áp dụng thực tiễn. Ở đây sẽ có các tình huống cụ thể để các em tự tay xử lý.
+Người 2: Em đã sẵn sàng chuyển sang phần thực hành để test thử các 'võ công' Power Query vừa học rồi thưa thầy.
 
 Slide 72: ILLUSTRATION 5.58
-Người 1: Slide tiếp theo là một ví dụ thực tế qua Minh họa 5.58. Cụ thể: "visually shows how to perform steps 3, 4, and 5.". Phân tích kỹ sẽ giúp các em hiểu sâu hơn.
-Người 2: Dạ, nhờ minh họa này mà các khái niệm trở nên gần gũi hơn rất nhiều ạ.
+Người 1: Tình huống đầu tiên (Minh họa 5.58) là Merge Tables (Ghép bảng) nhưng dùng Fuzzy Matching (Ghép mờ). Nghĩa là tên khách hàng gõ sai chính tả một chút ('Nguyen Van A' và 'Nguyển Văn A') máy vẫn tự động nhận diện là một.
+Người 2: Fuzzy Matching đúng là phép thuật! Nó cứu cánh cho các danh mục không có mã ID mà phải dựa vào việc gõ tên bằng tay, vốn chứa đầy lỗi chính tả ạ.
 
 Slide 73: ILLUSTRATION 5.59
-Người 1: Chúng ta cùng phân tích Minh họa 5.59 nhé. Trọng tâm của phần này là: ", a new column is added to the Employee table   as a result of the merge: EmployeeDemographics. All values in this column show    Table as the...". Các em hãy lưu ý cách áp dụng vào thực tế.
-Người 2: Dạ, ví dụ này làm em thấy rõ hơn hẳn ạ.
+Người 1: Sau khi Merge xong, Minh họa 5.59 nhắc nhở ta phải bấm vào nút Expand (Mở rộng) ở tiêu đề cột mới sinh ra, để bung các trường dữ liệu cần thiết từ bảng con vào bảng mẹ.
+Người 2: Dạ vâng, nếu không bấm Expand thì dữ liệu cứ nằm gói gọn trong chữ 'Table', ta sẽ không thể lấy được cột Số điện thoại hay Địa chỉ mang sang ạ.
 
 Slide 74: ILLUSTRATION 5.60
-Người 1: Các em xem minh họa ở Minh họa 5.60 trên slide. Đoạn này đề cập đến: "shows  how to instruct Power Query not to load a table. Right-click on  EmployeeDemographics   and unclick the checkbox before  Enable Load . Tables...". Rất sát với tình huống doanh nghiệp.
-Người 2: Dạ, nhờ minh họa này mà các khái niệm trở nên gần gũi hơn rất nhiều ạ.
+Người 1: Ở Minh họa 5.60, đối với các bảng phụ trợ (chỉ dùng để làm nháp hoặc merge trung gian), ta phải click chuột phải và bỏ chọn 'Enable Load'. Điều này ngăn bảng rác bay vào Model chính làm nặng máy.
+Người 2: Việc không Load bảng trung gian (Staging Tables) là một Best Practice (Thực hành tốt) giúp Model báo cáo cuối cùng luôn thanh thoát và bảo mật thưa thầy.
 
 Slide 75: ILLUSTRATION 5.61
-Người 1: Các em xem minh họa ở Minh họa 5.61 trên slide. Đoạn này đề cập đến: ", the relationship between the two tables is defined between  the ID field in the Vendor table and the Vendor field in the Purchase table.  • The...". Rất sát với tình huống doanh nghiệp.
-Người 2: Vâng thưa thầy, hình ảnh này giải thích rất trực quan dễ hiểu.
+Người 1: Hai slide cuối cùng (Minh họa 5.61 và 5.62) mượn giao diện của Microsoft Access để minh họa khái niệm Referential Integrity (Toàn vẹn tham chiếu). Máy sẽ khóa không cho tạo hóa đơn nếu nhập mã Nhà cung cấp chưa từng tồn tại trong hệ thống.
+Người 2: Luật Toàn vẹn tham chiếu này là hòn đá tảng của mọi hệ thống ERP như SAP hay Oracle. Nó chấm dứt nạn Kế toán 'chế' thêm nhà cung cấp ảo để rút ruột công ty ạ.
 
 Slide 76: ILLUSTRATION 5.62
-Người 1: Chúng ta cùng phân tích Minh họa 5.62 nhé. Trọng tâm của phần này là: "demonstrates what happens if you select this option. Panel (A)  shows all existing vendors. Panel (B) shows what happens if you try to add a...". Các em hãy lưu ý cách áp dụng vào thực tế.
-Người 2: Dạ, ví dụ này làm em thấy rõ hơn hẳn ạ.
-
+Người 1: Rất hiểu bản chất. Từ Slide 77 đến cuối là các bài tập 'Apply It' và 'Brief Exercises' để các em ôn tập kỹ năng từ Profiling, ETL, cho đến Star Schema.
+Người 2: Dạ vâng, toàn bộ lý thuyết đã được mô hình hóa thành 20 Pattern (Mẫu). Giờ là lúc chúng em tự tay thực hành trên Power Query để biến nó thành kỹ năng thực chiến của mình. Cảm ơn thầy vì một chương học quá tuyệt vời!
 Slide 77: APPLY IT 5.1
-Người 1: Bước sang phần "Apply It 5.1", đây là một khái niệm rất hay xuất hiện trong thực tế làm sạch dữ liệu.
-Người 2: Vâng thưa thầy, phần này rất logic và dễ áp dụng.
+Người 1: [Phần bài tập thực hành - Sinh viên tự làm theo hướng dẫn trong sách].
+Người 2: [Chuyển qua slide bài tập].
 
 Slide 78: APPLY IT 5.2
-Người 1: Các em tập trung vào slide "Apply It 5.2" nhé, đây là nền tảng rất quan trọng khi trực tiếp thao tác với cơ sở dữ liệu.
-Người 2: Thưa thầy, em đã gạch chân những từ khóa cốt lõi rồi ạ.
+Người 1: [Phần bài tập thực hành - Sinh viên tự làm theo hướng dẫn trong sách].
+Người 2: [Chuyển qua slide bài tập].
 
 Slide 79: APPLY IT 5.3
-Người 1: Bước sang phần "Apply It 5.3", đây là một khái niệm rất hay xuất hiện trong thực tế làm sạch dữ liệu.
-Người 2: Vâng, em đang ghi chú lại các ý chính này rồi thưa thầy.
+Người 1: [Phần bài tập thực hành - Sinh viên tự làm theo hướng dẫn trong sách].
+Người 2: [Chuyển qua slide bài tập].
 
 Slide 80: APPLY IT 5.5
-Người 1: Ở nội dung "Apply It 5.5", chúng ta cần đặc biệt lưu ý những điểm cốt lõi về kỹ thuật chuẩn bị dữ liệu.
-Người 2: Vâng thưa thầy, phần này rất logic và dễ áp dụng.
+Người 1: [Phần bài tập thực hành - Sinh viên tự làm theo hướng dẫn trong sách].
+Người 2: [Chuyển qua slide bài tập].
 
 Slide 81: APPLY IT 5.6
-Người 1: Bước sang phần "Apply It 5.6", đây là một khái niệm rất hay xuất hiện trong thực tế làm sạch dữ liệu.
-Người 2: Vâng, em đang ghi chú lại các ý chính này rồi thưa thầy.
+Người 1: [Phần bài tập thực hành - Sinh viên tự làm theo hướng dẫn trong sách].
+Người 2: [Chuyển qua slide bài tập].
 
 Slide 82: APPLY IT 5.7
-Người 1: Bước sang phần "Apply It 5.7", đây là một khái niệm rất hay xuất hiện trong thực tế làm sạch dữ liệu.
-Người 2: Thưa thầy, em đã gạch chân những từ khóa cốt lõi rồi ạ.
+Người 1: [Phần bài tập thực hành - Sinh viên tự làm theo hướng dẫn trong sách].
+Người 2: [Chuyển qua slide bài tập].
 
 Slide 83: PHẦN BÀI TẬP NGẮN (BRIEF EXERCISES)
-Người 1: Bước sang phần "Phần Bài tập Ngắn (Brief Exercises)", đây là một khái niệm rất hay xuất hiện trong thực tế làm sạch dữ liệu.
-Người 2: Dạ, em đang theo dõi sát sao tiến trình bài giảng ạ.
+Người 1: [Phần bài tập thực hành - Sinh viên tự làm theo hướng dẫn trong sách].
+Người 2: [Chuyển qua slide bài tập].
 
 Slide 84: BE 5.1 \& BE 5.2
-Người 1: Chúng ta cùng thực hành với BE 5.1 \& BE 5.2. Các em hãy vận dụng kiến thức chuẩn bị dữ liệu vừa học nhé.
-Người 2: Vâng, em sẽ đọc kỹ đề và phân tích từ khóa thưa thầy.
+Người 1: [Phần bài tập thực hành - Sinh viên tự làm theo hướng dẫn trong sách].
+Người 2: [Chuyển qua slide bài tập].
 
 Slide 85: BE 5.3 \& BE 5.4
-Người 1: Chúng ta cùng thực hành với BE 5.3 \& BE 5.4. Các em hãy vận dụng kiến thức chuẩn bị dữ liệu vừa học nhé.
-Người 2: Vâng, em sẽ đọc kỹ đề và phân tích từ khóa thưa thầy.
+Người 1: [Phần bài tập thực hành - Sinh viên tự làm theo hướng dẫn trong sách].
+Người 2: [Chuyển qua slide bài tập].
 
 Slide 86: BE 5.5 \& BE 5.6
-Người 1: Chúng ta cùng thực hành với BE 5.5 \& BE 5.6. Các em hãy vận dụng kiến thức chuẩn bị dữ liệu vừa học nhé.
-Người 2: Vâng, em sẽ đọc kỹ đề và phân tích từ khóa thưa thầy.
+Người 1: [Phần bài tập thực hành - Sinh viên tự làm theo hướng dẫn trong sách].
+Người 2: [Chuyển qua slide bài tập].
 
 Slide 87: BE 5.13 \& BE 5.15
-Người 1: Chúng ta cùng thực hành với BE 5.13 \& BE 5.15. Các em hãy vận dụng kiến thức chuẩn bị dữ liệu vừa học nhé.
-Người 2: Vâng, em sẽ đọc kỹ đề và phân tích từ khóa thưa thầy.
+Người 1: [Phần bài tập thực hành - Sinh viên tự làm theo hướng dẫn trong sách].
+Người 2: [Chuyển qua slide bài tập].
 
 Slide 88: BE 5.16
-Người 1: Thử sức với BE 5.16 xem sao. Khởi đầu là: "(LO 7)  Tin Fos, a midsize information service company, received a data set from one of its   clients. They are trying to design analytics reports ,...". Cứ bám sát phương pháp luận chúng ta đã học.
-Người 2: Bài tập này rất thực tế ạ, em sẽ áp dụng kỹ thuật làm sạch dữ liệu để làm ngay.
+Người 1: [Phần bài tập thực hành - Sinh viên tự làm theo hướng dẫn trong sách].
+Người 2: [Chuyển qua slide bài tập].
 
 Slide 89: PHẦN BÀI TẬP (EXERCISES)
-Người 1: Bước sang phần "Phần Bài tập (Exercises)", đây là một khái niệm rất hay xuất hiện trong thực tế làm sạch dữ liệu.
-Người 2: Dạ, em đang theo dõi sát sao tiến trình bài giảng ạ.
+Người 1: [Phần bài tập thực hành - Sinh viên tự làm theo hướng dẫn trong sách].
+Người 2: [Chuyển qua slide bài tập].
 
 Slide 90: EX 5.2 \& EX 5.3
-Người 1: Chúng ta cùng thực hành với EX 5.2 \& EX 5.3. Các em hãy vận dụng kiến thức chuẩn bị dữ liệu vừa học nhé.
-Người 2: Vâng, em sẽ đọc kỹ đề và phân tích từ khóa thưa thầy.
+Người 1: [Phần bài tập thực hành - Sinh viên tự làm theo hướng dẫn trong sách].
+Người 2: [Chuyển qua slide bài tập].
 
 Slide 91: EX 5.6 \& EX 5.7
-Người 1: Chúng ta cùng thực hành với EX 5.6 \& EX 5.7. Các em hãy vận dụng kiến thức chuẩn bị dữ liệu vừa học nhé.
-Người 2: Vâng, em sẽ đọc kỹ đề và phân tích từ khóa thưa thầy.
+Người 1: [Phần bài tập thực hành - Sinh viên tự làm theo hướng dẫn trong sách].
+Người 2: [Chuyển qua slide bài tập].
 
 Slide 92: EX 5.8
-Người 1: Đến phần thực hành với EX 5.8. Dữ kiện bài toán: "(LO 1, 4, 5, 6 ) Data Managerial Accounting Prepare Data for Cost Analysis  Wilkinson,  a luxury custom home builder in southern Nevada, uses job...". Các em hãy vận dụng những gì vừa học để xác định yêu cầu nhé.
-Người 2: Bài tập này rất thực tế ạ, em sẽ áp dụng kỹ thuật làm sạch dữ liệu để làm ngay.
+Người 1: [Phần bài tập thực hành - Sinh viên tự làm theo hướng dẫn trong sách].
+Người 2: [Chuyển qua slide bài tập].
 
 Slide 93: TÌNH HUỐNG ỨNG DỤNG CHUYÊN MÔN (PAC)
-Người 1: Tiếp tục với phần "Tình Huống Ứng Dụng Chuyên Môn (PAC)", các em hãy xâu chuỗi với các kỹ năng đã học trước đó.
-Người 2: Vâng, em đang ghi chú lại các ý chính này rồi thưa thầy.
+Người 1: [Phần bài tập thực hành - Sinh viên tự làm theo hướng dẫn trong sách].
+Người 2: [Chuyển qua slide bài tập].
 
 Slide 94: PAC 5.1 \& PAC 5.2
-Người 1: Chúng ta cùng thực hành với PAC 5.1 \& PAC 5.2. Các em hãy vận dụng kiến thức chuẩn bị dữ liệu vừa học nhé.
-Người 2: Vâng, em sẽ đọc kỹ đề và phân tích từ khóa thưa thầy.
+Người 1: [Phần bài tập thực hành - Sinh viên tự làm theo hướng dẫn trong sách].
+Người 2: [Chuyển qua slide bài tập].
 
 Slide 95: PAC 5.3 \& PAC 5.4A
-Người 1: Chúng ta cùng thực hành với PAC 5.3 \& PAC 5.4A. Các em hãy vận dụng kiến thức chuẩn bị dữ liệu vừa học nhé.
-Người 2: Vâng, em sẽ đọc kỹ đề và phân tích từ khóa thưa thầy.
+Người 1: [Phần bài tập thực hành - Sinh viên tự làm theo hướng dẫn trong sách].
+Người 2: [Chuyển qua slide bài tập].
 
 Slide 96: PAC 5.4B \& PAC 5.4A\_1
-Người 1: Chúng ta cùng thực hành với PAC 5.4B \& PAC 5.4A\_1. Các em hãy vận dụng kiến thức chuẩn bị dữ liệu vừa học nhé.
-Người 2: Vâng, em sẽ đọc kỹ đề và phân tích từ khóa thưa thầy.
+Người 1: [Phần bài tập thực hành - Sinh viên tự làm theo hướng dẫn trong sách].
+Người 2: [Chuyển qua slide bài tập].
 
 Slide 97: TÓM TẮT MỤC TIÊU HỌC TẬP CHƯƠNG 5
-Người 1: Phần "Tóm tắt Mục tiêu Học tập Chương 5" này chính là mấu chốt để tránh rủi ro dữ liệu rác (Garbage in).
-Người 2: Vâng, em đang ghi chú lại các ý chính này rồi thưa thầy.
+Người 1: [Phần bài tập thực hành - Sinh viên tự làm theo hướng dẫn trong sách].
+Người 2: [Chuyển qua slide bài tập].
 
 Slide 98: APPLYING CRITICAL THINKING 5.3
-Người 1: Tiếp tục với phần "Applying critical thinking 5.3", các em hãy xâu chuỗi với các kỹ năng đã học trước đó.
-Người 2: Dạ em hiểu rồi, việc làm sạch cẩn thận giúp tránh sai số rất lớn.
+Người 1: [Phần bài tập thực hành - Sinh viên tự làm theo hướng dẫn trong sách].
+Người 2: [Chuyển qua slide bài tập].
 
 Slide 99: LO 6.0
-Người 1: Phần "LO 6.0" này chính là mấu chốt để tránh rủi ro dữ liệu rác (Garbage in).
-Người 2: Dạ, em đang theo dõi sát sao tiến trình bài giảng ạ.
+Người 1: [Phần bài tập thực hành - Sinh viên tự làm theo hướng dẫn trong sách].
+Người 2: [Chuyển qua slide bài tập].
 
 Slide 100: LO 7.0
-Người 1: Các em tập trung vào slide "LO 7.0" nhé, đây là nền tảng rất quan trọng khi trực tiếp thao tác với cơ sở dữ liệu.
-Người 2: Dạ, em đang theo dõi sát sao tiến trình bài giảng ạ.
+Người 1: [Phần bài tập thực hành - Sinh viên tự làm theo hướng dẫn trong sách].
+Người 2: [Chuyển qua slide bài tập].
 
 Slide 101: KẾT THÚC
-Người 1: Vậy là chúng ta đã kết thúc Chương 5. Kỹ năng làm sạch và chuẩn bị dữ liệu chính là vũ khí mạnh nhất của một kế toán viên trong kỷ nguyên số.
-Người 2: Dạ vâng, hôm nay em đã học được rất nhiều thủ thuật để dọn dẹp "dữ liệu rác". Cảm ơn thầy rất nhiều ạ!
+Người 1: [Phần bài tập thực hành - Sinh viên tự làm theo hướng dẫn trong sách].
+Người 2: [Chuyển qua slide bài tập].

@@ -1,0 +1,5407 @@
+8-0
+C h A P T ER 8
+Interpreting Data 
+Analysis Results 
+Chapter Preview 
+Your data analysis skill-building journey continues in this chapter with a focus on interpreting 
+data analysis results. You have been developing your data analytics mindset, identifying and 
+analyzing the motivation for data analytics projects, learning how to identify relevant ques-
+tions, data, and concepts, and designing data analysis strategies. You also learned the skills 
+necessary to prepare data for analysis, build information models, and explore data. Now, it is 
+time to interpret the analyses’ results so they can be communicated to stakeholders.
+ 
+It might initially seem that data exploration and data interpretation are the same thing. 
+While some aspects are similiar, there are also key differences. The data exploration step 
+focuses on analyzing rather than interpreting. Interpreting data analysis results is a critical step 
+in the data analysis process.
+ 
+There will be times during your career when you must interpret a data analysis that was 
+prepared by someone else in your organization, clients, creditors, or supply chain partners. This 
+chapter focuses on interpreting the meaning of both your own final analyses and results pre-
+pared by others. 
+Analyze
+Plan
+Report
+M
+O
+S
+A
+I
+C
+Objective
+Strategy
+Analysis
+Interpret
+Communicate
+Motivation
+Understand the
+reason for the
+data analytics
+Verify the process
+and the results
+Explain the results
+and their
+implications
+1. Prepare data
+2. Build information
+     models
+    
+3. Explore data
+Determine the
+goal and specific
+questions the
+analysis will
+answer
+Design the data
+and analysis
+strategy
+Stage 2
+Stage 3
+Stage 1
+
+Chapter Roadmap 
+8-1
+Chapter Roadmap
+LEARNING OBJECTIVES
+TOPICS
+APPLY IT
+ LO 8.1   Compare data analysis 
+interpretation and data 
+exploration.
+•	 Data Analysis Interpretation Versus Data 
+Exploration
+•	 Data Analysis Interpretation
+Interpret Revenue 
+Visualization 
+(Example: Financial 
+Accounting)
+ LO 8.2   Apply critical thinking 
+to data analysis interpretation. 
+•	 Stakeholders: Understand the Context
+•	 Purpose: Define the “Why” of the Analysis
+•	 Alternatives: Investigate Other Interpretations
+•	 Risks: Consider Data, Analysis, and Bias
+•	 Knowledge: What We Need to Know
+•	 Self-reflection: Think About Lessons Learned
+Evaluate a Cost Analysis 
+(Example: Auditing)
+ LO 8.3   Determine if the data 
+analysis results answer the 
+question and align with the 
+objective of the analysis.
+•	 Evaluate the Data and Methods
+•	 Examine the Results
+•	 Determine if More Information or Analyses 
+are Necessary
+Interpret a Refund Analysis
+(Example: Managerial 
+Accounting)
+ LO 8.4   Evaluate the validity 
+and reliability of descriptive and 
+diagnostic data analysis results. 
+•	 Descriptive Analytics
+•	 Diagnostic Analytics 
+Interpret a Scatterplot for 
+Outliers 
+(Example: Auditing)
+ LO 8.5   Evaluate the validity 
+and reliability of predictive and 
+prescriptive data analysis results.
+•	 Predictive Analytics
+•	 Prescriptive Analytics
+Interpret Regression Results 
+(Example: Managerial 
+Accounting)
+Data   The Data tag appears in the chapter when the data for an example, illustration, or application are  
+available on Wiley’s online learning platform.
+Data analytics software is continuously changing, and there may be more recent versions of the software refer-
+enced in this chapter. For more information access the accompanying video on Wiley’s online learning platform. 
+Professional Insight: Do the Analysis Results Make Sense? 
+Megan, a senior tax accountant, works at one of the ten largest U.S. accounting firms. 
+When I first graduated, the firm I worked in outsourced all tax return and analysis 
+preparation. Right away I was expected to review analyses prepared by other peo-
+ple and explain those results to the partner. It was really difficult to suddenly be in a 
+review role rather than a preparer role. I knew how to check the numbers to see if they 
+were correct, but interpreting what the results meant was much more challenging.
+As I have transitioned into a senior role, I have seen the importance of critical think-
+ing even more. My favorite staff to work with are those who review their results and ask 
+questions. They don’t just assume that, because the numbers were input correctly, the 
+results are correct. You can check all the numbers to see if they are correct, but when 
+you do the analysis, you need to be able to determine if the results make sense.
+A staff member once input all the data correctly into the tax software and pre-
+pared a tax liability analysis that showed the client’s tax liability went up. How-
+ever, this didn’t make sense because that client had a $100 thousand loss from one 
+of their businesses. So, the tax liability should have gone down. When I pointed 
+this out, the staff member responded, “I was so caught up in the details that I 
+rationalized the results instead of asking more questions.” Stepping back to evalu-
+ate if something makes sense is difficult. As a student I didn’t practice doing that. I was 
+just focused on getting the right answers and getting a high grade.
+
+8-2 
+Chapter 8  Interpreting Data Analysis Results 
+8.1  How Do We Draw Conclusions from 
+Data Analysis?
+LEARNING OBJECTIVE ➊
+Compare data analysis interpretation and data exploration. 
+Data analysis interpretation is the process of evaluating an analysis to understand and 
+explain its meaning. Similar to interpreting a weather forecast when planning an outdoor 
+party, the insights gained from data analysis interpretation help us make good business 
+decisions. Data analysis interpretation and data exploration probably seem very similar. 
+In fact, you are interpreting even as you are exploring the data. 
+Data Analysis Interpretation Versus Data 
+Exploration 
+The goal of data exploration is understanding the data, whereas data interpretation involves under-
+standing the analysis. The focus, however, is what differentiates exploration and interpretation. 
+An example can illustrate the difference. Imagine conducting an audit of accounts receiv-
+able. The client has given the audit team access to the available accounts receivable data. An 
+excerpt from the data is shown in Illustration 8.1. The first step is exploring the data to under-
+stand it. Recall that data exploration is a process with four steps: 
+	 1.	 Identify questions about the data. 
+	 2.	 Identify data relationships. 
+	 3.	 Explore data relationships. 
+	 4.	 Generate insights. 
+The data could be explored to calculate the total accounts receivable by aging category, and the 
+data and payment information could be used to identify relationships in the data: 
+•	Column G represents accounts where the customer disagrees with the invoice amount. 
+•	Exploration: Is there a relationship between accounts receivable being disputed and how 
+overdue the payment is? 
+fx
+B
+A
+C
+D
+E
+F
+G
+Sheet1
+3
+4
+5
+6
+7
+8
+2466
+2467
+AutoSave
+Oﬀ
+1
+2
+2468
+CustomerID PaperlessDate
+InvoiceNumber
+InvoiceDate
+Client Accounts Receivable Database Excerpt
+DueDate
+InvoiceAmount
+Disputed
+611365
+7900770
+9231909
+0379-NEVHP
+8976-AMJEO
+2820-XGXSB
+9322-YCTQO
+6627-ELFBK
+5148-SYKLB
+7050-KQLDO
+9758-AIEIK
+4/5/2025
+3/2/2024
+1/24/2024
+4/5/2024
+11/25/2024
+8/27/2025
+9/28/2024
+4/22/2024
+9888306
+15752855
+18104516
+9989225541
+9990243864
+H
+SettledDate
+I
+PaperlessBill
+Paper
+Electronic
+Electronic
+Electronic
+Paper
+Paper
+Paper
+Electronic
+1/1/2025
+1/25/2025
+7/2/2025
+2/9/2025
+10/24/2024
+1/25/2024
+4/26/2024
+7/3/2025
+1/31/2025
+2/24/2025
+8/1/2025
+3/11/2025
+11/23/2024
+2/24/2024
+5/26/2024
+8/2/2025
+$   55.94
+$   61.74
+$   65.88
+$ 105.92
+$   72.27
+$   94.00
+$   53.16
+$   68.66
+No
+Yes
+No
+No
+Yes
+Yes
+No
+No
+1/14/2025
+3/2/2025
+7/7/2025
+3/16/2025
+11/27/2024
+2/20/2024
+5/17/2024
+7/17/2025
+ILLUSTRATION 8.1  Accounts Receivable Database
+
+8.1  How Do We Draw Conclusions from Data Analysis? 
+8-3
+An alternative relationship could also be explored: 
+•	Column I data show whether a customer receives an electronic or paper bill. 
+•	Exploration: Does paper or electronic billing have a relationship with how long it takes a 
+customer to pay? 
+The insight gained from analyzing the relationships can be used to estimate uncollectible 
+accounts. Performing many exploratory analyses will eventually lead to the analysis that accu-
+rately explains the accounts receivable and uncollectible accounts. 
+Now, it is time to move into interpretation mode. At this point, we understand the data, 
+but we must understand what the analyses mean in terms of supporting the audit tests of com-
+pleteness and reasonableness of the allowance for doubtful accounts. Data analysis interpreta-
+tion happens at the end of the data exploration process. We move from exploring for insights 
+to interpreting so we can make informed decisions.
+Data Analysis Interpretation
+Data analysis interpretation is the process of reviewing an analysis. There are two steps, each 
+with specific questions that should be answered. 
+Step 1: 
+Determine if the analysis makes sense. 
+•	Question 1: Does the analysis answer the intended question and align with the original 
+objective? 
+•	Question 2: Were the correct data and methods used to perform the analysis? 
+•	Question 3: Are the results reasonable, or are more analyses necessary? 
+Step 2: 
+Verify that the results are valid and reliable. 
+•	Question 4: Does the analysis measure what it was intended to measure? 
+•	Question 5: Are the results accurate? 
+These steps probably seem familiar because they mirror the data analysis process in previous 
+chapters. When interpreting our own analysis, the first two questions in Step 1 are answered 
+during the planning and analyzing stages of the MOSAIC process:  
+•	Does the analysis answer the original question or objective of the analysis? (Motivation 
+and Objective) 
+•	Were the correct data and appropriate method used to perform the analysis? (Strategy 
+and Analysis) 
+The remaining questions from both steps would then be be answered during the reporting 
+stage of the data analysis process (Interpretation). However, if someone else prepared the 
+analysis, then it is necessary to address each question for both steps. This chapter works 
+through the five questions assuming the analysis was prepared by someone else.  
+Let’s continue with the accounts receivable example. During an audit, the audit team will 
+review the accounts receivable balance to confirm two things: 
+	 1.	 The receivables exist and are legitimate. 
+	 2.	 The amount reflected in the balance sheet contains all the accounts receivable and is 
+complete. 
+Understanding accounts receivable involves reviewing an analysis prepared by a client, which 
+must be interpreted. Illustration 8.2, a column chart, is an example of an accounts receivable 
+analysis called an accounts receivable aging report. The chart breaks total accounts receivable 
+into categories based on when the receivables are due. Each bar in the chart represents the 
+total of accounts receivable due for each category of due dates. 
+
+8-4 
+Chapter 8  Interpreting Data Analysis Results 
+This analysis could be one of many that the audit team must interpret. It helps auditors 
+understand the relationship between the accounts receivable total and the breakdown of how 
+much of that total is past due and for how long. 
+Imagine the audit team is testing whether the valuation of the allowance for doubtful 
+accounts is appropriate. The client has provided the visualization in Illustration 8.3.
+ILLUSTRATION 8.2  Accounts 
+Receivable Aging Analysis
+Accounts Receivable Analysis
+$0-
+$50,000
+$100,000
+$150,000
+$200,000
+$250,000
+$300,000
+$350,000
+$400,000
+$450,000
+0
+30
+60
+90
+Over 90
+Days Outstanding
+ILLUSTRATION 8.3  Accounts 
+Receivable Aging and Percent of 
+Uncollectible Accounts
+0
+10
+20
+30
+40
+50
+60
+70
+80%
+Accounts Receivable Balances and
+Percent Uncollectible
+$0-
+$50,000
+$100,000
+$150,000
+$200,000
+$250,000
+$300,000
+$350,000
+$400,000
+$450,000
+0
+30
+60
+90
+Over 90
+72%
+37%
+8%
+5%
+3%
+Days Outstanding
+Accounts Receivable Balance
+Percent Uncollectible
+Some important points about this visualization: 
+•	This is a dual axis chart, which helps illustrate the relationship between variables with 
+different measurement scales. 
+•	This example examines the total amount of accounts receivable in each 
+of the five aging categories and the percentage of those receivables that are 
+uncollectible. 
+•	The left axis shows the amount of accounts receivables in U.S. dollars. The right axis is the 
+percentage of receivables that are uncollectible. 
+•	Including both variables in the visualization shows the total accounts receivable by aging 
+category and what percent of those receivables are considered uncollectible. 
+
+8.1  How Do We Draw Conclusions from Data Analysis? 
+8-5
+Recall from your first financial accounting course that the allowance for doubtful 
+accounts is an estimate of uncollectible accounts receivable. This amount is then deducted 
+from the accounts receivable balance reported on the company’s balance sheet. 
+The audit team asked the client for information related to the age of the current 
+receivable balances (accounts receivable aging report) and an estimate of what percent-
+age of the balances are uncollectible. Now it is time to interpret the analysis the client has 
+provided. 
+One of the most valued skills of accountants is their ability to be independent and 
+skeptical evaluators of financial information. Illustration 8.4 is a brief example of data 
+analysis interpretation of the visual in Illustration 8.3. Each step is covered in more detail 
+throughout the chapter.
+ 
+Interpretation Process 
+ 
+Example: Interpretation of Illustration 8.23
+Learning 
+Objective 
+Step 1: Determine if the analysis makes sense. 
+	 1.	Does the analysis 
+answer the intended 
+question and align with 
+the original objective?
+•	 The question is whether the allowance for doubtful accounts seems reasonable. 
+The analysis does reveal some insight, but more information is needed. 
+•	 For example, we do not know the balance in the allowance for doubtful accounts. 
+LO 3 
+	 2.	Were the correct data 
+and methods used to 
+perform the analysis? 
+Data:
+•	 To make this judgment, check the data to confirm the correct accounts receivable 
+data were used in the analysis. 
+•	 Confirm that the data used to calculate the uncollectible percentage amounts are 
+correct.
+LO 3
+Methods:
+•	 The analysis is descriptive in nature. The totals for accounts receivable by due 
+date are provided in the left axis, and the percent uncollectible is illustrated with a 
+call out for each percentage by category. Determine if this is the most appropriate 
+method. 
+•	 Since the goal is determining if the valuation is reasonable, perhaps a comparison 
+of the allowance for doubtful accounts over the past five years to account 
+receivable balances would be more appropriate. 
+LO 3
+	 3.	Are the results 
+reasonable, or is more 
+analysis necessary? 
+•	 To make this judgement, compare the information in the analysis with what is 
+known about the client’s accounts receivable. If the totals agree with the financial 
+statements and estimates of uncollectible accounts, then the analysis is  
+reasonable. 
+•	 We can also evaluate if the visualization is reasonable. For example, most 
+receivables should be in the under 30-day category, and the receivable most likely 
+to not be collectable would be in the 90 days late or over category. 
+LO 3
+Step 2: Verify the results are valid and reliable. 
+	 4.	Does the analysis 
+measure what was 
+intended? 
+Validity refers to how well the analysis represents reality:
+•	 In this example, determine if the visualization represents an analysis of the 
+allowance for doubtful accounts valuation. 
+LO 4 and LO 5
+	 5.	Are the results 
+accurate? 
+Accuracy means that the measures used in the analysis are correct and without 
+mistakes: 
+•	 The measures used in the visualization are account balances, days outstanding, 
+and a calculation of the percent of uncollectible accounts. These are all correct 
+measures. 
+•	 Confirm the amounts are correct by comparing the accounts receivable to the 
+amounts in the financial statements. 
+LO 4 and LO 5
+ILLUSTRATION 8.4  Overview of Data Analysis Interpretation
+
+8-6 
+Chapter 8  Interpreting Data Analysis Results 
+Apply It 8.1
+Interpret Revenue 
+Visualization
+Data   Financial Accounting   Denton Hospitality, Inc. (DHI) is a hotel chain in the southwestern 
+United States. Dante Garcia started the hotel chain in Denton, Texas in 1968 with one hotel. Since 
+then, the chain has grown to 48 hotels in 4 states. Dante retired in 2002 and was succeeded as CEO by 
+his daughter, Luciana. 
+DHI’s hotels are in the economy lodging segment. Properties are in Colorado, Oklahoma, New 
+Mexico, and Texas. A typical economy lodging hotel has an average of 84 rooms, although DHI’s 
+hotels average 117 rooms. Properties are staffed by a general manager, front desk staff of 6 persons, 
+a head housekeeper, 7 housekeepers, and a maintenance worker. Except for the general manager, 
+employees are paid hourly and their assigned hours vary based on demand. A summary of DHI’s 
+financial performance is provided.
+Grand Total
+Number of 
+Hotels
+State
+$      8,491,172
+$      6,972,316
+5
+7
+5
+31
+Revenue
+2024
+Revenue
+2025
+Profit
+2024
+CO
+NM
+OK
+TX
+$      6,223,433
+$ 62,907,543
+48
+$   41,220,622
+$     8,414,229
+$     6,942,074
+$     6,156,051
+$ 61,584,276
+$   40,071,922
+$      4,025,218
+$      3,701,428
+$      3,178,742
+$ 29,226,377
+$    18,320,989
+Profit
+2025
+$     3,862,043
+$     3,582,689
+$     2,928,290
+$ 26,921,198
+$   16,548,176
+Summary of DHI Financial Performance
+DHI would like to know how revenue compares by state and if revenues are rising or falling. 
+Luciana has asked you to interpret this analysis. 
+1.	 List the questions you would ask to interpret this analysis, and provide the answers. 
+2.	 Is this exploratory data analysis or data analysis interpretation?
+State
+Revenue
+2024
+2025
+$0
+CO
+$7.0$6.9
+$6.2 $6.2
+$41.2 $40.1
+NM
+OK
+TX
+$5
+$10
+$15
+Denton Hospitality, Inc. ‒ Revenue By State
+$20
+$25
+$30
+$35
+$40
+$45
+$8.5 $8.4
+SOLUTION
+1.	 Does the analysis answer the question and align with the objective? Yes: 
+•	 The question is how the states’ revenues compare and if revenues are increasing. 
+•	 The chart shows revenue by state and a comparison to the prior year.
+
+8.2  What is the Relationship Between Critical Thinking and Data Analysis Interpretation?  8-7
+8.2  What is the Relationship 
+Between Critical Thinking and Data 
+Analysis Interpretation?
+LEARNING OBJECTIVE ➋
+Apply critical thinking to data analysis interpretation. 
+In the chapter opener, Megan discussed the importance of critical thinking in data analysis. 
+Thinking deeply about the analysis helps interpret the results and avoids being “. . . so caught 
+up in the details that I rationalized the results instead of asking more questions.” Applying a 
+critical thinking framework to the analysis being interpreted ensures that we are consistently 
+thinking critically about every analysis. 
+Let’s use critical thinking to interpret a data analysis prepared by someone else. The man-
+ufacturing firm Super Scooters makes four models of scooters: 
+•	The Captain and Lazer models are electric scooters. 
+•	The Kicks model is not powered. 
+•	The Celeritas is a gas-powered scooter. 
+Were the correct data and methods used to perform the analysis? Yes:
+•	 DHI is interested in revenue performance. This chart includes revenue.
+•	 DHI also wants to know performance by state and if revenue is increasing. This bar 
+chart shows that information by grouping revenue by state and showing current year 
+compared to prior year.
+Are the results reasonable? Maybe:  
+•	 It is necessary to confirm an understanding of DHI and their revenue to make a final 
+decision about reasonableness. 
+•	 The bar chart shows how many hotels are in each state. It seems reasonable that 
+Texas has the highest amount of revenue because about 65% of all the hotels are in 
+Texas.
+Is the analysis valid? That is, did it measure what it was intended to measure? Maybe: 
+•	 The results seem to be valid because the analysis measured what was intended– 
+revenue by state and comparisons to prior year.
+Is the analysis accurate (reliable)? Maybe: 
+•	 More research is necessary to compare the results to the financial statements to 
+ensure all the revenue is represented and that the analysis is accurate.
+2.	 Since DHI asked for an interpretation of the analysis, it would seem logical that this is an 
+interpretation. If the task was interpreting this analysis to determine additional analyses that 
+could be performed based on the outcome, it could be considered exploratory. 
+
+8-8 
+Chapter 8  Interpreting Data Analysis Results 
+Super Scooters has benefited from the increase in scooter-sharing systems in large cities. 
+Like bike-sharing, a scooter-sharing system is a service that provides scooters for short-term 
+rentals. The global market for electric scooters is estimated to reach $34.7 billion by 2028.1 
+Companies such as Lime and Bird are purchasing large quantities of electric scooters as the 
+market for scooter-sharing expands. Super Scooters believes the time may be right to move 
+to manufacturing only electric scooters to potentially increase sales to companies like Lime 
+and Bird. Imagine you are a staff accountant who is part of a team evaluating whether to con-
+tinue producing the Celeritas model gas scooter. Let’s apply the elements of critical thinking 
+(Illustration 8.5) to this example.
+1https://www.grandviewresearch.com/industry-analysis/electric-scooters-market
+ILLUSTRATION 8.5  The SPARKS 
+Critical Thinking Framework
+Purpose
+Risks
+Self-
+Reflection
+Knowledge
+Stakeholders
+Alternatives
+Interpret
+ILLUSTRATION 8.6  Super 
+Scooters’ Internal and External 
+Stakeholders
+Internal Stakeholders
+External Stakeholders
+• Super Scooters Managers
+• Super Scooters Employees
+• Investors
+• Creditors
+Stakeholders: Understand the Context
+Before interpreting the analysis provided by the Celeritas marketing team, consider who 
+the stakeholders are in this decision. Identifying stakeholders (Illustration 8.6) provides 
+insight into the situation within which the data analysis was created. This knowledge can 
+help explain the results. 
+
+8.2  What is the Relationship Between Critical Thinking and Data Analysis Interpretation?  8-9
+Failing to identify the stakeholders means potentially interpreting the results from the 
+wrong perspective. In this example, if you were not thinking about Super Scooters’ creditors, 
+you may not consider the impact of dropping the Celeritas scooter on the company’s ability to 
+pay their existing loans. 
+Purpose: Define the “Why” of the Analysis
+In addition to recognizing relevant stakeholders, identify the purpose of the analysis. It is easy 
+to forget this and immediately start interpreting. Be careful not to fall into this trap! We cannot 
+fully interpret an analysis until we know its purpose.
+In this example, Super Scooters is considering eliminating the Celeritas scooter. The 
+Celeritas marketing team has prepared an analysis of sales for the last four years and a forecast 
+for 2026. The shaded part of the line represents the 2026 forecast. The purpose of the analysis 
+is to understand the sales trends for the four models of powered scooters that Super Scooters 
+currently manufactures and sells. 
+Overlooking the purpose could mean interpreting the analysis incorrectly. If you did not 
+know the purpose of the analysis in Illustration 8.7 was to evaluate the Celeritas model, you 
+might waste time evaluating a different model.
+ILLUSTRATION 8.7  Super Scooters Forecast
+Lazer
+0
+1,000
+2,000
+Kicks
+0
+1,000
+2,000
+Celeritas
+Model
+0
+1,000
+2,000
+Captain
+Super Scooters 2026 Forecast - Sales Volume (Units)
+0
+1,000
+2,000
+Nov.
+2026
+May
+2026
+May
+2023
+May
+2024
+May
+2025
+Nov.
+2025
+Nov.
+2022
+Nov.
+2023
+Nov.
+2024
+Alternatives: Investigate Other Interpretations 
+Always consider if there are alternative ways to view the results of an analysis. Additionally, 
+consider if there are alternative methods to conduct the analysis that were not addressed. 
+Finally, decide if more analysis is needed. Thinking about these different alternatives helps 
+determine whether the most appropriate analysis was used, which can increase confidence 
+when interpreting the results. 
+
+8-10 
+Chapter 8  Interpreting Data Analysis Results 
+In the Super Scooters example, alternative interpretations may include:
+•	The trend analysis assumptions do not include potential impact to sales of the other mod-
+els should the Celeritas be eliminated.
+•	The trend analysis assumptions may be too aggressive. 
+•	The trend analysis alone is not enough information on which to base a decision to keep 
+or drop the Celeritas scooter.
+•	The Kicks model has the poorest performance. Perhaps that model should be evaluated 
+for elimination instead of the Celeritas.
+Risks: Consider Data, Analysis, and Bias
+Examine all aspects of the analysis to identify potential risks. This begins with the data 
+and extends to potential biases–both our own and those of stakeholders. Asking certain 
+questions can help evaluate these potential risks. Illustration 8.8 lists the risks, questions 
+that could be asked to evaluate them, and applies a Super Scooters example. Keep in mind 
+that if you are the preparer of the analysis, then you will have already addressed some of 
+these issues. 
+Potential Risks
+Questions
+Super Scooters Examples
+Data
+•	 Completeness: Is the analysis 
+missing relevant data?
+•	 Accuracy: Are the data used in the 
+analysis correct?
+•	 Timeliness: Are the data used in  
+the analysis the most recent 
+available?
+•	 Internal controls: Were  
+appropriate internal controls in 
+place to ensure the data used were 
+correct?
+•	 Some of the sales data were not 
+included or may be incorrect. 
+•	 The data starts in 2022 and 
+continues through 2026, so 
+they appear timely. 
+Analysis
+•	 Method: Was the correct method 
+used to perform the analysis?
+•	 Data: Did the analysis use the right 
+data?
+•	 Purpose: Did the analysis answer 
+the question?
+•	 The purpose of the analysis 
+was to understand sales  
+trends for the Super Scooter 
+models. 
+•	 The analysis uses sales 
+amounts from 2022 to 2025, 
+so it does show how sales are 
+trending.
+•	 The risk of using the wrong 
+estimates to forecast the 2026 
+figures should be considered.
+Bias 
+•	 Data biases: Were all the necessary 
+and appropriate data included in the 
+analysis?
+•	 Preparer biases: Did the preparer 
+have any potential biases that could 
+have influenced the preparation of 
+the analysis?
+•	 Evaluator biases: Does the evaluator 
+(you) have any biases that could 
+influence the interpretation of the 
+results? 
+•	 The data could be biased if the 
+analysis did not include all the 
+available sales data. 
+•	 The preparer could be  
+biased to provide a positive 
+analysis if they do not want  
+to eliminate the Celeritas 
+model. 
+•	 The evaluator could be biased 
+in favor of eliminating the 
+Celeritas or in favor of keeping 
+the Celeritas model.
+ILLUSTRATION 8.8  Questions 
+that Help Identify Risks
+
+8.2  What is the Relationship Between Critical Thinking and Data Analysis Interpretation?  8-11
+Knowledge: What We Need to Know 
+To interpret any analysis, determine the knowledge necessary to understand it. We may not 
+have the correct background or experience, so identifying the required understanding will 
+reveal if we need to do additional research. It helps to ask these questions: 
+•	Is specific accounting knowledge necessary?
+•	Would industry knowledge be helpful?
+•	Is technology knowledge important to interpret the analysis? 
+•	Is additional research necessary, or should we seek the help of an expert? 
+What types of knowledge are required for interpreting the Celeritas marketing team’s 
+analysis? 
+•	Accounting knowledge: Understanding the sales forecast requires knowing the sales 
+revenue and how the forecast was calculated. To determine whether to discontinue the 
+Celeritas model, an understanding of costs, cost volume profit analyses, and how to per-
+form a keep or drop analysis are necessary. 
+•	Industry knowledge: Super Scooters operates in the automotive and transportation 
+industry, so you would need information about the manufacturing industry of gas-­
+powered scooters and electric-powered scooters. Learning about the supply chain for 
+the manufacture of gas and electric scooters, as well as the competitors in scooter man-
+ufacturing, would also be important.
+•	Technology knowledge: In this example, the visualization shows the sales and sales 
+forecast for the Celeritas model (Illustration 8.7). Understanding how this visualization 
+was created would be helpful since that software knowledge will help you better evaluate 
+the visualization. 
+•	Other knowledge: If there is accounting, industry, or technical knowledge you need, do 
+additional research and/or solicit the help of someone with that knowledge.
+Self-Reflection: Think About Lessons Learned
+Each data analysis project should include reflecting on lessons learned from previous analyses 
+performed or interpreted. We can also learn from the current data analysis being performed or 
+interpreted and apply that to future data analysis projects. Reflecting on previous experiences 
+helps us perform interpretations quickly, thoroughly, and accurately. 
+In the Super Scooters example, reflect on other analyses you have performed that may be 
+similar. Did you do any keep or drop analyses in your college courses? Have you analyzed sales 
+trend analyses prior to this? If so, how can you apply those experiences to this interpretation?
+Apply It 8.2
+Evaluate a Cost 
+Analysis
+Auditing   Denton Hospitality, Inc. (DHI) CEO Luciana Garcia is concerned about growing costs 
+in some of the hotels and has asked the internal audit department to evaluate which hotels have 
+increasing costs over the past two years. As an internal auditor for DHI, your manager asked you to 
+prepare and interpret an analysis of costs by hotel for the past two years and identify the locations 
+with the highest increases. 
+List each critical thinking element and identify how you would apply it to this example. 
+SOLUTION
+Critical Thinking Element
+Example
+Stakeholders
+Internal: Purchasing department, hotel management 
+External: Creditors, vendors
+
+8-12 
+Chapter 8  Interpreting Data Analysis Results 
+8.3  How Do We Know the Analysis 
+Makes Sense?
+LEARNING OBJECTIVE ➌
+Determine if the data analysis results answer the question and align with the objective of 
+the analysis.
+Recall that the first step in data interpretation is determining if the analysis makes sense. 
+This may seem like an obvious question, but it is one that is often overlooked. It is even more 
+important when trying to understand an analysis of something unfamiliar. In terms of data 
+analysis, asking if the analysis “makes sense” means confirming the analysis has a clear 
+meaning.  
+Using critical thinking skills, determine if the analysis answers the intended question and 
+aligns with objective, if the correct data and methods were used, and if the results are both 
+reasonable and sufficent for the project’s purpose. 
+Evaluate the Data and Methods
+Questions we can ask to determine if the analysis makes sense include thinking about how 
+we got the results:
+•	Are the data used in the analysis reasonable given the question/objective of the analysis?
+•	Is the analysis method reasonable given the question/objective of the analysis? 
+Purpose
+Evaluate expenses by hotel site and determine which 
+locations have experienced increases. 
+Alternatives
+There may be alternative analyses that could or should 
+be prepared. There could also be different explanations 
+for why expenses have increased. For example, increases 
+in hotel occupancy could drive increases in hotel 
+expenses. 
+Risks
+Data may be missing or incorrect. An analysis could be 
+incorrectly interpreted. 
+Knowledge
+Knowledge about the company and the industry, hotel 
+expenses, and the preparation and interpretation of data 
+analyses is necessary.
+Self-reflection
+There could be expense analyses from prior projects that 
+could be applied to this one. Consider whether you could 
+apply what was learned during this project to future 
+projects. 
+
+8.3  How Do We Know the Analysis Makes Sense? 
+8-13
+Illustration 8.9 is an analysis designed to show if Super Scooters’ labor expenses in the Char-
+lotte, NC location increased as sales volume increased.
+Are the data used in the analysis reasonable given the question/objective of the analysis?
+•	The data used in this chart are labor expenses and sales volume. It is reasonable to use 
+these two measures since we want to know if they are related. In other words, do both 
+measures move in the same direction?
+Is the analysis method reasonable given the question/objective of the analysis? 
+•	A dual axis chart compares two different measures in one graph. Labor expense num-
+bers ($50 thousand–$250 thousand) are much larger than sales volume numbers (1,000– 
+4,000). If a clustered column chart (Illustration 8.10) was used instead, the sales volume 
+bar would be too small to distinguish a relationship. 
+$250,000
+$200,000
+$150,000
+$100,000
+$50,000
+1,609
+2,871
+3,743
+$0
+2022
+0
+1,000
+1,500
+500
+2,000
+2,500
+3,000
+3,500
+4,000
+Sales
+Volume
+Labor
+Expenses
+2023
+2024
+Charlotte, NC
+Sales Volume and Labor Expenses
+Year
+Labor Expenses
+Sum of Sales Volume
+ILLUSTRATION 8.9  Dual Axis Chart of Sales Volume and Labor Expenses
+ILLUSTRATION 8.10  Clustered 
+Column Chart of Sales Volume and 
+Labor Expenses
+$250,000
+$200,000
+$150,000
+$100,000
+$69,834
+$146,024
+$205,673
+$50,000
+$0
+2022
+2023
+2024
+Charlotte, NC
+Sales Volume and Labor Expenses
+Sales
+Volume
+Labor Expenses by Year
+Labor Expenses
+Sum of Sales Volume
+
+8-14 
+Chapter 8  Interpreting Data Analysis Results 
+Examine the Results
+There are also questions that evaluate the reasonableness of the results themselves: 
+•	Are the results of the analysis reasonable given what is known about the subject being 
+analyzed? 
+•  Super Scooters manufactures the scooters they sell. It makes sense that as the number 
+of scooters sold increases, they would need to produce more scooters. Increased pro-
+duction would lead to increased labor.
+•	Are the implications of the analysis reasonable given what is known about the subject 
+being analyzed? 
+•  The implication is that if Super Scooters continue to increase sales, then they will 
+have increased labor costs. 
+•	Does the analysis address the needs/concerns of the stakeholders?
+•  The overall concern is whether increases in sales and labor costs at the Charlotte 
+location are related. The stakeholders include management of Super Scooters and the 
+employees in the Charlotte locations. This analysis will help them better understand 
+the relationship between sales volume and labor costs. 
+If the answers to any of these questions is “no,” then it is likely that either more or a dif-
+ferent analysis is necessary before the results can be interpreted. 
+APPLYING CRITICAL THINKING 8.1: Ask if the Analysis 
+Makes Sense 
+Notice the relationship between these questions and the previous discussion about applying 
+critical thinking. To answer these questions, you need to know: 
+•	 Who is impacted by the analysis (Stakeholders).
+•	 The reason for performing the analysis (Purpose).  
+•	 Whether the results are reasonable given what you know (Knowledge).
+•	 If you can apply past experience or knowledge to the current context and whether what you 
+learn now can be leveraged in future analyses (Self-Reflection). 
+Determine if More Information or Analyses 
+are Necessary
+Even if the interpretation makes sense, sometimes more information or additional analy-
+ses are still necessary to thoroughly answer the question. It is easy to believe we have the 
+information necessary to decide on a course of action. This is a common human bias that 
+Nobel Prize winning psychologist Daniel Kahneman refers to as the “what you see is all 
+there is” bias. 
+This bias can be particularly strong if the data analysis supports preconceived ideas or 
+conclusions about the question. Accountants must be skeptical evaluators of information, so 
+we must diligently review data analyses to be sure they provide enough information and sup-
+port to make a well-informed decision.
+There are more biases to be aware of when interpreting data analyses: 
+•	Confirmation bias: The person performing the analysis wants to prove a predeter-
+mined assumption, so they look for data that support their existing belief. The person 
+
+8.3  How Do We Know the Analysis Makes Sense? 
+8-15
+interpreting the analysis can also have this bias. Being aware of the preparer’s poten-
+tial biases, as well as our own, can help to mitigate confirmation bias.
+•	Selection bias: This bias occurs when the data used in the analysis are selected subjec-
+tively. Selection bias is a concern if the analysis being interpreted is based on a sample 
+of data rather than the entire population. An example is when an analysis of sales 
+transactions is based on a sample of transactions rather than on all the transactions. If 
+the sample is not a good representation of the full population, then the results will be 
+biased. 
+Continuing the Super Scooters example, additional analyses are necessary before making 
+a keep or drop decision. Imagine that you asked for additional information about costs and 
+were given the analysis in Illustration 8.11. (Assume you have already determined that the 
+analysis makes sense.) 
+This analysis provides some key cost information, but do you need more? Variable 
+costs will be eliminated if the Celeritas model is dropped, but what about fixed costs? Ask 
+for that information as well. Do not assume that the sales and variable costs analyses are 
+all that is needed to decide whether the Celeritas model should be dropped. There is also 
+the potential for selection bias and confirmation bias. Consider a few questions to look for 
+selection bias: 
+•	Did the preparer of the sales and variable cost analyses use all the information available, 
+or did they select just a sample of that information? 
+•	If it was a sample, is the sample representative of all sales and all variable costs? 
+To mitigate the potential of confirmation bias, examine your perspective about the analyses. 
+Was the interpretation approached with an open mind, or were you already leaning in favor of 
+or against dropping the Celeritas model?
+ILLUSTRATION 8.11  Variable 
+Costs by Super Scooters Model
+$2,600,000
+Captain
+Celeritas
+Kicks
+Lazer
+$2,400,000
+$2,200,000
+$2,000,000
+$1,800,000
+$1,600,000
+$1,400,000
+$1,200,000
+$1,000,000
+$800,000
+$600,000
+$400,000
+$200,000
+$0
+2022
+2023
+2024
+Total Variable Costs By Model
+Total Variable
+Costs
+Apply It 8.3 
+Interpret a Refund 
+Analysis
+Data   Managerial Accounting   Luciana at DHI is concerned about the amount of refunds given 
+to customers. She has asked you to speak to the hotel area managers to gain more insight, and then 
+interpret an analysis prepared by another employee to identify the type of location with the highest 
+amount of refunds. After speaking with the hotel area managers, you learn:
+•	 Front desk employees can give refunds to hotel guests without approval from the general 
+manager. 
+
+8-16 
+Chapter 8  Interpreting Data Analysis Results 
+DHI Refunds and Guest Complaints Dual Axis Chart
+$0
+$0.00
+$10.00
+$20.00
+$30.00
+$40.00
+$50.00
+$60.00
+$20,000
+Airport
+Interstate
+Metro/Town
+Suburban
+Urban
+$40,000
+$60,000
+$80,000
+$100,000
+$120,000
+$140,000
+$160,000
+Location Type
+Total
+Refunds
+Average Refund
+per Complaint
+Total Refunds
+Average Refund per Complaint
+•	 Area managers think the number of guest complaints is strongly related to the total amount 
+of refunds. If there are many guest complaints, there will likely be a higher amount of total 
+refunds.
+SOLUTION
+1.	 The data seem reasonable. The purpose is understanding guest complaints and refunds. Both 
+of those items are included in the analysis. Average refunds per complaint expresses the refund 
+amount on a per complaint basis.
+2.	 The objective is to identify the location type with the highest amount of refunds. The analysis 
+does show total refunds given on one axis using bars for each location’s refunds.
+	
+The analysis also shows average refund per complaint as a line with average refunds per 
+complaint on the right axis. This is a reasonable way to evaluate the relationship between 
+complaints and refunds because using the average refund per complaints helps look at each 
+location based on its performance rather than size.
+3.	 The area managers were convinced that the number of complaints is related to the total 
+amount of refunds. The analysis shows the average amount of refunds is highest for airport 
+locations even though the suburban locations have a higher total.
+4.	 There are much higher total refunds in the suburban locations, so it might seem they would 
+have the highest number of complaints. However, if there are more hotels in that category, that 
+may also be driving the total number of complaints. By using average refund per complaint, 
+we can see that airport locations are giving very high refunds to guests even though the total 
+refund amount is not as high as suburban locations.
+5.	 The analysis addresses the needs of the stakeholders to an extent. The analysis is one piece of 
+this puzzle.
+6.	 Yes, more analysis is necessary. To be sure that we have addressed the stakeholders, further 
+analysis is required to address the concern about hotels offering too many refunds.
+1.	 Are the data used in the analysis reasonable? 
+2.	 Is the analysis reasonable? 
+3.	 Are the results of the analysis reasonable given what you know about the subject being analyzed? 
+4.	 Are the implications of the analysis reasonable given what you know about the subject being 
+analyzed? 
+5.	 Does the analysis address the needs and concerns of the stakeholders? 
+6.	 Is more analysis needed? If yes, what analyses would you like to see before making a decision? 
+
+8.4  How are Validity and Reliability Determined in Descriptive and Diagnostic Analyses?  8-17
+8.4  How are Validity and Reliability 
+Determined in Descriptive and 
+Diagnostic Analyses?
+LEARNING OBJECTIVE ➍
+Evaluate the validity and reliability of descriptive and diagnostic data analysis results.
+Once it is clear that the analysis makes sense, the results can be assessed for validity and 
+reliability. If the results are not valid, then it does not matter how “good” the analysis is. 
+Sometimes it is easy to be fooled by data analyses because we take them at face value. Recall 
+the example at the start of the chapter. Megan’s staff tax accountant checked the numbers 
+and assumed the analysis was correct. However, the analysis result was an increase in tax 
+liability when it should have been a decrease. The staff accountant should have been more 
+skeptical of the analysis and considered that a large loss should have caused a decrease in 
+the tax liability. 
+First, what does valid and reliable mean in the context of data analysis? 
+•	Evaluating the validity of a data analysis involves confirming that it measures what 
+it is supposed to measure and represents reality. 
+•	Reliability means that the data used are dependable and trustworthy and the measures 
+used in the analysis are consistent and accurate. In this context, accurate means the 
+measures used in the analysis are correct and without mistakes. 
+During your career you will interpret the validity and reliability of different types of analy-
+ses. Illustration 8.12 summarizes the types of analyses most common in the four areas of 
+analytics.
+ILLUSTRATION 8.12  Summary 
+of Analyses by Analytics Area
+Data Analytics Categorized by Purpose
+Frequency
+Distributions
+Cross
+Tabulation
+Measures of
+Location
+Measures of
+Dispersion
+Anomaly
+Detection
+Correlation
+Analysis
+Trend
+Analysis
+Linear
+Regression
+Predictive
+Algorithms
+Optimization
+Models
+What-If
+Analyses
+Descriptive
+Analytics
+Diagnostic
+Analytics
+Predictive
+Analytics
+Prescriptive
+Analytics
+This section reviews the most common types of analyses used in descriptive and diag-
+nostic analytics, how to identify appropriate measures for each type, and how to determine 
+if the results are valid.
+
+8-18 
+Chapter 8  Interpreting Data Analysis Results 
+Descriptive Analytics 
+Descriptive analytics help to better understand the data underlying the analysis being inter-
+preted. To assess validity and reliability of the analyses, ensure the correct method is used and 
+that the data are accurate. Illustration 8.13 is a summary of valid descriptive analyses based 
+on the objective of the analysis. For an analysis to be valid, the method must match the objec-
+tive. In a reliable analysis, the measures used are accurate and consistent.
+Objective
+Example Questions
+Valid Analyses
+Understand categories of 
+data. 
+What product category is selling the 
+most? Which business unit has the 
+highest revenue? 
+Frequency distribution 
+Histogram
+Summarize by categories 
+and subcategories.
+Which products are selling the  
+most in each region? How much were 
+total expenses each year by business 
+unit? 
+Cross tabulation 
+analysis
+Identify an average 
+observation in the data.
+What is the average tax liability for each  
+business unit?
+Mean (if no outliers) 
+Median
+Evaluate the distribution 
+of data.
+How different are the expenses in 
+each business unit from the company 
+average?
+Standard deviation
+ILLUSTRATION 8.13  Descriptive 
+Objectives, Questions, and Valid 
+Analyses
+ILUSTRATION 8.15  Super 
+Scooters Model Frequency 
+Distribution Chart
+1,400
+1,200
+1,000
+800
+600
+400
+200
+0
+Captain
+Celeritas
+Kicks
+Lazer
+Frequency
+Model
+Super Scooters Model Frequency Distribution Chart
+Understand Categories of Data
+Grouping data into categories is sometimes part of an analysis. An example is when the goal is 
+to understand sales by product. If the analysis is based on groups or categories of data, a valid 
+analysis would be a frequency distribution or a cross tabulation analysis. 
+A frequency distribution reveals how many times something has occurred within a 
+group or interval. The example in Illustration 8.14 was prepared using the Super Scooters 
+data set. ( Data How To 8.1 at the end of the chapter shows how to create this visual in Power 
+BI.) The frequency column reports sales orders for each model for the years 2023–2025. The 
+relative frequency column indicates the percentage of total sales orders for each model. 
+ILLUSTRATION 8.14  Super 
+Scooters Model Frequency 
+Distribution
+Model
+Captain
+Celeritas
+892
+Kicks
+Lazer
+Frequency
+1,010
+456
+Total Sales
+3,645
+1,287
+24.5%
+Relative Frequency
+27.7%
+12.5%
+100.0%
+35.3%
+How To
+Sometimes frequency distribution analyses are in chart form (Illustration 8.15).
+
+8.4  How are Validity and Reliability Determined in Descriptive and Diagnostic Analyses?  8-19
+Note that a cross tabulation analysis does not have to be in table format. Illustration 8.17 
+is a column chart visualization of the table in Illustration 8.16. 
+Summarize by Categories of Data
+Suppose the objective is knowing the number of orders each year, from 2023 to 2025, by 
+scooter model. A cross tabulation analysis would answer that question. A cross tabu-
+lation analysis shows the number of observations in a data set for different subcategories 
+­(Illustration 8.16). 
+ILLUSTRATION 8.16  Super 
+Scooters Cross Tabluation Analysis 
+of Sales Orders by Model
+Captain
+Celeritas
+Kicks
+Lazer
+Grand Total
+Number of Orders
+Model
+Year
+317
+2025
+369
+88
+1,337
+563
+248
+2023
+244
+261
+960
+207
+327
+2024
+397
+107
+1,348
+517
+892
+Grand Total
+1,010
+456
+3,645
+1,287
+ILLUSTRATION 8.17  Super 
+Scooters Cross Tabulation Analysis 
+Column Chart
+0
+Captain
+Celeritas
+Kicks
+Lazer
+100
+200
+244
+248
+207
+300
+400
+500
+600
+397
+327 317
+107 88
+517
+2023
+2025
+2024
+Number of Orders Per Year
+Orders
+Models
+563
+261
+369
+What can we interpret from these analyses? First, the Lazer is the best-selling model, 
+accounting for 35.3% of total sales volume (Illustration 8.14). Second, the Lazer is the only 
+model that shows an increase in sales volume each year from 2023 to 2025 (Illustration 8.17). 
+Are these analyses valid and reliable? Since the objective is analyzing sales volume by model, 
+then the frequency distribution and the cross tabulation analyses are valid methods to use. 
+Reliability will be determined by confirming the totals agree to the actual sales volume in the 
+financial records. 
+Identify an Average Observation in the Data
+Sometimes the analysis question is not about groups or categories of data, but instead asks 
+about the averages in the data. In addition to frequency and cross tabulation, measures of 
+location are used in descriptive analytics. When evaluating the validity and reliability of an 
+analysis that includes measures of location, ensure that the correct measure is being used. 
+Measures of location include the mean, median, and mode measures that reveal the aver-
+age or typical observation in the data set:
+•	Mean:  The sum of all observations in a data set divided by the total number of observations. 
+•	Median:  The middle value when the data is arranged from smallest to largest.
+•	Mode:  The observation that occurs most frequently.
+
+8-20 
+Chapter 8  Interpreting Data Analysis Results 
+All three measures are valid measures of location, but under different conditions some mea-
+sures of central tendency will be more appropriate than others. 
+For example, a mean can be affected by extreme values in the data, whereas the median is 
+not affected by these kinds of values, which are outliers. There are two methods to determine 
+if there are outliers in a data set:
+•	Search for a large difference between the mean and median. 
+•	Plot the data to visually determine if there is an outlier. 
+Let’s start by examining the mean and the median. Illustration 8.18 shows descriptive sta-
+tistics for Super Scooters’ monthly sales volume amounts. ( Data   How To 8.2 illustrates how 
+to create these statistics in Microsoft Excel.) The mean monthly sales volume is 2,132 and the 
+median monthly sales volume is 1,879. The mean is much larger than the median. But we 
+know that if we are searching for the central location of the data set, the median is right in the 
+middle. This large difference is a good indication that there are extreme values in the data set. 
+ILUSTRATION 8.19  
+Scatterplot of Super Scooters’ 
+Sales Volume
+8,421
+7,810
+0
+1,000
+Aug-22
+Mar-23
+Oct-23
+Apr-24
+Nov-24
+May-25
+Dec-25
+2,000
+3,000
+4,000
+5,000
+6,000
+7,000
+8,000
+9,000
+Sales Volume
+Super Scooters, Inc.
+Monthly Sales Volume
+Skewness
+Mean
+Median
+Standard Error
+Standard Deviation
+Mode
+Kurtosis
+Sample Variance
+Range
+2.73
+2,132.39
+1,879.00
+275.34
+1,652.02
+#N/A
+8.82
+2,729,183.96
+8,050.00
+Count
+Minimum
+Sum
+Maximum
+36.00
+371.00
+76,766.00
+8,421.00
+ILLUSTRATION 8.18  Descriptive 
+Statistics for Super Scooters’ Sales 
+Volume
+How To
+Now try the second method. A scatterplot shows the relationship between two numeri-
+cal variables. Each observation in the data set is plotted as a point whose coordinates relate to 
+the values of the two variables for that observation. 
+Illustration 8.19 is a scatterplot of Super Scooters’ monthly sales volume from 2023 to 
+2025. Each sales transaction is represented by a dot. Notice the dots labeled 8,421 and 7,810. 
+These observations are outside most of the monthly amounts. Those months are driving up 
+the mean. 
+When evaluating measures of location, keep in mind the potential impact of outliers on 
+the results. If you were responsible for creating the sales budget for Super Scooters, then you 
+might choose between using the mean or the median sales volume from prior year to budget 
+
+8.4  How are Validity and Reliability Determined in Descriptive and Diagnostic Analyses?  8-21
+2Keep in mind that this is a very simplified example of preparing a budget. Sales budgets include more than 
+just estimating a single sale transaction amount, particularly if there are multiple products and locations. 
+However, the danger of using the wrong measure is still a valid concern.
+ILLUSTRATION 8.20  Estimated 
+Sales Using Mean vs. Median Sales 
+Volume
+Estimated Sales Based on Mean Sales Volume
+Diﬀerence Between Estimated Sales Volume = 3,036
+Estimated Sales Based on Median Sales Volume
+2,132 × 12 months = 25,584
+1,879 × 12 months = 22,548
+In summary, when evaluating the validity and reliability of an analysis that includes mea-
+sures of location, confirm the correct measure is being used. If the correct measure is used, 
+then the results are valid. In Illustration 8.20, using the mean instead of the median to esti-
+mate sales volume would not be valid because of the difference between mean and median 
+monthly sales volume. Using the mean sales volume inflates the estimate due to the outliers 
+of higher sales volume in the data. That is not a reliable budget estimate.
+Evaluate the Distribution of Data
+The final type of descriptive analyses discussed here are measures of dispersion. Dispersion 
+refers to the amount of variation in the data. Are the data spread out or are they compact? In 
+other words, how far apart are all the observations (data points) from the mean? The two most 
+widely used measures of dispersion are variance and standard deviation.
+The standard deviation shows how spread out the data are from the mean. It is in the 
+same units as the mean. Standard deviation can help determine validity and reliability of an 
+analysis. Illustration 8.21 shows a list of descriptive statistics for Super Scooters’ sales vol-
+ume. Standard deviation is highlighted. 
+for the next year’s production budget. (Refer to Illustration 8.18 for the calculation of mean 
+and median for Super Scooters’ descriptive statistics.)
+Illustration 8.20 summarizes the two options. Using the mean as a measure of the aver-
+age amount of monthly sales production needs overstates production needs.2 There is a differ-
+ence of 3,036 (13%) between the two options. It would be difficult to explain to your boss next 
+year why you were off by 13% on projected production!
+ILLUSTRATION 8.21  Descriptive 
+Statistics for Super Scooters’ Sales 
+Volume
+Super Scooters, Inc.
+Monthly Sales Volume
+Skewness
+Mean
+Median
+Standard Error
+Standard Deviation
+Mode
+Kurtosis
+Sample Variance
+Range
+2.73
+2,132.39
+1,879.00
+275.34
+1,652.02
+#N/A
+8.82
+2,729,183.96
+8,050.00
+Count
+Minimum
+Sum
+Maximum
+36.00
+371.00
+76,766.00
+8,421.00
+In this example, the mean amount of monthly sales volume is 2,132.39. The standard 
+deviation is 1,652.02. So, the average distance between an observation (in this case a sale vol-
+ume amount) and the mean is 1,652.02. Standard deviation can indicate the data points’ rela-
+tionship to the mean: 
+•	A low standard deviation indicates the data points tend to be close to the mean. 
+•	A high standard deviation indicates the data points are spread out over a large range of 
+values. 
+
+8-22 
+Chapter 8  Interpreting Data Analysis Results 
+Does the amount of 1,652.02 seem like a high or a low standard deviation for sales vol-
+ume? Considering that the standard deviation is about 77% of the mean, it does seem to be 
+a high deviation. Review the scatterplot in Illustration 8.19 to visually determine if there are 
+many observations (data points) far from the mean of 2,132.39. The scatterplot does show data 
+points that are much higher than the mean.
+Taken together, descriptive analytics help us better understand the data underlying the anal-
+ysis being interpreted. Assessing validity and reliability of the analyses involves ensuring the cor-
+rect method is used and that the data are accurate. Frequency distributions and cross tabulations 
+can help group data into meaningful categories. Measures of location can show what the average 
+observation looks like or if there are outliers, while measures of dispersion reveal the distribution 
+of the data underlying the analysis. 
+APPLYING CRITICAL THINKING 8.2: Evaluate Reliability 
+and Validity
+It may not seem like you are applying critical thinking skills when evaluating the reliability and 
+validity of descriptive analytics, but you are thinking critically before you even begin:  
+•	 You must identify the reason behind the analysis to decide if it is a question that should be 
+answered with descriptive analytics (Purpose). 
+•	 Then, you identify the information necessary to interpret the analysis. Do you need to know 
+how to interpret frequency distributions? Cross tabulations? Measures of location? Measures of 
+dispersion? Do you have that knowledge (Knowledge)?
+•	 You could apply experiences with past interpretations of analyses to the current context 
+(Self-reflection).
+Diagnostic Analytics 
+If the objective of the analysis is to understand why something has occurred, then you will be 
+interpreting diagnostic analytics. Illustration 8.22 provides some common diagnostic objec-
+tives and the analyses that could be used. 
+Objective
+Example Questions
+Valid Analyses
+Find anomalies in the data set.
+Are there revenue transactions 
+that are different or 
+suspiciously high? 
+Scatterplot
+Boxplot
+Examine relationships in the data. 
+Is there a relationship 
+between maintenance 
+expense and equipment 
+hours?
+Scatterplot 
+Correlation coefficient
+Identify patterns in the data set.
+Is there a seasonal sales 
+pattern?
+Bar chart
+Column chart
+Line graph
+Trend line
+ILLUSTRATION 8.22  Diagnostic 
+Objectives, Questions and Valid 
+Analyses
+Find Anomalies
+Assessing validity and reliability includes identifying any potential anomalies in the data. An 
+anomaly is an observation in the data set that deviates from what is normal or expected. 
+
+8.4  How are Validity and Reliability Determined in Descriptive and Diagnostic Analyses?  8-23
+Identifying anomalies is a common diagnostic analytic procedure. An anomaly may seem the 
+same as an outlier, discussed in the section on descriptive analytics. However, there are some 
+key differences: 
+•	Outlier: This is a legitimate observation that lies an abnormal distance from other values 
+in the data. For example, in retail stores sales are much higher during the holidays than 
+during the summer. A high sale amount in December may be an outlier, in that it is much 
+higher than the other months, but it is legitimate because sales are expected to be higher 
+in December.
+•	Anomaly: This is an illegitimate observation. Illegitimate observations could be mis-
+takes or unusual occurrences that we do not expect to see again. These observations may 
+be outliers that are determined to be illegitimate, hence an anomaly. An example of this is 
+if supplies expense is significantly higher in one month due to an erroneous journal entry. 
+Detecting anomalies could be the purpose of the analysis, such as when searching for unusu-
+ally large transactions in an audit where fraud is suspected. However, detecting an anomaly 
+could also be unintentional. 
+Recall that Illustration 8.19 identified two potential outliers–the sales volume amounts of 
+8,421 and 7,810. These amounts are much larger than the other monthly volume amounts that 
+occurred over the 2022 to 2025 period. Why are those sale volume amounts so high? This is an 
+example of anomaly detection. These two points might be legitimate observations (outliers), 
+or illegitimate (anomalies).
+The next step in the interpretation is to determine the reason for the high monthly volume 
+amount and investigate other potential anomalies in the data. First, examine all the amounts 
+that are over 1,500 and determine if they are accurate. If they are accurate, then investigate 
+potential reasons for the high volume. 
+Examine Data Relationships
+Part of understanding data is knowing how the data are related. Correlation analysis shows 
+relationships in the data by measuring the linear relationship between two variables. If the 
+goal of the analysis is to determine the strength of a relationship between objects of interest 
+(variables), then a correlation analysis would be appropriate. Assessing validity and reliability 
+of a correlation analysis requires knowing how to interpret the correlation coefficient.
+Linear correlation is measured by the correlation coefficient, also know has the Pear-
+son product-moment correlation coefficient. This measure is a numerical value between –1 
+and +1. The higher the absolute number, the greater the strength of the relationship. A posi-
+tive correlation coefficient indicates that as one variable increases, so does the other variable. 
+There is a positive relationship between ice cream sales and outdoor temperature, for exam-
+ple. As the temperature rises, ice cream sales tend to rise as well. 
+A negative correlation is an inverse relationship. As one variable increases, the other 
+decreases and vice versa. Consider sales of soup. There is a negative relationship between soup 
+sales and temperature. As temperatures decrease, the sales of soup increases. Illustration 
+8.23 is a guide to interpreting the value of the correlation coefficient.
+ILLUSTRATION 8.23 
+ 
+Interpreting Correlation 
+Coefficients
+−0.70
+−0.50
+−0.30
+A moderate negative linear relationship
+A weak negative linear relationship
+0
+No linear relationship
+Exactly −1
++0.50
++0.70
+Exactly +1
++0.30
+A perfect negative linear relationship
+A strong negative linear relationship
+A strong positive linear relationship
+A perfect positive linear relationship
+A weak positive linear relationship
+A moderate positive linear relationship
+Interpretation
+Correlation r
+
+8-24 
+Chapter 8  Interpreting Data Analysis Results 
+Correlation is a valid measure for examining linear relationships between variables in 
+data, and the interpretation of the correlation should be based on the correlation coefficient. 
+Correlation analysis is reliable if the correlation coefficients are consistent and accurate 
+relative to the data being analyzed. In the ice cream and soup examples, the correlation is 
+valid because we are examining a logical correlation using the correlation coefficient. It is 
+reliable if we believe the correlation coefficients are consistent and accurate. 
+A correlation analysis can be performed using the Super Scooters data: 
+•	Super Scooters management is reviewing variable marketing costs and would like 
+to know if there is a relationship between the amount spent on variable marketing 
+(discounts given as incentives for dealers to buy Super Scooters products) and sales 
+volume. 
+•	Management is concerned that they spent $1.1 million on variable marketing in 2024, and 
+they are not sure if that spending resulted in increases in sales. 
+Illustration 8.24 is a summary of the correlation coefficients for gross sales, sales vol-
+ume, and variable marketing expenses.
+The correlation coefficient for variable marketing and gross sales is 0.9650. The interpreta-
+tion of that number is that there is a strong positive correlation between gross sales and variable 
+marketing costs. As variable marketing costs increase, so do gross sales. There is also a strong 
+correlation between sales volume and variable marketing with a correlation coefficient of 0.77410. 
+While we cannot prove causation, we can say that there appears to be a strong positive correlation 
+between the amount spent on variable marketing and both sales volume and gross sales.
+Identify Patterns
+A trend analysis is a statistical tool that uses historical data to identify patterns. It can explain why 
+something is happening. A trendline indicates the general course or tendency of the data and is 
+created using the historical data points to estimate a line.3 Examining trends helps detect patterns 
+and relationships, which can identify opportunities or potential threats to a business. 
+The best way to identify trends is to graph the data over time. Illustration 8.25 is a 
+trend analysis of material costs and sales volume for Super Scooters for the years 2023–2025. 
+ILLUSTRATION 8.24 
+ 
+Correlation Coefficients Summary 
+for Super Scooters
+Correlation
+Coeﬀicient
+0.9650
+0.7749
+Gross Sales
+Sales Volume
+3Trend analysis can also be used as a predictive analytic method. 
+ILLUSTRATION 8.25  Super Scooters’ Material Costs and Sales Volume Trend Analysis 
+Sales
+Volume
+$260K
+$240K
+$220K
+$200K
+$180K
+$160K
+$140K
+$120K
+$100K
+$80K
+$60K
+$40K
+$20K
+$0K
+0
+200
+400
+600
+800
+1,000
+1,200
+1,400
+1,600
+1,800
+2,000
+2,200
+2,400
+2,600
+2,800
+3,000
+3,200
+3,400
+3,600
+Mar.
+2023
+Jun.
+2023
+Sep.
+2023
+Dec.
+2023
+Mar.
+2024
+Jun.
+2024
+Sep.
+2024
+Dec.
+2024
+Dec.
+2025
+Mar.
+2025
+Jun.
+2025
+Sep. 
+2025
+Materials Cost
+Sales Volume 
+Materials
+Dec.
+2022
+Month and Year
+Super Scooters Material Costs and Sales Volume Trends
+
+8.4  How are Validity and Reliability Determined in Descriptive and Diagnostic Analyses?  8-25
+APPLYING CRITICAL THINKING 8.3: Interpret 
+Diagnostic Analytics
+When explaining why something happened, use diagnostic analytics: 
+•	 The results of diagnostic analyses can be used to develop other explanations. For example, sales 
+trends seem to alternate with increases and then decreases the following quarter. Perhaps sales 
+promotions are driving this pattern (Alternatives).
+•	 Look for potential threats to the analyses, such as anomalies. Are there any observations in the 
+trend analysis that are unusual or unexpected (Risks)? 
+•	Consider what is required to understand analyses, such as correlation analysis and trend 
+analysis ­(Knowledge). 
+Apply It 8.4 
+Interpret a  
+Scatterplot for 
+Outliers
+Data   Auditing   Roberto Jimenez is the operations manager for DHI. He has asked the inter-
+nal audit department to help him perform an analysis of housekeeping hours. Roberto would like 
+to know how efficiently different locations are performing. You have been given a scatterplot that 
+displays the housekeeping hours worked and the number of rooms rented by hotel location. The 
+line through the graph is a trendline indicating the linear relationship between hours worked 
+and rooms rented. Note that the numbers listed below the dots are the hotel location numbers. All 
+data in the scatterplot are legitimate observations.
+1.	 Review the scatterplot, identify potential outliers, and explain why you identified them as outliers. 
+2.	 Recommend how to address the outliers.   
+The trend analysis was prepared with data visualization software. A trend analysis can also 
+be prepared in Microsoft Excel using the trendline tool that is available when the data is 
+charted. 
+Super Scooters is examining why material costs have been increasing. The analysis in 
+Illustration 8.25 shows that sales volume and material costs move in the same pattern over the 
+years and that both are increasing: 
+•	It is logical that sales volume increases will result in rising material costs. There are sim-
+ilar peaks and valleys in the lines. This is an indication that there could be a seasonal 
+pattern to sales. 
+•	The trend lines in the analysis (the dashed straight lines) reveal that while both trend 
+lines are increasing, material costs are increasing at a higher rate. 
+After reviewing this analysis, we can conclude that material costs are increasing due to 
+increases in sales volume.  
+This analysis of sales volume and material costs is valid because it uses the appropriate 
+method for understanding the relationship between trends of sales and expenses. The mea-
+sures used in the analysis are accurate and consistent and the data is dependable and trust-
+worthy, so the analysis is also reliable. However, understanding why material costs are rising 
+at a faster rate than sales will require more investigation. 
+
+8-26 
+Chapter 8  Interpreting Data Analysis Results 
+SOLUTION
+1.	 There is a positive relationship between housekeeping hours and room rentals. As the num-
+ber of rooms rented increases, so does the number of housekeeping hours. This makes sense 
+because rooms that have been rented must be cleaned. 
+	
+There are several hotel location observations that are further from the trendline than other 
+observations:  
+•	 Location 30 has the highest hours of housekeeping, but not the highest number of room 
+rentals.
+•	 Location 105 has low housekeeping hours but a high number of room rentals.
+2.	 Recommendations:
+•	 Further investigation into Location 30 to identify the cause of inefficient housekeeping 
+hours.
+•	 Further investigation into Location 105 to identify efficiencies that could be applied to less 
+efficient locations.
+0
+0
+2
+4
+6
+8
+10 12 14 16 18 20 22 24 26 28 30 32 34 36 38 40 42 44
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+Hours Worked,
+Housekeeping
+(In Thousands) 
+Room Rentals (In Thousands)
+Housekeeping Hours Worked and Rooms Rented per Location
+33
+105
+11
+29
+52
+18
+1
+22
+87
+15 12
+25
+16
+37
+2
+3
+17
+7
+31
+21
+56
+9
+70
+5
+10
+97
+93
+6 32
+39
+40
+30
+59
+43
+
+8.5  How are Validity and Reliability Assessed in Predictive and Prescriptive Analyses?  8-27
+8.5  How are Validity and Reliability 
+Assessed in Predictive and Prescriptive 
+Analyses?
+LEARNING OBJECTIVE ➎
+Evaluate the validity and reliability of predictive and prescriptive data analysis results.
+As you have learned, the other two types of analytics are predictive and prescriptive analytics. 
+The next section covers the types of analyses in these areas that you are likely to encounter in 
+your career and how to determine if the analyses are reliable and valid.
+Predictive Analytics 
+There are many types of predictive analytics, but they all have the goal of predicting a 
+future outcome. In the accounting profession the most common predictive analysis is linear 
+regression, which is a tool for building mathematical and statistical models to explain the 
+relationship between a dependent variable and one or more independent variables. Even if 
+you do not prepare linear regression models in your career, understanding regression can help 
+understand the predictive models you encounter.  
+Modeling Relationships
+Predictive analytics build a model to help predict or better understand a phenomenon. Build-
+ing a model that predicts supplies expense would help understand the factors that influence 
+supplies expense. Building this model requires identifying the variables that will be included 
+in it. 
+Once the regression model is complete, how do we know if it is valid? Remember that an 
+analysis is valid if it measures what it is supposed to measure and if it also represents reality. 
+Consider the variables in the model–do they make sense based on the model’s goal? 
+For example, when evaluating a model that examines the impact of temperature on win-
+ter coat sales, it would make sense if both temperature and the average price of coats were 
+included in the model. The model might also include snowfall. However, if the model includes 
+a variable that does not make sense, such as number of swimsuits sold, the model will not be 
+valid. It would not be measuring what it is intended to measure. 
+The next step is confirming the model is reliable. Recall that reliability means that the 
+measures used in the analysis are accurate and consistent and the data are dependable and 
+trustworthy. Fortunately, there are many statistical measures in a regression analysis that can 
+be examined to determine reliability. Previous chapters described how to build regression 
+models and interpret regression results. Here, we focus on the key statistics and output that 
+help evaluate and interpret regression model output. Keep in mind that if the model is not 
+valid, then it does not matter if it is reliable. An accurate and consistent measure of the model 
+does not mean the model represents reality. So, this first step of determining if the model vari-
+ables are logical is important. 
+Reliability of the Regression Model
+Assess the reliability of regression analysis by reviewing the model’s statistics. ­Illustration 
+8.26 is the output of a multiple regression model to predict purchasing department expenses 
+for Super Scooters. Note that purchasing department expenses are those expenses incurred 
+
+8-28 
+Chapter 8  Interpreting Data Analysis Results 
+by the purchasing department to process purchase orders (payroll, administrative, and over-
+head). These are not the same as the cost of the purchase. The model is based on historical 
+data, collected from each production location, for variables believed to influence total pur-
+chasing department expenses. 
+ILLUSTRATION 8.27  Regression 
+Statistics for Purchasing Dept. 
+Expenses
+Regression Statistics
+Multiple R
+Adjusted R Square
+R Square
+Observations
+Standard Error
+0.892897453
+0.777957848
+0.797265861
+24
+1,337.156824
+In this model, total purchasing department expense is the dependent variable, and sales 
+volume and the number of purchase orders processed are the independent variables. 
+The regression in Illustration 8.26 was performed using Microsoft Excel. The Summary 
+Output is split into three sections. First are the regression statistics, which are the statistical 
+measures used to evaluate the model. Illustration 8.27 shows the regression statistics from 
+Illustration 8.26.
+ILLUSTRATION 8.26  Super Scooters Purchasing Department Expense Regression Model
+Multiple R
+R Square
+Adjusted R Square
+Standard Error
+Observations
+ANOVA
+0.892897453
+0.797265861
+0.777957848
+1,337.156824
+24
+df
+SS
+MS
+F
+147659116.6
+37547755.8
+Regression
+Residual
+Total
+2
+21
+23
+185206872.4
+73829558.29
+1787988.371
+41.29196782
+5.2812E-08
+877.1183137
+31.32217805
+Intercept
+# of Purchase Orders
+Sales Volume
+−994.5719771
+180.0127037
+1.191401172
+0.351035522
+3.393961854
+−1.133908575
+5.747132382
+0.002736568
+1.05165E-05
+0.269611889
+Significance F
+Coeﬀicients Standard Error
+t Stat
+P-value
+SUMMARY OUTPUT
+Super Scooters Purchasing Department Expense Regression
+Regression Statistics
+All the regression statistics provide insight into a regression model. Each of these statis-
+tics were covered in the chapter devoted to foundational data analysis skills. Here are some of 
+the most important statistics to evaluate for model reliability: 
+•	Adjusted R square (R2): Explains how well the regression line fits the data. The 
+adjusted R2 is a statistic that modifies the value of R2 by incorporating the sample size 
+and the number of independent variables. In general, use adjusted R2 to evaluate a 
+multiple regression model. The closer the R2 is to 1, the better the fit of the regression 
+line to the data.
+•	Standard error: In Excel regression output, standard error represents the variability of 
+the observed dependent variable values from the values that are predicted by the model. 
+In other words, it compares the actual dependent variable to the predicted value that the 
+model provides. If the data are clustered close to the regression line, then the standard 
+error will be small. If the data are more scattered, then the standard error will be larger. A 
+small standard error is optimal.
+
+8.5  How are Validity and Reliability Assessed in Predictive and Prescriptive Analyses?  8-29
+	 Illustration 8.27 shows the regression statistics for Illustration 8.26: 
+•  The adjusted R square in Illustration 8.27 is 0.778. We would interpret that 77.8% of 
+total expenses can be explained by how many purchase orders are processed and by 
+sales volume.
+•  The standard error in this model is $1,337.16. To determine if this is a large or 
+a small standard error, compare it to the standard deviation of the dependent 
+variable. In this example, compare the standard error to the standard deviation 
+of total expenses. Illustration 8.28 provides the mean and standard deviation for 
+total expenses.
+•  The standard deviation of $2,837.69 is higher than the standard error of $1,337.16 in 
+the regression model. The standard error in this model would be considered some-
+what small.
+The next section of regression summary output is the analysis of variance (ANOVA) output. 
+Illustration 8.29 is the ANOVA section from the regression model. The ANOVA is a test for the 
+significance of the entire model:
+•	In a multiple linear regression such as this, significance is a test of whether the regression 
+model is better than a model with no independent variables. In other words, is the model 
+better than no model at all? 
+•	Generally, a model is considered significant if the F statistic (Significance F in Illustration 
+8.29) is less than 0.05. 
+ILLUSTRATION 8.28  Super 
+Scooters Purchasing Department 
+Expenses
+Super Scooters Purchasing
+Department Costs
+2022 — 2024
+Mean
+Standard Deviation
+$ 3,725.30
+$ 2,837.69
+ILLUSTRATION 8.29  ANOVA 
+Regression Statistics for 
+Purchasing Department Expenses
+ANOVA
+Purchasing Dept. Expenses ANOVA Results
+Residual
+Regression
+Total
+df
+21
+2
+23
+SS
+37547755.8
+147659116.6
+185206872.4
+MS
+1787988.371
+73829558.29
+F
+41.29197
+Significance F
+5.2812E-08
+So, is the model significant? The ANOVA in Illustration 8.29 has a Significance F of 
+5.2812E-08. The notation “E-08” after 5.2812 represents scientific notation, also known as 
+exponential notation. 5.28.12E-08 is the same as 0.000000052812. This is a number well below 
+0.05, so the model is significant. In other words, the independent variables can explain some 
+variation of total expenses, so it is better than no model at all. 
+The last section of the regression summary output provides information to create the 
+equation that predicts the dependent variable. If the adjusted R square and standard error 
+are acceptable and the model is significant, then we can interpret the equation of the model. 
+The intercept and coefficients of the model represent the equation of the line that best 
+fits the data. The key statistic to analyze in this section is the p-value for each of the indepen-
+dent variables. Like the F statistic, the p-value provides a test of significance. It is a test as to 
+whether the independent variable improves the ability of the model to predict the dependent 
+variable. A p-value of 0.05 or less is considered significant. 
+Let’s use the output in Illustration 8.30 to identify the prediction model for Super Scoot-
+ers’ purchasing department total costs, and then interpret the coefficients. Notice that the 
+p-values for all the independent variables meet the test of being less than 0.05 and are there-
+fore significant. 
+
+8-30
+ChAPTER 8 Interpreting Data Analysis Results 
+The prediction model will be equal to the intercept, plus the coefficients of the indepen-
+dent variables, multiplied by the predicted values for those variables. Based on the regression 
+model in Illustration 8.30, the equation to predict total purchasing department costs is:
+($994.57) + $180.01 (number of purchase orders) + $1.19 (sales volume)
+Illustration 8.31 is the calculation of predicted total expenses if 12 purchase orders are pro-
+cessed and 2,200 scooters are sold.
+APPLYING CRITICAL THINKING 8.4: Interpret Predictive 
+Analytics
+If the analysis being interpreted predicts a future outcome, then you will be interpreting pre-
+dictive analytics: 
+• In the Super Scooters’ purchasing department costs example, the purpose of the model is to 
+better understand and predict the department’s costs (Purpose). 
+• Making this prediction requires understanding how to interpret a regression analysis 
+(Knowledge). 
+# of Purchase Orders
+Intercept
+Sales Volume
+Model
+Coeﬀicient
+Purchasing Dept. Predicted Expenses
+$    180.01
+$ (994.57)
+$         1.19
+Variable
+Values
+12
+1
+2,200
+$ 3,786.66
+Prediction
+$   2,160.15
+$    (994.57)
+$   2,621.08
+ILLUSTRATION 8.31 Prediction 
+Model Example
+Add the product of each independent variable coefficient and each variable’s predicted value 
+to the intercept for a total prediction of $3,786.66 purchasing department costs for the year.
+The model could be interpreted like this:
+• Intercept: The intercept does not have a practical interpretation. It is a result of the model 
+that represents the mean for the response when all the independent variables are zero. It 
+is where the equation function crosses the y-axis. 
+• # of Purchase Orders: Each purchase order adds $180.01 to total costs.
+• Sales Volume: For each additional scooter sold, purchasing department costs increase by 
+$1.19.
+Using a model like the one in Illustration 8.31 helps businesses predict future outcomes. The 
+combination of evaluating the variables included in the model to see if they make sense and 
+then assessing the regression model statistics will help determine if the model is both valid 
+and reliable. 
+ILLUSTRATION 8.30 Regression 
+Model Example
+# of Purchase Orders
+Intercept
+Sales Volume
+Coeﬀicients
+180.0127
+−994.572
+1.1914012
+Standard Error
+31.32217805
+877.1183137
+0.351035522
+3.393961854
+t Stat
+5.747132382
+0.002737
+1.05E-05
+−1.133908575
+P-value
+0.269612
+Purchasing Dept. Regression Model 
+Prescriptive Analytics
+Prescriptive analytics prescribe what should happen to achieve desired results. The most com-
+mon prescriptive analytics in accountanting are what-if analyses and optimization models. The 
+
+8.5  How are Validity and Reliability Assessed in Predictive and Prescriptive Analyses?  8-31
+same rules that apply to the other analytics methods also apply here. The analysis must be valid 
+and reliable. Since a prescriptive model prescribes action, it is crucial to verify that inputs and 
+outputs of the model are valid and reliable to avoid making poor business decisions. 
+A spreadsheet model that evaluates how changes to values and assumptions affect an 
+outcome is called a what-if analysis. A what-if analysis is an easy way to change values in a 
+spreadsheet and recalculate the outputs.
+Excel tools that are commonly used for what-if analysis include Scenario Manager and 
+Goal Seek. (Optimization models are discussed in the chapter about data analysis motivations 
+and objectives.) Regardless of which tool is used, assessing the validity and reliability of the 
+model output is the same:
+•	Understand what the model is addressing. 
+•	Determine if the model measures what it is supposed to measure and if it does, in fact, 
+represent the objective (validity). 
+•	Review the model measures to confirm they are accurate and consistent (reliability).
+What-If Analysis: Scenario Manager
+Let’s look at a scenario analysis and assess validity and reliability. An international dance 
+company, Ballet Nuevo, is performing in Atlanta, Georgia. They have three performances 
+scheduled and are determining if they should add a fourth. Illustration 8.32 provides a sum-
+mary model.
+ILLUSTRATION 8.32  Ballet Performance Financial Model
+fx
+1
+B
+A
+C
+Sheet1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+Ballet Nuevo-Additional Performance Scenario Analysis
+Theater Charges
+Ticket Price
+Expected Ticket Sales
+Average Concessions Spending
+per person
+Profit
+Concession Revenue
+Ticket Revenue
+Concession Profit %
+Profit Percentage
+$   18,000.00
+$    31,250.00
+$ 113,250.00
+$ 125,000.00
+$            50.00
+2,500
+$            25.00
+50%
+80%
+AutoSave
+Oﬀ
+per person
+Expected ticket sales and
+concession spending
+(food and drink) by
+ticket holders
+Theater charges, based
+on ticket sales, are expenses
+charged to the ballet company
+from the theater. The higher
+the ticket sales, the
+lower the theater charge
+The theater takes 20%
+of the ticket price and
+50% of concession sales 
+people
+Ballet Nuevo believes there are three possible scenarios, which are shown in Illustration 8.33.
+Expected Ticket Sales
+Concessions Spending
+2,500
+$          25.00
+$ 18,000.00
+4,500
+$         40.00
+$ 10,000.00
+1,500
+$          10.00
+$ 25,000.00
+Theater Charges
+Likely
+Ballet Nuevo Scenario Analysis Model
+Optimistic
+Pessimistic
+ILLUSTRATION 8.33  
+Ballet Nuevo Performance 
+Scenarios
+A scenario analysis was performed using Scenario Manager in Microsoft Excel. The sce-
+nario summary shows the results when cells B3, B4, and B5 (Illustration 8.32) are changed to 
+the values shown in Illustration 8.33.
+
+8-32 
+Chapter 8  Interpreting Data Analysis Results 
+$B$3
+Ballet Nuevo Scenario Analysis Results
+$B$4
+$B$5
+$            25.00
+$    18,000.00
+$B$13
+$ 113,250.00
+$            40.00
+$    10,000.00
+$ 260,000.00
+$          10.00
+$ 25,000.00
+$ 42,500.00
+$            25.00
+$   18,000.00
+$ 113,250.00
+Result Cells
+Changing Cells
+2,500
+4,500
+1,500
+2,500
+Current Values
+Scenario Summary
+Optimistic
+Pessimistic
+Likely
+ILLUSTRATION 8.34  
+Ballet Nuevo Scenario Analysis
+ILLUSTRATION 8.35  Ticket Price and Target Profit – Goal Seek
+fx
+1
+B
+A
+C
+D
+C
+Sheet1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+Ballet Nuevo ‒ Profit Target Goal Seek
+Expected Ticket Sales
+Average Concessions Spending
+Theater Charges
+Concession Revenue
+Profit
+Ticket Revenue
+Ticket Price
+Concession Profit %
+Profit percentage
+2,500
+People
+Per person
+Per person
+$            25.00
+$    18,000.00
+$ 125,000.00
+$    31,250.00
+$ 113,250.00
+$            50.00
+50%
+80%
+AutoSave
+Oﬀ
+OK
+Cancel
+Goal Seek
+Set cell:
+$B$13
+To value:
+150000
+By changing cell:
+$B$6
+?
+The interpretation of this analysis is that even in the pessimistic scenario Ballet Nuevo 
+will make a profit on an additional performance. 
+How do we know this analysis is valid and reliable? Ballet Nuevo would like to evaluate differ-
+ent ticket and concession sales scenarios to determine if they should add an additional performance. 
+A scenario analysis is a valid method to use for this type of analysis, and the model represents three 
+realistic possibilities. As to reliability of the model, that can be confirmed by  verifying the profit 
+calculation is correct and the assumptions are realistic (ticket prices, concession purchases, and 
+theater costs). If the model inputs are accurate and consistent, then the model is reliable. 
+What-If Analysis: Goal Seek
+Another tool for performing what-if analysis is Goal Seek:  
+•	Goal Seek is used if the desired result is already known but the input value to achieve that 
+result is not. 
+•	Goal Seek is limited because it can only use one input variable. If the analysis being per-
+formed requires more than one variable to change, then an optimization model using 
+Excel Solver would be needed.
+In the previous example, Ballet Nuevo wanted an analysis comparing different ticket and 
+concession sales scenarios to determine if they should add a performance. What if an addi-
+tional performance is not possible due to theater availability, and Ballet Nuevo instead must 
+consider how to set ticket prices to meet a specific target profit? 
+•	Ballet Nuevo has determined they need a profit of $150,000 from their performance. 
+•	Currently the ticket prices are $50, and they anticipate 2,500 ticket sales based on last 
+year’s performances. 
+Illustration 8.35 shows the financial information for Ballet Nuevo and the Goal Seek box 
+that appears after clicking the Data tab in Excel and selecting What-If Analysis and Goal Seek. 
+The result of the analysis is shown in Illustration 8.34.
+
+8.5  How are Validity and Reliability Assessed in Predictive and Prescriptive Analyses?  8-33
+•	The Set cell represents the profit calculation in cell B13 in the Excel spreadsheet. 
+•	Note the current profit amount of $113,250. The desired profit is $150,000, so that value 
+was entered in the To value box. 
+•	The variable being manipulated is ticket price, so the cell reference for the ticket price 
+(B6) was entered in the By changing cell box.
+After the user clicks OK, Excel will calculate the ticket price necessary to meet the profit 
+goal of $150,000. Illustration 8.36 is the solution generated by Excel. To meet a profit target 
+of $150,000, Ballet Nuevo must charge $68.38 per ticket. 
+To assess the reliability and validity of a goal seek model, determine if the model mea-
+sures what it is supposed to measure (reliability) and if it represents the reality of the ques-
+tion/objective (validity):  
+•	In this model, confirm the profit calculation is accurate. 
+•	Additionally, determine if the model answers the question of how much Ballet Nuevo 
+should charge per ticket to achieve a profit of $150,000 and if the model’s suggested ticket 
+price is realistic. If $68.38 is unrealistic for a ticket to a performance, then Ballet Nuevo 
+must consider other ways to reach profit goals. 
+ILLUSTRATION 8.36  Ticket Price 
+and Target Profit – Goal Seek 
+Solution
+fx
+1
+B
+A
+C
+Sheet1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+Ballet Nuevo ‒ Profit Target Goal Seek
+Expected Ticket Sales
+Average Concessions Spending
+Theater Charges
+Concession Revenue
+Profit
+Ticket Revenue
+Ticket Price
+Concession Profit %
+Profit percentage
+2,500
+People
+Per person
+Per person
+$             25.00
+$   18,000.00
+$ 170,937.50
+$    31,250.00
+$ 150,000.00
+$            68.38
+50%
+80%
+AutoSave
+Oﬀ
+APPLYING CRITICAL THINKING 8.5: Interpret Prescriptive 
+Analytics
+Use the elements of critical thinking when interpreting a prescriptive model:  
+•	 Knowing who will use predictions helps determine if the model addresses their concerns and con-
+firm that it represents reality (Stakeholders). 
+•	 An understanding of why the analysis is being performed is required to evaluate if the vari-
+ables make sense (Purpose). 
+•	 Knowing how to interpret regression analyses and evaluate optimization models is necessary to 
+interpret them (Knowledge). 
+
+8-34 
+Chapter 8  Interpreting Data Analysis Results 
+Chapter Review and Practice
+Learning Objectives Review
+❶  Compare data analysis interpretation and data 
+exploration. 
+While data exploration and interpretation seem similiar, there are 
+important differences:
+•  Data exploration is the process of analyzing data to determine 
+whether we need to perform additional analyses. The objective 
+in data exploration is getting to a point where we are sufficiently 
+confident we understand what is happening in the data. 
+•  Data analysis interpretation is the process of evaluating an analysis 
+to understand it and explain its meaning. The insights gained from 
+interpretation lead to good business decisions. 
+❷  Apply critical thinking to data analysis interpretation.
+•  Understanding the stakeholders enables understanding the con-
+text of the analysis and the implications of the results. 
+•  Identifying the purpose of the analysis maintains focus on its 
+goal and avoids misdirection in the interpretation.
+Apply It 8.5
+Interpret Regression 
+Results 
+Data   Managerial Accounting   DHI would like to understand what is driving total expenses for 
+the hotel chain. Luciana feels strongly that the following variables have the most influence on expenses:
+•	 Age of the hotel
+•	 The number of maintenance employees
+•	 Total housekeeping hours
+•	 Total rooms rented 
+She has asked you to prepare a regression model using those variables to predict expenses. The fol-
+lowing illustration is the result of that model. 
+Housekeeping Hours and Rooms Rented by Location Regression Model
+Multiple R
+R Square
+Adjusted R Square
+Standard Error
+Observations
+ANOVA
+0.7215151
+0.520584
+0.4714132
+93901.466
+44
+df
+SS
+MS
+F
+3.73412E+11
+3.43882E+11
+Regression
+Residual
+Total
+4
+39
+43
+7.17293E+11
+9.3353E+10
+8817485253
+10.58724498
+6.62556E-06
+107148.5543
+2.918679199
+Intercept
+Room Rentals
+Hours Worked, Housekeeping
+Age
+Employees, Maintenance
+413314.47
+11.015461
+6.0934507
+−3565.695
+16762.392
+1674.938087
+6906.902129
+5.531393108
+−2.12885155
+2.42690446
+1.1016123
+3.85739665
+3.77412543
+0.039637083
+0.019949355
+0.277382666
+0.000534577
+0.000418405
+Significance F
+Coeﬀicients Standard Error
+t Stat
+P-value
+Regression Statistics
+SOLUTION
+1.	 The adjusted R square is 0.471, meaning that room rentals, housekeeping hours worked, the age 
+of the hotel, and the number of maintenance employees can explain 47.1 % of total expenses. 
+2.	 The model is significant – Significance F is less than 0.05 – so, it is better than no model at all. 
+3.	 The p-value for Hours Worked, Housekeeping is greater than 0.05, so it should be removed 
+from the model. 
+1.	 What does the adjusted R square reveal about the model?
+2.	 Is the model better than not having a model?
+3.	 Are there any variables you would recommend Luciana remove from the model? Why?
+
+How To Walk-Throughs  
+8-35
+•  When interpreting an analysis, consider if there are alternative 
+explanations or alternative analyses that should be conducted.
+•  Identify potential risks such as data risks, analysis risks, and 
+risks of bias. 
+•  All analysis interpretation requires specific knowledge. Identify-
+ing the necessary accounting, industry, and technology knowl-
+edge gives us to the tools to interpret the analysis. 
+•  Similar analysis interpretation performed in the past could be 
+applied in the current context. 
+❸  Determine if the data analysis results answer the 
+question and align with the objective of the analysis.
+The answers to some specific questions can be helpful when interpret-
+ing a data analysis:
+•  Is the method and the result reasonable given current knowl-
+edge about the subject being analyzed? Does the analysis and its 
+interpretation make sense? Consider whether the analysis has 
+clear meaning. Does it address the objective or question posed? 
+Consider also whether the interpretation is reasonable.
+•  Sometimes more information or analysis is needed before a final 
+interpretation can be completed. Avoid risks like the “what you 
+see is all there is” bias or confirmation bias. 
+❹  Evaluate the validity and reliability of descriptive 
+and diagnostic data analysis results.
+Descriptive analytics determine what has happened in the past, while 
+diagnostic analytics investigate why it happened.
+•  Common descriptive analytics techniques include frequency 
+distributions, cross tabulation, measures of location, and mea-
+sures of dispersion. 
+•  Common diagnostic analytics techniques include anomaly 
+detection, correlation analysis, and trend analysis.
+•  A data analysis is valid if it measures what it is supposed to mea-
+sure and represents reality. 
+•  A data analysis is reliable if the measures used in the analysis 
+are accurate and consistent and the data used are dependable 
+and trust worthy.
+❺  Evaluate the validity and reliability of predictive and 
+prescriptive data analysis results.
+Predictive analytics are used when the objective of the analysis is 
+to predict a future outcome. Prescriptive analytics aim to prescribe 
+actions that would result in best outcomes in the future.
+•  Linear regression is the foundation for most predictive model-
+ing techniques. The validity of a regression model is assessed 
+by how well the model represents the phenomenon of inter-
+est. Reliability of the model is assessed by evaluating the 
+regression statistics, model statistics, and the p-value of the 
+coefficients. 
+•  Optimization models and what-if analysis are commonly used 
+for prescriptive analytics. In the accounting profession, what-if 
+analysis can help evaluate several choices (Scenario Analysis) or 
+to determine a specific input (Goal Seek). 
+•  Regardless of the tool used to create the what-if analysis, assess 
+validity by determining if the model is measuring what it is sup-
+posed to measure (validity) and that the measures are accurate 
+and consistent (reliability).
+Key Terms Review
+Accurate  8-17
+Adjusted R square (R2)  8-28
+Anomaly  8-22
+Correlation analysis  8-23
+Correlation coefficient  8-23
+Cross tabulation analysis  8-19
+Data analysis interpretation  8-2
+Frequency distribution  8-18
+Linear regression  8-27
+Mean  8-19
+Median  8-19
+Mode  8-19
+Outlier  8-20
+Regression statistics  8-28
+Reliability  8-17
+Scatterplot  8-20
+Standard deviation  8-21
+Standard error  8-28
+Trend analysis  8-24
+Trendline  8-24
+Validity  8-17
+what-if analysis  8-31
+How To Walk-Throughs 
+HOW TO 8.1 
+Create a Frequency Distribution With Power BI
+Illustration 8.14 is a frequency distribution for Super Scooters’ different models. It was created 
+in Excel, but other tools, such as Power BI, can also create frequency distributions. 
+What You Need:  Data   The How To 8.1 data file.
+STEP 1: Extract the data. Open Power BI and select the Home tab on the top horizontal 
+menu (Illustration 8.37).
+How To
+
+8-36
+ChAPTER 8 Interpreting Data Analysis Results 
+AutoSave
+Share
+Comments
+Paste
+Cut
+Copy
+Format Painter
+File
+Modeling
+Untitled Power BI Desktop
+View
+Help
+Insert
+Home
+Clipboard
+New
+measure
+Quick
+measure
+Sensitivity
+Publish
+Share
+Calculators
+Insert
+Queries
+Data
+X
++
+Excel
+Workbook
+Power B1
+datasets
+SQL
+Server
+Enter
+data
+Dataverse
+Recent
+sources
+Get
+data
++
+A
+New
+Visual
+Text
+box
+More
+visuals
+Refresh
+Transform
+data
+Sensitivity
+Paste
+Cut
+Copy
+Format Painter
+Clipboard
+ries
+Refresh
+New
+measure
+Quick
+measure
+Sensitivity
+Publish
+Share
+Calculators
+Sensitivity
+Navigator
+Display Options
+SuperScootersSales_
+2024−2025.xlsx [2]
+Sales Transactions
+2024–2025
+Sales Transactions 2024–2025
+Sheet2
+Order Number
+Year
+Sales Order Number
+Model
+Sold Date
+13684−2024
+13684
+2024
+Celeritas
+12/31/2024
+13685−2024
+13685
+2024
+Lazer
+12/31/2024
+13682−2024
+13682
+2024
+Captain
+12/30/2024
+13683−2024
+13683
+2024
+Lazer
+12/30/2024
+13677−2024
+13677
+2024
+Lazer
+12/29/2024
+13678−2024
+13678
+2024
+Lazer
+12/29/2024
+13679−2024
+13679
+2024
+Celeritas
+12/29/2024
+13680−2024
+13680
+2024
+Captain
+12/29/2024
+13681−2024
+13681
+2024
+Celeritas
+12/29/2024
+13675−2024
+13675
+2024
+Celeritas
+12/28/2024
+13676−2024
+13676
+2024
+Captain
+12/28/2024
+13671−2024
+13671
+2024
+Captain
+12/27/2024
+13672−2024
+13672
+2024
+Lazer
+12/27/2024
+13673−2024
+13673
+2024
+Lazer
+12/27/2024
+13674−2024
+13674
+2024
+Captain
+12/27/2024
+13668−2024
+13668
+2024
+Captain
+12/26/2024
+13669−2024
+13669
+2024
+Celeritas
+12/26/2024
+13670−2024
+13670
+2024
+Kicks
+12/26/2024
+13665−2024
+13665
+2024
+Lazer
+12/25/2024
+Cancel
+Load
+Transform Data
+! The data in the preview has been truncated due to size limits
+Sheet1
+Be sure you
+check the box
+before “Sales
+Transactions 2024−
+2025.” If you forget
+you will not have
+the option to “Load.” 
+HINT
+1
+2
+ILLUSTRATION 8.37 Extract and Load Super Scooters Data
+• Select the Excel icon below. 
+• When the fi le dialog box opens, navigate to the Super Scooters Excel fi le and select Open
+in the bottom right corner. 
+STEP 2: Load the data (Illustration 8.37). From Power BI’s Navigator window, which auto-
+matically opens once the data source is selected, select the data for this exercise: Sales Trans-
+actions 2023–2025. Next, click Load on the bottom right to upload this data.
+STEP 3: Transform the data to create a frequency table (Illustration 8.38). The screen 
+will return to the main Power BI screen. The Fields column will be on the far right of the 
+screen. 
+• Click the drop-down arrow next to Sales Transactions 2023–2025 to view all column names 
+from the spreadsheet. 
+• Drag the data fi elds Model and Σ Order Number to the spaces provided directly under 
+Values.
+• Each fi eld has a down arrow indicating a menu of options. Select this arrow for the Σ
+Order Number fi eld and the pull-down menu appears. 
+• Select Count. The fi eld name will change to Count of Order Number. 
+• On the left is a table with the results containing the four Super Scooter models, the 
+count of order number, and a grand total. You may enlarge that new table to see all the 
+columns. 
+
+How To Walk-Throughs  
+8-37
+ILLUSTRATION 8.38  Build a Frequency Table
+Values
+Values
+Sales Transactions 20...
+Sales Transactions 20...
+Color
+Color
+Contribution M...
+Contribution M...
+Country
+Country
+Days in Inventory
+Days in Inventory
+Gross Sales
+Gross Sales
+Labor
+Labor
+Location
+Location
+Materials
+Materials
+Model
+Model
+Order Number
+Order Number
+Overhead
+Overhead
+Revenue
+Revenue
+Sales Order Nu...
+Sales Order Nu...
+Sales Tax
+Sales Tax
+Cross-report
+Cross-report
+Oﬀ
+Oﬀ
+Drill through
+Drill through
+Visualizations
+Visualizations
+Fields
+Fields
+123
+Model
+Model
+Order Number
+Order Number
+Search
+Search
+STEP 4: Add a relative frequency table column by returning to the Fields column and se-
+lecting the Order Number field. Drag it below the Count of Order Number field in the 
+Visualizations column. 
+•	 Select the arrow pull down menu for the new Order Number field and select Count. 
+•	 In the arrow pull down menu, choose Show Value As. Select the arrow to the right for 
+Percent of Grand Total. 
+•	 The left of the screen will show a new column with the percentage of total sales for each 
+scooter model and the grand total (Illustration 8.39). Again, it may be necessary to enlarge 
+the table to see the new column.
+ILLUSTRATION 8.39  Final Super 
+Scooters Frequency Table
+Model
+Captain
+Celeritas
+892
+Kicks
+Lazer
+Frequency
+1,010
+456
+Total Sales
+3,645
+1,287
+24.47%
+Relative Frequency
+27.71%
+12.51%
+100.00%
+35.31%
+•	 Finally, it is possible to change the names of the columns to “Frequency” and “Relative 
+Frequency” by clicking the same down arrow used to select Count and instead choosing 
+Rename for this Visual. 
+It is also possible to do a frequency distribution using PivotTables or by using data visualiza-
+tion software. 
+HOW TO 8.2 
+Calculate Descriptive Statistics  
+in Microsoft Excel 
+To create the Illustration of Super Scooters’ sales volume in Illustration 8.18, use the Descriptive 
+Statistics option in the Data Analysis Tool in Microsoft Excel. 
+How To
+
+8-38 
+Chapter 8  Interpreting Data Analysis Results 
+OK
+Cancel
+Help
+Data Analysis
+Analysis Tools
+?
+Anova: Single Factor
+Anova: Two-Factor With Replication
+Anova: Two-Factor Without Replication
+Correlation
+Covariance
+Descriptive Statistics
+Exponential Smoothing
+F-Test Two-Sample for Variances
+Fourier Analysis
+Histogram
+ILLUSTRATION 8.41  Analysis 
+Tools Dialog Box
+OK
+Cancel
+Help
+Descriptive Statistics
+Input
+Columns
+Rows
+Input Range:
+Grouped By:
+Output options
+Output Range:
+New Workbook
+New Worksheet Ply:
+Summary statistics
+Confidence Level for Mean:
+Kth Smallest:
+Kth Largest:
+$B$1:$B$37
+1
+95
+%
+1
+?
+Labels in First Row
+3
+4
+ILLUSTRATION 8.42  Descriptive 
+Statistics Box
+ILLUSTRATION 8.40  Super 
+Scooters Data 
+AutoSave
+File
+Page Layout
+Formulas
+Review
+Insert
+Home
+fx
+1
+Month/
+Year
+Jan-23
+Feb-23
+Mar-23
+154
+182
+126
+Sale
+Volume
+A
+B
+C
+D
+Sheet1
+2
+3
+4
+E
+Data
+1
+F13
+Clipboard
+Undo
+Font
+Paste
+Calibri
+A
+A
+11
+B
+I
+U
+A
+What You Need: Data The How To 8.2 data file.
+STEP 1: Open the worksheet by clicking Data in the toolbar. (Illustration 8.40). 
+STEP 2: Select Descriptive Statistics (Illustration 8.41).
+STEP 3: In the Descriptive Statistics box, designate the input range (Illustration 8.42).
+
+Multiple Choice Questions 
+8-39
+•  The input range is the data used to calculate descriptive statistics. In this example it is 
+column B.
+•  Start with the column title and scroll to the bottom of the data set. (Hint: clicking in the 
+title cell and holding Shift, Ctrl, and the keyboard down arrow will capture all the data 
+in that column.)
+STEP 4: Create the statistics output by clicking Labels and Summary Statistics.
+Select Output Range and choose a cell in the current worksheet for the results, or click New 
+Worksheet and Excel will put the results in a new workbook (Illustration 8.42).
+Multiple Choice Questions
+1.  (LO 1)  Data analysis results interpretation is the process of
+a.	 evaluating an analysis to understand and explain its meaning.
+b.	 performing descriptive analysis procedures to better under-
+stand the data.
+c.	 exploring data to better understand relationships.
+d.	 transforming data to enable analysis.
+2.  (LO 1)  Which of the following is not a question addressed in data 
+analysis results interpretation? 
+a.	 Were the correct data used to perform the analysis?
+b.	 Was the correct technology used to perform the analysis?
+c.	 Is the analysis biased?
+d.	 Were the appropriate analysis methods used?
+3.  (LO 1)  If the person preparing the analysis left out observations they 
+did not think mattered to the decision, this would be an example of
+a.	 data cleaning.
+b.	 incorrect analysis methods.
+c.	 fraud decision.
+d.	 selection bias.
+4.  (LO 1)  One of the most valued aspects of accountants is the ability 
+to
+a.	 be independent and skeptical evaluators of financial information. 
+b.	 perform difficult calculations.
+c.	 identify employees committing fraud.
+d.	 remember financial information.
+5.  (LO 2)  To fully interpret data analysis results, 
+a.	 identify the person who prepared the analysis.
+b.	 identify the purpose of the analysis.
+c.	 prepare the analysis yourself.
+d.	 have all the knowledge needed to understand the analysis.
+6.  (LO 2)  When interpreting data analysis results, 
+a.	 consider only internal stakeholders affected by the results.
+b.	 stakeholders are not relevant to the interpretation.
+c.	 consider only external stakeholder affected by the results.
+d.	 consider internal and external stakeholders potentially 
+affected by the results. 
+7.  (LO 2)  Data analysis results that do not include the most recent 
+data is an example of what type of risk? 
+a.	 Incorrect method of 
+analysis
+b.	 Preparer bias
+c.	 Timeliness
+d.	 Completeness
+8.  (LO 2)  When interpreting data analysis results, which of the fol-
+lowing could be a potential analysis risk? 
+a.	 Incorrect method
+b.	 Missing relevant data
+c.	 Data biases
+d.	 Internal controls
+9.  (LO 2)  The process of thinking about how past experiences can 
+be applied to a current data analysis interpretation is which aspect of 
+critical thinking? 
+a.	 Stakeholder identification
+b.	 Alternatives
+c.	 Self-reflection
+d.	 Purpose
+10.  (LO 3)  An analysis prepared to support a predetermined belief is 
+an example of
+a.	 selection bias. 
+b.	 fraud. 
+c.	 confirmation bias. 
+d.	 affect bias. 
+11.  (LO 3)  Which of the following describes the process of determin-
+ing whether results of an analysis are reasonable given the intended 
+question or purpose of analysis? 
+a.	 Making sense
+b.	 Checking totals
+c.	 Statistical analysis
+d.	 Preparing data 
+visualizations
+12.  (LO 3)  If the answer to the question “Does the analysis address 
+the needs/concerns of the stakeholders?” is no, then 
+a.	 you must re-do the same analysis to see if you get different results.
+b.	 it will likely be acceptable if the numbers are correct.
+c.	 it is likely the stakeholders did not understand the problem.
+d.	 it is likely that a different analysis is needed before you can 
+interpret the results. 
+13.  (LO 3)  When comparing two variables with different measure-
+ment scales
+a.	 a clustered column chart is best to visually compare the variables.
+b.	 a clustered bar chart is best to visually compare the variables.
+c.	 a dual axis chart is best to visually compare the variables.
+d.	 a line graph is best to visually compare the variables.
+Data   The Data tag appears when the data required to answer a question or complete an 
+exercise are available on Wiley’s online learning platform. 
+
+8-40 
+Chapter 8  Interpreting Data Analysis Results 
+14.  (LO 4)  When assessing the reliability of the data analysis results, 
+evaluate whether the
+a.	 measures used are accurate and consistent.
+b.	 measures used measure what they are supposed to.
+c.	 data used are timely.
+d.	 data used are reasonable.
+15.  (LO 4)  An appropriate analysis to determine how many times an 
+event has occurred would be
+a.	 a measure of location.
+b.	 a measure of dispersion.
+c.	 a frequency distribution.
+d.	 linear optimization.
+16.  (LO 4)  An anomaly is
+a.	 always an outlier.
+b.	 an observation that deviates from what is normal or expected.
+c.	 always eliminated.
+d.	 an indication of fraud.
+17.  (LO 4)  When examining the relationship between two variables, if 
+one variable increases as the other variable decreases the relationship is 
+a.	 a positive correlation.
+b.	 a negative correlation.
+c.	 uncorrelated.
+d.	 perfectly correlated.
+18.  (LO 4)  If the objective is to use historical data to identify patterns, 
+which is the best analysis to use?
+a.	 Linear optimization
+b.	 Frequency distribution
+c.	 Trend analysis
+d.	 Linear regression
+19.  (LO 5)  Which of the following analyses can predict a future 
+outcome?
+a.	 Standard deviation
+b.	 Linear optimization
+c.	 Crosstabulation analysis
+d.	 Linear regression
+20.  (LO 5)  The goal of predictive analytics is to build a model that
+a.	 can help predict or better understand a phenomenon in which 
+you are interested.
+b.	 can be performed using statistical software.
+c.	 can identify how frequently a phenomenon has happened in 
+the past.
+d.	 is not too complicated.
+21.  (LO 5)  Assessing the reliability of regression analysis involves
+a.	 comparing the mean and median of the dependent variable.
+b.	 making sure the model answers the question or purpose of 
+the analysis.
+c.	 reviewing the model statistics.
+d.	 using what-if scenarios.
+22.  (LO 5)  In a regression model prepared to predict revenue, which 
+of the following is the correct interpretation of an adjusted R-square 
+of 0.85? 
+a.	 Revenue will increase by 85% next year.
+b.	 The independent variables in the model can explain 85% of 
+the change in revenue.
+c.	 The dependent variable in the model can explain 85% of the 
+change in independent variables.
+d.	 The adjusted R-square is too small of a number for us to rely 
+on the model.
+23.  (LO 5)  A spreadsheet model that allows evaluating how changes 
+to values and assumptions affect an outcome is called a
+a.	 regression equation.
+b.	 linear optimization model.
+c.	 best guess model.
+d.	 what-if analysis.
+24.  (LO 5)  Which is the best tool when the desired result is known, 
+but not the  input value for a single variable will achieve that result? 
+a.	 Goal Seek
+b.	 Scenario Manager
+c.	 Linear regression
+d.	 Data analysis 
+Review Questions
+1.  (LO 1)  Compare and contrast data exploration with data analysis interpretation.
+2.  (LO 1)  Discuss the two overall steps in the process of interpreting a data analysis. 
+3.  (LO 2)  When applying the SPARKS critical thinking model to interpreting data analyses, how does 
+identifying the stakeholders help interpret that analysis?
+
+Review Questions 
+8-41
+Assume the role of the preparer of this visualization.
+	 1.	 Who are the stakeholders?
+	 2.	 What is the purpose of the analysis? 
+	 3.	 What applicable knowledge do you need in order to prepare this visualization? 
+Then, assume the role of the reviewer of this visualization and answer the following: 
+	 4.	 What are the risks when interpreting this visualization? 
+	 5.	 What conclusions can be identified from the visualization? 
+5.  (LO 2)  Explain why it is important to identify and evaluate alternative explanations of results. 
+6.  (LO 3) Discuss what it means to ask “does the analysis make sense?” 
+7.  (LO 3) What questions should be asked when evaluating the data and methods of an analysis? 
+8.  (LO 3) What questions should be asked when evaluating the results of an analysis? 
+9.  (LO 4) Explain what reliability and validity mean in the context of data analysis interpretation. 
+10.  (LO 4) Explain the difference between an anomaly and an outlier. 
+11.  (LO 5)  Discuss how to evaluate a regression model for validity. 
+12.  (LO 5)  Explain how adjusted R-square can be used to evaluate the reliability of a regression model.
+13.  (LO 5)  Explain how to interpret whether an independent variable in a regression model is a reli-
+able measure of the dependent variable. 
+(a) Total sales include merchandise sales, net of expected returns, from our store and digital channels, as well as
+     gif card breakage.
+(b) The fourth quarter and full year 2017 consisted of 14 weeks and 53 weeks, respectively, compared with 13 weeks
+     and 52 weeks in the comparable periods presented.
+(c) Beginning with the first quarter 2018, we adopted the new accounting standards for revenue recognition,
+     leases, and pensions. We are presenting certain prior period results on a basis consistent with the new standards
+      and conformed to the current period presentation. We provided additional information about the impact of the new
+     accounting standards on previously reported financial information in a Form 8-K filed on May 11, 2018. 
+(d) 2015 sales includes $3,815 million related to our former pharmacy and clinic businesses, which Target sold to
+      CVS in December of 2015.
+−8.0
+1Q
+2Q
+3Q
+Total Sales(a): Percentage Change from Prior Year
+4Q
+Year
+−4.0
+0.0
+4.0
+8.0
+12.0
+16.0
+20.0
+24.0
+28.0
+Percent
+2016(c)(d)
+2017(b)(c)
+2018
+2019
+2020
+3.5 %
+11.3 %
+(1.1)%
+5.1 %
+– %
+10.0 %
+1.8 %
+5.7 %
+1.4 %
+4.7 %
+7.0 %
+24.8 %
+1.6 %
+3.6 %
+Fiscal Year
+2020
+2019
+2018
+2017 (b) (c)
+2016 (c) (d)
+1Q
+2Q
+3Q
+4Q
+3.7 %
+3.4 %
+(5.8)%
+3.6 %
+Year
+Source: Target’s Consolidated Financial Statements as filed with the U.S. Securities and Exchange Commission Public Domain.
+4.  (LO 2)  The following visualization was published on the Target Investors Relations website.
+
+8-42 
+Chapter 8  Interpreting Data Analysis Results 
+0
+10,000
+20,000
+30,000
+40,000
+50,000
+60,000
+2025
+70,000
+80,000
+90,000 100,000 110,000
+Public Works - Utilities
+Department
+City of Boulder 2025 Accounts Payable by Department
+Public Works - Support Svcs
+Public Works - Transportation
+Parks and Recreation
+Open Space & Mountain Parks
+NA
+Human Services
+Community Vitality
+Finance
+Police
+Library
+Information Technology
+Housing
+Fire
+Fundwide / Citywide
+Climate Initiatives
+Arts
+PW-Development
+City Manager’s Oﬀice
+Planning
+Transaction Amount ($ in Millions)
+Brief Exercises 
+	 1.	 The original question for the analysis was “Which department has the highest spending amount 
+during year 2025?” Does the analysis answer this question? Why or why not? 
+	 2.	 Based on the information from the analysis preparer, was the correct data used in the analysis? Why 
+or why not? 
+	 3.	 What information in the analysis preparer’s statement allows you to conclude that the results of the 
+analysis are accurate? 
+BE 8.1  (LO 1) While data exploration and data interpretation are related in the data analysis process, 
+there is a distinction between these two activities. Data exploration is about understanding ________, 
+whereas data interpretation is about understanding the_____________. 
+BE 8.2  (LO 1)  There are steps in the process of reviewing an analysis. The first asks if the analysis makes 
+sense, and the second asks if the analysis results are ________ and _____________.
+BE 8.3  (LO 1)  Financial Accounting   You are a financial analyst working for the city of Boulder, Col-
+orado. Your manager has asked you to review the account payable analysis prepared by the accounts 
+payable department. The analysis preparer told you the analysis is intended to determine which Boulder, 
+Colorado city department has the highest level of spending in U.S. dollars during the year 2025. The 
+analysis was prepared using all the transaction data for the year 2025 for every department. The preparer 
+also verified that the total agreed to the appropriate line item for expenditures in the general ledger, and 
+that there were no intercompany transactions to eliminate.
+
+Brief Exercises 
+8-43
+BE 8.4  (LO 2)  Financial Accounting   Managerial Accounting   As a senior financial analyst at 
+Super Scooters, you received the following graph from a financial analyst in your department. Your man-
+ager would like to know the quantity of units that must be sold for each model before it will have a profit. 
+0
+Captain
+Celeritas
+Kicks
+Lazer
+500
+100
+Units
+Model
+806
+1,024
+607
+430
+1,452
+1,116
+1,500
+2,000
+2023
+2024
+2025
+Break Even Units Per Model and Year
+553
+858
+1,807
+392
+377
+333
+The preparer of the graph told you that total sales price, variable costs, and total fixed costs were pulled 
+from the accounting information system and that the amounts agreed to the general ledger. They used the 
+break-even point formula from the CPA exam to calculate the break-even point in units for each model. 
+	 1.	 What accounting and other knowledge would 
+you need to obtain or apply in order to appro-
+priately interpret the prepared graph or the 
+statement made by the preparer? 
+	 2.	 Who are the stakeholders for this analysis? 
+	 3.	 What is the purpose of the analysis, and does 
+the graph answer the question posed by your 
+manager? 
+BE 8.5  (LO 2)  When considering possible risks of a data analysis, always ask questions about the analysis. 
+Match each type of risk to the question that addresses it. Each be used once, more than once, or not at all.  
+	 a.	 Potential data risk
+	 b.	 Potential analysis risk
+	 c.	 Potential bias risk
+	 d.	 Potential visualization risk
+	 e.	 Potential user risk 
+Question
+Type of Risk Addressed
+	 1.	Did the preparer have any potential biases that could have influenced the preparation of the analysis?
+	 2.	Are the data used in the analysis the most recent available? 
+	 3.	Were all the necessary and appropriate data included in the analysis? 
+	 4.	Were appropriate internal controls in place to ensure the data used was correct? 
+	 5.	Was the correct method used to perform the analysis?
+	 6.	Is the analysis missing relevant data? 
+	 7.	Did the analysis meet the original objective and answer the question? 
+BE 8.6  (LO 3)  Match each statement to the appropriate bias to be aware of when interpreting data anal-
+yses. Choose from the following biases. Each can be used once or more than once.  
+	 a.	 Confirmation bias
+	 b.	 Selection bias
+Statement
+Type of Bias
+	 1.	The person performing the analysis wants to prove a predetermined assumption.
+	 2.	The person performing the analysis selected the data subjectively. 
+	 3.	The person interpreting the analysis wants to prove a predetermined assumption.
+	 4.	The person interpreting the analysis focuses on results that support the existing assumption.
+	 5.	The person interpreting the analysis considers only a sample of the data rather than the entire population. 
+	 6.	The person interpreting the analysis ignores aspects of the analysis that contradicts the existing 
+assumption.
+
+8-44 
+Chapter 8  Interpreting Data Analysis Results 
+BE 8.7  (LO 3)  Auditing   Roberto is the operations manager for Denton Hospitality Co. He has asked you 
+to interpret the analysis of guest complaints. Internal audit provided the following analysis and information: 
+“We prepared a dual axis graph to show the relationship between guest complaints and customer satis-
+faction. The x-axis shows the hotel properties. The left y-axis is the number of complaints, and the right y-axis 
+is the customer satisfaction score. The line across the graph is the customer satisfaction score for each hotel 
+property. There is a strong correlation between customer satisfaction score and guest complaints.” 
+0
+2
+4
+6
+8
+10
+0
+100
+200
+300
+400
+500
+600
+Complaints
+Customer
+Satisfaction
+Score
+1
+3
+5
+7
+9
+11 13 15 17 19 21 23 25 27 29 31 33 35 37 39 41 43
+Customer Satisfaction Score and Guest Complaints
+Complaints
+Customer Satisfaction Score
+	 1.	 Roberto would like to know if guest com-
+plaints are related to maintenance expenses. 
+Does the visualization and information pro-
+vided by the internal audit department make 
+sense given Roberto’s question? Why or why 
+not? 
+	 2.	 Roberto would like to know if there is a 
+statistical correlation between customer 
+satisfaction scores and guest complaints. Is 
+the analysis sufficient to answer this ques-
+tion? Why or why not? 
+	 3.	 Roberto wants to present a visual depiction 
+of the relationship between customer sat-
+isfaction score and guest complaints as part 
+of a presentation to the board. Is the analysis 
+method reasonable? Why or why not?
+BE 8.8  (LO 4)  Auditing   You are an external auditor for U.S. Outdoor Adventure Stores. Your statisti-
+cal analysis team has provided a table of descriptive statistics for the company’s sales from  2022 to 2025. 
+U.S. Outdoor Adventure Stores
+Sales 2022‒2025
+Mean
+Median
+Mode
+Standard Deviation
+Range
+Minimum
+Maximum
+Count
+229.86
+54.49
+12.96
+623.25
+22,638.04
+0.44
+22,638.48
+9,994.00
+The preparer of the analysis told you that they used all the sales transaction data and agreed total sales in 
+the file to the sales line item in the general ledger. Note that there is a large difference between the mean 
+and the median in the sales data set. What does a large difference between mean and median suggest 
+about the sales transactions for U.S. Outdoor Adventure Stores from 2022 to 2025?
+BE 8.9  (LO 4) Financial Accounting   Service King, Inc. is a commercial cleaning and lawn care service 
+company. Your manager wants to understand whether there is a relationship between the results of a cus-
+tomer satisfaction survey and key performance measures of each cleaning crew. 
+Customer Satisfaction Score
+Annual Customer Complaints
+Minutes Spent at Property
+Number of Employees
+–0.826124807
+Correlation: Customer
+Satisfaction Score
+1
+0.938922087
+0.681057818
+The preparer of the correlation analysis provided the data definitions: 
+•  Customer Satisfaction Score: Score from the customer survey.
+•  Annual Customer Complaints: Number of customer complaints filed each year.
+•  Minutes Spent at Property: Number of minutes each cleaning crew spent cleaning a property.
+•  Number of Employees: Number of employees assigned to work at the property for a cleaning. 
+
+Brief Exercises 
+8-45
+Use this information to match the appropriate answer to each question. Responses can be used once, 
+more than once, or not at all. 
+	 a.	 A positive correlation coefficient.
+	 b.	 A negative correlation coefficient.
+	 c.	 There is a strong positive correlation between 
+the variables.
+	 d.	 There is a strong negative correlation between 
+the variables.
+	 e.	 There is a moderate positive correlation 
+between the variables.
+	 f.	 There is a moderate negative correlation 
+between the variables.
+	 g.	 There is no relationship between the variables. 
+Question
+Answer
+	 1.	What does an inverse relationship mean between two variables? 
+	 2.	How would you interpret the correlation coefficient for annual 
+customer complaints and customer satisfaction score? 
+	 3.	How would you interpret the correlation coefficient for 
+minutes spent at the property and customer satisfaction score? 
+	 4.	How would you interpret the correlation coefficient for 
+number of employees and customer satisfaction score? 
+BE 8.10  (LO 5)  Managerial Accounting   Your client, All Care Hospital, needs to understand the cost 
+drivers of their total hospital expenses. Your team ran regression analysis based on input from the hospi-
+tal CFO. The regression equation follows: 
+Hospital expenses = ($39,702) + $564 (Beds) + $0.65 (Outpatient Visits) + $26.76 (Births)
+Summary Output
+Regression Statistics
+Multiple R
+Adjusted R Square
+R Square
+Observations
+Standard Error
+0.87254918
+0.76098337
+0.76134208
+2,000
+158,773.661
+BE 8.11  (LO 5)  Tax Accounting   One consideration of tax planning is understanding and projecting 
+the amount of net revenue that a company expects for the upcoming year. Your team has created a 
+what-if analysis to predict Super Scooters’ net revenue for next year. Based on current year data, the 
+team has performed three sensitivity analyses: 
+•  Best-case scenario: They expect sales to increase by 10%. 
+•  Likely-case scenario: They expect sales to increase by 5%. 
+•  Worst-case scenario: They expect sales to decrease by 7%. 
+The current calculation of net revenue follows. Variable costs are 47% of sales, and Super Scooters expects 
+variable costs to remain stable over the next year.
+	 1.	 Identify the independent variables in the regression 
+model.
+	 2.	 Identify the dependent variable in the regression model.
+	 3.	 Identify the regression statistic that indicates how well 
+the model’s independent variables explain the depen-
+dent variable. 
+	 4.	 What percentage of the variance in hospital expenses do 
+beds, births, and outpatient visits explain? 
+Gross Sales
+Total Variable Costs
+Contribution Margin
+Total Fixed Costs
+Net Revenue
+5,722,777
+2025
+$ 12,165,162
+$
+$
+$
+$
+6,442,385
+4,745,563
+1,696,822
+Net Revenue
+Best-Case
+$ 12,165,162
+$
+$
+$
+$
+6,008,916
+6,156,246
+1,696,822
+Likely-Case
+4,459,424
+$ 12,165,162
+$
+$
+$
+$
+5,837,232
+6,327,930
+1,696,822
+4,631,108
+$ 12,165,162
+$
+$
+$
+$
+6,123,371
+6,041,791
+1,696,822
+4,344,969
+Worst-Case
+Gross Sales
+Total Variable Costs
+Contribution Margin
+Total Fixed Costs
+Net Revenue
+What-If Analysis
+	 1.	 What knowledge would you need to understand how the best-case, likely-case, and worst-case sce-
+narios should be interpreted? 
+	 2.	 Assume the objective of the analysis is to estimate sales tax for the upcoming year. Would the avail-
+able what-if analysis provide the appropriate information to begin your estimation? 
+
+8-46 
+Chapter 8  Interpreting Data Analysis Results 
+Exercises
+EX 8.1  (LO 1)  Auditing   Accounting Information Systems   Interpret and Evaluate a Data 
+Visualization The following analysis was prepared to evaluate business expenses for the city of Boul-
+der, CO. You work for the internal audit department for the city. Your manager asked you to review an 
+analysis to evaluate business expense reimbursement for the city departments. 
+$0
+$2,000
+$2,571
+Human
+Services
+Police
+Open Space
+& Mountain
+Parks
+Departments
+Expenses
+City
+Manager’s
+Oﬀice
+Public Works-
+Utilities
+Fire
+$2,694
+$4,645
+$5,425
+$6,533
+$12,671
+$4,000
+$6,000
+$8,000
+$10,000
+$12,000
+$14,000
+Business Expenses - Top Six Departments
+Answer the five data interpretation questions to determine if the analysis and visualization make sense 
+and whether they are valid and reliable. 
+EX 8.2  (LO 1)  Auditing   Accounting Information Systems   Interpret and Evaluate a Data 
+Visualization An anonymous tip was called into the city’s fraud hotline alleging that contracts are being 
+awarded without the appropriate bidding process. An analysis was prepared to identify the top ten ven-
+dors so the bidding process for those vendors could be reviewed. The data used was all accounts payable 
+for the current year. The vendors with the highest number of transactions were identified as top vendors.
+Pera
+Xcel Energy
+JP Morgan Chase Bank, Na
+Boulder Housing Partners
+US Bank
+Ameresco, Inc.
+Vantagepoint
+Fransen-Pittman Construction Co Inc
+Fidelity National Title Company
+Cigna Health and Life Insurance Company
+Vendor Name
+Top Ten Vendors
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+100
+200
+300
+400
+500
+600
+Transaction Amount
+(in Millions)
+Count of Transaction Amount
+Answer the five data interpretation questions to determine if the analysis makes sense and is valid and reliable. 
+
+Exercises 
+8-47
+EX 8.3  (LO 2)  Accounting Information Systems   Evaluate a Data Visualization Go to the Tab-
+leau Gallery website and search for an accounting topic. Choose a visualization and analyze it using the 
+critical thinking framework. 
+	 1.	 Who are the stakeholders ?
+	 2.	 What was the purpose for analysis? 
+	 3.	 Are there alternative explanations or analyses?
+	 4.	 Are there any risks that should be considered?
+	 5.	 What knowledge did the preparer need and what knowledge does the interpreter need to under-
+stand the analysis?
+	 6.	 How can you use your prior experience or apply this experience to future analyses?
+EX 8.4  (LO 2)  Financial Accounting   Interpret Accounts Receivable Analyses Assume you are 
+a financial analyst working in the controller’s group at Super Scooters. You have been asked to analyze 
+accounts receivable and have prepared the following aging table. The bars represent total accounts receiv-
+able balances.
+Less than 30
+Value
+Customer
+C1036
+$40K
+0K
+$40K
+0K
+$40K
+0K
+$40K
+0K
+$40K
+0K
+$40K
+0K
+$40K
+0K
+$40K
+0K
+0
+$10,840
+$23,562
+$763
+$23,038
+$17,635
+0
+$7,184
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+$31,046
+$32,229
+$32,478
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+$40K
+0K
+C1282
+C1423
+C1671
+C2036
+C2274
+C3168
+C9591
+C9917
+31 to 60
+61 to 90
+Days
+91 to 180
+More than 180...
+Super Scooters, Inc.
+Accounts Receivable Aging Table
+	 1.	 Who are the stakeholders?
+	 2.	 What was the purpose for the analysis? 
+	 3.	 Are there alternative explanations or analyses?
+	 4.	 Are there any risks that should be considered?
+	 5.	 What knowledge did the preparer need, and what knowledge does the interpreter need to under-
+stand the analysis?
+	 6.	 How can you use your prior experience or apply this experience to future analyses through 
+self-reflection?
+
+8-48 
+Chapter 8  Interpreting Data Analysis Results 
+EX 8.5  (LO 2)  Financial Accounting   Interpret Cash Flow Visualizations You work as a financial 
+analyst in the financial reporting group at Walmart, a large public retail company. You have been asked to 
+interpret an analysis of the company’s cash flow compared to competitors, and you have been provided 
+the following visualization. 
+–$15
+–$13,172
+–$2,138
+–$3,653
+–$2,783
+–$994
+–$1,811 –$684
+–$661
+–$292
+$943
+$2,537
+$26,557
+Walmart Inc.
+Target Corp
+Kroger Co
+Loblaw Cos Ltd
+Whole Foods Market
+–$13,031
+$5,828
+$3,775
+–$10
+–$5
+$0
+$5
+Value (K)
+$10
+$15
+$20
+$25
+$30
+Cash Flow
+Operating Cash Flows
+Investing Cash Flows
+Financing Cash Flows
+	 1.	 Who are the stakeholders ?
+	 2.	 What was the purpose for analysis? 
+	 3.	 Are there alternative explanations or analyses?
+	 4.	 Are there any risks that should be considered?
+	 5.	 What knowledge did the preparer need, and 
+what knowledge does the interpreter need to 
+understand the analysis?
+	 6.	 How can you use your prior experience or 
+apply this experience to future analyses 
+through self-reflection?
+EX 8.6  (LO 3)  Data   Financial Accounting   Interpret Reasonableness of a Data Analysis As 
+a financial analyst at Best Bakes Bakery, you are often tasked with conducting and evaluating data for 
+decision- making. The Best Bakes owners have asked you to identify their top five customers. You per-
+formed an analysis of profit margin by customer and prepared the following visualization using the Best 
+Bakes data file.
+2021
+Cust Name
+Profit Margin by Customer
+21.98%
+45.15%
+45.83%
+44.85%
+42.77%
+48.84%
+2022
+2023
+2024
+Bluebird Cafe
+Butters AM Eatery
+Home Cookin Café
+Krispy Kreme
+39.14%
+49.21%
+45.51%
+47.28%
+48.17%
+31.18%
+50.90%
+53.04%
+55.14%
+47.92%
+21.98%
+56.82%
+48.44%
+46.52%
+44.31%
+50.02%
+Lucile’s Creole Café
+Red Rooster Restau..
+Rocky Mountain Bag..
+41.04%
+45.32%
+49.44%
+50.38%
+47.82%
+40.91%
+50.02%
+40.53%
+47.41%
+47.11%
+42.23%
+41.69%
+Snooze AM Eatery
+Syrup Downtown
+Ziggi’s Coﬀee
+Avg. Profit Margin
+56.82%
+42.60%
+47.37%
+43.61%
+56.57%
+33.27%
+43.47%
+38.71%
+
+Exercises 
+8-49
+	 1.	 Are the data used in the analysis reasonable given the question/objective of the analysis?
+	 2.	 Is the analysis method reasonable given the question/objective of the analysis? 
+	 3.	 Are the results of the analysis reasonable given what you know about the subject being analyzed? 
+	 4.	 Are the implications of the analysis reasonable given what you know about the subject being 
+analyzed?
+	 5.	 Does the analysis address the needs/concerns of the stakeholders?
+EX 8.7  (LO 3)  Auditing   Accounting Information Systems   Interpreting Reasonableness of 
+Journal Entries Data Analysis You are an audit associate responsible for the audit of journal entries 
+for a public company client. Part of the audit procedures are analyzing journal entry activity to identify 
+any unusual activity. You have prepared the following analysis of journal entry activity. It shows the total 
+dollar amount, the average dollar amount, and the total number of journal entries made automatically by 
+the accounting system and made by three key employees at your client.
+$0
+$200,000
+$400,000
+$600,000
+$800,000
+$1,000,000
+$1,200,000
+$1,400,000
+$1,600,000
+$1,800,000
+0
+500
+1,000
+1,500
+2,000
+2,500
+3,000
+3,500
+1,500
+3,000
+Journal
+Entries
+Employee
+1,200
+10
+500
+Automatic
+Journal Entry Analysis – By Employee
+Patel
+Chen
+Smith
+Jones
+Average Journal Entry Amount
+Total of all Journal Entries Posted
+Total Number of Journal Entries
+	 1.	 Are the data used in the analysis reasonable given the question/objective of the analysis?
+	 2.	 Is the analysis method reasonable given the question/objective of the analysis? 
+	 3.	 Are the results of the analysis reasonable given what you know about the subject being analyzed? 
+	 4.	 Are the implications of the analysis reasonable given what you know about the subject being 
+analyzed?
+	 5.	 Does the analysis address the question/objective of the analysis?
+
+8-50 
+Chapter 8  Interpreting Data Analysis Results 
+EX 8.8  (LO 3)  Managerial Accounting   Interpreting Reasonableness of Sales Forecast 
+­Analyses Super Scooters is considering dropping the Celeritas scooter model and expanding their 
+­electric-powered scooter offerings to take advantage of changing market demand. You acquired the fol-
+lowing information: 
+•  The market for electric scooters is growing rapidly due to the increase in scooter-sharing programs.
+•  Celeritas is the only gas-powered scooter that Super Scooters manufactures.
+•  The Lazer and Captain models are electric-powered scooters, whereas the Kicks model is a manu-
+ally propelled scooter.
+Your analytics team prepared this visualization to contribute to the decision-making process. 
+Lazer
+0
+1,000
+Nov.
+2022
+May
+2023
+May
+2024
+Nov.
+2023
+Nov.
+2024
+May
+2025
+Nov.
+2025
+May
+2026
+Nov.
+2026
+2,000
+Kicks
+0
+1,000
+2,000
+Celeritas
+0
+1,000
+2,000
+Model
+Captain
+0
+1,000
+2,000
+Super Scooters 2026 Forecast - Sales Volume (Units)
+Month and Year
+	 1.	 Are the data used in the analysis reasonable 
+given the question/objective of the analysis?
+	 2.	 Is the analysis method reasonable given the 
+question/objective of the analysis? 
+	 3.	 Are the results of the analysis reasonable 
+given what you know about the subject being 
+analyzed? 
+	 4.	 Are the implications of the analysis reason-
+able given what you know about the subject 
+being analyzed? 
+	 5.	 Does the analysis address the needs/concerns 
+of the stakeholders?
+EX 8.9  (LO 3)  Data   Financial Accounting   Managerial Accounting   Evaluate Data Analyses 
+of Sales As a financial analyst for Super Scooters you must evaluate the following analysis prepared by 
+the data analysis team using the Super Scooters data set. The analysis reports the sum of sales dollars for 
+each model sold by the company. Based on the analysis, it appears that the Captain is the most popular 
+model and the Kicks is the least popular model. 
+Captain
+Celeritas
+Kicks
+Lazer
+Grand Total
+Model
+Sum of Gross
+Sales
+$      4,792,338
+$    12,324,133
+$      1,108,183
+$ 27,147,407
+$      8,922,753
+	 1.	 Does the analysis confirm the most and least 
+popular models? Why or why not? 
+	 2.	 Do you think more analysis is needed?
+	 3.	 If yes, what additional analyses would you 
+like to see before deciding which model is the 
+most popular? 
+
+Exercises 
+8-51
+EX 8.10  (LO 3)  Data   Managerial Accounting   Evaluate Sales Trend Analysis Management at 
+the U.S. Outdoor Adventure Company wants to understand which regions are performing best and if 
+there is a trend in sales over the years within the regions. Your team has analyzed sales and prepared a 
+visualization using the U.S. Outdoor Adventure Company Tableau file.
+2022
+Region
+Yearly Region Sales
+$156,332
+$102,874
+$103,838
+$128,680
+$103,846
+$147,883
+2023
+2024
+2025
+Central
+East
+South
+West
+  $  71,301
+$139,766
+$180,529
+$147,429
+$   93,539
+$186,976
+$213,239
+$147,098
+$122,977
+$250,633
+$0
+$300,000
+	 1.	 Does the analysis address the objective? Why 
+or why not? 
+	 2.	 Do you think more analysis is needed?
+	 3.	 If yes, what additional analyses would you 
+like to see before deciding which region is 
+performing best? 
+EX 8.11  (LO 4)  Managerial Accounting   Interpret Correlation Analysis All Care Hospital would 
+like to better understand cost drivers of total expenses. As a first step they have prepared a correlation 
+analysis to determine factors that are correlated with total expenses. 
+Cost Drivers
+Beds
+Outpatient 
+Visits
+Births
+Gen Med / 
+Surg or Not
+Total 
+Expense
+Beds
+1
+Outpatient Visits
+0.61584604
+1
+Births
+0.66665244
+0.496333644
+1
+Gen Med / Surg or Not
+0.25764602
+0.322183655
+0.359453
+1
+Total Expense
+0.77739236
+0.782692108
+0.62695
+0.249571064
+1
+Interpret the correlations:
+	 1.	 Outpatient visits and total expense
+	 2.	 Number of beds and total expense
+	 3.	 Number of beds and births
+EX 8.12  (LO 4)  Financial Accounting   Interpret Descriptive Statistics You are a financial analyst at 
+the hotel chain Denton Hospitality. You have been asked to provide a better understanding of their profit from 
+the past year. Your data analysis team has prepared two analyses. The first is a scatterplot that shows the total 
+annual profit for each hotel. The second is a descriptive statistics analysis of profit from the past year.
+$0
+$200,000
+$400,000
+$600,000
+$800,000
+$1,000,000
+$1,200,000
+$1,400,000
+–$200,000
+–$400,000
+Annual Profit by Hotel
+Room Rentals
+Annual
+Profit
+10K
+0
+20K
+30K
+40K
+50K
+60K
+Profit
+Mean
+Median
+Standard Error
+Count
+Mode
+Standard Deviation
+Sample Variance
+Kurtosis
+Skewness
+Range
+Minimum
+Maximum
+Sum
+309,049.66
+95,511,689,341.06
+0.07
+0.00
+1,472,109.00
+(224,305.00)
+1,247,804.00
+26,289,170.25
+547,691.05
+553,868.00
+44,607.48
+48.00
+#N/A
+	 1.	 Interpret the following descriptive statistics:
+a.	 Mean
+b.	 Median
+c.	 Standard Deviation
+	 2.	 Does the scatterplot support your explanation of the descriptive statistics? Why or why not? 
+
+8-52 
+Chapter 8  Interpreting Data Analysis Results 
+EX 8.13  (LO 4)  Data   Financial Accounting   Managerial Accounting   Interpret Descriptive 
+Analytics You are a financial analyst for One Stop Shop, which is a wholesale distributor of consumer prod-
+ucts to convenience stores. The company operates in Canada, Mexico, and the United States. One Stop Shop 
+has two sales channels: 
+•  Online sales made through the One Stop Shop website. 
+•  Offline sales made directly with One Stop Shop sales representatives. 
+One Stop Shop would like to evaluate whether they should move to only online sales. They believe this 
+will save a significant amount of money since they will not need as many sales representatives and will 
+not have to pay sales commissions. Following is an analysis prepared by One Stop Shop using the One 
+Stop Shop data set. 
+Canada
+Oﬀline
+Online
+Grand Total
+Row Labels
+Sum of Total
+Sales
+$       392,731,724
+$     788,914,146
+$       396,182,421
+Mexico
+$     710,979,369
+Oﬀline
+$       400,360,732
+Online
+$       310,618,637
+United States
+$ 1,452,693,443
+Oﬀline
+$       720,489,036
+Online
+$       732,204,407
+$ 2,952,586,958
+	 1.	 What information does the pivot table provide to One Stop Shop?
+	 2.	 What additional analyses should One Stop Shop consider?
+EX 8.14  (LO 4)  Financial Accounting   Managerial Accounting   Interpret Diagnostic Analyt-
+ics The management team at One Stop Shop wants to know if there is a seasonal pattern to sales. The 
+data analysis team prepared the following visualization.
+Q1
+$0
+$50,000,000
+$100,000,000
+$150,000,000
+$200,000,000
+$250,000,000
+Q2 Q3 Q4 Q1 Q2 Q3 Q4 Q1 Q2 Q3 Q4 Q1 Q2 Q3 Q4
+2022
+2023
+2024
+2025
+Total Sales
+ Year
+Total
+	 1.	 Does the analysis address the objective? Why or why not? 
+	 2.	 What additional analyses could be performed to identify sales patterns? 
+
+Exercises 
+8-53
+EX 8.15  (LO 4)  Data   Auditing   Interpret Descriptive Analytics Your data analysis group has 
+given you, an external auditor auditing sale transactions for U.S. Outdoor Adventure stores, an analysis 
+that includes the standard deviation for sales from 2022 to 2025. They also gave you a scatterplot of sales. 
+ 
+Descriptive Statistics
+Sales 2022 — 2025
+Count
+Mean
+Mode
+Median
+Sample Variance
+Standard Deviation
+Maximum
+Minimum
+9,994.00
+229.86
+12.96
+54.49
+388,434.46
+623.25
+22,638.48
+0.44
+$5,000
+$0
+$10,000
+$15,000
+$20,000
+$25,000
+0
+1,000 2,000 3,000 4,000 5,000 6,000 7,000 8,000 9,000 10,000
+U.S Outdoor Adventure Sales Transactions
+2022―2025
+Sales
+(in thousands)
+Transactions
+$22,638.48
+The preparer of the analysis used all the sales transaction data and agreed total sales in their file to the 
+sales line item in the general ledger. 
+	 1.	 Interpret the variance and standard deviation 
+for U.S. Outdoor Adventure Stores sales.
+	 2.	 Does the scatterplot support your explanation 
+of standard deviation? Why or why not?
+	 3.	 Use the provided data file to recreate the 
+analyses. 
+EX 8.16  (LO 5)  Financial Accounting   Managerial Accounting   Interpret Regression Analy-
+sis Denton Hospitality Inc. has hired your consulting firm to evaluate and manage cashflows. Specifi-
+cally, you have been asked to build a valid and reliable model to predict total expenses so management 
+can better manage cashflows. You and your team prepared the following regression.
+Multiple R
+R Square
+Adjusted R Square
+Standard Error
+Observations
+ANOVA
+0.810435721
+0.656806059
+0.62160668
+79,448.54158
+44
+df
+SS
+MS
+F
+4.71E+11
+2.46E+11
+Regression
+Residual
+Total
+4
+39
+43
+7.17E+11
+1.18E+11
+6.31E+09
+18.65959
+1.211E–08
+121071.9
+587.7595
+Intercept
+Number of rooms
+Hours Worked, GM
+Hours Worked, Housekeeping
+Hours Worked, Front Desk
+(131,136.43)
+2,670.21
+29.30
+52.01
+13.41
+9.270823
+18.93043
+2.747581
+4.683324
+2.862522
+3.160299
+−1.08313
+4.543032
+0.003044
+0.009043
+0.006728
+5.23E−05
+0.285403
+Significance F
+Coeﬀicients Standard Error
+t Stat
+P-value
+SUMMARY OUTPUT
+Hospitality, Inc – Total Expenses Prediction Model
+Regression Statistics
+	 1.	 Interpret the regression statistics.
+	 2.	 Explain whether the model is significant.
+	 3.	 What are the coefficients of the model?
+	 4.	 Do the variables used in the model make 
+sense? Why or why not? 
+	 5.	 Identify other variables that may improve the 
+model.
+	 6.	 Use the model to predict expenses for a hotel 
+with the following characteristics:
+•  Opened in 1975
+•  150 rooms
+•  9,200 hours worked – Front Desk
+•  1,500 hours worked – GM
+•  12,100 hours worked – Housekeeping
+•  Location = Airport
+
+8-54 
+Chapter 8  Interpreting Data Analysis Results 
+EX 8.17  (LO 5)  Data   Managerial Accounting   Interpret Sensitivity Analysis Super Scooters is 
+preparing revenue forecasts for the next year. Based on current year data, you performed three sensitivity 
+analyses: 
+•  Best-case scenario: Variable costs will decrease by 5%.
+•  Likely-case scenario: Variable costs will increase by 2%,
+•  Worst-case scenario: Variable will increase by 7%.
+The current calculation of net revenue is provided. 
+Gross Sales
+Total Variable Costs
+Contribution Margin
+Total Fixed Costs
+Net Revenue
+5,722,777
+2025
+$ 12,165,162
+$
+$
+$
+$
+6,442,385
+4,745,563
+1,696,822
+The best-case, likely-case, and worst-case scenario analysis is provided. Super Scooters expects sales 
+to remain stable over the next year.
+Best-Case
+$ 12,165,162
+$
+$
+$
+$
+6,008,916
+6,156,246
+1,696,822
+Likely-Case
+4,459,424
+$ 12,165,162
+$
+$
+$
+$
+5,837,232
+6,327,930
+1,696,822
+4,631,108
+$ 12,165,162
+$
+$
+$
+$
+6,123,371
+6,041,791
+1,696,822
+4,344,969
+Worst-Case
+Gross Sales
+Total Variable Costs
+Contribution Margin
+Total Fixed Costs
+Net Revenue
+Recreate the what-if analysis and answer the questions:
+	 1.	 What is the question/objective of the analysis?
+	 2.	 Does the model measure what it is supposed 
+to measure?
+	 3.	 Are the model measures accurate and 
+consistent?
+EX 8.18  (LO 5)  Data   Managerial Accounting   Interpret Goal Seek Analysis U.S. Outdoor 
+Adventure Sales has asked your accounting team to determine the break-even sales for their tent product. 
+The team discussed potential methods to estimate break-even sales, and determined that Goal Seek is the 
+most effective method. The sales team provided you with price and costs information: 
+•  Sales price = $70
+•  Variable cost per unit = $25 
+•  Fixed costs = $10,000
+With the spreadsheet model used to calculate profit using this data, use Goal Seek to answer the fol-
+lowing questions.
+	 1.	 What are the number of break-even units 
+needed?
+	 2.	 How many tents must U.S. Outdoor Adven-
+tures sell to make a profit of $100,000?
+	 3.	 How would you verify the validity and reli-
+ability of the model and model results?
+EX 8.19  (LO 5)  Data   Financial Accounting   Interpret Predictive Analytics You are a financial 
+analyst at Best Bakes Bakery. Your manager has asked you to build a model to predict sales for 2026 using 
+sales data from 2022 to 2025. The following is the trendline equation using the variables gross sales in 
+USD and month of sale.
+Gross Sales = $74,739.90 – ($1.56 × Month of Sale). 
+Model statistics include: 
+R-square = 0.0487 
+p-value is 0.1406 
+The trendline equation was used to develop the following visualization. The month and year of sale is on 
+the x-axis and gross sales are on the y-axis. 
+
+Exercises 
+8-55
+$20,000
+$19,000
+$18,000
+$17,000
+$16,000
+$15,000
+$14,000
+$13,000
+$12,000
+$11,000
+$10,000
+$9,000
+$8,000
+$7,000
+$6,000
+$5,000
+$4,000
+$3,000
+$2,000
+$1,000
+$0
+Dec.
+2021
+Gross
+Sales
+Apr.
+Aug.
+2022
+Dec.
+Apr.
+Aug.
+2023
+Dec.
+Apr.
+Aug.
+2024
+Dec.
+Dec.
+Apr.
+Aug.
+2025
+Best Bakes Bakery Sales Trend
+Examine the analysis in the provided data file and interpret the sales trend analysis. 
+	 1.	 What is the question/objective of the analysis?
+	 2.	 Does the model and visualization provide adequate information to address it? 
+	 3.	 Are the model variables valid? 
+EX 8.20  (LO 5)  Financial Accounting   Managerial Accounting   Interpret Regression Analy-
+sis You are asked to build a model to predict sales at U.S. Outdoor Adventures. Management believes that 
+the region, discount percentage, and discount dollar amount are good predictors of sales. You used the 
+data in the regression file to prepare the following regression analysis.
+Multiple R
+0.6260322
+0.3919164
+0.391612
+486.1264
+9994
+221.75141
+12.60104565
+17.5978578
+2.7291E-68
+–438.73427
+2.4154052
+1521272575
+2360352937
+3881625512
+9988
+9993
+304254515
+1287.47445
+0.00
+236318.876
+0.1232541
+–17.727807
+18.590415
+24.64841598
+0.030141825
+15.12802917
+14.84929891
+15.9032368
+–17.799694
+80.1346697
+0.0081474
+–1.1938481
+1.16897054
+8.4529E-70
+0.00
+0.99349955
+0.23256576
+0.2424434
+5
+R Square
+Adjusted R Square
+Standard Error
+Observations
+ANOVA
+Residual
+Regression
+Total
+Intercept
+Discount
+Discount $
+Region West
+Region East
+Region Central
+SUMMARY OUTPUT
+Regression Statistics
+Coeﬀicients
+df
+SS
+MS
+F
+Significance F
+Standard Error
+t Stat
+P-value
+	 1.	 Interpret the regression statistics.
+	 2.	 Is the model is significant? Why or why not? 
+	 3.	 What are the coefficients of the model?
+	 4.	 Do the variables used in the model make 
+sense? Why or why not? 
+	 5.	 Identify other variables that may improve the 
+model.
+	 6.	 Based on this model, what is the predicted 
+sale when the discount percentage is 20%, the 
+sale is in the west region, and the discount 
+dollar amount is 100? 
+
+8-56 
+Chapter 8  Interpreting Data Analysis Results 
+Problems
+PR 8.1  (LO 1)  Data   Financial Accounting   Interpret Descriptive Analytics Management at 
+U.S. Outdoor Adventures is evaluating their shipping policy to customers. Currently, the company offers 
+free shipping, but they are considering charging customers for shipping. Management would like to bet-
+ter understand how shipping costs are changing and if there is a relationship between the type of ship-
+ping method and order priority. 
+Products are shipped either first class, same day, second class, or standard class. The method of 
+shipping is decided by the customer but is usually related to the order priority. The priority categories are 
+critical, low, high or medium. 
+The data analysis team provided the following descriptive analyses, which indicate that total ship-
+ping costs increased from 2022 to 2025. They also prepared a frequency distribution of the number of 
+shipments by priority and shipping mode for 2022, 2023, 2024, and 2025 combined. 
+First Class
+Same Day
+Second Class
+First Class
+Same Day
+Second Class
+Standard Class
+First Class
+Same Day
+Second Class
+Standard Class
+Standard Class
+912
+116
+495
+432
+703
+273
+744
+340
+154
+289
+1,349
+Grand Total
+2025
+2024
+2023
+2022
+  49,769.30
+  50,198.57
+  60,925.19
+  77,280.73
+  $ 238,173.79
+Grand Total
+9,994
+Year
+Total Shipping Cost
+Shipping Cost Per Year
+Number of Shipments
+783
+Critical
+3,069
+432
+5,710
+4,187
+High
+Low
+Medium
+Priority and
+Shipping Mode
+$
+$
+$
+$
+Number of Shipments
+by Shipping Mode
+	 1.	 Identify the following:
+a.	 Who are the stakeholders ?
+b.	 What was the purpose for analysis? 
+c.	 Are there alternative explanations or 
+analyses? 
+d.	 Are there any risks that should be 
+considered?
+e.	 What knowledge did the preparer need 
+and what knowledge does the interpreter 
+need to understand the analysis?
+f.	 How can you use your prior experience or 
+apply this experience to future analyses 
+through self-reflection?
+	 2.	 Are the data used in the analysis reasonable given the question/objective of the analysis?
+	 3.	 Is the analysis method reasonable given the question/objective of the analysis? 
+	 4.	 Are the results of the analysis reasonable given what is known about the subject being analyzed? 
+	 5.	 Are the implications of the analysis reasonable given what you know about the subject being 
+analyzed? 
+	 6.	 Does the analysis address the needs/concerns of the stakeholders?
+	 7.	 Prepare an additional descriptive analysis that will help U.S. Outdoor Adventures understand 
+the costs associated with each mode of shipping. Interpret your analysis.
+PR 8.2  (LO 1, 2, 3, 5)  Data   Financial Accounting   Managerial Accounting   Interpret Predic-
+tive Analyses All Care Hospital, which operates 2,000 hospitals in the United States, is preparing 
+their operating budgets for 2026. Executive management would like to understand the factors driving 
+total expenses. As a member of the data analytics team in the accounting department, you are asked 
+to prepare and interpret data analyses to provide management with information about total hospital 
+expenses. 
+
+Problems 
+8-57
+The data analytics team provided descriptive analyses summarizing the number of hospitals in each 
+region and total hospital expenses by region. In 2025, total expenses for All Care Hospitals was $386.8 
+million. They also gave you the raw data file. 
+Number of Hospitals
+Region
+Grand Total
+West North Central
+East North Central
+Mid Atlantic
+East South Central
+New England
+Mountain
+South Atlantic
+Pacific
+West South Central
+214
+262
+168
+136
+100
+160
+252
+259
+449
+2,000
+Region
+Total Expenses by Region-2025
+$52,941,169
+$19,037,967
+$60,506,505
+$26,438,517
+East North Central
+East South Central
+Mid Atlantic
+Mountain
+19M
+71M
+$25,634,270
+$71,210,066
+$57,893,598
+New England
+Pacific
+South Atlantic
+$26,015,206
+$47,082,098
+West North Central
+West South Central
+Total Expense
+According to management, the following variables are predictors of total hospital expenses: admissions, 
+census, outpatient visits, births, payroll expenses, personnel, and whether there was a birth or not. The 
+analytics team prepared a regression model using those variables with the following output. 
+Multiple R
+0.982051941
+0.964426014
+0.964301005
+61360.99522
+2000
+–4191.07786
+2275.171
+–1.84209
+0.06561006
+6.013726131
+–57.72122789
+2.03E+14
+7.5E+12
+2.11E+14
+1992
+1999
+2.9E+13
+7714.85352
+0
+3.77E+09
+–0.019727175
+–9.977260409
+1.804388653
+30.9359429
+–5932.874462
+2.697418
+3329.682
+0.387068
+19.55346
+0.009985
+1.656594
+0.036122
+15.5366
+–2.95197
+–1.97573
+–6.02276
+49.95226
+11.46872
+–1.78181
+1.8108E-51
+0.00319445
+0.04832264
+2.0367E-09
+0.00000000
+1.5657E-29
+0.07493183
+–8653.042868
+5.254624717
+–96.06861315
+–0.039308781
+–13.22609855
+1.733547274
+25.64588566
+–12462.8985
+270.8871
+6.772828
+–19.3738
+–0.00015
+–6.72842
+1.87523
+36.226
+597.1496
+–8653.04
+5.254625
+–96.0686
+–0.03931
+–13.2261
+1.733547
+25.64589
+–12462.9
+270.8871
+6.772828
+–19.3738
+–0.00015
+–6.72842
+1.87523
+36.226
+597.1496
+7
+R Square
+Adjusted R Square
+Standard Error
+Observations
+ANOVA
+Residual
+Regression
+Total
+Intercept
+Admissions
+Census
+Outpatient Visits
+Births
+Payroll Expense
+Personnel
+Births or Not
+SUMMARY OUTPUT
+Regression Statistics
+Coeﬀicients
+df
+SS
+MS
+F
+Significance F
+Standard Error
+t Stat
+P-value
+Lower 95%
+Upper 95%
+Lower 95%
+Upper 95%
+	 1.	 Identify the following:
+a.	 Who are the stakeholders ?
+b.	 What was the purpose for analysis? 
+c.	 Are there alternative explanations or 
+analyses?
+d.	 Are there any risks that should be considered?
+e.	 What knowledge did the preparer need 
+and what knowledge does the interpreter 
+need to understand the analysis?
+f.	 How can you use your prior experience or 
+apply this experience to future analyses?
+	 2.	 Use the Summary Output for the following:
+a.	 Interpret the regression statistics.
+b.	 Is the model is significant? Why or why not? 
+c.	 Identify the coefficients of the model.
+d.	 Do the variables used in the model make 
+sense? Why or why not? 
+e.	 Identify other variables that may improve 
+the model.
+	 3.	 Prepare a regression model that predicts total expenses using the variables: admissions, outpatient 
+visits, births, and personnel.
+a.	 Is this model better than the previous 
+model?
+b.	 Interpret the regression statistics and the 
+coefficients of the model. 
+
+8-58
+ChAPTER 8 Interpreting Data Analysis Results 
+Professi onal Application Case: Ortho Inc. 
+Data Ortho Inc. is a medical device manufacturer based in San Diego, California. The company pro-
+duces and sells custom-made knee replacement implants: 
+• It is a privately held company and files U.S GAAP based financial statements with its bank as part 
+of its debt covenants. 
+• The board of directors is very involved and continues to emphasize the importance of well-designed 
+and effective internal controls. 
+• Ortho is a decentralized organization, with 5 manufacturing and sales sites across the United 
+States employing a total of 28 product managers and 29 sales managers. Each site operates 
+independently and is responsible for procurement of raw materials, production, and sales of 
+finished products in its own geographic region. Sales managers maintain their own customer 
+relationships, while product managers monitor inventory levels and order raw materials as 
+needed. 
+• Silicone and plaster are used to create the molds for all the company’s knee replacements. The 
+materials poured into molds vary by product–some are metal, some are plastic, and some are 
+ceramic. 
+The company has invested significantly in the development and maintenance of its information 
+system to collect and report complete and accurate data. Company management uses the data captured 
+in the information system to creat reports and support decision-making. The data dictionary includes the 
+most relevant data used by management, accountants, auditors, and other professionals.
+PRODUCT MASTER TABLE
+Name
+Primary Key
+Definition
+ProductCategory
+Constant stating knee implant
+Product
+✓
+Product item identifier
+ProductDescription
+Description of product
+Notes: The Product Master table contains information about different products sold by Ortho.
+Data Dictionary
+MATERIAL MASTER TABLE 
+Name
+Primary Key
+Definition
+MaterialCategory
+Constant stating raw material
+Material
+✓
+Material item identifier
+MaterialDescription
+Description of material
+Notes: The Material Master table contains information about different raw materials purchased by Ortho.
+TRANSACTIONS TABLE
+Name
+Primary Key
+Definition
+TransType
+✓
+Indicates the type of transaction (O for orders and S for 
+sales)
+TransNumber
+✓
+Identifier for orders and sales
+SiteCode
+Transaction site (one of five locations)
+Manager
+Employee associated with the transaction
+EntityID
+Supplier/Customer associated with the transaction
+Quantity
+Transaction quantity
+
+Professional Application Case: Ortho Inc. 
+8-59
+Unit
+Unit of transaction (lb or kg for orders, ea for sales)
+UnitPrice
+Price per unit
+TransDate
+Sales/purchase order date
+CompleteDate
+Shipping/receiving date (sales/orders)
+Item
+The material purchased or product sold
+CreatedBy
+The source of the data (e.g., daily batch)
+Subtotal
+Transaction total before tax (UnitPrice * Quantity) 
+Tax
+Tax amount
+Notes: The Transactions table contains a combination of purchase order, sales order, and sales return transactions
+SITES TABLE
+Name
+Primary Key
+Definition
+SiteCode
+✓
+Identified for company sites (five state abbreviations)
+SiteName
+Name of site (states)
+Notes: The Sites table contains the name of each site, which is the name of the state where the site is located.
+EMPLOYEE MASTER TABLE 
+Name
+Primary Key
+Description
+EmployeeID
+✓
+Employee identifier
+FirstName
+Employee first name
+LastName
+Employee last name
+SiteCode
+Company site identified (state)
+Position
+Employee position
+OrderApproval
+Employee order approval authority
+Notes: The Employee Master table contains information about employees associated with the sales order and pur-
+chase order transactions, e.g., sales and product managers.
+ENTITY MASTER TABLE
+Name
+Primary Key
+Description
+EntityID
+✓
+Entity (supplier/customer/Ortho, Inc.) identifier
+SiteCode
+Indicates which Ortho site the entity is associated with
+EntityName
+Entity company name
+ContactFirstName
+Entity contact first name
+ContactLastName
+Entity contact last name
+Phone
+Entity phone
+Email
+Entity email
+StreetAddress
+Entity street address
+City
+Entity city
+State
+Entity state
+Zip
+Entity zip code
+EntityType
+Entity type (“S” for customer and “O” for supplier)
+
+8-60 
+Chapter 8  Interpreting Data Analysis Results 
+Entity-Relationship Diagram (ERD)
+Product Master
+Product
+MaterialCategory
+MaterialDescription
+ProductCategory
+ProductDescription
+Material Master
+Sites
+SiteCode
+SiteName
+Employee Master
+EmployeeID
+FirstName
+LastName
+SiteCode
+Position
+OrderApproval
+Entity Master
+EntityID
+SiteCode
+EntityName
+ContactFirstName
+ContactLastName
+Phone
+Email
+StreetAddress
+City
+State
+Zip
+EntityType
+Transactions
+TransType
+TransNumber
+SiteCode
+Manager
+EntityID
+Quantity
+Unit
+UnitPrice
+TransDate
+CompleteDate
+Item
+CreatedBy
+Subtotal
+Tax
+1
+1
+1
+N
+N
+N
+1
+1
+N
+Material
+(Notes: The ERD indicates which tables to join and which columns to use in the joins.)
+The entity-relationship diagram (ERD) shows the relationships among the tables in the information 
+system.
+The comparative income statement shows income for 2024 and 2025.
+Ortho Inc. Comparative Income Statement
+Comparative Income Statement
+$ in Millions
+2024
+(audited)
+2025
+(unaudited)
+Net Sales
+$913 
+$854 
+Cost of Sales
+  579 
+  542 
+Gross Profit
+334 
+312 
+Research and development
+57 
+59 
+Selling, general and administrative
+191 
+196 
+Recall charges, net of insurance proceeds
+5 
+5 
+Intangible asset amortization
+      3 
+      2 
+Total operating expenses
+  256 
+  262 
+Operating Income
+78 
+50 
+Other income (expenses), Net
+      1 
+      2 
+Earnings before income taxes
+79 
+52 
+Income taxes
+    11 
+      8
+Net earnings
+$  68 
+$  44 
+
+Professional Application Case: Ortho Inc. 
+8-61
+PAC 8.1  Auditing: Interpret Descriptive and Diagnostic Analytics
+Data   Auditing   You are on the external audit team auditing Ortho’s financial statements as of and for 
+the year ended December 31, 2025: 
+•	 Note that the amounts presented in the comparative income statement for 2024 are audited, 
+whereas the amounts presented for 2025 are unaudited. 
+•	 For the year ended December 31, 2024, your audit firm issued an unqualified opinion on the finan-
+cial statements and noted that the company’s internal controls over financial reporting were appro-
+priately designed and operating effectively. 
+You have been asked to consider risks of material misstatement related to net sales. Specifically, 
+your audit senior has asked you to interpret the descriptive analytics provided by your firm’s data analysis 
+team. The Tableau output is provided. 
+Grand Total
+2024
+Distinct Count of TR Subtotal
+TR TransDate
+Sales Frequency Distribution
+TR Subtotal
+Prod ProductDescription
+4,196
+4,378
+7,217
+9,567
+20,457
+4,153
+9,714
+20,331
+4,306
+16,526
+2025
+2024
+2025
+Ceramic-on-Ceramic Knee
+Metal and Crosslinked Polyethylene Knee
+Metal and Plastic Knee
+Metal-on-Metal Knee (Cobalt chrome)
+Metal-on-Metal Knee (Stainless steel)
+Metal-on-Metal Knee (Titanium)
+7,208
+60,424
+853,505,611
+60,102
+16,760
+113,844,112
+103,546,449
+185,198,302
+106,320,616
+145,197,885
+199,398,247
+107,545,175
+198,397,781
+116,722,920
+220,828,360
+116,040,741
+153,572,138
+913,107,114
+	 1.	 Consider the validity of the Tableau output 
+provided by your information technology 
+team. Is the sales frequency distribution table 
+analysis valid and reliable? Why or why not?
+	 2.	 Compare the sales mix from 2025 to 2024. 
+How does sales mix contribute to consider-
+ation of the risk of material misstatement? 
+	 3.	 During inquiry with the vice president of 
+sales, your engagement team learned that 
+the largest customer purchases only metal-
+on-metal knee products, and that these pur-
+chases account for approximately 35% of all 
+sales of these products. This customer has 
+recently requested significant modifications 
+to their sales order contract and credit terms 
+because of possible bankruptcy concerns. 
+How might this information, combined with 
+the sales frequency distribution table, con-
+tribute to the risk of material misstatement? 
+	 4.	 The technology team has provided a scat-
+terplot of sales for the metal-on-metal knee 
+(cobalt chrome) product for the month of 
+October. The technology team has identi-
+fied certain points on the diagram. Explain 
+whether each of the identified points on the 
+diagram would need further investigation, or 
+if they should be included in normal substan-
+tive testing for sales. 
+Sales Transaction Total
+$80,000
+$60,000
+$40,000
+$20,000
+$(20,000)
+$(40,000)
+$(60,000)
+$(80,000)
+Sep. 27
+Oct. 02
+Oct. 07
+Oct. 12
+Oct.  17
+2025
+Oct. 22
+Oct. 27
+Nov. 01
+Nov. 06
+$−
+1
+3
+2
+	 5.	 Use the Ortho, Inc data sets to create addi-
+tional descriptive analytics. Consider creating 
+a cross tabulation analysis of sales by product 
+description and/or sales by site code. These 
+descriptive statistics provide insight into the 
+company’s net sales for the year under audit. 
+Describe your analysis, and interpret your 
+results. 
+
+8-62 
+Chapter 8  Interpreting Data Analysis Results 
+PAC 8.2  Managerial Accounting: Interpret Diagnostic Analytics 
+Data   Managerial Accounting   You have been tasked with understanding the relationship between 
+sales orders and purchase orders to acquire raw materials. Currently, production sites are individually 
+responsible for all purchases. The benefit of this decentralized organization is that the sites can quickly 
+respond to changes in production demand. The downside is that sourcing for purchases is not coordi-
+nated between the sites. There is a concern that some sites’ purchasing departments have been buying 
+more raw materials than needed.
+Your manager has asked you to analyze purchases compared to sales. You prepared the following 
+analyses.
+2022
+2023
+2024
+2025
+Jan. Apr. Jul. Oct.
+Jan. Apr. Jul. Oct.
+Jan. Apr. Jul. Oct.
+Jan. Apr. Jul. Oct.
+$20,000,000
+$40,000,000
+$60,000,000
+$80,000,000
+$100,000,000
+Purchase Orders
+Sales Orders
+Ortho Inc.
+Sales Orders Vs. Purchase Orders
+Purchase Orders
+Correlation between Purchases and Sales
+Ortho Inc.
+Sales Orders
+Purchase Orders
+1
+0.750363942
+1
+Sales Orders
+	 1.	 How do these analyses help evaluate if the 
+sites are purchasing more raw materials than 
+they need?
+	 2.	 List some additional analyses that would be 
+useful.
+	 3.	 Create additional analyses and interpret your 
+results.
+PAC 8.3  Financial Accounting: Interpret Descriptive Analytics
+Data   Financial Accounting   The Controller at Ortho Inc. has asked you to understand the require-
+ments of ASC 606 Revenue Recognition regarding the disclosure of sales data by geographic or product 
+categories. You have prepared the cross tabulation analysis for 2025 and 2024 as a starting point for pre-
+paring the disclosure. 
+Total
+2025
+Site
+164,530,136.81
+174,888,045.18
+172,934,662.11
+183,493,309.15
+175,041,416.59
+193,364,104.19
+188,249,027.51
+2024
+Diﬀerence
+CA
+FL
+IL
+NY
+TX
+174,872,628.25
+853,505,610.67
+913,082,519.55
+163,660,289.73
+175,554,510.70
+18,963,172.34
+–1,953,383.07
+168,788.34
+59,576,908.88
+29,703,814.46
+12,694,516.81
+	 1.	 Who are the key stakeholders of the analysis? 
+	 2.	 What knowledge do you need to provide 
+a valid interpretation of the descriptive 
+analysis? 
+	 3.	 Is this analysis sufficient for segment report-
+ing or will you need additional analyses?
+	 4.	 Create additional analyses of results by year.
+
+Le Grind Continuing Case: Verify and Interpret the Gross Profit Analysis 
+8-63
+PAC 8.4 Tax Accounting: Interpret Descriptive and Diagnostic Analytics 
+Data
+Tax Accounting
+Ortho’s management would like to identify potential opportunities for cost 
+savings. One aspect of purchasing costs that management has not yet considered is sales tax paid on 
+purchases. Management has requested an analysis of sales tax paid by site. As a staff tax accountant for 
+Ortho, you have prepared the following trend analysis of sales tax paid by location.
+$0
+0.00
+1.00
+2.00
+3.00
+4.00
+5.00
+6.00
+7.00
+8.00
+9.00
+10.00%
+California
+Florida
+Illinois
+New York
+Texas
+$50,000,000
+$100,000,000
+$150,000,000
+$200,000,000
+$250,000,000
+$300,000,000
+$350,000,000
+$400,000,000
+8.68%
+7.50%
+8.80%
+8.52%
+8.19%
+Ortho Inc. ‒ Sales Tax Analysis
+Tax Rate
+in
+Percent
+Taxes in
+Thousands
+State
+Purchases
+Sales Tax Paid
+Tax Rate
+ 1. Prepare an interpretation of the analysis.
+ 2. Is this analysis sufficient or will you need additional analyses?
+ 3. Create additional analyses of results by year.
+Le Grind Continuing Case: Verify and Interpret the Gross 
+Profit Analysis
+Data
+Visit Wiley’s online learning platform for additional questions, data, and more details about the 
+continuing case. 
+

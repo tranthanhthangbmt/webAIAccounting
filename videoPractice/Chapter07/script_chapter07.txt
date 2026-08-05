@@ -1,411 +1,412 @@
-Slide 1: TRANG BÌA
-Người 1: Chào mừng các em đến với Chương 7. Hôm nay chúng ta sẽ khám phá dữ liệu (Data Exploration) để tìm ra những insight giá trị.
-Người 2: Dạ em chào thầy. Em đã sẵn sàng cho bài học hôm nay ạ.
 
-Slide 2: GÓC NHÌN CHUYÊN GIA (PROFESSIONAL INSIGHT)
-Người 1: Ở nội dung "Góc nhìn Chuyên gia (Professional Insight)", chúng ta cần đặc biệt lưu ý những điểm cốt lõi.
-Người 2: Vâng, em đang ghi chú lại các ý chính này rồi thưa thầy.
+Slide 1: TRANG BÌA
+Người 1: Chào mừng các em đến với Chương 7: Khám phá Dữ liệu (Data Exploration). Đây là một kỹ năng cực kỳ quan trọng giúp chúng ta "mở khóa" những bí mật đang ẩn giấu bên trong những con số tài chính khô khan.
+Người 2: Dạ em chào thầy. Em rất mong chờ chương này, vì trực quan hóa dữ liệu (Data Visualization) chính là ngôn ngữ giao tiếp mạnh mẽ nhất của một chuyên gia phân tích dữ liệu ạ.
+
+Slide 2: TẦM QUAN TRỌNG CỦA KHÁM PHÁ DỮ LIỆU
+Người 1: Slide 2 khẳng định tầm quan trọng của việc "làm quen" với dữ liệu. Kế toán viên cần phải dùng trực giác để phát hiện các điểm bất thường (Outliers) hoặc xu hướng (Trends). Đó gọi là Kể chuyện bằng dữ liệu (Data Storytelling).
+Người 2: Thưa thầy, Data Storytelling có phải là quá trình biến một mớ bòng bong 1 triệu dòng Excel thành một biểu đồ duy nhất mà Ban giám đốc nhìn vào 5 giây là hiểu ngay vấn đề đúng không ạ?
 
 Slide 3: LỘ TRÌNH CHƯƠNG (CHAPTER ROADMAP)
-Người 1: Bước sang phần "Lộ trình Chương (Chapter Roadmap)", đây là một khái niệm rất hay xuất hiện trong thực tế.
-Người 2: Vâng thưa thầy, phần này rất logic và dễ áp dụng.
+Người 1: Chính xác. Để làm được điều đó, Lộ trình chương (Slide 3) sẽ đi qua LO 7.1: Quy trình Khám phá; LO 7.2: Khám phá qua 8 Mẫu Trực quan hóa cốt lõi; và LO 7.3: Tích hợp vào Dashboards.
+Người 2: Việc chia thành 8 Mẫu (Patterns) rất giống với tư duy thiết kế phần mềm (Design Patterns). Nó giúp ta có sẵn công thức biểu đồ cho từng loại dữ liệu cụ thể thưa thầy.
 
-Slide 4: 7.1 KHÁM PHÁ DỮ LIỆU (DATA EXPLORATION) LÀ GÌ?
-Người 1: Các em tập trung vào slide "7.1 Khám phá Dữ liệu (Data Exploration) là gì?" nhé, đây là nền tảng rất quan trọng.
-Người 2: Vâng, em đang ghi chú lại các ý chính này rồi thưa thầy.
+Slide 4: 7.1 KHÁM PHÁ DỮ LIỆU LÀ GÌ?
+Người 1: Slide 4 phân biệt rất rõ 3 quá trình. Khám phá (Exploration) là ta tự do đào xới để tự mình hiểu. Diễn giải (Interpretation) là gán ý nghĩa cho nó. Và Báo cáo (Reporting) là trình bày cho người khác.
+Người 2: Dạ vâng, Khám phá giống như quá trình chạy thuật toán Unsupervised Learning (Học không giám sát) để tìm ra các cụm (Clusters) tiềm ẩn, trước khi đóng gói nó thành Báo cáo chính thức ạ.
 
 Slide 5: ILLUSTRATION 7.1
-Người 1: Mời các em quan sát Minh họa 7.1. Điểm cốt lõi ở đây là: ").".
-Người 2: Em đã nắm được ý chính của phần này rồi thưa thầy.
+Người 1: Bắt đầu với Minh họa 7.1, ta thấy sức mạnh của việc dùng bảng dữ liệu (Data Table) so với việc nhìn vào dữ liệu thô. Bảng dữ liệu có cấu trúc giúp ta dễ dàng lọc và tìm kiếm ban đầu.
+Người 2: Tuy nhiên, nếu chỉ dùng bảng thì mắt người sẽ rất khó phát hiện ra quy luật phân phối (Distribution) nếu số lượng bản ghi lên tới hàng chục ngàn dòng thưa thầy.
 
 Slide 6: ILLUSTRATION 7.2
-Người 1: Các em xem minh họa ở Minh họa 7.2 trên slide. Đoạn này đề cập đến: "(A) summarizes unit sales for Honda Motors North  America (HNA) for the period 2021–2025 in a cross tabulation table.2". Rất sát với tình huống doanh nghiệp.
-Người 2: Dạ, nhờ minh họa này mà các khái niệm trở nên gần gũi hơn rất nhiều ạ.
+Người 1: Minh họa 7.2 tiếp tục trình bày cách tính toán sơ bộ. Những phép tính Sum (Tổng), Average (Trung bình) là các thống kê mô tả (Descriptive Statistics) cơ bản nhất để hiểu quy mô của biến số (Variable).
+Người 2: Các chỉ số này trong Data Science gọi là Measures of Central Tendency (Đo lường xu hướng tập trung). Nó cho ta cái nhìn nhanh về trọng tâm của khối dữ liệu ạ.
 
 Slide 7: ILLUSTRATION 7.3
-Người 1: Nhìn vào Minh họa 7.3, chúng ta có thể rút ra điều gì? Tài liệu có ghi: "(A) is a PivotTable made with Excel using the HNA data set. It lists  HNA’s  models in descending order of total units sold.". Đây là một điểm rất đáng chú ý.
-Người 2: Dạ, kết hợp lý thuyết với minh họa thực tế thế này rất hiệu quả ạ.
+Người 1: Sang Minh họa 7.3, ta dùng PivotTable trong Excel. Bằng thao tác Drag-and-Drop (Kéo thả), ta dễ dàng nhóm các biến số ở Rows (Hàng) và Columns (Cột) lại với nhau.
+Người 2: PivotTable chính là hình thức thô sơ nhất của kỹ thuật OLAP (Online Analytical Processing) Cube. Nó cuộn (Roll-up) dữ liệu chi tiết thành các nhóm Tổng doanh thu siêu tốc ạ.
 
 Slide 8: ILLUSTRATION 7.4
-Người 1: Nhìn vào Minh họa 7.4, chúng ta có thể rút ra điều gì? Tài liệu có ghi: ") shows the total units sold per model, represented by  the rows, and per country, which is represented by the columns.  TotalUnitsSoldOdysse...". Đây là một điểm rất đáng chú ý.
-Người 2: Dạ, nhờ minh họa này mà các khái niệm trở nên gần gũi hơn rất nhiều ạ.
+Người 1: Kết quả ở Minh họa 7.4 là một bảng Crosstabulation (Bảng chéo). Hàng là Model xe (Civic, Accord), Cột là Quốc gia (US, Canada).
+Người 2: Dạng ma trận 2 chiều này giúp ta so sánh trực diện được hiệu suất chéo (Cross-performance) giữa các khu vực và sản phẩm thưa thầy.
 
 Slide 9: ILLUSTRATION 7.5
-Người 1: Các em xem minh họa ở Minh họa 7.5 trên slide. Đoạn này đề cập đến: "(A) creates a filter for the Country field, while Illustra - tion 7.5 (B) shows how to use this filter by selecting a value for the Country field....". Rất sát với tình huống doanh nghiệp.
-Người 2: Em đã nắm được ý chính của phần này rồi thưa thầy.
+Người 1: Minh họa 7.5 giới thiệu tính năng Filter (Lọc) trên PivotTable. Ta có thể lọc riêng dữ liệu của quốc gia 'USA' để thu hẹp phạm vi phân tích.
+Người 2: Việc áp dụng Filter chính là thao tác Cắt lát (Slicing) trên khối lập phương dữ liệu, giúp cô lập biến số nhiễu (Noise) để ta Focus (Tập trung) vào thị trường cốt lõi ạ.
 
 Slide 10: ILLUSTRATION 7.6
-Người 1: Slide tiếp theo là một ví dụ thực tế qua Minh họa 7.6. Cụ thể: "(A) is a Power BI pivot table that summa- rizes HNA ’s total units sold per model during the last five years. In Power BI a pivot table is  called a...". Phân tích kỹ sẽ giúp các em hiểu sâu hơn.
-Người 2: Dạ, nhờ minh họa này mà các khái niệm trở nên gần gũi hơn rất nhiều ạ.
+Người 1: Minh họa 7.6 chuyển sang môi trường Power BI. Matrix Visual trong Power BI cũng tương tự PivotTable, nhưng sức mạnh xử lý (Compute engine) của nó đè bẹp Excel hoàn toàn khi đối mặt với dữ liệu Big Data.
+Người 2: Dạ vâng, VertiPaq Engine của Power BI lưu trữ dữ liệu dạng cột (Columnar database) nên truy vấn tính tổng cho hàng triệu dòng chỉ mất vài mili-giây thưa thầy.
 
-Slide 11: QUY TRÌNH KHÁM PHÁ DỮ LIỆU
-Người 1: Ở nội dung "Quy trình Khám phá Dữ liệu", chúng ta cần đặc biệt lưu ý những điểm cốt lõi.
-Người 2: Vâng thưa thầy, phần này rất logic và dễ áp dụng.
+Slide 11: 4 BƯỚC KHÁM PHÁ DỮ LIỆU
+Người 1: Slide 11 định nghĩa 4 bước chuẩn mực: Bước 1 - Xác định Mục tiêu; Bước 2 - Chọn Biến; Bước 3 - Khám phá Trực quan; Bước 4 - Đánh giá và Tinh chỉnh.
+Người 2: Nếu bỏ qua Bước 1 (Xác định mục tiêu) mà đâm đầu vào vẽ biểu đồ ngay, Kế toán viên sẽ rơi vào bẫy 'Tê liệt phân tích' (Analysis Paralysis), vẽ ra hàng đống biểu đồ nhưng vô dụng ạ.
 
 Slide 12: ILLUSTRATION 7.7
-Người 1: Mời các em quan sát Minh họa 7.7. Điểm cốt lõi ở đây là: "is a pie chart for the  PivotTable in".
-Người 2: Em đã nắm được ý chính của phần này rồi thưa thầy.
+Người 1: Tốt lắm! Minh họa 7.7 là một Pie Chart (Biểu đồ tròn) thể hiện tỷ trọng doanh số xe. Civic chiếm 32%, Accord 27%. Đây là mẫu Phần-Toàn thể (Part-To-Whole).
+Người 2: Thưa thầy, biểu đồ tròn trực quan nhưng nếu có quá nhiều danh mục (hơn 5) thì các lát cắt sẽ rất nhỏ và khó nhìn. Khi đó ta có nên chuyển sang Treemap hoặc Bar Chart không ạ?
 
 Slide 13: ILLUSTRATION 7.8
-Người 1: Chúng ta cùng phân tích Minh họa 7.8 nhé. Trọng tâm của phần này là: "shows its exploration struc - ture , which is a visual that describes the different elements used in the exploration and how  they are related. For...". Các em hãy lưu ý cách áp dụng vào thực tế.
-Người 2: Em đã nắm được ý chính của phần này rồi thưa thầy.
+Người 1: Một nhận xét cực kỳ sắc bén! Minh họa 7.8 trình bày cấu trúc khám phá Mối quan hệ Danh nghĩa (Nominal Comparison). Ta dùng một Biến định danh (Nominal Variable) làm trục, và một Biến định lượng (Numeric Variable) làm giá trị so sánh.
+Người 2: Biến định danh ở đây chính là các Category (Danh mục) rời rạc như Tên sản phẩm, Tên khu vực, không có thứ tự toán học đúng không thầy?
 
 Slide 14: ILLUSTRATION 7.9
-Người 1: Chúng ta cùng phân tích Minh họa 7.9 nhé. Trọng tâm của phần này là: "Visualizing  a Nominal Comparison Data  Relationship with a Column Chart Accord Civic CR-V Odyssey Pilot RidgelineTotal Units Sold by Model:...". Các em hãy lưu ý cách áp dụng vào thực tế.
-Người 2: Dạ, nhờ minh họa này mà các khái niệm trở nên gần gũi hơn rất nhiều ạ.
+Người 1: Đúng vậy. Minh họa 7.9 sử dụng Column Chart (Biểu đồ cột) để so sánh số lượng bán của các Model xe. Cột Civic cao nhất với hơn 3 triệu xe. So sánh cường độ (Magnitude) bằng độ cao của cột là cách não người xử lý thông tin nhanh nhất.
+Người 2: Việc dùng trục Y bắt đầu từ 0 là bắt buộc trong biểu đồ cột. Nếu ta thay đổi gốc tọa độ trục Y, nó sẽ tạo ra Ảo giác Quang học (Optical Illusion) làm phóng đại sự chênh lệch một cách sai lệch ạ.
 
 Slide 15: ILLUSTRATION 7.10
-Người 1: Các em xem minh họa ở Minh họa 7.10 trên slide. Đoạn này đề cập đến: ".". Rất sát với tình huống doanh nghiệp.
-Người 2: Dạ, nhờ minh họa này mà các khái niệm trở nên gần gũi hơn rất nhiều ạ.
+Người 1: Rất chính xác. Minh họa 7.10 là giao diện định nghĩa PivotTable để tạo ra biểu đồ cột vừa rồi. Biến Model nằm ở phần Row, Tổng số lượng nằm ở Values.
+Người 2: Đây là minh chứng cho việc mọi biểu đồ lộng lẫy đều bắt nguồn từ một bảng Aggregation (Tổng hợp) được cấu hình chuẩn mực ở phía sau thưa thầy.
 
 Slide 16: ILLUSTRATION 7.11
-Người 1: Slide tiếp theo là một ví dụ thực tế qua Minh họa 7.11. Cụ thể: ") shows how the values of a numeric  variable are distributed, or spread out, by providing the lowest value, the highest value, the  median, the...". Phân tích kỹ sẽ giúp các em hiểu sâu hơn.
-Người 2: Dạ, kết hợp lý thuyết với minh họa thực tế thế này rất hiệu quả ạ.
+Người 1: Minh họa 7.11 chuyển sang Mẫu Phân phối (Distribution Pattern). Ở đây ta phân tích cấu trúc của MỘT biến định lượng duy nhất, xem nó phân tán hay tập trung ở đâu.
+Người 2: Thuật toán thống kê đứng sau nó sẽ phải tính toán ra Tứ phân vị (Quartiles), Trung vị (Median), và Độ lệch chuẩn (Standard Deviation) để đo lường độ phân tán (Dispersion) ạ.
 
 Slide 17: ILLUSTRATION 7.12
-Người 1: Nhìn vào Minh họa 7.12, chúng ta có thể rút ra điều gì? Tài liệu có ghi: "Data Structure of the Dealership Profit Data Field Name Description ID The internal ID that identifies the car. Model The car’s model. Profit The...". Đây là một điểm rất đáng chú ý.
-Người 2: Dạ, nhờ minh họa này mà các khái niệm trở nên gần gũi hơn rất nhiều ạ.
+Người 1: Minh họa 7.12 cung cấp cấu trúc dữ liệu cho ví dụ Lợi nhuận Đại lý xe hơi. Ta có ID, Model xe, và Lợi nhuận (Profit) trên từng chiếc xe bán ra.
+Người 2: Đây chính là dữ liệu thô (Raw Data) cấp độ giao dịch (Transactional level). Để vẽ được biểu đồ phân phối, ta bắt buộc phải dùng dữ liệu chưa bị cuộn (Un-aggregated) thưa thầy.
 
-Slide 18: CÔNG CỤ KHÁM PHÁ DỮ LIỆU
-Người 1: Bước sang phần "Công cụ Khám phá Dữ liệu", đây là một khái niệm rất hay xuất hiện trong thực tế.
-Người 2: Dạ, em đang theo dõi sát sao tiến trình bài giảng ạ.
+Slide 18: EXCEL vs CÔNG CỤ BI HIỆN ĐẠI
+Người 1: Slide 18 so sánh Excel PivotTables và các công cụ BI hiện đại. Excel nhanh và tiện, nhưng Power BI hay Tableau lại vô đối trong việc tương tác trực quan và xử lý Big Data.
+Người 2: Khi bộ dữ liệu vượt quá 1 triệu dòng giới hạn của Excel, hoặc khi cần tính năng Cross-filtering (Lọc chéo) giữa nhiều biểu đồ trên Dashboard, Power BI là sự lựa chọn duy nhất ạ.
 
 Slide 19: ILLUSTRATION 7.13
-Người 1: Các em xem minh họa ở Minh họa 7.13 trên slide. Đoạn này đề cập đến: "shows the first ten rows of the data set.". Rất sát với tình huống doanh nghiệp.
-Người 2: Em đã nắm được ý chính của phần này rồi thưa thầy.
+Người 1: Minh họa 7.13 hiển thị 10 dòng đầu của bộ dữ liệu Dealership Profits. Mức lợi nhuận dao động từ khoảng 1,800$ đến 4,400$ mỗi xe.
+Người 2: Nhìn số liệu thì rất khó đoán xu hướng. Ta cần ném cột Profit này vào một Box Plot hoặc Histogram để xem đường cong phân phối (Bell Curve) của nó có bị lệch (Skewed) hay không ạ.
 
 Slide 20: ILLUSTRATION 7.14
-Người 1: Slide tiếp theo là một ví dụ thực tế qua Minh họa 7.14. Cụ thể: "Visualizing  a Distribution Data Relationship  with a Box-And-Whisker Chart $7,000 $6,000 $5,000 $4,000 $3,000 $2,000 $1,000$8,000...". Phân tích kỹ sẽ giúp các em hiểu sâu hơn.
-Người 2: Dạ, kết hợp lý thuyết với minh họa thực tế thế này rất hiệu quả ạ.
+Người 1: Hoàn hảo! Đó chính xác là Minh họa 7.14. Biểu đồ Box-and-Whisker (Hộp và Râu). Trục Y là Lợi nhuận. Cái hộp màu xanh/cam chứa 50% dữ liệu ở giữa (IQR). Đường kẻ giữa hộp là Trung vị (Median). Chấm đỏ là Trung bình (Mean).
+Người 2: Biểu đồ này là công cụ 'bắt Outliers' (Điểm dị biệt) siêu hạng! Bất kỳ điểm dữ liệu nào nằm ngoài các vạch râu (Whiskers) đều là các giao dịch bất thường cần kiểm toán ngay lập tức thưa thầy.
 
 Slide 21: ILLUSTRATION 7.15
-Người 1: Slide tiếp theo là một ví dụ thực tế qua Minh họa 7.15. Cụ thể: "shows how this chart would be created in Power BI. Power BI requires drag - ging a field into the Axis slot. The values for this field represent the...". Phân tích kỹ sẽ giúp các em hiểu sâu hơn.
-Người 2: Dạ, kết hợp lý thuyết với minh họa thực tế thế này rất hiệu quả ạ.
+Người 1: Minh họa 7.15 hướng dẫn cách tạo Box-and-Whisker Chart trong Power BI. Bạn chỉ cần thả trường Profit vào trục Y.
+Người 2: Rất đơn giản, nhưng để biểu đồ này hoạt động, trục X (Axis) ta phải thả một trường ID giao dịch (Primary Key) vào để Power BI không tự động tính tổng (Sum) toàn bộ dữ liệu lại ạ.
 
 Slide 22: ILLUSTRATION 7.16
-Người 1: Nhìn vào Minh họa 7.16, chúng ta có thể rút ra điều gì? Tài liệu có ghi: "shows how to make a chart with this comparison using Power BI: • Drag Model to the Axis category I slot. • A separate distribution is then created...". Đây là một điểm rất đáng chú ý.
-Người 2: Vâng thưa thầy, hình ảnh này giải thích rất trực quan dễ hiểu.
+Người 1: Minh họa 7.16 tiến thêm một bước: So sánh phân phối. Ta thả thêm biến Model vào trục X. Thay vì 1 cái hộp, giờ ta có 6 cái hộp cho 6 dòng xe đặt cạnh nhau.
+Người 2: Kỹ thuật này gọi là Faceting hoặc Trellising. Ta chia nhỏ dữ liệu thành các tiểu nhóm (Subgroups) để so sánh. Nhìn vào đây ta biết ngay dòng xe nào có lợi nhuận ổn định nhất (Hộp hẹp) và dòng nào biến động mạnh nhất (Hộp dài) thưa thầy.
 
 Slide 23: ILLUSTRATION 7.17
-Người 1: Chúng ta cùng phân tích Minh họa 7.17 nhé. Trọng tâm của phần này là: "is the resulting chart. Exploration and Insights Dragging and dropping variables also supports data exploration using this pattern. Using the ...". Các em hãy lưu ý cách áp dụng vào thực tế.
-Người 2: Dạ, nhờ minh họa này mà các khái niệm trở nên gần gũi hơn rất nhiều ạ.
+Người 1: Minh họa 7.17 chính là kết quả cuối cùng: Parallel Profit Distributions (Phân phối song song). Bạn thấy dòng xe Ridgeline có Lợi nhuận trung bình rất cao (chấm đỏ cao nhất).
+Người 2: Nhưng đồng thời, hộp râu của Ridgeline cũng rất dài, chứng tỏ độ rủi ro (Variance) lớn. Kế toán quản trị sẽ cảnh báo Ban giám đốc rằng bán Ridgeline có thể lãi to nhưng biên độ giá thiếu ổn định ạ.
 
-Slide 24: 7.2 MỐI QUAN HỆ NỀN TẢNG QUA TRỰC QUAN HÓA
-Người 1: Phần "7.2 Mối quan hệ Nền tảng qua Trực quan hóa" này chính là mấu chốt quan trọng.
-Người 2: Dạ, em đang theo dõi sát sao tiến trình bài giảng ạ.
+Slide 24: 8 MẪU MỐI QUAN HỆ NỀN TẢNG (PATTERNS)
+Người 1: Slide 24 đúc kết lại các công năng. 8 Mẫu trực quan hóa giúp não bộ nhận diện quy luật (Pattern Recognition). Chúng ta có Phần-Toàn thể, Cường độ, Chuỗi thời gian, Phân phối...
+Người 2: Việc am hiểu 8 mẫu này giúp Kế toán viên 'nói ngôn ngữ của não bộ'. Ta chọn đúng biểu đồ sẽ giúp kích hoạt tư duy thị giác (Visual Thinking) của người xem một cách vô thức ạ.
 
 Slide 25: ILLUSTRATION 7.18
-Người 1: Các em xem minh họa ở Minh họa 7.18 trên slide. Đoạn này đề cập đến: "Exploration  Structure for a Deviation Data  Relationship Nominal VariableNumeric Variable: DeviationHow the comparison is being done. What is being...". Rất sát với tình huống doanh nghiệp.
-Người 2: Dạ, kết hợp lý thuyết với minh họa thực tế thế này rất hiệu quả ạ.
+Người 1: Sang Minh họa 7.18, ta có cấu trúc Khám phá Độ lệch (Deviation Data Relationship). Cấu trúc này cần Biến danh nghĩa (Trục X) và tới 3 biến định lượng: Actual (Thực tế), Target (Mục tiêu) và Deviation (Chênh lệch).
+Người 2: Đây là kiến trúc tiêu chuẩn cho Phân tích Ngân sách (Variance Analysis). Cột biểu đồ sẽ cho biết ta đang Over-budget (Vượt ngân sách) hay Under-budget (Tiết kiệm) ạ.
 
 Slide 26: ILLUSTRATION 7.19
-Người 1: Nhìn vào Minh họa 7.19, chúng ta có thể rút ra điều gì? Tài liệu có ghi: "HNA Budgeted Unit Sales -2025 US US US USA USA USA Canada Canada Canada CanadaSedan Sedan SUV SUV Miniv an Truck Sedan SUVSedan SUVCountr yT ype...". Đây là một điểm rất đáng chú ý.
-Người 2: Dạ, kết hợp lý thuyết với minh họa thực tế thế này rất hiệu quả ạ.
+Người 1: Minh họa 7.19 là bộ dữ liệu Thực tế (Actual) và Ngân sách dự kiến (Budgeted) cho năm 2025.
+Người 2: Để chuẩn bị dữ liệu này, Data Pipeline (Đường ống dữ liệu) đã phải thực hiện lệnh JOIN giữa bảng Kế toán quản trị (Actuals) và bảng Kế hoạch tài chính (Forecast) thưa thầy.
 
 Slide 27: ILLUSTRATION 7.20
-Người 1: Mời các em quan sát Minh họa 7.20. Điểm cốt lõi ở đây là: "with Power BI.".
-Người 2: Dạ, ví dụ này làm em thấy rõ hơn hẳn ạ.
+Người 1: Minh họa 7.20 trình bày Clustered Column Chart (Biểu đồ cột ghép). Cột màu cam (Thực tế) đứng cạnh cột màu tím (Ngân sách) cho từng Model xe.
+Người 2: Biểu đồ cột ghép rất tốt để so sánh trực diện (Side-by-side). Nhìn lướt qua ta thấy dòng Odyssey (cột cam thấp hơn tím) là đang bị hụt chỉ tiêu nghiêm trọng (Unfavorable variance) ạ.
 
 Slide 28: ILLUSTRATION 7.21
-Người 1: Slide tiếp theo là một ví dụ thực tế qua Minh họa 7.21. Cụ thể: "Creating  a Clustered Column Chart in  Power  BIAxis Model Legend Add dat a fields her e Values TotalActualUnits TotalBudg etedUnitsHow the...". Phân tích kỹ sẽ giúp các em hiểu sâu hơn.
-Người 2: Dạ, ví dụ này làm em thấy rõ hơn hẳn ạ.
+Người 1: Minh họa 7.21 là giao diện cấu hình biểu đồ cột ghép trong Power BI. Ta đưa cả hai biến TotalActualUnits và TotalBudgetedUnits vào vùng Values.
+Người 2: Khả năng chứa nhiều Metrics (Chỉ số) trên cùng một không gian trục Y chính là sức mạnh của các công cụ BI hiện đại so với biểu đồ truyền thống thưa thầy.
 
 Slide 29: ILLUSTRATION 7.22
-Người 1: Mời các em quan sát Minh họa 7.22. Điểm cốt lõi ở đây là: ") orders the values of a variable sequentially  based on the values of a second variable. Ranks are determined by some quality, such as high - est,...".
-Người 2: Dạ, ví dụ này làm em thấy rõ hơn hẳn ạ.
+Người 1: Minh họa 7.22 là cấu trúc Khám phá Xếp hạng (Ranking Data Relationship). Ta xếp hạng các biến Danh nghĩa dựa trên một Biến định lượng (như Cao nhất, Thấp nhất).
+Người 2: Xếp hạng là bước tiền xử lý để làm Pareto Analysis (Phân tích 80/20). Nó ép các thuật toán Sorting (Sắp xếp) phải chạy ngầm để đẩy Top Performers (Nhóm dẫn đầu) lên trên cùng báo cáo ạ.
 
-Slide 30: PHÂN TÍCH CÁC MẪU CƠ BẢN
-Người 1: Phần "Phân tích Các Mẫu Cơ bản" này chính là mấu chốt quan trọng.
-Người 2: Dạ, em đang theo dõi sát sao tiến trình bài giảng ạ.
+Slide 30: CHI TIẾT CÁC MẪU TRỰC QUAN HÓA
+Người 1: Cuối cùng, Slide 30 mô tả chi tiết: Mẫu Phần-Toàn thể dùng Pie/Donut Chart. Cường độ dùng Bar/Column. Chuỗi thời gian dùng Line Chart.
+Người 2: Thưa thầy, để phân tích chuỗi thời gian (Time Series) hiệu quả, biểu đồ đường (Line Chart) là bắt buộc vì nó thể hiện tính liên tục (Continuity) của sự kiện kế toán dọc theo dòng thời gian, điều mà biểu đồ cột không làm được ạ.
 
 Slide 31: ILLUSTRATION 7.23
-Người 1: Nhìn vào Minh họa 7.23, chúng ta có thể rút ra điều gì? Tài liệu có ghi: "(B) shows a column chart  that ranks HNA’s models ( what to rank ) based on the units sold in the 2021–2025 period ...". Đây là một điểm rất đáng chú ý.
-Người 2: Dạ, kết hợp lý thuyết với minh họa thực tế thế này rất hiệu quả ạ.
+Người 1: Tiếp nối chuỗi biểu đồ, Minh họa 7.23 đi sâu vào Mẫu Phần-Toàn thể (Part-To-Whole). Treemap (Biểu đồ dạng cây) là một lựa chọn xuất sắc khi có quá nhiều danh mục để vẽ Pie Chart.
+Người 2: Dạ vâng, thuật toán của Treemap chia diện tích hình chữ nhật tỷ lệ thuận với giá trị (Value). Nó đặc biệt hữu dụng khi Kế toán muốn xem tỷ trọng chi phí của hàng trăm phòng ban khác nhau trên cùng một màn hình ạ.
 
 Slide 32: ILLUSTRATION 7.24
-Người 1: Chúng ta cùng phân tích Minh họa 7.24 nhé. Trọng tâm của phần này là: ") compares parts to wholes and looks  at how the different parts compare to each other. For example, an organization might gen - erate $100,000 in...". Các em hãy lưu ý cách áp dụng vào thực tế.
-Người 2: Em đã nắm được ý chính của phần này rồi thưa thầy.
+Người 1: Minh họa 7.24 chuyển sang biểu đồ Đường (Line Chart) để trực quan hóa Chuỗi thời gian (Time Series). Trục X luôn luôn là biến thời gian (Ngày, Tháng, Năm), Trục Y là giá trị.
+Người 2: Line chart có khả năng phản ánh độ dốc (Slope). Độ dốc càng đứng chứng tỏ tốc độ tăng trưởng (Growth Rate) càng mãnh liệt. Kế toán trưởng rất hay dùng biểu đồ này để đo lường dòng tiền (Cash flow) qua từng ngày thưa thầy.
 
 Slide 33: ILLUSTRATION 7.25
-Người 1: Các em xem minh họa ở Minh họa 7.25 trên slide. Đoạn này đề cập đến: "shows the relative importance of each of  HNA’s models, which are the parts, in terms of the whole, which is the units sold during the  2021–  2025...". Rất sát với tình huống doanh nghiệp.
-Người 2: Dạ, ví dụ này làm em thấy rõ hơn hẳn ạ.
+Người 1: Minh họa 7.25 kết hợp (Composite) nhiều đường xu hướng trên cùng một biểu đồ. Mỗi đường đại diện cho một Model xe.
+Người 2: Đây là cách tuyệt vời để chạy phân tích Nhóm (Cohort Analysis). Cùng một khung thời gian, ta có thể thấy đường của Honda Civic bứt phá lên, trong khi Ridgeline lại cắm đầu đi xuống ạ.
 
 Slide 34: ILLUSTRATION 7.26
-Người 1: Chúng ta cùng phân tích Minh họa 7.26 nhé. Trọng tâm của phần này là: "shows how this pie chart is created using Power BI: • The Values slot defines the what : This refers to the number that is broken down. Here, it  is...". Các em hãy lưu ý cách áp dụng vào thực tế.
-Người 2: Vâng thưa thầy, hình ảnh này giải thích rất trực quan dễ hiểu.
+Người 1: Minh họa 7.26 cảnh báo về việc biểu đồ đường có thể bị nhiễu nếu có quá nhiều đường (Spaghetti Chart - Biểu đồ mì Ý). Não bộ sẽ không thể phân tích được gì khi các đường xoắn xít vào nhau.
+Người 2: Dạ, trong trường hợp này, các BI tools cho phép ta dùng kỹ thuật Small Multiples (Nhiều biểu đồ nhỏ). Nó bóc tách mỗi đường thành một biểu đồ con riêng biệt để dễ đối chiếu hơn thưa thầy.
 
-Slide 35: PHÂN TÍCH CÁC MẪU NÂNG CAO
-Người 1: Tiếp tục với phần "Phân tích Các Mẫu Nâng cao", các em hãy xâu chuỗi với các kỹ năng đã học trước đó.
-Người 2: Vâng, em đang ghi chú lại các ý chính này rồi thưa thầy.
+Slide 35: CÁC MẪU TRỰC QUAN HÓA (TIẾP THEO)
+Người 1: Slide 35 tiếp tục giới thiệu 3 mẫu khác: Phân phối (Distribution - dùng Histogram), Tương quan (Correlation - dùng Scatter plot), và Không gian (Spatial - dùng Map).
+Người 2: Thưa thầy, biểu đồ Tương quan (Scatter Plot) cực kỳ quan trọng trong Machine Learning đúng không ạ? Nó giúp kiểm tra xem biến X (Chi phí quảng cáo) có mối quan hệ tuyến tính (Linear relationship) với biến Y (Doanh thu) hay không.
 
 Slide 36: ILLUSTRATION 7.27
-Người 1: Chúng ta cùng phân tích Minh họa 7.27 nhé. Trọng tâm của phần này là: "shows the exploration structure of a correlation data relationship between  numeric variables.". Các em hãy lưu ý cách áp dụng vào thực tế.
-Người 2: Dạ, nhờ minh họa này mà các khái niệm trở nên gần gũi hơn rất nhiều ạ.
+Người 1: Khá khen cho kiến thức ML của em! Minh họa 7.27 chính là Scatter Plot (Biểu đồ phân tán). Mỗi dấu chấm là một thực thể, được tọa độ hóa bằng trục X và Y.
+Người 2: Nhìn biểu đồ này, thuật toán Hồi quy tuyến tính (Linear Regression) sẽ ngầm định vẽ một đường thẳng (Line of Best Fit) xuyên qua các dấu chấm để đo lường Hệ số tương quan (Correlation Coefficient) thưa thầy.
 
 Slide 37: ILLUSTRATION 7.28
-Người 1: Chúng ta cùng phân tích Minh họa 7.28 nhé. Trọng tâm của phần này là: "). Price estimation is a critical decision for all landscape businesses. Buzz Cut uses the fol - lowing decision model to make price estimates: • It...". Các em hãy lưu ý cách áp dụng vào thực tế.
-Người 2: Dạ, ví dụ này làm em thấy rõ hơn hẳn ạ.
+Người 1: Sang Minh họa 7.28, ta ứng dụng Map (Bản đồ) cho dữ liệu Không gian (Spatial). Dữ liệu Vĩ độ (Latitude) và Kinh độ (Longitude) được map trực tiếp.
+Người 2: Những bong bóng (Bubbles) trên bản đồ nếu có độ lớn tỷ lệ với Doanh thu, sẽ giúp Kế toán chi phí dễ dàng quyết định điểm đặt Kho bãi (Warehouse Location) để tối ưu hóa Logistics ạ.
 
 Slide 38: ILLUSTRATION 7.29
-Người 1: Các em xem minh họa ở Minh họa 7.29 trên slide. Đoạn này đề cập đến: "explores the validity of these assumptions.". Rất sát với tình huống doanh nghiệp.
-Người 2: Dạ, nhờ minh họa này mà các khái niệm trở nên gần gũi hơn rất nhiều ạ.
+Người 1: Minh họa 7.29 là một ứng dụng khác của Map kết hợp biểu đồ nhiệt (Heatmap). Màu càng đậm thì mật độ giao dịch càng cao.
+Người 2: Dạ vâng, các thuật toán K-means Clustering (Phân cụm) rất thích dạng dữ liệu địa lý này để gom nhóm các khách hàng tiềm năng thành từng phân khúc (Segments) để marketing thưa thầy.
 
 Slide 39: ILLUSTRATION 7.30
-Người 1: Slide tiếp theo là một ví dụ thực tế qua Minh họa 7.30. Cụ thể: ").". Phân tích kỹ sẽ giúp các em hiểu sâu hơn.
-Người 2: Dạ, nhờ minh họa này mà các khái niệm trở nên gần gũi hơn rất nhiều ạ.
+Người 1: Trở lại với Mẫu Phân phối, Minh họa 7.30 là Histogram (Biểu đồ tần suất). Nó chặt trục X thành các 'Thùng' (Bins) và đếm số lượng giao dịch rơi vào mỗi thùng.
+Người 2: Histogram giúp phát hiện dữ liệu có tuân theo Phân phối chuẩn (Normal Distribution - Hình quả chuông) hay không. Nếu dữ liệu bị lệch (Skewed), ta bắt buộc phải chuẩn hóa (Normalize) trước khi chạy mô hình dự báo ạ.
 
 Slide 40: NGUYÊN TẮC THIẾT KẾ BIỂU ĐỒ
-Người 1: Ở nội dung "Nguyên tắc Thiết kế Biểu đồ", chúng ta cần đặc biệt lưu ý những điểm cốt lõi.
-Người 2: Dạ, em đang theo dõi sát sao tiến trình bài giảng ạ.
+Người 1: Slide 40 đưa ra 3 nguyên tắc sống còn: Giữ sự đơn giản (Keep it Simple), Rõ ràng (Clarity) và Dùng màu sắc có chủ ý. Lạm dụng đồ họa 3D sẽ tạo ra rác trực quan (Chartjunk).
+Người 2: Dạ vâng, biểu đồ 3D làm sai lệch góc nhìn (Perspective) khiến não bộ định lượng sai chiều cao của cột. Data Scientist chuyên nghiệp luôn dùng thiết kế phẳng (Flat Design) và bảng màu Color-blind friendly (Thân thiện người mù màu) ạ.
 
 Slide 41: ILLUSTRATION 7.31
-Người 1: Chúng ta cùng phân tích Minh họa 7.31 nhé. Trọng tâm của phần này là: ").". Các em hãy lưu ý cách áp dụng vào thực tế.
-Người 2: Dạ, kết hợp lý thuyết với minh họa thực tế thế này rất hiệu quả ạ.
+Người 1: Minh họa 7.31 là một ví dụ về thiết kế quá tải (Overloaded design). Nhồi nhét quá nhiều màu sắc vô nghĩa chỉ làm người xem mệt mỏi.
+Người 2: Thay vì dùng 10 màu cho 10 cột, ta chỉ nên dùng màu Xám cho 9 cột, và dùng màu Đỏ (Highlight) duy nhất cho cột đang bị rớt doanh thu để lôi kéo sự chú ý (Attention) thưa thầy.
 
 Slide 42: ILLUSTRATION 7.32
-Người 1: Slide tiếp theo là một ví dụ thực tế qua Minh họa 7.32. Cụ thể: "is a Power BI line chart that explores  how HNA’s unit sales changed during the 2021–2025 period. While the data do not indicate what the other...". Phân tích kỹ sẽ giúp các em hiểu sâu hơn.
-Người 2: Vâng thưa thầy, hình ảnh này giải thích rất trực quan dễ hiểu.
+Người 1: Sang Minh họa 7.32, tiêu đề biểu đồ (Title) và nhãn trục (Axis Labels) được tinh chỉnh. Tiêu đề không nên đặt chung chung như "Doanh thu", mà nên đặt theo dạng Câu chuyện (Story-driven title).
+Người 2: Ví dụ: "Doanh thu Q3 sụt giảm 15% do đứt gãy chuỗi cung ứng". Dòng tiêu đề mang tính Insight này sẽ giúp Ban Lãnh đạo nắm ngay kết luận mà chưa cần đọc số liệu ạ.
 
 Slide 43: ILLUSTRATION 7.33
-Người 1: Các em xem minh họa ở Minh họa 7.33 trên slide. Đoạn này đề cập đến: ").". Rất sát với tình huống doanh nghiệp.
-Người 2: Dạ, nhờ minh họa này mà các khái niệm trở nên gần gũi hơn rất nhiều ạ.
+Người 1: Ở Minh họa 7.33, ta thấy hiệu ứng của Data Labels (Nhãn dữ liệu). Việc hiển thị trực tiếp con số trên đầu cột giúp loại bỏ hoàn toàn các đường lưới (Gridlines) ngang, làm biểu đồ cực kỳ thoáng.
+Người 2: Nghệ thuật của Data Visualization chính là tỷ lệ Data-to-Ink Ratio (Tỷ lệ Dữ liệu/Mực in). Càng xóa được nhiều nét mực thừa (viền, lưới, màu nền), biểu đồ càng tỏa sáng thưa thầy.
 
 Slide 44: ILLUSTRATION 7.34
-Người 1: Mời các em quan sát Minh họa 7.34. Điểm cốt lõi ở đây là: ". This chart shows a very different picture: U.S. sales are flat, and growth is a  result of increasing sales in Canada. Additional insights might...".
-Người 2: Dạ, ví dụ này làm em thấy rõ hơn hẳn ạ.
+Người 1: Minh họa 7.34 nói về Định dạng số (Number Formatting). Đừng bắt sếp bạn đọc con số $3,456,789.00. Hãy rút gọn nó thành $3.46M.
+Người 2: Việc giảm tải nhận thức (Cognitive Load) cho người xem là yếu tố tiên quyết. Bộ não con người chỉ xử lý hiệu quả tối đa 3-4 chữ số có ý nghĩa (Significant digits) cùng lúc thôi ạ.
 
-Slide 45: 7.3 KHÁM PHÁ DỮ LIỆU ĐA CHIỀU (TÍCH HỢP)
-Người 1: Tiếp tục với phần "7.3 Khám phá Dữ liệu Đa chiều (Tích hợp)", các em hãy xâu chuỗi với các kỹ năng đã học trước đó.
-Người 2: Vâng thưa thầy, phần này rất logic và dễ áp dụng.
+Slide 45: TÍCH HỢP MỐI QUAN HỆ (INTEGRATION)
+Người 1: Từ Slide 45, ta bước sang Cấp độ cao nhất: Tích hợp nhiều mẫu trực quan (Holistic view). Hai dạng phổ biến là Biểu đồ Đa trục (Dual-axis) và Biểu đồ Bong bóng (Bubble chart).
+Người 2: Bubble Chart là thuật toán ép 3 chiều dữ liệu (3D) lên mặt phẳng 2D. Trục X, Trục Y là 2 biến, và Bán kính (Radius) của bong bóng là biến thứ 3. Một công cụ thể hiện sự tương quan đa biến (Multivariate) cực mạnh ạ.
 
 Slide 46: ILLUSTRATION 7.35
-Người 1: Các em xem minh họa ở Minh họa 7.35 trên slide. Đoạn này đề cập đến: "). EncodingColoring SizeThe location to which the quantitative variable applies.Location Variable The quantitative variable used for analysis...". Rất sát với tình huống doanh nghiệp.
-Người 2: Vâng thưa thầy, hình ảnh này giải thích rất trực quan dễ hiểu.
+Người 1: Minh họa 7.35 là một Scatter Plot cổ điển, ta chuẩn bị tích hợp thêm biến thứ 3 vào nó để biến nó thành Bubble Chart.
+Người 2: Dạ, nếu ta gán biến Lợi nhuận (Profit) vào kích thước (Size) của dấu chấm, ta sẽ thấy ngay những khách hàng đem lại doanh thu cao chưa chắc đã mang lại Lợi nhuận cao thưa thầy.
 
 Slide 47: ILLUSTRATION 7.36
-Người 1: Các em xem minh họa ở Minh họa 7.36 trên slide. Đoạn này đề cập đến: ", color  intensity differentiates among the combined state and average local sales tax rates for  U.S. states. In this map, state is the location...". Rất sát với tình huống doanh nghiệp.
-Người 2: Dạ, ví dụ này làm em thấy rõ hơn hẳn ạ.
+Người 1: Minh họa 7.36 trình bày quá trình đó. Biểu đồ Bong bóng (Bubble chart) hoàn thiện. Dữ liệu giờ đây có thêm chiều sâu về độ lớn (Magnitude).
+Người 2: Nhược điểm duy nhất của Bubble Chart là não người khó so sánh chính xác diện tích hình tròn. Do đó, ta chỉ dùng nó để xác định xu hướng lớn chứ không dùng để đọc số chính xác ạ.
 
 Slide 48: ILLUSTRATION 7.37
-Người 1: Slide tiếp theo là một ví dụ thực tế qua Minh họa 7.37. Cụ thể: ").". Phân tích kỹ sẽ giúp các em hiểu sâu hơn.
-Người 2: Em đã nắm được ý chính của phần này rồi thưa thầy.
+Người 1: Minh họa 7.37 giới thiệu một biểu đồ Dual-axis (Đa trục) tồi tệ. Trục Y bên trái là $ Doanh thu, trục Y bên phải là % Biên lợi nhuận. Sự giao cắt của đường và cột đôi khi là ngẫu nhiên và dễ gây hiểu lầm.
+Người 2: Dạ vâng, kỹ năng phân tích khuyên ta hạn chế Dual-axis. Tốt nhất là tách thành 2 biểu đồ (Small multiples) xếp chồng lên nhau, dùng chung trục X (Thời gian) để an toàn và trung thực hơn thưa thầy.
 
 Slide 49: ILLUSTRATION 7.38
-Người 1: Các em xem minh họa ở Minh họa 7.38 trên slide. Đoạn này đề cập đến: ", the stacked area chart is used to explore  changes in HNA’s unit sales mix.". Rất sát với tình huống doanh nghiệp.
-Người 2: Em đã nắm được ý chính của phần này rồi thưa thầy.
+Người 1: Minh họa 7.38 sửa lại biểu đồ Dual-axis cho rõ ràng hơn bằng cách đồng bộ (Synchronize) trục nếu cùng đơn vị đo lường, hoặc đánh dấu màu (Color-coding) rõ ràng cho từng trục.
+Người 2: Việc gán nhãn trục Y bên trái màu Cam (cùng màu với Cột) và trục Y phải màu Xanh dương (cùng màu với Đường) là một nguyên tắc UX/UI sống còn để dẫn dắt mắt người đọc ạ.
 
 Slide 50: ILLUSTRATION 7.39
-Người 1: Nhìn vào Minh họa 7.39, chúng ta có thể rút ra điều gì? Tài liệu có ghi: "Power BI  Definition of Stacked Area Chart Axis Year Values UnitsSoldTime Unit VariableThe time unit used for analysis. The variable that determines...". Đây là một điểm rất đáng chú ý.
-Người 2: Em đã nắm được ý chính của phần này rồi thưa thầy.
+Người 1: Chuyển sang Minh họa 7.39, ta có 100% Stacked Column Chart (Biểu đồ cột chồng 100%). Đây là biểu đồ theo dõi tỷ trọng (Sales Mix) thay đổi qua các năm.
+Người 2: Khác với biểu đồ tròn (Pie) chỉ xem được 1 năm. Biểu đồ cột chồng 100% cho phép ta phân tích Chuỗi thời gian (Time-series) của một Mẫu Phần-Toàn thể. Thấy rõ sự chiếm lĩnh thị phần của một dòng xe theo thời gian ạ.
 
 Slide 51: ILLUSTRATION 7.40
-Người 1: Nhìn vào Minh họa 7.40, chúng ta có thể rút ra điều gì? Tài liệu có ghi: ") using the same data is created in Power BI  in the same way.". Đây là một điểm rất đáng chú ý.
-Người 2: Dạ, nhờ minh họa này mà các khái niệm trở nên gần gũi hơn rất nhiều ạ.
+Người 1: Tương tự, Minh họa 7.40 hiển thị biểu đồ này trên Power BI. Nó chuẩn hóa tất cả các cột về cùng độ cao 100%, bỏ qua tổng doanh thu (Volume) mà chỉ tập trung vào tỷ lệ (Ratio).
+Người 2: Nếu muốn xem cả Volume và Ratio cùng lúc, ta có thể dùng biểu đồ Marimekko (Mekko chart), nơi độ rộng của cột cũng được biến đổi theo Doanh thu tổng ạ.
 
 Slide 52: ILLUSTRATION 7.41
-Người 1: Slide tiếp theo là một ví dụ thực tế qua Minh họa 7.41. Cụ thể: ") determines the importance of different categories, which  is nominal comparison, ranks them, and shows how each, based on that ranking,...". Phân tích kỹ sẽ giúp các em hiểu sâu hơn.
-Người 2: Dạ, ví dụ này làm em thấy rõ hơn hẳn ạ.
+Người 1: Minh họa 7.41 trình bày cấu trúc Pareto Analysis (Phân tích Pareto 80/20). Nó kết hợp 3 yếu tố: Phân loại, Xếp hạng giảm dần, và Tích lũy tỷ lệ phần trăm (Cumulative Percentage).
+Người 2: Đường cong Pareto được tính bằng thuật toán Running Total (Cộng dồn). Kế toán dùng nó để nhắm vào 20% mặt hàng tạo ra 80% lợi nhuận, từ đó cắt giảm các mã hàng rác thưa thầy.
 
 Slide 53: ILLUSTRATION 7.42
-Người 1: Slide tiếp theo là một ví dụ thực tế qua Minh họa 7.42. Cụ thể: "(A) shows a  PivotTable created from the HNA Unit Sales data set. It contains the different models, units  sold per model, and cumulative units sold...". Phân tích kỹ sẽ giúp các em hiểu sâu hơn.
-Người 2: Em đã nắm được ý chính của phần này rồi thưa thầy.
+Người 1: Minh họa 7.42 là kết quả của Phân tích Pareto. Các cột giảm dần thể hiện Doanh số, và đường cong đỏ vắt ngang qua thể hiện % lũy kế chạm mốc 100%.
+Người 2: Bất kỳ cột nào nằm phía dưới điểm uốn (Inflection point) của đường cong 80% đều là những sản phẩm chiến lược cần được ưu tiên trong chuỗi cung ứng ạ.
 
 Slide 54: ILLUSTRATION 7.43
-Người 1: Slide tiếp theo là một ví dụ thực tế qua Minh họa 7.43. Cụ thể: "is an HNA Interactive Report, which integrates data relationships with   multiple visualizations.TotalOdysse yCR-VAccord Ridg elinePilotCivic...". Phân tích kỹ sẽ giúp các em hiểu sâu hơn.
-Người 2: Dạ, nhờ minh họa này mà các khái niệm trở nên gần gũi hơn rất nhiều ạ.
+Người 1: Ở Minh họa 7.43, ta thấy Cấu trúc Dashboard Tương tác (Interactive Report). Đây là đích đến cuối cùng của Khám phá Dữ liệu. Nhiều biểu đồ kết nối với nhau trên một màn hình.
+Người 2: Nhờ có các mối quan hệ (Relationships) trong Star Schema, khi ta click vào một thanh của biểu đồ Bar, toàn bộ các biểu đồ Line, Map khác sẽ lập tức Filter chéo (Cross-filter) để hiển thị bối cảnh liên quan thưa thầy.
 
-Slide 55: BẢNG ĐIỀU KHIỂN (DASHBOARDS)
-Người 1: Các em tập trung vào slide "Bảng điều khiển (Dashboards)" nhé, đây là nền tảng rất quan trọng.
-Người 2: Vâng, em đang ghi chú lại các ý chính này rồi thưa thầy.
+Slide 55: DASHBOARD (BẢNG ĐIỀU KHIỂN)
+Người 1: Slide 55 định nghĩa Dashboard. Sức mạnh lớn nhất của nó là Tính tương tác (Interactivity) thông qua Slicers và Drill-down (Khoan sâu).
+Người 2: Khả năng Drill-down biến Dashboard thành một khối Rubik đa chiều. Từ doanh thu Tổng Công ty, sếp chỉ cần click đúp để rã (Decompose) nó thành doanh thu từng khu vực, rồi xuống từng nhân viên sale ạ.
 
 Slide 56: ILLUSTRATION 7.44
-Người 1: Mời các em quan sát Minh họa 7.44. Điểm cốt lõi ở đây là: "is the exploration structure of the report in".
-Người 2: Dạ, kết hợp lý thuyết với minh họa thực tế thế này rất hiệu quả ạ.
+Người 1: Minh họa 7.44 là cấu trúc khám phá (Exploration Structure) của Dashboard. Slicers (Bộ lọc) đứng ở trên cùng, truyền Filter Context (Ngữ cảnh lọc) xuống tất cả các biểu đồ bên dưới.
+Người 2: Sơ đồ này minh chứng rằng Dashboard không phải là một bức tranh vẽ tĩnh. Nó là một Phần mềm ứng dụng (App) thực thụ chạy trên nền tảng Data Model thưa thầy.
 
 Slide 57: ILLUSTRATION 7.45
-Người 1: Slide tiếp theo là một ví dụ thực tế qua Minh họa 7.45. Cụ thể: "U.S. 2025 Sales Mix U.S. 2025 Sales Mix 1,200,000 1,000,000 800,000 600,000 400,000 200,000 Canada CountryUnitsSold USA03 54 1,053,9351,171,203...". Phân tích kỹ sẽ giúp các em hiểu sâu hơn.
-Người 2: Em đã nắm được ý chính của phần này rồi thưa thầy.
+Người 1: Minh họa 7.45 cho thấy việc áp dụng Slicer để lọc ra dữ liệu riêng cho Quốc gia 'USA' và Năm '2025'. Dashboard lập tức thu hẹp phạm vi.
+Người 2: Cơ chế 'What-if' (Điều gì xảy ra nếu...) này giúp Kế toán viên có thể đóng vai trò làm tham mưu (Advisory) ngay trong cuộc họp hội đồng quản trị bằng cách bấm nút và trả lời câu hỏi tức thì ạ.
 
 Slide 58: ILLUSTRATION 7.46
-Người 1: Các em xem minh họa ở Minh họa 7.46 trên slide. Đoạn này đề cập đến: "Overview of Data Exploration Patterns  Id Data Relationship DescriptionVisualization Examples (Bold indicates chapter example) Foundational Data...". Rất sát với tình huống doanh nghiệp.
-Người 2: Dạ, ví dụ này làm em thấy rõ hơn hẳn ạ.
+Người 1: Minh họa 7.46 Tổng kết lại 10 mẫu Khám phá dữ liệu mà chúng ta đã học. Một bảng phân loại tuyệt vời cho mọi Kế toán viên.
+Người 2: Dạ vâng, đây chính là Checklist (Danh sách kiểm tra) để mỗi khi gặp một bộ dữ liệu mới, ta sẽ quét qua 10 mẫu này bằng thuật toán Visualization để moi sạch các Insight thưa thầy.
 
 Slide 59: ILLUSTRATION 7.47
-Người 1: Slide tiếp theo là một ví dụ thực tế qua Minh họa 7.47. Cụ thể: "Creating  a  Box-and-Whisker Chart with Excel     3D Map ToursInsert File Home Formulas Data Review View Help Page Layout Acrobat Draw Maps...". Phân tích kỹ sẽ giúp các em hiểu sâu hơn.
-Người 2: Dạ, nhờ minh họa này mà các khái niệm trở nên gần gũi hơn rất nhiều ạ.
+Người 1: Minh họa 7.47 hướng dẫn cách tạo Box-and-Whisker Chart trên Excel. Dù Excel không mạnh bằng Power BI, nhưng các phiên bản mới cũng đã tích hợp biểu đồ thống kê này.
+Người 2: Thao tác Insert -> Statistical Chart giúp người dùng Excel không cần phải viết các hàm Quartile thủ công cực nhọc như trước kia nữa ạ.
 
 Slide 60: ILLUSTRATION 7.48
-Người 1: Nhìn vào Minh họa 7.48, chúng ta có thể rút ra điều gì? Tài liệu có ghi: ").". Đây là một điểm rất đáng chú ý.
-Người 2: Dạ, nhờ minh họa này mà các khái niệm trở nên gần gũi hơn rất nhiều ạ.
+Người 1: Và kết quả ở Minh họa 7.48, Excel đã xuất ra một Box-and-Whisker Chart rất đẹp. Những chấm nhỏ nằm tít trên cao tách rời khỏi sợi râu (Whiskers) chính là các Outliers.
+Người 2: Như vậy, một Data Analyst xuất sắc là người không chỉ biết code SQL/DAX, mà còn phải là một 'Họa sĩ dữ liệu' biết thiết kế UI/UX cho biểu đồ để kể nên một câu chuyện kinh doanh thuyết phục thưa thầy!
 
 Slide 61: ILLUSTRATION 7.49
-Người 1: Nhìn vào Minh họa 7.49, chúng ta có thể rút ra điều gì? Tài liệu có ghi: "Parallel Profit Distributions for HNA Car Models. Accord Civic CR-V Odyssey Pilot Ridgeline$0$1,000$2,000$3,000$4,000$5,000$6,000$7,000$8,000 Profit...". Đây là một điểm rất đáng chú ý.
-Người 2: Dạ, nhờ minh họa này mà các khái niệm trở nên gần gũi hơn rất nhiều ạ.
+Người 1: Tiếp tục phần hướng dẫn Excel, Minh họa 7.49 trình bày cách sắp xếp (Sorting) trực tiếp trên Box-and-Whisker Chart. Các dòng xe được xếp từ trái qua phải theo trật tự Alpha B, hoặc theo Lợi nhuận trung bình giảm dần.
+Người 2: Việc sắp xếp (Sort by Value) giúp mắt người đọc ngay lập tức tìm ra được 'The Best' (Tốt nhất) và 'The Worst' (Tệ nhất) mà không cần phải lướt qua lướt lại các cột thưa thầy.
 
 Slide 62: ILLUSTRATION 7.50
-Người 1: Chúng ta cùng phân tích Minh họa 7.50 nhé. Trọng tâm của phần này là: "Pareto Data Worksheet Odysse yCR-VAccord Ridg elinePilotCivic 3,074,040 2,555,799 1,603,686 898,441 897,807 517,964Model TotalUnitsSold 32.20%...". Các em hãy lưu ý cách áp dụng vào thực tế.
-Người 2: Dạ, ví dụ này làm em thấy rõ hơn hẳn ạ.
+Người 1: Minh họa 7.50 quay lại với thuật toán Pareto. Để Excel hay Power BI vẽ được Pareto Chart, Data Engineer phải chuẩn bị một bảng dữ liệu gộp. Cột 'Cumulative Percentage' (Phần trăm lũy kế) phải được tính toán sẵn.
+Người 2: Dạ vâng, nếu dữ liệu quá lớn, việc ép DAX tính Cumulative % On-the-fly (tính ngay lúc người dùng click chuột) sẽ làm chậm Dashboard. Tính sẵn ở tầng Data Warehouse (Tầng vật lý) là giải pháp tối ưu (Materialization) ạ.
 
 Slide 63: ILLUSTRATION 7.51
-Người 1: Chúng ta cùng phân tích Minh họa 7.51 nhé. Trọng tâm của phần này là: ".". Các em hãy lưu ý cách áp dụng vào thực tế.
-Người 2: Dạ, kết hợp lý thuyết với minh họa thực tế thế này rất hiệu quả ạ.
+Người 1: Minh họa 7.51 là giao diện cấu hình Line and Column Chart (Biểu đồ Đường và Cột) trong Power BI để giả lập biểu đồ Pareto. Cột hiển thị TotalUnitsSold, Đường hiển thị CumulativePercentage.
+Người 2: Chức năng Shared Axis (Dùng chung trục X) của Power BI giúp ép hai thang đo (Scale) có bản chất toán học khác nhau—một bên là Số tuyệt đối (Volume), một bên là Tỷ lệ (Ratio)—vào cùng một khung hiển thị rất tinh tế ạ.
 
 Slide 64: ILLUSTRATION 7.52
-Người 1: Chúng ta cùng phân tích Minh họa 7.52 nhé. Trọng tâm của phần này là: "and is similar to the chart in". Các em hãy lưu ý cách áp dụng vào thực tế.
-Người 2: Vâng thưa thầy, hình ảnh này giải thích rất trực quan dễ hiểu.
+Người 1: Minh họa 7.52 là thành phẩm Pareto Analysis tuyệt đẹp trên Power BI. Trục Y bên trái là Hàng triệu chiếc xe, Trục Y bên phải là mốc 0% đến 100%. Đường cong chạm mốc 100% tại dòng xe Ridgeline.
+Người 2: Như vậy, 3 dòng xe Civic, Accord và CR-V đã đóng góp tới gần 80% tổng doanh số. Ban Lãnh đạo chỉ cần tập trung Marketing cho 3 dòng này là đủ để gánh vác cả công ty rồi thưa thầy!
 
 Slide 65: BÀI TẬP NGẮN (BRIEF EXERCISES)
-Người 1: Các em tập trung vào slide "Bài tập Ngắn (Brief Exercises)" nhé, đây là nền tảng rất quan trọng.
-Người 2: Vâng thưa thầy, phần này rất logic và dễ áp dụng.
+Người 1: Rất xuất sắc! Từ Slide 65, chúng ta sẽ bắt tay vào phần Bài tập Ngắn (Brief Exercises) để rèn luyện kỹ năng thực chiến.
+Người 2: Em đã chuẩn bị sẵn sàng dữ liệu và bật Power BI Desktop lên rồi ạ. Chắc chắn các bài tập này sẽ yêu cầu vẽ các Mẫu trực quan hóa ta vừa học.
 
-Slide 66: BE 7.6 \& BE 7.7
-Người 1: Chúng ta cùng thực hành với BE 7.6 \& BE 7.7. Các em hãy vận dụng kiến thức vừa học nhé.
-Người 2: Vâng, em sẽ đọc kỹ đề và phân tích từ khóa thưa thầy.
+Slide 66: BE 7.6 & BE 7.7
+Người 1: Slide 66 trình bày BE 7.6 và BE 7.7. Các bài tập này yêu cầu các em định nghĩa Biến định danh (Nominal), Biến định lượng (Numeric) và thực hành xây dựng PivotTable đầu tiên.
+Người 2: Em sẽ phân tích Data Dictionary thật kỹ để ép kiểu (Type casting) đúng cho các cột. Không thể ném cột ID giao dịch vào vùng Values để cộng dồn được ạ.
 
-Slide 67: BE 7.8 \& BE 7.9
-Người 1: Chúng ta cùng thực hành với BE 7.8 \& BE 7.9. Các em hãy vận dụng kiến thức vừa học nhé.
-Người 2: Vâng, em sẽ đọc kỹ đề và phân tích từ khóa thưa thầy.
+Slide 67: BE 7.8 & BE 7.9
+Người 1: BE 7.8 và 7.9 tập trung vào Mẫu Phân phối (Distribution). Các em phải tạo Histogram để xem sự phân tán của dữ liệu hóa đơn.
+Người 2: Dạ, thuật toán chia Bin (Thùng) của Histogram sẽ tự động gom các hóa đơn từ 0-100$, 100-200$ thành các cột. Nhìn vào đó, em sẽ biết Khách hàng mục tiêu đang chi tiêu tập trung ở mức giá nào nhất thưa thầy.
 
-Slide 68: BE 7.10 \& BE 7.11A
-Người 1: Chúng ta cùng thực hành với BE 7.10 \& BE 7.11A. Các em hãy vận dụng kiến thức vừa học nhé.
-Người 2: Vâng, em sẽ đọc kỹ đề và phân tích từ khóa thưa thầy.
+Slide 68: BE 7.10 & BE 7.11A
+Người 1: Slide 68 đưa ra BE 7.10 và 7.11A, thử thách tạo biểu đồ Box-and-Whisker. Đặc biệt yêu cầu nhận diện các Outliers.
+Người 2: Bài này quá hay! Em sẽ viết một đoạn code hoặc dùng thuật toán của Power BI tính IQR. Những giao dịch 'nằm ngoài hộp râu' sẽ bị em đánh dấu (Flagged) để chuyển cho bộ phận Kiểm toán nội bộ (Internal Audit) điều tra ạ.
 
-Slide 69: BE 7.11B \& BE 7.12A
-Người 1: Chúng ta cùng thực hành với BE 7.11B \& BE 7.12A. Các em hãy vận dụng kiến thức vừa học nhé.
-Người 2: Vâng, em sẽ đọc kỹ đề và phân tích từ khóa thưa thầy.
+Slide 69: BE 7.11B & BE 7.12A
+Người 1: Slide 69 tiếp nối bằng các bài tập về Mẫu Tương quan (Correlation) và Chuỗi thời gian (Time Series).
+Người 2: Em sẽ dùng Scatter Plot cho BE 7.11B để xem có mối liên hệ nào giữa Số năm kinh nghiệm của nhân viên Sale và Lợi nhuận họ mang lại không. Một bài toán Nhân sự (HR Analytics) cực kỳ kinh điển thưa thầy.
 
 Slide 70: BE 7.12B
-Người 1: Chúng ta cùng thực hành với BE 7.12B. Các em hãy vận dụng kiến thức vừa học nhé.
-Người 2: Vâng, em sẽ đọc kỹ đề và phân tích từ khóa thưa thầy.
+Người 1: BE 7.12B khép lại phần Bài tập Ngắn bằng việc thiết lập một biểu đồ cột (Column Chart) chuẩn mực theo các quy tắc thiết kế (Data-to-Ink Ratio).
+Người 2: Em sẽ tự tay xóa sạch các đường viền lưới, làm đậm màu thanh dẫn đầu và đặt một cái Tiêu đề (Story-driven title) để Ban giám đốc đọc là hiểu ngay ạ.
 
 Slide 71: BÀI TẬP (EXERCISES)
-Người 1: Ở nội dung "Bài tập (Exercises)", chúng ta cần đặc biệt lưu ý những điểm cốt lõi.
-Người 2: Thưa thầy, em đã gạch chân những từ khóa cốt lõi rồi ạ.
+Người 1: Chuyển sang Slide 71, phần Bài tập (Exercises) với độ khó nâng cao hơn. Ở đây yêu cầu xây dựng các mẫu biểu đồ phức tạp và đa chiều.
+Người 2: Dạ, em đã sẵn sàng vận dụng toàn bộ 10 Mẫu trực quan hóa (Visualization Patterns) để giải quyết các bộ dữ liệu siêu lớn (Big Data sets) trong phần này ạ.
 
-Slide 72: EX 7.3 \& EX 7.4
-Người 1: Chúng ta cùng thực hành với EX 7.3 \& EX 7.4. Các em hãy vận dụng kiến thức vừa học nhé.
-Người 2: Vâng, em sẽ đọc kỹ đề và phân tích từ khóa thưa thầy.
+Slide 72: EX 7.3 & EX 7.4
+Người 1: (Sinh viên quan sát EX 7.3, EX 7.4). Bài tập này yêu cầu làm sạch (Cleanse) và biến đổi dữ liệu (Transform) trước khi trực quan hóa.
+Người 2: Em sẽ sử dụng Power Query để xóa các cột trống (Nulls) và xử lý dữ liệu dị biệt. Dữ liệu rác (Garbage in) thì biểu đồ cũng chỉ là rác (Garbage out) thôi thưa thầy!
 
-Slide 73: EX 7.5 \& EX 7.6
-Người 1: Chúng ta cùng thực hành với EX 7.5 \& EX 7.6. Các em hãy vận dụng kiến thức vừa học nhé.
-Người 2: Vâng, em sẽ đọc kỹ đề và phân tích từ khóa thưa thầy.
+Slide 73: EX 7.5 & EX 7.6
+Người 1: (Tiếp tục với bài tập EX 7.5 và 7.6). Thực hành Mẫu Phần-Toàn thể (Part-To-Whole) với Treemap.
+Người 2: Em sẽ tránh dùng Pie Chart vì dữ liệu này có tới hơn 15 danh mục. Treemap sẽ tối ưu hóa không gian màn hình và thể hiện Tỷ trọng (Ratio) trực quan hơn rất nhiều ạ.
 
-Slide 74: EX 7.7 \& EX 7.8
-Người 1: Chúng ta cùng thực hành với EX 7.7 \& EX 7.8. Các em hãy vận dụng kiến thức vừa học nhé.
-Người 2: Vâng, em sẽ đọc kỹ đề và phân tích từ khóa thưa thầy.
+Slide 74: EX 7.7 & EX 7.8
+Người 1: (Thực hành thiết kế biểu đồ Đa trục - Dual-axis Chart). Hãy nhớ lại cảnh báo về ảo giác quang học nhé.
+Người 2: Dạ vâng, em sẽ thiết lập màu sắc của cột Doanh thu (Trục trái) khác biệt hoàn toàn với màu của đường Lợi nhuận (Trục phải) và cẩn thận đồng bộ hóa (Synchronize) mốc 0 để không lừa dối thị giác người đọc ạ.
 
-Slide 75: EX 7.9 \& EX 7.10A
-Người 1: Chúng ta cùng thực hành với EX 7.9 \& EX 7.10A. Các em hãy vận dụng kiến thức vừa học nhé.
-Người 2: Vâng, em sẽ đọc kỹ đề và phân tích từ khóa thưa thầy.
+Slide 75: EX 7.9 & EX 7.10A
+Người 1: (Bài tập phân tích Phân phối Tần suất nâng cao).
+Người 2: Lần này em sẽ dùng Faceting (Trellising) để cắt dữ liệu thành nhiều biểu đồ nhỏ (Small Multiples). Mỗi tiểu nhóm (Subgroup) khách hàng sẽ có một biểu đồ riêng để dễ đối chiếu chéo (Cross-compare) thưa thầy.
 
-Slide 76: EX 7.10B \& EX 7.11
-Người 1: Chúng ta cùng thực hành với EX 7.10B \& EX 7.11. Các em hãy vận dụng kiến thức vừa học nhé.
-Người 2: Vâng, em sẽ đọc kỹ đề và phân tích từ khóa thưa thầy.
+Slide 76: EX 7.10B & EX 7.11
+Người 1: (Thực hành với Bản đồ - Map và Dữ liệu Không gian - Spatial Data).
+Người 2: Đây là phần em thích nhất. Em sẽ map các tọa độ Khách hàng lên bản đồ nhiệt (Heatmap) để tìm ra 'Vùng trũng' doanh thu. Nơi nào màu nhạt, Sales Manager phải tập trung nguồn lực vào đó ạ.
 
-Slide 77: EX 7.12 \& EX 7.13
-Người 1: Chúng ta cùng thực hành với EX 7.12 \& EX 7.13. Các em hãy vận dụng kiến thức vừa học nhé.
-Người 2: Vâng, em sẽ đọc kỹ đề và phân tích từ khóa thưa thầy.
+Slide 77: EX 7.12 & EX 7.13
+Người 1: (Yêu cầu phân tích Pareto - Nguyên lý 80/20).
+Người 2: Bài toán cắt giảm chi phí! Thuật toán Pareto sẽ giúp em khoanh vùng chính xác 20% các vật tư gây lãng phí tới 80% ngân sách để báo cáo lên Hội đồng quản trị ạ.
 
-Slide 78: EX 7.14 \& EX 7.15
-Người 1: Chúng ta cùng thực hành với EX 7.14 \& EX 7.15. Các em hãy vận dụng kiến thức vừa học nhé.
-Người 2: Vâng, em sẽ đọc kỹ đề và phân tích từ khóa thưa thầy.
+Slide 78: EX 7.14 & EX 7.15
+Người 1: (Tổng hợp các biểu đồ đã tạo vào một Dashboard tương tác duy nhất).
+Người 2: Đích đến cuối cùng! Em sẽ kết nối các Slicers (Bộ lọc theo Tháng, Năm, Khu vực) để chúng đồng bộ (Sync) và kích hoạt chế độ Cross-filtering. Một Dashboard chạy mượt mà như ứng dụng di động thưa thầy.
 
-Slide 79: LO 2.10
-Người 1: Phần "LO 2.10" này chính là mấu chốt quan trọng.
-Người 2: Dạ em hiểu rồi ạ, phần này rất quan trọng.
+Slide 79: TỔNG HỢP MỤC TIÊU HỌC TẬP (LO)
+Người 1: Rất đáng khen! Từ Slide 79 trở đi, ta sẽ cùng lướt qua một loạt các Sơ đồ Mục tiêu Học tập (LO - Learning Objectives) để cô đọng lại kiến thức toàn chương. Bắt đầu với LO 2.10.
+Người 2: Dạ, bước hệ thống hóa (Mapping) này giúp em khắc sâu các mẫu trực quan (Patterns) vào bộ nhớ dài hạn, biến chúng thành phản xạ phân tích ạ.
 
 Slide 80: LO 2.11
-Người 1: Các em tập trung vào slide "LO 2.11" nhé, đây là nền tảng rất quan trọng.
-Người 2: Vâng thưa thầy, phần này rất logic và dễ áp dụng.
+Người 1: (Sơ đồ LO 2.11 - Cấu trúc Phân phối và Tương quan).
+Người 2: (Ghi chép lại cách vận hành của Scatter Plot và Box Plot).
 
 Slide 81: LO 2.14
-Người 1: Bước sang phần "LO 2.14", đây là một khái niệm rất hay xuất hiện trong thực tế.
-Người 2: Dạ, em đang theo dõi sát sao tiến trình bài giảng ạ.
+Người 1: (Sơ đồ LO 2.14 - Ứng dụng Dashboard).
+Người 2: (Ghi chú về tính tương tác và Slicers).
 
-Slide 82: LO 2.14\_1
-Người 1: Ở nội dung "LO 2.14\_1", chúng ta cần đặc biệt lưu ý những điểm cốt lõi.
-Người 2: Dạ em hiểu rồi ạ, phần này rất quan trọng.
+Slide 82: LO 2.14_1
+Người 1: (Sơ đồ LO 2.14 mở rộng). Nhìn lại cách Dashboard được kết nối với Data Warehouse.
+Người 2: (Tiếp tục ghi chép).
 
 Slide 83: LO 2.15
-Người 1: Phần "LO 2.15" này chính là mấu chốt quan trọng.
-Người 2: Vâng thưa thầy, phần này rất logic và dễ áp dụng.
+Người 1: (Sơ đồ LO 2.15 - Phân tích Mối quan hệ Thời gian).
+Người 2: Bảng Date (Lịch) là trái tim của Time Intelligence. Em sẽ không bao giờ quên khởi tạo bảng này đầu tiên ạ.
 
 Slide 84: LO 3.15
-Người 1: Các em tập trung vào slide "LO 3.15" nhé, đây là nền tảng rất quan trọng.
-Người 2: Thưa thầy, em đã gạch chân những từ khóa cốt lõi rồi ạ.
+Người 1: (Sơ đồ LO 3.15).
+Người 2: (Ghi nhớ các nguyên tắc thiết kế Data-to-Ink Ratio).
 
 Slide 85: LO 3.16
-Người 1: Bước sang phần "LO 3.16", đây là một khái niệm rất hay xuất hiện trong thực tế.
-Người 2: Vâng, em đang ghi chú lại các ý chính này rồi thưa thầy.
+Người 1: (Sơ đồ LO 3.16 - Nguyên tắc giữ sự đơn giản - Keep it Simple).
+Người 2: Tuyệt đối nói Không với biểu đồ 3D!
 
 Slide 86: LO 3.17
-Người 1: Tiếp tục với phần "LO 3.17", các em hãy xâu chuỗi với các kỹ năng đã học trước đó.
-Người 2: Dạ em hiểu rồi ạ, phần này rất quan trọng.
+Người 1: (Sơ đồ LO 3.17 - Phân tích Phương sai - Variance Analysis).
+Người 2: Clustered Column Chart là vũ khí tốt nhất để so sánh Budget vs Actual (Kế hoạch và Thực tế).
 
 Slide 87: LO 3.18
-Người 1: Ở nội dung "LO 3.18", chúng ta cần đặc biệt lưu ý những điểm cốt lõi.
-Người 2: Vâng, em đang ghi chú lại các ý chính này rồi thưa thầy.
+Người 1: (Sơ đồ LO 3.18 - Phân tích Pareto).
+Người 2: (Ghi chú về thuật toán Xếp hạng giảm dần và Cộng dồn).
 
 Slide 88: LO 3.19
-Người 1: Tiếp tục với phần "LO 3.19", các em hãy xâu chuỗi với các kỹ năng đã học trước đó.
-Người 2: Thưa thầy, em đã gạch chân những từ khóa cốt lõi rồi ạ.
+Người 1: (Sơ đồ LO 3.19 - Bản đồ Không gian).
+Người 2: (Ghi chú về Dữ liệu Kinh độ - Vĩ độ).
 
 Slide 89: LO 3.20A
-Người 1: Tiếp tục với phần "LO 3.20A", các em hãy xâu chuỗi với các kỹ năng đã học trước đó.
-Người 2: Dạ, em đang theo dõi sát sao tiến trình bài giảng ạ.
+Người 1: (Sơ đồ LO 3.20A - Tổng kết các Patterns).
+Người 2: Em đã tự xây dựng được Cẩm nang Trực quan hóa cho riêng mình rồi ạ.
 
 Slide 90: LO 3.20B
-Người 1: Phần "LO 3.20B" này chính là mấu chốt quan trọng.
-Người 2: Vâng, em đang ghi chú lại các ý chính này rồi thưa thầy.
+Người 1: (Sơ đồ LO 3.20B). Vậy là chúng ta đã hệ thống xong các Mục tiêu Học tập cốt lõi của việc Khám phá Dữ liệu.
+Người 2: Giờ đây, mỗi khi nhìn vào một bảng tính hàng triệu dòng, em không còn bị choáng ngợp nữa. Não bộ em sẽ tự động 'nảy số' xem nên dùng Pattern (Mẫu biểu đồ) nào để giải mã nó thưa thầy!
 
 Slide 91: LO 3.20C
-Người 1: Các em tập trung vào slide "LO 3.20C" nhé, đây là nền tảng rất quan trọng.
-Người 2: Dạ em hiểu rồi ạ, phần này rất quan trọng.
+Người 1: Tiếp tục với phần ôn tập, Slide 91 là sơ đồ LO 3.20C. Sơ đồ này nhấn mạnh vào kỹ năng lựa chọn Biểu đồ Cột hoặc Biểu đồ Đường tùy thuộc vào bản chất của dữ liệu (Rời rạc hay Liên tục).
+Người 2: Dạ vâng, nếu biến thời gian bị đứt quãng (Ví dụ: Năm 2020 rồi nhảy sang 2023), ta tuyệt đối không được dùng Line Chart nối hai điểm đó lại, vì nó sẽ tạo ra giả định sai lệch về những năm bị thiếu thưa thầy.
 
-Slide 92: LO 3.20A\_1
-Người 1: Ở nội dung "LO 3.20A\_1", chúng ta cần đặc biệt lưu ý những điểm cốt lõi.
-Người 2: Dạ em hiểu rồi ạ, phần này rất quan trọng.
+Slide 92: LO 3.20A_1
+Người 1: Sơ đồ LO 3.20A_1 đi sâu vào các cấu trúc Khám phá Nâng cao.
+Người 2: (Ghi chép) Sự khác biệt giữa So sánh Cường độ (Magnitude) và So sánh Mối quan hệ Thời gian (Time Series).
 
-Slide 93: LO 3.20A\_2
-Người 1: Ở nội dung "LO 3.20A\_2", chúng ta cần đặc biệt lưu ý những điểm cốt lõi.
-Người 2: Dạ, em đang theo dõi sát sao tiến trình bài giảng ạ.
+Slide 93: LO 3.20A_2
+Người 1: Sơ đồ LO 3.20A_2 tổng kết nốt các mẫu còn lại như Phân phối (Distribution) và Pareto.
+Người 2: Vậy là ta đã bọc lót toàn bộ lý thuyết. Em đã sẵn sàng để xem các tình huống ứng dụng thực tế (Apply It) rồi ạ.
 
-Slide 94: INFO 7.0
-Người 1: Tiếp tục với phần "Info 7.0", các em hãy xâu chuỗi với các kỹ năng đã học trước đó.
-Người 2: Thưa thầy, em đã gạch chân những từ khóa cốt lõi rồi ạ.
+Slide 94: Info 7.0
+Người 1: Sang Slide 94 (Info 7.0), đây là phần giới thiệu cho loạt bài tập thực tế (Apply It). Trong phần này, Kế toán viên sẽ đóng vai trò như một thám tử, dùng dữ liệu để giải quyết các vấn đề kinh doanh thật sự.
+Người 2: Dạ, trong môi trường doanh nghiệp (Corporate environment), không ai bảo ta "hãy vẽ cái biểu đồ Bar đi". Họ chỉ đưa ra câu hỏi: "Tại sao doanh thu quý này giảm?". Khả năng chuyển đổi câu hỏi kinh doanh thành yêu cầu phân tích dữ liệu mới là đỉnh cao ạ.
 
-Slide 95: APPLY IT 7.1A
-Người 1: Phần "Apply It 7.1A" này chính là mấu chốt quan trọng.
-Người 2: Dạ, em đang theo dõi sát sao tiến trình bài giảng ạ.
+Slide 95: Apply It 7.1A
+Người 1: (Trình chiếu Apply It 7.1A). Tình huống 1: Giám đốc Kinh doanh phàn nàn rằng họ không thể thấy bức tranh tổng thể từ bảng dữ liệu Excel 10,000 dòng.
+Người 2: Lỗi kinh điển của việc Báo cáo bằng Bảng (Tabular Reporting) thay vì Trực quan hóa. Em sẽ đề xuất ném ngay 10,000 dòng đó vào Power BI và xây một Dashboard tổng quan với các KPI Cards để sếp xem trong 3 giây là hiểu ạ.
 
-Slide 96: APPLY IT 7.1B
-Người 1: Ở nội dung "Apply It 7.1B", chúng ta cần đặc biệt lưu ý những điểm cốt lõi.
-Người 2: Dạ em hiểu rồi ạ, phần này rất quan trọng.
+Slide 96: Apply It 7.1B
+Người 1: (Chuyển sang Apply It 7.1B). Tình huống 2 yêu cầu Kế toán viên phải trình bày Cơ cấu Chi phí (Cost Structure) cho Ban Lãnh đạo.
+Người 2: Cơ cấu (Structure) tức là Mẫu Phần-Toàn thể (Part-To-Whole). Nếu số lượng khoản mục chi phí ít hơn 5, em dùng Donut Chart. Nếu nhiều hơn 5, em sẽ dùng Treemap để nhấn mạnh vào các Trung tâm Chi phí (Cost Centers) ngốn nhiều tiền nhất thưa thầy.
 
-Slide 97: APPLY IT 7.2
-Người 1: Bước sang phần "Apply It 7.2", đây là một khái niệm rất hay xuất hiện trong thực tế.
-Người 2: Dạ em hiểu rồi ạ, phần này rất quan trọng.
+Slide 97: Apply It 7.2
+Người 1: Apply It 7.2 đặt ra bài toán hóc búa hơn: Đánh giá Rủi ro (Risk Assessment) của các khoản phải thu (Accounts Receivable).
+Người 2: Đánh giá rủi ro đồng nghĩa với việc tìm kiếm các ngoại lệ. Em sẽ áp dụng ngay Mẫu Phân phối, vẽ Box-and-Whisker Chart. Các 'điểm dị biệt' (Outliers) có số ngày quá hạn (Days past due) nằm xa tít mù tắp chính là các hóa đơn có nguy cơ trở thành Nợ Xấu (Bad Debt) ạ.
 
-Slide 98: APPLY IT 7.3A
-Người 1: Ở nội dung "Apply It 7.3A", chúng ta cần đặc biệt lưu ý những điểm cốt lõi.
-Người 2: Dạ, em đang theo dõi sát sao tiến trình bài giảng ạ.
+Slide 98: Apply It 7.3A
+Người 1: Tình huống Apply It 7.3A: Công ty muốn mở rộng thị trường và cần quyết định nên mở thêm chi nhánh ở khu vực nào.
+Người 2: Bài toán tối ưu hóa vị trí! Em sẽ đưa tất cả dữ liệu Khách hàng, Doanh thu lên Bản đồ (Map). Sử dụng biểu đồ Bong bóng (Bubble Map) trên nền địa lý. Chỗ nào mật độ bong bóng thưa thớt nhưng tiềm năng kinh tế khu vực cao, chỗ đó chính là Mỏ vàng mới (Blue Ocean) thưa thầy.
 
-Slide 99: APPLY IT 7.3B
-Người 1: Các em tập trung vào slide "Apply It 7.3B" nhé, đây là nền tảng rất quan trọng.
-Người 2: Dạ, em đang theo dõi sát sao tiến trình bài giảng ạ.
+Slide 99: Apply It 7.3B
+Người 1: Apply It 7.3B yêu cầu giải quyết bài toán hàng tồn kho (Inventory Management). Kho đang bị ứ đọng quá nhiều mã hàng không bán được.
+Người 2: Không còn nghi ngờ gì nữa, Pareto Analysis là liều thuốc đặc trị! Em sẽ vẽ Pareto Chart để chia cắt các mã hàng theo nguyên lý 80/20. Loại bỏ ngay nhóm C (chiếm 80% số lượng mã nhưng chỉ mang lại 20% giá trị) để giải phóng dòng tiền (Cash flow) ạ.
 
-Slide 100: APPLY IT 7.3A\_1
-Người 1: Ở nội dung "Apply It 7.3A\_1", chúng ta cần đặc biệt lưu ý những điểm cốt lõi.
-Người 2: Vâng thưa thầy, phần này rất logic và dễ áp dụng.
+Slide 100: Apply It 7.3A_1
+Người 1: (Sơ đồ giải pháp cho tình huống 7.3A). Phân tích chi tiết các tiêu chí lựa chọn vị trí.
+Người 2: (Ghi chép cách xây dựng cấu trúc truy vấn trên BI).
 
-Slide 101: APPLY IT 7.3A\_2
-Người 1: Ở nội dung "Apply It 7.3A\_2", chúng ta cần đặc biệt lưu ý những điểm cốt lõi.
-Người 2: Dạ em hiểu rồi ạ, phần này rất quan trọng.
+Slide 101: Apply It 7.3A_2
+Người 1: (Tiếp tục sơ đồ giải pháp). Hướng dẫn thiết lập Slicer để lọc dữ liệu địa lý.
+Người 2: Rất rõ ràng! Các bộ lọc theo Bang (State) hoặc Mã bưu điện (Zip code) sẽ giúp phân quyền dữ liệu (Row-Level Security). Giám đốc khu vực nào chỉ nhìn thấy biểu đồ của khu vực đó ạ.
 
-Slide 102: NOTABLE 7.16
-Người 1: Các em tập trung vào slide "NoTable 7.16" nhé, đây là nền tảng rất quan trọng.
-Người 2: Dạ, em đang theo dõi sát sao tiến trình bài giảng ạ.
+Slide 102: NoTable 7.16
+Người 1: Slide 102 là NoTable 7.16, chứa một số lưu ý quan trọng cuối cùng trước khi chúng ta kết thúc chương.
+Người 2: (Kiểm tra lại toàn bộ danh mục 10 Data Patterns). Em đã sẵn sàng cho bài kiểm tra cuối kỳ!
 
 Slide 103: KẾT THÚC
-Người 1: Vậy là chúng ta đã kết thúc Chương 7. Khám phá dữ liệu là một nghệ thuật, hãy luyện tập thường xuyên nhé.
-Người 2: Dạ vâng, em cảm ơn thầy rất nhiều ạ!
+Người 1: Và Slide 103... Xin chúc mừng các em đã hoàn thành Chương 7! Khám phá dữ liệu (Data Exploration) không chỉ là vẽ biểu đồ, mà là nghệ thuật 'bắt' dữ liệu phải kể lên câu chuyện của chính nó.
+Người 2: Cảm ơn thầy! Chương học này thực sự đã thay đổi hoàn toàn tư duy của em. Em không còn là một 'thợ gõ Excel' nữa, mà đã được trang bị bộ vũ khí của một Data Analyst thực thụ. Em rất mong chờ được bước sang Chương 8 ạ!

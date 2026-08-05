@@ -1,323 +1,339 @@
 Slide 1: TRANG BÌA
-Người 1: Chào mừng các em đến với Chương 4. Sau khi đã biết cách đặt câu hỏi phân tích, bước tiếp theo sống còn chính là Lập Kế hoạch Dữ liệu. Chúng ta không thể phân tích nếu không có nguyên liệu đầu vào.
-Người 2: Dạ em chào thầy. Thưa thầy, phần này có giống với việc mình đi siêu thị mua nguyên liệu trước khi nấu ăn không ạ?
+Người 1: Chào các em. Hôm nay chúng ta bước sang Chương 4: "Lập Kế hoạch Dữ liệu và Chiến lược Phân tích". Nếu các chương trước cung cấp cho các em tư duy công cụ, thì chương này trang bị tư duy chiến lược. Một dự án AI hay phân tích dữ liệu thành bại không nằm ở thuật toán xịn hay máy tính mạnh, mà nằm ở khâu "Planning" - lập kế hoạch ngay từ đầu.
+Người 2: Dạ thưa thầy, em vẫn thường nghe câu "Garbage In, Garbage Out" (Rác vào thì Rác ra). Có phải nếu khâu lập kế hoạch dữ liệu này làm không tốt, chúng ta có thể thu thập sai dữ liệu, dẫn đến kết quả từ mô hình học máy dù có độ chính xác 99% thì cũng hoàn toàn vô dụng cho doanh nghiệp không ạ?
 
 Slide 2: GÓC NHÌN CHUYÊN GIA (PROFESSIONAL INSIGHT)
-Người 1: Bước sang phần "Góc nhìn Chuyên gia (Professional Insight)", đây là một khái niệm rất hay xuất hiện trong thực tế kiểm toán và kế toán.
-Người 2: Vâng, em đang ghi chú lại các ý chính này rồi thưa thầy.
+Người 1: Hoàn toàn chính xác! Slide 2 đưa ra Góc nhìn chuyên gia. Khâu lập kế hoạch đóng vai trò là "Cầu nối" (Bridge) giữa bài toán kinh doanh trừu tượng và các chỉ số kỹ thuật khô khan. Việc phát hiện dữ liệu bị thiếu (Missing Data) hay sai lệch ở giai đoạn này sẽ tiết kiệm hàng nghìn đô la so với việc phát hiện ra nó khi đã đưa mô hình vào chạy thực tế (Production).
+Người 2: Vậy Kế toán viên trong kỷ nguyên số không chỉ làm nhiệm vụ đối chiếu sổ sách, mà phải là người "dịch" (translate) ngôn ngữ kinh doanh thành ngôn ngữ dữ liệu, đảm bảo dữ liệu đầu vào thực sự trả lời được bài toán mà Ban giám đốc đang quan tâm đúng không thầy?
 
 Slide 3: LỘ TRÌNH CHƯƠNG (CHAPTER ROADMAP)
-Người 1: Bước sang phần "Lộ trình Chương (Chapter Roadmap)", đây là một khái niệm rất hay xuất hiện trong thực tế kiểm toán và kế toán.
-Người 2: Vâng thưa thầy, phần này rất logic và dễ hiểu.
+Người 1: Đúng như vậy, đó chính là vai trò Business Partner. Slide 3 vạch ra lộ trình chương với 4 phần. Đầu tiên (4.1), ta sẽ thiết kế một kế hoạch dự án 4 bước. Tiếp theo (4.2), ta phát triển Chiến lược dữ liệu: lấy nguồn từ đâu, chất lượng thế nào. Sau đó (4.3), ta thiết kế Chiến lược phân tích: chọn thuật toán nào. Và cuối cùng (4.4) là áp dụng vào thực tiễn các phân hệ kế toán.
+Người 2: Lộ trình này rất rõ ràng ạ. Em thấy nó đi từ tư duy tổng thể (Top-down) đến cách thực thi chi tiết. Việc xác định Dữ liệu (4.2) phải đi trước việc chọn Thuật toán phân tích (4.3) là một nguyên tắc bất di bất dịch phải không ạ?
 
 Slide 4: 4.1 KẾ TOÁN VIÊN THIẾT KẾ DỰ ÁN PHÂN TÍCH DỮ LIỆU NHƯ THẾ NÀO?
-Người 1: Phần "4.1 Kế toán viên thiết kế dự án phân tích dữ liệu như thế nào?" này chính là mấu chốt để tránh rủi ro dữ liệu sau này.
-Người 2: Vâng, em đang ghi chú lại các ý chính này rồi thưa thầy.
+Người 1: Chính xác. Đi vào phần 4.1 ở Slide 4, ta thấy Kế toán viên hiện đại phải dẫn dắt dự án. Điều kiện tiên quyết của một dự án thành công là sự "Nhất quán" (Alignment). Mục tiêu chiến lược phải phù hợp với tính khả thi của dữ liệu, và từ đó định hình phương pháp luận thống kê. Nếu mục tiêu là "Dự báo phá sản", nhưng dữ liệu chỉ có "Sổ quỹ tiền mặt" thì dự án đã chết ngay từ trứng nước.
+Người 2: Dạ, sự thiếu nhất quán này chính là nguyên nhân của "Rác vào - Rác ra". Dữ liệu không đủ độ bao phủ (Coverage) mà lại dùng các thuật toán học sâu (Deep Learning) thì mô hình sẽ chỉ "học vẹt" (Overfitting) những giao dịch tiền mặt lẻ tẻ, chứ không thể đưa ra dự báo rủi ro toàn diện được.
 
 Slide 5: 4 BƯỚC TẠO KẾ HOẠCH DỰ ÁN PHÂN TÍCH
-Người 1: Các em tập trung vào slide "4 Bước tạo Kế hoạch Dự án Phân tích" nhé, đây là nền tảng rất quan trọng.
-Người 2: Vâng thưa thầy, phần này rất logic và dễ hiểu.
+Người 1: Phân tích rất sâu sắc! Slide 5 giới thiệu quy trình 4 bước cùng Minh họa 4.1 trong giáo trình. Bước 1: Mục tiêu (Chúng ta muốn gì?). Bước 2: Chiến lược dữ liệu (Cần dữ liệu gì, lấy ở đâu?). Bước 3: Chiến lược phân tích (Dùng thuật toán gì?). Bước 4: Rủi ro (Rào cản nào có thể xảy ra?). Bốn bước này tạo thành một vòng lặp khép kín, hỗ trợ lẫn nhau.
+Người 2: Thưa thầy, ở Minh họa 4.1, em thấy các bước này có vẻ tuần tự, nhưng nếu ở Bước 3 (Chiến lược phân tích) ta nhận ra thuật toán k-Means cần dữ liệu định lượng (Quantitative) mà Bước 2 ta chỉ toàn thu thập dữ liệu định tính (Qualitative), thì ta có phải quay ngược lại Bước 2 để cấu trúc lại dữ liệu không ạ?
 
 Slide 6: BƯỚC 1: TẬP TRUNG VÀO MỤC TIÊU (FOCUS ON THE OBJECTIVE)
-Người 1: Bước sang phần "Bước 1: Tập trung vào Mục tiêu (Focus on the objective)", đây là một khái niệm rất hay xuất hiện trong thực tế kiểm toán và kế toán.
-Người 2: Dạ em hiểu rồi, việc lập kế hoạch cẩn thận giúp tiết kiệm rất nhiều thời gian xử lý sau này.
+Người 1: Chắc chắn rồi, quy trình này có tính lặp lại (Iterative). Ở Slide 6, ta đi sâu vào Bước 1: Mục tiêu. Mục tiêu bắt nguồn từ các Động lực (Motivations) của doanh nghiệp. Điểm mấu chốt ở đây là "Thu hẹp phạm vi" (Scoping). Em không thể đặt mục tiêu "Tối ưu hóa toàn bộ hệ thống kế toán", mà phải thu hẹp thành "Giảm 5% sai sót trong ghi nhận doanh thu". Tiêu chí thành công càng định lượng, dự án càng dễ đo lường.
+Người 2: Dạ, giống như trong phát triển phần mềm, việc xác định rõ Phạm vi (Scope) giúp tránh hiện tượng "Scope Creep" - dự án phình to mất kiểm soát. Chỉ khi có Tiêu chí thành công (Success Criteria) rõ ràng, mô hình phân loại (Classification model) mới biết đâu là điểm dừng khi huấn luyện ạ.
 
-Slide 7: BƯỚC 2 \& 3: CHỌN CHIẾN LƯỢC DỮ LIỆU \& PHÂN TÍCH
-Người 1: Ở nội dung "Bước 2 \& 3: Chọn Chiến lược Dữ liệu \& Phân tích", chúng ta cần đặc biệt lưu ý những điểm cốt lõi về chiến lược dữ liệu.
-Người 2: Dạ em hiểu rồi, việc lập kế hoạch cẩn thận giúp tiết kiệm rất nhiều thời gian xử lý sau này.
+Slide 7: BƯỚC 2 & 3: CHỌN CHIẾN LƯỢC DỮ LIỆU & PHÂN TÍCH
+Người 1: Đúng vậy. Sang Slide 7, ta thấy sự phụ thuộc chặt chẽ giữa Bước 2 và Bước 3. Việc chọn thuật toán phải phù hợp với "sức mạnh" của dữ liệu. Nếu chỉ có 100 dòng Excel, việc cố ép chạy Mạng nơ-ron nhân tạo (Artificial Neural Network) là vô nghĩa. Ví dụ: Phát hiện gian lận thẻ tín dụng đòi hỏi Dữ liệu lịch sử giao dịch đồ sộ, khi đó Mô hình Cây quyết định (Decision Tree) hoặc Rừng ngẫu nhiên (Random Forest) mới phát huy tác dụng.
+Người 2: Em hiểu rồi. Mô hình phức tạp cần lượng dữ liệu khổng lồ (Big Data) để không bị Overfitting. Nếu dữ liệu mỏng, ta thà dùng một mô hình Hồi quy tuyến tính (Linear Regression) đơn giản, dễ giải thích, còn hơn dùng một "Hộp đen" (Black box) phức tạp nhưng kết quả lại không đáng tin cậy.
 
 Slide 8: BƯỚC 4: XEM XÉT RỦI RO (CONSIDER RISKS)
-Người 1: Phần "Bước 4: Xem xét Rủi ro (Consider risks)" này chính là mấu chốt để tránh rủi ro dữ liệu sau này.
-Người 2: Vâng, em đang ghi chú lại các ý chính này rồi thưa thầy.
+Người 1: Một tư duy Data Science rất tuyệt vời! Slide 8 nói về Bước 4: Xem xét rủi ro. Có rủi ro về chất lượng dữ liệu (Missing, Inaccurate, Siloed data), và rủi ro quy định (Compliance) như vi phạm chuẩn bảo mật GDPR khi rò rỉ thông tin cá nhân. Đội ngũ dự án luôn phải có Phương án dự phòng (Contingency Plan) - ví dụ dùng bản Backup cuối ngày nếu API bị lỗi.
+Người 2: Thưa thầy, hiện tượng "Siloed data" (Dữ liệu ốc đảo) rất phổ biến trong kế toán, khi dữ liệu Bán hàng nằm ở CRM còn số liệu Hạch toán lại nằm ở ERP. Việc không kết nối được hai "ốc đảo" này sẽ khiến thuật toán không thể tìm ra quy luật tương quan (Correlation) giữa chiến dịch marketing và biên lợi nhuận phải không ạ?
 
 Slide 9: 4.2 PHÁT TRIỂN CHIẾN LƯỢC DỮ LIỆU (DATA STRATEGY)
-Người 1: Phần "4.2 Phát triển Chiến lược Dữ liệu (Data Strategy)" này chính là mấu chốt để tránh rủi ro dữ liệu sau này.
-Người 2: Vâng thưa thầy, phần này rất logic và dễ hiểu.
+Người 1: Em phân tích rất đúng bản chất. Chính vì thế, ở Slide 9, chúng ta chuyển sang phần 4.2: Chiến lược Dữ liệu. Đây là kế hoạch tổng thể để thu thập, lưu trữ và bảo mật dữ liệu. Dữ liệu là "nguyên liệu thô", và chiến lược này đảm bảo "nguyên liệu" đó sạch, nguyên chất, sẵn sàng đưa vào các "cỗ máy" phân tích.
+Người 2: Dạ, nếu xem mô hình AI là một nhà máy tinh chế, thì Chiến lược dữ liệu chính là quy trình kiểm định chất lượng (QA/QC) ở cổng vào. Chặn đứng dữ liệu bẩn ngay từ vòng ngoài để bảo vệ hệ thống cốt lõi bên trong.
 
 Slide 10: XÁC ĐỊNH DỮ LIỆU PHÙ HỢP (IDENTIFY APPROPRIATE DATA)
-Người 1: Ở nội dung "Xác định dữ liệu phù hợp (Identify Appropriate Data)", chúng ta cần đặc biệt lưu ý những điểm cốt lõi về chiến lược dữ liệu.
-Người 2: Dạ, em đang theo dõi sát sao tiến trình bài giảng ạ.
+Người 1: Đúng thế. Slide 10 yêu cầu ta xác định dữ liệu phù hợp. Dữ liệu phải có tính Liên quan (Relevance). Kế toán cần biết kết hợp dữ liệu nội bộ (ERP) với dữ liệu vĩ mô (Tỷ giá, lạm phát). Hơn nữa, phải phân tích Chi phí - Lợi ích (Cost-Benefit): Tiền bỏ ra để làm sạch một bộ dữ liệu mới có mang lại giá trị tương xứng hay không?
+Người 2: Sự kết hợp với dữ liệu vĩ mô (External Data) sẽ giúp các mô hình Dự báo chuỗi thời gian (Time-series) như ARIMA hoặc Prophet hoạt động hiệu quả hơn rất nhiều, vì nó hấp thụ được các cú sốc từ bên ngoài thị trường thay vì chỉ nhìn vào quá khứ của chính doanh nghiệp.
 
 Slide 11: ĐÁNH GIÁ TRƯỜNG DỮ LIỆU VÀ NGUỒN DỮ LIỆU
-Người 1: Bước sang phần "Đánh giá Trường dữ liệu và Nguồn dữ liệu", đây là một khái niệm rất hay xuất hiện trong thực tế kiểm toán và kế toán.
-Người 2: Thưa thầy, em đã gạch chân những từ khóa cốt lõi rồi ạ.
+Người 1: Rất sâu sắc. Slide 11 đi vào chi tiết cấu trúc bảng. Ta phải xác định các Trường dữ liệu (Attributes/Fields) cần thiết và các Bảng (Tables). Đặc biệt, Kế toán viên phải biết cách Kết nối (Join) các bảng này lại bằng Khóa chính (Primary Key) và Khóa ngoại (Foreign Key). Đồng thời, luôn đặt câu hỏi: Nguồn dữ liệu do con người nhập tay hay hệ thống tự sinh ra?
+Người 2: Dữ liệu nhập thủ công (Manual entry) luôn ẩn chứa sai số của con người (Human error). Đối với các thuật toán phát hiện bất thường (Anomaly Detection), việc nhiễu (Noise) do nhập sai số không hay sai dấu phẩy có thể kích hoạt hàng loạt cảnh báo giả (False Positives) làm tê liệt hệ thống kiểm soát ạ.
 
-Slide 12: PHÂN BIỆT DỮ LIỆU CẤU TRÚC \& PHI CẤU TRÚC
-Người 1: Ở nội dung "Phân biệt Dữ liệu Cấu trúc \& Phi cấu trúc", chúng ta cần đặc biệt lưu ý những điểm cốt lõi về chiến lược dữ liệu.
-Người 2: Dạ, em đang theo dõi sát sao tiến trình bài giảng ạ.
+Slide 12: PHÂN BIỆT DỮ LIỆU CẤU TRÚC & PHI CẤU TRÚC
+Người 1: Đó là lý do ta phải tiền xử lý (Data Preprocessing) cực kỳ cẩn thận. Slide 12 phân biệt Dữ liệu cấu trúc (Structured) - nằm gọn gàng trong các cột SQL, và Dữ liệu phi cấu trúc (Unstructured) - như hợp đồng PDF, email, hình ảnh. Thách thức của Kế toán 4.0 là hơn 80% dữ liệu nằm ở dạng phi cấu trúc.
+Người 2: Thưa thầy, để giải quyết Dữ liệu phi cấu trúc, chúng ta không thể dùng các hàm SQL thông thường mà phải nhờ đến Trí tuệ nhân tạo (AI), cụ thể là Xử lý ngôn ngữ tự nhiên (NLP) hoặc Nhận dạng ký tự quang học (OCR) để trích xuất thông tin ra thành dạng Cấu trúc trước, sau đó mới đưa vào phân tích đúng không ạ?
 
 Slide 13: CÁC THANG ĐO LƯỜNG DỮ LIỆU
-Người 1: Các em tập trung vào slide "Các thang đo lường dữ liệu" nhé, đây là nền tảng rất quan trọng.
-Người 2: Thưa thầy, em đã gạch chân những từ khóa cốt lõi rồi ạ.
+Người 1: Tuyệt vời! Em đã nắm bắt được tinh hoa của AI ứng dụng. Sang Slide 13, ta đi vào nền tảng của Thống kê: Các thang đo lường dữ liệu. Có 4 thang đo: Nominal (Định danh - Không thứ tự), Ordinal (Thứ bậc - Có thứ tự), Interval (Khoảng - Khoảng cách đều, không có số 0 tuyệt đối), và Ratio (Tỷ lệ - Có số 0 tuyệt đối). Việc hiểu sai thang đo sẽ dẫn đến áp dụng sai thuật toán.
+Người 2: Em lấy ví dụ: "Phương thức thanh toán" là Nominal. Máy tính không hiểu chữ, nên ta phải mã hóa (One-hot Encoding) thành các vector 0,1. Nếu ta gán 1 cho Tiền mặt, 2 cho Chuyển khoản, 3 cho Thẻ tín dụng và bắt mô hình Học máy tính giá trị "Trung bình" là 2, thì kết quả đó là hoàn toàn vô nghĩa và sai bản chất toán học ạ.
 
 Slide 14: CÁC LOẠI DỮ LIỆU KẾ TOÁN: DANH MỤC, TRẠNG THÁI, SỰ KIỆN
-Người 1: Phần "Các loại Dữ liệu Kế toán: Danh mục, Trạng thái, Sự kiện" này chính là mấu chốt để tránh rủi ro dữ liệu sau này.
-Người 2: Vâng, em đang ghi chú lại các ý chính này rồi thưa thầy.
+Người 1: Một ví dụ phản biện xuất sắc! Slide 14 phân loại dữ liệu kế toán thành 3 nhóm: Dữ liệu Danh mục (Master Data) như Danh mục tài khoản ít thay đổi. Dữ liệu Trạng thái (Reference Data) như bảng tỷ giá. Và Dữ liệu Sự kiện (Transactional Data) sinh ra từ giao dịch hàng ngày với khối lượng khổng lồ.
+Người 2: Dạ, Dữ liệu Sự kiện (Transactional) chính là mỏ vàng cho các thuật toán Khai phá dữ liệu (Data Mining) và Học máy (Machine Learning) vì nó chứa đựng các hành vi, xu hướng (Patterns) theo thời gian của dòng tiền và khách hàng ạ.
 
-Slide 15: CÁC RỦI RO TRONG CHIẾN LƯỢC DỮ LIỆU \& CÁCH KIỂM SOÁT
-Người 1: Phần "Các Rủi ro trong Chiến lược Dữ liệu \& Cách Kiểm soát" này chính là mấu chốt để tránh rủi ro dữ liệu sau này.
-Người 2: Thưa thầy, em đã gạch chân những từ khóa cốt lõi rồi ạ.
+Slide 15: CÁC RỦI RO TRONG CHIẾN LƯỢC DỮ LIỆU & CÁCH KIỂM SOÁT
+Người 1: Đúng vậy. Nhưng mỏ vàng đó cũng nhiều cạm bẫy. Slide 15 nêu các rủi ro: Trùng lặp (Duplication) khi một khách hàng bị tạo 2 mã khác nhau; Thiếu sót (Completeness) khi các trường bắt buộc bị bỏ trống. Biện pháp kiểm soát (Controls) tốt nhất là áp dụng Data Validation Rules (Quy tắc xác thực) ngay tại khâu nhập liệu (Data Entry).
+Người 2: Nếu để dữ liệu dơ (Dirty data) lọt vào, ta sẽ phải dùng các thuật toán như K-Nearest Neighbors (KNN) để điền khuyết giá trị (Missing Value Imputation), hoặc dùng thuật toán Clustering để tìm và gộp các mã khách hàng trùng lặp. Nhưng phòng bệnh hơn chữa bệnh, kiểm soát từ nguồn vẫn là rẻ nhất thưa thầy.
 
 Slide 16: RỦI RO VỀ KHẢ NĂNG TRUY CẬP (ACCESSIBILITY RISKS)
-Người 1: Ở nội dung "Rủi ro về Khả năng truy cập (Accessibility Risks)", chúng ta cần đặc biệt lưu ý những điểm cốt lõi về chiến lược dữ liệu.
-Người 2: Thưa thầy, em đã gạch chân những từ khóa cốt lõi rồi ạ.
+Người 1: Rất chuẩn xác! Slide 16 trình bày Rủi ro truy cập, kết hợp Minh họa 4.14 trong giáo trình. Dữ liệu có thể nằm trong các hệ thống "Cổ đại" (Legacy Systems) không hỗ trợ xuất API, hoặc bị rào cản phân quyền gắt gao giữa các phòng ban. Giải pháp là xây dựng Kho dữ liệu (Data Warehouse) hoặc Hồ dữ liệu (Data Lake) tập trung.
+Người 2: Data Lake (Hồ dữ liệu) cho phép đổ thẳng cả dữ liệu Phi cấu trúc và Cấu trúc vào mà không cần định hình cấu trúc trước (Schema-on-read). Nó rất lý tưởng cho các chuyên gia Data Science dùng Machine Learning cày xới, phá vỡ mọi rào cản "ốc đảo" thông tin trước đây ạ.
 
 Slide 17: RỦI RO VỀ ĐỘ TIN CẬY VÀ TÍNH TOÀN VẸN
-Người 1: Ở nội dung "Rủi ro về Độ tin cậy và Tính toàn vẹn", chúng ta cần đặc biệt lưu ý những điểm cốt lõi về chiến lược dữ liệu.
-Người 2: Vâng thưa thầy, phần này rất logic và dễ hiểu.
+Người 1: Kiến thức của em cập nhật rất nhanh! Slide 17 tiếp tục với Rủi ro Độ tin cậy (Reliability - phản ánh đúng bản chất giao dịch) và Tính toàn vẹn (Integrity - không bị chỉnh sửa trái phép). Để bảo vệ, hệ thống cần các Dấu vết kiểm toán (Audit Trails) hoặc công nghệ Blockchain chống giả mạo.
+Người 2: Tính toàn vẹn của dữ liệu là sống còn. Nếu dữ liệu huấn luyện (Training data) cho AI đã bị một nhân viên gian lận âm thầm chỉnh sửa, thì mô hình AI sẽ vô tình học và dung túng cho cái sai đó, coi đó là một mô thức (Pattern) bình thường thưa thầy.
 
 Slide 18: 4.3 THIẾT KẾ CHIẾN LƯỢC PHÂN TÍCH (ANALYSIS STRATEGY)
-Người 1: Ở nội dung "4.3 Thiết kế Chiến lược Phân tích (Analysis Strategy)", chúng ta cần đặc biệt lưu ý những điểm cốt lõi về chiến lược dữ liệu.
-Người 2: Vâng, em đang ghi chú lại các ý chính này rồi thưa thầy.
+Người 1: Một góc nhìn sắc bén! Vậy là ta đã có dữ liệu sạch và an toàn. Slide 18 chuyển sang 4.3: Chiến lược Phân tích. Việc chọn mô hình luôn là một sự đánh đổi (Trade-off) giữa Độ chính xác và Khả năng giải thích. Nguyên tắc Occam's Razor nhắc nhở: Hãy ưu tiên mô hình đơn giản nhất có thể giải quyết được mục tiêu.
+Người 2: Dạ vâng, trong Kế toán và Kiểm toán, mô hình Hộp đen (Black Box) như Mạng Neural sâu (Deep Neural Networks) rất khó được chấp nhận vì không thể giải trình với cơ quan thuế. Ta thường chuộng Hồi quy Logistic (Logistic Regression) hay Cây quyết định (Decision Tree) vì dễ dàng truy xuất được trọng số và các quy tắc (Rules) phân loại ạ.
 
 Slide 19: THIẾT KẾ PHÂN TÍCH MÔ TẢ (DESCRIPTIVE ANALYSIS)
-Người 1: Phần "Thiết kế Phân tích Mô tả (Descriptive Analysis)" này chính là mấu chốt để tránh rủi ro dữ liệu sau này.
-Người 2: Vâng, em đang ghi chú lại các ý chính này rồi thưa thầy.
+Người 1: Tuyệt vời. Từ Slide 19, ta đi vào 4 cấp độ phân tích. Đầu tiên là Phân tích Mô tả (Descriptive). Mục tiêu là tóm tắt lịch sử bằng trực quan. Kế toán thường dùng Phân tích ngang (Horizontal) so sánh qua các năm, Phân tích dọc (Vertical) theo tỷ trọng, và các thống kê cơ bản như Mean, Median, Variance.
+Người 2: Thống kê cơ bản rất quan trọng để phát hiện bất thường. Việc so sánh Trung vị (Median) và Trung bình (Mean) sẽ cho ta biết dữ liệu bị lệch (Skewed) do các giao dịch ngoại lai (Outliers) có giá trị quá lớn hay không ạ.
 
 Slide 20: THIẾT KẾ PHÂN TÍCH CHẨN ĐOÁN (DIAGNOSTIC ANALYSIS)
-Người 1: Ở nội dung "Thiết kế Phân tích Chẩn đoán (Diagnostic Analysis)", chúng ta cần đặc biệt lưu ý những điểm cốt lõi về chiến lược dữ liệu.
-Người 2: Vâng thưa thầy, phần này rất logic và dễ hiểu.
+Người 1: Rất tinh tế! Slide 20 là Phân tích Chẩn đoán (Diagnostic) - đi tìm nguyên nhân. Kế toán Quản trị dùng Phân tích biến động (Variance Analysis) để mổ xẻ chênh lệch chi phí thành nhân tố Giá và Lượng. Kiểm toán dùng Định luật Benford (Benford's Law) để tìm gian lận dựa trên tần suất xuất hiện bất thường của các chữ số đầu tiên.
+Người 2: Định luật Benford giống như hệ thống còi báo động (Red flag). Kẻ gian lận thường bịa ra các con số theo tâm lý học, phá vỡ phân phối tự nhiên của Benford. Kết hợp thêm Hệ số tương quan (Correlation Coefficient) để xem chi phí và doanh thu có đi liền với nhau không, ta sẽ nắm bắt được ngay các bất thường ạ.
 
 Slide 21: THIẾT KẾ PHÂN TÍCH DỰ ĐOÁN (PREDICTIVE ANALYSIS)
-Người 1: Ở nội dung "Thiết kế Phân tích Dự đoán (Predictive Analysis)", chúng ta cần đặc biệt lưu ý những điểm cốt lõi về chiến lược dữ liệu.
-Người 2: Vâng, em đang ghi chú lại các ý chính này rồi thưa thầy.
+Người 1: Lập luận rất chắc chắn! Slide 21 tiến lên cấp độ Phân tích Dự đoán (Predictive). Ta chuyển dữ liệu lịch sử thành dự báo qua Học máy. Hồi quy tuyến tính (Linear) cho chi phí, Hồi quy Logistic (Altman Z-score) cho xác suất phá sản, hay các thuật toán Chuỗi thời gian (ARIMA) để dự báo doanh số theo mùa vụ.
+Người 2: Khi chạy mô hình phân loại (Classification) như dự báo phá sản, thay vì chỉ nhìn vào Độ chính xác (Accuracy), ta BẮT BUỘC phải dùng Đường cong ROC (ROC Curve) và Ma trận nhầm lẫn (Confusion Matrix) để cân bằng giữa Cảnh báo sai (False Positive) và Bỏ lọt rủi ro (False Negative) đúng không thầy?
 
 Slide 22: THIẾT KẾ PHÂN TÍCH ĐỀ XUẤT (PRESCRIPTIVE ANALYSIS)
-Người 1: Tiếp tục với phần "Thiết kế Phân tích Đề xuất (Prescriptive Analysis)", các em hãy xâu chuỗi với các bước lập kế hoạch ở slide trước.
-Người 2: Vâng thưa thầy, phần này rất logic và dễ hiểu.
+Người 1: Hoàn toàn chính xác, em đã chạm đến cốt lõi của đánh giá mô hình. Slide 22 là đỉnh cao: Phân tích Đề xuất (Prescriptive). Hệ thống không chỉ dự báo mà còn khuyến nghị hành động tối ưu (Optimization). Các công cụ như Dòng tiền chiết khấu (DCF), Phân tích hòa vốn (C-V-P), và Quy hoạch tuyến tính (Linear Programming) giúp giải bài toán tối đa hóa lợi nhuận với nguồn lực giới hạn.
+Người 2: Quy hoạch tuyến tính thực chất là một mô hình Toán tối ưu. Máy tính sẽ duyệt qua hàng triệu kịch bản (What-if scenarios) để tìm ra điểm tối ưu (Optimal Point) mà con người không thể tự nhẩm tính bằng Excel thông thường được.
 
 Slide 23: 4.4 ỨNG DỤNG CHIẾN LƯỢC TRONG THỰC TIỄN NGHỀ NGHIỆP
-Người 1: Bước sang phần "4.4 Ứng dụng Chiến lược trong Thực tiễn Nghề nghiệp", đây là một khái niệm rất hay xuất hiện trong thực tế kiểm toán và kế toán.
-Người 2: Dạ, em đang theo dõi sát sao tiến trình bài giảng ạ.
+Người 1: Đúng vậy! Và ở Slide 23 (phần 4.4), chúng ta sẽ thấy công cụ thống kê chỉ là phương tiện. Tính đặc thù nghề nghiệp mới là quan trọng. Cùng một thuật toán, nhưng ở mỗi chuyên ngành Kế toán sẽ có chiến lược áp dụng khác nhau. Yêu cầu lớn nhất vẫn là Tư duy phản biện (Critical Thinking) để đánh giá bản chất kinh tế (Economic substance) của kết quả phân tích.
+Người 2: Em hiểu, AI có thể tính ra một kết quả, nhưng kết quả đó có phù hợp với bối cảnh kinh tế và luật pháp hiện hành hay không, lại phụ thuộc hoàn toàn vào bộ não và sự nhạy bén của chuyên gia Kế toán ạ.
 
 Slide 24: HỆ THỐNG THÔNG TIN KẾ TOÁN (AIS) - ĐÁNH GIÁ RỦI RO HỆ THỐNG
-Người 1: Tiếp tục với phần "Hệ thống Thông tin Kế toán (AIS) - Đánh giá rủi ro hệ thống", các em hãy xâu chuỗi với các bước lập kế hoạch ở slide trước.
-Người 2: Dạ em hiểu rồi, việc lập kế hoạch cẩn thận giúp tiết kiệm rất nhiều thời gian xử lý sau này.
+Người 1: Chính xác. Slide 24 nói về chuyên ngành AIS. Dữ liệu là Log files (Nhật ký). Phân tích là dùng thuật toán Phân cụm (Clustering) - một kỹ thuật Học không giám sát (Unsupervised Learning) như k-Means - để tự động tìm ra các nhóm tài khoản (user) truy cập hệ thống bất thường vào ngoài giờ hành chính nhằm ngăn chặn gian lận nội bộ.
+Người 2: Thưa thầy, k-Means hoạt động bằng cách đo khoảng cách Euclide. Vì ta không cần "Dán nhãn" (Label) trước ai là kẻ gian lận, thuật toán sẽ tự động gộp các tài khoản truy cập lúc 2 giờ sáng thành một cụm (Cluster) riêng biệt, tách rời khỏi cụm nhân viên văn phòng bình thường. Đây là một ứng dụng rất quyền năng của Unsupervised Learning!
 
 Slide 25: KIỂM TOÁN (AUDITING) - XÁC MINH BẰNG CHỨNG KIỂM TOÁN
-Người 1: Bước sang phần "Kiểm toán (Auditing) - Xác minh bằng chứng kiểm toán", đây là một khái niệm rất hay xuất hiện trong thực tế kiểm toán và kế toán.
-Người 2: Thưa thầy, em đã gạch chân những từ khóa cốt lõi rồi ạ.
+Người 1: Tuyệt vời! Slide 25 chuyển sang Kiểm toán. Thay vì lấy mẫu ngẫu nhiên (Sampling), sức mạnh điện toán hiện nay cho phép ta lấy 100% dữ liệu Sổ cái (Population). Các kịch bản kiểm toán tự động (CAATs) có thể dùng các thuật toán phát hiện bất thường (Anomaly Detection) để quét toàn bộ các bút toán kép, bút toán đảo kỳ lạ.
+Người 2: Việc phân tích trên 100% dữ liệu đã thay đổi hoàn toàn mức độ đảm bảo (Assurance Level) của bằng chứng kiểm toán. Kiểm toán viên sẽ không còn phải lo lắng về Rủi ro lấy mẫu (Sampling Risk) khiến họ bỏ lọt các giao dịch gian lận tinh vi nữa thưa thầy.
 
 Slide 26: KẾ TOÁN TÀI CHÍNH - PHÂN TÍCH BÁO CÁO
-Người 1: Bước sang phần "Kế toán Tài chính - Phân tích báo cáo", đây là một khái niệm rất hay xuất hiện trong thực tế kiểm toán và kế toán.
-Người 2: Vâng, em đang ghi chú lại các ý chính này rồi thưa thầy.
+Người 1: Rất sâu sắc. Slide 26 ứng dụng trong Kế toán Tài chính. Dữ liệu được chuẩn hóa theo chuẩn XBRL. Lúc này, ta có thể áp dụng các mô hình Học có giám sát (Supervised Learning) để chấm điểm Chất lượng Lợi nhuận (Earnings Quality) của doanh nghiệp so với các đối thủ trong ngành (Industry Benchmarking).
+Người 2: Học có giám sát (Supervised Learning) đòi hỏi ta phải có bộ dữ liệu lịch sử đã được "dán nhãn" rõ ràng. Chẳng hạn, mô hình sẽ học từ hàng nghìn công ty đã bị Ủy ban Chứng khoán phạt vì xào nấu lợi nhuận, từ đó nhận diện các khuôn mẫu (Patterns) rủi ro ở các công ty hiện hành ạ.
 
 Slide 27: KẾ TOÁN QUẢN TRỊ - ĐÁNH GIÁ HIỆU SUẤT
-Người 1: Các em tập trung vào slide "Kế toán Quản trị - Đánh giá hiệu suất" nhé, đây là nền tảng rất quan trọng.
-Người 2: Thưa thầy, em đã gạch chân những từ khóa cốt lõi rồi ạ.
+Người 1: Em đã nắm vững cốt lõi của Học có giám sát. Slide 27 là mảnh đất của Kế toán Quản trị. Ta kết hợp số liệu ERP với Dữ liệu cảm biến IoT trên dây chuyền. Việc Phân tích theo thời gian thực (Real-time tracking) bằng các mô hình dự báo chuỗi thời gian cho phép cảnh báo hỏng hóc máy móc ngay lập tức.
+Người 2: Việc tích hợp IT (Công nghệ thông tin) và OT (Công nghệ vận hành bằng IoT) giúp Kế toán Quản trị vươn lên thành bộ phận điều hướng thực sự. Máy móc hao mòn sẽ được chuyển thành chi phí hao hụt nguyên vật liệu theo từng giây (Streaming Data), giúp tối ưu hóa Chi phí mục tiêu (Target Costing) ạ.
 
 Slide 28: KẾ TOÁN THUẾ - LẬP KẾ HOẠCH THUẾ
-Người 1: Ở nội dung "Kế toán Thuế - Lập kế hoạch thuế", chúng ta cần đặc biệt lưu ý những điểm cốt lõi về chiến lược dữ liệu.
-Người 2: Thưa thầy, em đã gạch chân những từ khóa cốt lõi rồi ạ.
+Người 1: Rất chiến lược! Cuối cùng ở Slide 28, đối với Kế toán Thuế, ta ứng dụng Phân tích Kịch bản (Scenario Analysis). Khi có quy định mới như Thuế tối thiểu toàn cầu, các Tập đoàn phải dùng mô hình mô phỏng dòng tiền dưới các mức thuế suất khác nhau.
+Người 2: Các kỹ thuật mô phỏng Monte Carlo (Monte Carlo Simulation) kết hợp Phân tích What-if sẽ tạo ra hàng vạn viễn cảnh kinh tế, giúp CFO thiết kế cấu trúc giá chuyển nhượng (Transfer Pricing) an toàn và tối ưu nhất trước sự thay đổi của pháp luật thưa thầy.
 
 Slide 29: ÁP DỤNG TƯ DUY PHẢN BIỆN (APPLYING CRITICAL THINKING 4.4)
-Người 1: Tiếp tục với phần "Áp dụng Tư duy Phản biện (Applying Critical Thinking 4.4)", các em hãy xâu chuỗi với các bước lập kế hoạch ở slide trước.
-Người 2: Thưa thầy, em đã gạch chân những từ khóa cốt lõi rồi ạ.
+Người 1: Kiến thức của em vượt ngoài mong đợi! Slide 29 đặt ra một tình huống về Tư duy phản biện. Đừng vội tin vào một kế hoạch phân tích do bộ phận khác đưa sang. Em phải xem xét 4 bước: Mục tiêu, Dữ liệu, Phân tích, Rủi ro có thực sự "đồng điệu" (aligned) không. Đừng dùng "dao mổ trâu" (Deep Learning) để "giết gà" (Tính tổng doanh thu).
+Người 2: Dạ vâng, nếu thuật toán sai bối cảnh, nó sẽ tạo ra những quyết định kinh doanh sai lệch, gây thiệt hại nghiêm trọng. Kế toán viên đóng vai trò là "Người gác cổng" (Gatekeeper) để đảm bảo mô hình AI hoạt động hợp lý và tuân thủ đạo đức kinh doanh ạ.
 
 Slide 30: TÓM TẮT MỤC TIÊU HỌC TẬP
-Người 1: Phần "Tóm tắt Mục tiêu Học tập" này chính là mấu chốt để tránh rủi ro dữ liệu sau này.
-Người 2: Vâng, em đang ghi chú lại các ý chính này rồi thưa thầy.
-
+Người 1: Cảm ơn em. Slide 30 tóm tắt 4 mục tiêu học tập (LO) của chương 4. Lập kế hoạch dữ liệu là xương sống, là tư duy thiết kế hệ thống mà bất kỳ Kế toán viên 4.0 nào cũng phải trang bị để làm chủ công nghệ AI, thay vì bị nó chi phối.
+Người 2: Bài học hôm nay cực kỳ sâu sắc, giúp em hiểu rõ nguyên lý vận hành của các thuật toán phân tích đằng sau những con số kế toán. Em cảm ơn thầy rất nhiều ạ!
 Slide 31: ILLUSTRATION 4.10
-Người 1: Slide tiếp theo là một ví dụ thực tế qua Minh họa 4.10. Cụ thể: "summarizes the typical internal data field sources  often used by accountants.". Phân tích kỹ sẽ giúp các em hiểu sâu hơn.
-Người 2: Em đã nắm được ý chính của phần này rồi thưa thầy.
+Người 1: Bắt đầu từ Slide 31, chúng ta sẽ lướt qua các minh họa trực quan. Minh họa 4.10 tổng hợp các nguồn dữ liệu Kế toán phổ biến. Dữ liệu thô (Raw Data) thường lấy trực tiếp từ bảng hệ thống ERP, còn Dữ liệu Tính toán (Calculated Data) sinh ra từ các công thức tài chính.
+Người 2: Việc phân định này cực kỳ quan trọng khi huấn luyện mô hình (Training Model). Nếu ta đưa Dữ liệu Tính toán làm biến dự báo (Predictor) mà biến này lại được tính từ chính biến mục tiêu (Target Variable), thì mô hình sẽ mắc lỗi Rò rỉ dữ liệu (Data Leakage), dẫn đến kết quả chính xác 100% nhưng hoàn toàn vô giá trị ở thực tế thưa thầy.
 
 Slide 32: ILLUSTRATION 4.11
-Người 1: Slide tiếp theo là một ví dụ thực tế qua Minh họa 4.11. Cụ thể: ").". Phân tích kỹ sẽ giúp các em hiểu sâu hơn.
-Người 2: Em đã nắm được ý chính của phần này rồi thưa thầy.
+Người 1: Khám phá rất chính xác! Tiếp theo, Minh họa 4.11 đi sâu vào các Thang đo lường: Danh nghĩa (Categorical), Thứ bậc (Ordinal), Khoảng (Interval) và Tỷ lệ (Ratio). Thang đo quyết định toàn bộ việc em được phép dùng thuật toán toán học nào.
+Người 2: Dạ vâng, nếu Kế toán ghi nhận 'Đánh giá rủi ro kiểm toán' từ 1 đến 5 (Thang đo Ordinal), ta không thể dùng hàm tính Trung bình (Mean) được. Ta phải dùng Trung vị (Median) hoặc Yếu vị (Mode) mới phản ánh đúng bản chất, vì khoảng cách giữa rủi ro mức 4 và mức 5 không nhất thiết bằng khoảng cách từ mức 1 đến mức 2 ạ.
 
 Slide 33: ILLUSTRATION 4.12
-Người 1: Các em xem minh họa ở Minh họa 4.12 trên slide. Đoạn này đề cập đến: ").". Rất sát với tình huống doanh nghiệp.
-Người 2: Dạ, kết hợp lý thuyết với minh họa thực tế thế này rất hiệu quả ạ.
+Người 1: Tư duy thống kê xuất sắc. Sang Minh họa 4.12, ta có danh sách các Rủi ro Dữ liệu (Data Risks). Rủi ro nguy hiểm nhất là Dữ liệu ngoại lai (Outliers) và Mẫu không đại diện (Non-representative). Outlier có sức tàn phá khủng khiếp đối với các mô hình học máy nhạy cảm với khoảng cách như k-Means hay Hồi quy tuyến tính.
+Người 2: Nếu một hóa đơn có giá trị khổng lồ bất thường lọt vào tập dữ liệu, nó sẽ đóng vai trò như một lực hút, kéo lệch toàn bộ đường hồi quy (Regression Line) hoặc làm biến dạng tâm cụm (Centroid) của mô hình phân nhóm, làm hỏng toàn bộ năng lực dự báo trong tương lai đúng không thầy?
 
 Slide 34: ILLUSTRATION 4.13
-Người 1: Nhìn vào Minh họa 4.13, chúng ta có thể rút ra điều gì? Tài liệu có ghi: "Representative Sampling Risks Entire PopulationImagine a jar with 100 marbles: 30 blue marblesand 70 white marbles.If a sample of ten blue marbles...". Đây là một điểm rất đáng chú ý.
-Người 2: Vâng thưa thầy, hình ảnh này giải thích rất trực quan dễ hiểu.
+Người 1: Chính xác! Minh họa 4.13 giải thích trực quan về Rủi ro Lấy mẫu (Sampling Risks). Tưởng tượng một lọ bi có 70% bi trắng và 30% bi đen. Nếu em bốc ngẫu nhiên 10 viên mà toàn bi đen, thì mẫu đó không hề đại diện cho tổng thể, kết luận rút ra sẽ hoàn toàn sai lầm.
+Người 2: Dạ, trong Kế toán cũng vậy. Nếu ta chỉ chọn mẫu hóa đơn của tháng 12 (tháng cao điểm cuối năm) để huấn luyện mô hình dự báo chi phí cho cả năm sau, thì mô hình sẽ bị Thiên lệch (Bias) cực nặng. Đó là lý do kiểm toán hiện đại ưu tiên quét toàn bộ dữ liệu (Population) thay vì lấy mẫu ạ.
 
 Slide 35: ILLUSTRATION 4.14A
-Người 1: Chuyển sang phần Minh họa 4.14A, các em chú ý quan sát chi tiết trên màn hình nhé.
-Người 2: Dạ vâng thưa thầy.
+Người 1: Minh họa 4.14A mang đến một ma trận sống còn: Ánh xạ giữa Thang đo (Measurement Scale) và Chiến lược Phân tích (Analysis Strategies). Bảng này cho Kế toán biết chính xác loại dữ liệu nào thì được phép dùng phép toán nào.
+Người 2: Bảng này chỉ ra rằng với dữ liệu Danh nghĩa (Categorical) như Tên khách hàng hay Mã hàng hóa, ta chỉ có thể Đếm (Count) và Tính phần trăm (Proportion). Việc nỗ lực đưa chúng vào các phép tính cộng trừ nhân chia là một sai lầm thống kê thảm họa.
 
 Slide 36: ILLUSTRATION 4.14B
-Người 1: Chuyển sang phần Minh họa 4.14B, các em chú ý quan sát chi tiết trên màn hình nhé.
-Người 2: Dạ vâng thưa thầy.
+Người 1: Sang Minh họa 4.14B, ta thấy chỉ có dữ liệu Interval và Ratio (số thực) mới được phép chạy Phân tích xu hướng (Trendlines) và Hồi quy (Regression). Đừng bao giờ ném dữ liệu chữ vào hàm hồi quy tuyến tính nếu chưa qua tiền xử lý.
+Người 2: Dạ, bước Mã hóa One-hot (One-hot encoding) chính là chiếc "chìa khóa" biến dữ liệu Categorical thành các vector nhị phân (0 và 1) để máy tính có thể "nhai" được trước khi đưa vào các lớp Mạng nơ-ron sâu (Deep Learning) thưa thầy.
 
 Slide 37: ILLUSTRATION 4.15
-Người 1: Nhìn vào Minh họa 4.15, chúng ta có thể rút ra điều gì? Tài liệu có ghi: "Outstanding Invoices by Customer  Number Number of Customers with Outstanding Invoices at 2024 and 2025 Year-Ends Number of Customer s 01020304060...". Đây là một điểm rất đáng chú ý.
-Người 2: Vâng thưa thầy, hình ảnh này giải thích rất trực quan dễ hiểu.
+Người 1: Tuyệt vời. Minh họa 4.15 là bảng phân tích Số hóa đơn quá hạn theo Mã khách hàng. Đây là kỹ thuật Phân tích Mô tả (Descriptive). Bằng cách dùng lệnh gom nhóm (Group By) theo ID khách hàng, Kế toán ngay lập tức khoanh vùng được những đối tượng rủi ro tín dụng.
+Người 2: Việc Tổng hợp dữ liệu (Data Aggregation) này không chỉ làm báo cáo dễ đọc, mà còn là bước Tiền xử lý (Preprocessing) bắt buộc để tạo ra các biến đặc trưng (Feature Engineering) trước khi nạp vào mô hình học máy ạ.
 
-Slide 38: ILLUSTRATION 4.15\_1
-Người 1: Chuyển sang phần Minh họa 4.15\_1, các em chú ý quan sát chi tiết trên màn hình nhé.
-Người 2: Dạ vâng thưa thầy.
+Slide 38: ILLUSTRATION 4.15_1
+Người 1: Ở Minh họa 4.15_1, ta thấy một góc nhìn chi tiết hơn về các khách hàng đang nợ đọng. Phân tích Mô tả giúp ta "cảm nhận" được dữ liệu bằng trực giác trước khi dùng đến các thuật toán phức tạp.
+Người 2: Quá trình Khám phá Dữ liệu (Exploratory Data Analysis - EDA) này luôn là bước đi đầu tiên của mọi Data Scientist. Không có EDA, ta sẽ mù quáng đưa rác vào mô hình mà không hề hay biết thưa thầy.
 
-Slide 39: ILLUSTRATION 4.15\_2
-Người 1: Chuyển sang phần Minh họa 4.15\_2, các em chú ý quan sát chi tiết trên màn hình nhé.
-Người 2: Dạ vâng thưa thầy.
+Slide 39: ILLUSTRATION 4.15_2
+Người 1: Minh họa 4.15_2 đi sâu vào chi tiết của từng dòng hóa đơn. Việc khoan sâu (Drill-down) này rất cần thiết. Khi phát hiện một khách hàng có tổng nợ lớn, ta phải xem đó là do một hóa đơn khổng lồ duy nhất hay do hàng trăm hóa đơn nhỏ bị cộng dồn.
+Người 2: Việc Drill-down này giúp Kế toán chẩn đoán chính xác nguyên nhân gốc rễ (Root Cause). Trị bệnh từ gốc thì chiến lược thu hồi công nợ mới thực sự có hiệu quả ạ.
 
 Slide 40: ILLUSTRATION 4.16
-Người 1: Chúng ta cùng phân tích Minh họa 4.16 nhé. Trọng tâm của phần này là: "provides a visualization of the results of this analysis strategy. ( Data How To 4.2 describes how to recreate this visualization  with a different...". Các em hãy lưu ý cách áp dụng vào thực tế.
-Người 2: Em đã nắm được ý chính của phần này rồi thưa thầy.
+Người 1: Minh họa 4.16 vẽ Biểu đồ Tần suất (Frequency Bar Chart) mô tả sự phân bố hóa đơn quá hạn. Nhìn vào đây, Kế toán sẽ thấy ngay độ xiên (Skewness) của dữ liệu. Đa số hóa đơn tập trung ở nhóm 1-3 ngày, tạo thành cái đuôi dài (Long-tail) kéo về bên phải.
+Người 2: Dạ vâng, nếu dữ liệu không có Phân phối chuẩn (Normal Distribution) mà bị lệch (Skewed) nghiêm trọng như thế này, ta không thể dùng các mô hình Hồi quy tuyến tính thông thường mà phải chuyển sang các mô hình phi tuyến tính (Non-linear) như Rừng ngẫu nhiên (Random Forest) thưa thầy.
 
 Slide 41: ILLUSTRATION 4.17
-Người 1: Chúng ta cùng phân tích Minh họa 4.17 nhé. Trọng tâm của phần này là: "summarizes the most common predictive and prescriptive analysis strat - egies used by accountants that do not involve advanced technology tools. The...". Các em hãy lưu ý cách áp dụng vào thực tế.
-Người 2: Dạ, ví dụ này làm em thấy rõ hơn hẳn ạ.
+Người 1: Kiến thức rất vững! Minh họa 4.17 tổng hợp các Chiến lược Dự đoán và Đề xuất. Hồi quy (Regression), Tối ưu hóa (Optimization) và Phân tích What-if. Đây là mảnh đất màu mỡ nhất của Machine Learning trong Kế toán quản trị.
+Người 2: Em nghĩ các bài toán tối ưu hóa chi phí vận chuyển logistics, hay bài toán pha trộn nguyên vật liệu chính là nơi ứng dụng mô hình Quy hoạch tuyến tính (Linear Programming) hoàn hảo nhất, giúp tiết kiệm chi phí trong điều kiện ràng buộc tài nguyên ạ.
 
 Slide 42: ILLUSTRATION 4.18
-Người 1: Mời các em quan sát Minh họa 4.18. Điểm cốt lõi ở đây là: ".".
-Người 2: Vâng thưa thầy, hình ảnh này giải thích rất trực quan dễ hiểu.
+Người 1: Minh họa 4.18 giới thiệu một Mô hình Hồi quy (Prediction Model). Hãy nhìn vào chỉ số R-Square (R bình phương). Nếu R-Square bằng 0.82, nghĩa là mô hình giải thích được 82% sự biến thiên của số ngày quá hạn dựa vào các biến độc lập.
+Người 2: Nhưng Adjusted R-Square (R bình phương hiệu chỉnh) mới là "kính lúp" soi rọi sự thật thưa thầy. Bởi vì R-Square thông thường sẽ bị "tăng giả tạo" nếu ta cố nhét thêm nhiều biến rác vào mô hình. Adjusted R-Square sẽ trừng phạt (penalize) mô hình nếu các biến thêm vào không mang lại giá trị dự báo, giúp chống lại hiện tượng Overfitting.
 
 Slide 43: ILLUSTRATION 4.19
-Người 1: Nhìn vào Minh họa 4.19, chúng ta có thể rút ra điều gì? Tài liệu có ghi: "captures the  most common risks that accountants face when analyzing data.  c04PlanningDataAndAnalysisStrategies.indd   22 23/09/22   9:00 AM 4.3...". Đây là một điểm rất đáng chú ý.
-Người 2: Em đã nắm được ý chính của phần này rồi thưa thầy.
+Người 1: Lập luận xuất sắc! Minh họa 4.19 cảnh báo các Rủi ro Phân tích (Analysis Risks). Chọn sai mô hình cho thang đo, Mẫu không đủ lớn, hoặc nghiêm trọng nhất là Bỏ qua các biến ẩn (Omitted Variables) đều dẫn đến kết luận thảm họa.
+Người 2: Dạ, Omitted Variables là một cái bẫy chết người. Ví dụ, phân tích thấy chi phí quảng cáo tăng làm doanh thu tăng, nhưng quên mất biến "Mùa vụ" (ví dụ tháng Tết) thì mô hình sẽ gán toàn bộ công lao tăng trưởng cho quảng cáo một cách vô lý ạ.
 
 Slide 44: ILLUSTRATION 4.2
-Người 1: Mời các em quan sát Minh họa 4.2. Điểm cốt lõi ở đây là: "). ( Data See H ow To   4.1 at the end of the chapter to learn how to calculate the figures in this".
-Người 2: Dạ, ví dụ này làm em thấy rõ hơn hẳn ạ.
-
-Slide 45: ILLUSTRATION 4.20
-Người 1: Slide tiếp theo là một ví dụ thực tế qua Minh họa 4.20. Cụ thể: "Number of Service Requests Each Month Number of Service Requests Service  Requests Months0 Jan. Feb. Mar. Apr. May Jun. Jul. Aug. Sep. Oct. Nov....". Phân tích kỹ sẽ giúp các em hiểu sâu hơn.
-Người 2: Vâng thưa thầy, hình ảnh này giải thích rất trực quan dễ hiểu.
-
-Slide 46: ILLUSTRATION 4.21
-Người 1: Slide tiếp theo là một ví dụ thực tế qua Minh họa 4.21. Cụ thể: "Risks and Controls for AIS Data and Analysis Strategies AnalysisDataRisks Controls • Human behavior is not captured. • Data manipulation from...". Phân tích kỹ sẽ giúp các em hiểu sâu hơn.
-Người 2: Em đã nắm được ý chính của phần này rồi thưa thầy.
-
-Slide 47: ILLUSTRATION 4.22
-Người 1: Các em xem minh họa ở Minh họa 4.22 trên slide. Đoạn này đề cập đến: "is an example of auditors using a process mining analysis strategy to  learn  whether all purchases followed the correct process from requisition to...". Rất sát với tình huống doanh nghiệp.
-Người 2: Em đã nắm được ý chính của phần này rồi thưa thầy.
-
-Slide 48: ILLUSTRATION 4.23
-Người 1: Các em xem minh họa ở Minh họa 4.23 trên slide. Đoạn này đề cập đến: ").". Rất sát với tình huống doanh nghiệp.
-Người 2: Em đã nắm được ý chính của phần này rồi thưa thầy.
-
-Slide 49: ILLUSTRATION 4.24
-Người 1: Mời các em quan sát Minh họa 4.24. Điểm cốt lõi ở đây là: "is a waterfall chart that shows the analysis results for a project with the  objective to better understand the monthly net cash flows for an...".
-Người 2: Dạ, ví dụ này làm em thấy rõ hơn hẳn ạ.
-
-Slide 50: ILLUSTRATION 4.25
-Người 1: Mời các em quan sát Minh họa 4.25. Điểm cốt lõi ở đây là: ").".
-Người 2: Em đã nắm được ý chính của phần này rồi thưa thầy.
-
-Slide 51: ILLUSTRATION 4.26
-Người 1: Nhìn vào Minh họa 4.26, chúng ta có thể rút ra điều gì? Tài liệu có ghi: "). APPLYING CRITICAL THINKING 4.7: Use Multiple Disciplines  in Managerial Accounting The knowledge base needed by managerial accountants is broad,...". Đây là một điểm rất đáng chú ý.
-Người 2: Dạ, ví dụ này làm em thấy rõ hơn hẳn ạ.
-
-Slide 52: ILLUSTRATION 4.27
-Người 1: Các em xem minh họa ở Minh họa 4.27 trên slide. Đoạn này đề cập đến: "is a live dashboard that shows current year medical expenses compared to the level needed for itemized deductions for five of their individual...". Rất sát với tình huống doanh nghiệp.
-Người 2: Vâng thưa thầy, hình ảnh này giải thích rất trực quan dễ hiểu.
-
-Slide 53: ILLUSTRATION 4.28
-Người 1: Chúng ta cùng phân tích Minh họa 4.28 nhé. Trọng tâm của phần này là: "Risks and Controls for Tax Accounting Data and Analysis Strategies Apply It 4.4 Match Strategies  with Professional Practice AreasFor each of the...". Các em hãy lưu ý cách áp dụng vào thực tế.
-Người 2: Dạ, nhờ minh họa này mà các khái niệm trở nên gần gũi hơn rất nhiều ạ.
-
-Slide 54: ILLUSTRATION 4.29
-Người 1: Các em xem minh họa ở Minh họa 4.29 trên slide. Đoạn này đề cập đến: "Sort Outstanding Invoices by Date  Stocks GeographyA Z Z AA ZZ AQueries & Connections Queries & ConnectionsEdit LinksPropertiesRefresh All Data...". Rất sát với tình huống doanh nghiệp.
-Người 2: Vâng thưa thầy, hình ảnh này giải thích rất trực quan dễ hiểu.
-
-Slide 55: ILLUSTRATION 4.3
-Người 1: Các em xem minh họa ở Minh họa 4.3 trên slide. Đoạn này đề cập đến: "summarizes the first three steps of this   project’s plan.". Rất sát với tình huống doanh nghiệp.
-Người 2: Em đã nắm được ý chính của phần này rồi thưa thầy.
-
-Slide 56: ILLUSTRATION 4.30
-Người 1: Slide tiếp theo là một ví dụ thực tế qua Minh họa 4.30. Cụ thể: ").". Phân tích kỹ sẽ giúp các em hiểu sâu hơn.
-Người 2: Dạ, kết hợp lý thuyết với minh họa thực tế thế này rất hiệu quả ạ.
-
-Slide 57: ILLUSTRATION 4.31
-Người 1: Các em xem minh họa ở Minh họa 4.31 trên slide. Đoạn này đề cập đến: ").        HOW TO  4.1 Calculate Year-End Bad Debts Estimation Using Excel  The figures shown in the table in". Rất sát với tình huống doanh nghiệp.
-Người 2: Dạ, nhờ minh họa này mà các khái niệm trở nên gần gũi hơn rất nhiều ạ.
-
-Slide 58: ILLUSTRATION 4.32
-Người 1: Chúng ta cùng phân tích Minh họa 4.32 nhé. Trọng tâm của phần này là: ").". Các em hãy lưu ý cách áp dụng vào thực tế.
-Người 2: Vâng thưa thầy, hình ảnh này giải thích rất trực quan dễ hiểu.
-
-Slide 59: ILLUSTRATION 4.33
-Người 1: Nhìn vào Minh họa 4.33, chúng ta có thể rút ra điều gì? Tài liệu có ghi: "Unpaid Invoices by Days Outstanding  Grand To tal9874 $        456.3 $     970.06 $  1,688.44 $ 1,912.04 $ 83,734.3RowLabel s SumOfInvoic eAmount...". Đây là một điểm rất đáng chú ý.
-Người 2: Vâng thưa thầy, hình ảnh này giải thích rất trực quan dễ hiểu.
-
-Slide 60: ILLUSTRATION 4.34
-Người 1: Nhìn vào Minh họa 4.34, chúng ta có thể rút ra điều gì? Tài liệu có ghi: "), enter a zero (0) in the starting point, 60 in  the ending point, and then enter 30 for the  By  option. Select  OK  .". Đây là một điểm rất đáng chú ý.
-Người 2: Dạ, nhờ minh họa này mà các khái niệm trở nên gần gũi hơn rất nhiều ạ.
-
 Slide 61: ILLUSTRATION 4.35
-Người 1: Nhìn vào Minh họa 4.35, chúng ta có thể rút ra điều gì? Tài liệu có ghi: "). Format the amounts as currency. STEP 7: In the cell to the right of the SumofInvoiceAmount title, enter “Estimation %.” In the  cell to the...". Đây là một điểm rất đáng chú ý.
-Người 2: Em đã nắm được ý chính của phần này rồi thưa thầy.
+Người 1: Bắt đầu từ Slide 61 là các Hướng dẫn thao tác (Walk-throughs) trên phần mềm. Minh họa 4.35 hướng dẫn dùng Excel để tổng hợp Nhóm tuổi nợ (Age Group Totals) bằng Pivot Table.
+Người 2: Việc chia nhóm (0-29, 30-60, >60 ngày) này thực chất là kỹ thuật Phân thùng (Binning) trong Data Science. Nó biến đổi một biến liên tục (Continuous variable) là số ngày thành các biến phân loại (Categorical), giúp giảm nhiễu và làm cho các mô hình phân loại rủi ro (như Logistic Regression) hoạt động ổn định hơn ạ.
 
-Slide 62: ILLUSTRATION 4.35\_1
-Người 1: Chuyển sang phần Minh họa 4.35\_1, các em chú ý quan sát chi tiết trên màn hình nhé.
-Người 2: Dạ vâng thưa thầy.
+Slide 62: ILLUSTRATION 4.35_1
+Người 1: Rất sắc bén. Minh họa 4.35_1 nhấn mạnh việc định dạng (Format) lại cột dữ liệu thành Tiền tệ (Currency). Dù có vẻ chỉ là thao tác làm đẹp báo cáo, nhưng nó có ý nghĩa cốt lõi trong bước Chuẩn hóa (Normalization).
+Người 2: Dạ vâng, các thuật toán học máy chỉ "nhai" được các ma trận số thực (Float tensors). Nếu ta không bóc tách (Parse) các ký hiệu tiền tệ "$" hay dấu phẩy hàng nghìn ra, máy tính sẽ hiểu nhầm cột đó là Văn bản (String) và đánh sập toàn bộ quy trình huấn luyện (Training pipeline) thưa thầy.
 
 Slide 63: ILLUSTRATION 4.36
-Người 1: Mời các em quan sát Minh họa 4.36. Điểm cốt lõi ở đây là: ". Add an  underline to the cell containing the last formula.".
-Người 2: Dạ, nhờ minh họa này mà các khái niệm trở nên gần gũi hơn rất nhiều ạ.
+Người 1: Đúng vậy! Sang Minh họa 4.36, ta áp dụng Tỷ lệ trích lập (Estimation %) tĩnh cho từng nhóm nợ: 2% cho nhóm trẻ, và vọt lên 30% cho nhóm quá hạn lâu. Đây là phương pháp Kinh nghiệm (Heuristic) truyền thống.
+Người 2: Trong tương lai, Kế toán 4.0 có thể thay thế bảng tỷ lệ cứng nhắc này bằng các mô hình Rừng ngẫu nhiên (Random Forest) hoặc Gradient Boosting. Các thuật toán này có thể linh hoạt xuất ra một xác suất bùng nợ (Default Probability) chính xác từ 0.0 đến 1.0 cho từng tờ hóa đơn riêng biệt ạ.
 
 Slide 64: ILLUSTRATION 4.37
-Người 1: Nhìn vào Minh họa 4.37, chúng ta có thể rút ra điều gì? Tài liệu có ghi: "). c04PlanningDataAndAnalysisStrategies.indd   38 23/09/22   9:00 AM How To Walk-Throughs  4-39 STEP 10: Compare the 2025 unadjusted allowance...". Đây là một điểm rất đáng chú ý.
-Người 2: Dạ, ví dụ này làm em thấy rõ hơn hẳn ạ.
+Người 1: Tầm nhìn rất tuyệt vời. Minh họa 4.37 hiển thị Bảng tính hoàn chỉnh với Tổng chi phí dự phòng ước tính là hơn 10.366 đô la, làm cơ sở lên Bút toán sổ nhật ký (Journal Entry).
+Người 2: Dạ, thay vì chỉ dùng con số này để ghi sổ hồi tố (Retroactive accounting), ta có thể đẩy nó vào các mô hình Kế toán Đề xuất (Prescriptive Accounting) để kích hoạt hệ thống cảnh báo sớm (Early Warning System) cho Giám đốc Tài chính (CFO) về nguy cơ đứt gãy thanh khoản thưa thầy.
 
 Slide 65: ILLUSTRATION 4.38
-Người 1: Nhìn vào Minh họa 4.38, chúng ta có thể rút ra điều gì? Tài liệu có ghi: "Load Data  into Power BI Navigator Display Options Accounts Receivable_HowTo_4.2.xlsx [1] Sheet 1 Sheet 1 Cancel Load Transform DataCustID...". Đây là một điểm rất đáng chú ý.
-Người 2: Dạ, nhờ minh họa này mà các khái niệm trở nên gần gũi hơn rất nhiều ạ.
+Người 1: Từ Slide 65 (Minh họa 4.38), ta chuyển sang Power BI. Việc Load dữ liệu và nhấn nút 'Transform Data' sẽ đưa ta vào Power Query, công cụ làm sạch dữ liệu mạnh mẽ nhất của Microsoft.
+Người 2: Power Query đóng vai trò là động cơ ETL (Extract, Transform, Load). Việc tự động hóa luồng dữ liệu (Data Pipeline) qua ETL đảm bảo tính có thể tái lập (Reproducibility), loại bỏ hoàn toàn sự can thiệp thủ công và lỗi con người thưa thầy.
 
 Slide 66: ILLUSTRATION 4.39
-Người 1: Slide tiếp theo là một ví dụ thực tế qua Minh họa 4.39. Cụ thể: ").". Phân tích kỹ sẽ giúp các em hiểu sâu hơn.
-Người 2: Dạ, nhờ minh họa này mà các khái niệm trở nên gần gũi hơn rất nhiều ạ.
+Người 1: Minh họa 4.39 yêu cầu Kế toán xác minh lại Định dạng dữ liệu (Data Types) sau khi Import. Sự ép kiểu nghiêm ngặt (Strict Typing) là bắt buộc.
+Người 2: Dạ, nếu cột Ngày giao dịch (Date) bị hệ thống đọc nhầm thành văn bản, các thuật toán Dự báo Chuỗi thời gian (Time-series Forecasting) như ARIMA hay Mạng nơ-ron hồi quy (LSTM) sẽ bị mù hoàn toàn trước quy luật mùa vụ ạ.
 
 Slide 67: ILLUSTRATION 4.4
-Người 1: Nhìn vào Minh họa 4.4, chúng ta có thể rút ra điều gì? Tài liệu có ghi: "demonstrates that the median number of days outstanding in the greater  than 60 days outstanding group increased in 2025.". Đây là một điểm rất đáng chú ý.
-Người 2: Dạ, ví dụ này làm em thấy rõ hơn hẳn ạ.
+Người 1: Nhắc đến quy luật, hãy lùi lại Minh họa 4.4: Sự gia tăng của Số ngày quá hạn Trung vị (Median Days Outstanding). Thống kê mô tả đã phát hiện một Rủi ro (Data Risk) đang hiện hữu.
+Người 2: Việc dùng Trung vị (Median) thay cho Trung bình (Mean) chứng tỏ sự tinh tế của người phân tích. Median là một chỉ số thống kê bền vững (Robust Statistic), miễn nhiễm với các hóa đơn ngoại lai (Outliers) có số ngày nợ khổng lồ làm méo mó tập dữ liệu thưa thầy.
 
 Slide 68: ILLUSTRATION 4.40
-Người 1: Chúng ta cùng phân tích Minh họa 4.40 nhé. Trọng tâm của phần này là: "). • Verify the analysis date field has changed to show 2024 and 2025.". Các em hãy lưu ý cách áp dụng vào thực tế.
-Người 2: Dạ, kết hợp lý thuyết với minh họa thực tế thế này rất hiệu quả ạ.
+Người 1: Giải thích rất chuẩn xác! Trở lại Power BI ở Minh họa 4.40, ta cấu hình trích xuất (Extract) cột Năm (yyyy) từ trường AnalysisDate.
+Người 2: Đây là một bước Kỹ thuật Đặc trưng (Feature Engineering) kinh điển. Việc tách Năm, Quý, Tháng ra thành các cột riêng rẽ cho phép mô hình học máy nhận diện được các mẫu hình chu kỳ (Cyclical patterns), ví dụ như rủi ro nợ đọng luôn tăng đột biến vào quý 4 cuối năm ạ.
 
 Slide 69: ILLUSTRATION 4.41
-Người 1: Nhìn vào Minh họa 4.41, chúng ta có thể rút ra điều gì? Tài liệu có ghi: ").". Đây là một điểm rất đáng chú ý.
-Người 2: Em đã nắm được ý chính của phần này rồi thưa thầy.
+Người 1: Minh họa 4.41 hiển thị danh sách Applied Steps (Các bước đã áp dụng) bên phải màn hình Power Query. Đây chính là Sổ cái bất biến của quá trình biến đổi dữ liệu.
+Người 2: Dạ vâng, mọi thao tác đều được ghi log thành mã M-Code. Nó triệt tiêu "hộp đen" (Black-box) của việc sửa tay trên Excel, tạo ra một Dấu vết Kiểm toán (Audit Trail) hoàn hảo không ai có thể chối cãi ạ.
 
 Slide 70: ILLUSTRATION 4.42
-Người 1: Slide tiếp theo là một ví dụ thực tế qua Minh họa 4.42. Cụ thể: ").". Phân tích kỹ sẽ giúp các em hiểu sâu hơn.
-Người 2: Dạ, ví dụ này làm em thấy rõ hơn hẳn ạ.
+Người 1: Minh họa 4.42 sử dụng Group By để đếm Số lượng Hóa đơn đơn nhất (Count Distinct Invoices) theo Mã Khách hàng. Kỹ thuật Tổng hợp (Data Aggregation) này làm thay đổi độ mịn (Granularity) của dữ liệu.
+Người 2: Lệnh Count Distinct cực kỳ quan trọng. Nếu hệ thống ERP bị lỗi và nhân bản (Duplicate) một hóa đơn lên 10 lần, lệnh này vẫn chỉ đếm là 1, ngăn chặn việc mô hình AI bị bơm phồng rủi ro một cách giả tạo thưa thầy.
 
 Slide 71: ILLUSTRATION 4.43
-Người 1: Các em xem minh họa ở Minh họa 4.43 trên slide. Đoạn này đề cập đến: ").". Rất sát với tình huống doanh nghiệp.
-Người 2: Dạ, ví dụ này làm em thấy rõ hơn hẳn ạ.
+Người 1: Slide 71 (Minh họa 4.43) và Slide 72 (Minh họa 4.44) hướng dẫn chi tiết cách tạo Nhóm Dữ liệu (Data Bins) trong Power BI, gom các giá trị rời rạc thành các khoảng: 1-3 hóa đơn, 4-6 hóa đơn...
+Người 2: Kỹ thuật Phân thùng (Discretization) này giúp giới hạn không gian tìm kiếm, làm giảm bớt số điểm chia (Split points) mà các thuật toán Cây quyết định (Decision Trees) phải tính toán, từ đó chống lại hiện tượng Overfitting hiệu quả ạ.
 
 Slide 72: ILLUSTRATION 4.44
-Người 1: Nhìn vào Minh họa 4.44, chúng ta có thể rút ra điều gì? Tài liệu có ghi: ").". Đây là một điểm rất đáng chú ý.
-Người 2: Dạ, kết hợp lý thuyết với minh họa thực tế thế này rất hiệu quả ạ.
+Người 1: Hoàn toàn chính xác. Kỹ thuật Binning biến một mối quan hệ phi tuyến tính, nhiễu loạn thành các bậc thang dễ dự báo hơn cho các Mô hình Tuyến tính Suy rộng (GLM).
+Người 2: Em sẽ ghim kỹ thuật này vào bộ công cụ tiền xử lý dữ liệu của mình ạ.
 
 Slide 73: ILLUSTRATION 4.45
-Người 1: Mời các em quan sát Minh họa 4.45. Điểm cốt lõi ở đây là: "Create the  Visualization SearchFilters Search Filters on this visual AnalysisDate - Year is (All) CountInvoices (groups)is (All) CustID is (All)...".
-Người 2: Dạ, kết hợp lý thuyết với minh họa thực tế thế này rất hiệu quả ạ.
+Người 1: Sang Minh họa 4.45, ta bắt đầu bước Trực quan hóa (Visualization) trên Canvas của Power BI. Các phép tính ngầm được thực hiện với tốc độ chớp mắt nhờ ngôn ngữ DAX (Data Analysis Expressions).
+Người 2: Giao diện Kéo thả (Drag-and-drop) No-Code này che giấu toàn bộ sự phức tạp của cơ sở dữ liệu dạng cột (Columnar Database) bên dưới. Nó dân chủ hóa (Democratize) khoa học dữ liệu, giúp Kế toán viên thao tác với Big Data dễ như làm phép cộng thưa thầy.
 
 Slide 74: ILLUSTRATION 4.46
-Người 1: Chúng ta cùng phân tích Minh họa 4.46 nhé. Trọng tâm của phần này là: ")!". Các em hãy lưu ý cách áp dụng vào thực tế.
-Người 2: Em đã nắm được ý chính của phần này rồi thưa thầy.
+Người 1: Đúng vậy. Kết quả Minh họa 4.46 là biểu đồ thanh (Bar chart) làm lộ rõ một luồng dịch chuyển nguy hiểm về phía nhóm nợ 7-9 hóa đơn.
+Người 2: Trong mô hình CRISP-DM, Trực quan hóa chính là bước Kể chuyện (Data Storytelling). Nếu không có biểu đồ này, những output phức tạp của Machine Learning sẽ mãi nằm trong ngăn kéo và bị Ban lãnh đạo phớt lờ ạ.
 
 Slide 75: ILLUSTRATION 4.5
-Người 1: Các em xem minh họa ở Minh họa 4.5 trên slide. Đoạn này đề cập đến: "shows that the > 60 days age group has many outstanding invoices from new customers.". Rất sát với tình huống doanh nghiệp.
-Người 2: Em đã nắm được ý chính của phần này rồi thưa thầy.
+Người 1: Trở lại Minh họa 4.5, quá trình Khoan sâu (Drill-down) theo phân cấp đã bóc trần nguyên nhân: Cơn sóng nợ xấu đến từ tệp Khách hàng mới (New Customers).
+Người 2: Đây là Phân tích Nguyên nhân gốc rễ (Root Cause Analysis). Khi đưa dữ liệu này vào huấn luyện, chắc chắn thuật toán sẽ học được và gán trọng số (Weight) cực lớn cho biến 'Thâm niên khách hàng' (Customer Tenure) khi chấm điểm tín dụng ạ.
 
 Slide 76: ILLUSTRATION 4.6
-Người 1: Nhìn vào Minh họa 4.6, chúng ta có thể rút ra điều gì? Tài liệu có ghi: "uses an example from the 30–60 days age group estimation to show how a common sense check helps catch large errors. The total outstanding accounts...". Đây là một điểm rất đáng chú ý.
-Người 2: Em đã nắm được ý chính của phần này rồi thưa thầy.
+Người 1: Rất sắc sảo. Ở Minh họa 4.6, ta có khái niệm Kiểm tra bằng Lương tri (Common Sense Check). Trước khi nhắm mắt tin tưởng 100% vào thuật toán AI, Kế toán viên phải nhẩm tính (Mental Math) xem con số dự báo có hợp logic kinh tế học hay không.
+Người 2: Dạ vâng, Thuật toán có thể bị ảo giác (Hallucination) hoặc ngoại suy sai lầm nếu bị Rò rỉ dữ liệu (Data Leakage). Mô hình Human-in-the-loop (Con người là mắt xích kiểm soát) khẳng định vị thế không thể thay thế của Kế toán viên thưa thầy.
 
 Slide 77: ILLUSTRATION 4.7
-Người 1: Nhìn vào Minh họa 4.7, chúng ta có thể rút ra điều gì? Tài liệu có ghi: ").". Đây là một điểm rất đáng chú ý.
-Người 2: Dạ, nhờ minh họa này mà các khái niệm trở nên gần gũi hơn rất nhiều ạ.
+Người 1: Tuyệt vời, Critical Thinking luôn là vũ khí tối thượng! Minh họa 4.7 chốt lại bức tranh toàn cảnh của Kế hoạch Dự án. Mọi bước từ hiểu nghiệp vụ, tiền xử lý dữ liệu đến mô hình hóa phải tuân thủ một phương pháp luận nghiêm ngặt (như CRISP-DM).
+Người 2: Dạ, nếu thiếu Kế hoạch, một dự án AI trong Kế toán sẽ dễ dàng biến thành một "thí nghiệm khoa học" đốt tiền của doanh nghiệp mà không mang lại bất kỳ ROI (Tỷ suất hoàn vốn) nào ạ.
 
 Slide 78: ILLUSTRATION 4.8
-Người 1: Các em xem minh họa ở Minh họa 4.8 trên slide. Đoạn này đề cập đến: "shows the inventory data set for the 3D manufacturing company WeMakeIt, Inc.". Rất sát với tình huống doanh nghiệp.
-Người 2: Em đã nắm được ý chính của phần này rồi thưa thầy.
+Người 1: Slide 78 (Minh họa 4.8) trình bày tập dữ liệu Hàng tồn kho (Inventory). Khác với công nợ, quản trị tồn kho đối mặt với rủi ro đứt gãy chuỗi cung ứng.
+Người 2: Bài toán ở đây là dùng AI để tối ưu hóa vốn lưu động (Working Capital). Ta cần kết hợp mô hình Dự báo nhu cầu xác suất (Probabilistic Demand Forecasting) với công thức Lượng đặt hàng kinh tế (EOQ) để đưa ra quyết định tự động thưa thầy.
 
 Slide 79: ILLUSTRATION 4.9
-Người 1: Nhìn vào Minh họa 4.9, chúng ta có thể rút ra điều gì? Tài liệu có ghi: ". c04PlanningDataAndAnalysisStrategies.indd   12 23/09/22   9:00 AM 4.2 What Should We Consider When Selecting Data for Analysis?  4-13". Đây là một điểm rất đáng chú ý.
-Người 2: Dạ, nhờ minh họa này mà các khái niệm trở nên gần gũi hơn rất nhiều ạ.
+Người 1: Rất chính xác. Và để kết thúc, Minh họa 4.9 là Từ điển Dữ liệu (Data Dictionary). Đây là cuốn bách khoa toàn thư định nghĩa rõ ràng Metadata (Siêu dữ liệu) cho từng trường thông tin.
+Người 2: Từ điển Dữ liệu chính là Lớp ngữ nghĩa (Semantic Layer). Nó là cầu nối ngôn ngữ sống còn giữa Kế toán viên am hiểu nghiệp vụ và các Kỹ sư AI am hiểu thuật toán. Thiếu nó, Đầm lầy dữ liệu sẽ mãi vùi lấp mọi dự án máy học ạ.
 
-Slide 80: INFO 04.2
-Người 1: Tiếp tục với phần "Info 04.2", các em hãy xâu chuỗi với các bước lập kế hoạch ở slide trước.
-Người 2: Dạ, em đang theo dõi sát sao tiến trình bài giảng ạ.
+Slide 80: Info 04.2
+Người 1: Hoàn toàn đồng ý. Các phần Info còn lại trong chương cung cấp thêm các bối cảnh thực hành. Các em hãy về nhà mở phần mềm và áp dụng ngay quy trình Lập kế hoạch dữ liệu này vào bài tập lớn để rèn luyện tư duy Data Scientist nhé.
+Người 2: Dạ vâng thưa thầy. Chương học này thực sự đã trang bị cho em một tư duy thiết kế hệ thống dữ liệu hoàn toàn mới, vượt xa khỏi các bảng tính truyền thống. Em cảm ơn thầy vì bài giảng quá tuyệt vời!
 
-Slide 81: KẾT THÚC
-Người 1: Vậy là chúng ta đã kết thúc Chương 4. Các em hãy nhớ, "Rác vào thì Rác ra" (Garbage in, Garbage out). Một chiến lược dữ liệu tốt sẽ là màng lọc hoàn hảo nhất.
-Người 2: Dạ vâng! Bài học hôm nay đã giúp em nhận ra lập kế hoạch dữ liệu quan trọng đến mức nào. Em cảm ơn thầy rất nhiều ạ!
+Slide 81: KẾT THÚC CHƯƠNG
+Người 1: Rất tốt, cảm ơn sự tương tác thông minh của em. Lập kế hoạch dữ liệu là nền móng, xây móng càng vững, mô hình AI của chúng ta dự báo càng sắc bén. Hẹn gặp lại các em ở những chương tiếp theo. Chào các em!
+Người 2: Chúng em chào thầy ạ!�ớng dẫn kỹ thuật Kết nối bảng (Merge/Join). Kết nối bảng Thông tin khách hàng với Bảng Giao dịch dựa trên Khóa chính (Primary Key).
+Người 2: Việc nối bảng (Join) này giúp phá vỡ các Siloed Data (Dữ liệu ốc đảo), tạo thành một tập dữ liệu phẳng (Flat Table) toàn diện nhất. Đây là bước tiền đề tối quan trọng trước khi nhấn nút "Train" (Huấn luyện) cho bất kỳ mô hình AI nào ạ.
+
+Slide 61: ILLUSTRATION 4.35
+Người 1: Bắt đầu từ Slide 61 là các Hướng dẫn thao tác (Walk-throughs). Minh họa 4.35 hướng dẫn dùng Excel để tổng hợp Nhóm tuổi nợ (Age Group Totals) của hóa đơn. Bằng cách dùng hàm Pivot Table hoặc SUMIF, Kế toán dễ dàng tính được tổng nợ cho các nhóm 0-29, 30-60 và trên 60 ngày.
+Người 2: Dạ vâng, đây là bài toán kinh điển (Classic) của Kế toán để đánh giá rủi ro thanh khoản. Nợ càng lâu thì rủi ro mất trắng (Default risk) càng cao ạ.
+
+Slide 62: ILLUSTRATION 4.35_1
+Người 1: Minh họa 4.35_1 phóng to một bước thao tác. Việc format lại định dạng Tiền tệ (Currency) không chỉ để đẹp, mà giúp tránh nhầm lẫn giữa số tiền và số lượng hóa đơn khi đưa vào các thuật toán phân tích sau này.
+Người 2: Đúng vậy, Standardization (Chuẩn hóa dữ liệu) là nguyên tắc sống còn. Máy tính cần định dạng đồng nhất để không hiểu nhầm dấu phẩy hàng nghìn thành dấu thập phân thưa thầy.
+
+Slide 63: ILLUSTRATION 4.36
+Người 1: Minh họa 4.36 áp dụng Tỷ lệ trích lập (Estimation %) cho từng nhóm nợ. Nhóm 0-29 ngày chỉ trích 2%, nhưng nhóm >60 ngày trích đến 30%. Nếu có đủ dữ liệu lịch sử, thuật toán Hồi quy tuyến tính có thể tự học (Auto-learn) và đề xuất các tỷ lệ này chính xác hơn nhiều so với việc con người tự ước lượng.
+Người 2: Việc dùng Machine Learning để dự báo tỷ lệ nợ xấu (Bad Debt Ratio) thay vì dùng cảm tính sẽ giúp Báo cáo tài chính phản ánh đúng thực chất rủi ro hơn rất nhiều ạ.
+
+Slide 64: ILLUSTRATION 4.37
+Người 1: Chuyển sang Minh họa 4.37, ta có bảng tính hoàn chỉnh. Tổng chi phí dự phòng ước tính là hơn 10.366 đô la. Sau khi đối chiếu số dư hiện tại của tài khoản Dự phòng, ta sẽ ra được bút toán điều chỉnh cuối kỳ.
+Người 2: Vâng, một quy trình trọn vẹn từ lúc Tinh chỉnh dữ liệu (Data munging) cho đến lúc lên Bút toán sổ nhật ký (Journal Entry) ạ.
+
+Slide 65: ILLUSTRATION 4.38
+Người 1: Từ Slide 65, ta chuyển sang thực hành trên Power BI. Minh họa 4.38 hướng dẫn cách Load dữ liệu Accounts Receivable. Power BI cung cấp nút 'Transform Data' để ta vào Power Query dọn rác trước khi Load vào model.
+Người 2: Chức năng ETL (Extract, Transform, Load) của Power Query chính là 'nhà máy lọc nước' giúp ta làm sạch Data Swamp thành Data Lake tinh khiết thưa thầy.
+
+Slide 66: ILLUSTRATION 4.39
+Người 1: Minh họa 4.39 xác minh lại tệp Excel sau khi import. Kế toán phải kiểm tra kỹ các định dạng dữ liệu (Data types) để đảm bảo Power BI nhận diện đúng cột nào là Chữ, cột nào là Số, cột nào là Ngày tháng.
+Người 2: Dạ, nếu cột Ngày tháng (Date) bị nhận nhầm thành Text (Chữ), thì các thuật toán Time-series (Chuỗi thời gian) sẽ bị tê liệt hoàn toàn, không thể vẽ được biểu đồ xu hướng ạ.
+
+Slide 67: ILLUSTRATION 4.4
+Người 1: Nhắc đến xu hướng, Minh họa 4.4 cho thấy sự gia tăng thời gian trễ hạn trung bình (Median Days Outstanding). Rủi ro dữ liệu (Data Risk) nằm ở chỗ: Nhóm >60 ngày bị đội lên trong năm 2025. Cần dùng Phân tích Chẩn đoán (Diagnostic) để tìm hiểu tại sao.
+Người 2: Sử dụng Median (Trung vị) thay cho Mean (Trung bình) là rất thông minh. Vì Median không bị bóp méo bởi các hóa đơn ngoại lai (Outliers) có số ngày nợ khổng lồ thưa thầy.
+
+Slide 68: ILLUSTRATION 4.40
+Người 1: Rất chuẩn. Trở lại Power BI ở Minh họa 4.40, ta cấu hình lại định dạng cột AnalysisDate thành Năm (yyyy). Việc rút trích thuộc tính (Feature Extraction) từ dữ liệu gốc giúp thuật toán phân nhóm dễ dàng gom cụm (Clustering) các giao dịch theo từng năm tài chính.
+Người 2: Dạ vâng, Feature Engineering là bước tối quan trọng để AI học được những đặc điểm tiềm ẩn của dữ liệu ạ.
+
+Slide 69: ILLUSTRATION 4.41
+Người 1: Minh họa 4.41 cho thấy thao tác Edit Query. Cửa sổ này lưu lại mọi bước chuyển đổi dữ liệu (Applied Steps). Đây chính là Dấu vết Kiểm toán (Audit Trail) tuyệt vời nhất.
+Người 2: Bất kỳ sửa đổi nào cũng được hệ thống ghi log lại thành mã M-Code. Không một ai có thể âm thầm tẩy xóa dữ liệu gốc (Raw Data) mà không để lại dấu vết ạ.
+
+Slide 70: ILLUSTRATION 4.42
+Người 1: Ở Minh họa 4.42, ta sử dụng tính năng Group By trong Power Query để đếm số lượng Hóa đơn đơn nhất (Count Distinct Invoices) theo Mã Khách hàng. Đây là kỹ thuật tổng hợp (Data Aggregation) mạnh mẽ tương đương với Group By trong SQL.
+Người 2: Việc đếm Count Distinct khác với Count thông thường. Nó đảm bảo nếu một hóa đơn bị duplicate (trùng lặp) do lỗi hệ thống, ta vẫn chỉ đếm nó là 1. Tránh bơm phồng rủi ro giả tạo thưa thầy.
+
+Slide 71: ILLUSTRATION 4.43
+Người 1: Slide 71 (Minh họa 4.43) và Slide 72 (Minh họa 4.44) hướng dẫn cách tạo Nhóm Dữ liệu (Data Groups / Bins). Thay vì để số hóa đơn quá hạn rải rác từ 1 đến 20, ta gom chúng thành các thùng (bins): 1-3 hóa đơn, 4-6 hóa đơn, 7-9 hóa đơn, v.v.
+Người 2: Phương pháp Binning (Phân thùng) này trong Data Science giúp giảm nhiễu (Noise) và biến một biến liên tục (Continuous) thành một biến phân loại (Categorical) để dễ dàng chạy mô hình dự báo ạ.
+
+Slide 72: ILLUSTRATION 4.44
+Người 1: Hoàn toàn chính xác. Kỹ thuật Binning giúp thuật toán Hồi quy Logistic phân tách ranh giới rủi ro rõ ràng hơn.
+Người 2: Em ghi nhớ kỹ thuật này để áp dụng cho việc chấm điểm rủi ro khách hàng (Credit Scoring) sau này ạ.
+
+Slide 73: ILLUSTRATION 4.45
+Người 1: Minh họa 4.45 bắt đầu tạo Trực quan hóa (Visualization) trên Canvas của Power BI. Em kéo thả các trường dữ liệu vào trục X và Y. Power BI sử dụng engine Data Analysis Expressions (DAX) để tính toán ngầm (Under-the-hood) tốc độ cao.
+Người 2: Dạ, giao diện kéo thả trực quan này che giấu những thuật toán phức tạp bên dưới, giúp Kế toán viên có thể tiếp cận Big Data mà không cần biết code (No-code / Low-code) thưa thầy.
+
+Slide 74: ILLUSTRATION 4.46
+Người 1: Đúng vậy. Kết quả ở Minh họa 4.46 là biểu đồ thanh (Bar chart) cho thấy phân bố số lượng hóa đơn nợ đọng qua 2 năm. Màu sắc tương phản giúp Ban điều hành nhận thấy ngay có sự dịch chuyển (Shift) nguy hiểm về phía nhóm nợ nhiều hóa đơn (7-9 hóa đơn).
+Người 2: Trực quan hóa dữ liệu đã biến những con số vô hồn thành những Tiếng còi báo động (Red Flags) mạnh mẽ gửi đến Giám đốc Tài chính (CFO) ạ.
+
+Slide 75: ILLUSTRATION 4.5
+Người 1: Slide 75 đưa ta về Minh họa 4.5. Phân tích đi sâu (Drill-down) cho thấy nguyên nhân của sự dịch chuyển trên: Hầu hết nợ quá hạn >60 ngày đến từ nhóm Khách hàng mới (New Customers). Mô hình học máy của chúng ta chắc chắn sẽ gán trọng số (Weight) rất cao cho biến 'Loại khách hàng'.
+Người 2: Dạ vâng, Khách hàng mới chưa có lịch sử tín dụng (Credit History) nên rủi ro bùng nợ (Default) cao hơn hẳn. Hệ thống cần cảnh báo bộ phận Sales ngay lập tức.
+
+Slide 76: ILLUSTRATION 4.6
+Người 1: Rất sắc sảo. Ở Minh họa 4.6, ta áp dụng Common Sense Check (Kiểm tra bằng Lương tri). Trước khi tin tưởng 100% vào thuật toán AI, Kế toán viên phải nhẩm tính (Mental Math) xem con số đó có hợp logic kinh tế hay không.
+Người 2: Dạ vâng, Máy tính không có Lương tri. Nếu thuật toán bị rò rỉ dữ liệu (Data Leakage) và dự báo số dư dự phòng lớn hơn cả tổng tài sản, thì con người phải là người chặn đứng kết quả phi lý đó lại thưa thầy.
+
+Slide 77: ILLUSTRATION 4.7
+Người 1: Đúng, Critical Thinking luôn là vũ khí cuối cùng của Kế toán. Minh họa 4.7 là bức tranh toàn cảnh của Project Plan. Từ mục tiêu, dữ liệu đến phân tích và kiểm soát rủi ro đều được liên kết logic, không có điểm mù (Blind spots).
+Người 2: Một dự án AI trong Kế toán chỉ thành công khi có sự kết hợp hoàn hảo giữa Thuật toán (Algorithms) và Am hiểu Nghiệp vụ (Domain Expertise) ạ.
+
+Slide 78: ILLUSTRATION 4.8
+Người 1: Slide 78 (Minh họa 4.8) trình bày Dữ liệu Hàng tồn kho (Inventory). Khác với công nợ, quản trị tồn kho yêu cầu thuật toán Chuỗi thời gian (Time-series) dự báo điểm đặt hàng lại (Reorder Point) để tránh đứt gãy chuỗi cung ứng.
+Người 2: Dạ, nếu để hết hàng thì mất cơ hội kinh doanh (Stock-out cost), nhưng nếu dự báo sai mà ôm quá nhiều thì dòng tiền sẽ bị kẹt chết trong kho thưa thầy.
+
+Slide 79: ILLUSTRATION 4.9
+Người 1: Chính xác. Cuối cùng, Minh họa 4.9 là Từ điển Dữ liệu (Data Dictionary). Nó là cuốn bách khoa toàn thư định nghĩa rõ ràng cột nào chứa loại dữ liệu gì (Primary Key, Foreign Key, Type). Nếu không có nó, các Data Scientist sẽ không thể hiểu nổi dữ liệu Kế toán.
+Người 2: Từ điển dữ liệu là cầu nối ngôn ngữ giữa Kế toán viên và Kỹ sư AI. Nếu thiếu nó, quá trình huấn luyện mô hình sẽ lạc lối ngay từ bước thu thập dữ liệu đầu tiên ạ.
+
+Slide 80: Info 04.2
+Người 1: Hoàn toàn đồng ý. Các phần Info còn lại trong chương cung cấp thêm các tình huống thực hành. Các em hãy về nhà mở phần mềm và áp dụng ngay quy trình lập kế hoạch dữ liệu này vào bài tập lớn nhé.
+Người 2: Dạ vâng thưa thầy. Chương học này thực sự đã mở mang cho em tư duy thiết kế dữ liệu như một Data Scientist đích thực. Cảm ơn thầy vì bài giảng quá tuyệt vời!
+Slide 81: KẾT THÚC CHƯƠNG
+Người 1: Tốt lắm, cảm ơn các em đã theo dõi. Hẹn gặp lại các em ở những chương tiếp theo, khi chúng ta tiến sâu hơn vào phân tích mô tả và chẩn đoán. Chào các em!
+Người 2: Chúng em chào thầy ạ!

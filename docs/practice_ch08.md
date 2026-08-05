@@ -876,4 +876,16 @@ Trường hợp tiếp theo của Le Grind: Xác minh và giải thích phân t�
 
 #### **English**
 <iframe src="TaiLieu/textbookForPractice/Ch_08_Interpreting%20Data%20Analysis%20Results.pdf" width="100%" height="800px"></iframe>
+
+#### ** 🎬 Video **
+
+<iframe src="videoPractice/Chapter08/index.html" style="width: 100%; aspect-ratio: 16/9; max-height: 75vh; border: none; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"></iframe>
+
+#### ** 🎦 Slide Bài Giảng **
+
+<object data="TaiLieu/slidePractice/Slide_Practice_Ch08.pdf#view=FitH" type="application/pdf" class="pdf-container" width="100%" height="800px">
+    <p>Trình duyệt của bạn không hỗ trợ xem PDF nhúng. <a href="TaiLieu/slidePractice/Slide_Practice_Ch08.pdf#view=FitH" target="_blank">Nhấn vào đây để tải Slide Bài Giảng</a>.</p>
+</object>
+<p style="text-align: right;"><a href="TaiLieu/slidePractice/Slide_Practice_Ch08.pdf#view=FitH" target="_blank" style="font-weight: bold; color: #0056b3;">📥 Tải về Slide Bài Giảng (PDF)</a></p>
+
 <!-- tabs:end -->

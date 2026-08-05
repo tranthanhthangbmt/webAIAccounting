@@ -1,0 +1,3523 @@
+
+--- PAGE 1 ---
+7-0                                                                                                                                                                                             CHAPTER              7 
+Analysis : Data 
+Exploration    
+      Chapter Preview 
+  So far in the analyze stage of the data analysis process, you have prepared the data, completed 
+information modeling, and created an analytical database. Now, it is time to explore the data 
+and collect insights. This step investigates data to uncover anomalies, new patterns, and any-
+thing that might improve decision-making. This chapter will help you develop the skills needed 
+for successful data exploration, which is a process that includes asking the right questions and 
+identifying and exploring data relationships to find insights. The patterns presented in this 
+chapter will help you effectively and efficiently explore the data sets you will work with during 
+your career.  
+Data
+Preparation Information
+ModelingData
+Explor ation Analyze Plan ReportStage 2 Stage 3 Stage 1
+Interpret Communi cateAnaly sisStrategy Objecti ve Moti vation
+Discover insights
+relevant for
+decision-makingIdentify and
+calculate
+relevant
+informationDetect and
+correct data
+issues
+c07AnalysisDataExploration.indd   2 18/10/22   8:00 AM
+--- PAGE 2 ---
+Professional Insight : Why Should You Know How to Explore Data?
+After earning her master’s in accounting, Yuqi joined the data analytics department of a large 
+financial institution.
+My transition into the workplace was not without challenges. In school I was given 
+complex problems for which I had to find elegant solutions, and I really excelled 
+at that. However, when I started my job, there were no neatly defined questions . 
+For example, the financial data team continuously asked us for new insights. What can 
+you tell us that we don’t know yet?  So, I needed to learn more skills—specifically 
+data exploration. I started looking at data sets from as many different angles as 
+possible.  I looked at trends, distributions, grouped data in ways that no one had done 
+before, correlated all kinds of variables, looked for outliers, and so much more. I devel -
+oped a unique data exploration skill set and became good at it.  Honestly, I feel like I 
+have become a data researcher.  What is next for me? After doing this for almost ten 
+years, I plan to get my PhD in data science.
+Chapter Roadmap
+LEARNING OBJECTIVES TOPICS APPLY IT
+ LO 7.1   Describe the process  
+of data exploration.• The Process of Data Exploration
+• Exploring Data with PivotTables
+• Data Exploration Across ToolsExplore Data with 
+PivotTables
+(Example: Managerial 
+Accounting)
+ LO 7.2   Explore foundational 
+data relationships through 
+visualizations.• Eight Patterns Exploring Foundational Data 
+RelationshipsVisualize Part-To-Whole 
+Relationships with Excel
+(Example: Managerial 
+Accounting)
+ LO 7.3   Explore data by 
+ integrating foundational 
+relationships.• Two Patterns Using a Single Visualization
+• Reports Using Multiple VisualizationsBuild an Interactive 
+Report 
+(Example: Managerial 
+Accounting)
+Data  The Data tag appears in the chapter when the data for an example, illustration, or application are  
+available on Wiley’s online learning platform.
+Data analytics software is continuously changing, and there may be more recent versions of the software refer -
+enced in this chapter. For more information access the accompanying video on Wiley ’s online learning platform. 
+7.1 What is Data Exploration?
+LEARNING OBJECTIVE ➊
+Describe the process of data exploration.
+In the chapter on information modeling, you learned how to add information useful for  
+analysis to an analytical database. Now you are ready to start exploring the data. Data explo -
+ration , or exploratory data analysis, is the discovery process of looking for something new 
+and previously unknown. This is accomplished by looking for patterns, outliers, or, more 7.1 What is Data Exploration?  7-1
+c07AnalysisDataExploration.indd   1 18/10/22   8:00 AM
+--- PAGE 3 ---
+7-2 CHAPTER 7  Analysis: Data Exploration
+generally, for insights. An insight  is an observation that might significantly affect a business’ 
+decision-making. Remember, decisions are not based on data. Rather, decisions are informed 
+by the insights generated from data.
+This process of generating insights is what distinguishes data analysis from the simple 
+act of reporting numbers. Calculating and presenting the total dollar amount of donations 
+per year for a non-for-profit organization is reporting , but recognizing there is a downward 
+trend of donations over the years and that donors in different age groups behave differently is 
+a result of data exploration. While they might share some tools, it is essential to differentiate 
+between data exploration, interpretation, and reporting:
+• Exploration: Discovering insights.
+• Interpretation: Contextualizing and understanding insights.
+• Reporting: Communicating insights.
+Interpretation and reporting are covered in their own chapters. For now, let’s summarize 
+the process of data exploration.
+The Process of Data Exploration
+Data exploration is an integral part of what accountants do every day. They look for insights, 
+from identifying if there are seasonal fluctuations in sales and whether those fluctuations 
+affect the bottom line, to how changes in credit policy affect sales and uncollectible accounts 
+receivable. It is a four-step process of identifying questions, identifying data relationships, 
+exploring data relationships,  and finally, generating insights ( Illustration 7.1 ).
+ILLUSTRATION 7.1  Data Exploration as a Process
+Are unit sales improving?
+1,774,263 1,723,765 1,782,692 2,041,879 2,225,1382021 2022 2023 2024 2025
+Identify 
+Data
+Relationships
+Explore
+Data
+RelationshipsGenerate
+InsightsUpward trend
+starting from 2023Upward trend
+starting from 2023Time Series
+Describes how something 
+changes over time. 
+Also identifies 
+patterns of change 
+such as growth,
+fluctuation, and decline. 
+Visualization
+202101,000,0002,000,0003,000,000
+2022 2023
+Year2024 20252,225,1382,041,8791,782,692 1,723,765 1,774,263
+UnitsSoldDesign
+Axis
+Year
+Legend
+Add data fields here
+Values
+UnitsSoldIdentify 
+Questions
+c07AnalysisDataExploration.indd   2 18/10/22   8:00 AM
+--- PAGE 4 ---
+7.1 What is Data Exploration?  7-3
+Identify Questions
+Data exploration helps answer accounting questions such as whether sales and profits are 
+improving, which products deserve investment, if bad debts are appropriately managed, and 
+more. An analytical database should provide answers to both anticipated and unanticipated 
+(unplanned) questions. Once the question is determined, such as the question about whether  
+unit sales are improving in Illustration 7.1, then the underlying data relationships can be 
+identified.
+Identify Data Relationships
+If we want to know if sales are improving and the available data indicated a change in both 
+the marketing budget and in unit sales, then the relationship between those two elements 
+could generate valuable insights. A data relationship  describes how data elements (or val -
+ues) relate to each other. But before aspects of data relationships can be analyzed, they have to 
+be identified. Stephen Few1, an expert in data visualizations, differentiates eight foundational 
+data relationships:
+• Nominal comparison
+• Distribution
+• Deviation
+• Ranking
+• Part-to-whole
+• Correlation
+• Time series
+• Geospatial
+The data relationship identified in Illustration 7.1 is a time series, which describes how 
+something changes over time and helps to identify patterns of change. A relationship that has 
+been identified, whether it is a time series relationship or one of the relationships examined 
+later in this chapter, is ready for exploration.
+Explore Data Relationships
+While there are different approaches to exploring data relationships, visualization and statis -
+tics are the most common. Exploration involves selecting the visualization or visualizations 
+best suited for exploring the data relationships. In Illustration 7.1 a line chart visualizes the 
+time series.
+Keep in mind that tool-specific knowledge is required to create visualizations. For 
+ example, a time series analysis requires knowing how to create line charts. Business 
+ intelligence  software such as Excel, Power BI, and Tableau all have powerful tools that visu -
+alize data  relationships for exploration. The line chart in Illustration 7.1 was designed using 
+Power BI. In the design section of the illustration, the axis field refers to the time unit used for 
+the x-axis in the chart, and the values field refers to the variable used for the y-axis.
+Generate Insights
+The line chart in Illustration 7.1 shows an upward trend of unit sales starting in 2023. 
+Exploring this insight further would include discovering the source of that growth and if 
+the upward trend can be explained by other factors. In fact, data exploration is a continuous 
+process. Insights generate new questions, which then generate even more insights. These 
+observations are then interpreted  and communicated to stakeholders during the last stage of 
+the data  analysis process.
+1Few, Stephen. (2012). Show Me the Numbers: Designing Tables and Graphs to Enlighten. El Dorado Hills, 
+CA: Analytics Press.
+c07AnalysisDataExploration.indd   3 18/10/22   8:00 AM
+--- PAGE 5 ---
+7-4 CHAPTER 7  Analysis: Data Exploration
+Exploring Data with PivotTables
+Data exploration investigates data from different angles to collect insights. A widely -used tool 
+for this is the Excel PivotTable. You learned in the foundational data analysis skills chapter 
+that a PivotTable can quickly rearrange data to help answer important business questions. 
+Here, we illustrate the key elements of data exploration using a PivotTable.
+Data The data set in Illustration 7.2 (A) summarizes unit sales for Honda Motors North 
+America (HNA) for the period 2021–2025 in a cross tabulation table.2 Illustration 7.2 (B) shows 
+the same data as a flat table.3 Recall that for data analytics, flat tables are preferred over cross -
+tabulation tables because the column headers in flat tables do not contain data values useful 
+for analysis purposes. The flat table in Illustration 7.2 (B) will be used to build PivotTables.APPLYING CRITICAL THINKING 7.1:  Think Critically During  
+Data Exploration
+Critical thinking is an integral part of data exploration:
+• Exploring requires in-depth understanding of data relationships, how they are presented, and 
+the insights they can generate. For example, many visualizations can present and explore 
+time series, including area charts, column charts, line charts, sparkline charts, and waterfall 
+charts. You must know which chart to use when. When exploring time series, you are looking 
+for trends, cycles, and irregularities (Knowledge) .
+• Data exploration is often pattern-based. You will look for patterns and structures you have en -
+countered before and develop more that you can leverage in future analyses. One example is 
+breaking trends down to better understand the reason for changes. If there is an upward trend 
+in units sold, is this also true for all products and regions (Self-Reflection) ?
+2The data set is fictitious.
+3Illustration 7.2 (A) shows the full data set. Illustration 7.2 (B) shows a partial data set; the first 10 rows of the 
+flat table.ILLUSTRATION 7.2  HNA Data Set
+Countr y
+Civic
+Civic
+Accord
+CR-V
+PilotAccord
+CR-V
+Pilot
+Odysse y
+Ridg elineUSA
+Canada
+Canada
+Canada
+Canada
+Canada
+CanadaOdysse y
+Ridg elineMiniv an
+Truck320981
+243192
+175883
+140444
+188664
+58322
+230887
+195232
+135423
+40998
+25229
+19008301882
+245998
+160886 190001
+142980
+167123
+55897 56889
+242998
+200872
+129809 126592
+35672 39811
+7761
+31887292331
+231441
+139441
+150872
+275667
+210665
+26981
+42001USA
+USA
+USA
+USA
+USAModel
+Sedan
+Sedan
+Sedan
+SUV
+SUVSedan
+SUV
+SUV
+Miniv an
+TruckType 2021 2022 2023
+220877
+55899
+114119
+43125291002
+309885
+142917
+150881
+381998
+253988
+22099
+550892024
+252019
+54891
+98077
+47329255423
+344771
+125090
+139009
+480871
+319755
+19822
+880812025
+  Countr y
+Accord
+Civic
+Civic
+Civic
+CivicAccord
+Accord
+Accord
+Accord
+CivicCanada
+Canada
+Canada
+Canada
+Canada2021
+2022
+2023
+2024
+2025
+2021
+2022
+2023
+2024
+2025195232
+200872
+210665
+253988
+319755
+230887
+242998
+275667
+381998
+480871Canada
+Canada
+Canada
+Canada
+CanadaModel
+Sedan
+Sedan
+Sedan
+Sedan
+SedanSedan
+Sedan
+Sedan
+Sedan
+SedanType YearUnitsSold
+  (A) Cross Tabulation Structure of HNA Data Set  (B) Flat Structure of HNA Data Set
+Illustration 7.3  (A) is a PivotTable made with Excel using the HNA data set. It lists 
+HNA’s  models in descending order of total units sold. Illustration 7.3 (B) shows how the 
+ PivotTable in panel A is created using the PivotTable Fields dialog box, which is Excel ’s tool 
+for defining a PivotTable ’s content.
+c07AnalysisDataExploration.indd   4 18/10/22   8:00 AM
+--- PAGE 6 ---
+7.1 What is Data Exploration?  7-5
+The five components used for data exploration with PivotTables are fields, values, rows, 
+columns, and filters (Illustration 7.3 (B)).
+Fields
+The Fields area lists all the data elements available for exploration purposes. They can be dragged 
+and dropped to other areas to build data relationships and filter the data. In  Illustration 7.3, the 
+Model and UnitsSold  fields are used for exploration.
+Values
+The Values area in Illustration 7.3 (B) represents the number or numbers to be analyzed. It can 
+be used to explore data in different ways:
+• Drag and drop any field into the Values area and apply mathematical operations such as 
+average, count, or sum to it.
+• Create calculated fields.
+Examples of accounting-related values that could be analyzed include gross revenue, net rev -
+enue, taxes, cost, profit, and more. For HNA, the values in the UnitsSold field are summed, 
+generating the total number of units sold during the 2021–2025 period.
+Rows and Columns
+In Illustration 7.3 (B), the Model field has been dragged to the Rows area so the table will 
+calculate and show the total units sold per model. The TotalUnitsSold column in Illustration  
+7.3 (A) can then be sorted and formatted.
+When the Country field is added to the Columns area in Illustration 7.3 (B), the resulting 
+crosstabulation table ( Illustration 7.4 ) shows the total units sold per model, represented by 
+the rows, and per country, which is represented by the columns.  TotalUnitsSoldOdysse yCR-VAccord
+Ridg elinePilotCivic 3,074,040
+2,555,799
+1,603,686
+898,441
+897,807
+517,964
+9,547,737Models TotalUnitsSold
+      Pivot Table Fields
+Choose fields to add to report :
+Countr y
+Model
+Type
+Year
+UnitsSold
+More Tables..
+Drag fields be tween ar eas below:
+Filters ColumnsSearch
+Rows
+Defer Layout UpdateValues∑
+Model TotalUnitsSold
+Updat e
+ (A) PivotTable: Total Units Sold Per Model4    (B) PivotTable Creation
+4Some minor formatting was applied.ILLUSTRATION 7.3  Excel 
+PivotTable and PivotTable 
+Dialog  Box
+c07AnalysisDataExploration.indd   5 18/10/22   8:00 AM
+--- PAGE 7 ---
+7-6 CHAPTER 7  Analysis: Data Exploration
+Any fields can be dragged to the Rows and Columns areas and dropped. For example, we 
+can analyze the number of units sold per Type (Rows) per Country (Columns). It is also possi -
+ble to drag and drop more than one field into the Rows and Columns sections  to drill further 
+down into the data. 
+Filters
+Using filters further enhances data exploration with Excel PivotTables. Filters let us deter -
+mine what data should be considered for analysis, and they can be created for any field. 
+The  PivotTable in Illustration 7.5  (A) creates a filter for the Country field, while Illustra -
+tion 7.5 (B) shows how to use this filter by selecting a value for the Country field. In this case, 
+the selected value is USA.ILLUSTRATION 7.4  Excel 
+PivotTable Total Units Sold per 
+Model per Country
+TotalUnitsSoldOdysse yCR-VCivic
+Ridg elinePilotAccord 2,555,799
+3,074,040
+1,603,686
+898,441
+897,807
+517,964
+9,547,7371,180,512
+1,612,421
+604,020
+101,892
+206,935
+236,066
+3,941,8461,375,287
+1,461,619
+999,666
+796,549
+690,872
+281,898
+5,605,891Total UnitsSold
+ModelsCountries
+Canada USA TotalUnitsSold
+Creating Relationships, Filtering, and Dragging and Dropping
+The PivotTable definition  in Illustration 7.3 (B) brings together some key techniques for data 
+ exploration– creating data relationships, filtering, and dragging and dropping.
+First, data relationships can be created between the variables in the Values, Rows, and 
+Columns areas and explored. Here are two examples of such data relationships:
+• How can the Values variable number be broken down by the values of the Rows and Col -
+umns variables? For HNA, what is the share of each model (rows) in the total number of 
+units sold (values)?
+• How can the different models (rows) be ranked based on total units sold (values)? What 
+are HNA’s best-selling models?
+There are some similarities between this discussion and the concept of information modeling, 
+which was covered earlier in this course. The numbers in the Values area can be compared to 
+measures, while the fields in the Rows and Columns areas can be compared to dimensions.
+Next, filtering helps identify  what data should be considered for analysis. An example of 
+this is applying a filter that would exclude outliers in an analysis. Finally, the ability to drag  Filter s Columns
+Country
+Model TotalUnitsSoldRows Values∑
+  TotalUnitsSoldOdysse yCR-VCivic
+Ridg elinePilotAccord 1,375,287
+1,461,619
+999,666
+796,549
+690,872
+281,898
+5,605,891ModelsUSA
+TotalUnitsSoldCountry
+ (A) Creating a PivotTable Filter   (B) PivotTable with Filter AppliedILLUSTRATION 7.5  Excel 
+PivotTable Filters
+c07AnalysisDataExploration.indd   6 18/10/22   8:00 AM
+--- PAGE 8 ---
+7.1 What is Data Exploration? 7-7
+and drop fields makes exploring different scenarios effortless. Here are some questions that 
+can be answered by dragging and dropping fields using the HNA data set in a PivotTable:
+•           What is the total number of units sold (values) per country (rows) per model (columns) 
+and how do the numbers compare? 
+•          What is each country’s share (rows) in the total number of units sold (values)? 
+•          How do USA (filter) sales, in terms of total units sold (values), compare across the differ-
+ent models (rows)?     
+   Data Exploration Across Tools
+   Excel is not the only business intelligence software that uses data relationships, filtering, and 
+drag and drop for data exploration.   Illustration 7.6   (A) is a Power BI pivot table that summa-
+rizes HNA ’s total units sold per model during the last five years. In Power BI a pivot table is 
+called a matrix. The second part of the illustration (B) shows how it was created. 5
+      ILLUSTRATION 7.6       Creating a Power  BI  Matrix 
+TotalOdysse yCR-VCivic
+Ridg elinePilotAccord 2,555,799
+3,074,040
+1,603,686
+898,441
+897,807
+517,964
+9,547,737Model TotalUnitsSold
+     SearchFilters
+Search
+Filters on this visual
+Model
+is (All)
+TotalUnitsSold 
+is (All)
+Add data fields here
+Add data fields hereFilters on this page
+Filters on all pagesVisualizations Fields
+Rows
+Model
+Columns
+Values
+TotalUnitsSoldCountry
+Model
+Type
+UnitsSold
+YearUNITSALES
+RPy
+Add data fields hereRPy
+3
+4
+516 2
+(A)Power  BI  Matrix (B)Power  BI  Matrix Creation
+  Notice the similarity between creating an Excel PivotTable in Illustration   7.3  (B) and a Power 
+BI matrix in Illustration   7.6  (B):
+      1.      In Power BI, we can choose between many drag and drop visualizations. In this example, 
+matrix was selected. 
+     2.      The Fields pane corresponds to the fields list in the PivotTable Fields dialog box. 
+     3.     The Rows slot in the Fields tab of the matrix visualization corresponds with the Rows 
+area in an Excel PivotTable definition. 
+     4.      The Columns slot in the Fields tab of the matrix visualization corresponds with the 
+ Columns area in an Excel PivotTable definition. 
+5 We used Power BI’s matrix visualization. However, since no columns are defined, we could have used the 
+table visualization.
+c07AnalysisDataExploration.indd   7 18/10/22   8:00 AM
+--- PAGE 9 ---
+7-8 CHAPTER 7  Analysis: Data Exploration
+ 5. The Values slot in the Fields tab of the matrix visualization corresponds with the Values 
+area in an Excel PivotTable definition.
+ 6. The Filters pane is an enhanced version of the Filters area in an Excel PivotTable 
+definition.
+Charts are often more effective than tables for analysis. Power BI charts, which are visu -
+alizations, represent one or more data relationships and have a drop and drag structure. In  
+Excel it is easy to convert PivotTables into charts with the PivotChart tool. PivotCharts graph -
+ically represent the data relationships in PivotTables. Illustration 7.7  is a pie chart for the 
+PivotTable in Illustration 7.3 (A). It highlights each model’s share in the total units sold, a 
+part-to-whole relationship, which is discussed later.
+ILLUSTRATION 7.7  Excel 
+PivotChartBreakdown of Total Units Sold by
+Model: 2021–2025
+CR-V
+17%Odysse y
+9%Ridg eline
+6%
+Civic
+32%Pilot
+9%
+Accord
+27%
+Apply It 7.1
+Explore Data with 
+PivotTablesData Managerial Accounting  Happy Colors is a small paint company that prepares paint cans 
+that are sold to retailers. CEO Mika Jacobson supervises  three employees, and there are three types 
+of products–low, high, and premium paint. Regardless of the type of paint, it should take about three 
+minutes to prepare a can. The cost of a can depends on the type of product:
+• Low: $5
+• High: $10
+• Premium: $14
+Since defective paint cans cannot be sold, Mika inspects each can herself. Losses resulting from 
+defective cans are an important issue for Happy Colors, so Mika hires your firm to help understand 
+this issue. Here is the data dictionary for this data set.
+Data Dictionary for Happy Colors
+Name Description
+ID A unique ID for each recording of an employee’s output per 
+month per product type.
+Month The name of the month.
+Product The name of the product type: low, high, or premium.
+Employee The name of the employee.
+NumberOfDefectiveItems The number of defective cans by an employee for a product type 
+in a specific month.
+Total The total number of cans by an employee for a product type in a 
+specific month.
+Cost The total loss (in dollars) resulting from the detective items by 
+an employee for a product in a specific month.Next, let’s examine how charts can represent and explore data relationships.
+c07AnalysisDataExploration.indd   8 18/10/22   8:00 AM
+--- PAGE 10 ---
+7.1 What is Data Exploration?  7-9
+ 1. Create a PivotTable that helps you understand the losses per employee per product type.
+ 2. What insights does the PivotTable generate?
+SOLUTION
+1. Using Excel, the PivotTable can be created by selecting the product, employee, and cost fields. 
+Drag the Cost field to Values, the Employee field to Rows, and the Product field to Columns.
+Pivot Table Fields
+Choose fields to add to report :
+ID
+Month
+Product
+Employe e
+NumberOfDefectiveItems
+Total
+Cost
+More Tables..
+Drag fields be tween ar eas below:
+Filter s ColumnsSearch
+Rows Values∑
+Employe e Cost of Defective CansProduc t
+ After applying some formatting, the resulting PivotTable looks like this:
+BiancaAndre
+CamilleHigh Employee Low
+$ 154,002Total Premium
+50,14752,780
+51,075$
+$
+$
+$ 3,5021,1471,530
+825$
+$
+$24,25020,750
+14,750
+$ 59,750$
+$
+$24,75030,500
+35,500
+$ 90,750 Total$
+$
+$Cost of Defective Cans Product T ype
+2. The table shows that the losses resulting from defective items are somewhat similar for the 
+three employees. However, Andre has the highest losses for premium paint cans, Bianca has 
+the highest losses for low paint cans, and Camille has the highest losses for high paint cans.
+c07AnalysisDataExploration.indd   9 18/10/22   8:00 AM
+--- PAGE 11 ---
+7-10  CHAPTER 7  Analysis: Data Exploration
+You have learned that a data relationship describes how data elements, or values, relate to each 
+other. Each data analytics project will have a unique set of data relationships. While there is no 
+single, best approach for investigating data relationships, a structured set of data exploration 
+patterns can help answer questions about which data relationships can be explored, how they 
+can be illustrated in visualizations, how to create those visualizations, and what they can tell us.
+There are two types of data exploration patterns. Some patterns explore a foundational data 
+relationship with a single visualization, while others explore data by integrating data relation -
+ships. This section presents eight foundational data exploration patterns. Each pattern identi -
+fies and describes the data relationship and visualizations that could represent it. The pattern 
+also shows how to explore the relationship and the insights that can be collected from doing so.
+APPLYING CRITICAL THINKING 7.2:  Use Patterns to 
+Explore Data
+Data exploration patterns are  real-world  best practices for using data relationships for explora -
+tion. They describe which data relationships exist and how to effectively visualize and explore 
+them (Knowledge) :
+• Data relationship: Time series data relationships compare observations over time.
+• Visualization: Line charts are considered the most effective visualization for exploring time 
+series. Best visualization practices include starting the line chart’s y-axis at zero .
+• Exploration: Line charts generate insights by identifying trends, cycles, and irregularities.
+Data Exploration Pattern 1: Nominal Comparison
+A nominal comparison data relationship  compares the values of a nominal variable based 
+on the values of a second, numeric variable. Illustration 7.8  shows its exploration struc -
+ture , which is a visual that describes the different elements used in the exploration and how 
+they are related. For nominal comparisons, the exploration structure is a nominal variable, 
+which is what is being compared, and a numeric variable, which is how the values of the 
+nominal variable are compared.
+ILLUSTRATION 7.8   Exploration 
+Structure for a Nominal 
+Comparison Data RelationshipWhat is being c omp ared.
+How the v alues of th e
+nominal variable are 
+comp ared.Nominal
+Variable
+Numeric
+Variable7.2 How are Data Relationships Visualized 
+for Exploration?
+LEARNING OBJECTIVE ➋
+Explore foundational data relationships through visualizations.
+c07AnalysisDataExploration.indd   10 18/10/22   8:00 AM
+--- PAGE 12 ---
+7.2 How are Data Relationships Visualized for Exploration?  7-11
+ILLUSTRATION 7.9   Visualizing 
+a Nominal Comparison Data 
+Relationship with a Column Chart
+Accord Civic CR-V Odyssey Pilot RidgelineTotal Units Sold by Model: 2021–2025
+Total
+Units Sold
+Model0500,0001,000,0001,500,0002,000,0002,500,0003,000,0003,500,000
+3,074,040
+1,603,686
+517,9642,555,799
+898,441 897,807
+The Excel PivotTable used to create this column chart is shown in Illustration 7.10 .
+ILLUSTRATION 7.10   Excel 
+PivotTable DefinitionFilter s Columns
+Model Total UnitsSoldRow s Values∑
+3
+What is being
+compared.How the values of the
+nominal variable are
+compared.Nominal
+VariableNumeric
+Variable
+Exploration and Insights
+A nominal comparison can quickly evaluate data and collect initial insights, which is espe -
+cially useful when working with a new data set. It allows us to compare the sizes of each  
+category–which is the biggest, which is the smallest, if one category is twice as big as another, 
+and more. Illustration 7.9 shows which HNA models sold the most and least units in the 
+2021–2025 period. The same chart also indicates if unit sales across models are similar or if 
+there are significant differences.
+You have learned that dragging and dropping different variables in different areas is key 
+to data exploration. Dragging and dropping variables in Illustration 7.10 makes the opportuni -
+ties for nominal comparison endless:
+• Any nominal variable, or what  is being analyzed, can be compared using any numeric 
+variable, or how the nominal variable is being analyzed.
+• Filters can also be applied to both the nominal variable and the numeric variable.
+What if an accounting firm regularly analyzes the performance of its staff members? How 
+would they do this? First, the staff members ( what ) are being compared, and they would be Visualizations
+Visualizations for nominal comparisons include bar charts, column charts, dot plots, and 
+ lollipop charts. Let’s go back to the Honda North America example from earlier in the 
+ chapter. Illustration 7.9  is a column chart that compares HNA’s models, which is the nom -
+inal  variable, using the number of units sold, which is the numeric  variable. Each model is 
+presented by a column (x-axis), and the length of the column is determined by the number of 
+units sold for that model (y-axis).
+c07AnalysisDataExploration.indd   11 18/10/22   8:00 AM
+--- PAGE 13 ---
+7-12  CHAPTER 7  Analysis: Data Exploration
+selected with  a filter. We could use many measures ( how) to compare them, including total 
+hours worked, total revenue generated, number of clients, average revenue per client, and 
+average client response time. All these variables can be dragged to the numeric variable slot 
+labeled Values. This is why the information modeling step is important for data exploration–it 
+allows creating additional measures that you can later use in analysis.
+Data Exploration Pattern 2: Distribution
+A distribution data relationship  (Illustration 7.11 ) shows how the values of a numeric 
+variable are distributed, or spread out, by providing the lowest value, the highest value, the 
+median, the interquartile range, and so on.
+ILLUSTRATION 7.11   Exploration Structure for a 
+Distribution Data Relationship
+Compares multiple
+distributions based on
+the values of a
+nominal variable.
+Numeric
+VariableThe numeric variable
+determines what
+field is being explored.Nominal
+Variable
+A common scenario, shown  in Illustration 7.11, is to create and compare multiple distribu -
+tions of the same numeric variable based on the different values of a nominal variable. The 
+dotted line indicates that such a variable is valuable for exploration, but optional when defin -
+ing a distribution data relationship.
+Visualizations
+Several visualizations portray distributions, including histograms, violin plots, and box-and-
+whisker charts (or boxplot charts). Box-and-whisker charts are both powerful and detailed, so 
+they are used here to illustrate a visualization for this pattern.
+Let’s go back to the HNA example. Data The company has a spreadsheet from one of 
+its New York dealerships. They want to know how the profits generated by selling cars vary. 
+Illustration 7.12  summarizes the spreadsheet  data about the cars sold by the dealership last 
+December.
+ILLUSTRATION 7.12   Data Structure of the Dealership Profit Data
+Field Name Description
+ID The internal ID that identifies the car.
+Model The car’s model.
+Profit The profit made when selling the car is selling price minus dealer invoice. 
+This is also known as front-end gross profit.
+c07AnalysisDataExploration.indd   12 18/10/22   8:00 AM
+--- PAGE 14 ---
+7.2 How are Data Relationships Visualized for Exploration?  7-13
+Illustration 7.13  shows the first ten rows of the data set.
+ILLUSTRATION 7.13   First Ten 
+Rows of the Dealership Profits 
+Data Set. 1
+2
+3
+4
+5
+6
+7
+8
+9
+10$ 2,125
+$ 2,798
+$ 2,144
+$ 2,749
+$ 1,810
+$ 1,844
+$ 4,446
+$ 3,107$ 1,912
+$ 2,101ID Profit
+Civic
+CR-V
+Odysse y
+Accord
+Accord
+Accord
+Odysse y
+PilotCivic
+CivicModel
+ILLUSTRATION 7.14  Visualizing 
+a Distribution Data Relationship 
+with a Box-And-Whisker Chart
+$7,000
+$6,000
+$5,000
+$4,000
+$3,000
+$2,000
+$1,000$8,000
+$0ProfitDistribution of Profits
+ModelMedian Type
+Whisker Type
+Mean
+Quartile 1
+Quartile 3
+Maximum
+Minimum
+IQR
+Upper Whisker
+Lower WhiskerMedianInclusive
+Min/Max
+2728
+1963
+2979
+6960
+340
+1016
+6960
+3402374
+Illustration 7.15  shows how this chart would be created in Power BI. Power BI requires drag -
+ging a field into the Axis slot. The values for this field represent the data points. Dragging a 
+primary key into this slot is good practice because  all data points and their unique values are 
+then represented. A similar box-and-whisker chart can also be created in Excel. ( Data See 
+How To 7.1. at the end of the chapter to learn how to do this.)How To
+As mentioned earlier, creating and comparing multiple distributions of the same numeric 
+variable based on the different values of a nominal variable is common in this kind of analysis. 
+Illustration 7.16  shows how to make a chart with this comparison using Power BI:
+• Drag Model to the Axis category I slot.
+• A separate distribution is then created for each model.Illustration 7.14  shows a box-and-whisker  chart for the Profit field. The red circle rep -
+resents the average. The bottom of the green box is the first quartile, and the top of the orange 
+box is the third quartile. The median is the intersection between the green and orange boxes, 
+and the length of the green and orange boxes combined is the interquartile range. Finally, the 
+lower fence portrays the minimum value, while the upper fence portrays the maximum value. 
+Axis
+ID
+Axis categ ory I
+Add dat a fields her e
+Axis categ ory II
+Add dat a fields her e
+Value
+ProfitUnique
+IdentifierThe data points
+represented in the
+distribution.
+Numeric
+VariableThe numeric variable
+determines what field
+is being explored.ILLUSTRATION 7.15  Creating a 
+Box-and-Whisker Chart in Power BI
+c07AnalysisDataExploration.indd   13 18/10/22   8:00 AM
+--- PAGE 15 ---
+7-14  CHAPTER 7  Analysis: Data Exploration
+Illustration 7.17  is the resulting chart.
+Exploration and Insights
+Dragging and dropping variables also supports data exploration using this pattern. Using the 
+exploration structure for a distribution data relationship, we can quickly examine the distri -
+bution of any numeric field in a data set and use any nominal field in the data set to compare 
+data distributions.
+Illustration 7.14 showed the distribution information provided by Power BI, including the 
+median, the mean, the interquartile range (IQR), the lowest value, and the highest value. This 
+makes it possible to investigate outliers, skewness, and more. The chart in Illustration 7.17 
+allows even more comparison across distributions:
+• The profits for the Ridgeline model are higher than for the other models.
+• The profits for the CR-V and Pilot models are consistent, which means there is little 
+variation.
+• The profits for the Odyssey and especially the Civic models are more spread out.Axis
+ID
+ModelAxis categ ory I
+Axis categ ory II
+Add dat a fields her e
+Value
+ProfitUnique
+IdentifierThe data points
+represented in the
+distribution.
+Nominal
+VariableThe values of the
+nominal variable are
+used to create multiple
+distributions.
+Numeric
+VariableThe numeric variable
+determines what field
+is being explored.ILLUSTRATION 7.16  Creating 
+a Box-and-Whisker Chart with 
+Multiple Distributions
+Accord Civic CR-V Odyssey Pilot Ridgeline$0$1,000$2,000$3,000$4,000$5,000$6,000$7,000$8,000
+Profit
+ModelDistribution of Profits by Model ILLUSTRATION 7.17  Parallel 
+Profit Distributions for HNA Car 
+Models
+c07AnalysisDataExploration.indd   14 18/10/22   8:00 AM
+--- PAGE 16 ---
+7.2 How are Data Relationships Visualized for Exploration?  7-15
+It might be necessary to explore the data more to better understand the source of the variation. 
+The source could be a result of the higher price for a specific model, the number of options 
+available for a specific model, the negotiation skills of the salespeople, or sales promotions, 
+for example.
+Distribution analysis has many applications, including analyzing employee compensa -
+tion. To understand how salaries are distributed, distribution analysis could be used to answer 
+the following questions:
+• Are salaries right-skewed? Are the higher salaries more spread out?
+• How do salaries compare across departments?
+• How does an organization’s compensation distribution compare to the distribution for 
+other organizations?
+Data Exploration Pattern 3: Deviation
+A deviation data relationship  shows how a set of actual values deviate from their ref -
+erence values, which are budgeted or forecasted values. Deviation relationships are every -
+where in accounting. Variance analysis is a good example, such as the difference between 
+actual and standard costs. The exploration structure for deviation relationships shown in 
+ Illustration 7.18  contains the variable being compared and the variables being used for com -
+parison purposes–actual, target, and deviation.
+ILLUSTRATION 7.18  Exploration 
+Structure for a Deviation Data 
+Relationship
+Nominal
+VariableNumeric
+Variable:
+DeviationHow the
+comparison is
+being done.
+What is being
+compared.Numeric
+Variable:
+TargetNumeric
+Variable:
+Actual
+Visualizations
+Clustered bar and column charts (used in the following example), gauges, bullet charts, 
+and more can be used for deviation analysis. Imagine that HNA would like to explore 
+whether each vehicle model met its sales expectations. Data The company has another 
+c07AnalysisDataExploration.indd   15 18/10/22   8:00 AM
+--- PAGE 17 ---
+7-16  CHAPTER 7  Analysis: Data Exploration
+ILLUSTRATION 7.19  HNA Budgeted Unit Sales -2025
+US
+US
+US
+USA
+USA
+USA
+Canada
+Canada
+Canada
+CanadaSedan
+Sedan
+SUV
+SUV
+Miniv an
+Truck
+Sedan
+SUVSedan
+SUVCountr yT ype
+Civic
+Accord
+CR-V
+Pilot
+Odysse y
+Ridg eline
+Civic
+CR-VAccord
+Pilot
+Canada
+Canada TruckMiniv an255423
+344771
+252019
+125090
+139009
+54891
+480871
+98077319755
+47329
+8808119822300000
+350000
+25000
+160000
+145000
+55000
+425000
+110000275000
+45000
+6500030000
+Ridg elineOdysse yModel Budg etedUnits ActualUnits
+This data set was used to create the clustered column chart in Illustration 7.20  with Power BI.
+ILLUSTRATION 7.21  Creating 
+a Clustered Column Chart in 
+Power  BIAxis
+Model
+Legend
+Add dat a fields her e
+Values
+TotalActualUnits
+TotalBudg etedUnitsHow the comparison
+is being done.Nominal
+VariableWhat is being
+compared.
+Numeric
+Variable:
+TargetNumeric
+Variable:
+Actual664,526
+625,000736,294
+725,000
+350,096
+135,000
+172,419
+205,000
+158,831
+175,000
+142,972
+120,000
+Total Actual Units Total Bud geted Units100,000 0 200,000 300,000 400,000 500,000 600,000 700,000AccordCivic
+CR-V
+Pilot
+Odysse y
+Ridg elineModelVarianc e Analysis: Actual vs. Bud geted Unit Sales ILLUSTRATION 7.20  Visualizing 
+a Deviation Data Relationship with 
+a Clustered Column Chart
+Illustration 7.21  shows how the chart was created.data set that includes both the actual and the budgeted unit sales for the 2025 period 
+(Illustration 7.19 ).
+c07AnalysisDataExploration.indd   16 18/10/22   8:00 AM
+--- PAGE 18 ---
+7.2 How are Data Relationships Visualized for Exploration?  7-17
+Unlike a column chart, a clustered column chart uses multiple variables for comparison pur -
+poses. While the clustered column chart can make comparisons across models, it also provides 
+a comparison within a model. For example, the comparison in Illustration 7.20 is between 
+the actual number of units sold and the budgeted number of units sold, which are the two 
+variables in the Values area:
+• TotalActualUnits represents the sum of all values in the ActualUnits field.
+• TotalBudgetedUnits represents the sum of all values in the BudgetedUnits field.
+Exploration and Insights
+Additional variables can be dragged into the Values slot in Illustration 7.21. For example, 
+variance, a variable that is calculated as the difference between the actual and the budgeted 
+units, could be added. There are also three nominal variables in this data set to choose from: 
+country, type, or model.
+Different types of insights can be collected from deviation analysis, including when 
+results are higher or more favorable than expected, lower or less favorable than expected, and 
+if targets are unreasonable. Once we identify these insights, the next step might be explor -
+ing possible causes, such as how to reverse unfavorable deviations. This is particularly useful 
+when the variances are significant.
+Variances have historically been valuable tools for accountants to indicate issues that 
+should be addressed:
+• Inefficiencies such as inexperience in negotiating prices, ill-qualified employees, employ -
+ees assigned the wrong task, use of low-quality resources, or inadequate training.
+• Unexpected changes such as changes in prices, or a decrease in demand.
+• Poor budgeting.
+A possible insight that can be collected from Illustration 7.20 is that most models have a favor -
+able variance, but some (Pilot and Odyssey) have an unfavorable variance. Another is that, 
+except for the CR-V model, most variances are insignificant.
+Data Exploration Pattern 4: Ranking
+A ranking data relationship  (Illustration 7.22 ) orders the values of a variable sequentially 
+based on the values of a second variable. Ranks are determined by some quality, such as high -
+est, lowest, fastest, slowest, as defined by the second variable. The ranking can be displayed in 
+ascending or descending order. It is also possible to calculate a rank explicitly.
+ILLUSTRATION 7.22  Exploration 
+Structure for a Ranking Data 
+Relationship
+What to rank.The variable used
+to rank.
+VariableVariable
+Visualizations
+There are no specific ranking visualizations, but many integrate ranking information, 
+including tables, bar charts, and column charts. Illustration 7.23  (B) shows a column chart 
+that ranks HNA’s models ( what to rank ) based on the units sold in the 2021–2025 period 
+c07AnalysisDataExploration.indd   17 18/10/22   8:00 AM
+--- PAGE 19 ---
+7-18  CHAPTER 7  Analysis: Data Exploration
+Exploration and Insights
+Different ranking relationships can be explored by dragging and dropping. Customers can 
+be ranked based on their sales amount or their age; employees can be ranked based on their 
+salaries or their seniority. Measures, such as total outstanding debt of at least 60 days, can 
+also be used to rank customers. Ranking can determine, for example, the top 25 or bottom 
+25 customers based on revenue. The column chart in Illustration 7.23 indicates a model’s rank 
+based on units sold during the 2021 –2025 period. The Civic is the best-selling model, followed 
+by the Accord.
+Data Exploration Pattern 5: Part-to-Whole
+A part–to-whole data relationship  (Illustration 7.24 ) compares parts to wholes and looks 
+at how the different parts compare to each other. For example, an organization might gen -
+erate $100,000 in sales, which is the whole. The home, office, and garden product categories 
+generate $30,000 (30 %), $50,000 (50%), and $20,000 (20%), respectively. These three product 
+categories represent the parts.
+ILLUSTRATION 7.24  Exploration 
+Structure for a Part-To-Whole Data 
+RelationshipThe variable that
+determines how the 
+whole is broken down
+in parts.
+The whole, or the
+number to be broken
+down.Numeric
+VariableNominal
+Variable
+A part-to-whole visualization should define the number that is the whole and how the whole 
+should be broken down into parts. (how to rank ). Illustration 7.23 (A) shows this ranking relationship created  for a PivotTable  
+in Excel.
+ ILLUSTRATION 7.23   Integrating a Ranking Data Relationship into a Column Chart
+The variable used
+for ranking.What to rank.
+Variable Variable
+Civic
+Accord
+CR-V
+Odysse y
+Pilot
+Ridg eline3,074,040
+2,555,799
+1,603,686
+898,441
+897,807
+517,964Model Total UnitsSold
+Civic Accord CR-V Odyssey Pilot RidgelineModels Ranked by Total Units Sold
+(A) Creating a Ranking Relationship for a PivotTable (B) Integrating a Ranking Relationship with a Column Chart500,000
+01,000,0001,500,0002,000,0002,500,0003,000,0003,500,000
+2,555,799
+1,603,686
+517,9643,074,040
+898,441 897,807
+Sort Larg est to SmallestZAAZSort Smallest to Larg est
+c07AnalysisDataExploration.indd   18 18/10/22   8:00 AM
+--- PAGE 20 ---
+7.2 How are Data Relationships Visualized for Exploration?  7-19
+Visualizations
+Multiple visualizations can model part-to-whole relationships, including pie charts, donut 
+charts, stacked bar charts, stacked column charts, and treemaps. While treemaps are consid -
+ered superior for portraying part-to-whole relationships, here the more commonly used pie 
+chart is shown. The pie chart in Illustration 7.25  shows the relative importance of each of 
+HNA’s models, which are the parts, in terms of the whole, which is the units sold during the 
+2021–  2025 period. The relative importance is expressed as a percentage, or share.
+ILLUSTRATION 7.25  Visualizing 
+a Part-To-Whole Data Relationship 
+With a Pie ChartBreakdown of Units Sold by Model: 2021–2025
+Civic
+32.2%Pilot
+9.4%Ridg eline
+5.42%
+Accord
+26.77%CR-V
+16.8%Odysse y
+9.41%
+Illustration 7.26  shows how this pie chart is created using Power BI:
+• The Values slot defines the what : This refers to the number that is broken down. Here, it 
+is the TotalUnitsSold measure.
+• The Legend slot defines the how: This refers to how to break down the whole. Here, this is 
+done by model. For each value of model the number of units sold is calculated, determin -
+ing the size of its share of the pie. This visual shows the size of its share as a percentage.
+Exploration and Insights
+Any measure can be dragged to the Values ( whole ) slot in Illustration 7.26. Measures tailored 
+to specific needs can also be created, such as July sales to non-U.S. customers. Any nominal 
+variable can be dragged to the Legend slot ( parts ).ILLUSTRATION 7.26  Creating a 
+Pie Chart in Power BILegend
+Model
+Details
+Add dat a fields her e
+Values
+TotalUnitsSoldNominal
+VariableThe variable that
+determines how the 
+whole is broken down
+in parts.
+The whole, or the
+number to be broken
+down.Numeric
+Variable
+c07AnalysisDataExploration.indd   19 18/10/22   8:01 AM
+--- PAGE 21 ---
+7-20  CHAPTER 7  Analysis: Data Exploration
+Part-to-whole relationships are often used in accounting. Examples include the break -
+down of expenses in multiple categories such as administrative expenses, depreciation, mar -
+keting expenses, and the breakdown of costs in terms of materials, labor, and overhead.
+The pie chart in Illustration 7.25 shows how each model contributes, in relative terms, to 
+the total units sold in the 2021–2025 period. It further shows that the Accord and Civic models 
+combined count for more than 50% of the unit sales. The share of other models, such as the 
+Ridgeline, is relatively small.
+Data Exploration Pattern 6: Correlation
+A correlation data relationship  indicates the degree to which two variables move in the 
+same or the opposite direction. For example, if the marketing expenses for a product increase, 
+then it is likely that the sales for the same product also increase. There are two key features to 
+consider with these relationships. The first is direction:
+• The direction is positive if both variables move in the same direction.
+• The direction is negative if both variables move in opposite directions.
+The second feature is the strength of the correlation. Strength indicates the degree of cor -
+relation between the two variables, ranging from no correlation to perfect correlation. 
+ Illustration 7.27  shows the exploration structure of a correlation data relationship between 
+numeric variables.
+ILLUSTRATION 7.27  Exploration 
+Structure for a Correlation Data 
+RelationshipNumeric
+Variable
+Numeric
+VariableThe variables
+for which the
+correlation data
+relationship is
+being explored.
+Visualizations
+The most common visualization for exploring correlation is the scatterplot , which is also 
+referred to as a scatter chart. It plots the coordinates for two variables for each data point.
+Let’s illustrate a scatterplot  with an example from a new company. Buzz Cut is a landscap -
+ing business with two owners. These small business owners continuously face tough strategic, 
+financial, and operational decisions, such as price estimates for properties. Data They have a 
+spreadsheet  that contains data about the size and average cutting time, in minutes, for all their 
+properties ( Illustration 7.28 ).
+Price estimation is a critical decision for all landscape businesses. Buzz Cut uses the fol -
+lowing decision model to make price estimates:
+• It takes one minute to mow 1,000 square feet, and Buzz Cut charges a dollar per minute 
+($60 per hour). They would charge $50 for mowing a 50,000 square foot property.
+• The minimum price per cut is $25.
+• Reduced rates are offered for large lots.
+All prices are rounded up: $25, $30, $35, and so on. In some cases, Buzz Cut’s owners negotiate 
+with the customers. Price estimation decisions rely on two assumptions:
+ 1. The size of a lawn determines the time needed to cut it.
+ 2. Time determines the cost and thus price.ILLUSTRATION 7.28  First Ten 
+Rows of the Property Data Size 
+Time Spreadshe et
+1
+2
+3
+4
+5
+6
+7
+8
+9
+109
+6
+50
+45
+8
+18
+17
+55120
+25Property Time
+4500
+3000
+50000
+25000
+4000
+18000
+21000
+22000100000
+23000Size
+c07AnalysisDataExploration.indd   20 18/10/22   8:01 AM
+--- PAGE 22 ---
+7.2 How are Data Relationships Visualized for Exploration?  7-21
+The first assumption can be rephrased: “There is a strong positive correlation between lawn 
+size and time: the bigger the lawn, the more time it will take to mow it.”
+Correlation is a data relationship. Strong correlation and positive direction are assump -
+tions regarding the data relationship made by Buzz Cut. The scatterplot  in Illustration 7.29  
+explores the validity of these assumptions.
+ILLUSTRATION 7.29  Scatterplot 
+Showing Correlation Between Size 
+and Time
+0
+0 20,000 40,000 60,000 80,000 100,00020406080100120140
+TimeLawn Size and Time Correlation
+Size
+This scatterplot was created in Power BI ( Illustration 7.30 ).
+ILLUSTRATION 7.30  Creating a 
+Scatterplot in Power BIDetails
+Property
+Add dat a fields her eLegend
+X Axis
+Size
+Y Axis
+TimeUnique
+IdentifierThe data 
+points being
+represented.
+Numeric
+Variable
+Numeric
+VariableThe
+variables
+for which
+the correlation
+data
+relationship
+is being
+explored.
+Exploration and Insights
+Scatterplots  are created by dragging and dropping numeric variables from a data set into the 
+two areas shown in Illustration 7.30. Several insights could be collected once the scatterplot is 
+created. For instance, there is a strong, positive correlation between lawn size and time. There 
+are also two additional insights:
+ 1. The data point with a yellow background shows an outlier. Talking to the owners of Buzz 
+Cut reveals this is the result of a data entry issue. It takes 18 minutes to cut the property, 
+but “118 minutes” was recorded.
+ 2. The chart indicates that there might be other factors than just size influencing time. 
+The data points with a green background in Illustration 7.29 indicate properties that are 
+approximately the same size but require different amounts of time, with times ranging 
+between 17 and 55 minutes (ignore the outlier here).
+c07AnalysisDataExploration.indd   21 18/10/22   8:01 AM
+--- PAGE 23 ---
+7-22  CHAPTER 7  Analysis: Data Exploration
+To display a time series, a visualization requires a time unit such as a minute, hour, day, or 
+week, and a variable that changes over time. 
+Visualizations
+A line chart is the most common visualization for time series, but bar charts, column charts, 
+area charts, waterfall charts, and sparkline charts can also be used. Let’s go back to the Honda 
+Motors North America (HNA) example. Illustration 7.32  is a Power BI line chart that explores 
+how HNA’s unit sales changed during the 2021–2025 period. While the data do not indicate what the other factor or factors might be, the owners men -
+tion that properties with many trees, plants, and corners take more time to mow. This means 
+that difficulty, or complexity, is another factor that influences time and cost, and the decision 
+model should be adjusted to reflect this.
+APPLYING CRITICAL THINKING 7.3:  Evaluate Your 
+Assumptions
+The Buzz Cut scatterplot  example shows that critical thinking is an integral part of data 
+exploration:
+• Unrealistic assumptions might result in insights that pose a significant risk . Underpricing  
+might result in losses (Risks) .
+• These insights could negatively affect all stakeholders. If there are other factors that drive 
+time,  employees could be evaluated unfairly, and underpricing might mean that Buzz Cut 
+cannot pay creditors (Stakeholders) .
+Data Exploration Pattern 7: Time Series
+A time series data relationship  defines the values of a variable at sequential points in time 
+(Illustration 7.31 ).
+ILLUSTRATION 7.31  Exploration 
+Structure for a Time Series Data 
+Relationship
+Nominal
+VariableThe values of this
+variable are used to
+compare time series.Numeric
+VariableThe variable
+being analyzed.The time unit used
+for analysis.Time Unit
+Variable
+c07AnalysisDataExploration.indd   22 18/10/22   8:01 AM
+--- PAGE 24 ---
+7.2 How are Data Relationships Visualized for Exploration?  7-23
+ILLUSTRATION 7.32  Line Chart Showing Changes in HNA ’s Unit Sales During the 2021–2025 Period
+2021 2022 2023 2024 202501,000,0002,041,8792,225,138
+2,000,0003,000,000
+Units SoldChang es in Units Sold: 2021‒2025
+Year1,774,263 1,723,765 1,782,692
+It was created in Power BI by using  year as the time unit and total unit sales as the numeric 
+variable ( Illustration 7.33 ).
+ILLUSTRATION 7.33  Creating a Line Chart in Power BI
+Axis
+Year
+Legend
+Add dat a fields her e
+Values
+UnitsSoldThe variable
+being analyzed.The time unit used
+for analysis.Time Unit
+Variable
+Numeric
+Variable
+Exploration and Insights
+Look for trends, cycles, and irregularities when exploring time series:
+• A trend indicates the general direction (upward or downward) in which a variable moves 
+over time.
+• A cycle indicates a pattern of changes, which can vary in length and intensity over time. 
+Seasonality refers to intra-year cycles with a fixed nature.
+• Irregularities are unsystematic, typically short-term, fluctuations.
+The time series in Illustration 7.32 shows a strong upward trend for HNA’s unit sales starting 
+from 2023. Dragging and dropping can explore this trend in more detail by comparing the 
+trends for Canada and the USA.  This new line chart (A) and how it was made (B) are shown in 
+Illustration 7.34 . This chart shows a very different picture: U.S. sales are flat, and growth is a 
+result of increasing sales in Canada. Additional insights might be generated by also comparing 
+trends for units sold by model or type.
+c07AnalysisDataExploration.indd   23 18/10/22   8:01 AM
+--- PAGE 25 ---
+7-24  CHAPTER 7  Analysis: Data Exploration
+ILLUSTRATION 7.34  Trend Analysis Units Sold by Country
+0500,000646,7771,127,486
+648,9991,074,766
+721,7171,060,975
+1,000,0001,500,000
+Units
+SoldUSA V s. Canadian Sales Trends: 2021‒2025 
+(A) Trend Analysis:
+Units Sold by Countr y
+(B) Cre ating a Line Chart
+with Multiple Time SeriesYear2021 2022 2023 2024 2025870,4181,171,461
+1,053,9351,171,203
+Axis
+Year
+Values
+UnitsSoldThe variable
+being analyzed.The time unit used
+for analysis.Time Unit
+Variable
+Numeric
+VariableNominal
+VariableThe values of this
+variable are used to
+compare time series.Legend
+Countr yUSA Canada
+Data Exploration Pattern 8: Geospatial
+In a geospatial data relationship , numeric values are assigned to locations and encoded through 
+coloring or shading and the size of the bubbles within the visualization ( Illustration 7.35 ).
+EncodingColoring
+SizeThe location to
+which the quantitative
+variable applies.Location
+Variable
+The quantitative
+variable used for
+analysis purposes.Numeric
+VariableILLUSTRATION 7.35  Exploration 
+Structure for Geospatial Data 
+Relationships
+c07AnalysisDataExploration.indd   24 18/10/22   8:01 AM
+--- PAGE 26 ---
+7.2 How are Data Relationships Visualized for Exploration?  7-25
+Visualizations
+Geospatial relationships are defined using maps:
+• A choropleth map uses color intensity to represent data values. In Illustration 7.36 , color 
+intensity differentiates among the combined state and average local sales tax rates for 
+U.S. states. In this map, state is the location variable, tax rate is the numeric variable, and 
+encoding is based on color intensity.
+• A proportional symbol map uses symbols—often bubbles/circles—and the size of the 
+symbol represents the data value. The larger the symbol, the higher the value. A business 
+could create a map that shows the total revenue (numeric variable) per city (location 
+variable) for a specific state. The larger the bubble representing the city, the higher the 
+revenue for that city.
+ILLUSTRATION 7.36  Choropleth Map for Tax Rates 
+MA
+6.25%
+#35
+CT
+6.35%
+#33RI
+7.00%
+#24
+NJ
+6.60%
+#30
+DE
+MD
+6.00%
+#38
+DC
+6.00%
+(#38)
+Lower HigherCombined State & Average Local Sales Tax Rate sNH
+6VT
+6.24%
+#36How High are Sales Taxes in Your State?
+Combined State & Average Local Sales Tax Rates, January 2021
+WA
+9.23%
+#4
+MT
+ID
+6.03%
+#37ND
+6.96%
+#27 MN
+7.46%
+#17ME
+5.50%
+#42
+MI
+6.00%
+#38WI
+5.43%
+#43OR
+SD
+6.40%
+#32NY
+8.52%
+#10 WY
+5.33%
+#44IA
+6.94%
+#28NE
+6.94%
+#29IL
+8.82%
+#7PA
+6.34%  #34
+CA
+8.68%
+#9UT
+7.19%
+#21NV
+8.23%
+#13OH
+7.23%
+#20IN
+7.00%
+#24CO
+7.72%
+#16WV
+6.50%
+#31MO
+8.25%
+#12KS
+8.69%
+#8VA
+5.73%
+#41 KY
+6.00 %# 38
+AZ
+8.40%
+#11OK
+8.95%
+#6NM
+7.83%
+#15TN
+9.55% #1NC
+6.98% #26
+TX
+8.19%
+#14AR
+9.51%
+#3SC
+7.46%
+#18 AL
+9.22%
+#5GA
+7.32%
+#19MS
+7.07%
+#23
+LA
+9.52% #2
+FL
+7.08%
+#22HI
+4.44%
+#45AK
+1.76%
+#46
+Source:  Janelle Cammenga, State and Local Sales Tax Rates, 2021, Tax Foundation. Available at https://files.taxfoundation.org/  
+20210106094117/State-and-Local-Sales-Tax-Rates-2021.pdf
+Exploration and Insights
+Like the other data relationships, exploration of geospatial relationships depends on dragging 
+and dropping. Location choices are limited to addresses, cities, states or provinces, and coun -
+tries, and the location information must be formatted so that a map service , Google Maps or 
+Bing Maps, for example, can recognize it.
+c07AnalysisDataExploration.indd   25 18/10/22   8:01 AM
+--- PAGE 27 ---
+7-26  CHAPTER 7  Analysis: Data Exploration
+Apply It 7.2
+Visualize Part-To-
+Whole Relationships 
+with ExcelData Managerial Accounting  The CEO at Happy Colors needs to understand the relative impor -
+tance of the company’s different product types , Low, High, and Premium quality paint , in terms of the 
+total units, or cans, being produced. Complete these three steps to perform this analysis:
+1. Determine what data relationship underlies this question.
+2. Identify and create a visual that could explore the data relationship.
+3. Describe the insights generated by the visual.
+SOLUTION
+1. A part-to-whole relationship is being explored.
+2. Several visualizations can be used to explore part-to-whole relationships, including pie charts, 
+donut charts, stacked bar charts, stacked column charts, and treemap charts. The Illustration 
+shows a pie chart (A) and the dialog box of the Excel PivotTable used for its creation (B).
+Part-to-Whole Relationship with Pie Chart
+PivotTable Fields
+Choose fields to add to report:
+Search
+Drag fields between areas below:
+Filters Columns
+Rows Values/uni2211
+Total UnitsSold Product(A) (B)
+ID
+Month
+EmployeeProduct
+NumberOfDefectiveItems
+Total
+Cost
+More Tables...Product Type Share
+The whole, or the
+number to be broken
+down.The variable that
+determines how the
+whole is broken down
+in parts.High
+40%Low
+51%Premium
+9%
+3. The pie chart shows that more than half of the production is for cans of Low product type, 
+while Premium cans have a relatively small share–lower than 10%.On the other hand, a variety of numeric variables can be used for exploration. A map 
+created for the HNA example could show the total revenue generated per dealership and use 
+color intensity for encoding. That same map could display the new-to-used car sales ratio, 
+which is an important key performance indicator (KPI) for car dealerships, and use size for 
+encoding purposes.
+c07AnalysisDataExploration.indd   26 18/10/22   8:01 AM
+--- PAGE 28 ---
+7.3 How are Data Explored by Integrating Data Relationships?  7-27
+7.3 How are Data Explored by Integrating 
+Data Relationships?
+LEARNING OBJECTIVE ❸
+Explore data by integrating foundational relationships.
+While patterns one to eight explore a single, foundational data relationship with one visualiza -
+tion, data exploration often requires integrating two or more data relationships. Integrated data 
+relationships can be represented with a single visualization or by using different visualizations 
+as part of a report. Composite trends and Pareto analysis are two examples of combined data 
+relationships that can be represented in one chart, both of which are discussed next.
+Data Exploration Pattern 9: Composite Trends
+A composite trend  data relationship , or the change in a part-to-whole relationship over 
+time, is an integrated data relationship that is often analyzed. One example is an analysis of 
+how a business’ sales mix changes over time:
+• Sales mix is the relative proportion of each product in a business’ total sales, which means 
+that it is a part-to-whole relationship.
+• Change over time is a time series.
+We explore HNA’s sales mix to illustrate this relationship, but keep in mind that there are 
+many other business and accounting examples of composite trends, such as the changes in 
+the structure of an investment portfolio or how the different accounts in an income statement 
+change over time.
+The exploration structure for composite trends has three variables and combines the 
+exploration structures of the time series data relationship and part-to-whole data relationship 
+(Illustration 7.37 ).
+ILLUSTRATION 7.37  Exploration 
+Structure for Composite Trend 
+Data Relationships
+Time Unit
+VariableThe time unit used for
+analysis.Numeric
+VariableThe variable that determines
+how the whole is broken
+down in parts.Nominal
+Variable
+The variable
+being
+analyzedThe whole, or the
+number to be
+broken down.
+Time Series Exploration Structure
+Part-to-Whole Exploration Structure
+c07AnalysisDataExploration.indd   27 18/10/22   8:01 AM
+--- PAGE 29 ---
+7-28  CHAPTER 7  Analysis: Data Exploration
+Visualizations
+Several visualizations, all of which rely on the exploration structure shown in Illustration 7.37, 
+can explore composite trends. In Illustration 7.38 , the stacked area chart is used to explore 
+changes in HNA’s unit sales mix.
+ILLUSTRATION 7.38  Exploring 
+Changes in HNA ’s Sales Mix with a 
+Stacked Area Chart
+Year0500,0001,000,0001,500,0002,000,000
+2021 2022 2023 2024 2025Units SoldStacked Area Chart Showing Changes
+in HNA’s Sales Mix: 2021‒2025
+438,424
+446,870544,880290,695174,884178,65287,784
+442,106567,998316,593177,853179,25298,890
+673,000
+563,873334,996172,980186,042110,988
+736,294
+664,526350,096158,831172,419142,972
+551,868311,306213,893181,4421,774,2631,723,7651,782,6922,041,8792,225,138
+Accord Civic CR-V Odyssey Pilot Ridgeline
+ILLUSTRATION 7.39  Power BI 
+Definition of Stacked Area Chart Axis
+Year
+Values
+UnitsSoldTime Unit
+VariableThe time unit used for
+analysis.
+The variable that determines
+how the whole is broken
+down in parts.Nominal
+Variable
+Numeric
+VariableThe variable
+being
+analyzed.The whole, or the
+number to be
+broken down.Legend
+Model
+Time Series Exploration Structure
+Part-to-Whole Exploration StructureIllustration 7.39  shows how to build this chart with Power BI.
+c07AnalysisDataExploration.indd   28 18/10/22   8:01 AM
+--- PAGE 30 ---
+7.3 How are Data Explored by Integrating Data Relationships?  7-29
+There are a few things to note about Illustration 7.38:
+• The top shows how the total units sold (the numeric variable) has changed during the 
+2021–2025 period (the time unit variable).
+• For each year, the total units sold (numeric variable) is broken down by model (the nom -
+inal variable).
+• The horizontal bands reveal how the share of each model changed during the 2021–2025 
+period (composite trend).
+• Although the data labels are helpful, the stacked columns make it challenging to under -
+stand the exact changes for most of the models.
+A 100% stacked column chart ( Illustration 7.40 ) using the same data is created in Power BI 
+in the same way.
+ILLUSTRATION 7.40  Exploring 
+HNA ’s Sales Mix with a 100% 
+Stacked Column Chart100%
+60%80%
+17.55%10.23%4.36%
+12.06%
+31.10% 40%
+20%
+2021 2022Units Sold100% Stacked Column Chart Showing Changes in
+HNA’s Sales Mix: 2021‒2025
+Year0%2023 2024 2025
+Accord Civic CR-V Odyssey Pilot Ridgeline24.71%16.86%10.36%5.09%
+10.15%
+31.61%
+25.92%17.76%10.06%5.55%
+9.98%
+31.86%
+24.80%16.41%8.47%9.11%5.44%
+32.96%
+27.62%15.73%7.14%7.75%6.43%
+33.09%
+29.86%
+While the data labels in the 100% stacked chart shown in Illustration 7.40 are more precise, 
+this chart no longer shows the overall trend.
+Exploration and Insights
+Composite trends can be explored for any combination of  measures (numeric variable), 
+dimensions (nominal variable), and time units by dragging and dropping.
+The stacked area chart in Illustration 7.38 integrates three insights:
+• It highlights changes in the number of units sold during the 2021–2025 period (time 
+series). The line chart in Illustration 7.32 represents the same overall trend, and both charts 
+provide the same insight: there is an upward trend for HNA’s unit sales starting from 2023.
+• It reveals how much each model contributes to the annual totals (part-to-whole). In 2025, 
+the Civic model was the best seller, followed by the Accord.
+• Data labels and shaded areas indicate whether models have become more or less import -
+ant in the sales mix during the 2021–2025 period (composite trend). The Accord model 
+has grown in importance while the Odyssey model has become less important.
+Compare these to the insights from the 100% stacked column chart:
+• It does not show an overall trend.
+• It shows the exact share each model contributes to the annual totals (part-to-whole). 33.09% 
+of the cars sold in 2025 were Civics, and 29.86% of the cars sold in the same year were Accords.
+c07AnalysisDataExploration.indd   29 18/10/22   8:01 AM
+--- PAGE 31 ---
+7-30  CHAPTER 7  Analysis: Data Exploration
+• Expressed as percentages, it reveals how a model’s share in the sales mix has changed 
+during the 2021–2025 period. The share of the Accord model grew from 31.1% in 2021 to 
+33.09% in 2025.
+Applying the composite trend pattern can also provide insights for a business exploring how 
+the contribution of its different regions (nominal variable) to its revenue (numeric variable) 
+has changed during the last five years (time unit variable). A composite trend pattern can also 
+show how the relative importance of the different accounts in an income statement changed 
+in a specific period. This is a combination of vertical (part-to-whole) and horizontal (time 
+series) financial statement analysis.
+Data Exploration Pattern 10: Pareto Analysis
+Pareto analysis  (Illustration 7.41 ) determines the importance of different categories, which 
+is nominal comparison, ranks them, and shows how each, based on that ranking, contributes 
+to the cumulative percentage (part-to-whole).
+The numeric variable that
+determines the contribution
+to the cumulative percentage.
+The numeric variable used
+to compare and rank the
+nominal variable.Numeric
+Variable:
+Cumulative
+Values
+Numeric
+Variable:
+Values
+Nominal
+VariableWhat catagories are being
+analyzed.ILLUSTRATION 7.41  Exploration Structure for Pareto Analysi s
+Visualizations
+A Pareto chart visualizes the combination of the relationships shown in the exploration struc -
+ture. Some tools, like Excel, offer Pareto charts. They can also be created as line and column 
+charts, which are supported by most tools. ( Data How To 7.2. shows how to create a Pareto 
+chart using both Power BI and Excel.)
+Here, a line and column chart was created using Excel. Illustration 7.42 (A) shows a 
+PivotTable created from the HNA Unit Sales data set. It contains the different models, units 
+sold per model, and cumulative units sold per model. Models are ranked in descending order 
+(ranking) based on units sold. In terms of the exploration model:
+• Model represents the nominal variable.
+• Total units sold represents the numeric variable (values).
+• Cumulative percentage represents the numeric value (cumulative values).How To
+c07AnalysisDataExploration.indd   30 18/10/22   8:01 AM
+--- PAGE 32 ---
+7.3 How are Data Explored by Integrating Data Relationships?  7-31
+Exploration and Insights
+The Pareto chart helps determine if there is a small group of models generating most sales. 
+In this case, the Accord, Civic, and CR-V models together generate more than 75% of the sales, 
+while the other three models generate less than 25%.
+Pareto analysis has a range of applications in business and accounting:
+• Identifying the most significant customer complaints. If a small group of issues causes 
+most complaints, removing these issues could positively impact customer satisfaction.
+• Indicating main cost categories for a specific project.
+• Identifying the employees that generate the most new clients.
+• Illustrating which group of holdings in a portfolio is responsible for most of its growth.
+Reports Using Multiple Visualizations
+Data relationships are often integrated using multiple visualizations as part of a report. Mostly 
+interactive, these visualizations provide endless exploration opportunities. A report that com -
+bines part-to-whole and time series relationships explores trends for not only the whole, but 
+also for each of the individual parts. A more advanced example, with multiple interactive 
+visualizations representing different relationships, can illustrate this.
+Visualizations
+Illustration 7.43  is an HNA Interactive Report, which integrates data relationships with 
+ multiple visualizations.TotalOdysse yCR-VAccord
+Ridg elinePilotCivic 3,074,040
+2,555,799
+1,603,686
+898,441
+897,807
+517,964
+9,547,737Model TotalUnitsSold
+32.20%
+58.97%
+75.76%
+85.17%
+94.58%
+100.00%Cumulative Percentage
+(A) Pivot Table
+(B): Line and Column Chart2,500,000
+2,000,0003,000,0003,500,000
+1,000,000
+500,0001,500,000
+080.00%
+60.00%100.00%
+20.00%40.00%
+0.00%
+Accord CR-V Civic Odyssey Pilot Ridgeline
+Total UnitsSold CumulativePercentageILLUSTRATION 7.42  Exploring HNA’s Unit Sales with Pareto AnalysisIllustration 7.42 (B) is the line and column chart created from the PivotTable. Along 
+the x-axis are the different models ranked based on total units sold. They are the items 
+being analyzed. The line indicates the cumulative number of units sold. A second y-axis 
+was added to emphasize that the line is expressed as a percentage. A point on the line 
+shows how the models to the left of it cumulatively contribute to the total unit sales, as 
+a percentage.
+c07AnalysisDataExploration.indd   31 18/10/22   8:01 AM
+--- PAGE 33 ---
+7-32  CHAPTER 7  Analysis: Data Exploration
+ILLUSTRATION 7.43  Interactive Report Integrating Multiple Data Relationships
+Interactive Report Integrating Multiple Data Relationships
+6,000,000
+3,941,8465,605,891
+5,000,000
+4,000,000
+3,000,000
+2,000,000
+1,000,000
+Canada
+CountryUnitsSold
+USA03
+0%50%100%
+YearUnitsSold
+2021 2022 2023 2024 202524.71%17.55%12.06%10.23%
+31.10%
+25.92%16.86%10.15%10.36%
+31.61%
+24.80%17.76%9.98%10.06%
+31.86%
+27.62%16.41%8.47%9.11%
+32.96%
+29.86%15.73%7.14%7.75%6.43%
+33.09%59,547,737 Items Sold23,000,000
+2,000,000
+1,000,0002,041,8792,225,138
+0
+YearUnitsSold
+2021 2022 2023 2024 20251,723,765 1,782,692 1,774,26342021 2021 2022 2023 2024 2025 1
+Accord Civic CR-V Odyssey Pilot Ridgeline
+The report in Illustration 7.43 integrates five elements:
+ 1. A slicer to select one or more years, which operates as a filter.6
+ 2. A card showing the total number of units sold.
+ 3. A column chart showing a nominal comparison—countries are compared by the total 
+number of units sold.
+ 4. A line chart representing a time series that reveals how the total number of units sold 
+changed during the 2021–2025 period.
+ 5. A 100% stacked column chart that shows composite trends.
+Additionally, the report shows three different part-to-whole relationships. First, the column 
+chart (3) breaks down the total number of units (2) by country. Second, the line chart (4) 
+breaks down the total number of units (2) by year. Finally, the 100% stacked column chart 
+reveals how models break down each total (per year) as percentages.
+Since the report is interactive, different variables can be used for filtering purposes. The 
+total units sold (2) can be filtered by year (1), country (3), and model (5). Also, the trendline 
+(4) can be filtered by country (3) and model (5).
+Illustration 7.44  is the exploration structure of the report in Illustration 7.43. Note that 
+fields in one visualization , such as countries represented as bars in the column chart ( 3), can 
+6We wanted to show the use of slicers as part of a report. However, this slicer is redundant since the years in 
+the line chart and the 100% stacked column charts can be used for the same purpose.
+c07AnalysisDataExploration.indd   32 18/10/22   8:01 AM
+--- PAGE 34 ---
+7.3 How are Data Explored by Integrating Data Relationships?  7-33
+be used as filters for the other visualizations. How this structure is supported might differ 
+across different software tools.
+ILLUSTRATION 7.44  Exploration S tructure  for an Interactive Report that Integrates Multiple Relationships
+Model
+YearFilters
+Country TotalUnitsSoldColumns
+Rows ValuesCountry
+Model
+YearFiltersCard
+Column chart 100% Stacked column chartLine chart
+TotalUnitsSoldColumns
+Rows ValuesFilters
+Year TotalUnitsSoldColumns
+Rows ValuesCountry
+Model
+Filters
+Year TotalUnitsSoldColumns
+Rows ValuesCountry Model2YearFiltersSlicer
+Columns
+Rows Values1
+34
+5
+Exploration and Insights
+What follows is an overview of the data relationships that can be explored, the insights that 
+can be generated, and questions that can be answered with the exploration s tructure  shown 
+in Illustration 7.44:
+• As shown in the upper-left corner of Illustration 7.44, the value shown by the card (2)—Total -
+UnitsSold—can be filtered by any combination of Country, Model, and Year. One example of 
+this is how many units were sold in the USA (country) of the Pilot model (model) in 2022 (year).
+• The column chart (3) compares the units sold (TotalUnitsSold) across countries. Using 
+Model and Year as filters (from the other visualizations), makes it possible to compare 
+Canadian and USA sales of the Accord and Civic models in 2025.
+• The line chart (4) analyzes the overall sales trend. However, trends could also be shown 
+for specific combinations of country and model, such as exploring trends for Ridgeline 
+sales in Canada.
+• The 100% stacked column chart (5) determines the units sold per model per year and 
+presents them as a percentage. 
+Once again, using filters allows exploring more specific scenarios, such as selecting USA  
+in the column chart (3) and 2025 in the line chart (4).
+c07AnalysisDataExploration.indd   33 18/10/22   8:01 AM
+--- PAGE 35 ---
+7-34  CHAPTER 7  Analysis: Data Exploration
+ILLUSTRATION 7.45   U.S. 2025 Sales Mix
+U.S. 2025 Sales Mix
+1,200,000
+1,000,000
+800,000
+600,000
+400,000
+200,000
+Canada
+CountryUnitsSold
+USA03 54
+1,053,9351,171,203
+0%50%100%
+YearUnitsSold
+202529.44%21.52%11.87%10.68%
+21.81%
+Accord Civic CR-V Odyssey Pilot Ridgeline3,000,000
+2,000,000
+1,000,0001,127,486 1,074,766 1,060,9751,171,461 1,171,203
+0
+YearUnitsSold
+2021 2022 2023 2024 20251,171,203 Items Sold22021 2021 2022 2023 2024 2025 1
+Data exploration patterns are best practices for performing analysis. They make us more aware 
+of data relationships, how they can be represented and explored, the insights that can be gen -
+erated, and how they can be integrated.  Illustration 7.45  shows how the report would look after using these filters.
+Apply It 7.3
+Build an Interactive 
+Report Data Managerial Accounting  Defective paint cans are an issue for Mika at Happy Colors, so 
+she would like to explore the following: 
+• Compare the overall number of defective units (paint cans) per employee.
+• Determine how the relative proportion of defective units across products differs among 
+employees.
+• Compare the relative number of defective units per employee.
+Implement the following four steps to help perform the analysis:
+1. Determine what data relationships underlie this analysis.
+2. Identify the visualizations that could be used to explore these data relationships.
+3. Build an interactive report with these visualizations and draw the report’ s exploration structure.
+4. Identify the insights generated by your analysis.
+c07AnalysisDataExploration.indd   34 18/10/22   8:01 AM
+--- PAGE 36 ---
+7.3 How are Data Explored by Integrating Data Relationships?  7-35
+SOLUTION
+1. The data relationships underlying this analysis:
+• Nominal comparison: Compare the overall number of defective units per employee.
+• Part-to-whole: Per employee, relative proportion of defective units across products.
+• Nominal comparison: Compare the relative number of defective units per employee.
+2. Different visualizations can be selected for these data relationships. We will use column charts 
+to explore nominal comparison and a 100% stacked column chart to explore the part-to-whole 
+relationship. For further exploration with different scenarios, we are adding month and 
+ product filters.
+3. There are many ways to conduct this analysis. The following is a possible interactive  report 
+implemented with Power BI.
+Interactive Report Integrating Multiple Data Relationships
+Januar yF ebruar yM arch
+High LowP remium1
+0%50%100%
+34.94%47.54%17.53%11.26%
+40.27%
+48.46%13.54%
+57.25%
+29.21%Number of
+Defective Cans
+Andre Bianca
+EmployeeCamille
+Product
+Low High Premium38730
+Andre0K5K10K
+Bianca
+EmployeeNumber of
+Defective Cans
+Camille8472
+7325235.59%40%
+30%
+20%
+10%
+0%34.54%
+29.87%
+Andre Bianca
+EmployeePercentage
+of Defective
+Cans
+Camille4
+c07AnalysisDataExploration.indd   35 18/10/22   8:01 AM
+--- PAGE 37 ---
+7-36  CHAPTER 7  Analysis: Data Exploration
+The exploration structure for this report looks as follows:
+Exploration Space: Happy Colors Defective Cans Analysis
+MonthFilters
+Employee Total Number
+of Defective CansColumns
+Rows ValuesProduct
+Month
+ProductFilters
+Employee Total Number
+of Defective CansColumns
+Rows ValuesFilters
+Employee Relative Number
+of Defective CansColumns
+Rows ValuesMonth
+ProductMonth
+ProductFilters Columns
+Rows ValuesSlicers 100% Stacked column chart
+Column chart Column chart1 3
+2 4
+4. These insights can be collected from the report:
+• The column chart (2) can compare the number of defective cans per employee . This is  nomi -
+nal comparison. Andre has the highest number and Camille the lowest.
+• The 100% stacked column chart (3) breaks down the number of defective cans by employee 
+and product. This is a part-to-whole relationship. Most of Bianca’s defective cans are for Low 
+products. For Camille, most of the defective cans are for High products.
+• The second column (4) chart mirrors the first column chart (2) and is also a nominal compar -
+ison. However, here, an employee ’s number of defective cans is shown as a percentage of the 
+total number of defective cans (part-to-whole relationship).
+• Using filters (1), select any combination of month and product, which generates additional 
+insights. For example, in January, Andre had more defective cans than Rebecca. However, in 
+February it was the other way around.
+Chapter Review and Practice
+Learning Objectives Review
+❶ Describe the process of data exploration.
+Data exploration is the discovery process of looking for something 
+new and previously unknown:
+• Data exploration has four steps: identifying questions, identify -
+ing data relationships, exploring those relationships, and gener -
+ating insights.• A widely used tool for data exploration is the Excel PivotTable.  
+It enables exploration by selecting, from a list of fields, the 
+numbers to be analyzed, how the numbers will be broken down 
+in terms of rows and columns, and the filters that apply to the 
+data.
+• PivotTables integrate the key techniques of data exploration: 
+identifying  data relationships, filtering, and drag ging  and 
+dropping .
+c07AnalysisDataExploration.indd   36 18/10/22   8:01 AM
+--- PAGE 38 ---
+Learning Objectives Review  7-37
+ILLUSTRATION 7.46  Overview of Data Exploration Patterns 
+Id Data Relationship DescriptionVisualization Examples
+(Bold indicates chapter example)
+Foundational Data Relationships
+1 Nominal Comparison Compares the values of a nominal variable based on the 
+values of a second, numeric variable.Bar chart,  column chart , dot plot, 
+lollipop chart
+2 Distribution Shows how the values of a numeric variable are 
+distributed, or spread.Histogram,  box-and-whisker (boxplot) 
+chart , violin plot
+3 Deviation Shows how a set of actual values deviate from their 
+reference values such as budgeted or forecasted values.Clustered  bar and column charts , gauge, 
+bullet chart
+4 Ranking Orders the values of a variable sequentially based on the 
+values of a second variable.Defined as part of a table, bar chart, or 
+column chart .
+5 Part-To-Whole Shows how each part compares to the whole and how the 
+parts compare to one another.Pie chart , donut chart, stacked bar chart, 
+stacked column chart, treemap chart
+6 Correlation Indicates the degree to which two variables move in the 
+same or the opposite direction.Scatterplot
+7 Time Series Shows the values of a variable at sequential points in 
+time.Area chart, bar chart, column chart, line 
+chart , sparkline chart, waterfall chart
+8 Geospatial Assigns numeric values to locations and encodes them 
+through coloring (shade) and size (bubble size).Maps
+Integrated Data Relationships
+9 Composite Trends Shows how a composite structure (part-to-whole) 
+changes over time (time series).Stacked column chart, 100% stacked 
+column chart, stacked area chart
+10 Pareto Analysis Illustrates the importance of different categories 
+(nominal comparison), ranks them (ranking), and shows 
+their cumulative percentage (part-to-whole).Pareto chart, line and column chart❷ Explore foundational data relationships through 
+visualizations.
+Investigating data relationships is at the heart of data exploration. 
+Eight foundational patterns can help answer questions about which 
+data relationships can be explored, how they can be illustrated in visu -
+alizations, how to create those visualizations, and what insights can 
+be generated from them:
+• A nominal comparison data relationship compares the values of a 
+nominal variable based on the value of a second, numeric, variable. 
+For example, we can compare product categories (nominal variable) 
+based on the total profit they have generated (numeric variable).
+• A distribution data relationship shows how the values of a quanti -
+tative variable are spread out . This relationship can show the high -
+est price paid for a product, the lowest price, the price range, etc.
+• A deviation data relationship shows how a set of actual values 
+deviate from their reference values. Exploring a deviation rela -
+tionship can show how the actual profit for 2025 compares with 
+the budgeted profit.
+• A ranking data relationship orders the values of a variable sequen -
+tially based on the values of a second variable. An example of 
+what it can show is how different products rank based on profit.
+• A part-to-whole data relationship displays how each part com -
+pares to the whole and how the parts compare to each other. It 
+helps to understand issues such as the relative contribution of 
+each product category to a business’ total revenue.
+• A correlation data relationship indicates the degree to which 
+two variables move in the same or opposite direction. For exam -
+ple, how ice cream sales are correlated with temperature.• A time series data relationship defines the values of a variable at 
+sequential points in time. For example, it can be used to explore 
+how a business’ profit changed during the last decade.
+• A geospatial data relationship encodes locations through col -
+oring, shades, and size, based on the values of a numeric vari -
+able. States (location) can be colored based on the total profit 
+(numeric variable) they have generated.
+❸ Explore data by integrating foundational relationships.
+Data exploration often requires the integration of two or more data 
+relationships, which can be represented by a single visualization or by 
+using different visualizations as part of a report:
+• A composite trend is an example of integrated data relation -
+ships that portray how relative proportions (part-whole) change 
+over time (time series). Exploring these relationships can help 
+answer questions, such as how did a business’ sales mix fluctu-
+ate the last ten year.
+• Pareto analysis ranks categories and determines, based on that 
+ranking, how much the categories contribute to the cumulative 
+percentage. Pareto charts can explore data to determine, for 
+example, the most frequent surgical errors in a hospital.
+• Interactive reports with multiple visualizations that represent 
+different data relationships provide endless exploration oppor -
+tunities. A business’ profit total (visual 1) can be broken down by 
+product category (visual 2) while product categories can be fur -
+ther broken down by region (visual 3) or the other way around.
+Illustration 7.46  is an overview of the ten data exploration patterns presented in this chapter.
+c07AnalysisDataExploration.indd   37 18/10/22   8:01 AM
+--- PAGE 39 ---
+7-38 CHAPTER 7 Analysis: Data Exploration
+Key Terms Review
+Composite trend data relationship 7-27
+Correlation data relationship 7-20
+Data exploration  7- 1
+Data relationship  7- 3
+Deviation data relationship  7- 15Distribution data relationship  7- 12
+Exploration structure  7- 10
+Geospatial data relationship  7- 24
+Insight  7-2
+Nominal comparison data relationship  7- 10Pareto analysis 7-30
+Part–to-whole data relationship  7- 18
+Ranking data relationship  7- 17
+Time series data relationship  7- 22
+How To Walk-Throughs
+      HOW T O 7.1 Create a Box-and-Whisker Chart with Excel 
+    Box-and-whisker charts are excellent tools for exploring distribution relationships.  Illustration 
+  7.14   showed an example of a box-and-whisker chart created with Power BI, but you can also
+create one with Excel.  
+  What You Need : Data The How To 7.1 data file. 
+  STEP 1:  Select the data in the  Profit   column as shown in  Illustration   7.47    , then click the  
+Insert   tab (1). Go to the  Charts   group       and select  Insert  Statistic Chart   (2) and  Box-and-
+Whisker   (3).  How To
+      ILLUSTRATION 7.47         Creating  a  Box-and-Whisker Chart with Excel    
+3D
+Map
+ToursInsert File Home Formulas Data Review View Help Page Layout Acrobat Draw
+Maps PivotChart
+ChartsRecommended
+ChartsAdd-
+insIllustrations Tables
+C1 ƒx Profit
+1
+2
+3A B C D E
+11
+2
+3 2ID Model Profit
+CIVIC
+CR-V2125
+27983D
+Map
+ToursFile Home Formulas Data Review View Help Page Layout Acrobat Draw
+Maps PivotChart
+ChartsRecommended
+ChartsAdd-
+insIllustrations Tables
+C1 ƒxƒxƒ Profit
+HHistogram
+Box and Whisker1
+2
+3
+c07AnalysisDataExploration.indd   38 18/10/22   8:01 AM
+--- PAGE 40 ---
+How To Walk-Throughs  7-39
+This creates the box-and-whisker chart shown next  (Illustration 7.48 ).
+ILLUSTRATION 7.48  Excel Box-and-Whisker Chart for Profit 
+Distribution
+$01$1,000$2,000$3,000$4,000$5,000$6,000$7,000$8,000Distribution Profit
+Profit
+The X symbol represents the average. Outliers, defined as being 1.5 times of the interquartile 
+range (IQR) below the first quartile or above the third quartile, are also shown as part of the 
+chart. To see all the data points, click one of the boxes and select Format Data Series . Then, 
+select Show Inner Points . We applied some additional formatting to the chart.
+STEP 2: To create parallel profit distributions for the different models, select both the Model  
+and Profit  columns. To recreate the chart in Illustration  7.49, sort the Model  column in 
+ascending order.
+ILLUSTRATION 7.49  Parallel Profit Distributions for HNA Car Models.
+Accord Civic CR-V Odyssey Pilot Ridgeline$0$1,000$2,000$3,000$4,000$5,000$6,000$7,000$8,000
+Profit
+Model
+c07AnalysisDataExploration.indd   39 18/10/22   8:01 AM
+--- PAGE 41 ---
+7-40  CHAPTER 7  Analysis: Data Exploration
+ILLUSTRATION 7.50  Pareto Data Worksheet
+Odysse yCR-VAccord
+Ridg elinePilotCivic 3,074,040
+2,555,799
+1,603,686
+898,441
+897,807
+517,964Model TotalUnitsSold
+32.20%
+58.97%
+75.76%
+85.17%
+94.58%
+100.00%CumulativeP ercentageHOW TO 7.2  Create a Pareto Chart with Excel and Power BI
+When conducting a Pareto analysis, you must calculate the data, create the chart, and perform 
+the analysis. This can be done in Excel or in Power BI. Here, we illustrate how to combine 
+both tools.
+What You Need:   Data The How To 7.2 data file. 
+STEP 1: Open Power BI and extract the Pareto raw data worksheet from the HNA Pareto raw 
+data Excel file. The worksheet is shown in Illustration 7.50  and is a copy of the PivotTable 
+data shown in Illustration 7.42 (A).How To
+STEP 2: Select the Line and Stacked Column chart in the Visualizations  pane. The definition 
+for the Pareto chart is shown in Illustration 7.51 . 
+ILLUSTRATION 7.51  Creating a Line and Column Chart for Pareto Analysis in Power BI
+Shared axis
+Model
+Column series
+Add dat a fields her e
+Column v alues
+TotalUnitsSold
+Line v alues
+CumulativeP ercentageNominal
+VariableWhat categories are being
+analyzed.
+The numeric variable that
+determines the
+contribution to the
+cumulative percentage.The numeric variable
+used to compare and
+rank the nominal variable.
+Numeric
+Variable:
+Cumulative
+ValuesNumeric
+Variable:
+Values
+c07AnalysisDataExploration.indd   40 18/10/22   8:01 AM
+--- PAGE 42 ---
+Multiple Choice Questions  7-41
+The corresponding chart is shown in Illustration 7.52  and is similar to the chart in 
+ Illustration 7.42 (B). Some additional formatting was applied.
+ILLUSTRATION 7.52  Pareto Analysis of HNA’s Unit Sales
+3,500,000
+3,000,000
+2,500,000
+2,000,000
+1,500,000
+1,000,000
+500,000
+Civic Accord CR-V
+ModelTotal Units Sold Cumulative Percentage
+Odyssey Pilot Ridgeline0100%
+90%
+80%
+70%
+60%
+50%
+40%
+30%
+Total UnitsSold Cumulative Percentage
+Combining multiple tools for a data analytics task and integrating their strengths is common 
+practice.
+Data  The Data tag appears when the data required to answer a question or complete an 
+exercise are available on Wiley’s online learning platform. 
+Multiple Choice Questions
+1. (LO 1)  Exploring data is a four-step process of identifying questions, identifying data relationships, 
+exploring those relationships, and
+a. identifying information requirements.
+b. correcting data anomalies.
+c. identifying insights.
+d. communicating insights.
+2. (LO 1)  Data exploration relies on four elements. Which of the following is not one of the four elements?
+a. Cells
+b. Filters
+c. Rowsd. Values
+e. Columns
+3. (LO 1)  A PivotTable’s values area
+a. determines the number to be reported.
+b. determines what is being analyzed.
+c. represents the variables used for slicing and dicing.
+d. represents data points.
+c07AnalysisDataExploration.indd   41 18/10/22   8:01 AM
+--- PAGE 43 ---
+7-42  CHAPTER 7  Analysis: Data Exploration
+4. (LO 1)  Sweet Candies is a gourmet shop selling candy baskets to customers in all 50 U.S. states. They 
+built a PivotTable in Excel to  analyze the revenues generated by the different mid-Atlantic states in 
+ January 2025. Which of the following components of the PivotTable will be empty?
+a. Columns
+b. Filtersc. Rows
+d. Values
+5. (LO 1)  Which of the following tools explores data? 
+a. Microsoft Excel
+b. Microsoft Power BI
+c. Tableau
+d. All of these tools can explore data.
+6. (LO 2)  The following are all data relationships except
+a. geospatial.
+b. correlation.
+c. part-to-whole.d. deviation.
+e. boolean.
+f. distribution.
+7. (LO 2)  When comparing overtime among employees to determine who has no overtime hours, few 
+overtime hours, or many overtime hours, you are exploring what data relationship?
+a. Part-to-whole
+b. Rankingc. Nominal comparison
+d. Distribution
+8. (LO 2)  Which of the following does not describe data exploration?
+a. Creating a list of products, ordered by Facebook “likes,” in descending order.
+b. Creating a visualization showing, per product, the 2025 actual and targeted number of units sold.
+c. Creating a chart showing the mean, median, and range of last year’s sales transaction amounts.
+d. Creating a map with states or provinces colored based on the total quantity sold there.
+e. Creating a formula that defines gross profit: revenue – cost of goods sold.
+9. (LO 2)  Which of the following is not an example of critical thinking applied to data exploration?
+a. Looking at data from different viewpoints, such as customers, investors, and employees.
+b. Evaluating and re-evaluating the assumptions underlying the insights generated.
+c. Transforming dashboards to make sure the insights generated are easy to understand.
+d. Studying and applying advanced statistical methods to add precision to the insights generated.
+10. (LO 2)  The box-and-whisker chart shows salary distributions for the different categories of employ -
+ees at a public accounting firm: staff, manager, senior manager, and partner.
+$2,000,000
+$1,500,000
+$1,000,000
+$500,000
+Staﬀ Manager Senior Manager Partner$0Salary
+Categ ory
+Insights for this data set could include:
+ 1. The salaries for partners are significantly higher than for the other categories.
+ 2. There is little variation in the salaries for staff members.
+ 3. The salaries for partners are skewed–there is more variation among the high salaries than among 
+the low salaries.
+ 4. There is an outlier for the senior manager category.
+c07AnalysisDataExploration.indd   42 18/10/22   8:01 AM
+--- PAGE 44 ---
+Multiple Choice Questions  7-43
+Which of these insights can be derived from the box-and-whisker chart?
+a. 1 and 2
+b. 1 and 3
+c. 1 and 4d. 1, 2, and 3
+e. 1, 2, and 4
+f. 1, 2, 3, and 4
+11. (LO 2)  Flame, a U.S. company that sells electronic products worldwide, gives you this data set.
+Eastern-EuropeWestern-EuropeSouth-Americ a
+AsiaAfricaNorth-America 19,922,189
+89,900,011
+3,008,223
+2,347,781
+890,002
+122,343Regio n 2020 Profit s
+What data relationship is not relevant for this data set?
+a. Nominal comparison  d. Part-to-whole
+b. Ranking  e. Deviation
+c. Geospatial  f. All of these are relevant.
+12. (LO 2)  Which of the following aspects is not relevant for a time series data relationship?
+a. Trend
+b. Seasonal pattern
+c. Magnitude of discrepanciesd. Irregularities
+e. Forecasts
+13. (LO 2)  Which of the following aspects is not relevant for a correlation data relationship?
+a. Clusters
+b. Strength (correlation coefficient)
+c. Direction (positive or negative)d. Outliers
+e. Forecasts
+14. (LO 3)  ABC company bought  a machine with an esti mated useful life of 10 years for $80,000 (cost). 
+The residual (salvage) value of the machine is $8,000. 
+16K12.8K10.24K8.19K6.55K5.24K4.19K3.36K2.74K2.68K 72K
+0K
+123456
+YearDepreciation
+Expense
+78 91 0 Total20K40K60K80K
+Increase Decrease Total
+The waterfall chart visualizes the machine’s depreciation using what data relationships?
+a. Part-to-whole, time-series  d. Ranking, time-series
+b. Deviation, time-series  e. Deviation, part-to-whole
+c. Time-series, nominal comparison
+c07AnalysisDataExploration.indd   43 18/10/22   8:01 AM
+--- PAGE 45 ---
+7-44  CHAPTER 7  Analysis: Data Exploration
+15. (LO 3)  Delvoux is a high-end manufacturer of handbags located in Brussels, Belgium. They created 
+this report for exploring units sold.
+70,000
+60,000
+50,000
+40,000
+30,000
+20,000
+10,000
+Jan. Feb. Mar. Apr. May Jun.
+MonthJul. Aug. Sep. Oct. Nov. Dec.0300,000
+250,000
+200,000
+150,000
+100,000
+50,000
+0
+2024 20252024 2025
+Which data relationships are explored in this visualization?
+a. Ranking, time-series
+b. Nominal comparison, part-whole, 
+ ranking, time seriesc. Deviation, distribution, time series
+d. Deviation, nominal comparison,  
+part-whole, time series
+16. (LO 3)  Cone Canoes (CoCaN) is a high-quality canoe manufacturer that sells their products world -
+wide. They make four different types of canoes: recreational, whitewater, racing, and fishing. They would 
+like to further explore the total revenues generated by U.S. sales of whitewater and racing canoes for all 
+four quarters in 2025. Through their ERP, they have access to their sales data for the last ten years. Which 
+of the following represents the exploration structure for such an analysis?
+Year Country
+ProductTypeFilters
+ProductType TotalRevenuesColumns
+Rows Values
+Country
+Year
+ProductTypeFilters
+ProductType TotalRevenuesColumns
+Rows ValuesFilters
+Country
+YearTotalRevenuesColumns
+Rows Values
+Country
+YearQuarters QuartersFilters
+ProductType TotalRevenuesColumns
+Rows ValuesProductType
+YearA C
+B D
+c07AnalysisDataExploration.indd   44 18/10/22   8:01 AM
+--- PAGE 46 ---
+Review Questions  7-45
+17. (LO 3)  Vosci Salon de Spa, a hair salon in Albuquerque, New Mexico offers three service lines: hair, 
+nails, and tanning. Vosci’s owner provides you with the following summary:
+$ 123,451
+$   79,862
+$   18,776
+$   24,813$ 37,987
+$ 21,324
+$ 15,112
+$   1,551$ 55,231
+$ 13,412
+$ 25,771
+$ 16,048Revenues
+Variable Costs
+Fixed Costs
+Profit s$ 216,669
+$ 114,598
+$   59,659
+$   42,412Hair Nails Tanning Totals
+Which of the following statements is incorrect?
+a. There is a part-to-whole relationship between revenues (whole) and variable cost, fixed costs, and 
+profits (parts).
+b. Profit margin is the relative proportion of profits as part of revenues and thus based on a part-to-
+whole relationship.
+c. Each row in the table presents a time series which enables to compare the relative importance of 
+different services.
+d. The different service lines can be compared based on profits (nominal comparison).
+Review Questions
+1. (LO 1)  Describe the goal of data exploration.
+2. (LO 1)  What are the four steps in the data exploration process?
+3. (LO 1)  How would you describe an insight in the context of data exploration?
+4. (LO 1)  Briefly describe the role of charts in data exploration. 
+5. (LO 1)  What is a PivotTable’s key strength?
+6. (LO 1)  What three key data exploration techniques are supported by PivotTables?
+7. (LO 1)  Discuss the purpose of the Values area in a PivotTable.
+8. (LO 1)  What is the purpose of filters in data exploration?
+9. (LO 2)  What are the two key variables in a nominal comparison relationship? Use an example to 
+explain.
+10. (LO 2)  Discuss two insights that can be generated from exploring a distribution relationship. Use a 
+corporation’s earnings during the last twenty years as the example for your discussion.
+11. (LO 2)  List at least five different pieces of information that a box-and-whisker chart provides about 
+a distribution.
+12. (LO 2)  What role does a nominal variable play when creating a box-and-whisker chart?
+13. (LO 2)  A university compares its faculty salaries with peer institutions (peer salary comparison). 
+What kind of relationship are they exploring? What kind of insights might they generate and what deci -
+sions can be affected by such insights?
+14. (LO 2)  The pie chart summarizes the expenses of a household.
+Housing
+35.9%Transpor tation
+2.99%Expense
+Food
+22.22%Children
+21.37%Enter tainment
+8.55%Medical
+5.13%Personal
+3.85%
+1. What data relationship is being explored?
+2. What are two insights that can be generated from the pie chart?
+c07AnalysisDataExploration.indd   45 18/10/22   8:01 AM
+--- PAGE 47 ---
+7-46  CHAPTER 7  Analysis: Data Exploration
+15. (LO 2)  Beebe is a hospital in southern Delaware that employees fifty surgeons. For insurance purposes 
+they must provide detailed data regarding surgical errors. One of the reports they prepare is shown here.
+80
+4060
+20
+0Number of
+Surgical Errors
+Years of Experienc e10 25 52 0 01 53 0
+1. What chart is being used?
+2. What data relationship is being presented?
+3. What two insights regarding the data relationship can you identify?
+16. (LO 2)  What are the two mechanisms that can be used to encode locations?
+17. (LO 3)  Analysis of composite trends is based on three variables: a nominal variable, a numeric vari -
+able, and a time unit variable. Discuss the role of each of these variables in the analysis. Use the medal 
+count per country during the last five summer Olympics as an example for your discussion.
+18. (LO 3)  Aurora is a pizza restaurant in Alaska. Recently, business has been significantly slower than 
+normal for them. To better understand why this is happening, they created a Pareto chart using data from 
+the complaints they received on Yelp. A Pareto chart combines several data relationships. Name these 
+relationships and discuss them in the context of the chart shown. 
+FriendlinessNumber of
+ComplaintsPercent
+of Total
+IssuesWait Time Food Quality Menu Items Cleanliness Order Mix-up Overpriced400 100%
+90%
+80%
+70%
+60%
+50%300375
+200
+100
+03429
+13 9488.01%92.59%96.50%
+98.25%99.46% 100.00%
+50.54%278
+c07AnalysisDataExploration.indd   46 18/10/22   8:01 AM
+--- PAGE 48 ---
+Review Questions  7-47
+19. (LO 3)  What are the two relationships integrated by a treemap? Explain how the following tree map 
+shows these relationships. 
+Bonds
+25.80%
+Cash
+13.32%Commodities
+7.27%Cash
+Equivalents
+12.24%Stocks
+41.37%
+20. (LO 3)  ESpin is a company in Surprise, AZ , manufacturing  revolutionary toothbrushes that provide 
+deeper cleaning than average toothbrushes. They give you data for their 2021 –2025 sales in their three 
+current regions. The data is shown here.
+Region
+Asia 789,112
+1,256,111
+2,667,112977,111
+1,238,771
+2,402,776 2,288,9111,009,112
+1,398,814 Europe
+U.S.2021 2022 2023
+2,000,1121,125,521
+1,199,7652024
+1,991,1271,344,572
+1,290,9142025
+You develop the following interactive report for them.
+10,000,00011,350,038
+6,384,375
+5,245,4284,800,000
+4,696,837
+4,626,6134,712,335
+4,618,658
+4,325,39812,000,000
+6,000,0008,000,000
+2,000,0004,000,000
+0Total
+Amount
+RegionEurope US Asia5,000,000
+4,600,000
+4,200,0004,400,000
+4,000,000Total
+Amount
+Year2023 2022 2021 2024 2025
+The corresponding exploration structure follows:
+YearFilters
+Region Total AmountColumns
+Rows ValuesBar Chart Line Chart
+RegionFilters
+Year Total AmountColumns
+Rows Values
+Determine at least three questions that can be answered with this report.
+c07AnalysisDataExploration.indd   47 18/10/22   8:01 AM
+--- PAGE 49 ---
+7-48  CHAPTER 7  Analysis: Data Exploration
+BE 7.1  (LO 1)  Match the appropriate term to each definition. Terms can be used once, more than once, 
+or not at all.
+ a. Outlier  e. Drag and drop
+ b. Correlation  f. Data interpretation
+ c. Insight  g. Data exploration
+ d. Analytical database
+Statement Term
+ 1. An observation that might significantly affect a 
+business’ decision-making.
+ 2. Input of data exploration.
+ 3. Output of data exploration.
+ 4. The discovery process of learning something new 
+and previously unknown from data.
+BE 7.2  (LO 1)  Data exploration is based on three elements: (1) the number being  analyzed, (2) variables 
+that break down the number, and (3) ________________.
+BE 7.3  (LO 1)  Data Financial Accounting  Mario runs a Food Truck, the Treat Buggy, in Atlantic 
+City, NJ. Use the data file provided by Mario to determine the percentage of his revenues during summer 
+months (June, July, August) generated from ice cream sales compared to sales from other items. 
+BE 7.4  (LO 1)  Data  Managerial Accounting  Mauretius is a boutique Monegask car builder. They 
+manufacture 5,000 cars each year. There are two different car models: Perfic and Fortis. A critical compo -
+nent for all their cars is a high-performance battery. The company outsources the manufacturing of the 
+batteries for both models to three vendors: Optima, Champion, and Diehard. Specifications and prices 
+are the same for all three vendors. Because of this, vendors are rated based on reliability. They are eval -
+uated as to the extent they comply with Mauretius’ specifications. Batteries that are not compliant are 
+returned. Using the data set provided by Mauretius, compare vendors’ reliability as a percentage for both 
+models. Based on reliability, who should be the preferred vendor for each battery type?
+BE 7.5  (LO 2)  Managerial Accounting Wallmark is a fast-growing manufacturer of musical greeting 
+cards in Tallahassee, FL. To improve their business and manage growth they are heavily investing in 
+data analytics. Match each of the data exploration scenarios with one of the following data relationships.
+ a. Correlation
+ b. Deviation c. Distribution
+ d. Part-to-whole
+Data Exploration Data Relationship
+1. A strong growth in Wallmark’s number of 
+employees has resulted in strong growth in 
+office expenses.
+2. Last year Wallmark’s labor costs 
+systematically exceeded their estimates. This 
+might have been caused by the premiums 
+Wallmark paid related to the pandemic.
+3. Last month the average price Wallmark paid 
+for a button battery, a key element in musical 
+greeting cards, was $7. However, prices for 
+the exact same product ranged from $3 to $18.
+4. Batteries represent 20% of the cost of making 
+a standard musical greeting card.
+BE 7.6  (LO 2) Managerial Accounting  Monar is a trendy shoe store on Fifth Avenue in New York 
+that employs ten in-store salespeople. Monar’s CEO uses the following chart when analyzing the per -
+formance of the company’s salespeople. The chart shows salespeople in descending order of seniority. 
+Freddy Fender is the most recent hire.Brief Exercises
+c07AnalysisDataExploration.indd   48 18/10/22   8:01 AM
+--- PAGE 50 ---
+Brief Exercises  7-49
+J. Doku
+J. LukakuE. Mertens
+J. SwiatekK. Rogers
+L. BryantA. Lafonte
+B. TurfB. Benson
+F. Fender$0$800,000
+$700,000
+$600,000
+$500,000
+$400,000
+$300,000
+$200,000
+$100,000
+Budgeted Sales Actual Sales
+ 1. What data relationship is being explored? 
+ 2. What insights can be generated from this chart? 
+BE 7.7  (LO 2)  Data  Managerial Accounting  Raisin is an electronics manufacturer with head -
+quarters in Dijon, France. Its CEO wants a dashboard that shows the progress made for each product 
+line compared to last year’s unit sales. The goal is a 10% increase in unit sales for each of the four product 
+lines. The CEO provides you the data. 
+122322
+789112
+67891
+322112132889
+998325
+32445
+401223Computer s
+Phones
+Printer s
+TVsLastYear ProductLine ThisYear
+ 1. What data relationship are you exploring?
+ 2. What visuals would you use to explore this relationship?
+ 3. What insights can you collect from your exploration?
+BE 7.8  (LO 2,  3) Managerial Accounting  QB (Quality Breads) is a bakery in downtown Los Angeles 
+selling artisanal breads. The estimated daily fixed costs are $4,000. The cost to make one loaf of bread is 
+$3, and the selling price for each loaf is $5. As a result, the daily breakeven point for QBs, ignoring unsold 
+bread,  is 2,000 loaves of bread. Unsold bread, or spoilage, is disposed of at the end of the day. At the end 
+of last week, QB generated the following report. 
+Units Manufactured, Sold, and Spoiled
+Sunday Monday Tuesday Wednesda yT hursda yF riday Saturday
+DayBreakeven
+02,0004,000
+Manufactured Sold Units Spoiled
+Cost, Revenue, and Profit
+Sunday Monday Tuesday Wednesda yT hursda yF riday Saturday
+Day0
+($10,000)10,000$20,000
+Cost Revenue Profit
+Discuss the data relationships explored in this report.
+c07AnalysisDataExploration.indd   49 18/10/22   8:01 AM
+--- PAGE 51 ---
+7-50  CHAPTER 7  Analysis: Data Exploration
+BE 7.9  (LO 2 , 3) Data  Financial Accounting  CITREX is a biotech company in Miami, FL. One of 
+the goals in their 2020 strategic plan was to improve their accounts receivable turnover ratio to 10. The 
+table shows (net) sales and (average) accounts receivable information from their 2021 –2025 financial 
+statements.
+Account
+Sales  $ 3,129,666
+$    425,662$ 3,518,891
+ $    436,771$ 4,015,671
+$    491,223 Accounts Rec eivable2021 2022 2023
+$ 5,913,556
+$    549,9012024
+$ 6,123,411
+$    618,8912025
+Explore CITREX’s success in accomplishing this goal. Create two visualizations. Briefly describe what 
+data relationships they represent and the insights you derived from each.
+BE 7.10  (LO 3)  Data  Financial Accounting  Poisson is a manufacturer of swimwear. They provide 
+you the following financial summary for the last five years.
+Account
+Revenues  $ 3,476,811
+$ 1, 890,556$ 3,337,714
+$ 1,735,551$ 3,197,633
+$ 1,640,941 Gross Profit2021 2022 2023
+$ 3,159,912
+$ 1,554,8912024
+$ 3,087,761
+$ 1,438,664
+$     753,891 $    827,714 $    970,022 Net Profit $ 1,000,033 $ 1,110,9892025
+Explore the data. Create two visualizations. Briefly describe what data relationships they represent and 
+the insights you derived from each.
+BE 7.11  (LO 2 , 3) Napigem is a Florida biotech company. They invest some of their assets in stocks, 
+bonds, and mutual funds. The following dashboard helps them manage their investment portfolio. 
+$13,663.07$17,445.12$23,131.89$34,856.11$44,721.89$47,811.67$75,398.27$125,679.14Johnson & Johnson
+Microso/f_t
+Netflix
+Costco Wholesale
+Kra/f_t Heinz
+Home Depot
+Airbnb
+United Airlines
+Paypal Holdings
+Walt Disney
+$0 $50,000 $100,000 $150,000
+Value$200,000 $250,000 $300,000$256,772.89
+$245,991.09
+Mutual
+funds
+33.11%Stocks
+43.41%Bonds
+23.48%Pie ChartBar Chart
+ 1. What data relationships are explored in this dashboard?
+ 2. Complete the exploration structure for this dashboard using the following field names. 
+Field Name Description
+InvestmentName The name of a specific stock, mutual fund, or bond (e.g., Home Depot).
+InvestmentType Type of investment: bond, mutual fund, or stock.
+TotalValue The total portfolio value ($)
+The same fie ld name can be used more than once. (Some of the areas in the exploration structure will 
+remain empty.)
+c07AnalysisDataExploration.indd   50 18/10/22   8:01 AM
+--- PAGE 52 ---
+Brief Exercises  7-51
+Austria
+Belgium
+Croatia
+Denmark
+Finland
+France
+Germany
+Greece
+Hungary
+Iceland
+Ireland
+Italy
+Luxemburg
+Netherlands
+Norway
+Poland
+Portugal
+Spain
+Sweden
+Switzerland
+United Kingdom
+$0 $10,000,000 $20,000,000
+Budgeted Sales Actual SalesInterpret
+75/10/82/0Communicate
+100/28/100/20Norwegian Sea
+Iceland
+NorwaySweden
+Finland
+North
+Sea
+IrelandUnited
+Kingdom Denmark
+Belarus
+Poland
+Ukraine
+Black SeaRomania
+Turkey
+Syria
+Libya EgyptSpainItalyFrance Austria
+Greece
+AlgeriaMoroccoPortugal
+Mediterranean SeaNorwegian Sea
+Iceland
+NorwaySweden
+Finland
+North
+Sea
+IrelandUnited
+Kingdom Denmark
+Poland
+LibyaSpainItalyFrance Austria
+Greece
+AlgeriaMoroccoPortugal
+Mediterranean SeaNorwegian Sea
+Iceland
+NorwaySweden
+Finland
+North
+Sea
+IrelandUnited
+Kingdom Denmark
+Belarus
+Poland
+Ukraine
+Black SeaRomania
+Turkey
+Syria
+Libya EgyptSpainItalyFrance Austria
+Greece
+AlgeriaMoroccoPortugal
+Mediterranean SeaNorwegian Sea
+Iceland
+NorwaySweden
+Finland
+North
+Sea
+IrelandUnited
+Kingdom Denmark
+Poland
+LibyaSpainItalyFrance Austria
+Greece
+AlgeriaMoroccoPortugal
+Mediterranean SeaAmericas
+Asia Pacific
+Europe
+Middle East and AfricaClustered Bar Chart
+SlicerMapBE 7.12  (LO 3)  Sof*tee is company with headquarters in Dallas, TX, that sells baby care products 
+ worldwide. They created the following dashboard to make it easy for the C-Suite to monitor sales. 
+ 1. What data relationships are explored in this dashboard?
+ 2. Complete the exploration structure for this dashboard using the following field names.FiltersPie Chart Bar Chart
+Columns
+Rows ValuesFilters Columns
+Rows Values
+Field Name Description
+ActualSales Total actual sales. 
+BudgetedSales Total budgeted sales in dollars. 
+Country Name of the country. 
+Region Name of the regio. 
+Variance Total sales − total budgeted sales
+Each field name can be used more than once. There will be some blank areas in the completed explora-
+tion structure. 
+FiltersSlicer
+Columns
+Rows ValuesClustered Bar Chart
+Filters Columns
+Rows ValuesMap
+Filters Columns
+Rows Values
+c07AnalysisDataExploration.indd   51 18/10/22   8:01 AM
+--- PAGE 53 ---
+7-52  CHAPTER 7  Analysis: Data Exploration
+Exercises
+EX 7.1  (LO 1)  Data  Tax Accounting Explore Tax Expenses  Instant Pest Control (IPC) is a 
+ medium-sized company with offices in Delaware, Maryland, New Jersey, and Pennsylvania. IPC’s con -
+troller wants two tax-related questions answered.
+ 1. For tax purposes, IPC is required to file Form 1099s for contractors and Form W-2s for employees. 
+How many of both forms do they need to prepare for each state? Because IPC pays their tax accoun -
+tants per prepared form, this information can help the controller estimate the fee to be paid.
+ 2. IPC has established an internal policy to hire only in-state employees to simplify its tax filings. The 
+state the office is located in and the employee’s state of residency should be the same. Per state, to 
+what extent are the offices compliant with this policy (as a percentage)? 
+EX 7.2  (LO 2)  Data Managerial Accounting  Explore Salary Distribution  The Benford Group is 
+a U.S. top-50 public accounting firm with more than 1,400 employees. Their managing partner, Tanya, 
+provides you with a list of the salaries of all employees. What can you tell Tanya about the salary distri -
+bution at the Benford Group? 
+EX 7.3  (LO 2)  Data  Financial Accounting  Growth Analysis  Shrek, a mid-size bike manufac -
+turer in Oxford, PA, targets a 5% growth in 2025 for all its product lines. As Shrek’s controller, you have 
+received the data set generated by the company’s ERP system.
+2771
+8001
+13998
+234885741
+6799
+14881
+22476Adventur e
+City
+Cyclocross
+Family
+8112 11665 Fitness
+7500 7430 Mount ain
+1089 722 Tandem
+3801 4022 Touring2024 UnitsSold ProductLine 2025 UnitsSold
+ 1. Starting from the data you received, what are two key questions you would like to answer?
+ 2. What data relationship is being explored?
+ 3. What visualizations can be used for exploration purposes?
+ 4. What insights are generated by your analysis?
+EX 7.4  (LO 2, 3 ) Data Managerial Accounting  Daily Sales Comparison  Meier is a chain of gro -
+cery stores. Their store in Big Rapids, MI gives  you their 2025 February sales data for four products: deli, 
+meat, chicken, and fish. A sample is shown next.
+$ 27,234
+$ 34,889
+$ 19,067
+$ 17,8122/1/2025
+2/2/2025
+2/3/2025
+2/4/2025
+$ 22,357 2/5/2025
+$ 11,525 2/6/2025
+$ 12,052 2/7/2025
+$ 28,554 2/8/2025Deli
+$ 87,665
+$ 43,141
+$ 61,675
+$ 46,855
+$ 42,584
+$ 55,635
+$ 38,495
+$ 82,009Meat
+$ 17,074
+$ 38,827
+$ 15,447
+$ 32,029
+$ 31,342
+$ 42,466
+$ 41,091
+$ 24,739Chick en
+$   5,992
+$ 10,436
+$ 12,024
+$   5,285
+$   9,361
+$   9,019
+$ 24,889
+$   7,563
+$ 41,776 2/9/2025
+$ 16,200 2/10/2025$ 45,106
+$ 44,461$ 15,990
+$ 25,780$ 12,569
+$ 11,666Fish Day
+Create a visualization for each of the two questions they ask you to explore:
+ 1. How do weekdays rank based on total February sales?
+ 2. How does the sales share of each product compare across weekdays?
+c07AnalysisDataExploration.indd   52 18/10/22   8:01 AM
+--- PAGE 54 ---
+Exercises  7-53
+EX 7.5  (LO 2)  Data  Identify and Explore Data Relationships  Ice Cow is a popular ice cream store 
+in New York City’s theater district. They created the following report for their July 2025 sales.
+$25,000
+$15,000$20,000
+$10,000Sales (Dollars)
+Temperatur e85 80 75 90 9582
+81
+81
+797/1/25
+7/2/25
+7/3/25
+7/4/25
+83 7/5/25
+85 7/6/25
+83 7/7/25
+84 7/8/25Temper ature
+$ 16,820
+$ 16,128
+$ 18,412Sales
+86 7/9/25
+88 7/10/25
+88 7/11/25
+91 7/12/25
+93 7/13/25
+82 7/14/25
+76 7/15/25
+77 7/16/25
+82 7/17/25
+84 7/18/25$ 25,373
+$ 17,396
+$ 17,236
+$ 18,628
+$ 18,393
+$ 17,773
+$ 21,761
+$ 20,411
+$ 17,558
+$ 18,104
+$ 11,498
+$ 13,497
+$ 13,985
+$ 15,825
+$ 16,031
+$ 20,248 88 7/19/25
+92 7/20/25 $ 18,333
+91 7/21/25 $ 16,442
+90 7/22/25 $ 17,872
+88 7/23/25 $ 20,923
+82 7/24/25 $ 19,752
+83 7/25/25 $ 19,919
+84 7/26/25 $ 19,153
+83 7/27/25 $ 19,494
+85 7/28/25 $ 18,361
+87 7/29/25 $ 20,311
+86 7/30/25 $ 19,544
+84 7/31/25 $ 17,790Date
+ 1. What question is being explored?
+ 2. What data relationship is being explored?
+ 3. What insights does the data relationship generate?
+c07AnalysisDataExploration.indd   53 18/10/22   8:01 AM
+--- PAGE 55 ---
+7-54  CHAPTER 7  Analysis: Data Exploration
+EX 7.6  (LO 2, 3 ) Data Managerial Accounting  Identify and Explore Data Relationships  Gummy 
+is a chain with candy trucks selling  in five cities: Chicago, Los Angeles, New York, Philadelphia, and San 
+Francisco. They provide you the following report.
+1,240
+1,267
+1,270
+1,3002021
+2022
+2023
+2024
+1,320 2025Chicag o
+1,712
+1,650
+1,590Los Ang elesNumber of Candy T rucks
+New Y ork Philadelphia San Francisc o
+1,575
+1,4201,350
+1,245
+1,240
+1,243
+1,225750
+730
+690
+720
+730920
+920
+975
+1,044
+1,055Year
+1.15
+0.800.850.900.951.001.051.10
+Percentage
+Year2023 2022 2021 2024 2025
+Philadelphi aS an FranciscoChicago Los Angeles New York
+ 1. What question is being explored?
+ 2. What data relationships are being explored?
+ 3. What insights do the data relationships generate?
+EX 7.7  (LO 2 , 3) Data Managerial Accounting  Identify and Explore Data Relationships  Cook 
+Cars is a small car dealership that employs three salespeople: Carlos, Arun, and Shanice. The dealership’s 
+owner asked you to prepare the following report.
+80
+6070706767
+2 10
+40
+2060
+570
+10
+40
+2064
+8
+38
+1870
+10
+40
+2075
+45
+255
+50
+40
+30
+20
+10
+Target Actual
+Carlos Arun2025 Unit Sales
+Shanice0Target Actual Target Actual
+SUV Sedan Sports
+ 1.  What questions are being explored?
+ 2.  What data relationships are being explored? 
+ 3. What insights do the data relationships generate? 
+c07AnalysisDataExploration.indd   54 18/10/22   8:01 AM
+--- PAGE 56 ---
+Exercises  7-55
+ 1. What questions are being explored?
+ 2. What data relationships are being explored? 
+ 3. What insights do the data relationships generate?Chain
+Courty ard Wilmingt on Downt own
+Sher aton Suit es Wilmingt on Downt own
+The Wes tin Wilmingt onDouble Tree by Hilt on Ho tel Wilmingt on
+Fairfield Inn & Suit es Wilmingt on New Cas tle
+Homewood Suit es by Hilt on Wilmingt on Downt own
+Hotel Wilmingt on/Chris tiana
+Residenc e Inn Wilmingt on Downt ownMarrio tt
+Marrio tt
+Marrio tt127
+118
+202
+145
+224
+142
+136
+175Hilton
+Marrio tt
+Hilton
+Hilton
+Marrio ttHotel
+1102 N Wes t Street , Wilmingt on, Delaware, 19801
+422 Delaware Avenue, Wilmingt on, Delaware, 19801
+818 Ship yard Drive, Wilmington, Delaware 1980 14727 Conc ord Pik e, Wilmingt on, DE 19803
+2117 N Dupont Hwy , New Cas tle, DE 19720-6308
+820 Jus tison St, Wilmingt on, DE 19801
+100 Continent al Drive Newark , Delaware 19713-4301, US A
+1300 North Mark et Street , Wilmingt on, Delaware 19801Location Rate/Night
+                                  
+Wilmingt on Manorarfield ParkStantonCedar s
+Elsmer eGreenville
+HIGHLANDS
+GREENHILL
+Delawar e
+ParkDelaware River
+Shell Rd
+iaware TpkeShell RdNewportBellefon te
+Edgemoor
+Winningt on
+iaware TpkeRIVER       T
+295495
+495
+96
+14141
+2
+295
+Chain
+Courty ard Wilmingt on Downt own
+Sher aton Suit es Wilmingt on Downt own
+The Wes tin Wilmingt onDouble Tree by Hilt on Ho tel Wilmingt on
+Fairfield Inn & Suit es Wilmingt on New Cas tle
+Homewood Suit es by Hilt on Wilmingt on Downt own
+Hotel Wilmingt on/Chris tiana
+Residenc e Inn Wilmingt on Downt ownMarrio tt
+Marrio tt
+Marrio tt127
+118
+202
+145
+224
+142
+136
+175Hilton
+Marrio tt
+Hilton
+Hilton
+Marrio ttHotel
+1102 N Wes t Street , Wilmingt on, Delaware, 19801
+422 Delaware Avenue, Wilmingt on, Delaware, 19801
+818 Ship yard Drive, Wilmington, Delaware 1980 14727 Conc ord Pik e, Wilmingt on, DE 19803
+2117 N Dupont Hwy , New Cas tle, DE 19720-6308
+820 Jus tison St, Wilmingt on, DE 19801
+100 Continent al Drive Newark , Delaware 19713-4301, US A
+1300 North Mark et Street , Wilmingt on, Delaware 19801Location Rate/Night
+                                  
+Wilmingt on Manorarfield ParkStantonCedar s
+Elsmer eGreenville
+HIGHLANDS
+GREENHILL
+Delawar e
+ParkDelaware River
+Shell Rd
+iaware TpkeShell RdNewportBellefon te
+Edgemoor
+Winningt on
+iaware TpkeRIVER       T
+295495
+495
+96
+14141
+2
+295EX 7.8  (LO 2) Data  Identify and Explore Data Relationships  Maggie Lee owns two take-out 
+restaurants called Wok and Dumpling. Wok is located in downtown  Denton, Texas. Dumpling is in the 
+business district of the same city. Both restaurants serve a similar menu. At the end of the first quarter, 
+Maggie receives a report she requested from her accountant.
+$25,000
+$20,000
+$15,000
+$10,000
+$5,000
+Dumpling Wok$30,000
+0Daily Sales
+(Dollars)
+Rest aurantQ1 Daily Sales Amounts
+ 1. What questions are being explored?
+ 2. What data relationship is being explored? 
+ 3. What insights does the data relationship generate? 
+EX 7.9  (LO 2, 3)  Identify and Explore Data Relationships  The Santorini group, a public accounting 
+firm in Amarillo, TX, has five employees who plan to attend a seminar in Wilmington, DE, next month. 
+Their data analyst generates this report. The orange bubbles represent Hilton hotels, and green bubbles 
+represent Marriott hotels. Bubble size indicates the rates charged: the smaller the bubble, the cheaper the 
+nightly rate. The red star indicates the seminar location.
+c07AnalysisDataExploration.indd   55 18/10/22   8:01 AM
+--- PAGE 57 ---
+7-56  CHAPTER 7  Analysis: Data Exploration
+The three diagrams show possible exploration structures for this data set: A, B, and C.
+ProductFilters
+Warehouse TotalQuantity
+OnHandColumns
+Rows Values(A)
+ProductFilters
+Warehouse TotalQuantity
+OnHandColumns
+Rows Values(B)
+TotalQuantity
+OnHandFilters
+Product TotalQuantity
+OnHandColumns
+Rows Values(C)
+Do the following for each exploration structure: 
+ 1. Identity a data relationship that could be explored.
+ 2. Determine questions that could be answered.
+ 3. Create a visualization to support your analysis. 
+ 4. Explain insights that could be generated. 
+EX 7.11  (LO  2, 3 ) Data Financial Accounting Identify and Explore Data Relationships  Beth -
+any Beach, a small beach community , has three ice cream stores: Laureen’s, Softer-Ice, and YuMeeS. The 
+following data summarizes their revenue for the 2021 to 2025 period.
+fx
+21B A C D F
+Sheet13
+4
+5Store
+Laureen’s2022
+$ 309,466 $ 340,0112023 2025
+$ 498,0072021Bethany Beach Ice Cream Stores
+Revenues
+2021–2025
+$ 283,776AutoSave Oﬀ
+E
+$ 418,966
+So/f_ter-Ice $ 123,000 $ 266,128 $ 478,326 $   76,000 $ 314,000
+YuMeeS $ 192,000 $ 163,000 $ 129,000 $ 211,984 $ 149,0002024
+Generate at least three insights from the perspective of Laureen’s. For each insight, discuss what data 
+relationship you explored and what visual you used to generate it.M1750
+M1750
+M1750
+M1750Boston
+New Y ork
+Philadelphia
+Baltimor e
+M2450 Boston
+M2450 New Y ork
+M2450 Philadelphia
+M2450 Baltimor eProduct
+412
+288
+298
+396
+49
+658
+321
+199QOH
+M2950 Boston
+M2950 New Y ork
+Philadelphia
+Baltimor e
+Boston
+New Y ork
+Philadelphia
+Baltimor e420
+519
+M2950 344
+M2950 618
+M3750 400
+M3750 400
+M3750 150
+M3750 55WarehouseEX 7.10  (LO  2, 3) Data Identify and Explore Data Relationships  Perez & Sons (PS) are the 
+ exclusive northeast  distributors for South Track treadmills. There are four types of treadmills: M1750, 
+M2450, M2950, and M3750. PS has four warehouses, one each in Boston, New York, Philadelphia, and 
+Baltimore. To meet demand, they want 1,300 units of each type of treadmill in stock at any time, for a 
+total of 5,200. They provide you with the data set.
+c07AnalysisDataExploration.indd   56 18/10/22   8:01 AM
+--- PAGE 58 ---
+Exercises  7-57
+EX 7.12  Data Tax Accounting  Identify and Explore Data Relationships  The following table 
+was taken from the IRS 2018 Statistics of Income report. It summarizes the Income Subject to Tax and 
+Total Income Tax After Credits amounts on the federal returns filed by active corporations.
+$       55,884,102
+$          7,829,008
+$          4,829,204Zero Assets
+$1 under $500,000
+$500,000 under $1,000,000
+$1,000,000 under $5,000,000
+$5,000,000 under $10,000,000
+$10,000,000 under $25,000,000
+$25,000,000 under $50,000,000
+$50,000,000 under $100,000,000Income Subject To Tax
+$    11,594,836
+$      1,569,228
+$          956,103
+$      3,496,487
+$      2,015,713
+$      3,805,232
+$      2,811,835
+$      3,293,822
+$      4,772,611
+$      4,679,319
+$    20,835,589
+$ 184,855,832Total Inc ome T ax Af ter Credits
+$100,000,000 under $250,000,000
+$250,000,000 under $500,000,000
+$500,000,000 under $2,500,000,000
+$2,500,000,000 or mor e$       17,223,201
+$       10,086,326
+$       19,143,340
+$       14,384,822
+$       16,854,446
+$       25,807,956
+$       26,192,384
+$     126,273,758
+$ 1,632,169,980Size Total Asse ts
+Explore whether large companies with more assets have a higher tax rate. 
+ 1. What data relationship are you exploring? 
+ 2. Design a report with a visualization that enables you to explore this data relationship. 
+ 3. What insights can you collect from your exploration? 
+EX 7.13  (LO 2, 3 ) Data Tax Accounting Exploring R&D Tax Credit Allocations  In 1997, the 
+state of Pennsylvania enacted a research and development (R&D) tax credit to increase R&D activities 
+within the commonwealth to enhance economic growth. The state’s budget for the tax year 2020 was $55 
+million. The legislation required the state to set aside $11 million to support startups and small businesses 
+(Small). The remaining $44 million was to be awarded to other businesses (Not-Small). The 2021 report 
+summarizes the 2020 R&D credit amount requested and awarded.
+Source:  Adapted from THE RESEARCH & DEVELOPMENT TAX CREDIT REPORT to the PENNSYLVANIA GENERAL 
+ASSEMBLY .
+• The Tentative column represents the taxpayers’ total requested credit amount on their R&D credit 
+applications.
+• The Actual column represents the total amount awarded to those submitting applications.
+• The actual amounts determine the proportional amount of the budgets allocated.
+Create visualizations to answer the following three questions:
+ 1. What percentage of the amount was requested by each business type?
+ 2. How much of the budget was allocated to each business type, Small and Not Small?
+ 3. What percentage of the money requested did each group receive? 
+c07AnalysisDataExploration.indd   57 18/10/22   8:01 AM
+--- PAGE 59 ---
+7-58  CHAPTER 7  Analysis: Data Exploration
+EX 7.14  (LO 3)  Data Perform Pareto Analysis  Nicole, manager of the Rainbow hotel, provides you  
+this summary table regarding customer complaints received in January 2025.
+Hotel Websit e
+Calls
+CallsDirty Rooms
+Dirty Rooms
+Elevator
+Poor Wifi
+Poor Wifi
+Poor Wifi
+RodentsSource
+4
+22
+2
+4
+2
+7
+2Number
+Room T emper atur e
+Unexpected F ees
+Unexpected F ees
+Unexpected F eesHotel Websit e
+ratemyhotel.c om
+Calls
+Calls
+2 Calls
+Unexpected F ees
+Unfriendly St aﬀ
+Unfriendly St aﬀ
+Unfriendly St aﬀ14
+60
+16
+90
+2Letter
+Hotel Websit e
+ratemyhotel.c om
+Calls
+105
+44
+45Letter
+Hotel Websit e
+ratemyhotel.c om
+Calls Unfriendly St aﬀType
+ 1. Use the data file to create a Pareto chart.
+ 2. Discuss the insights it generates.
+EX 7.15  Data Explore with an Interactive Report  Jumpers is a grocery store in Indianapolis with 
+locations in NIndy (North Indy) and SIndy (South Indy). They compiled a five-year report with revenues 
+generated for each of their seven product categories (meat, drinks, vegetables and fruits, snacks, freezer, 
+diary, other). 
+ 1. Create an interactive report based on the following exploration structure. 
+ProductNameFilters Columns
+Rows ValuesStoreFilters Columns
+Rows ValuesFilters
+Year TotalAmountColumns
+Rows ValuesStore
+ProductNameStore
+Filters
+Year TotalAmountColumns
+Rows ValuesProductName
+ 2. Describe the relationships that are part of your dashboard.
+ 3. Identify questions that can be explored with your dashboard.
+c07AnalysisDataExploration.indd   58 18/10/22   8:01 AM
+--- PAGE 60 ---
+Professional Application Case: NoTable 7-59
+   Data Dictionary 
+PurchaseOrders
+Name  Description 
+  PurchaseOrderId   Uniquely identifies a purchase order. 
+  Status   A purchase order’s status: Canceled, Delivered, Open, or Returned. 
+  QuotedLeadTime   The number of days the vendor committed to deliver the goods. 
+  ActualLeadTime   The number of days it took the vendor to deliver the goods. 
+  Supplier   ID of the vendor from whom the goods are purchased. 
+  DeliveryStatus  An order is canceled, delivered, open, or returned. For orders that 
+have been delivered, it is specified whether they were early, ontime, 
+late, or disruptive. Disruptive implies that the production process was 
+disrupted.
+  LaborEstimate   The estimated dollar amount for labor for the production order. 
+  LaborActual   The actual dollar amount used for labor for the production order.    Professional Application Case: NoTable
+   NoTable  is a furniture store in Halfway, Oregon, that manufactures custom-designed wooden tables of 
+exceptional quality. Most of their customers are collectors, including several movie stars. Their business 
+model is simple: a customer contacts them, they work with the customer on a design, build the table, and 
+deliver it to the customer’s residence. NoTable just hired you as an intern for their accounting department. 
+They hope  your data analytics skills can help them with some of the decisions they face. They provide 
+you with an Excel file that contains several worksheets with data generated from their ERP system. The 
+underlying data model is shown here, followed by a data dictionary.
+   Data Model     
+ID
+SupplierName1N
+ID
+CustomerName
+State
+Sales TaxRat ePurchaseOrderI D
+Status
+QuoteL eadTime
+ActualL eadTime
+Supplier
+Deliver yStatus
+LaborEstimat e
+Labor Actual
+RawMaterialEstimat e
+RawMaterialActual
+Designer
+SalesOrderID
+Amount
+Paid
+CustomerDays
+DaysOutst anding1N
+N1PurchaseOrders Supplier
+ID
+DesignerNameDesigner
+SalesOrder s Customer
+(Continued)
+c07AnalysisDataExploration.indd   59 18/10/22   8:01 AM
+--- PAGE 61 ---
+7-60  CHAPTER 7  Analysis: Data Exploration
+Name Description
+RawMaterialEstimate The estimated dollar amount for raw materials for the production 
+order.
+RawMaterialActual The actual dollar amount for raw materials for the production order.
+Designer ID of the designer who designed the production order (table).
+Supplier
+Name Description
+ID Uniquely identifies a vendor.
+Name A vendor’s name.
+SalesOrders
+Name Description
+SalesOrderId Uniquely identifies a sales order.
+Amount The amount the customer owes NoTable.
+Paid Has the order been paid in full: Yes or No.
+Days For orders that are fully paid, the number of days it took to pay them.
+DaysOutstanding For orders that are not fully paid yet, the number of days the 
+receivable has been outstanding.
+Customer ID of the customer to whom the table was sold.
+Customer
+Name Description
+ID Uniquely identifies a customer.
+Name A customer’s name.
+State The state in which a customer lives.
+SalesTaxRate The sales tax rate for the state in which the customer lives.
+Designer
+Name Description
+ID Uniquely identifies a designer.
+Name A designer’s name.
+PAC 7.1  Auditing: Explore Vendor Reliability
+Data Auditing Part of NoTable’s success rests  on its use of premium wood such as Bubinga and 
+ Dalbergia. One of its main challenges is to find suppliers for such wood. They currently work with eleven 
+different suppliers , and selection is exclusively based on price: the order goes to the supplier with the 
+lowest price. You point out that supplier performance, particularly on-time  delivery, should be consid -
+ered as well. Risks related to late deliveries include lost sales, downtime, or not meeting the delivery 
+schedule. Late deliveries can dramatically impact the bottom line. You decide to use the data to support 
+your statement. You start by developing an algorithm to create a field called  DeliveryStatus that contains 
+one of the following values: Early, Ontime, Late, Disruptive, Canceled, Returned. You already added that 
+column to the NoTable file.
+ 1. Using the values in the DeliveryStatus field, explore the delivery risks NoTable is facing.
+ 2. Assess the risk of each supplier, and assign them one the following labels: Safe, Risky, High-Risk.
+ 3. To mitigate supplier risk, how would you suggest tiering NoTable’s suppliers?
+c07AnalysisDataExploration.indd   60 18/10/22   8:01 AM
+--- PAGE 62 ---
+Le Grind Continuing Case: Investigate Gross Profit Using Exploration Patterns 7-61
+PAC 7.2 Managerial Accounting: Manage Variances
+Data Managerial Accounting Another key part of NoTable’s success is its designers ,  highly-paid
+artists who design the tables with and for customers. They currently have five designers, and one is 
+assigned to each purchase order. They meet extensively  with each of the customers and develop  compre-
+hensive specifications. Production steps and required raw materials are specified with the highest level 
+of detail. Accuracy of cost estimates are of utmost importance for NoTable given that they determine a 
+table’s price. 
+  You receive data generated by NoTable’s ERP system that show the estimated and actual labor and 
+material cost in dollars for each production order (table). You can find these data in the PurchaseOrders 
+worksheet . You are asked to analyze how accurate the design specifications are both overall and among 
+designers.
+      1.      Determine and analyze the overall variances. 
+     2.      Compare variances among designers.    
+PAC 7.3 Financial Accounting: Manage Accounts Receivable
+Data Financial Accounting NoTable’s management would like to include additional information 
+about credit risk in their financial report. They ask you to explore accounts receivable and provide some 
+insights. They provide you with sales orders and payment data generated by their ERP system. You can 
+find these data in the SalesOrders and Customer worksheets. The following is some additional informa-
+tion regarding NoTable’s credit policy:
+•           All payments are due within 30 days. 
+•          Early payments: There is a 3% discount for all orders paid in full within 2 weeks (15 days). 
+•          On time payments: There is no discount or no penalty for sales orders paid on time. 
+•          Late payments: There is a 3% penalty for all sales orders with a late payment.  
+      1.      Explore whether NoTable’s credit policy works. For orders that already have been paid, compare 
+early, on time, and late payments. 
+     2.      For the orders that have not been fully paid yet, explore the aging of the outstanding balances. What 
+insights can you collect? 
+     3.      Analyze accounts receivable by customer. Explore whether there is an issue with accounts receivable
+concentration.    
+PAC 7.4 Tax Accounting: Analyze Sales Tax 
+Data Tax Accounting NoTable delivers items to customer residencies. You notice that no sales tax 
+was collected for any of the sales. 
+      1.      Determine the total sales tax amount that NoTable should have collected. 
+     2.      Determine how much sales tax should have been collected and remitted to the different states.                         
+Le Grind Continuing Case: Investigate Gross Profit Using 
+Exploration Patterns
+Data Visit Wiley’s online learning platform for the case background, additional questions, data, and 
+more details about the continuing case.                                    
+c07AnalysisDataExploration.indd   61 18/10/22   8:01 AM

@@ -1,181 +1,180 @@
+
 Slide 1: TRANG BÌA
-Người 1: Chào mừng các bạn sinh viên quay trở lại với Bài giảng Thực hành 02. Hôm nay chúng ta sẽ bắt tay vào "cầm tay chỉ việc", làm quen với các kỹ năng phân tích dữ liệu nền tảng nhất mà mọi kế toán viên đều phải thành thạo: từ Database, Excel cho đến Pivot Tables.
-Người 2: Dạ em chào thầy/cô. Học xong chương 1 em đã hiểu tư duy phân tích, nhưng đến lúc mở Excel lên nhìn bảng số ngàn dòng là em lại bị "khớp" ạ.
+Người 1: Chào mừng các em đến với Chương 2: Kỹ năng Phân tích Dữ liệu Nền tảng (Foundational Data Analysis Skills). Sau khi đã hình thành tư duy ở Chương 1, đây là lúc chúng ta xắn tay áo lên để thao tác trực tiếp với cơ sở dữ liệu và các công cụ bảng tính.
+Người 2: Dạ vâng, tư duy là phần chìm, còn kỹ năng xử lý dữ liệu chính là phần nổi để chứng minh năng lực thực chiến của một Kế toán viên thưa thầy!
 
-Slide 2: TỔNG QUAN CHƯƠNG (CHAPTER PREVIEW)
-Người 1: Đừng lo, đó là tâm lý chung. Các em nhìn lên Slide 2, chuyên gia Josh đã cho chúng ta một lời khuyên rất đắt giá: "Đừng cố gắng ghi nhớ mọi thứ, hãy thực hành!". Đặc biệt là Pivot Tables, cứ làm nhiều sẽ quen tay.
-Người 2: Vâng, nghe chuyên gia khuyên thế em cũng yên tâm hơn. Em sẽ vừa nghe vừa mở Excel thực hành theo luôn ạ.
+Slide 2: INTRO
+Người 1: Đúng vậy. Dù em có sử dụng phần mềm AI tối tân đến đâu, thì dữ liệu thô (Raw data) vẫn luôn tồn tại ở dạng Bảng (Tables). Kế toán viên phải biết cách "nhào nặn" các bảng này trước khi đưa vào phân tích.
+Người 2: Dạ, bước làm sạch và chuẩn bị dữ liệu (Data Preparation) luôn là bước tốn nhiều thời gian nhất, nhưng lại quyết định độ chính xác của toàn bộ báo cáo tài chính ạ.
 
-Slide 3: BẢN ĐỒ CHƯƠNG (CHAPTER ROADMAP)
-Người 1: Lộ trình hôm nay sẽ có 5 mục tiêu (LO). Ta sẽ đi từ cách dữ liệu được lưu trữ trong Database (LO 2.1), dùng hàm Excel (LO 2.2), dùng Pivot Table để tổ chức (LO 2.3), tính toán Thống kê (LO 2.4) và cuối cùng là Trực quan hóa (LO 2.5).
-Người 2: Một lộ trình trọn vẹn từ lúc nạp dữ liệu thô đến lúc ra biểu đồ báo cáo luôn!
+Slide 3: MỤC TIÊU HỌC TẬP (LEARNING OBJECTIVES)
+Người 1: Slide 3 liệt kê 5 mục tiêu học tập (LO). Trọng tâm của chúng ta là: Cơ sở dữ liệu quan hệ, Hàm Excel, PivotTable, và Thống kê mô tả (Descriptive Statistics).
+Người 2: Có vẻ như chúng ta sẽ đi từ việc "Hiểu nơi lưu trữ dữ liệu" cho đến "Xử lý bằng Excel" và cuối cùng là "Khám phá bản chất của dữ liệu qua thống kê". Một lộ trình rất chặt chẽ!
 
-Slide 4: 2.1 LƯU TRỮ DỮ LIỆU GIÚP TRẢ LỜI CÂU HỎI NHƯ THẾ NÀO?
-Người 1: Đầu tiên là Cơ sở dữ liệu quan hệ (Relational Databases). Thay vì nhồi nhét tất cả thông tin vào một bảng Excel siêu to, người ta chia dữ liệu thành nhiều "Bảng" nhỏ có logic, và kết nối chúng bằng "Mối quan hệ" để tránh bị trùng lặp.
-Người 2: À, giống như thông tin Khách hàng để một bảng, thông tin Sản phẩm để một bảng riêng, như thế sẽ quản lý dễ hơn và không bị lặp tên khách hàng nhiều lần.
+Slide 4: CƠ SỞ DỮ LIỆU QUAN HỆ (RELATIONAL DATABASES)
+Người 1: Bắt đầu với Slide 4. Hầu hết hệ thống ERP của doanh nghiệp (như SAP, Oracle) đều lưu trữ dữ liệu dưới dạng Cơ sở dữ liệu quan hệ (Relational Databases). Tại sao lại phải chia nhỏ dữ liệu thành nhiều bảng?
+Người 2: Thưa thầy, lý do lớn nhất là để "Chuẩn hóa dữ liệu" (Data Normalization) nhằm giảm dư thừa! Nếu ta lưu tên và địa chỉ khách hàng vào mọi dòng hóa đơn bán hàng, thì khi khách hàng đổi địa chỉ, ta phải cập nhật hàng ngàn dòng hóa đơn đó. Thay vào đó, ta tách ra thành "Bảng Khách hàng" và "Bảng Hóa đơn", rồi liên kết chúng lại. Việc cập nhật (Update) sẽ diễn ra tức thời và không bị sai lệch (Data Integrity)!
 
-Slide 5: CÁC YẾU TỐ CỦA CƠ SỞ DỮ LIỆU QUAN HỆ
-Người 1: Các em nhìn vào Hình 2.1, đây là cấu trúc của một cơ sở dữ liệu quan hệ. Các bảng được tổ chức thành các Hàng (Bản ghi) và Cột (Thuộc tính).
-Người 2: Vậy mỗi hàng sẽ lưu thông tin của một đối tượng duy nhất đúng không ạ?
+Slide 5: ILLUSTRATION 2.1 (CÁC YẾU TỐ CỦA CSDL QUAN HỆ)
+Người 1: Rất chính xác. Hãy nhìn Minh họa 2.1. Một cơ sở dữ liệu là tập hợp của nhiều Bảng (Tables).
+Người 2: Các bảng này không đứng độc lập mà được "cột" lại với nhau bằng các đường dây liên kết (Relationships). Đây chính là xương sống của mọi phần mềm Kế toán!
 
-Slide 6: BẢNG DỮ LIỆU & THUỘC TÍNH (TABLES & ATTRIBUTES)
-Người 1: Đúng vậy! Xem Hình 2.2, chúng ta có bảng Tài sản. Mỗi một Cột (Attribute) mô tả một đặc tính như "Tên tài sản", "Ngày mua". Còn mỗi Hàng (Row) là một tài sản thực tế duy nhất.
-Người 2: Dạ, cấu trúc Hàng - Cột này thì rất giống bảng tính Excel truyền thống rồi.
+Slide 6: ILLUSTRATION 2.2 (CỘT VÀ HÀNG)
+Người 1: (Minh họa 2.2). Trong mỗi bảng, chúng ta có Cột (Column) và Hàng (Row).
+Người 2: Thưa thầy, theo ngôn ngữ CSDL, mỗi Cột đại diện cho một "Thuộc tính" (Attribute) - ví dụ như Tên, Số tiền. Còn mỗi Hàng là một "Bản ghi" (Record/Transaction). Khi đối chiếu dữ liệu, Kiểm toán viên thường xuyên phải trích xuất hàng triệu Hàng để kiểm tra tính toàn vẹn của các Cột ạ.
 
-Slide 7: KHÓA CHÍNH (PRIMARY KEY) & KHÓA NGOẠI (FOREIGN KEY)
-Người 1: Vậy làm sao để nối Bảng Tài sản với Bảng Danh mục? Chúng ta dùng Khóa! Khóa chính (PK) là mã định danh duy nhất của bảng đó (như Asset ID). Còn Khóa ngoại (FK) là mã ta mượn từ bảng khác (Category ID) để tạo liên kết.
-Người 2: Thầy/cô ơi cho em hỏi, Khóa ngoại có được phép trùng lặp không ạ? Ví dụ nhiều tài sản có chung một Category ID ấy ạ?
-Người 1: Câu hỏi cực kỳ thông minh! Khóa ngoại hoàn toàn được phép trùng lặp, vì nhiều tài sản khác nhau có thể thuộc chung một Danh mục. Nhưng Khóa chính thì tuyệt đối không bao giờ được trùng!
+Slide 7: ILLUSTRATION 2.3 (KHÓA CHÍNH & KHÓA NGOẠI)
+Người 1: Minh họa 2.3 giới thiệu khái niệm cực kỳ quan trọng: Khóa chính (Primary Key - PK) và Khóa ngoại (Foreign Key - FK).
+Người 2: PK là chứng minh thư của một bản ghi, nó phải duy nhất (Unique), ví dụ như Asset ID (Mã tài sản). Còn FK là cái móc để nối sang bảng khác, ví dụ Category ID (Mã danh mục). Kế toán viên phải dùng FK này để dò tìm tên danh mục từ Bảng Danh mục tài sản thưa thầy.
 
 Slide 8: KẾT NỐI CÁC BẢNG (JOINING TABLES)
-Người 1: Khi đã có khóa, ta sẽ ghép bảng (Join). Có 4 kiểu Join cơ bản: Inner, Left, Right và Full Outer Join. Hình Venn Diagram này minh họa các tập hợp dữ liệu giao nhau.
-Người 2: Khi nào thì mình dùng loại nào ạ? Nghe có vẻ giống phép giao và hợp trong toán học.
+Người 1: Slide 8. Làm thế nào để nối hai bảng lại với nhau? Đó là lệnh JOIN.
+Người 2: Thưa thầy, đây là kỹ năng sống còn! Trong kiểm toán, khi muốn kiểm tra xem có hóa đơn nào chưa được thanh toán không, em phải JOIN "Bảng Hóa đơn" với "Bảng Thu tiền" thông qua Mã Hóa đơn. Nếu không biết JOIN, Kế toán viên sẽ phải ngồi dò bằng mắt hàng ngàn tờ giấy!
 
-Slide 9: VÍ DỤ INNER JOIN & LEFT JOIN (BIKES R US)
-Người 1: Hãy nhìn Hình 2.5, 2.6 và 2.7. Inner Join chỉ lấy những phần tử có mặt ở CẢ HAI bảng. Còn Left Join sẽ lấy TẤT CẢ từ Bảng 1 (Bảng bên trái), dù nó có khớp với Bảng 2 hay không.
-Người 2: À em hiểu rồi. Nếu em muốn xuất danh sách toàn bộ khách hàng, bất kể họ có mua hàng hay không, thì em phải dùng Left Join!
+Slide 9: ILLUSTRATION 2.5 - 2.7 (INNER JOIN & LEFT JOIN)
+Người 1: Minh họa 2.5 đến 2.7 đi sâu vào Inner Join và Left Join qua ví dụ công ty Bikes R Us.
+Người 2: Thưa thầy, phần này rất dễ sai lầm trên thực tế. Inner Join chỉ lấy những bản ghi khớp (Match) ở CẢ HAI bảng. Nếu em dùng Inner Join để đối chiếu, em có thể bỏ sót những hóa đơn bị lập khống (chỉ có ở Bảng Hóa đơn mà không có ở Bảng Thu tiền). Do đó, để phát hiện các giao dịch "ảo", Kiểm toán viên BẮT BUỘC phải dùng Left Join để giữ lại toàn bộ dữ liệu của bảng gốc, từ đó các ô bị [NULL] sẽ lòi ra thủ phạm!
 
-Slide 10: ÁP DỤNG (APPLY IT 2.1) - HỆ THỐNG THÔNG TIN KẾ TOÁN SUPER SCOOTERS
-Người 1: Thực hành luôn nhé. Các em nhìn vào Data Dictionary của Super Scooters ở Hình Apply It 2.1. Hãy xác định đâu là PK và FK của bảng Bán hàng?
-Người 2: Dạ, trong bảng Bán hàng thì `Sales_ID` là Khóa chính (PK), còn `Customer_ID` được mượn từ bảng Khách hàng sang nên nó là Khóa ngoại (FK) ạ!
+Slide 10: APPLY IT 2.1 (SUPER SCOOTERS)
+Người 1: Slide 10. Tình huống Apply It 2.1. Sinh viên phải thiết kế một cơ sở dữ liệu quan hệ cho Super Scooters.
+Người 2: Bài tập này rèn luyện tư duy Kiến trúc sư dữ liệu (Data Architect). Nếu thiết kế sai Khóa chính và Khóa ngoại ngay từ đầu, phần mềm Kế toán sẽ bị lỗi tính toán dòng tiền ngay lập tức ạ.
 
-Slide 11: 2.2 CÁC HÀM BẢNG TÍNH PHÂN TÍCH LƯỢNG LỚN DỮ LIỆU
-Người 1: Sang LO 2.2, thao tác trên Excel. Excel là "vũ khí" cơ bản nhất của kế toán. Cú pháp chung luôn là: `=TênHàm(Đối số 1, Đối số 2)`.
-Người 2: Em hay bị quên các đối số của hàm, lúc gõ hàm xong không nhớ phải nhập gì tiếp theo.
+Slide 11: CÔNG CỤ BẢNG TÍNH (SPREADSHEETS)
+Người 1: Slide 11 chuyển sang Bảng tính (Spreadsheets), công cụ "câu cơm" quen thuộc nhất của Kế toán.
+Người 2: Excel! Dù có rất nhiều phần mềm xịn, nhưng 99% Kế toán viên vẫn chốt số cuối cùng trên Excel. Sức mạnh của Excel nằm ở các Hàm (Functions) giúp tự động hóa việc tính toán hàng vạn dòng dữ liệu.
 
-Slide 12: CÁC HÀM CƠ BẢN PHỔ BIẾN (1/2)
-Người 1: Hình 2.11 liệt kê các hàm quen thuộc: SUM, AVERAGE, MIN, MAX... Đừng cố học thuộc lòng. Excel có gợi ý sẵn.
-Người 2: Dạ, mấy hàm Toán học này thì em dùng khá quen tay rồi ạ.
+Slide 12: ILLUSTRATION 2.11 (CÁC HÀM CƠ BẢN)
+Người 1: Minh họa 2.11. Các hàm cơ bản như IF, AVERAGE...
+Người 2: Hàm IF (Nếu-Thì) chính là cốt lõi của logic kế toán! Ví dụ: "Nếu số ngày quá hạn > 90 (logic test), thì trích lập dự phòng 100% (value if true), ngược lại thì không trích lập (value if false)". Một dòng lệnh thay thế cho hàng giờ phân tích rủi ro tín dụng.
 
-Slide 13: SỬ DỤNG HỘP ĐỐI SỐ HÀM (FUNCTION ARGUMENTS)
-Người 1: Để trị căn bệnh "quên đối số" của em, hãy nhìn Hình 2.12 và 2.13. Đừng gõ tay trực tiếp! Hãy bấm vào nút `fx` (Insert Function), hộp thoại Function Arguments sẽ hiện ra, giải thích rõ ràng từng ô cần điền gì.
-Người 2: Ôi, có cái bảng này thì việc viết hàm dài không còn là ác mộng nữa. Nó còn hiện luôn kết quả tạm thời ở góc dưới bảng!
+Slide 13: ILLUSTRATION 2.12 - 2.13 (HỘP ĐỐI SỐ HÀM - FUNCTION ARGUMENTS)
+Người 1: (Minh họa 2.12 và 2.13). Hướng dẫn sử dụng Hộp Đối số Hàm (Function Arguments box) cho hàm COUNTIF.
+Người 2: Hộp đối số này rất hữu ích để tránh lỗi sai cú pháp (Syntax error), đặc biệt khi ta phải đưa điều kiện đếm là văn bản như "Pump" thì bắt buộc phải để trong ngoặc kép.
 
-Slide 14: ÁP DỤNG CÁC HÀM CƠ BẢN CỦA EXCEL
-Người 1: Ở Hình 2.14, ta tính Khấu hao tích lũy. Ta dùng hàm SUM để tính tổng khấu hao các năm, dùng MAX để tìm năm có chi phí lớn nhất.
-Người 2: Dùng hàm linh hoạt thế này thì có thay đổi số liệu gốc, báo cáo vẫn tự động nhảy số theo, không sợ sai sót ạ.
+Slide 14: ILLUSTRATION 2.14 (UNIVERSITY ASSET DATA)
+Người 1: Minh họa 2.14. Chúng ta có một bộ dữ liệu về Tài sản cố định (Fixed Assets) của trường đại học, với hơn 13,000 dòng.
+Người 2: Dữ liệu thực tế luôn đồ sộ như vậy. Yêu cầu của Kế toán trưởng ở đây là làm sao đếm và tính tổng giá trị tài sản một cách chính xác nhất mà không đếm sót bất kỳ dòng nào.
 
-Slide 15: TRẢ LỜI CÂU HỎI VỚI HÀM (COUNTIF & COUNTIFS)
-Người 1: Bây giờ sếp hỏi: "Có bao nhiêu Máy chủ Dell chưa được phân bổ?". Ta dùng `COUNTIFS` (thêm 'S' vì có nhiều điều kiện). Các em nhìn cột Điều kiện ở Hình 2.15.
-Người 2: Hàm đếm số dòng thỏa mãn đồng thời: "Category là Máy chủ", "Hãng là Dell" và "Trạng thái là Chưa phân bổ". Kết quả ở Hình 2.16 báo ra đúng 5 chiếc. Rất nhanh!
+Slide 15: ILLUSTRATION 2.15 - 2.16 (TRẢ LỜI CÂU HỎI BẰNG COUNTIF/COUNTIFS)
+Người 1: (Minh họa 2.15 và 2.16). Sử dụng hàm COUNTIF và COUNTIFS.
+Người 2: Thưa thầy, COUNTIF đếm theo 1 điều kiện, nhưng COUNTIFS (có chữ S) mới là "vũ khí hạng nặng" khi ta cần đếm theo NHIỀU điều kiện. Ví dụ trong Kế toán Quản trị: "Đếm số lượng tài sản thuộc danh mục 'Máy bơm' VÀ được mua trong 'Năm 2024'". COUNTIFS giúp bóc tách dữ liệu đa chiều cực kỳ nhanh gọn!
 
-Slide 16: ÁP DỤNG (APPLY IT 2.2) - PHÂN TÍCH BÁN HÀNG (SUPER SCOOTERS)
-Người 1: Ở Apply It 2.2, bài toán khó hơn: Dùng VLOOKUP để kéo Đơn giá từ bảng Báo giá sang bảng Bán hàng, rồi dùng SUMIF để tính tổng doanh thu theo từng chi nhánh.
-Người 2: Dùng VLOOKUP là em nhớ ngay tới việc phải cố định vùng dữ liệu bảng phụ bằng phím F4, nếu không kéo công thức xuống dưới nó sẽ bị chạy vùng báo lỗi `#N/A`.
-Người 1: Rất tinh ý! Việc cố định vùng tham chiếu ($) là lỗi sơ đẳng nhưng ai cũng từng mắc phải.
+Slide 16: APPLY IT 2.2 (PHÂN TÍCH BÁN HÀNG)
+Người 1: Apply It 2.2 yêu cầu dùng hàm để phân tích Bán hàng.
+Người 2: Sinh viên sẽ phải dùng hàm SUMIFS để tính "Tổng doanh thu của sản phẩm A tại khu vực B". Một bài toán phân tích tỷ trọng đóng góp (Contribution margin analysis) rất sát thực tế.
 
-Slide 17: 2.3 TỔ CHỨC CÁC TẬP DỮ LIỆU: PIVOT TABLES
-Người 1: Dù hàm mạnh đến đâu, nếu dữ liệu lên tới vài chục ngàn dòng, ta phải dùng Pivot Tables. Pivot Table cho phép "xoay" dữ liệu đa chiều chỉ bằng cách kéo - thả vào 4 vùng: Rows, Columns, Values và Filters.
-Người 2: Cuối cùng cũng đến công cụ mà chuyên gia Josh khuyên dùng. Em đã mở sẵn file data ra rồi ạ.
+Slide 17: PIVOT TABLES
+Người 1: Slide 17. Pivot Tables - Trái tim của phân tích dữ liệu trong Excel. Nó gồm 4 vùng: Rows (Hàng), Columns (Cột), Values (Giá trị) và Filters (Bộ lọc).
+Người 2: Dạ thưa thầy, hàm SUMIFS dù mạnh nhưng nếu phải lập một báo cáo gồm 50 mặt hàng x 10 khu vực thì ta phải gõ hàm 500 lần! Với PivotTable, Kế toán chỉ cần KÉO VÀ THẢ (Drag and Drop) các trường dữ liệu vào 4 vùng, Excel sẽ tự động "xoay" (Pivot) dữ liệu và lập Báo cáo Tổng hợp (Summary Report) trong 3 giây!
 
-Slide 18: TẠO MỘT MICROSOFT EXCEL PIVOTTABLE
-Người 1: Nhìn Hình 2.17 và 2.18. Các em bôi đen toàn bộ dữ liệu, vào Insert > PivotTable. Nhớ chọn "New Worksheet" để không làm rối sheet dữ liệu gốc.
-Người 2: Việc chọn toàn bộ dữ liệu nhanh nhất là bấm Ctrl + A đúng không thầy/cô?
+Slide 18: ILLUSTRATION 2.17 - 2.18 (TẠO PIVOTTABLE)
+Người 1: (Minh họa 2.17 và 2.18). Cách Insert (Chèn) một PivotTable.
+Người 2: Một mẹo thực chiến (Best practice) khi tạo PivotTable là luôn luôn chuyển bảng dữ liệu thô thành định dạng "Excel Table" (Ctrl+T) trước. Nếu không, khi có thêm dòng dữ liệu mới, PivotTable sẽ không tự động cập nhật (Update) và Kế toán sẽ báo cáo sai số liệu ạ!
 
-Slide 19: VÙNG LÀM VIỆC PIVOTTABLE (PIVOTTABLE FIELDS)
-Người 1: Chính xác. Tiếp theo ở Hình 2.19, panel bên phải hiện ra. Nửa trên là danh sách các Cột, nửa dưới là 4 vùng làm việc. Muốn phân tích cái gì, các em chỉ việc "cầm" nó ở trên và "thả" xuống dưới.
-Người 2: Thao tác kéo thả này đúng là tiện lợi và trực quan hơn hẳn viết hàm.
+Slide 19: ILLUSTRATION 2.19 (PIVOTTABLE FIELDS)
+Người 1: Minh họa 2.19 là danh sách các Trường (Fields) để kéo thả.
+Người 2: Đây chính là lúc Kế toán viên đóng vai trò là một "Người kể chuyện bằng dữ liệu". Tùy vào việc ta kéo trường "Năm" vào Rows hay Columns, bức tranh tài chính sẽ được thể hiện hoàn toàn khác nhau để làm nổi bật thông điệp gửi tới CFO.
 
-Slide 20: TÌM TỔNG SỐ DƯ THEO DANH MỤC (SUMMARIZE DATA)
-Người 1: Ví dụ ở Hình 2.20, sếp muốn biết Tổng chi phí của từng Danh mục tài sản. Các em kéo `Category` vào vùng Rows (Hàng), rồi kéo `Total Cost` vào vùng Values (Giá trị).
-Người 2: Bùm! Hình 2.21 bên cạnh hiện ra ngay một bảng tổng hợp gọn gàng. Em thấy mặc định nó đang dùng phép cộng (Sum of Total Cost).
+Slide 20: ILLUSTRATION 2.20 - 2.21 (SUMMARIZE DATA)
+Người 1: (Minh họa 2.20 và 2.21). Tìm Tổng số dư theo danh mục.
+Người 2: Kéo "Category" vào Rows, kéo "Amount" vào Values. Ngay lập tức ta có Bảng tổng hợp Giá trị tài sản theo từng nhóm. Thật sự là ma thuật! Ở Minh họa 2.21, ta thấy có thể đổi phép tính (Value Field Settings) từ Đếm (Count) sang Tổng (Sum) hoặc Trung bình (Average).
 
-Slide 21: THAY ĐỔI PHÉP TÍNH (VALUE FIELD SETTINGS)
-Người 1: Đúng vậy! Nhưng nếu sếp không hỏi "Tổng tiền", mà hỏi "Có bao nhiêu cái tài sản ở mỗi danh mục?". Các em nhìn Hình 2.22, click chuột phải vào vùng Values > chọn Value Field Settings, và đổi từ SUM sang COUNT.
-Người 2: Lỗi này em hay gặp nè. Đôi khi kéo trường dữ liệu vào Values mà kiểu dữ liệu là Text, nó tự động nhảy thành COUNT thay vì SUM, làm em loay hoay mãi.
+Slide 21: ILLUSTRATION 2.22 (VALUE FIELD SETTINGS)
+Người 1: Minh họa 2.22. Sâu hơn về Value Field Settings.
+Người 2: Đây là tính năng Kế toán cực kỳ hay dùng để "Show Values As" (Hiển thị giá trị dưới dạng) % của Tổng cột (% of Column Total). Tính năng này cho phép lập báo cáo Phân tích quy mô chung (Common-size Analysis) ngay lập tức, ví dụ: Chi phí bán hàng chiếm bao nhiêu % Doanh thu!
 
-Slide 22: LỌC PIVOT TABLES (HỘP FILTER)
-Người 1: Bây giờ, ta chỉ muốn xem báo cáo cho riêng loại tài sản "Máy tính xách tay". Hãy kéo trường `Sub-Category` vào vùng Filters. Nhìn Hình 2.23, một bộ lọc tổng sẽ hiện ra ngay dòng số 1 của bảng.
-Người 2: Em thả xuống hộp Filter và chọn "Laptop" là xong. Bảng số tự động chạy lại chỉ tính riêng cho laptop.
+Slide 22: ILLUSTRATION 2.23 (LỌC PIVOT TABLES)
+Người 1: Minh họa 2.23. Bộ lọc Pivot Table.
+Người 2: Ta có thể lọc để chỉ xem dữ liệu của "Năm 2025" thay vì nhìn cả 5 năm. Nó giúp tập trung vào mục tiêu phân tích, loại bỏ nhiễu (Noise).
 
-Slide 23: SỬ DỤNG SLICERS ĐỂ LỌC TRỰC QUAN
-Người 1: Nhưng dùng Filter truyền thống nhìn hơi chán. Hãy dùng Slicers! Nhìn Hình 2.32, vào menu Insert > Slicer.
-Người 2: Woa, Hình 2.34, nó tạo ra các nút bấm trực quan trên màn hình. Em bấm vào nút tên ai thì số liệu của người đó tự chạy. Trông xịn xò như lập trình app vậy!
+Slide 23: ILLUSTRATION 2.32 & 2.34 (SỬ DỤNG SLICERS)
+Người 1: (Minh họa 2.32 và 2.34). Slicers - Bộ lọc trực quan.
+Người 2: Thưa thầy, Filter thông thường ẩn bên trong menu thả xuống. Còn Slicer là các nút bấm nổi bần bật trên màn hình! Khi thuyết trình báo cáo cho Ban giám đốc, Slicer biến PivotTable thành một Bảng điều khiển (Dashboard) tương tác. Sếp bấm nút "Tháng 10", toàn bộ dữ liệu nhảy theo. Rất đẳng cấp!
 
-Slide 24: ÁP DỤNG (APPLY IT 2.3) - PHÂN TÍCH BÁN HÀNG BẰNG PIVOTTABLES
-Người 1: Thử thách Apply It 2.3, hãy tạo một báo cáo doanh số giao nhau: Hàng (Rows) là Tháng, Cột (Columns) là Sản phẩm.
-Người 2: Em chỉ cần kéo `Month` vào Rows, `Product` vào Columns, và `Revenue` vào Values. Bảng kết quả sẽ lập tức phân tách ma trận tháng - sản phẩm. Quá đơn giản!
+Slide 24: APPLY IT 2.3
+Người 1: Apply It 2.3. Thực hành PivotTable với số liệu bán hàng.
+Người 2: Qua bài này, sinh viên sẽ hiểu ranh giới giữa một Kế toán viên thụ động (chỉ biết lập bảng) và một Chuyên gia phân tích (biết "xoay" dữ liệu để tìm ra thông tin bất thường).
 
-Slide 25: 2.4 THƯỚC ĐO MÔ TẢ GIÚP HIỂU DỮ LIỆU
-Người 1: Xong phần "thợ", giờ đến phần "thầy". Thống kê mô tả (Descriptive Statistics) giúp ta Khám phá Dữ liệu. Có 3 nhóm: Vị trí trung tâm, Độ phân tán, và Hình dạng.
-Người 2: Nghe có vẻ nhiều thuật ngữ Toán học thống kê quá. Ứng dụng thực tế là gì vậy ạ?
+Slide 25: THỐNG KÊ MÔ TẢ (DESCRIPTIVE STATISTICS)
+Người 1: Slide 25. Phần cuối của cụm bài này: Thống kê mô tả (Descriptive Statistics) dùng trong Khám phá dữ liệu. Gồm 3 nhóm: Vị trí trung tâm (Mean, Median, Mode), Độ phân tán (Range, Variance, Standard Deviation), và Hình dạng (Skewness, Kurtosis).
+Người 2: Thưa thầy, phần này chuyển từ "Toán học" sang "Khoa học Dữ liệu". Trong kiểm toán, "Mean" (Trung bình) rất dễ bị bóp méo bởi các giá trị ngoại lai (Outliers - ví dụ một khoản doanh thu khống nghìn tỷ). Do đó, Kiểm toán viên bắt buộc phải dùng "Median" (Trung vị) để có góc nhìn chính xác hơn về mức độ tập trung của dữ liệu!
 
-Slide 26: TÍNH TOÁN CÁC THƯỚC ĐO VỊ TRÍ (MEAN, MEDIAN, MODE)
-Người 1: Đơn giản thôi. Các em xem Hình 2.38. Sếp muốn biết mức lương trung bình công ty là bao nhiêu, ta dùng hàm AVERAGE (Mean). Nhưng nếu có 1 ông sếp lương tỷ đô làm lệch số, ta phải dùng MEDIAN (Trung vị) để tìm mức lương ở chính giữa. MODE là mức lương nhiều người nhận nhất.
-Người 2: Ra là thế. Vậy trong kế toán, xem xét Median thường an toàn và thực tế hơn xem Mean nếu dữ liệu có những khoản tiền quá lớn bất thường.
+Slide 26: ILLUSTRATION 2.38 (MEAN, MEDIAN, MODE)
+Người 1: Minh họa 2.38. Tính toán các thước đo vị trí.
+Người 2: Áp dụng vào tệp lương (Payroll): Mức lương trung bình (Mean) có thể rất cao do bị kéo lên bởi mức lương khổng lồ của ngài Hiệu trưởng. Nhưng mức lương phổ biến nhất mà đa số nhân viên nhận được (Mode) lại thấp hơn rất nhiều. Việc đọc sai các chỉ số này sẽ dẫn đến những quyết định nhân sự sai lầm!
 
-Slide 27: CÁC THƯỚC ĐO HÌNH DẠNG (SKEWNESS)
-Người 1: Đúng. Yếu tố làm lệch số đó gọi là Skewness (Độ lệch). Hình 2.41 chỉ ra hai loại: Phân phối lệch trái (Left-Skewed) và Lệch phải (Right-Skewed).
-Người 2: Nhìn biểu đồ này em có thể hình dung tập khách hàng của mình đang tiêu xài dồn về mức giá cao hay giá thấp.
+Slide 27: ILLUSTRATION 2.41 (SKEWNESS - ĐỘ LỆCH)
+Người 1: Minh họa 2.41. Các thước đo Hình dạng, đặc biệt là Skewness (Độ lệch).
+Người 2: Nếu dữ liệu bị lệch phải (Positive Skew), nghĩa là có một số ít nhân viên đang nhận mức lương cao bất thường (đuôi kéo dài về bên phải). Trong Kế toán điều tra (Forensic Accounting), sự phân bổ bất đối xứng này chính là "Cờ đỏ" (Red flag) gợi ý có rủi ro gian lận lương (Ghost employees) ạ!
 
-Slide 28: BIỂU ĐỒ TẦN SUẤT (HISTOGRAMS)
-Người 1: Để nhìn được cái phân phối hình dạng đó, ta vẽ biểu đồ Histogram. Hình 2.43 tạo ra các Bins (Khoảng giá trị), rồi Hình 2.44 đếm xem có bao nhiêu tài sản rơi vào từng khoảng giá trị đó.
-Người 2: Nếu vẽ bằng Histogram thì em nhìn một phát là biết ngay đa số hóa đơn của công ty đang nằm trong khoảng từ 5 triệu đến 10 triệu.
+Slide 28: ILLUSTRATION 2.43 - 2.44 (HISTOGRAMS - BIỂU ĐỒ TẦN SUẤT)
+Người 1: Minh họa 2.43 và 2.44. Trực quan hóa hình dạng phân bổ thông qua Histogram.
+Người 2: Histogram giúp Kiểm toán viên nhìn thấy toàn bộ "Nhịp đập" của dữ liệu. Nếu tần suất giao dịch dồn cụm vào những ngày cuối tháng (Tạo ra một đỉnh chóp nhọn trên Histogram), đó là dấu hiệu rõ ràng của việc cố tình "Nhồi nhét doanh số" (Channel Stuffing) để đạt chỉ tiêu thưởng cuối năm thưa thầy!
 
-Slide 29: CÁC CÔNG CỤ THỐNG KÊ MÔ TẢ EXCEL (DATA ANALYSIS TOOLPAK)
-Người 1: Nếu em lười gõ từng hàm, hãy dùng Data Analysis Toolpak (Hình 2.45). Chỉ 1 cú nhấp chuột, Excel xuất ra toàn bộ: Mean, Median, Mode, Variance, Kurtosis, Skewness... trong tích tắc!
-Người 2: Đỉnh quá! Toolpak này phải được kích hoạt trong phần Add-ins của Excel thì mới xài được đúng không thầy/cô?
+Slide 29: ILLUSTRATION 2.45 (DATA ANALYSIS TOOLPAK)
+Người 1: Minh họa 2.45. Sử dụng Data Analysis Toolpak của Excel để tự động chạy ra các chỉ số này.
+Người 2: Công cụ này là một trợ lý đắc lực. Thay vì phải gõ từng hàm SKEW, KURT, STDEV... Data Analysis Toolpak sẽ xuất ra một bảng tổng kết (Summary Statistics) đầy đủ chỉ trong 1 click chuột. Rất tiện lợi cho việc Lập hồ sơ dữ liệu (Data Profiling).
 
-Slide 30: PHÂN TÍCH TƯƠNG QUAN (CORRELATION ANALYSIS)
-Người 1: Chuẩn! Tiếp theo là hệ số Tương quan r (Hình 2.46), dùng để đo lường mức độ liên hệ giữa 2 biến. Nó chạy từ -1 đến 1. 
-Người 2: Ví dụ như chi phí quảng cáo tăng thì doanh thu cũng tăng, đó là tương quan dương (tiệm cận +1) đúng không ạ?
+Slide 30: ILLUSTRATION 2.46 (HISTOGRAM & FREQUENCY DISTRIBUTION)
+Người 1: Slide 30 kết thúc bằng Minh họa 2.46. Đầu ra của Toolpak: Biểu đồ Histogram và Bảng phân phối tần suất (Frequency Distribution).
+Người 2: Thưa thầy, biểu đồ Histogram (Biểu đồ cột dính liền) chỉ ra rõ ràng: Đa số nhân viên nằm ở các Bins (nhóm lương) thấp, và có một cái đuôi dài thưa thớt kéo về các nhóm lương trên 100k. Dựa vào trực quan này, Kiểm toán viên không cần duyệt từng dòng lương, mà chỉ bốc mẫu (Sample) thẳng vào cái "đuôi" bất thường kia để kiểm tra hợp đồng lao động! Một mũi tên trúng hai đích: tiết kiệm thời gian và tối đa hóa việc phát hiện rủi ro!
 
-Slide 31: THỰC HIỆN PHÂN TÍCH TƯƠNG QUAN BẰNG EXCEL
-Người 1: Chính xác. Ở Hình 2.48, ta dùng Toolpak để tạo Ma trận tương quan. Nhìn vào ma trận, giao điểm của 2 biến sẽ cho ra hệ số r. 
-Người 2: Cái này rất hữu ích cho Kế toán Quản trị khi muốn tìm hiểu xem chi phí nào thực sự tác động mạnh đến lợi nhuận.
+Slide 31: ILLUSTRATION 2.48 & 2.52 (PHÂN TÍCH TƯƠNG QUAN - CORRELATION)
+Người 1: Tiếp nối phần Thống kê, Slide 31 đi vào Phân tích tương quan (Correlation).
+Người 2: Thưa thầy, hệ số tương quan (Correlation Coefficient) chạy từ -1 đến +1. Ví dụ, nếu Kế toán chạy tương quan giữa "Chi phí sưởi ấm" (Heating Costs) và "Nhiệt độ ngoài trời" (Temperature), ra kết quả âm (-0.70), nghĩa là Nhiệt độ càng giảm thì Chi phí càng tăng. Đây là Tương quan nghịch (Negative Correlation) khá mạnh!
 
-Slide 32: ÁP DỤNG (APPLY IT 2.4) - KIỂM TOÁN CHI PHÍ BẢO HÀNH
-Người 1: Apply It 2.4 đưa tình huống Kiểm toán. Phân tích chi phí bảo hành bằng Histogram và Độ lệch chuẩn để tìm các khoản chi phí cao bất thường.
-Người 2: Các điểm dị biệt nằm xa ngoài ranh giới độ lệch chuẩn chắc chắn là gian lận hoặc sai sót! Phải soi ngay hóa đơn đó.
+Slide 32: APPLY IT 2.4 (KIỂM TOÁN CHI PHÍ BẢO HÀNH)
+Người 1: Áp dụng vào thực tế với Apply It 2.4: Kiểm toán chi phí bảo hành.
+Người 2: Giả sử Kiểm toán viên nghi ngờ công ty đang trích trước Chi phí bảo hành (Warranty Expense) quá cao để giấu lãi. Bằng cách chạy Phân tích tương quan giữa "Doanh số bán hàng" và "Chi phí bảo hành thực tế phát sinh", nếu hệ số tương quan gần bằng 0 (không liên quan), Kiểm toán viên có quyền bác bỏ tỷ lệ trích lập hiện tại và yêu cầu điều chỉnh giảm chi phí! Một bằng chứng kiểm toán (Audit Evidence) cực kỳ thuyết phục nhờ dữ liệu!
 
-Slide 33: 2.5 TRỰC QUAN HÓA ĐƯỢC SỬ DỤNG NHƯ THẾ NÀO?
-Người 1: Cuối cùng, LO 2.5. Não người xử lý hình ảnh nhanh hơn 60.000 lần so với chữ viết. Đừng mang bảng số liệu đi thuyết trình cho Ban Giám đốc!
-Người 2: Châm ngôn là: "Một bức tranh đáng giá ngàn con số". Em luôn ghi nhớ.
+Slide 33: TRỰC QUAN HÓA DỮ LIỆU (DATA VISUALIZATION)
+Người 1: Chúng ta sang Mục 5: Trực quan hóa dữ liệu. Tại sao lại phải vẽ biểu đồ? Vì bộ não xử lý hình ảnh nhanh hơn 60.000 lần so với đọc bảng số liệu.
+Người 2: Dạ đúng, một "Bức tranh đáng giá ngàn con số". Khi nhìn vào một bảng cân đối phát sinh dài 100 trang, sếp sẽ hoa mắt. Nhưng nếu vẽ một biểu đồ đường (Line chart), điểm gãy (Dị biệt - Outlier) sẽ đập vào mắt người xem trong tích tắc.
 
-Slide 34: LỢI ÍCH CỦA TRỰC QUAN HÓA SO VỚI BẢNG SỐ LIỆU
-Người 1: Ở Hình 2.49 (bảng số) và Hình 2.51 (biểu đồ đường), các em thấy ngay sự khác biệt. Biểu đồ đường chỉ ra sự sụt giảm ở khu vực miền Đông ngay giây đầu tiên nhìn vào.
-Người 2: Trong khi nếu đọc bảng số thì mắt em phải dò từng dòng một, rất mỏi mắt và dễ bỏ sót.
+Slide 34: ILLUSTRATION 2.49 & 2.51 (LỢI ÍCH CỦA TRỰC QUAN HÓA)
+Người 1: (Minh họa 2.49 và 2.51). Lợi ích của trực quan hóa so với bảng số.
+Người 2: Ở đây ta thấy biểu đồ Tương quan thuận (Positive Correlation): Doanh số kem tăng khi Nhiệt độ tăng. Trong kinh doanh, nếu Kế toán viên vẽ biểu đồ kết hợp "Ngân sách Marketing" và "Doanh số", Giám đốc sẽ thấy ngay độ dốc của biểu đồ. Nếu độ dốc bằng phẳng, chứng tỏ chiến dịch Marketing đang đốt tiền vô ích!
 
-Slide 35: LỰA CHỌN DẠNG TRỰC QUAN HÓA (DECISION TREE)
-Người 1: Nhưng vẽ biểu đồ gì mới là vấn đề. Hình 2.53 cung cấp một cây quyết định tuyệt vời: So sánh giá trị? -> Biểu đồ cột. Thành phần cấu tạo? -> Biểu đồ tròn. Phân phối? -> Histogram. Tương quan? -> Biểu đồ phân tán (Scatter).
-Người 2: Cây quyết định này giống như "phao cứu sinh" cho những người làm báo cáo hay bị sếp chê là vẽ biểu đồ sai mục đích ạ!
+Slide 35: ILLUSTRATION 2.53 (CÂY QUYẾT ĐỊNH CHỌN BIỂU ĐỒ)
+Người 1: Minh họa 2.53. Cây quyết định (Decision Tree) để chọn đúng loại biểu đồ.
+Người 2: Thưa thầy, đây là lỗi kinh điển! Nhiều bạn Kế toán cứ thích dùng Biểu đồ tròn (Pie Chart) vì nó đẹp, nhưng lại nhét tận 20 danh mục vào đó khiến cái bánh bị băm nát, không ai đọc được. Nguyên tắc vàng: Dưới 5 danh mục thì dùng Pie Chart, trên 5 danh mục thì bắt buộc phải dùng Biểu đồ thanh ngang (Bar Chart)!
 
-Slide 36: CÁC DẠNG BIỂU ĐỒ PHỔ BIẾN TRONG EXCEL (1/2)
-Người 1: Hình 2.54 là Biểu đồ Cột (Column) và Thanh (Bar) dùng để so sánh hạng mục. Còn Hình 2.56 là Scatter (Phân tán) dùng để xem tương quan giữa doanh thu bán kem và nhiệt độ thời tiết.
-Người 2: Biểu đồ thanh ngang (Bar) thì rất phù hợp khi tên các hạng mục (Labels) quá dài, đúng không ạ?
+Slide 36: ILLUSTRATION 2.54 & 2.56 (CÁC DẠNG BIỂU ĐỒ PHỔ BIẾN 1)
+Người 1: (Minh họa 2.54 và 2.56).
+Người 2: Bảng số liệu ở Minh họa 2.56 hiển thị Doanh số theo năm và danh mục sản phẩm (Đồ gia dụng, Tivi...). Khi chuyển sang Biểu đồ cột (Column Chart), ta sẽ so sánh được các danh mục. Nhưng nếu mục tiêu của CFO là "Xem xu hướng biến động qua từng tháng", Kế toán viên bắt buộc phải đổi sang Biểu đồ đường (Line Chart) thì mới thấy được chu kỳ kinh doanh (Seasonality).
 
-Slide 37: CÁC DẠNG BIỂU ĐỒ PHỔ BIẾN TRONG EXCEL (2/2)
-Người 1: Đúng thế. Ở Hình 2.57 là Biểu đồ Tròn (Pie chart) dùng để xem cấu trúc phần trăm. Hình 2.58 là Biểu đồ đường (Line chart) độc quyền dùng để xem xu hướng thay đổi theo thời gian.
-Người 2: Quy tắc ngầm là có biến số Thời gian (Tháng, Quý, Năm) thì cứ dùng Biểu đồ đường là chuẩn nhất!
+Slide 37: ILLUSTRATION 2.57 & 2.58 (CÁC DẠNG BIỂU ĐỒ PHỔ BIẾN 2)
+Người 1: Minh họa 2.57 và 2.58 tổng hợp các hướng dẫn.
+Người 2: Biểu đồ phân tán (Scatter Chart) rất hay được dùng để tìm điểm bất thường. Trục X là "Số giờ làm thêm", trục Y là "Số tiền thưởng". Sẽ có những điểm bay tít lên góc phải (Làm ít nhưng thưởng nhiều) - đây chính là đối tượng cần đưa vào danh sách kiểm tra gian lận (Fraud investigation) thưa thầy!
 
 Slide 38: ĐÁNH GIÁ VÀ THỰC HÀNH CHƯƠNG 2
-Người 1: Chúng ta đã đi xong lý thuyết thực hành cốt lõi. Giờ là lúc kiểm tra trí nhớ bằng các bài tập (Exercises).
-Người 2: Em sẵn sàng rồi, thầy/cô cứ hỏi đi ạ.
+Người 1: Slide 38. Chúng ta bước sang phần Đánh giá và Thực hành (Assessment and Practice) của Chương 2.
+Người 2: Dạ vâng, đã đến lúc đưa tay lên bàn phím và gõ lệnh. Học Excel hay CSDL mà chỉ nghe lý thuyết thì ngày mai sẽ quên hết.
 
-Slide 39: BÀI TẬP NGẮN (BRIEF EXERCISES)
-Người 1: BE 2.1: Phân biệt Foreign Key và Primary Key. Trong 2 bảng trên hình, CustomerID ở bảng Order là khóa gì?
-Người 2: Nó là Khóa ngoại (Foreign Key) ạ, vì nó tham chiếu đến CustomerID của bảng Customers.
+Slide 39: BE 2.1 & BE 2.2 (BÀI TẬP NGẮN)
+Người 1: Bài tập ngắn BE 2.1 và 2.2.
+Người 2: Những bài này ôn tập lại tư duy về Khóa chính (Primary Key) và Khóa ngoại (Foreign Key). Sinh viên sẽ hiểu tại sao "Mã Nhân viên" lại là Khóa chính trong Bảng Nhân sự, nhưng lại là Khóa ngoại trong Bảng Tính lương. Nếu xóa nhầm một bản ghi trong Bảng Nhân sự, toàn bộ hệ thống tính lương sẽ sụp đổ (Lỗi toàn vẹn tham chiếu - Referential Integrity).
 
-Slide 40: BÀI TẬP (EXERCISES - EX 2.1 & EX 2.2)
-Người 1: Tốt! Ở EX 2.1, nếu dùng Excel để tìm nhân viên bán được nhiều nhất trong tháng, em dùng hàm gì? 
-Người 2: Đơn giản, em dùng hàm MAX trên cột doanh thu của nhân viên ạ.
+Slide 40: EX 2.1 & EX 2.2 (BÀI TẬP VỀ HÀM)
+Người 1: EX 2.1 và 2.2. Luyện tập các hàm Excel.
+Người 2: Sinh viên phải sử dụng tổ hợp hàm IF lồng nhau (Nested IF) để tính thuế thu nhập cá nhân theo các bậc thuế khác nhau. Một bài tập kinh điển đòi hỏi tư duy logic (logic test) tuyệt đối chuẩn xác!
 
-Slide 41: BÀI TẬP (EXERCISES - EX 2.3 & EX 2.4)
-Người 1: Tiếp theo ở EX 2.3, sếp yêu cầu tóm tắt doanh số theo khu vực từ bảng dữ liệu 10.000 dòng. Công cụ nào tối ưu nhất?
-Người 2: Chắc chắn phải dùng Pivot Table! Kéo Region vào Rows và Sales vào Values. Không gì đọ lại tốc độ của Pivot Table!
+Slide 41: EX 2.3 & EX 2.4 (BÀI TẬP PIVOT TABLE)
+Người 1: EX 2.3 và EX 2.4. Khảo nghiệm kỹ năng Pivot Table.
+Người 2: Bài này yêu cầu sinh viên xây dựng báo cáo phân tích Lãi/Lỗ (P&L) theo từng chi nhánh, có dùng Slicer để ban giám đốc bấm chọn xem theo từng quý. Làm được bài này, sinh viên hoàn toàn có thể tự tin nhận việc Báo cáo quản trị (Management Reporting) ở các công ty!
 
 Slide 42: TÌNH HUỐNG ỨNG DỤNG CHUYÊN MÔN (PAC)
-Người 1: Tuyệt vời. Thử thách cuối cùng: Tình huống doanh nghiệp Pizza My Heart. Một chiếc xe tải bán Pizza đang muốn phân tích hệ thống dữ liệu doanh số của họ.
-Người 2: Dạ vâng, kinh doanh xe tải đồ ăn thì dữ liệu bán hàng mỗi ngày rất nhiều và cần phân tích xu hướng liên tục.
+Người 1: Sang Slide 42. Phần Tình huống Ứng dụng Chuyên môn (PAC).
+Người 2: Đây là phần hấp dẫn nhất. Chúng ta đóng vai Kế toán tổng hợp giải quyết một đống dữ liệu lộn xộn.
 
-Slide 43: DỮ LIỆU TÌNH HUỐNG
-Người 1: Dựa vào Mô hình dữ liệu ở Hình PAC 2.1A, các em hãy thiết lập mối quan hệ (Relationships) giữa các bảng Customers, Orders và Pizza.
-Người 2: Bảng Orders sẽ đứng giữa làm bảng trung tâm. CustomerID kết nối bảng Khách hàng, còn PizzaID kết nối bảng Sản phẩm ạ.
+Slide 43: PAC 2.1A (DỮ LIỆU TÌNH HUỐNG)
+Người 1: Dữ liệu tình huống PAC 2.1A.
+Người 2: Bảng dữ liệu giao dịch khổng lồ của một chuỗi bán lẻ. Sinh viên sẽ bị choáng ngợp bởi hàng vạn dòng hóa đơn, trả hàng, chiết khấu. Kỹ năng đầu tiên là dùng tính năng Remove Duplicates (Xóa trùng lặp) và Filter (Lọc) để làm sạch tệp rác.
 
-Slide 44: DỮ LIỆU TÌNH HUỐNG (TIẾP)
-Người 1: Và Hình PAC 2.1B yêu cầu các em định dạng Data types (Kiểu dữ liệu) cho các trường. Ngày sinh thì dùng dạng gì?
-Người 2: Ngày sinh chắc chắn phải set định dạng là Date/Time, nếu để dạng Text thì sau này không dùng hàm DATEDIF tính tuổi được ạ.
+Slide 44: PAC 2.1B (DỮ LIỆU TÌNH HUỐNG - TIẾP)
+Người 1: PAC 2.1B. Tiếp tục xử lý dữ liệu.
+Người 2: Bằng việc sử dụng Thống kê mô tả (Descriptive Statistics), sinh viên phải phát hiện ra những đơn hàng có số lượng âm (-500 sản phẩm) - đây có thể là lỗi nhập liệu (Typo) hoặc là nghiệp vụ hàng bán bị trả lại. Nếu không điều tra kỹ mà vội vàng tính tổng doanh thu, báo cáo tài chính sẽ bị sai lệch hàng tỷ đồng!
 
-Slide 45: KẾT THÚC
-Người 1: Xuất sắc! Kỹ năng giải quyết bài toán dữ liệu của em đã tiến bộ vượt bậc so với chương 1. Những thao tác Excel và Pivot Table hôm nay chính là vũ khí giúp em tự tin bước vào môi trường thực tế. 
-Người 2: Cảm ơn thầy/cô! Giờ em sẽ mở file bài tập ra và cày lại thao tác Pivot Table cho thuộc làu luôn ạ! Xin chào tạm biệt các bạn!
+Slide 45: KẾT THÚC CHƯƠNG 2
+Người 1: Slide 45. Kết thúc Chương 2.
+Người 2: Một chương học cực kỳ "nặng đô" nhưng thiết thực! Thưa thầy, em nhận ra rằng, Kế toán viên có kỹ năng dữ liệu không phải là người biến thành IT, mà là người biết mượn sức mạnh của Công cụ (Database, Excel, PivotTable) để giải phóng mình khỏi công việc chân tay, dành thời gian cho việc phân tích và ra quyết định chiến lược. Cảm ơn thầy rất nhiều!

@@ -1,490 +1,490 @@
 Slide 1: TRANG BÌA
-Người 1: Chào mừng các em đến với Chương 3. Hôm nay chúng ta sẽ đi sâu vào cách biến dữ liệu thô thành những quyết định chiến lược và giá trị thực tiễn. Trọng tâm của chúng ta là học cách xác định đúng "Động lực" và "Mục tiêu" trước khi bắt tay vào phân tích bất kỳ tập dữ liệu nào.
-Người 2: Dạ em chào thầy. Em rất tò mò làm sao để biết mình nên bắt đầu phân tích từ đâu khi đối mặt với một đống dữ liệu khổng lồ, đặc biệt là trong môi trường doanh nghiệp phức tạp hiện nay ạ?
+Người 1: Chào mừng các em đến với Chương 3. Chuyên đề hôm nay cực kỳ thú vị: Cách biến dữ liệu thô thành những quyết định chiến lược có giá trị. Trọng tâm của chúng ta là học cách xác định đúng 'Động lực' và 'Mục tiêu' trước khi bắt tay vào phân tích bất cứ thứ gì.
+Người 2: Dạ em chào thầy. Thú thật là khi đứng trước một bảng dữ liệu khổng lồ của doanh nghiệp, em thường bị ngợp và không biết phải bắt đầu từ đâu. Em rất mong bài học hôm nay sẽ cho em một hướng đi rõ ràng.
 
 Slide 2: GÓC NHÌN CHUYÊN GIA
-Người 1: Câu hỏi của em chính là cốt lõi của vấn đề! Các chuyên gia phân tích dữ liệu hàng đầu luôn khuyên rằng: "Đừng bao giờ lao vào tính toán hay vẽ biểu đồ khi chưa thực sự hiểu sếp hoặc khách hàng cần gì". Chúng ta phải luôn bắt đầu bằng một câu hỏi kinh doanh cụ thể, có thể đo lường được và mang tính định hướng rõ ràng.
-Người 2: Vâng, em hiểu rồi ạ. Giống như trước khi xây nhà thì phải có bản thiết kế kỹ lưỡng trước vậy. Nếu không xác định đúng mục tiêu ngay từ đầu, mọi công sức xử lý dữ liệu sau này đều có thể đổ sông đổ biển.
+Người 1: Đúng vậy, đó là lý do ta cần xem xét 'Góc nhìn chuyên gia' ở slide này. Việc xác định rõ động lực và mục tiêu đóng vai trò như một chiếc la bàn. Nếu không có nó, những mô hình thuật toán phức tạp nhất cũng sẽ trở nên vô nghĩa vì không giải quyết được vấn đề thực tế nào cả.
+Người 2: Em hiểu rồi ạ. Nghĩa là kết quả phân tích của mình phải luôn gắn liền với chiến lược của ban lãnh đạo thì mới tạo ra được giá trị thực sự.
 
 Slide 3: LỘ TRÌNH CHƯƠNG
 Người 1: Chính xác! Hôm nay chúng ta sẽ đi qua 6 phần chính rất hệ thống. Bắt đầu từ việc định hình câu hỏi phân tích nhờ vào động lực thực tế của doanh nghiệp, cho đến việc thiết lập 4 loại câu hỏi then chốt: Câu hỏi Mô tả (Chuyện gì đã xảy ra?), Chẩn đoán (Tại sao lại xảy ra?), Dự đoán (Điều gì sẽ xảy ra tiếp theo?) và Đề xuất (Chúng ta nên làm gì?).
 
 Slide 4: 3.1 ĐỘNG LỰC ĐỊNH HÌNH CÂU HỎI PHÂN TÍCH NHƯ THẾ NÀO?
-Người 1: Trước tiên, hãy hiểu "Động lực" là gì. Động lực chính là những tác nhân từ bên trong nội bộ công ty hoặc từ bên ngoài như sự thay đổi của thị trường, áp lực từ đối thủ cạnh tranh... thôi thúc công ty phải hành động ngay lập tức để thích ứng hoặc phát triển. Nó tạo ra một nhu cầu bức thiết phải phân tích dữ liệu.
-Người 2: Chẳng hạn như việc doanh thu đột ngột giảm mạnh trong quý vừa qua, hay việc bị đối thủ cướp mất tệp khách hàng thân thiết, đó chính là những động lực buộc ban giám đốc phải tìm hiểu dữ liệu phải không thầy?
+Người 1: Chúng ta bắt đầu với phần 3.1: Động lực (Motivation). Động lực chính là lý do sâu xa khởi tạo dự án, nó có thể xuất phát từ một nhu cầu chưa được đáp ứng hoặc một khoảng trống trong quy trình. Động lực mạnh mẽ sẽ trực tiếp dẫn dắt chúng ta đặt ra các câu hỏi phân tích sắc bén.
+Người 2: Thưa thầy, vậy có phải động lực cũng sẽ quyết định luôn việc mình dùng công cụ gì và phân tích sâu đến mức nào không ạ?
 
 Slide 5: MỤC TIÊU RÕ RÀNG
-Người 1: Hoàn toàn đúng! Và từ động lực bức thiết đó, chúng ta sẽ thiết lập "Mục tiêu" (Objective). Mục tiêu ở đây là thứ ta muốn đạt được một cách cụ thể để giải quyết triệt để cái động lực kia. Động lực là lý do bắt đầu, còn Mục tiêu là đích đến của toàn bộ quá trình phân tích.
-Người 2: Nghĩa là nếu động lực của công ty là "doanh số bán hàng giảm sút", thì mục tiêu đặt ra cho bộ phận phân tích sẽ phải là "tìm ra chính xác nguyên nhân gây giảm doanh số và đề xuất chiến lược cụ thể nhằm tăng doanh số lên 10% trong quý tới", đúng không ạ?
+Người 1: Chắc chắn rồi! Khi đã có động lực, ta phải chuyển hóa nó thành Mục tiêu rõ ràng. Ví dụ thay vì nói chung chung là 'Cải thiện doanh số', ta phải nhắm đến 'Phân tích doanh số từng khu vực để tìm vùng kém nhất'. Sự tập trung này giúp ta loại bỏ các dữ liệu dư thừa, hay còn gọi là 'nhiễu' (noise).
+Người 2: Em ghi nhận ý này ạ. Có mục tiêu cụ thể thì mình mới biết nên thiết lập KPI nào để đo lường thành công của dự án.
 
 Slide 6: XÁC ĐỊNH MỤC TIÊU
-Người 1: Chuẩn không cần chỉnh! Mục tiêu phải thật cụ thể, đo lường được và khả thi (theo tiêu chí SMART). Càng mơ hồ chung chung, em càng dễ bị "ngợp" và đi lạc trong mớ dữ liệu khổng lồ. Việc xác định đúng mục tiêu sẽ giúp giới hạn phạm vi thu thập dữ liệu và chọn lọc đúng công cụ phân tích.
-Người 2: Dạ vâng, em sẽ ghi nhớ nguyên tắc tối quan trọng này. Rõ ràng là không thể bắt tay vào làm nếu chưa biết mình đang đi tìm kiếm điều gì.
+Người 1: Để mục tiêu thực sự sắc bén, các em hãy nhớ Quy tắc SMART: Cụ thể, Đo lường được, Khả thi, Thực tế và Có thời hạn. Hơn nữa, mục tiêu mang tính lặp lại (Iterative), nghĩa là nó có thể được tinh chỉnh liên tục khi ta phát hiện ra những góc nhìn mới từ dữ liệu, với sự đồng thuận của tất cả các bên liên quan.
+Người 2: Dạ, em thích nhất yếu tố 'Iterative'. Nó cho thấy việc phân tích không hề cứng nhắc mà rất linh hoạt theo tình hình thực tế.
 
 Slide 7: KẾT NỐI ĐỘNG LỰC VỚI MỤC TIÊU
-Người 1: Khi động lực rõ ràng, mục tiêu sẽ tự động trở nên sắc bén. Chúng kết nối trực tiếp với nhau tạo thành một mũi tên định hướng cho việc chọn phương pháp phân tích. Sự thống nhất giữa động lực kinh doanh và mục tiêu kỹ thuật chính là chìa khóa thành công của bất kỳ dự án dữ liệu nào.
-Người 2: Việc xác định động lực và mục tiêu đúng đắn thực sự đóng vai trò như một chiếc la bàn trong quá trình phân tích dữ liệu, giúp chúng ta luôn đi đúng hướng và mang lại giá trị thực cho doanh nghiệp ạ.
+Người 1: Hãy xem một ví dụ trong lĩnh vực Kiểm toán. Động lực ở đây là rủi ro sai sót đối với khoản phải thu tăng cao do suy thoái kinh tế. Từ đó, mục tiêu đặt ra là: Phân tích tuổi nợ của toàn danh mục để trích lập dự phòng. Rất rõ ràng và bám sát nghiệp vụ phải không?
+Người 2: Quá rõ ràng ạ! Từ mục tiêu này, em có thể dễ dàng đặt ra câu hỏi phân tích như 'Tỷ lệ nợ quá hạn 90 ngày ở từng khu vực là bao nhiêu?' để bắt tay vào làm việc ngay.
 
 Slide 8: ILLUSTRATION 3.1
-Người 1: Các em hãy dành chút thời gian quan sát cẩn thận minh họa ở Minh họa 3.1 trên slide. Nội dung trong hình đề cập đến một khía cạnh rất quan trọng: "công ty có tên Super Scooters, chuyên sản xuất và bán nhiều loại xe tay ga. Trong mỗi ví dụ về Siêu xe tay ga, động lực của việc phân tích là mô tả tiềm năng của tình huống, chẩn đoán các yếu tố nguyên nhân hoặc xác định thay đổi hoạt động, dự đoán doanh thu bán hàng hoặc thu nhập ròng, hoặc quy định cách hành động tốt nhất. Bất kể động cơ nguồn của vation, các lựa chọn phân tích dữ liệu mà chúng...". Đây là một tình huống rất sát với thực tế quản trị doanh nghiệp, đòi hỏi chúng ta phải có cái nhìn hệ thống.
-Người 2: Dạ, kết hợp lý thuyết với một minh họa thực tế mang tính ứng dụng cao thế này rất hiệu quả ạ. Em có thể thấy rõ vai trò của từng bước phân tích trong bức tranh tổng thể.
+Người 1: Các em hãy nhìn vào Minh họa 3.1. Bảng này trình bày 4 loại động lực chính: Cơ hội mới, Tuân thủ quy định chuyên môn, Giải quyết vấn đề và Đánh giá quy trình. Ví dụ, việc Super Scooters muốn tung ra mẫu xe mới chính là động lực từ 'Cơ hội'.
+Người 2: Bảng phân loại này thật sự hữu ích. Giờ em đã hiểu phân tích dữ liệu không chỉ bó hẹp trong việc tìm lỗi, mà còn dùng để mở rộng kinh doanh hoặc đáp ứng yêu cầu của pháp luật.
 
 Slide 9: ILLUSTRATION 3.2
-Người 1: Slide tiếp theo mang đến một ví dụ thực tế rất sinh động qua Minh họa 3.2. Cụ thể, tài liệu phân tích rằng: "Hình minh họa 3.2 cho thấy Omni đang thua lỗ ở một khu vực: • Động lực: Họ lo ngại về những tổn thất ở Khu vực 1 và muốn hiểu điều gì đang thúc đẩy họ. • Mục tiêu chung: Loại bỏ những tổn thất tài chính đó. MINH HỌA 3.1 Động lực phân tích dữ liệu trong kế toán Động lực Mô tả Vai trò của phân tích dữ liệu Ví dụ về siêu xe tay ga Cơ hội Mới, có tiềm năng thuận lợi dịp hoặc kênh. Bằng chứng đáng tin...". Việc phân tích mổ xẻ kỹ càng từng chi tiết trong hình này sẽ giúp các em hiểu sâu hơn về bản chất của vấn đề và cách vận dụng các công cụ phân tích.
-Người 2: Dạ, kết hợp lý thuyết với một minh họa thực tế mang tính ứng dụng cao thế này rất hiệu quả ạ. Em có thể thấy rõ vai trò của từng bước phân tích trong bức tranh tổng thể.
+Người 1: Minh họa 3.2 cung cấp một ví dụ thực tế về nhà hàng Omni. Các em có thể thấy Khu vực 1 đang bị lỗ, tức là Net Income bị âm. Khoản lỗ này chính là ngòi nổ, tạo ra động lực bắt buộc ban quản trị phải đi tìm nguyên nhân.
+Người 2: Vâng, nhìn lướt qua bảng số liệu là thấy ngay sự bất thường của Khu vực 1 so với phần còn lại. Dữ liệu thực sự đã 'lên tiếng' báo động.
 
 Slide 10: ILLUSTRATION 3.3
-Người 1: Các em hãy dành chút thời gian quan sát cẩn thận minh họa ở Minh họa 3.3 trên slide. Nội dung trong hình đề cập đến một khía cạnh rất quan trọng: "Liệu câu hỏi địa chỉ khách quan? Bắt đầu Không Có Liệu địa chỉ câu hỏi một chủ đề? Không Có là câu hỏi có thể đo lường được?". Đây là một tình huống rất sát với thực tế quản trị doanh nghiệp, đòi hỏi chúng ta phải có cái nhìn hệ thống.
-Người 2: Dạ, kết hợp lý thuyết với một minh họa thực tế mang tính ứng dụng cao thế này rất hiệu quả ạ. Em có thể thấy rõ vai trò của từng bước phân tích trong bức tranh tổng thể.
+Người 1: Minh họa 3.3 là một Sơ đồ luồng (Flowchart) tuyệt vời để kiểm định câu hỏi phân tích. Nó buộc ta phải trả lời: Câu hỏi này có phục vụ đúng mục tiêu không? Và quan trọng nhất, nó có đo lường được bằng dữ liệu mà ta đang có hay không?
+Người 2: Sơ đồ này giống như một màng lọc ạ. Nếu câu hỏi không đo lường được thì tốt nhất là nên loại bỏ hoặc chỉnh sửa lại thay vì tốn thời gian phân tích vô ích.
 
 Slide 11: ILLUSTRATION 3.4
-Người 1: Nhìn vào Minh họa 3.4, chúng ta có thể rút ra những bài học chiến lược nào? Văn bản mô tả đi kèm ghi rõ: "Super Scooters hiện đang ở năm thứ ba trong hợp đồng với Lime và họ không chắc liệu họ đã đưa ra quyết định sản xuất đúng đắn. Doanh số bán hàng dường như đang giảm đối với một số mẫu xe, và chi phí ngày càng tăng. Calvin và Lyla nhờ bạn giúp họ làm ba việc: 1. Hiểu những mẫu xe nào có doanh số giảm và tại sao. 2. Dự kiến ​​chi phí bảo hành trong tương lai. 3. Xác định hỗn hợp sản phẩm mang lại...". Đây là một điểm cực kỳ đáng chú ý mà các chuyên gia phân tích dữ liệu thường xuyên gặp phải trong quá trình làm việc thực tế.
-Người 2: Vâng thưa thầy, hình ảnh và diễn giải này giải thích rất trực quan, dễ hiểu. Việc có số liệu và tình huống cụ thể giúp em nắm bắt vấn đề nhanh chóng hơn rất nhiều.
+Người 1: Sang Minh họa 3.4, ta thấy toàn cảnh vấn đề của công ty Super Scooters: Doanh số một số dòng xe giảm trong khi chi phí bảo hành lại tăng. Đây là một bài toán kinh điển đòi hỏi ta phải dùng cả phân tích Mô tả, Chẩn đoán, Dự đoán và Đề xuất.
+Người 2: Bài toán này phức tạp phết thầy nhỉ! Mình vừa phải tìm hiểu lý do sụt giảm, vừa phải dự báo chi phí, rồi lại còn phải đề xuất giải pháp sản phẩm tối ưu cho giám đốc nữa.
 
 Slide 12: ILLUSTRATION 3.5
-Người 1: Nhìn vào Minh họa 3.5, chúng ta có thể rút ra những bài học chiến lược nào? Văn bản mô tả đi kèm ghi rõ: "tóm tắt cách tư duy phê phán giúp đánh giá động cơ, mục tiêu và câu hỏi. 1Công ty tư nhân là công ty không bán cổ phiếu của mình trên các sàn giao dịch đại chúng. yêu cầu thực tập sinh xem lại tập dữ liệu và chuẩn bị thảo luận. Một đoạn trích của dữ liệu sau đây. 1. Thực tập sinh cho biết: “Xem lại tập dữ liệu, tôi đã phân loại VendorID là trường dữ liệu thô được đo lường nguồn.” Giải thích lý do...". Đây là một điểm cực kỳ đáng chú ý mà các chuyên gia phân tích dữ liệu thường xuyên gặp phải trong quá trình làm việc thực tế.
-Người 2: Dạ, ví dụ minh họa này làm em thấy rõ hơn hẳn những lý thuyết trừu tượng vừa học. Nó giúp em hình dung được quy trình thực tế sẽ diễn ra như thế nào ạ.
+Người 1: Chính vì phức tạp nên ở Minh họa 3.5, ta phải áp dụng mô hình tư duy phản biện SPARKS. Ta phải cân nhắc góc nhìn của các bên liên quan, những giải pháp thay thế, các rủi ro tiềm ẩn và nền tảng kiến thức cần có để không đi chệch hướng.
+Người 2: Áp dụng mô hình SPARKS ngay từ đầu giúp chúng ta có cái nhìn toàn diện, tránh được những định kiến cá nhân có thể làm sai lệch kết quả ạ.
 
 Slide 13: ILLUSTRATION 3.6
-Người 1: Chúng ta cùng phân tích thật kỹ Minh họa 3.6 nhé. Trọng tâm cốt lõi của hình ảnh này được mô tả chi tiết như sau: "thông tin tài chính cho các năm từ 2023 đến 2025. MINH HỌA 3.6 Báo cáo thu nhập của siêu xe tay ga: 2023–2025 Năm kết thúc ngày 31 tháng 12 2023 2024 2025 Tổng doanh thu $4,924,816 $10,506,334 $11,378,847 Tổng chi phí biến đổi $2,190,588 $4,922,488 $ 5,416,827". Các em hãy lưu ý cách áp dụng những thông tin này vào bối cảnh thực tế của doanh nghiệp để thấy rõ sự liên kết giữa lý thuyết và thực hành.
-Người 2: Dạ, kết hợp lý thuyết với một minh họa thực tế mang tính ứng dụng cao thế này rất hiệu quả ạ. Em có thể thấy rõ vai trò của từng bước phân tích trong bức tranh tổng thể.
+Người 1: Minh họa 3.6 cung cấp Báo cáo thu nhập của Super Scooters từ năm 2023 đến 2025. Đây chính là những dữ liệu tài chính cốt lõi, là chất liệu thô để chúng ta tiến hành các bước phân tích mô tả đầu tiên.
+Người 2: Dạ vâng. Có Báo cáo thu nhập này trong tay, chúng ta mới có cơ sở để tính toán các tỷ trọng và so sánh sự tăng giảm qua các năm.
 
 Slide 14: ILLUSTRATION 3.7
-Người 1: Nhìn vào Minh họa 3.7, chúng ta có thể rút ra những bài học chiến lược nào? Văn bản mô tả đi kèm ghi rõ: "MINH HỌA 3.7 Doanh thu mẫu xe ga: 2023–2025 Doanh thu thuyền trưởng 2023 2024 2025 2023 2024 2025 2023 2024 2025 2023 2024". Đây là một điểm cực kỳ đáng chú ý mà các chuyên gia phân tích dữ liệu thường xuyên gặp phải trong quá trình làm việc thực tế.
-Người 2: Dạ, kết hợp lý thuyết với một minh họa thực tế mang tính ứng dụng cao thế này rất hiệu quả ạ. Em có thể thấy rõ vai trò của từng bước phân tích trong bức tranh tổng thể.
+Người 1: Đi sâu hơn, Minh họa 3.7 bóc tách Doanh thu theo từng mẫu xe, bao gồm Captain, Celeritas, và Kicks. Việc phân rã dữ liệu này giúp ta phát hiện ngay dòng sản phẩm nào là trụ cột và dòng nào đang kéo tụt lợi nhuận.
+Người 2: Em thấy việc tách riêng từng dòng xe hiệu quả hơn nhiều so với việc chỉ nhìn vào tổng doanh thu chung của công ty. Nó giúp mình bắt đúng 'bệnh' hơn.
 
 Slide 15: ILLUSTRATION 3.8
-Người 1: Mời các em tập trung quan sát Minh họa 3.8. Điểm cốt lõi và bài học lớn nhất ở đây là: "Mục tiêu Câu hỏi ban đầu Câu hỏi phụ Các biện pháp khả thi Hiểu ròng giảm doanh thu cho Celeritas và Các mẫu đá. Doanh số bán hàng có giảm cho Celeritas và Người mẫu đá? 1. Doanh số bán xe Celeritas có giảm không? 2. Doanh số bán hàng đã giảm ở tất cả các địa điểm trong". Hãy thử đặt mình vào vị trí của người ra quyết định trong tình huống này, các em sẽ thấy việc hiểu rõ dữ liệu quan trọng đến mức nào.
-Người 2: Em đã nắm vững được ý chính và thông điệp cốt lõi của phần này rồi thưa thầy. Các chi tiết trong hình thực sự bổ trợ rất tốt cho việc hiểu sâu lý thuyết.
+Người 1: Ở Minh họa 3.8, chúng ta chia nhỏ vấn đề bằng các Câu hỏi Mô tả. Ví dụ: 'Sự sụt giảm doanh thu của mẫu xe Celeritas diễn ra ở tất cả các địa điểm hay chỉ tập trung ở một vài cửa hàng nhất định?'. Câu hỏi càng hẹp, việc lấy dữ liệu càng dễ.
+Người 2: Em hiểu rồi. Việc đặt các câu hỏi phụ (sub-questions) đi kèm với những thước đo cụ thể giúp định hướng chính xác quá trình trích xuất dữ liệu từ hệ thống kế toán.
 
 Slide 16: ILLUSTRATION 3.9
-Người 1: Slide tiếp theo mang đến một ví dụ thực tế rất sinh động qua Minh họa 3.9. Cụ thể, tài liệu phân tích rằng: "Dữ liệu bán hàng xác nhận các mẫu Celeritas và Kicks đều giảm giá từ năm 2024 đến năm 2025. Điều thú vị là cả khối lượng bán và giá trung bình đều giảm, do đó sự sụt giảm này là sự kết hợp cả về số lượng và giá cả. Bước tiếp theo là trả lời câu hỏi phụ tiếp theo: Doanh số bán hàng có giảm không? ở tất cả các địa điểm? Hình minh họa 3.10 cho thấy sự thay đổi trong tổng doanh thu trung bình, là...". Việc phân tích mổ xẻ kỹ càng từng chi tiết trong hình này sẽ giúp các em hiểu sâu hơn về bản chất của vấn đề và cách vận dụng các công cụ phân tích.
-Người 2: Em đã nắm vững được ý chính và thông điệp cốt lõi của phần này rồi thưa thầy. Các chi tiết trong hình thực sự bổ trợ rất tốt cho việc hiểu sâu lý thuyết.
+Người 1: Minh họa 3.9 thực hiện đúng phép phân tích mô tả cho doanh số của Celeritas và Kicks. Nhìn vào biểu đồ, các em có thể thấy rõ ràng một sự sụt giảm liên tục và đáng báo động của dòng xe Celeritas qua từng năm.
+Người 2: Thật sự rất trực quan ạ. Chỉ cần liếc qua là em nhận ra xu hướng đi xuống của Celeritas, một sự cảnh báo rất rõ ràng cho bộ phận kinh doanh.
 
 Slide 17: 3.2 LÀM THẾ NÀO ĐỂ PHÁT TRIỂN CÂU HỎI MÔ TẢ?
-Người 1: Tiếp tục với phần "3.2 Làm thế nào để phát triển Câu hỏi Mô tả?", các em hãy cố gắng xâu chuỗi một cách logic với những nguyên lý chúng ta đã học ở các phần trước. Tính liên kết chặt chẽ giữa các khái niệm chính là chìa khóa để làm chủ bức tranh toàn cảnh về dữ liệu.
-Người 2: Vâng thưa thầy, phần lý thuyết này được trình bày rất logic, hệ thống và dễ tiếp thu. Việc kết hợp với các ví dụ thực tiễn ngay từ đầu giúp em không bị bỡ ngỡ ạ.
+Người 1: Sang phần 3.2: Làm thế nào để phát triển câu hỏi mô tả? Các em cần nhớ, phân tích mô tả là nền tảng cốt lõi. Nó giúp tóm tắt dữ liệu quá khứ để trả lời cho câu hỏi trọng tâm nhất: 'Điều gì đã xảy ra?' (What happened?).
+Người 2: Vâng, trước khi muốn biết tại sao hoặc dự đoán tương lai, mình bắt buộc phải có một bức tranh toàn cảnh chính xác về những sự kiện đã diễn ra trong thực tế.
 
 Slide 18: ĐẶC ĐIỂM CỦA CÂU HỎI MÔ TẢ
-Người 1: Đi sâu vào nội dung "Đặc điểm của Câu hỏi Mô tả", chúng ta cần đặc biệt lưu ý và phân tích kỹ lưỡng những điểm cốt lõi sau đây. Việc hiểu thấu đáo khái niệm này sẽ là nền tảng vững chắc cho việc thiết kế các mô hình phân tích phức tạp hơn ở giai đoạn sau.
-Người 2: Dạ, em đang theo dõi sát sao từng bước trong tiến trình bài giảng ạ. Càng học sâu vào chi tiết, em càng thấy được sự thú vị và logic chặt chẽ của bộ môn này.
+Người 1: Đặc điểm của câu hỏi mô tả là nó luôn dựa vào dữ liệu lịch sử (Historical data). Kết quả thường được trình bày dưới dạng Dashboard, báo cáo tài chính hoặc các biểu đồ cơ bản (như Bar chart, Line chart) kèm theo các chỉ số thống kê như Mean, Median.
+Người 2: Dạ. Các công cụ thống kê mô tả này tuy đơn giản nhưng lại là cách nhanh nhất để tóm tắt một khối lượng dữ liệu khổng lồ thành những con số dễ hiểu.
 
 Slide 19: PHÂN LOẠI CÂU HỎI MÔ TẢ TRONG KẾ TOÁN
-Người 1: Đi sâu vào nội dung "Phân loại Câu hỏi Mô tả trong Kế toán", chúng ta cần đặc biệt lưu ý và phân tích kỹ lưỡng những điểm cốt lõi sau đây. Việc hiểu thấu đáo khái niệm này sẽ là nền tảng vững chắc cho việc thiết kế các mô hình phân tích phức tạp hơn ở giai đoạn sau.
-Người 2: Dạ, em đang theo dõi sát sao từng bước trong tiến trình bài giảng ạ. Càng học sâu vào chi tiết, em càng thấy được sự thú vị và logic chặt chẽ của bộ môn này.
+Người 1: Trong kế toán, câu hỏi mô tả được phân loại thành nhiều nhóm: Dùng để theo dõi biến động (doanh thu so với cùng kỳ), phân loại và nhóm (số lượng giao dịch vượt định mức), hoặc tóm tắt sự kiện (top 5 khách hàng mang lại biên lợi nhuận cao nhất).
+Người 2: Việc phân loại này giúp em dễ dàng ánh xạ các yêu cầu của sếp vào từng dạng câu hỏi cụ thể, từ đó thiết kế báo cáo cho phù hợp ạ.
 
 Slide 20: VÍ DỤ PHÂN TÍCH MÔ TẢ (KẾ TOÁN TÀI CHÍNH)
-Người 1: Tiếp tục với phần "Ví dụ Phân tích Mô tả (Kế toán Tài chính)", các em hãy cố gắng xâu chuỗi một cách logic với những nguyên lý chúng ta đã học ở các phần trước. Tính liên kết chặt chẽ giữa các khái niệm chính là chìa khóa để làm chủ bức tranh toàn cảnh về dữ liệu.
-Người 2: Vâng, em đang cẩn thận ghi chú lại các ý chính này vào sổ tay cũng như các trường hợp ngoại lệ cần lưu ý rồi thưa thầy. Quả thực phần này đòi hỏi sự tập trung cao độ.
+Người 1: Thử xét một ví dụ: Bối cảnh là công ty bán lẻ muốn đánh giá dịp lễ hội. Câu hỏi mô tả sẽ là 'Giá trị đơn hàng trung bình tháng 12 là bao nhiêu?'. Khi đó, kế toán viên sẽ thao tác trích xuất dữ liệu từ hệ thống ERP, loại bỏ nhiễu và dùng Pivot Table để tổng hợp.
+Người 2: Em thấy ví dụ này rất sát với công việc kế toán thực tế. Pivot Table đúng là một 'vũ khí' lợi hại để làm phân tích mô tả nhanh chóng.
 
 Slide 21: DỮ LIỆU BÁN HÀNG & TRỰC QUAN HÓA
-Người 1: Khi bước sang phần "Dữ liệu bán hàng & Trực quan hóa", thầy muốn nhấn mạnh rằng đây là một khái niệm mang tính ứng dụng cực kỳ cao, rất hay xuất hiện trong các bài toán tối ưu hóa thực tế của doanh nghiệp. Các em hãy ghi chú lại cẩn thận nhé.
-Người 2: Vâng, em đang cẩn thận ghi chú lại các ý chính này vào sổ tay cũng như các trường hợp ngoại lệ cần lưu ý rồi thưa thầy. Quả thực phần này đòi hỏi sự tập trung cao độ.
+Người 1: Slide 21 đề cập đến Trực quan hóa Dữ liệu (Data Visualization). Đây là khâu sống còn để biến bảng số liệu khô khan thành thông tin dễ hiểu. Các em chú ý: Biểu đồ đường (Line Chart) hiển thị xu hướng thời gian, Biểu đồ cột (Bar Chart) để so sánh các hạng mục, và Biểu đồ tròn (Pie Chart) thể hiện tỷ trọng tổng thể.
+Người 2: Em hoàn toàn đồng ý ạ. Giữa một bảng Excel toàn số và một biểu đồ trực quan, chắc chắn nhà quản lý sẽ thích nhìn biểu đồ hơn để nắm bắt tình hình ngay lập tức.
 
 Slide 22: ILLUSTRATION 3.10
-Người 1: Các em hãy dành chút thời gian quan sát cẩn thận minh họa ở Minh họa 3.10 trên slide. Nội dung trong hình đề cập đến một khía cạnh rất quan trọng: "về vị trí. Đó là kết quả của một phân tích mô tả trong Tableau cho thấy sự thay đổi trong tổng doanh số bán hàng từ năm 2023 đến năm 2025 theo địa điểm cho mẫu Celeritas. Đây là một bảng nổi bật nơi màu tối hơn báo hiệu mức giảm lớn hơn. ( Dữ liệu Xem Cách thực hiện 3.1 ở cuối chương này để tìm hiểu cách tạo bảng này trong Tableau.) Làm thế nào để MINH HỌA 3.9 Mô tả Phân tích Celeritas và Kicks...". Đây là một tình huống rất sát với thực tế quản trị doanh nghiệp, đòi hỏi chúng ta phải có cái nhìn hệ thống.
-Người 2: Vâng thưa thầy, hình ảnh và diễn giải này giải thích rất trực quan, dễ hiểu. Việc có số liệu và tình huống cụ thể giúp em nắm bắt vấn đề nhanh chóng hơn rất nhiều.
+Người 1: Ở Minh họa 3.10, chúng ta áp dụng phân tích mô tả để xem xét sự thay đổi doanh số Gộp của Celeritas theo từng địa điểm. Điều này giúp nhanh chóng khoanh vùng những chi nhánh nào đang bị sụt giảm nặng nề nhất.
+Người 2: Thưa thầy, việc chia nhỏ theo địa lý thế này rất hay. Thay vì trách phạt chung toàn bộ phận sale, ta có thể tập trung hỗ trợ đúng những khu vực đang gặp khó khăn.
 
 Slide 23: ILLUSTRATION 3.11
-Người 1: Nhìn vào Minh họa 3.11, chúng ta có thể rút ra những bài học chiến lược nào? Văn bản mô tả đi kèm ghi rõ: "về doanh số của Super Scooters ở phần trước. MINH HỌA 3.11 Câu hỏi chẩn đoán về sự sụt giảm doanh số của siêu xe tay ga Mục tiêu Câu hỏi ban đầu Câu hỏi phụ Các biện pháp khả thi Xác định tại sao doanh số bán hàng lại giảm dần cho Celeritas và những cú đá các mô hình. Lái xe là gì khối lượng bán hàng". Đây là một điểm cực kỳ đáng chú ý mà các chuyên gia phân tích dữ liệu thường xuyên gặp phải trong quá trình làm việc thực tế.
-Người 2: Dạ, nhờ minh họa chi tiết này mà các khái niệm vốn khô khan lại trở nên gần gũi và dễ áp dụng hơn rất nhiều ạ. Em sẽ ghi chú lại cẩn thận tình huống này.
+Người 1: Tuyệt vời! Đến Minh họa 3.11, chúng ta nâng cấp lên Câu hỏi Chẩn đoán. Khi đã biết doanh số giảm (Mô tả), câu hỏi giờ đây là 'Yếu tố nào thúc đẩy sự suy giảm này?'. Mục tiêu là khoan sâu vào dữ liệu để tìm ra nguyên nhân gốc rễ (Root cause).
+Người 2: Dạ, đây chính là lúc kỹ năng phân tích sâu (Drill-down) phát huy tác dụng. Ta phải đi tìm các quy luật ngầm hoặc những ngoại lệ đằng sau những con số báo cáo.
 
 Slide 24: ILLUSTRATION 3.12
-Người 1: Nhìn vào Minh họa 3.12, chúng ta có thể rút ra những bài học chiến lược nào? Văn bản mô tả đi kèm ghi rõ: "2.000 1.800 1.600 1.400 1.200 1.000 800 600 400 200 0 Q1 Q2 bán hàng". Đây là một điểm cực kỳ đáng chú ý mà các chuyên gia phân tích dữ liệu thường xuyên gặp phải trong quá trình làm việc thực tế.
-Người 2: Dạ, kết hợp lý thuyết với một minh họa thực tế mang tính ứng dụng cao thế này rất hiệu quả ạ. Em có thể thấy rõ vai trò của từng bước phân tích trong bức tranh tổng thể.
+Người 1: Minh họa 3.12 sử dụng biểu đồ đường để hiển thị Xu hướng Khối lượng bán ra của Celeritas. Các em nhìn vào sự dao động lên xuống này để nhận diện các chu kỳ hoặc các đứt gãy bất thường theo thời gian.
+Người 2: Em thấy rõ các điểm gập ghềnh trên biểu đồ. Sự trực quan của biểu đồ đường thực sự làm nổi bật những giai đoạn biến động mạnh mà một bảng số liệu khó thể hiện hết.
 
 Slide 25: ILLUSTRATION 3.13
-Người 1: Chúng ta cùng phân tích thật kỹ Minh họa 3.13 nhé. Trọng tâm cốt lõi của hình ảnh này được mô tả chi tiết như sau: "vị trí đó. 3.3 Mục tiêu chẩn đoán là gì? 3-15 MINH HỌA 3.13 Seattle Celeritas hàng tháng của địa điểm Bán hàng – 2025 bán hàng khối lượng 115 Doanh số bán hàng hàng tháng của Celeritas 2025: Seattle 105 95 85 75". Các em hãy lưu ý cách áp dụng những thông tin này vào bối cảnh thực tế của doanh nghiệp để thấy rõ sự liên kết giữa lý thuyết và thực hành.
-Người 2: Dạ, nhờ minh họa chi tiết này mà các khái niệm vốn khô khan lại trở nên gần gũi và dễ áp dụng hơn rất nhiều ạ. Em sẽ ghi chú lại cẩn thận tình huống này.
+Người 1: Để hiểu sâu hơn, Minh họa 3.13 cô lập riêng doanh số hàng tháng của chi nhánh Seattle. Việc zoom cận cảnh vào một điểm bán hàng cụ thể giúp loại trừ nhiễu từ các khu vực khác, làm lộ rõ vấn đề nội tại của Seattle.
+Người 2: Thật vi diệu! Đi từ cái nhìn tổng thể đến chi tiết từng vùng (Drill-down) đúng là phương pháp tối ưu để chẩn đoán nguyên nhân thưa thầy.
 
 Slide 26: ILLUSTRATION 3.14
-Người 1: Nhìn vào Minh họa 3.14, chúng ta có thể rút ra những bài học chiến lược nào? Văn bản mô tả đi kèm ghi rõ: "câu hỏi ban đầu, cộng với các câu hỏi phụ cụ thể. MINH HỌA 3.14 Dự đoán Câu hỏi dự báo siêu Doanh thu xe tay ga Mục tiêu Câu hỏi ban đầu Câu hỏi phụ Dự đoán doanh thu năm 2026 Doanh thu sẽ là bao nhiêu thay đổi với mức tăng 10% doanh số bán hàng? Doanh thu sẽ thay đổi bao nhiêu từng mô hình? Doanh thu sẽ thay đổi bao nhiêu tại". Đây là một điểm cực kỳ đáng chú ý mà các chuyên gia phân tích dữ liệu thường xuyên gặp phải trong quá trình làm việc thực tế.
-Người 2: Dạ, kết hợp lý thuyết với một minh họa thực tế mang tính ứng dụng cao thế này rất hiệu quả ạ. Em có thể thấy rõ vai trò của từng bước phân tích trong bức tranh tổng thể.
+Người 1: Ở slide này, chúng ta bàn về cách cấu trúc một câu hỏi chẩn đoán tốt. Nó thường bắt đầu bằng chữ 'Tại sao' (Why) hoặc 'Cái gì đã dẫn đến' (What caused). Điều này đòi hỏi người phân tích phải có am hiểu nhất định về hoạt động kinh doanh để đưa ra các giả thuyết ban đầu.
+Người 2: Vâng, em nhận ra để chẩn đoán giỏi thì kỹ năng Excel thôi chưa đủ, mà còn phải hiểu rõ quy trình vận hành và thị trường của công ty nữa.
 
 Slide 27: ILLUSTRATION 3.15
-Người 1: Chúng ta cùng phân tích thật kỹ Minh họa 3.15 nhé. Trọng tâm cốt lõi của hình ảnh này được mô tả chi tiết như sau: "Sử dụng chi phí bán hàng và bảo hành Đường xu hướng hỗ trợ mối quan hệ tuyến tính: • Khi tổng doanh thu tăng lên thì chi phí bảo hành cũng tăng lên. • Phương trình đường xu hướng được thể hiện trên biểu đồ. (y = 0,0431x + 18,632, R² = 0,9064). Phương trình đó có thể được sử dụng để dự đoán chi phí bảo hành trong tương lai dựa trên doanh thu dự kiến trong đó y là số tiền chi phí bảo hành và x là...". Các em hãy lưu ý cách áp dụng những thông tin này vào bối cảnh thực tế của doanh nghiệp để thấy rõ sự liên kết giữa lý thuyết và thực hành.
-Người 2: Em đã nắm vững được ý chính và thông điệp cốt lõi của phần này rồi thưa thầy. Các chi tiết trong hình thực sự bổ trợ rất tốt cho việc hiểu sâu lý thuyết.
+Người 1: Tiếp tục với phần chẩn đoán, công cụ thường dùng nhất là phân tích Phương sai (Variance Analysis) và khai phá dữ liệu (Data mining). Mục đích là để tìm kiếm sự tương quan (Correlation) giữa sự cố xảy ra với các yếu tố môi trường xung quanh.
+Người 2: Dạ, phương pháp phân tích Phương sai này bọn em được học trong môn Kế toán Quản trị. Giờ áp dụng vào phân tích dữ liệu thì đúng là 'như cá gặp nước' ạ.
 
 Slide 28: ILLUSTRATION 3.16
-Người 1: Nhìn vào Minh họa 3.16, chúng ta có thể rút ra những bài học chiến lược nào? Văn bản mô tả đi kèm ghi rõ: "ngoại hối 1 E B C D A F G H tôi J Trang 1 2". Đây là một điểm cực kỳ đáng chú ý mà các chuyên gia phân tích dữ liệu thường xuyên gặp phải trong quá trình làm việc thực tế.
-Người 2: Em đã nắm vững được ý chính và thông điệp cốt lõi của phần này rồi thưa thầy. Các chi tiết trong hình thực sự bổ trợ rất tốt cho việc hiểu sâu lý thuyết.
+Người 1: Một lưu ý quan trọng: Tương quan không đồng nghĩa với nhân quả (Correlation does not imply causation). Nếu chi phí quảng cáo tăng cùng lúc với doanh thu tăng, chưa chắc quảng cáo đã là nguyên nhân trực tiếp. Kế toán viên cần phải hết sức cẩn trọng khi đưa ra kết luận chẩn đoán.
+Người 2: Dạ, đây là một cái bẫy tư duy rất dễ mắc phải. Em sẽ ghi chú thật kỹ lưu ý này để tránh đưa ra những kết luận vội vàng cho ban giám đốc.
 
 Slide 29: ILLUSTRATION 3.17
-Người 1: Chúng ta cùng phân tích thật kỹ Minh họa 3.17 nhé. Trọng tâm cốt lõi của hình ảnh này được mô tả chi tiết như sau: "MINH HỌA 3.17 Tùy chọn đường xu hướng trong Microsoft Excel ngoại hối 1 A B C D E Trang 1 2 3 4 5 6". Các em hãy lưu ý cách áp dụng những thông tin này vào bối cảnh thực tế của doanh nghiệp để thấy rõ sự liên kết giữa lý thuyết và thực hành.
-Người 2: Em đã nắm vững được ý chính và thông điệp cốt lõi của phần này rồi thưa thầy. Các chi tiết trong hình thực sự bổ trợ rất tốt cho việc hiểu sâu lý thuyết.
+Người 1: Chúng ta sang một khái niệm mới: Phát hiện điểm bất thường (Anomaly Detection). Đây là kỹ thuật dùng máy học hoặc thống kê để tự động đánh dấu các giao dịch vượt ra khỏi quy luật thông thường, rất hữu ích trong kiểm toán chống gian lận.
+Người 2: Ứng dụng này hay quá thưa thầy! Nếu dùng thuật toán để quét hàng triệu giao dịch thì chắc chắn sẽ chính xác và đỡ tốn sức hơn nhiều so với việc kiểm tra xác suất bằng mắt thường.
 
 Slide 30: ILLUSTRATION 3.18
-Người 1: Slide tiếp theo mang đến một ví dụ thực tế rất sinh động qua Minh họa 3.18. Cụ thể, tài liệu phân tích rằng: "MINH HỌA 3.18 Đầu ra mô hình hồi quy Nhiều R R vuông Hình vuông R đã điều chỉnh Lỗi chuẩn Quan sát ANOVA 0.97868787 0.95782995 0.95527419 1283.82134 36 df SS". Việc phân tích mổ xẻ kỹ càng từng chi tiết trong hình này sẽ giúp các em hiểu sâu hơn về bản chất của vấn đề và cách vận dụng các công cụ phân tích.
-Người 2: Em đã nắm vững được ý chính và thông điệp cốt lõi của phần này rồi thưa thầy. Các chi tiết trong hình thực sự bổ trợ rất tốt cho việc hiểu sâu lý thuyết.
+Người 1: Slide này tóm tắt lại toàn bộ quy trình: Từ một động lực kinh doanh -> Đặt câu hỏi mô tả (Chuyện gì xảy ra) -> Đặt câu hỏi chẩn đoán (Tại sao xảy ra) -> Đưa ra kết luận ban đầu. Đây là vòng lặp cơ bản nhất mà một kế toán viên dữ liệu phải thành thục.
+Người 2: Quy trình rất liền mạch ạ. Sự liên kết chặt chẽ giữa 'Cái gì' và 'Tại sao' mang lại một nền tảng vững chắc trước khi chúng ta tiến tới dự đoán tương lai.
 
 Slide 31: APPLY IT 3.2
-Người 1: Khi bước sang phần "Apply It 3.2", thầy muốn nhấn mạnh rằng đây là một khái niệm mang tính ứng dụng cực kỳ cao, rất hay xuất hiện trong các bài toán tối ưu hóa thực tế của doanh nghiệp. Các em hãy ghi chú lại cẩn thận nhé.
-Người 2: Dạ, em đang theo dõi sát sao từng bước trong tiến trình bài giảng ạ. Càng học sâu vào chi tiết, em càng thấy được sự thú vị và logic chặt chẽ của bộ môn này.
+Người 1: Bây giờ, các em làm bài APPLY IT 3.2. Hãy vận dụng những kiến thức vừa học để tự đặt ra một câu hỏi chẩn đoán dựa trên dữ liệu báo cáo tài chính của công ty mẫu nhé.
+Người 2: Dạ, bài tập này giúp em rèn luyện phản xạ đặt câu hỏi 'Tại sao'. Em sẽ thử phân tích xem vì sao chi phí quản lý doanh nghiệp lại đột ngột tăng vọt trong quý này.
 
 Slide 32: 3.3 LÀM THẾ NÀO ĐỂ PHÁT TRIỂN CÂU HỎI CHẨN ĐOÁN?
-Người 1: Tiếp tục với phần "3.3 Làm thế nào để phát triển Câu hỏi Chẩn đoán?", các em hãy cố gắng xâu chuỗi một cách logic với những nguyên lý chúng ta đã học ở các phần trước. Tính liên kết chặt chẽ giữa các khái niệm chính là chìa khóa để làm chủ bức tranh toàn cảnh về dữ liệu.
-Người 2: Dạ, em đang theo dõi sát sao từng bước trong tiến trình bài giảng ạ. Càng học sâu vào chi tiết, em càng thấy được sự thú vị và logic chặt chẽ của bộ môn này.
+Người 1: Chuyển sang phần 3.3: Làm thế nào để phát triển câu hỏi chẩn đoán? Nếu câu hỏi mô tả cho ta biết 'Chuyện gì đã xảy ra', thì câu hỏi chẩn đoán sẽ giúp ta lật mở bức màn bí mật để tìm ra nguyên nhân sâu xa dẫn đến hiện tượng đó.
+Người 2: Em hiểu rồi ạ. Tức là mình đóng vai trò như một 'bác sĩ' bắt bệnh cho doanh nghiệp, phải tìm ra mầm bệnh chứ không chỉ nhìn vào triệu chứng.
 
 Slide 33: ĐẶC ĐIỂM CỦA CÂU HỎI CHẨN ĐOÁN
-Người 1: Tiếp tục với phần "Đặc điểm của Câu hỏi Chẩn đoán", các em hãy cố gắng xâu chuỗi một cách logic với những nguyên lý chúng ta đã học ở các phần trước. Tính liên kết chặt chẽ giữa các khái niệm chính là chìa khóa để làm chủ bức tranh toàn cảnh về dữ liệu.
-Người 2: Vâng thưa thầy, phần lý thuyết này được trình bày rất logic, hệ thống và dễ tiếp thu. Việc kết hợp với các ví dụ thực tiễn ngay từ đầu giúp em không bị bỡ ngỡ ạ.
+Người 1: Đặc điểm nổi bật của câu hỏi chẩn đoán là tính nhân quả. Các em phải luôn đi tìm mối liên hệ giữa các biến số. Ví dụ, liệu việc thay đổi nhà cung cấp có làm tăng tỷ lệ hàng lỗi hay không? Quá trình này đòi hỏi khả năng tư duy logic và suy luận chặt chẽ.
+Người 2: Vâng thưa thầy. Khó nhất ở bước này có lẽ là việc đặt ra các giả thuyết hợp lý để từ đó dùng dữ liệu kiểm chứng lại đúng không ạ?
 
 Slide 34: ĐÀO SÂU VÀO DỮ LIỆU (DRILL-DOWN)
-Người 1: Tiếp tục với phần "Đào sâu vào Dữ liệu (Drill-down)", các em hãy cố gắng xâu chuỗi một cách logic với những nguyên lý chúng ta đã học ở các phần trước. Tính liên kết chặt chẽ giữa các khái niệm chính là chìa khóa để làm chủ bức tranh toàn cảnh về dữ liệu.
-Người 2: Vâng thưa thầy, phần lý thuyết này được trình bày rất logic, hệ thống và dễ tiếp thu. Việc kết hợp với các ví dụ thực tiễn ngay từ đầu giúp em không bị bỡ ngỡ ạ.
+Người 1: Chính xác! Và một kỹ thuật cực kỳ quan trọng để kiểm chứng giả thuyết là Đào sâu vào dữ liệu (Drill-down). Kỹ thuật này cho phép ta đi từ cái nhìn tổng quan vĩ mô xuống chi tiết từng cấp độ: từ khu vực xuống cửa hàng, rồi từ cửa hàng xuống từng nhân viên bán hàng.
+Người 2: Em thấy tính năng Drill-down trong các phần mềm ERP rất tiện lợi. Nó giúp mình không bỏ sót bất kỳ chi tiết nhỏ nào đang lẩn khuất dưới các con số tổng.
 
 Slide 35: VÍ DỤ PHÂN TÍCH CHẨN ĐOÁN (KIỂM TOÁN)
-Người 1: Đi sâu vào nội dung "Ví dụ Phân tích Chẩn đoán (Kiểm toán)", chúng ta cần đặc biệt lưu ý và phân tích kỹ lưỡng những điểm cốt lõi sau đây. Việc hiểu thấu đáo khái niệm này sẽ là nền tảng vững chắc cho việc thiết kế các mô hình phân tích phức tạp hơn ở giai đoạn sau.
-Người 2: Dạ, em đang theo dõi sát sao từng bước trong tiến trình bài giảng ạ. Càng học sâu vào chi tiết, em càng thấy được sự thú vị và logic chặt chẽ của bộ môn này.
+Người 1: Thầy lấy một ví dụ trong Kiểm toán: Khi phát hiện doanh thu tăng bất thường vào tháng 12, kiểm toán viên sẽ 'Drill-down' để xem liệu có sự ghi nhận khống doanh thu (Channel stuffing) để đạt chỉ tiêu cuối năm hay không.
+Người 2: Ví dụ rất thực tế ạ! Gian lận thường được che đậy bằng những số tổng đẹp đẽ, nếu không 'Drill-down' thì rất dễ bỏ lọt sai sót trọng yếu thưa thầy.
 
 Slide 36: MINH HỌA DỮ LIỆU VÀ TRỰC QUAN HÓA CẢNH BÁO
-Người 1: Khi bước sang phần "Minh họa dữ liệu và trực quan hóa cảnh báo", thầy muốn nhấn mạnh rằng đây là một khái niệm mang tính ứng dụng cực kỳ cao, rất hay xuất hiện trong các bài toán tối ưu hóa thực tế của doanh nghiệp. Các em hãy ghi chú lại cẩn thận nhé.
-Người 2: Vâng, em đang cẩn thận ghi chú lại các ý chính này vào sổ tay cũng như các trường hợp ngoại lệ cần lưu ý rồi thưa thầy. Quả thực phần này đòi hỏi sự tập trung cao độ.
+Người 1: Ở slide này, chúng ta thảo luận về việc Minh họa dữ liệu và trực quan hóa các tín hiệu Cảnh báo (Red flags). Bằng cách dùng màu sắc (như màu đỏ cho những giao dịch vượt mức), ta có thể kích hoạt các cảnh báo rủi ro tự động ngay trên Dashboard.
+Người 2: Quả thực, bộ não con người nhạy bén với màu sắc hơn nhiều so với việc đọc một loạt các dòng text. Cảnh báo tự động này sẽ tiết kiệm thời gian đáng kể cho kiểm toán viên.
 
 Slide 37: ILLUSTRATION 3.19
-Người 1: Các em hãy dành chút thời gian quan sát cẩn thận minh họa ở Minh họa 3.19 trên slide. Nội dung trong hình đề cập đến một khía cạnh rất quan trọng: "3.18, cùng với định nghĩa về số liệu thống kê và cách giải thích cho Siêu xe tay ga mô hình hồi quy. 3.4 Mục tiêu dự đoán là gì? 3-21 MINH HỌA 3.19 Thống kê hồi quy Hồi quy Thống kê Định nghĩa đầu ra Phiên dịch Nhiều R • Còn gọi là tương quan hệ số, nó đo cường độ về mối quan hệ giữa sự phụ thuộc". Đây là một tình huống rất sát với thực tế quản trị doanh nghiệp, đòi hỏi chúng ta phải có cái nhìn hệ thống.
-Người 2: Dạ, nhờ minh họa chi tiết này mà các khái niệm vốn khô khan lại trở nên gần gũi và dễ áp dụng hơn rất nhiều ạ. Em sẽ ghi chú lại cẩn thận tình huống này.
+Người 1: Nhìn vào Minh họa 3.19, ta thấy được ý nghĩa của các Thống kê Hồi quy (Regression Statistics). Những con số như R-Square (R bình phương) sẽ cho ta biết mô hình giải thích được bao nhiêu phần trăm sự biến thiên của dữ liệu.
+Người 2: Dạ, R-Square càng gần 1 thì mô hình càng đáng tin cậy. Em sẽ lưu ý chỉ số này để tránh dùng những mô hình dự báo kém chất lượng ạ.
 
 Slide 38: ILLUSTRATION 3.20
-Người 1: Slide tiếp theo mang đến một ví dụ thực tế rất sinh động qua Minh họa 3.20. Cụ thể, tài liệu phân tích rằng: "Trong một phép hồi quy tuyến tính bội như thế này, mức ý nghĩa là một phép kiểm định giả thuyết về việc liệu mô hình hồi quy tốt hơn mô hình không có biến độc lập. Nói cách khác, là mô hình tốt hơn là không có mô hình nào cả? MINH HỌA 3.20 Thống kê hồi quy ANOVA ANOVA df SS MS F 1235399491 54390508.88 Hồi quy dư Tổng cộng". Việc phân tích mổ xẻ kỹ càng từng chi tiết trong hình này sẽ giúp các em hiểu sâu hơn về bản chất của vấn đề và cách vận dụng các công cụ phân tích.
-Người 2: Dạ, ví dụ minh họa này làm em thấy rõ hơn hẳn những lý thuyết trừu tượng vừa học. Nó giúp em hình dung được quy trình thực tế sẽ diễn ra như thế nào ạ.
+Người 1: Tiếp nối là Minh họa 3.20 trình bày bảng ANOVA trong thống kê hồi quy. Bảng này dùng để phân tích phương sai, giúp ta kiểm định mức độ phù hợp của toàn bộ mô hình trước khi đưa vào ứng dụng thực tiễn.
+Người 2: Bảng ANOVA này nhìn qua thì nhiều số phức tạp, nhưng thực chất nó là 'chứng chỉ kiểm định' độ xịn của mô hình phải không thầy?
 
 Slide 39: ILLUSTRATION 3.21
-Người 1: Chúng ta cùng phân tích thật kỹ Minh họa 3.21 nhé. Trọng tâm cốt lõi của hình ảnh này được mô tả chi tiết như sau: "chi phí bảo trì và giải thích các hệ số. MINH HỌA 3.21 Mô hình hồi quy 897.8427419 0.43769194 Đánh chặn Giờ máy Yêu cầu sửa chữa 5252.85845 3.56920298 759.836675 168.7763028 4.502034 5.850533 8.154601". Các em hãy lưu ý cách áp dụng những thông tin này vào bối cảnh thực tế của doanh nghiệp để thấy rõ sự liên kết giữa lý thuyết và thực hành.
-Người 2: Dạ, kết hợp lý thuyết với một minh họa thực tế mang tính ứng dụng cao thế này rất hiệu quả ạ. Em có thể thấy rõ vai trò của từng bước phân tích trong bức tranh tổng thể.
+Người 1: Đúng vậy! Và ở Minh họa 3.21, ta sẽ thấy các hệ số (Coefficients) của mô hình. Ví dụ như hệ số Chặn (Intercept) hay hệ số cho Giờ chạy máy (Machine Hours). Từ đây, ta hoàn toàn có thể viết ra phương trình y = ax + b để dự đoán chi phí.
+Người 2: Tuyệt quá, em đã thấy được sự kết nối giữa môn Xác suất Thống kê với Kế toán Quản trị rồi. Phương trình này chính là 'chìa khóa' dự báo chi phí tương lai.
 
 Slide 40: ILLUSTRATION 3.22
-Người 1: Mời các em tập trung quan sát Minh họa 3.22. Điểm cốt lõi và bài học lớn nhất ở đây là: "uc của từng hệ số biến độc lập và giá trị dự đoán của biến để dự đoán $19.364,08 tổng chi phí bảo trì trong năm. Giờ máy Đánh chặn Yêu cầu sửa chữa người mẫu hệ số 3,57 5.252,86 USD $ $ 759,84 Biến Giá trị". Hãy thử đặt mình vào vị trí của người ra quyết định trong tình huống này, các em sẽ thấy việc hiểu rõ dữ liệu quan trọng đến mức nào.
-Người 2: Dạ, kết hợp lý thuyết với một minh họa thực tế mang tính ứng dụng cao thế này rất hiệu quả ạ. Em có thể thấy rõ vai trò của từng bước phân tích trong bức tranh tổng thể.
+Người 1: Ở Minh họa 3.22, chúng ta chính thức ráp các hệ số vừa tìm được vào một Mô hình Dự đoán hoàn chỉnh. Nhờ mô hình này, chỉ cần nhập số liệu đầu vào của tháng sau, ta sẽ có ngay con số chi phí bảo hành dự kiến.
+Người 2: Dạ vâng, đây chính là lúc máy tính làm thay con người việc dự đoán. Việc của kế toán là đảm bảo mô hình được thiết lập chính xác từ ban đầu.
 
 Slide 41: ILLUSTRATION 3.23
-Người 1: Chúng ta cùng phân tích thật kỹ Minh họa 3.23 nhé. Trọng tâm cốt lõi của hình ảnh này được mô tả chi tiết như sau: "trộn: • Câu hỏi ban đầu cụ thể hơn. Nên sản xuất và bán bao nhiêu chiếc xe tay ga? tối đa hóa tỷ lệ đóng góp? • Tiếp theo, tìm hiểu sâu hơn bằng cách hỏi về những hạn chế tiềm ẩn cần được xem xét và cách thực hiện nhiều đơn vị của mỗi mô hình nên được sản xuất. MINH HỌA 3.23 Câu hỏi quy định Xác định siêu xe tay ga ' Hỗn hợp sản phẩm Mục tiêu Câu hỏi ban đầu Câu hỏi phụ Xác định nhiều nhất sản...". Các em hãy lưu ý cách áp dụng những thông tin này vào bối cảnh thực tế của doanh nghiệp để thấy rõ sự liên kết giữa lý thuyết và thực hành.
-Người 2: Dạ, kết hợp lý thuyết với một minh họa thực tế mang tính ứng dụng cao thế này rất hiệu quả ạ. Em có thể thấy rõ vai trò của từng bước phân tích trong bức tranh tổng thể.
+Người 1: Sau khi dự đoán, chúng ta sang bước cao nhất: Câu hỏi Đề xuất (Prescriptive). Minh họa 3.23 đặt ra câu hỏi nhằm xác định Phối thức sản phẩm (Product Mix) tối ưu cho Super Scooters để tối đa hóa lợi nhuận. Tức là ta phải trả lời câu hỏi: 'Chúng ta nên làm gì?'.
+Người 2: Đề xuất giải pháp luôn là phần khó nhất vì nó ảnh hưởng trực tiếp đến túi tiền của công ty. Bài toán tối ưu hóa này rất thú vị ạ.
 
 Slide 42: ILLUSTRATION 3.24
-Người 1: Nhìn vào Minh họa 3.24, chúng ta có thể rút ra những bài học chiến lược nào? Văn bản mô tả đi kèm ghi rõ: "Xe tay ga. MINH HỌA 3.24 Số tiền đóng góp và yêu cầu về nguồn lực Tổng CM Hạn chế: Tổng số giờ máy CM trên mỗi đơn vị Số giờ máy trên mỗi đơn vị Giờ máy Nhu cầu Số lượng sản xuất thuyền trưởng $371,78 18.000 Hàm mục tiêu là". Đây là một điểm cực kỳ đáng chú ý mà các chuyên gia phân tích dữ liệu thường xuyên gặp phải trong quá trình làm việc thực tế.
-Người 2: Em đã nắm vững được ý chính và thông điệp cốt lõi của phần này rồi thưa thầy. Các chi tiết trong hình thực sự bổ trợ rất tốt cho việc hiểu sâu lý thuyết.
+Người 1: Để giải bài toán tối ưu, Minh họa 3.24 liệt kê rõ Lợi nhuận gộp biên (Contribution Margin) của từng sản phẩm cùng với các ràng buộc (Constraints) như tổng số giờ máy tối đa cho phép trong tháng.
+Người 2: Em nhớ rồi, đây là bài toán 'Điểm nút cổ chai'. Nguồn lực luôn có hạn nên ta phải chọn sản xuất cái gì mang lại biên lợi nhuận cao nhất trên mỗi đơn vị nguồn lực khan hiếm.
 
 Slide 43: ILLUSTRATION 3.25
-Người 1: Slide tiếp theo mang đến một ví dụ thực tế rất sinh động qua Minh họa 3.25. Cụ thể, tài liệu phân tích rằng: "Xem lại Xem Nhà phát triển Trợ giúp nhào lộn Power Pivot Tab mới Tìm kiếm Chia sẻ Chia sẻ Tự động Lưu Oﬀ Trợ giúp Power Pivot". Việc phân tích mổ xẻ kỹ càng từng chi tiết trong hình này sẽ giúp các em hiểu sâu hơn về bản chất của vấn đề và cách vận dụng các công cụ phân tích.
-Người 2: Em đã nắm vững được ý chính và thông điệp cốt lõi của phần này rồi thưa thầy. Các chi tiết trong hình thực sự bổ trợ rất tốt cho việc hiểu sâu lý thuyết.
+Người 1: Và để giải bài toán này nhanh chóng, Minh họa 3.25 hướng dẫn các em cách truy cập công cụ Solver trong tab Data của Microsoft Excel. Nó mạnh mẽ hơn nhiều so với tính toán thủ công.
+Người 2: Dạ, việc dùng Solver sẽ giúp loại bỏ các bước tính toán lặp đi lặp lại. Cảm ơn thầy đã giới thiệu công cụ hữu ích này ạ.
 
 Slide 44: ILLUSTRATION 3.25_1
-Người 1: Nhìn vào Minh họa 3.25_1, chúng ta có thể rút ra những bài học chiến lược nào? Văn bản mô tả đi kèm ghi rõ: "Xem lại Xem Nhà phát triển Trợ giúp nhào lộn Power Pivot Tab mới Tìm kiếm Chia sẻ Chia sẻ Tự động Lưu Oﬀ Trợ giúp Power Pivot". Đây là một điểm cực kỳ đáng chú ý mà các chuyên gia phân tích dữ liệu thường xuyên gặp phải trong quá trình làm việc thực tế.
-Người 2: Dạ, nhờ minh họa chi tiết này mà các khái niệm vốn khô khan lại trở nên gần gũi và dễ áp dụng hơn rất nhiều ạ. Em sẽ ghi chú lại cẩn thận tình huống này.
+Người 1: Thêm một góc nhìn phụ cho Minh họa 3.25: Các em lưu ý kích hoạt Add-in Solver trong phần Options của Excel trước nhé, vì mặc định tính năng này sẽ bị ẩn.
+Người 2: Em vừa check lại Excel của mình, đúng là phải vào phần Add-ins để bật lên thì mới thấy được chữ Solver trong tab Data thưa thầy.
 
 Slide 45: ILLUSTRATION 3.26
-Người 1: Mời các em tập trung quan sát Minh họa 3.26. Điểm cốt lõi và bài học lớn nhất ở đây là: "tạo chương trình tối ưu hóa cho Super Scooters. MINH HỌA 3.26 Đầu vào hộp thoại Bộ giải để tối ưu hóa biên đóng góp cho xe tay ga siêu tốc Làm cho các biến không bị ràng buộc không âm Phương pháp giải Chọn công cụ phi tuyến GRG cho các bài toán có bộ giải phi tuyến trơn tru. Chọn công cụ LP Simplex cho các bài toán Bộ giải tuyến tính và chọn công cụ Tiến hóa cho các bài toán Bộ giải không trơn...". Hãy thử đặt mình vào vị trí của người ra quyết định trong tình huống này, các em sẽ thấy việc hiểu rõ dữ liệu quan trọng đến mức nào.
-Người 2: Em đã nắm vững được ý chính và thông điệp cốt lõi của phần này rồi thưa thầy. Các chi tiết trong hình thực sự bổ trợ rất tốt cho việc hiểu sâu lý thuyết.
+Người 1: Minh họa 3.26 mô tả chi tiết cách nhập liệu vào Hộp thoại Solver. Các em chọn Ô mục tiêu (Set Objective) là tổng lợi nhuận cần tối đa hóa, và khai báo các ô chứa biến quyết định số lượng sản phẩm.
+Người 2: Khai báo đúng các ràng buộc ở bước này cực kỳ quan trọng, nếu sai một dấu lớn bé thôi là Solver sẽ giải ra kết quả vô lý ngay đúng không ạ?
 
 Slide 46: APPLY IT 3.3
-Người 1: Khi bước sang phần "Apply It 3.3", thầy muốn nhấn mạnh rằng đây là một khái niệm mang tính ứng dụng cực kỳ cao, rất hay xuất hiện trong các bài toán tối ưu hóa thực tế của doanh nghiệp. Các em hãy ghi chú lại cẩn thận nhé.
-Người 2: Vâng, em đang cẩn thận ghi chú lại các ý chính này vào sổ tay cũng như các trường hợp ngoại lệ cần lưu ý rồi thưa thầy. Quả thực phần này đòi hỏi sự tập trung cao độ.
+Người 1: Rất đúng! Các em hãy làm nhanh APPLY IT 3.3 nhé. Hãy thử mở file Excel thực hành và thiết lập các biến số vào hộp thoại Solver xem máy tính phản hồi như thế nào.
+Người 2: Dạ, 'Trăm hay không bằng tay quen', em sẽ mở file lên thực hành luôn để khắc sâu cách khai báo hàm mục tiêu ạ.
 
 Slide 47: 3.4 LÀM THẾ NÀO ĐỂ PHÁT TRIỂN CÂU HỎI DỰ ĐOÁN?
-Người 1: Đi sâu vào nội dung "3.4 Làm thế nào để phát triển Câu hỏi Dự đoán?", chúng ta cần đặc biệt lưu ý và phân tích kỹ lưỡng những điểm cốt lõi sau đây. Việc hiểu thấu đáo khái niệm này sẽ là nền tảng vững chắc cho việc thiết kế các mô hình phân tích phức tạp hơn ở giai đoạn sau.
-Người 2: Dạ, em đang theo dõi sát sao từng bước trong tiến trình bài giảng ạ. Càng học sâu vào chi tiết, em càng thấy được sự thú vị và logic chặt chẽ của bộ môn này.
+Người 1: Chúng ta sang phần 3.4: Làm thế nào để phát triển câu hỏi dự đoán? Như đã nói, khi dữ liệu lịch sử đã đủ lớn, ta có thể ngoại suy để đưa ra các dự đoán về tương lai: 'Điều gì có khả năng xảy ra nhất?'.
+Người 2: Em thấy dự đoán là một kỹ năng đắt giá. Nếu kế toán viên có thể dự báo được dòng tiền hoặc rủi ro vỡ nợ thì giá trị mang lại cho ban lãnh đạo là cực kỳ lớn.
 
 Slide 48: ĐẶC ĐIỂM CỦA CÂU HỎI DỰ ĐOÁN
-Người 1: Đi sâu vào nội dung "Đặc điểm của Câu hỏi Dự đoán", chúng ta cần đặc biệt lưu ý và phân tích kỹ lưỡng những điểm cốt lõi sau đây. Việc hiểu thấu đáo khái niệm này sẽ là nền tảng vững chắc cho việc thiết kế các mô hình phân tích phức tạp hơn ở giai đoạn sau.
-Người 2: Vâng, em đang cẩn thận ghi chú lại các ý chính này vào sổ tay cũng như các trường hợp ngoại lệ cần lưu ý rồi thưa thầy. Quả thực phần này đòi hỏi sự tập trung cao độ.
+Người 1: Đặc điểm của câu hỏi dự đoán là nó không đưa ra đáp án tuyệt đối 100%, mà luôn đi kèm với xác suất. Chúng ta sử dụng mô hình học máy (Machine Learning) hoặc chuỗi thời gian để ước lượng các kịch bản.
+Người 2: Dạ vâng, dự đoán luôn có rủi ro sai số. Nhưng thà có một mô hình xác suất còn hơn là đưa ra các quyết định cảm tính thưa thầy.
 
 Slide 49: MÔ HÌNH PHÂN LOẠI VÀ DỰ BÁO
-Người 1: Khi bước sang phần "Mô hình Phân loại và Dự báo", thầy muốn nhấn mạnh rằng đây là một khái niệm mang tính ứng dụng cực kỳ cao, rất hay xuất hiện trong các bài toán tối ưu hóa thực tế của doanh nghiệp. Các em hãy ghi chú lại cẩn thận nhé.
-Người 2: Dạ, em đang theo dõi sát sao từng bước trong tiến trình bài giảng ạ. Càng học sâu vào chi tiết, em càng thấy được sự thú vị và logic chặt chẽ của bộ môn này.
+Người 1: Có ba mô hình chính cần nhớ ở đây: Thứ nhất là Phân loại (Classification) dùng cho kết quả rời rạc như 'Có vỡ nợ' hay 'Không vỡ nợ'. Thứ hai là Dự báo (Forecasting) cho biến liên tục, ví dụ như 'Doanh thu tháng tới là bao nhiêu'. Và cuối cùng là phương pháp Hồi quy (Regression) để tìm mối liên hệ giữa các biến.
+Người 2: Cách phân loại này rất rõ ràng ạ. Tùy vào biến mình cần tìm là định tính (Phân loại) hay định lượng (Dự báo số) mà mình chọn mô hình cho phù hợp.
 
 Slide 50: VÍ DỤ PHÂN TÍCH DỰ ĐOÁN (KẾ TOÁN QUẢN TRỊ)
-Người 1: Đi sâu vào nội dung "Ví dụ Phân tích Dự đoán (Kế toán Quản trị)", chúng ta cần đặc biệt lưu ý và phân tích kỹ lưỡng những điểm cốt lõi sau đây. Việc hiểu thấu đáo khái niệm này sẽ là nền tảng vững chắc cho việc thiết kế các mô hình phân tích phức tạp hơn ở giai đoạn sau.
-Người 2: Dạ, em đang theo dõi sát sao từng bước trong tiến trình bài giảng ạ. Càng học sâu vào chi tiết, em càng thấy được sự thú vị và logic chặt chẽ của bộ môn này.
+Người 1: Xét một ví dụ trong Kế toán Quản trị: Quản đốc muốn lên kế hoạch nhập nguyên vật liệu cho quý 3. Câu hỏi dự đoán sẽ là: 'Sản lượng bán ra của sản phẩm A trong 3 tháng tới là bao nhiêu dựa trên xu hướng bán hàng lịch sử?'. Việc này giúp tối ưu hóa chi phí tồn kho đáng kể.
+Người 2: Bài toán tồn kho luôn là nỗi đau đầu của doanh nghiệp. Dự đoán đúng sẽ giúp công ty không bị đọng vốn quá nhiều vào hàng tồn kho mà vẫn không sợ đứt gãy chuỗi cung ứng.
 
 Slide 51: ĐÁNH GIÁ XU HƯỚNG CHUỖI THỜI GIAN
-Người 1: Đi sâu vào nội dung "Đánh giá xu hướng chuỗi thời gian", chúng ta cần đặc biệt lưu ý và phân tích kỹ lưỡng những điểm cốt lõi sau đây. Việc hiểu thấu đáo khái niệm này sẽ là nền tảng vững chắc cho việc thiết kế các mô hình phân tích phức tạp hơn ở giai đoạn sau.
-Người 2: Vâng thưa thầy, phần lý thuyết này được trình bày rất logic, hệ thống và dễ tiếp thu. Việc kết hợp với các ví dụ thực tiễn ngay từ đầu giúp em không bị bỡ ngỡ ạ.
+Người 1: Trong phần Đánh giá xu hướng chuỗi thời gian, ta sẽ phân rã dữ liệu thành nhiều thành phần: Xu hướng chung (Trend), Tính mùa vụ (Seasonality), và Biến động ngẫu nhiên (Noise). Việc loại bỏ yếu tố mùa vụ sẽ giúp ta đánh giá chính xác tốc độ tăng trưởng cốt lõi của doanh nghiệp.
+Người 2: Giống như bán áo ấm vào mùa đông thì doanh thu chắc chắn tăng, ta phải loại bỏ 'nhiễu' mùa vụ đó ra thì mới biết chiến lược sale có thực sự hiệu quả không thưa thầy.
 
 Slide 52: TRỰC QUAN HÓA DỮ LIỆU DỰ ĐOÁN
-Người 1: Tiếp tục với phần "Trực quan hóa dữ liệu dự đoán", các em hãy cố gắng xâu chuỗi một cách logic với những nguyên lý chúng ta đã học ở các phần trước. Tính liên kết chặt chẽ giữa các khái niệm chính là chìa khóa để làm chủ bức tranh toàn cảnh về dữ liệu.
-Người 2: Vâng thưa thầy, phần lý thuyết này được trình bày rất logic, hệ thống và dễ tiếp thu. Việc kết hợp với các ví dụ thực tiễn ngay từ đầu giúp em không bị bỡ ngỡ ạ.
+Người 1: Về Trực quan hóa dữ liệu dự đoán, chúng ta thường dùng Biểu đồ dự báo (Forecast Charts) có hiển thị 'Khoảng tin cậy' (Confidence Interval) bao quanh đường xu hướng. Ngoài ra, Cây quyết định (Decision Trees) cũng rất trực quan để minh họa cho các mô hình phân loại rẽ nhánh.
+Người 2: Việc có thêm khoảng tin cậy trên biểu đồ dự báo rất thực tế ạ. Nó cho sếp thấy rằng 'Dự báo của tôi nằm trong vùng dao động này' chứ không phải là một con số cứng ngắc.
 
 Slide 53: ILLUSTRATION 3.27
-Người 1: Slide tiếp theo mang đến một ví dụ thực tế rất sinh động qua Minh họa 3.27. Cụ thể, tài liệu phân tích rằng: "Excel Solver có thể minh họa cách hoạt động của các mô hình tối ưu hóa. Chương trình Solver được truy cập thông qua tab Dữ liệu trên ribbon thanh công cụ (Hình minh họa 3.25). 3.5 Mục tiêu quy định là gì? 3-27 MINH HỌA 3.27 Hộp Lựa chọn Kết quả Bộ giải được rồi Hủy bỏ Lưu kịch bản... Người giải quyết tìm thấy một giải pháp. Tất cả các ràng buộc và sự tối ưu điều kiện được thỏa mãn. Báo cáo Quay...". Việc phân tích mổ xẻ kỹ càng từng chi tiết trong hình này sẽ giúp các em hiểu sâu hơn về bản chất của vấn đề và cách vận dụng các công cụ phân tích.
-Người 2: Vâng thưa thầy, hình ảnh và diễn giải này giải thích rất trực quan, dễ hiểu. Việc có số liệu và tình huống cụ thể giúp em nắm bắt vấn đề nhanh chóng hơn rất nhiều.
+Người 1: Quay lại với bài toán tối ưu, Minh họa 3.27 hiển thị Hộp thoại kết quả của Solver (Solver Results Choice Box). Nó thông báo một dòng chữ rất vui vẻ: 'Solver found a solution', nghĩa là đã tìm thấy nghiệm thỏa mãn mọi ràng buộc nguồn lực.
+Người 2: Chà, khi thấy hộp thoại này xuất hiện chứng tỏ mọi thiết lập ràng buộc của mình trước đó đều hợp lý và không bị mâu thuẫn với nhau ạ.
 
 Slide 54: ILLUSTRATION 3.27_1
-Người 1: Các em hãy dành chút thời gian quan sát cẩn thận minh họa ở Minh họa 3.27_1 trên slide. Nội dung trong hình đề cập đến một khía cạnh rất quan trọng: "Excel Solver có thể minh họa cách hoạt động của các mô hình tối ưu hóa. Chương trình Solver được truy cập thông qua tab Dữ liệu trên ribbon thanh công cụ (Hình minh họa 3.25). 3.5 Mục tiêu quy định là gì? 3-27 MINH HỌA 3.27 Hộp Lựa chọn Kết quả Bộ giải được rồi Hủy bỏ Lưu kịch bản... Người giải quyết tìm thấy một giải pháp. Tất cả các ràng buộc và sự tối ưu điều kiện được thỏa mãn. Báo cáo Quay...". Đây là một tình huống rất sát với thực tế quản trị doanh nghiệp, đòi hỏi chúng ta phải có cái nhìn hệ thống.
-Người 2: Vâng thưa thầy, hình ảnh và diễn giải này giải thích rất trực quan, dễ hiểu. Việc có số liệu và tình huống cụ thể giúp em nắm bắt vấn đề nhanh chóng hơn rất nhiều.
+Người 1: Ngoài ra, Minh họa 3.27_1 lưu ý rằng các em có thể chọn xuất thêm các báo cáo chi tiết như Answer, Sensitivity, và Limits để phân tích sâu hơn về nghiệm tối ưu vừa tìm được.
+Người 2: Em sẽ chọn xuất báo cáo Sensitivity (Độ nhạy) ạ. Nó giúp em biết nếu mình nới lỏng thêm một chút nguồn lực thì lợi nhuận sẽ tăng thêm được bao nhiêu.
 
 Slide 55: ILLUSTRATION 3.28
-Người 1: Chúng ta cùng phân tích thật kỹ Minh họa 3.28 nhé. Trọng tâm cốt lõi của hình ảnh này được mô tả chi tiết như sau: "Tổng CM Hạn chế: Tổng số giờ máy CM trên mỗi đơn vị Số giờ máy trên mỗi đơn vị Giờ máy Nhu cầu Số lượng sản xuất thuyền trưởng 6.692.106,26 USD 18.000 10.000 7.000 24.000". Các em hãy lưu ý cách áp dụng những thông tin này vào bối cảnh thực tế của doanh nghiệp để thấy rõ sự liên kết giữa lý thuyết và thực hành.
-Người 2: Dạ, nhờ minh họa chi tiết này mà các khái niệm vốn khô khan lại trở nên gần gũi và dễ áp dụng hơn rất nhiều ạ. Em sẽ ghi chú lại cẩn thận tình huống này.
+Người 1: Nhìn vào Minh họa 3.28, các em sẽ thấy bảng tính Mô hình Tối ưu hóa sau khi chạy Solver. Các ô trống của biến quyết định giờ đây đã được máy tính tự động điền các con số tối ưu (ví dụ nên sản xuất bao nhiêu chiếc Celeritas).
+Người 2: Kết quả hiện thẳng lên màn hình luôn, thật kỳ diệu. Nếu phải nhẩm tính bằng tay với hàng chục ràng buộc thì chắc mất cả ngày trời mất thầy ạ.
 
 Slide 56: ILLUSTRATION 3.28_1
-Người 1: Chúng ta cùng phân tích thật kỹ Minh họa 3.28_1 nhé. Trọng tâm cốt lõi của hình ảnh này được mô tả chi tiết như sau: "Tổng CM Hạn chế: Tổng số giờ máy CM trên mỗi đơn vị Số giờ máy trên mỗi đơn vị Giờ máy Nhu cầu Số lượng sản xuất thuyền trưởng 6.692.106,26 USD 18.000 10.000 7.000 24.000". Các em hãy lưu ý cách áp dụng những thông tin này vào bối cảnh thực tế của doanh nghiệp để thấy rõ sự liên kết giữa lý thuyết và thực hành.
-Người 2: Vâng thưa thầy, hình ảnh và diễn giải này giải thích rất trực quan, dễ hiểu. Việc có số liệu và tình huống cụ thể giúp em nắm bắt vấn đề nhanh chóng hơn rất nhiều.
+Người 1: Minh họa 3.28_1 nhấn mạnh việc so sánh sự thay đổi của Lợi nhuận gộp biên tổng (Total CM) trước và sau khi chạy Solver. Sự chênh lệch này chính là 'giá trị' mà công cụ phân tích dữ liệu mang lại cho doanh nghiệp.
+Người 2: Dạ vâng. Chỉ cần điều chỉnh tỷ trọng sản xuất một chút theo gợi ý của thuật toán là lợi nhuận đã tăng lên đáng kể mà không cần đầu tư thêm nguồn lực.
 
 Slide 57: ILLUSTRATION 3.29
-Người 1: Nhìn vào Minh họa 3.29, chúng ta có thể rút ra những bài học chiến lược nào? Văn bản mô tả đi kèm ghi rõ: "giá trị ban đầu của hàm và sau đó là giá trị cuối cùng khi đạt được giải pháp tối ưu. Trong này trong trường hợp này, sản lượng tối ưu sẽ là 18.000 Captain, 5.520 Celeritas, 7.000 Kicks và 24.000 Xe tay ga Lazer. 3-28 CHƯƠNG 3 Động cơ và Mục tiêu Phân tích Dữ liệu $M$6 $840,10 12.428.526,51 USD Ô mục tiêu (Tối đa) Tế bào Giá trị gốc Giá trị cuối cùng Tên Tổng CM Tổng". Đây là một điểm cực kỳ đáng chú ý mà các chuyên gia phân tích dữ liệu thường xuyên gặp phải trong quá trình làm việc thực tế.
-Người 2: Dạ, kết hợp lý thuyết với một minh họa thực tế mang tính ứng dụng cao thế này rất hiệu quả ạ. Em có thể thấy rõ vai trò của từng bước phân tích trong bức tranh tổng thể.
+Người 1: Minh họa 3.29 trình bày Báo cáo Kết quả (Solver Results Output) được xuất ra ở một trang tính riêng biệt, ghi nhận lại toàn bộ thông tin của lần chạy tối ưu hóa đó để làm bằng chứng (audit trail).
+Người 2: Việc lưu trữ báo cáo này rất quan trọng để sau này mình có thể giải trình với sếp tại sao lại chọn phương án sản xuất này thưa thầy.
 
 Slide 58: ILLUSTRATION 3.30
-Người 1: Các em hãy dành chút thời gian quan sát cẩn thận minh họa ở Minh họa 3.30 trên slide. Nội dung trong hình đề cập đến một khía cạnh rất quan trọng: "Kết quả đầu ra – Ô biến Báo cáo $I$4 1 18.000 Các ô biến đổi Tế bào Giá trị ban đầu Giá trị cuối cùng tiếp tục số nguyên Tên Số thuyền trưởng được sản xuất $J$4 1". Đây là một tình huống rất sát với thực tế quản trị doanh nghiệp, đòi hỏi chúng ta phải có cái nhìn hệ thống.
-Người 2: Vâng thưa thầy, hình ảnh và diễn giải này giải thích rất trực quan, dễ hiểu. Việc có số liệu và tình huống cụ thể giúp em nắm bắt vấn đề nhanh chóng hơn rất nhiều.
+Người 1: Minh họa 3.30 đi sâu vào phần Variable Cells trong Báo cáo Solver. Phần này liệt kê chi tiết giá trị ban đầu và giá trị cuối cùng của các biến quyết định sau quá trình tính toán.
+Người 2: Em thấy rõ sự khác biệt giữa trước và sau tối ưu. Các con số cuối cùng này chính là kế hoạch sản xuất chính thức để chuyển xuống nhà máy.
 
 Slide 59: ILLUSTRATION 3.31
-Người 1: Các em hãy dành chút thời gian quan sát cẩn thận minh họa ở Minh họa 3.31 trên slide. Nội dung trong hình đề cập đến một khía cạnh rất quan trọng: "Kết quả đầu ra – Các ràng buộc Báo cáo 1.000.000 $M$9<=$M$12 Ràng buộc Giá trị ô Công thức Ràng buộc Trạng thái chùng xuống Tên Tổng số giờ máy Tổng cộng 18.000 $I$4<=$I$13". Đây là một tình huống rất sát với thực tế quản trị doanh nghiệp, đòi hỏi chúng ta phải có cái nhìn hệ thống.
-Người 2: Dạ, ví dụ minh họa này làm em thấy rõ hơn hẳn những lý thuyết trừu tượng vừa học. Nó giúp em hình dung được quy trình thực tế sẽ diễn ra như thế nào ạ.
+Người 1: Cuối cùng, Minh họa 3.31 trình bày phần Constraints. Tại đây, ta kiểm tra xem các ràng buộc đã được xài hết công suất (Binding) hay chưa. Nếu còn dư nguồn lực (Not Binding), ta có thể linh hoạt khai thác thêm.
+Người 2: Yếu tố Binding này rất hay ạ! Nó chỉ ra đâu là cái 'nút thắt cổ chai' thực sự của nhà máy để công ty ưu tiên đầu tư máy móc hoặc nhân sự vào đó.
 
 Slide 60: ILLUSTRATION 3.32
-Người 1: Mời các em tập trung quan sát Minh họa 3.32. Điểm cốt lõi và bài học lớn nhất ở đây là: "tóm tắt các động lực, mục tiêu và câu hỏi phân tích dữ liệu AIS điển hình. MINH HỌA 3.32 Động lực, Mục tiêu và Câu hỏi cho Phân tích Dữ liệu AIS Động lực Mục tiêu Câu hỏi Đầu tư vào công nghệ mới. Xác định công nghệ với lợi nhuận cao nhất trên đầu tư. Tiết kiệm chi phí lao động là gì nếu chúng ta áp dụng một công nghệ mới? Tăng cường an ninh của AIS tài sản, bao gồm cả dữ liệu. Xác định có bao...". Hãy thử đặt mình vào vị trí của người ra quyết định trong tình huống này, các em sẽ thấy việc hiểu rõ dữ liệu quan trọng đến mức nào.
-Người 2: Dạ, ví dụ minh họa này làm em thấy rõ hơn hẳn những lý thuyết trừu tượng vừa học. Nó giúp em hình dung được quy trình thực tế sẽ diễn ra như thế nào ạ.
+Người 1: Bước sang Minh họa 3.32, chúng ta tổng hợp các Động lực và Câu hỏi phân tích áp dụng riêng cho chuyên ngành Hệ thống Thông tin Kế toán (AIS). Các em sẽ thấy phân tích dữ liệu giúp phát hiện lỗi hệ thống hoặc lỗ hổng bảo mật cực kỳ hiệu quả.
+Người 2: Ngành AIS đúng là rất cần phân tích dữ liệu để đảm bảo tính vẹn toàn và bảo mật thông tin trước khi xuất ra các báo cáo tài chính thưa thầy.
 
 Slide 61: ILLUSTRATION 3.33
-Người 1: Các em hãy dành chút thời gian quan sát cẩn thận minh họa ở Minh họa 3.33 trên slide. Nội dung trong hình đề cập đến một khía cạnh rất quan trọng: "phân tích dữ liệu. MINH HỌA 3.33 Động cơ, mục tiêu và câu hỏi khi kiểm tra phân tích dữ liệu Động lực Mục tiêu Câu hỏi Đánh giá rủi ro của sai sót trọng yếu của doanh thu. Xác định xem có doanh thu thay đổi bất thường so với những năm trước. Có xu hướng bất thường nào không hoặc những thay đổi về doanh số bán hàng so với trước đó năm?". Đây là một tình huống rất sát với thực tế quản trị doanh nghiệp, đòi hỏi chúng ta phải có cái nhìn hệ thống.
-Người 2: Dạ, nhờ minh họa chi tiết này mà các khái niệm vốn khô khan lại trở nên gần gũi và dễ áp dụng hơn rất nhiều ạ. Em sẽ ghi chú lại cẩn thận tình huống này.
+Người 1: Minh họa 3.33 đưa ra các Động lực và Câu hỏi phân tích ứng dụng riêng trong lĩnh vực Kiểm toán (Auditing), ví dụ như rà soát hàng loạt các giao dịch để phát hiện gian lận mà không cần lấy mẫu thủ công.
+Người 2: Em thấy tính ứng dụng của nó trong kiểm toán thật sự tuyệt vời. Việc kiểm tra toàn bộ tổng thể dữ liệu sẽ giúp giảm thiểu rủi ro kiểm toán xuống mức thấp nhất ạ.
 
 Slide 62: APPLY IT 3.4
-Người 1: Khi bước sang phần "Apply It 3.4", thầy muốn nhấn mạnh rằng đây là một khái niệm mang tính ứng dụng cực kỳ cao, rất hay xuất hiện trong các bài toán tối ưu hóa thực tế của doanh nghiệp. Các em hãy ghi chú lại cẩn thận nhé.
-Người 2: Vâng thưa thầy, phần lý thuyết này được trình bày rất logic, hệ thống và dễ tiếp thu. Việc kết hợp với các ví dụ thực tiễn ngay từ đầu giúp em không bị bỡ ngỡ ạ.
+Người 1: Ở phần APPLY IT 3.4, các em hãy tự đặt mình vào vai trò của một kế toán viên thuế và thử định hình một câu hỏi phân tích để đánh giá rủi ro truy thu thuế của công ty nhé.
+Người 2: Dạ, bài tập này giúp em linh hoạt hơn trong cách tư duy. Để làm tốt, em phải nắm rõ các quy định về thuế và biết hệ thống kế toán đang lưu trữ thông tin gì.
 
 Slide 63: 3.5 LÀM THẾ NÀO ĐỂ PHÁT TRIỂN CÂU HỎI ĐỀ XUẤT?
-Người 1: Tiếp tục với phần "3.5 Làm thế nào để phát triển Câu hỏi Đề xuất?", các em hãy cố gắng xâu chuỗi một cách logic với những nguyên lý chúng ta đã học ở các phần trước. Tính liên kết chặt chẽ giữa các khái niệm chính là chìa khóa để làm chủ bức tranh toàn cảnh về dữ liệu.
-Người 2: Vâng thưa thầy, phần lý thuyết này được trình bày rất logic, hệ thống và dễ tiếp thu. Việc kết hợp với các ví dụ thực tiễn ngay từ đầu giúp em không bị bỡ ngỡ ạ.
+Người 1: Chúng ta bước sang phần 3.5: Làm thế nào để phát triển câu hỏi đề xuất? Đây là đỉnh cao của tháp phân tích dữ liệu. Khi ta đã biết chuyện gì xảy ra, tại sao, và sẽ ra sao, ta phải trả lời câu hỏi cuối cùng: 'Chúng ta nên làm gì để tối ưu hóa?'.
+Người 2: Vâng, đây mới thực sự là bước mang lại giá trị chiến lược. Em thấy sếp nào cũng muốn nghe phần 'Đề xuất giải pháp' này nhất.
 
 Slide 64: ĐẶC ĐIỂM CỦA CÂU HỎI ĐỀ XUẤT
-Người 1: Đi sâu vào nội dung "Đặc điểm của Câu hỏi Đề xuất", chúng ta cần đặc biệt lưu ý và phân tích kỹ lưỡng những điểm cốt lõi sau đây. Việc hiểu thấu đáo khái niệm này sẽ là nền tảng vững chắc cho việc thiết kế các mô hình phân tích phức tạp hơn ở giai đoạn sau.
-Người 2: Vâng, em đang cẩn thận ghi chú lại các ý chính này vào sổ tay cũng như các trường hợp ngoại lệ cần lưu ý rồi thưa thầy. Quả thực phần này đòi hỏi sự tập trung cao độ.
+Người 1: Câu hỏi đề xuất có đặc điểm là nó không chỉ dựa vào dữ liệu quá khứ mà còn kết hợp các ràng buộc hiện tại để đưa ra các phương án hành động (Actionable insights). Nó mang tính chất định hướng và ra quyết định.
+Người 2: Tức là mình không chỉ là người báo cáo số liệu nữa, mà phải đóng vai trò như một cố vấn chiến lược cho doanh nghiệp thưa thầy.
 
 Slide 65: PHÂN TÍCH WHAT-IF VÀ TỐI ƯU HÓA
-Người 1: Khi bước sang phần "Phân tích What-If và Tối ưu hóa", thầy muốn nhấn mạnh rằng đây là một khái niệm mang tính ứng dụng cực kỳ cao, rất hay xuất hiện trong các bài toán tối ưu hóa thực tế của doanh nghiệp. Các em hãy ghi chú lại cẩn thận nhé.
-Người 2: Vâng, em đang cẩn thận ghi chú lại các ý chính này vào sổ tay cũng như các trường hợp ngoại lệ cần lưu ý rồi thưa thầy. Quả thực phần này đòi hỏi sự tập trung cao độ.
+Người 1: Để làm được điều đó, ta thường dùng Phân tích What-If (Nếu-Thì) và các mô hình Tối ưu hóa. Ví dụ: 'Nếu ta giảm 10% giá bán thì lợi nhuận sẽ thay đổi ra sao?'. Công cụ như Excel Goal Seek hay Solver là những trợ thủ đắc lực.
+Người 2: Các bài toán What-if này rất thú vị ạ. Nó cho phép ban lãnh đạo thử nghiệm nhiều kịch bản khác nhau trên giấy trước khi áp dụng vào thực tế.
 
 Slide 66: VÍ DỤ PHÂN TÍCH ĐỀ XUẤT (KẾ TOÁN QUẢN TRỊ)
-Người 1: Đi sâu vào nội dung "Ví dụ Phân tích Đề xuất (Kế toán Quản trị)", chúng ta cần đặc biệt lưu ý và phân tích kỹ lưỡng những điểm cốt lõi sau đây. Việc hiểu thấu đáo khái niệm này sẽ là nền tảng vững chắc cho việc thiết kế các mô hình phân tích phức tạp hơn ở giai đoạn sau.
-Người 2: Vâng thưa thầy, phần lý thuyết này được trình bày rất logic, hệ thống và dễ tiếp thu. Việc kết hợp với các ví dụ thực tiễn ngay từ đầu giúp em không bị bỡ ngỡ ạ.
+Người 1: Thử xét một ví dụ trong Kế toán Quản trị: Công ty có 1000 giờ chạy máy. Cần phân bổ bao nhiêu giờ cho sản phẩm A và bao nhiêu cho sản phẩm B để lợi nhuận cao nhất? Đây chính là bài toán tối ưu hóa điển hình.
+Người 2: Em hiểu rồi ạ. Các nguồn lực như giờ máy, nhân công hay nguyên vật liệu luôn có giới hạn, nên nhiệm vụ của kế toán là giúp phân bổ chúng một cách khôn ngoan nhất.
 
 Slide 67: GIẢI QUYẾT BÀI TOÁN RÀNG BUỘC NGUỒN LỰC
-Người 1: Khi bước sang phần "Giải quyết bài toán ràng buộc nguồn lực", thầy muốn nhấn mạnh rằng đây là một khái niệm mang tính ứng dụng cực kỳ cao, rất hay xuất hiện trong các bài toán tối ưu hóa thực tế của doanh nghiệp. Các em hãy ghi chú lại cẩn thận nhé.
-Người 2: Vâng, em đang cẩn thận ghi chú lại các ý chính này vào sổ tay cũng như các trường hợp ngoại lệ cần lưu ý rồi thưa thầy. Quả thực phần này đòi hỏi sự tập trung cao độ.
+Người 1: Để giải quyết Bài toán ràng buộc nguồn lực này, các em phải thiết lập hàm mục tiêu (Objective function), khai báo các biến số (Decision variables) và xác định đúng các phương trình ràng buộc (Constraints) trên phần mềm.
+Người 2: Dạ, bước lập phương trình toán học này đòi hỏi mình phải tư duy rất cẩn thận. Sai một tham số là máy tính sẽ đưa ra một lời khuyên tai hại ngay.
 
 Slide 68: TRỰC QUAN HÓA KẾT QUẢ PHÂN TÍCH ĐỀ XUẤT
-Người 1: Khi bước sang phần "Trực quan hóa kết quả phân tích Đề xuất", thầy muốn nhấn mạnh rằng đây là một khái niệm mang tính ứng dụng cực kỳ cao, rất hay xuất hiện trong các bài toán tối ưu hóa thực tế của doanh nghiệp. Các em hãy ghi chú lại cẩn thận nhé.
-Người 2: Vâng thưa thầy, phần lý thuyết này được trình bày rất logic, hệ thống và dễ tiếp thu. Việc kết hợp với các ví dụ thực tiễn ngay từ đầu giúp em không bị bỡ ngỡ ạ.
+Người 1: Sau khi phần mềm giải xong, bước Trực quan hóa kết quả phân tích đề xuất cũng rất quan trọng. Ta phải trình bày phương án tối ưu dưới dạng các biểu đồ so sánh hoặc bảng phân tích độ nhạy (Sensitivity) để sếp dễ đưa ra quyết định.
+Người 2: Vâng thưa thầy. Có số liệu hậu thuẫn và biểu đồ rõ ràng thì các đề xuất của mình sẽ có sức thuyết phục cao hơn rất nhiều ạ.
 
 Slide 69: ILLUSTRATION 3.34
-Người 1: Chúng ta cùng phân tích thật kỹ Minh họa 3.34 nhé. Trọng tâm cốt lõi của hình ảnh này được mô tả chi tiết như sau: "Động lực Mục tiêu Câu hỏi Đảm bảo báo cáo tài chính phản ánh tất cả các giao dịch. Xác minh các giao dịch không thiếu. Tệp giao dịch bán hàng có đồng ý với báo cáo tài chính? Dự đoán dòng tiền. Xác định tiền mặt dự kiến dòng tiền vào từ việc bán hàng. Dựa trên doanh thu năm trước và tăng trưởng dự kiến là gì". Các em hãy lưu ý cách áp dụng những thông tin này vào bối cảnh thực tế của doanh nghiệp để thấy rõ sự liên kết giữa lý thuyết và thực hành.
-Người 2: Dạ, ví dụ minh họa này làm em thấy rõ hơn hẳn những lý thuyết trừu tượng vừa học. Nó giúp em hình dung được quy trình thực tế sẽ diễn ra như thế nào ạ.
+Người 1: Nhìn vào Minh họa 3.34, ta thấy các ứng dụng phân tích trong Kế toán Tài chính. Chúng tập trung vào việc đảm bảo tính chính xác của báo cáo tài chính và tuân thủ các chuẩn mực nghiêm ngặt.
+Người 2: Dạ, lĩnh vực kế toán tài chính thì tính tuân thủ luôn được đặt lên hàng đầu. Phân tích dữ liệu ở đây giống như một lớp bảo vệ vững chắc ạ.
 
 Slide 70: ILLUSTRATION 3.35
-Người 1: Nhìn vào Minh họa 3.35, chúng ta có thể rút ra những bài học chiến lược nào? Văn bản mô tả đi kèm ghi rõ: "v.v. mà kế toán quản lý làm việc. ÁP DỤNG TƯ DUY PHIẾU 3.3: Xem xét các giải pháp thay thế phương pháp Nếu mục tiêu của việc phân tích là dự đoán thu nhập trong tương lai thì kế toán viên quản lý có thể sử dụng hồi quy, đường xu hướng hoặc phân tích giả định. Luôn chọn phương pháp có thể trả lời câu hỏi câu hỏi một cách hiệu quả và hiệu quả nhất (Alternatives). MINH HỌA 3.35 Động cơ, mục tiêu và...". Đây là một điểm cực kỳ đáng chú ý mà các chuyên gia phân tích dữ liệu thường xuyên gặp phải trong quá trình làm việc thực tế.
-Người 2: Dạ, ví dụ minh họa này làm em thấy rõ hơn hẳn những lý thuyết trừu tượng vừa học. Nó giúp em hình dung được quy trình thực tế sẽ diễn ra như thế nào ạ.
+Người 1: Minh họa 3.35 lại trình bày các ví dụ cho Kế toán Quản trị. Lúc này, mục tiêu xoay quanh việc đánh giá hiệu suất nội bộ, phân tích chi phí - khối lượng - lợi nhuận (CVP) và tối ưu hóa vận hành.
+Người 2: Vâng, mảng quản trị thì cởi mở hơn, nó thiên về việc 'làm thế nào để kiếm nhiều tiền hơn và tiết kiệm chi phí hơn' thưa thầy.
 
 Slide 71: ILLUSTRATION 3.36
-Người 1: Mời các em tập trung quan sát Minh họa 3.36. Điểm cốt lõi và bài học lớn nhất ở đây là: "một số câu hỏi cụ thể. MINH HỌA 3.36 Động cơ, mục tiêu và câu hỏi đối với phân tích dữ liệu kế toán thuế Động lực Mục tiêu Câu hỏi Luật thuế mới được thông qua điều đó có khả năng thay đổi một nghĩa vụ thuế của khách hàng. Xác định luật thuế liên quan những thay đổi. Dựa trên tờ khai thuế năm ngoái, luật thuế sẽ thay đổi như thế nào ảnh hưởng đến nghĩa vụ thuế của khách hàng? Một khách hàng yêu...". Hãy thử đặt mình vào vị trí của người ra quyết định trong tình huống này, các em sẽ thấy việc hiểu rõ dữ liệu quan trọng đến mức nào.
-Người 2: Vâng thưa thầy, hình ảnh và diễn giải này giải thích rất trực quan, dễ hiểu. Việc có số liệu và tình huống cụ thể giúp em nắm bắt vấn đề nhanh chóng hơn rất nhiều.
+Người 1: Với Minh họa 3.36, chúng ta xem xét Kế toán Thuế. Phân tích dữ liệu giúp lên kế hoạch đóng thuế hiệu quả và dò tìm sớm các rủi ro có thể dẫn đến việc bị thanh tra thuế truy thu.
+Người 2: Mảng thuế luôn tiềm ẩn nhiều rủi ro pháp lý. Ứng dụng phân tích để tự kiểm tra nội bộ trước khi cơ quan thuế xuống làm việc là một chiến lược rất hay.
 
 Slide 72: ILLUSTRATION 3.37
-Người 1: Các em hãy dành chút thời gian quan sát cẩn thận minh họa ở Minh họa 3.37 trên slide. Nội dung trong hình đề cập đến một khía cạnh rất quan trọng: "Làm thế nào để Điểm tự động T T Bộ lọc Trang SUM(Tổng doanh thu) T Màu sắc Chi tiết Chú giải công cụ Kích thước văn bản". Đây là một tình huống rất sát với thực tế quản trị doanh nghiệp, đòi hỏi chúng ta phải có cái nhìn hệ thống.
-Người 2: Dạ, nhờ minh họa chi tiết này mà các khái niệm vốn khô khan lại trở nên gần gũi và dễ áp dụng hơn rất nhiều ạ. Em sẽ ghi chú lại cẩn thận tình huống này.
+Người 1: Minh họa 3.37 chính thức giới thiệu không gian làm việc (Worksheet) cơ bản của phần mềm Tableau. Đây là một công cụ BI (Business Intelligence) hàng đầu hiện nay, chuyên dùng để trực quan hóa dữ liệu.
+Người 2: Em nghe danh Tableau đã lâu. Giao diện của nó trông rất trực quan với các thanh kéo thả (drag-and-drop), có vẻ dễ dùng hơn việc code biểu đồ bằng Python ạ.
 
 Slide 73: ILLUSTRATION 3.37_1
-Người 1: Chúng ta cùng phân tích thật kỹ Minh họa 3.37_1 nhé. Trọng tâm cốt lõi của hình ảnh này được mô tả chi tiết như sau: "Làm thế nào để Điểm tự động T T Bộ lọc Trang SUM(Tổng doanh thu) T Màu sắc Chi tiết Chú giải công cụ Kích thước văn bản". Các em hãy lưu ý cách áp dụng những thông tin này vào bối cảnh thực tế của doanh nghiệp để thấy rõ sự liên kết giữa lý thuyết và thực hành.
-Người 2: Dạ, ví dụ minh họa này làm em thấy rõ hơn hẳn những lý thuyết trừu tượng vừa học. Nó giúp em hình dung được quy trình thực tế sẽ diễn ra như thế nào ạ.
+Người 1: Minh họa 3.37_1 nhắc các em chú ý đến khu vực Data pane bên trái, nơi Tableau tự động phân loại các trường dữ liệu thành Dimensions (Kích thước - chữ màu xanh) và Measures (Thước đo - chữ màu xanh lá).
+Người 2: Dạ vâng, việc phân tách rạch ròi giữa dữ liệu định tính và định lượng ngay từ đầu giúp thao tác kéo thả sau này trở nên cực kỳ thuận tiện.
 
 Slide 74: ILLUSTRATION 3.38
-Người 1: Slide tiếp theo mang đến một ví dụ thực tế rất sinh động qua Minh họa 3.38. Cụ thể, tài liệu phân tích rằng: "hộp Bộ lọc [Mô hình] Đặt lại Tất cả thuyền trưởng không có Loại trừ được rồi Hủy bỏ Áp dụng Tóm tắt Lĩnh vực: Lựa chọn: Ký tự đại diện:". Việc phân tích mổ xẻ kỹ càng từng chi tiết trong hình này sẽ giúp các em hiểu sâu hơn về bản chất của vấn đề và cách vận dụng các công cụ phân tích.
-Người 2: Vâng thưa thầy, hình ảnh và diễn giải này giải thích rất trực quan, dễ hiểu. Việc có số liệu và tình huống cụ thể giúp em nắm bắt vấn đề nhanh chóng hơn rất nhiều.
+Người 1: Ở Minh họa 3.38, chúng ta tập dùng hộp thoại Filter Input trong Tableau. Chẳng hạn, các em có thể dễ dàng lọc dữ liệu chỉ hiển thị các dòng xe Celeritas để phân tích riêng.
+Người 2: Tính năng Filter này hoạt động giống hệt Excel nhưng thao tác có vẻ mượt mà và trực quan hơn nhiều thưa thầy.
 
 Slide 75: ILLUSTRATION 3.38_1
-Người 1: Chúng ta cùng phân tích thật kỹ Minh họa 3.38_1 nhé. Trọng tâm cốt lõi của hình ảnh này được mô tả chi tiết như sau: "hộp Bộ lọc [Mô hình] Đặt lại Tất cả thuyền trưởng không có Loại trừ được rồi Hủy bỏ Áp dụng Tóm tắt Lĩnh vực: Lựa chọn: Ký tự đại diện:". Các em hãy lưu ý cách áp dụng những thông tin này vào bối cảnh thực tế của doanh nghiệp để thấy rõ sự liên kết giữa lý thuyết và thực hành.
-Người 2: Dạ, kết hợp lý thuyết với một minh họa thực tế mang tính ứng dụng cao thế này rất hiệu quả ạ. Em có thể thấy rõ vai trò của từng bước phân tích trong bức tranh tổng thể.
+Người 1: Minh họa 3.38_1 cho thấy Tableau hỗ trợ nhiều tùy chọn lọc mạnh mẽ, như lọc theo chuỗi ký tự (Wildcard) hoặc thiết lập điều kiện lọc nâng cao (Condition) dựa trên các trường dữ liệu khác.
+Người 2: Quá tuyệt vời! Nó giúp em không cần phải dùng các hàm IF lồng nhau phức tạp để lọc dữ liệu nữa.
 
 Slide 76: ILLUSTRATION 3.39
-Người 1: Chúng ta cùng phân tích thật kỹ Minh họa 3.39 nhé. Trọng tâm cốt lõi của hình ảnh này được mô tả chi tiết như sau: "BƯỚC 2: Tạo một phép tính để tính sự thay đổi trong doanh số bán hàng từ năm 2024 đến năm 2025. Bởi vì dữ liệu từ năm 2023 là không cần thiết và chúng tôi chỉ quan tâm đến mô hình Celeritas, tạo hai bộ lọc. Đầu tiên, kéo Model vào hộp Filters. Thao tác này sẽ mở ra một hộp nhập liệu (Minh họa 3.38). MINH HỌA 3.39 Lựa chọn trường lọc Tiếp theo > Hủy bỏ Bạn muốn lọc theo [Ngày bán] như thế nào?...". Các em hãy lưu ý cách áp dụng những thông tin này vào bối cảnh thực tế của doanh nghiệp để thấy rõ sự liên kết giữa lý thuyết và thực hành.
-Người 2: Vâng thưa thầy, hình ảnh và diễn giải này giải thích rất trực quan, dễ hiểu. Việc có số liệu và tình huống cụ thể giúp em nắm bắt vấn đề nhanh chóng hơn rất nhiều.
+Người 1: Minh họa 3.39 tiếp tục với các lựa chọn trường lọc (Filter Field Choices), ví dụ như khi các em lọc theo trường Ngày bán (Sold Date), Tableau sẽ thông minh hỏi xem các em muốn lọc theo năm, theo quý hay theo ngày cụ thể.
+Người 2: Em rất thích tính năng xử lý thời gian này của phần mềm. Việc nhóm tự động theo Quý, Năm giúp báo cáo nhìn gọn gàng hơn hẳn.
 
 Slide 77: ILLUSTRATION 3.40
-Người 1: Chúng ta cùng phân tích thật kỹ Minh họa 3.40 nhé. Trọng tâm cốt lõi của hình ảnh này được mô tả chi tiết như sau: "MINH HỌA 3.40 Lựa chọn bộ lọc Lọc [Năm ngày bán] Đặt lại Tất cả 2023 không có Loại trừ được rồi Hủy bỏ Áp dụng Tóm tắt Lọc giá trị ngày mới nhất khi mở sổ làm việc Lĩnh vực: Lựa chọn:". Các em hãy lưu ý cách áp dụng những thông tin này vào bối cảnh thực tế của doanh nghiệp để thấy rõ sự liên kết giữa lý thuyết và thực hành.
-Người 2: Dạ, kết hợp lý thuyết với một minh họa thực tế mang tính ứng dụng cao thế này rất hiệu quả ạ. Em có thể thấy rõ vai trò của từng bước phân tích trong bức tranh tổng thể.
+Người 1: Minh họa 3.40 hiển thị kết quả của hộp thoại Filter Choices. Các em chỉ cần tick chọn năm 2023, ngay lập tức mọi biểu đồ liên kết sẽ tự động cập nhật số liệu của riêng năm đó.
+Người 2: Sự tương tác tức thời này (Interactive) chính là điểm cộng lớn nhất của các Dashboard hiện đại so với báo cáo PDF tĩnh thưa thầy.
 
 Slide 78: 3.6 ỨNG DỤNG TRONG THỰC TIỄN NGHỀ NGHIỆP
-Người 1: Tiếp tục với phần "3.6 Ứng dụng trong Thực tiễn Nghề nghiệp", các em hãy cố gắng xâu chuỗi một cách logic với những nguyên lý chúng ta đã học ở các phần trước. Tính liên kết chặt chẽ giữa các khái niệm chính là chìa khóa để làm chủ bức tranh toàn cảnh về dữ liệu.
-Người 2: Vâng thưa thầy, phần lý thuyết này được trình bày rất logic, hệ thống và dễ tiếp thu. Việc kết hợp với các ví dụ thực tiễn ngay từ đầu giúp em không bị bỡ ngỡ ạ.
+Người 1: Chuyển sang phần 3.6: Ứng dụng trong thực tiễn nghề nghiệp. Xuyên suốt từ đầu chương, chúng ta đã đi qua 4 loại câu hỏi và 4 động lực. Bây giờ là lúc để xem các bộ phận kế toán khác nhau dùng chúng như thế nào trong thực tế.
+Người 2: Vâng, em rất mong chờ phần này. Càng gắn với các ví dụ công việc thực tế, em càng dễ hình dung con đường phát triển nghề nghiệp của mình sau này.
 
 Slide 79: HỆ THỐNG THÔNG TIN KẾ TOÁN (AIS)
-Người 1: Khi bước sang phần "Hệ thống Thông tin Kế toán (AIS)", thầy muốn nhấn mạnh rằng đây là một khái niệm mang tính ứng dụng cực kỳ cao, rất hay xuất hiện trong các bài toán tối ưu hóa thực tế của doanh nghiệp. Các em hãy ghi chú lại cẩn thận nhé.
-Người 2: Dạ, em đang theo dõi sát sao từng bước trong tiến trình bài giảng ạ. Càng học sâu vào chi tiết, em càng thấy được sự thú vị và logic chặt chẽ của bộ môn này.
+Người 1: Trong Hệ thống Thông tin Kế toán (AIS), mục tiêu là tối ưu quy trình và bảo mật. Câu hỏi thường đặt ra là 'Hệ thống có đang phân quyền đúng không?' hay 'Có giao dịch nào lọt qua khâu phê duyệt tự động không?'.
+Người 2: Dạ, đúng là mảng AIS thì quan tâm nhiều đến tính 'Sạch' và tính bảo mật của dữ liệu đầu vào. Đầu vào có chuẩn thì đầu ra mới tin cậy được ạ.
 
 Slide 80: KIỂM TOÁN (AUDITING)
-Người 1: Khi bước sang phần "Kiểm toán (Auditing)", thầy muốn nhấn mạnh rằng đây là một khái niệm mang tính ứng dụng cực kỳ cao, rất hay xuất hiện trong các bài toán tối ưu hóa thực tế của doanh nghiệp. Các em hãy ghi chú lại cẩn thận nhé.
-Người 2: Vâng, em đang cẩn thận ghi chú lại các ý chính này vào sổ tay cũng như các trường hợp ngoại lệ cần lưu ý rồi thưa thầy. Quả thực phần này đòi hỏi sự tập trung cao độ.
+Người 1: Còn với Kiểm toán (Auditing), các thuật toán học máy có thể duyệt qua 100% hóa đơn mua hàng để tìm ra các số tiền bị lệch chuẩn (Outliers) thay vì kiểm toán viên chỉ bốc mẫu 10% như trước đây.
+Người 2: Bước tiến này sẽ làm thay đổi hoàn toàn cách thức kiểm toán truyền thống. Không còn ai có thể vịn cớ 'lỗi do xác suất bốc mẫu' được nữa.
 
 Slide 81: KẾ TOÁN TÀI CHÍNH (FINANCIAL ACCOUNTING)
-Người 1: Khi bước sang phần "Kế toán Tài chính (Financial Accounting)", thầy muốn nhấn mạnh rằng đây là một khái niệm mang tính ứng dụng cực kỳ cao, rất hay xuất hiện trong các bài toán tối ưu hóa thực tế của doanh nghiệp. Các em hãy ghi chú lại cẩn thận nhé.
-Người 2: Vâng thưa thầy, phần lý thuyết này được trình bày rất logic, hệ thống và dễ tiếp thu. Việc kết hợp với các ví dụ thực tiễn ngay từ đầu giúp em không bị bỡ ngỡ ạ.
+Người 1: Đối với Kế toán Tài chính, việc tự động hóa (RPA) kết hợp với phân tích dữ liệu giúp việc đối chiếu công nợ hay trích xuất các khoản mục phục vụ lập Báo cáo lưu chuyển tiền tệ diễn ra nhanh và chính xác hơn gấp nhiều lần.
+Người 2: Em thấy rõ việc này giúp kế toán tài chính giải phóng được hàng chục giờ đồng hồ làm thủ công mỗi đợt chốt sổ cuối tháng thưa thầy.
 
 Slide 82: KẾ TOÁN QUẢN TRỊ (MANAGERIAL ACCOUNTING)
-Người 1: Tiếp tục với phần "Kế toán Quản trị (Managerial Accounting)", các em hãy cố gắng xâu chuỗi một cách logic với những nguyên lý chúng ta đã học ở các phần trước. Tính liên kết chặt chẽ giữa các khái niệm chính là chìa khóa để làm chủ bức tranh toàn cảnh về dữ liệu.
-Người 2: Dạ, em đang theo dõi sát sao từng bước trong tiến trình bài giảng ạ. Càng học sâu vào chi tiết, em càng thấy được sự thú vị và logic chặt chẽ của bộ môn này.
+Người 1: Trong Kế toán Quản trị, mọi quyết định đều xoay quanh việc phân bổ tài nguyên tối ưu. Các bảng Dashboard phân tích giá thành sản phẩm hay phân tích độ nhạy của giá bán là không thể thiếu.
+Người 2: Vâng, Kế toán quản trị như một người 'hoa tiêu' của doanh nghiệp, càng có nhiều dữ liệu phân tích thì đường hướng đưa ra càng sắc bén.
 
 Slide 83: KẾ TOÁN THUẾ (TAX ACCOUNTING)
-Người 1: Tiếp tục với phần "Kế toán Thuế (Tax Accounting)", các em hãy cố gắng xâu chuỗi một cách logic với những nguyên lý chúng ta đã học ở các phần trước. Tính liên kết chặt chẽ giữa các khái niệm chính là chìa khóa để làm chủ bức tranh toàn cảnh về dữ liệu.
-Người 2: Vâng, em đang cẩn thận ghi chú lại các ý chính này vào sổ tay cũng như các trường hợp ngoại lệ cần lưu ý rồi thưa thầy. Quả thực phần này đòi hỏi sự tập trung cao độ.
+Người 1: Cuối cùng là Kế toán Thuế. Thay vì thụ động đợi cuối năm, các doanh nghiệp dùng phân tích dự đoán để ước lượng số thuế phải nộp trong từng quý, từ đó có kế hoạch thu xếp dòng tiền hợp lý.
+Người 2: Dạ vâng, việc quản trị rủi ro dòng tiền và rủi ro thuế như thế này sẽ mang lại lợi ích rất lớn cho các tập đoàn đa quốc gia.
 
 Slide 84: GHÉP NỐI ĐỘNG LỰC VỚI CÁC LĨNH VỰC CHUYÊN MÔN
-Người 1: Đi sâu vào nội dung "Ghép nối Động lực với các Lĩnh vực Chuyên môn", chúng ta cần đặc biệt lưu ý và phân tích kỹ lưỡng những điểm cốt lõi sau đây. Việc hiểu thấu đáo khái niệm này sẽ là nền tảng vững chắc cho việc thiết kế các mô hình phân tích phức tạp hơn ở giai đoạn sau.
-Người 2: Vâng, em đang cẩn thận ghi chú lại các ý chính này vào sổ tay cũng như các trường hợp ngoại lệ cần lưu ý rồi thưa thầy. Quả thực phần này đòi hỏi sự tập trung cao độ.
+Người 1: Tóm lại, việc ghép nối động lực kinh doanh với đúng lĩnh vực chuyên môn (Tài chính, Quản trị, Kiểm toán...) sẽ giúp định hình ra đúng loại câu hỏi phân tích (Mô tả, Chẩn đoán, Dự đoán, Đề xuất). Đó là triết lý xuyên suốt của chương này.
+Người 2: Em đã nắm được bức tranh tổng thể rồi ạ. Mọi kỹ thuật hay công cụ phần mềm cũng chỉ để phục vụ cho các động lực kinh doanh cốt lõi này.
 
 Slide 85: TÓM TẮT MỤC TIÊU HỌC TẬP 1
-Người 1: Đi sâu vào nội dung "Tóm tắt Mục tiêu Học tập 1", chúng ta cần đặc biệt lưu ý và phân tích kỹ lưỡng những điểm cốt lõi sau đây. Việc hiểu thấu đáo khái niệm này sẽ là nền tảng vững chắc cho việc thiết kế các mô hình phân tích phức tạp hơn ở giai đoạn sau.
-Người 2: Vâng thưa thầy, phần lý thuyết này được trình bày rất logic, hệ thống và dễ tiếp thu. Việc kết hợp với các ví dụ thực tiễn ngay từ đầu giúp em không bị bỡ ngỡ ạ.
+Người 1: Ở Slide Tóm tắt Mục tiêu Học tập 1, thầy nhấn mạnh lại: Các em phải luôn bắt đầu bằng Động lực (Motivation), biến nó thành Mục tiêu (Objective), và phân rã thành các Câu hỏi (Questions) có thể đo lường được bằng dữ liệu.
+Người 2: Vâng, đây là kim chỉ nam mà em sẽ luôn ghi nhớ trước khi mở bất kỳ tập dữ liệu thô nào lên ạ.
 
 Slide 86: TÓM TẮT MỤC TIÊU HỌC TẬP 2
-Người 1: Khi bước sang phần "Tóm tắt Mục tiêu Học tập 2", thầy muốn nhấn mạnh rằng đây là một khái niệm mang tính ứng dụng cực kỳ cao, rất hay xuất hiện trong các bài toán tối ưu hóa thực tế của doanh nghiệp. Các em hãy ghi chú lại cẩn thận nhé.
-Người 2: Vâng, em đang cẩn thận ghi chú lại các ý chính này vào sổ tay cũng như các trường hợp ngoại lệ cần lưu ý rồi thưa thầy. Quả thực phần này đòi hỏi sự tập trung cao độ.
+Người 1: Và Tóm tắt Mục tiêu Học tập 2: Các em phải phân biệt rõ ràng 4 mức độ phân tích. Mô tả (What), Chẩn đoán (Why), Dự đoán (What next), và Đề xuất (How to optimize). Mỗi loại sẽ có bộ công cụ thống kê tương ứng.
+Người 2: Dạ thưa thầy, em đã hệ thống hóa xong 4 cấp độ này vào sổ tay. Nó rất logic và dễ theo dõi.
 
 Slide 87: ILLUSTRATION 3.41
-Người 1: Chúng ta cùng phân tích thật kỹ Minh họa 3.41 nhé. Trọng tâm cốt lõi của hình ảnh này được mô tả chi tiết như sau: "MINH HỌA 3.41 Tạo bảng tính nhanh Điểm tự động T T SUM(Tổng doanh thu) T Màu sắc Chi tiết Chú giải công cụ Kích thước văn bản Lọc... Hiển thị bộ lọc". Các em hãy lưu ý cách áp dụng những thông tin này vào bối cảnh thực tế của doanh nghiệp để thấy rõ sự liên kết giữa lý thuyết và thực hành.
-Người 2: Vâng thưa thầy, hình ảnh và diễn giải này giải thích rất trực quan, dễ hiểu. Việc có số liệu và tình huống cụ thể giúp em nắm bắt vấn đề nhanh chóng hơn rất nhiều.
+Người 1: Trở lại với Tableau, Minh họa 3.41 hướng dẫn tạo Quick Table Calculation. Đây là một tính năng cực mạnh cho phép các em tính toán nhanh tỷ lệ phần trăm cộng dồn (Running total) hoặc so sánh với kỳ trước (Difference) chỉ bằng vài cú click chuột.
+Người 2: Quả là tính năng 'sát thủ' của Tableau. Làm việc này bên Excel đòi hỏi phải viết công thức khá loằng ngoằng, còn ở đây chỉ cần chọn từ menu thả xuống là xong.
 
 Slide 88: ILLUSTRATION 3.42
-Người 1: Chúng ta cùng phân tích thật kỹ Minh họa 3.42 nhé. Trọng tâm cốt lõi của hình ảnh này được mô tả chi tiết như sau: "MINH HỌA 3.42 Kết quả tính toán bảng nhanh Điểm tự động T T Bộ lọc SUM(Tổng doanh thu) T Màu sắc Chi tiết Chú giải công cụ Kích thước văn bản Model: Celeritas". Các em hãy lưu ý cách áp dụng những thông tin này vào bối cảnh thực tế của doanh nghiệp để thấy rõ sự liên kết giữa lý thuyết và thực hành.
-Người 2: Dạ, kết hợp lý thuyết với một minh họa thực tế mang tính ứng dụng cao thế này rất hiệu quả ạ. Em có thể thấy rõ vai trò của từng bước phân tích trong bức tranh tổng thể.
+Người 1: Minh họa 3.42 hiển thị kết quả sau khi áp dụng Quick Table Calculation. Bảng dữ liệu giờ không chỉ thể hiện doanh số tuyệt đối, mà còn hiển thị cả tỷ trọng \% đóng góp của từng vùng vào tổng doanh thu.
+Người 2: Cùng một lúc xem được cả số tuyệt đối và số tương đối trên một màn hình giúp việc đánh giá hiệu suất trực quan hơn rất nhiều thưa thầy.
 
 Slide 89: ILLUSTRATION 3.43
-Người 1: Slide tiếp theo mang đến một ví dụ thực tế rất sinh động qua Minh họa 3.43. Cụ thể, tài liệu phân tích rằng: "Bảng nổi bật 123 456 321 654 654 321 456 123 123 456 321 654 654 321 Cho tôi xem BƯỚC 4: Để tạo bảng đánh dấu có màu tối hơn biểu thị số lớn hơn, hãy chọn loại biểu đồ đó từ Tùy chọn Show Me ở góc trên bên phải (Minh họa 3.43). Bây giờ bảng trông giống như bảng trong Hình minh họa 3.44. MINH HỌA 3.44 Đánh dấu kết quả bảng". Việc phân tích mổ xẻ kỹ càng từng chi tiết trong hình này sẽ giúp các em hiểu sâu hơn về bản chất của vấn đề và cách vận dụng các công cụ phân tích.
-Người 2: Dạ, ví dụ minh họa này làm em thấy rõ hơn hẳn những lý thuyết trừu tượng vừa học. Nó giúp em hình dung được quy trình thực tế sẽ diễn ra như thế nào ạ.
+Người 1: Minh họa 3.43 chỉ cách sử dụng thanh menu 'Show Me' ở góc phải của Tableau để chọn loại biểu đồ Highlight Table. Các ô sẽ tự động đổi màu theo độ lớn của giá trị, tương tự như Conditional Formatting bên Excel.
+Người 2: Thanh 'Show Me' này tiện lợi quá ạ. Nó thậm chí còn gợi ý cho mình loại biểu đồ nào là phù hợp nhất với những dữ liệu mình đang chọn.
 
 Slide 90: ILLUSTRATION 3.44
-Người 1: Mời các em tập trung quan sát Minh họa 3.44. Điểm cốt lõi và bài học lớn nhất ở đây là: "MINH HỌA 3.44 Đánh dấu kết quả bảng Năm(Ngày bán) Vị trí Cột Hàng Điểm hình vuông T Bộ lọc Tờ 22 Trang SUM(Tổng doanh thu) T Màu sắc". Hãy thử đặt mình vào vị trí của người ra quyết định trong tình huống này, các em sẽ thấy việc hiểu rõ dữ liệu quan trọng đến mức nào.
-Người 2: Em đã nắm vững được ý chính và thông điệp cốt lõi của phần này rồi thưa thầy. Các chi tiết trong hình thực sự bổ trợ rất tốt cho việc hiểu sâu lý thuyết.
+Người 1: Minh họa 3.44 hiển thị thành quả cuối cùng của Highlight Table. Các khu vực có doanh thu cao sẽ hiện màu xanh đậm, ngược lại khu vực yếu kém sẽ hiện màu nhạt. Các em chỉ cần nhìn lướt qua là bắt được trọng tâm.
+Người 2: Đúng là một bức tranh ngàn lời nói! Việc dùng các mảng màu đậm nhạt thế này giúp phát hiện ra các bất thường nhanh hơn rất nhiều so với việc dò từng dòng số liệu.
 
 Slide 91: ILLUSTRATION 3.45
-Người 1: Chúng ta cùng phân tích thật kỹ Minh họa 3.45 nhé. Trọng tâm cốt lõi của hình ảnh này được mô tả chi tiết như sau: "MINH HỌA 3.45 Tính năng ẩn cột Tờ 22 Vị trí 2025 2024 Ngày bán Boston Charlotte Chicago Dallas Miami Phượng hoàng Thành phố Salt Lake Seattle". Các em hãy lưu ý cách áp dụng những thông tin này vào bối cảnh thực tế của doanh nghiệp để thấy rõ sự liên kết giữa lý thuyết và thực hành.
-Người 2: Dạ, nhờ minh họa chi tiết này mà các khái niệm vốn khô khan lại trở nên gần gũi và dễ áp dụng hơn rất nhiều ạ. Em sẽ ghi chú lại cẩn thận tình huống này.
+Người 1: Minh họa 3.45 giới thiệu tính năng Ẩn cột (Hide Column Feature) trong Tableau. Bằng cách click chuột phải và chọn Hide, các em có thể thu gọn bảng dữ liệu lại để chỉ tập trung vào những cột năm quan trọng, tránh làm rối mắt người xem.
+Người 2: Việc ẩn bớt cột này tiện lợi hơn nhiều so với việc xóa hẳn dữ liệu đi ạ. Mình luôn có thể bật nó lại (Unhide) nếu sếp có nhu cầu xem chi tiết.
 
 Slide 92: ILLUSTRATION 3.46
-Người 1: Mời các em tập trung quan sát Minh họa 3.46. Điểm cốt lõi và bài học lớn nhất ở đây là: "MINH HỌA 3.46 Sắp xếp dữ liệu từ nhỏ nhất đến lớn nhất Vị trí 2025 Ngày bán Boston Charlotte Chicago Dallas Miami Phượng hoàng Thành phố Salt Lake Seattle ‒88,837 ‒94,794". Hãy thử đặt mình vào vị trí của người ra quyết định trong tình huống này, các em sẽ thấy việc hiểu rõ dữ liệu quan trọng đến mức nào.
-Người 2: Dạ, kết hợp lý thuyết với một minh họa thực tế mang tính ứng dụng cao thế này rất hiệu quả ạ. Em có thể thấy rõ vai trò của từng bước phân tích trong bức tranh tổng thể.
+Người 1: Ở Minh họa 3.46, thầy sẽ hướng dẫn thao tác Sắp xếp dữ liệu (Sorting Data) từ nhỏ nhất đến lớn nhất trên thanh công cụ. Chỉ một click chuột, Tableau sẽ đảo trật tự dữ liệu ngay lập tức.
+Người 2: Dạ vâng, tính năng Sort này chắc chắn là thao tác em sẽ dùng nhiều nhất. Nó giúp em dễ dàng đẩy khu vực có doanh thu thấp nhất lên đầu bảng để báo cáo.
 
 Slide 93: ILLUSTRATION 3.47
-Người 1: Nhìn vào Minh họa 3.47, chúng ta có thể rút ra những bài học chiến lược nào? Văn bản mô tả đi kèm ghi rõ: "MINH HỌA 3.47 Sắp xếp Bảng đánh dấu Vị trí 2025 Ngày bán Seattle Dallas Charlotte Boston Chicago Miami Thành phố Salt Lake Phượng hoàng ‒140,206". Đây là một điểm cực kỳ đáng chú ý mà các chuyên gia phân tích dữ liệu thường xuyên gặp phải trong quá trình làm việc thực tế.
-Người 2: Vâng thưa thầy, hình ảnh và diễn giải này giải thích rất trực quan, dễ hiểu. Việc có số liệu và tình huống cụ thể giúp em nắm bắt vấn đề nhanh chóng hơn rất nhiều.
+Người 1: Minh họa 3.47 chính là bảng Highlight Table sau khi đã được sắp xếp. Các em có thể thấy rõ chi nhánh Seattle đang nằm bét bảng với màu sắc nhợt nhạt nhất, trong khi Dallas vươn lên dẫn đầu với màu xanh đậm.
+Người 2: Nhờ có kết hợp cả màu sắc (Highlight) và trật tự (Sort) mà bảng dữ liệu trở nên cực kỳ có hồn thưa thầy. Bất kỳ ai nhìn vào cũng sẽ thấy ngay câu chuyện đằng sau các con số.
 
 Slide 94: ILLUSTRATION 3.48
-Người 1: Mời các em tập trung quan sát Minh họa 3.48. Điểm cốt lõi và bài học lớn nhất ở đây là: "Cách đi qua 3-41 MINH HỌA 3.48 Tùy chọn định dạng Điểm hình vuông T Bộ lọc Trang SUM(Tổng doanh thu) T Màu sắc Chi tiết Chú giải công cụ Kích thước". Hãy thử đặt mình vào vị trí của người ra quyết định trong tình huống này, các em sẽ thấy việc hiểu rõ dữ liệu quan trọng đến mức nào.
-Người 2: Em đã nắm vững được ý chính và thông điệp cốt lõi của phần này rồi thưa thầy. Các chi tiết trong hình thực sự bổ trợ rất tốt cho việc hiểu sâu lý thuyết.
+Người 1: Minh họa 3.48 hướng dẫn tinh chỉnh các tùy chọn định dạng (Format Options) trên thẻ Marks của Tableau. Các em có thể nhấp vào ô Color để đổi sang dải màu đỏ-xanh thay vì xanh nhạt-xanh đậm, giúp tăng độ tương phản.
+Người 2: Dạ, tính năng tùy biến màu sắc này rất hữu ích, đặc biệt là khi mình muốn thiết kế Dashboard theo đúng bộ nhận diện thương hiệu của công ty ạ.
 
 Slide 95: ILLUSTRATION 3.49
-Người 1: Chúng ta cùng phân tích thật kỹ Minh họa 3.49 nhé. Trọng tâm cốt lõi của hình ảnh này được mô tả chi tiết như sau: "MINH HỌA 3.49 Chỉnh sửa bảng tính Tiêu đề Tờ 22 Vị trí Ngày bán 2023 Seattle Dallas Charlotte Boston Chicago Miami $ (‒140,206) (-106,783)". Các em hãy lưu ý cách áp dụng những thông tin này vào bối cảnh thực tế của doanh nghiệp để thấy rõ sự liên kết giữa lý thuyết và thực hành.
-Người 2: Vâng thưa thầy, hình ảnh và diễn giải này giải thích rất trực quan, dễ hiểu. Việc có số liệu và tình huống cụ thể giúp em nắm bắt vấn đề nhanh chóng hơn rất nhiều.
+Người 1: Sang Minh họa 3.49, chúng ta sẽ học cách chỉnh sửa trực tiếp nội dung trên một Worksheet (Editing a Worksheet). Các em có thể nhấp đúp vào các nhãn (labels) hoặc trục (axis) để đổi tên hiển thị sao cho thân thiện với người đọc hơn.
+Người 2: Vâng, nhiều khi tên cột trích xuất từ database ra rất khó hiểu, nên việc được đổi nhãn hiển thị linh hoạt thế này sẽ giúp báo cáo thân thiện với người dùng cuối hơn.
 
 Slide 96: ILLUSTRATION 3.50
-Người 1: Các em hãy dành chút thời gian quan sát cẩn thận minh họa ở Minh họa 3.50 trên slide. Nội dung trong hình đề cập đến một khía cạnh rất quan trọng: "MINH HỌA 3.50 Chỉnh sửa tiêu đề bảng tính Vị trí Tờ 22 Ngày bán 2025 Seattle Dallas Charlotte Boston Chicago Miami Thành phố Salt Lake Phượng hoàng $ (140.206)". Đây là một tình huống rất sát với thực tế quản trị doanh nghiệp, đòi hỏi chúng ta phải có cái nhìn hệ thống.
-Người 2: Vâng thưa thầy, hình ảnh và diễn giải này giải thích rất trực quan, dễ hiểu. Việc có số liệu và tình huống cụ thể giúp em nắm bắt vấn đề nhanh chóng hơn rất nhiều.
+Người 1: Minh họa 3.50 chi tiết hóa thao tác chỉnh sửa Tiêu đề của Worksheet (Editing a Worksheet Title). Một tiêu đề chuẩn mực phải nói rõ 'Đây là biểu đồ gì' và 'Phục vụ cho mục tiêu nào', chứ không nên đặt tên chung chung như Sheet 1, Sheet 2.
+Người 2: Dạ, em sẽ lưu ý kỹ phần này. Một tiêu đề rõ ràng sẽ giúp sếp không bị mất thời gian suy luận xem mình đang phân tích cái gì thưa thầy.
 
 Slide 97: ILLUSTRATION 3.50_1
-Người 1: Mời các em tập trung quan sát Minh họa 3.50_1. Điểm cốt lõi và bài học lớn nhất ở đây là: "MINH HỌA 3.50 Chỉnh sửa tiêu đề bảng tính Vị trí Tờ 22 Ngày bán 2025 Seattle Dallas Charlotte Boston Chicago Miami Thành phố Salt Lake Phượng hoàng $ (140.206)". Hãy thử đặt mình vào vị trí của người ra quyết định trong tình huống này, các em sẽ thấy việc hiểu rõ dữ liệu quan trọng đến mức nào.
-Người 2: Em đã nắm vững được ý chính và thông điệp cốt lõi của phần này rồi thưa thầy. Các chi tiết trong hình thực sự bổ trợ rất tốt cho việc hiểu sâu lý thuyết.
+Người 1: Minh họa 3.50_1 tiếp tục cung cấp thêm một số mẹo định dạng chữ (Font, Size, Alignment) bên trong thẻ Title. Việc canh lề và bôi đậm những từ khóa quan trọng sẽ làm nổi bật thông điệp cốt lõi.
+Người 2: Việc trau chuốt hình thức báo cáo tuy nhỏ nhưng lại cho thấy sự chuyên nghiệp của người làm kế toán phân tích, em sẽ thực hành kỹ các tính năng này.
 
 Slide 98: ILLUSTRATION 3.51
-Người 1: Slide tiếp theo mang đến một ví dụ thực tế rất sinh động qua Minh họa 3.51. Cụ thể, tài liệu phân tích rằng: "được rồi Hủy bỏ Trợ giúp Phân tích dữ liệu Công cụ phân tích ? F-Test Hai mẫu cho phương sai Phân tích Fourier biểu đồ Đường trung bình động Tạo số ngẫu nhiên Thứ hạng và Phần trăm Hồi quy Lấy mẫu". Việc phân tích mổ xẻ kỹ càng từng chi tiết trong hình này sẽ giúp các em hiểu sâu hơn về bản chất của vấn đề và cách vận dụng các công cụ phân tích.
-Người 2: Vâng thưa thầy, hình ảnh và diễn giải này giải thích rất trực quan, dễ hiểu. Việc có số liệu và tình huống cụ thể giúp em nắm bắt vấn đề nhanh chóng hơn rất nhiều.
+Người 1: Minh họa 3.51 chuyển sang phần mềm Excel. Thầy sẽ chỉ các em cách mở công cụ Phân tích Dữ liệu (Data Analysis Toolpak) và chọn chức năng Regression (Hồi quy) để bắt đầu phân tích thống kê chuyên sâu.
+Người 2: Dạ, trước giờ em chỉ dùng Excel để cộng trừ nhân chia, hôm nay mới biết Excel có tích hợp sẵn cả bộ công cụ phân tích thống kê mạnh mẽ đến vậy.
 
 Slide 99: ILLUSTRATION 3.52
-Người 1: Nhìn vào Minh họa 3.52, chúng ta có thể rút ra những bài học chiến lược nào? Văn bản mô tả đi kèm ghi rõ: "BƯỚC 3: Phạm vi Y đầu vào dành cho biến phụ thuộc. Biến phụ thuộc là những gì sẽ được dự đoán. Trong ví dụ này, đó là cột D, Chi phí bảo trì ($D$1:$D$37). đầu vào Phạm vi X dành cho các biến độc lập. Trong ví dụ này, có hai biến độc lập– Số giờ máy và yêu cầu bảo trì ($B$1:$C$37). Chọn Nhãn nếu hàng đầu tiên của dữ liệu là tiêu đề cột (hàng 1). Trong ví dụ này, đầu ra sẽ ở trong một bảng tính...". Đây là một điểm cực kỳ đáng chú ý mà các chuyên gia phân tích dữ liệu thường xuyên gặp phải trong quá trình làm việc thực tế.
-Người 2: Dạ, ví dụ minh họa này làm em thấy rõ hơn hẳn những lý thuyết trừu tượng vừa học. Nó giúp em hình dung được quy trình thực tế sẽ diễn ra như thế nào ạ.
+Người 1: Ở Minh họa 3.52 là hộp thoại Regression Dialog Box. Trọng tâm ở đây là phải khai báo đúng vùng dữ liệu Y (biến phụ thuộc - ví dụ như doanh thu) và vùng X (biến độc lập - ví dụ như chi phí marketing). Nếu khai báo ngược, toàn bộ mô hình sẽ sai lệch.
+Người 2: Khâu nhập liệu này giống hệt như nguyên tắc 'Garbage in, Garbage out' vậy. Em sẽ đặc biệt chú ý phần chọn cột Y và X này ạ.
 
 Slide 100: ILLUSTRATION 3.53
-Người 1: Mời các em tập trung quan sát Minh họa 3.53. Điểm cốt lõi và bài học lớn nhất ở đây là: "MINH HỌA 3.53 Kết quả hồi quy Nhiều R R vuông Hình vuông R đã điều chỉnh Lỗi chuẩn Quan sát ANOVA 0.978687872 0.95782995 0.955274189 1283.821342 36 df SS". Hãy thử đặt mình vào vị trí của người ra quyết định trong tình huống này, các em sẽ thấy việc hiểu rõ dữ liệu quan trọng đến mức nào.
-Người 2: Dạ, kết hợp lý thuyết với một minh họa thực tế mang tính ứng dụng cao thế này rất hiệu quả ạ. Em có thể thấy rõ vai trò của từng bước phân tích trong bức tranh tổng thể.
+Người 1: Cuối cùng, Minh họa 3.53 hiển thị đầu ra (Output) của công cụ Regression. Bảng kết quả trả về hàng loạt các chỉ số phức tạp, nhưng như đã học, chúng ta chỉ cần tập trung diễn giải R-Square, hệ số Intercept và các P-value.
+Người 2: Thật nhẹ nhõm thưa thầy! Khi biết mình chỉ cần đọc 3-4 chỉ số quan trọng thì bảng kết quả dày đặc này không còn đáng sợ như em nghĩ lúc đầu nữa.
 
 Slide 101: BÀI TẬP NGẮN (BRIEF EXERCISES)
-Người 1: Tiếp tục với phần "Bài tập Ngắn (Brief Exercises)", các em hãy cố gắng xâu chuỗi một cách logic với những nguyên lý chúng ta đã học ở các phần trước. Tính liên kết chặt chẽ giữa các khái niệm chính là chìa khóa để làm chủ bức tranh toàn cảnh về dữ liệu.
-Người 2: Vâng, em đang cẩn thận ghi chú lại các ý chính này vào sổ tay cũng như các trường hợp ngoại lệ cần lưu ý rồi thưa thầy. Quả thực phần này đòi hỏi sự tập trung cao độ.
+Người 1: Tốt lắm, chúng ta kết thúc phần lý thuyết. Giờ là lúc đi vào phần Bài tập ngắn (Brief Exercises). Các bài tập BE này được thiết kế để các em kiểm tra nhanh khả năng ghi nhớ các khái niệm cốt lõi như động lực, mục tiêu và các loại câu hỏi.
+Người 2: Dạ, phần củng cố kiến thức này rất quan trọng. Em đã sẵn sàng lấy giấy bút ra để thử sức với các bài tập BE này rồi ạ.
 
 Slide 102: BE 3.1 & BE 3.2
-Người 1: Đến phần thực hành thực tế với BE 3.1 & BE 3.2. Dữ kiện trọng tâm của bài toán cung cấp: "Một. Chi phí tăng đáng kể b. Thành tựu hàng năm c. Chuyên môn ngành mới d. Tiêu chuẩn mới cho thuê Động lực Sự kiện 1. Cơ hội 2. Quy định hoặc luật 3. Vấn đề 4. Đánh giá quá trình hoặc hiệu suất BE 3.2 (LO 1–6) Hệ thống thông tin kế toán Giả sử bạn là một hệ thống thông tin kế toán chuyên gia được giao nhiệm vụ thực hiện một số phân tích liên quan đến bảo mật thông tin của công ty bạn điều khiển....". Các em hãy vận dụng toàn bộ những phương pháp luận vừa học để xác định chính xác yêu cầu, sau đó lên kế hoạch phân tích từng bước một nhé.
-Người 2: Em sẽ bám sát vào các thông tin cốt lõi trong đề bài này, tiến hành phân loại rành mạch từng biến số và áp dụng ngay mô hình phù hợp để giải quyết bài toán ạ.
+Người 1: Ở các bài BE 3.1 & BE 3.2, các em sẽ phải đọc một tình huống ngắn và chỉ ra xem động lực của ban giám đốc ở đây là gì. Họ đang cố gắng giải quyết một vấn đề đang tồn đọng hay đang muốn nắm bắt một cơ hội mới?
+Người 2: Em thấy bài tập này giống như đang đóng vai thám tử vậy. Mình phải đọc kỹ ngữ cảnh để bóc tách ý đồ thực sự của nhà quản trị thưa thầy.
 
 Slide 103: BE 3.3 & BE 3.5
-Người 1: Chúng ta cùng bước vào phần thực hành chuyên sâu với BE 3.3 & BE 3.5. Các em hãy vận dụng toàn diện hệ thống kiến thức vừa học để nhận diện vấn đề và đề xuất phương án giải quyết triệt để nhé.
-Người 2: Vâng ạ, em sẽ đọc thật kỹ yêu cầu của đề bài, bóc tách từng lớp thông tin và phân tích các từ khóa chính xác trước khi lên phương án thưa thầy.
+Người 1: Tiếp tục với BE 3.3 & BE 3.5, bài toán yêu cầu các em phân biệt đâu là câu hỏi mô tả (Chuyện gì xảy ra) và đâu là câu hỏi chẩn đoán (Tại sao lại xảy ra). Đừng để bị nhầm lẫn giữa hai loại này nhé.
+Người 2: Dạ vâng, em sẽ bám sát vào các từ khóa nhận diện như 'Tại sao', 'Yếu tố nào dẫn đến...' để xác định đúng loại câu hỏi chẩn đoán ạ.
 
 Slide 104: BE 3.6 & BE 3.7
-Người 1: Bây giờ, để rèn luyện kỹ năng thực chiến, chúng ta cùng xem xét bài tập BE 3.6 & BE 3.7. Đề bài đặt ra một tình huống đầy thách thức: "câu hỏi mô tả hoặc câu hỏi phụ. Mỗi lựa chọn phân tích có thể được sử dụng một lần, nhiều lần hoặc không không hề. Một. Lọc dữ liệu để chỉ phân tích máy quan tâm và sử dụng chức năng tối đa. b. Sử dụng các hàm tối thiểu và tối đa để xác định số lượng đơn vị nhỏ nhất được sản xuất và số lượng đơn vị sản xuất lớn nhất. c. Lọc dữ liệu để chỉ phân tích đơn vị quan tâm và máy quan tâm và tính giá trị...". Các em hãy thử suy nghĩ một cách đa chiều xem chúng ta nên tiếp cận và giải quyết vấn đề này theo phương pháp nào là tối ưu nhất.
-Người 2: Em sẽ bám sát vào các thông tin cốt lõi trong đề bài này, tiến hành phân loại rành mạch từng biến số và áp dụng ngay mô hình phù hợp để giải quyết bài toán ạ.
+Người 1: Đến BE 3.6 & BE 3.7, mức độ khó tăng lên. Các em phải đề xuất một câu hỏi dự đoán tương lai dựa trên số liệu bán hàng của năm ngoái. Nhớ sử dụng các thuật ngữ như 'Dự báo', 'Xu hướng' trong câu trả lời.
+Người 2: Việc tự đặt câu hỏi khó hơn nhiều so với việc trả lời câu hỏi có sẵn. Nó rèn cho em tư duy chủ động phân tích dữ liệu.
 
 Slide 105: BE 3.8 & BE 3.9
-Người 1: Chúng ta cùng bước vào phần thực hành chuyên sâu với BE 3.8 & BE 3.9. Các em hãy vận dụng toàn diện hệ thống kiến thức vừa học để nhận diện vấn đề và đề xuất phương án giải quyết triệt để nhé.
-Người 2: Vâng ạ, em sẽ đọc thật kỹ yêu cầu của đề bài, bóc tách từng lớp thông tin và phân tích các từ khóa chính xác trước khi lên phương án thưa thầy.
+Người 1: Sang BE 3.8 & BE 3.9, trọng tâm rơi vào câu hỏi Đề xuất (Prescriptive). Các em cần đóng vai trò là một cố vấn, đưa ra các kịch bản What-If và ứng dụng tư duy tối ưu hóa ràng buộc để giải bài toán phân bổ chi phí.
+Người 2: Bài này chắc chắn sẽ phải kết hợp tư duy kế toán quản trị về chi phí cơ hội rồi. Càng làm bài tập em càng thấy sự gắn kết của các môn học.
 
 Slide 106: BE 3.9_1 & BE 3.11
-Người 1: Chúng ta cùng bước vào phần thực hành chuyên sâu với BE 3.9_1 & BE 3.11. Các em hãy vận dụng toàn diện hệ thống kiến thức vừa học để nhận diện vấn đề và đề xuất phương án giải quyết triệt để nhé.
-Người 2: Vâng ạ, em sẽ đọc thật kỹ yêu cầu của đề bài, bóc tách từng lớp thông tin và phân tích các từ khóa chính xác trước khi lên phương án thưa thầy.
+Người 1: Các bài BE 3.9_1 & BE 3.11 sẽ đi sâu vào việc phân tích phương sai (ANOVA) và đọc hiểu kết quả từ một báo cáo hồi quy đơn giản. Hãy tập trung diễn giải ý nghĩa của con số thay vì chỉ tính toán cơ học.
+Người 2: Dạ, sếp thường không quan tâm thuật toán chạy như thế nào, họ chỉ cần biết con số đó mang lại insight gì. Lời nhắc nhở của thầy rất thấm thía ạ.
 
 Slide 107: BE 3.12 & BE 3.13
-Người 1: Chúng ta cùng thử sức với thử thách trong BE 3.12 & BE 3.13 xem sao. Yêu cầu chi tiết của bài toán là: "hoặc không hề. Một. Ràng buộc b. Hàm mục tiêu c. Biến quyết định d. Tối ưu hóa đ. Hồi quy tuyến tính f. Biến phụ thuộc g. Biến độc lập Định nghĩa kỳ hạn 1. Quá trình lựa chọn giá trị của các biến để cực tiểu hóa hoặc cực đại hóa một số số lượng quan tâm. 2. Các giá trị chưa biết mà mô hình muốn xác định. 3. Phương trình toán học mô tả mục tiêu đầu ra mà chúng ta hướng tới". Hãy cứ bám sát vào khung phân tích chuẩn mực mà chúng ta đã thống nhất, đừng quên phân loại dữ liệu cẩn thận trước khi xử lý.
-Người 2: Em sẽ bám sát vào các thông tin cốt lõi trong đề bài này, tiến hành phân loại rành mạch từng biến số và áp dụng ngay mô hình phù hợp để giải quyết bài toán ạ.
+Người 1: Ở BE 3.12 & BE 3.13, chúng ta ôn tập lại về cách thiết lập biểu đồ Histogram và Scatter plot. Khi nào thì dùng biểu đồ cột, khi nào thì dùng biểu đồ phân tán để thể hiện mối tương quan?
+Người 2: Em nhớ lý thuyết phần này rất kỹ ạ. Biểu đồ phân tán (Scatter plot) sinh ra là để tìm kiếm sự tương quan giữa hai biến x và y, hỗ trợ đắc lực cho phân tích hồi quy.
 
 Slide 108: BE 3.13_1 & BE 3.16
-Người 1: Chúng ta cùng thử sức với thử thách trong BE 3.13_1 & BE 3.16 xem sao. Yêu cầu chi tiết của bài toán là: "Pany, bạn được yêu cầu xác định số lượng đơn vị tối ưu phải được sản xuất để tối đa hóa tỷ lệ đóng góp của công ty (CM). Công ty của bạn sản xuất bốn loại đơn vị khác nhau: • Tiện ích tiêu chuẩn • Vật dụng bay màu xanh • Dụng cụ bơi màu đỏ • Vật dụng nhảy màu vàng Để thực hiện phân tích theo quy tắc, người quản lý của bạn đã xây dựng một bảng tính để bạn thực hiện một Microsoft Chức năng giải...". Hãy cứ bám sát vào khung phân tích chuẩn mực mà chúng ta đã thống nhất, đừng quên phân loại dữ liệu cẩn thận trước khi xử lý.
-Người 2: Dạ vâng, em đang cẩn thận gạch dưới các từ khóa quan trọng và lập dàn ý các bước cần làm để tìm ra hướng giải quyết chính xác nhất thưa thầy.
+Người 1: Kết thúc loạt bài tập ngắn bằng BE 3.13_1 & BE 3.16. Các bài này tập trung vào việc áp dụng mô hình SMART cho một dự án kiểm toán thực tế. Hãy đảm bảo các mục tiêu các em đặt ra đều đo lường được bằng dữ liệu.
+Người 2: Việc rà soát lại mục tiêu theo tiêu chí SMART ở bước cuối cùng này sẽ giúp em loại bỏ các ý tưởng viển vông, phi thực tế.
 
 Slide 109: BÀI TẬP (EXERCISES)
-Người 1: Đi sâu vào nội dung "Bài tập (Exercises)", chúng ta cần đặc biệt lưu ý và phân tích kỹ lưỡng những điểm cốt lõi sau đây. Việc hiểu thấu đáo khái niệm này sẽ là nền tảng vững chắc cho việc thiết kế các mô hình phân tích phức tạp hơn ở giai đoạn sau.
-Người 2: Vâng thưa thầy, phần lý thuyết này được trình bày rất logic, hệ thống và dễ tiếp thu. Việc kết hợp với các ví dụ thực tiễn ngay từ đầu giúp em không bị bỡ ngỡ ạ.
+Người 1: Tạm biệt các bài tập ngắn, chúng ta bước vào phần Bài tập lớn (EXERCISES). Các bài EX sẽ cung cấp cho các em một bộ dữ liệu mô phỏng (Mock data) hoàn chỉnh để thực hành các kỹ năng thao tác trên phần mềm thực tế.
+Người 2: Tuyệt quá thưa thầy, học chay lý thuyết mãi cũng chán, được 'vọc' dữ liệu thực tế trên phần mềm thế này em mới mau lên tay được ạ.
 
 Slide 110: EX 3.1 & EX 3.4
-Người 1: Đến phần thực hành thực tế với EX 3.1 & EX 3.4. Dữ kiện trọng tâm của bài toán cung cấp: "biên chế cho năm tài chính kết thúc ngày 31 tháng 12 năm 2025 kiểm toán báo cáo tài chính của một công ty tư nhân. của bạn chuyên gia kiểm toán rất vui mừng vì bạn vừa hoàn thành khóa học phân tích dữ liệu trong khóa học kế toán và muốn bạn sử dụng kiến thức của bạn về phân tích dự đoán để phát triển kỳ vọng về lợi nhuận bán hàng dựa trên số lượng bán hàng năng thực hiện các thủ tục phân tích....". Các em hãy vận dụng toàn bộ những phương pháp luận vừa học để xác định chính xác yêu cầu, sau đó lên kế hoạch phân tích từng bước một nhé.
-Người 2: Em sẽ bám sát vào các thông tin cốt lõi trong đề bài này, tiến hành phân loại rành mạch từng biến số và áp dụng ngay mô hình phù hợp để giải quyết bài toán ạ.
+Người 1: Trong EX 3.1 & EX 3.4, các em sẽ tải file Excel chứa dữ liệu của chuỗi nhà hàng Omni, thực hiện tính toán lợi nhuận gộp theo từng khu vực và dùng tính năng Filter để lọc ra những chi nhánh đang bị lỗ.
+Người 2: Dạ, bài tập này giúp em ứng dụng thẳng kỹ năng trực quan hóa và phân tích mô tả vào một case study rất gần gũi với đời sống.
 
 Slide 111: EX 3.7A & EX 3.7B
-Người 1: Chúng ta cùng bước vào phần thực hành chuyên sâu với EX 3.7A & EX 3.7B. Các em hãy vận dụng toàn diện hệ thống kiến thức vừa học để nhận diện vấn đề và đề xuất phương án giải quyết triệt để nhé.
-Người 2: Vâng ạ, em sẽ đọc thật kỹ yêu cầu của đề bài, bóc tách từng lớp thông tin và phân tích các từ khóa chính xác trước khi lên phương án thưa thầy.
+Người 1: Tiếp theo là EX 3.7A & EX 3.7B, yêu cầu các em mở Tableau và thực hành lại các thao tác nối bảng, tạo Quick Table Calculation và vẽ biểu đồ Highlight để tìm ra mẫu xe Celeritas bán ế nhất ở đâu.
+Người 2: Em đã tải file dữ liệu về rồi ạ. Em sẽ thực hành kéo thả theo đúng các bước ở Minh họa 3.43 mà thầy vừa dạy lúc nãy.
 
 Slide 112: EX 3.8 & EX 3.8_1
-Người 1: Chúng ta cùng thử sức với thử thách trong EX 3.8 & EX 3.8_1 xem sao. Yêu cầu chi tiết của bài toán là: "và nhóm của bạn đã theo dõi số lượng mối đe dọa an ninh mạng được nhân viên báo cáo. Nhân viên có thể báo cáo các mối đe dọa an ninh mạng như các nỗ lực lừa đảo và các chuyên gia CNTT có thể báo cáo các mối đe dọa thông qua kiểm tra báo cáo đăng nhập hàng tháng. Phân tích mô tả ban đầu của bạn cho thấy rằng trong ba năm qua, có 313 sự cố mạng đã xảy ra. báo cáo. Có 73 báo cáo vào năm 2023, 111...". Hãy cứ bám sát vào khung phân tích chuẩn mực mà chúng ta đã thống nhất, đừng quên phân loại dữ liệu cẩn thận trước khi xử lý.
-Người 2: Em sẽ bám sát vào các thông tin cốt lõi trong đề bài này, tiến hành phân loại rành mạch từng biến số và áp dụng ngay mô hình phù hợp để giải quyết bài toán ạ.
+Người 1: EX 3.8 & EX 3.8_1 là các bài tập nâng cao về hồi quy. Các em phải dùng công cụ Data Analysis Toolpak trong Excel để thiết lập biến Y là chi phí bảo hành, X là số giờ chạy máy, sau đó xuất ra bảng báo cáo ANOVA.
+Người 2: Lúc nãy xem lý thuyết thì hiểu, nhưng tự làm chắc sẽ có nhiều thao tác bỡ ngỡ. Bài tập này ra rất đúng lúc thưa thầy.
 
 Slide 113: EX 3.10 & EX 3.13
-Người 1: Đến phần thực hành thực tế với EX 3.10 & EX 3.13. Dữ kiện trọng tâm của bài toán cung cấp: "biên chế cho năm tài chính kết thúc ngày 31 tháng 12 năm 2025 kiểm toán báo cáo tài chính của một công ty tư nhân. của bạn chuyên gia kiểm toán rất vui mừng vì bạn vừa hoàn thành khóa học phân tích dữ liệu trong khóa học kế toán và muốn bạn sử dụng kiến thức của bạn về phân tích dự đoán để phát triển kỳ vọng về lợi nhuận bán hàng dựa trên số lượng bán hàng năng thực hiện các thủ tục phân tích....". Các em hãy vận dụng toàn bộ những phương pháp luận vừa học để xác định chính xác yêu cầu, sau đó lên kế hoạch phân tích từng bước một nhé.
-Người 2: Bài tập này rất sát với thực tiễn doanh nghiệp ạ. Em sẽ lập tức áp dụng quy trình phân tích từ việc xác định mục tiêu đến lựa chọn công cụ để đưa ra lời giải hoàn chỉnh.
+Người 1: Đối với EX 3.10 & EX 3.13, trọng tâm chuyển sang Câu hỏi đề xuất. Các em hãy vận dụng Solver để giải bài toán tối ưu hóa nguồn lực cho nhà máy, nhớ khai báo đủ 3 thành phần: Ô mục tiêu, Ô thay đổi và Ràng buộc.
+Người 2: Vâng thưa thầy, phần Constraint (ràng buộc) luôn là phần dễ bị sai sót nhất. Em sẽ kiểm tra kỹ điều kiện lớn hơn, nhỏ hơn trước khi bấm Run Solver.
 
 Slide 114: EX 3.13_1 & EX 3.16
-Người 1: Bây giờ, để rèn luyện kỹ năng thực chiến, chúng ta cùng xem xét bài tập EX 3.13_1 & EX 3.16. Đề bài đặt ra một tình huống đầy thách thức: "kiểm toán viên cuối cùng cho Super Scooters. Nhóm kiểm toán đang thực hiện các thử nghiệm cơ bản về doanh thu và đã thiết kế một thử nghiệm sử dụng phân tích dự đoán để đánh giá tính hợp lý của Super Scooters được báo cáo doanh thu. Mục tiêu là đánh giá doanh thu ghi nhận cho hợp lý. Câu hỏi ban đầu là: Liệu doanh thu hàng tháng được báo cáo thay đổi đáng kể so với doanh thu hàng tháng được dự...". Các em hãy thử suy nghĩ một cách đa chiều xem chúng ta nên tiếp cận và giải quyết vấn đề này theo phương pháp nào là tối ưu nhất.
-Người 2: Dạ vâng, em đang cẩn thận gạch dưới các từ khóa quan trọng và lập dàn ý các bước cần làm để tìm ra hướng giải quyết chính xác nhất thưa thầy.
+Người 1: Bài tập EX 3.13_1 & EX 3.16 sẽ đánh giá khả năng đọc hiểu Báo cáo Sensitivity của Solver. Các em phải chỉ ra được nút thắt cổ chai nằm ở khâu nào và đề xuất xem có nên đầu tư thêm máy móc không.
+Người 2: Đọc hiểu báo cáo mới thực sự là kỹ năng của một kế toán quản trị. Máy móc tính ra số, nhưng con người mới là người diễn giải ý nghĩa của chúng.
 
 Slide 115: EX 3.17
-Người 1: Đến phần thực hành thực tế với EX 3.17. Dữ kiện trọng tâm của bài toán cung cấp: "thiết kế và sản xuất đồ trang sức bằng kim loại được sản xuất hàng loạt và đồ trang sức mạ bạc được thiết kế theo yêu cầu. Hiện tại, chủ sở hữu thiết kế và sản xuất ba dòng trang sức theo yêu cầu: dây chuyền, vòng tay và hoa tai. (các biến quyết định). Sau đây là tỷ lệ đóng góp và các yêu cầu về nguồn lực cho từng sản phẩm. $ 12,00 $8,00 8 1 1 $ 14,00 13 5 2 22 4". Các em hãy vận dụng toàn bộ những phương pháp luận vừa học để xác định chính xác yêu cầu, sau đó lên kế hoạch phân tích từng bước một nhé.
-Người 2: Bài tập này rất sát với thực tiễn doanh nghiệp ạ. Em sẽ lập tức áp dụng quy trình phân tích từ việc xác định mục tiêu đến lựa chọn công cụ để đưa ra lời giải hoàn chỉnh.
+Người 1: Cuối cùng trong chuỗi bài tập là EX 3.17. Đây là bài tập tổng hợp, yêu cầu các em phải đi từ việc phân tích mô tả dữ liệu ban đầu cho đến khi đề xuất giải pháp tối ưu. Nó đòi hỏi một quy trình xuyên suốt và logic.
+Người 2: Quả là một bài test toàn diện! Em sẽ xem lại sơ đồ phát triển câu hỏi ở Minh họa 3.3 để làm kim chỉ nam giải quyết bài này ạ.
 
 Slide 116: TÌNH HUỐNG ỨNG DỤNG (PAC)
-Người 1: Tiếp tục với phần "Tình huống Ứng dụng (PAC)", các em hãy cố gắng xâu chuỗi một cách logic với những nguyên lý chúng ta đã học ở các phần trước. Tính liên kết chặt chẽ giữa các khái niệm chính là chìa khóa để làm chủ bức tranh toàn cảnh về dữ liệu.
-Người 2: Dạ, em đang theo dõi sát sao từng bước trong tiến trình bài giảng ạ. Càng học sâu vào chi tiết, em càng thấy được sự thú vị và logic chặt chẽ của bộ môn này.
+Người 1: Sau khi đã vững các kỹ năng cơ bản, chúng ta bước vào các Tình huống ứng dụng thực tế (Professional Application Cases - PAC). Các PAC này được thiết kế như những dự án tư vấn thực thụ của một kiểm toán viên hoặc nhà quản trị.
+Người 2: Vâng, các tình huống thực tế luôn có nhiều 'nhiễu' và dữ liệu rác hơn rất nhiều so với bài tập trong sách giáo khoa, đòi hỏi tính thực chiến cao thưa thầy.
 
 Slide 117: PAC 3.1 & PAC 3.2
-Người 1: Bây giờ, để rèn luyện kỹ năng thực chiến, chúng ta cùng xem xét bài tập PAC 3.1 & PAC 3.2. Đề bài đặt ra một tình huống đầy thách thức: "Dữ liệu Kiểm toán Bạn là nhân viên năm thứ hai tại một công ty kế toán công được phân công phụ trách sự tham gia của Bệnh viện Kindred, đây là một sự tham gia mới của công ty. Bạn đã được yêu cầu thực hiện phân tích mô tả, chẩn đoán và dự đoán cho nhóm tương tác của bạn. Chuyên gia kiểm toán đã cung cấp cho bạn một tệp Excel bao gồm tổng doanh thu của bệnh nhân theo địa điểm bệnh viện. từ năm...". Các em hãy thử suy nghĩ một cách đa chiều xem chúng ta nên tiếp cận và giải quyết vấn đề này theo phương pháp nào là tối ưu nhất.
-Người 2: Dạ vâng, em đang cẩn thận gạch dưới các từ khóa quan trọng và lập dàn ý các bước cần làm để tìm ra hướng giải quyết chính xác nhất thưa thầy.
+Người 1: Ở PAC 3.1 & PAC 3.2, các em sẽ vào vai một chuyên viên kế toán thuế. Từ một bộ dữ liệu thô, các em phải dùng Tableau để xây dựng Dashboard, dò tìm các khoản chi phí không hợp lệ có nguy cơ bị gạt ra khi quyết toán.
+Người 2: Tình huống này thú vị quá ạ! Thay vì chờ bị phạt, mình dùng dữ liệu để chủ động rà soát trước. Em rất thích tư duy phòng ngừa này.
 
 Slide 118: PAC 3.3 & PAC 3.4
-Người 1: Bây giờ, để rèn luyện kỹ năng thực chiến, chúng ta cùng xem xét bài tập PAC 3.3 & PAC 3.4. Đề bài đặt ra một tình huống đầy thách thức: "Dữ liệu Kế toán tài chính Bạn là nhà phân tích tài chính làm việc cho nhóm kiểm soát viên của Vị trí California của nhóm Bệnh viện Kindred. Người kiểm soát của bạn đã nhấn mạnh thực tế là tổng doanh thu bao gồm cả doanh thu nội trú và doanh thu ngoại trú. Tuy nhiên, chỉ có một cơ sở – Bệnh viện Kindred- Rancho – có doanh thu ngoại trú. Do đó, người kiểm soát muốn có sự hiểu biết đầy đủ về trải...". Các em hãy thử suy nghĩ một cách đa chiều xem chúng ta nên tiếp cận và giải quyết vấn đề này theo phương pháp nào là tối ưu nhất.
-Người 2: Em sẽ bám sát vào các thông tin cốt lõi trong đề bài này, tiến hành phân loại rành mạch từng biến số và áp dụng ngay mô hình phù hợp để giải quyết bài toán ạ.
+Người 1: Với PAC 3.3 & PAC 3.4, tình huống đặt ra là một cuộc thanh tra diện rộng. Các em phải vận dụng kỹ năng Drill-down và phát hiện điểm bất thường (Anomaly detection) để cô lập những chi nhánh có tỷ lệ gian lận cao nhất.
+Người 2: Em nhận ra kỹ năng phân tích chẩn đoán ở tình huống này là 'vũ khí' cốt lõi. Em sẽ lập biểu đồ phân tán để dễ bề phát hiện ra các giao dịch ngoại lai (Outliers).
 
 Slide 119: CÁC TÀI LIỆU & TÌNH HUỐNG KHÁC
-Người 1: Đi sâu vào nội dung "Các Tài liệu & Tình huống Khác", chúng ta cần đặc biệt lưu ý và phân tích kỹ lưỡng những điểm cốt lõi sau đây. Việc hiểu thấu đáo khái niệm này sẽ là nền tảng vững chắc cho việc thiết kế các mô hình phân tích phức tạp hơn ở giai đoạn sau.
-Người 2: Vâng, em đang cẩn thận ghi chú lại các ý chính này vào sổ tay cũng như các trường hợp ngoại lệ cần lưu ý rồi thưa thầy. Quả thực phần này đòi hỏi sự tập trung cao độ.
+Người 1: Phần cuối của chương, chúng ta sẽ lướt qua một số Các Tài liệu & Tình huống chuyên sâu khác. Đây là những case study mở rộng dành cho những bạn muốn tìm hiểu sâu về các ngành đặc thù như Y tế hay Công nghệ.
+Người 2: Dạ vâng, việc mở rộng ra nhiều ngành nghề khác nhau giúp em có cái nhìn đa chiều hơn về sức mạnh của việc phân tích dữ liệu.
 
 Slide 120: CASE 3.13
-Người 1: Chúng ta cùng bước vào phần thực hành chuyên sâu với Case 3.13. Các em hãy vận dụng toàn diện hệ thống kiến thức vừa học để nhận diện vấn đề và đề xuất phương án giải quyết triệt để nhé.
-Người 2: Vâng ạ, em sẽ đọc thật kỹ yêu cầu của đề bài, bóc tách từng lớp thông tin và phân tích các từ khóa chính xác trước khi lên phương án thưa thầy.
+Người 1: Ví dụ như CASE 3.13, một công ty bán lẻ phải phân bổ lại không gian trưng bày cho các mặt hàng. Câu hỏi đề xuất là làm sao để diện tích mỗi kệ hàng đem lại biên lợi nhuận cao nhất. Một bài toán cực kỳ kinh điển!
+Người 2: Em đoán bài này sẽ phải kết hợp cả dữ liệu khách hàng (phân tích mô tả) với bài toán tối ưu hóa diện tích (Solver) thưa thầy.
 
 Slide 121: HEALTHCARE SERVICE COMPANY 3.1
-Người 1: Đi sâu vào nội dung "Healthcare service company 3.1", chúng ta cần đặc biệt lưu ý và phân tích kỹ lưỡng những điểm cốt lõi sau đây. Việc hiểu thấu đáo khái niệm này sẽ là nền tảng vững chắc cho việc thiết kế các mô hình phân tích phức tạp hơn ở giai đoạn sau.
-Người 2: Vâng thưa thầy, phần lý thuyết này được trình bày rất logic, hệ thống và dễ tiếp thu. Việc kết hợp với các ví dụ thực tiễn ngay từ đầu giúp em không bị bỡ ngỡ ạ.
+Người 1: Hay như trường hợp của HEALTHCARE SERVICE COMPANY 3.1, một bệnh viện muốn dự báo số lượng bệnh nhân nhập viện trong các kỳ nghỉ lễ để bố trí y bác sĩ trực hợp lý, tránh lãng phí quỹ lương.
+Người 2: Rất thực tế ạ! Ở đây chắc chắn phải dùng mô hình Chuỗi thời gian (Time-series) và phải bóc tách cả yếu tố Mùa vụ (Seasonality) ra để dự báo chính xác.
 
 Slide 122: INFO 3.1
-Người 1: Đi sâu vào nội dung "Info 3.1", chúng ta cần đặc biệt lưu ý và phân tích kỹ lưỡng những điểm cốt lõi sau đây. Việc hiểu thấu đáo khái niệm này sẽ là nền tảng vững chắc cho việc thiết kế các mô hình phân tích phức tạp hơn ở giai đoạn sau.
-Người 2: Dạ, em đang theo dõi sát sao từng bước trong tiến trình bài giảng ạ. Càng học sâu vào chi tiết, em càng thấy được sự thú vị và logic chặt chẽ của bộ môn này.
+Người 1: Và cuối cùng là INFO 3.1, một bài đọc cung cấp cái nhìn về tương lai của nghề Kế toán - Kiểm toán khi AI và Data Analytics ngày càng được tích hợp sâu. Công nghệ sẽ không thay thế chúng ta, mà chỉ thay thế những người không biết dùng công nghệ.
+Người 2: Câu chốt của thầy làm em thấy có thêm rất nhiều động lực. Em sẽ cố gắng trang bị tốt kỹ năng dữ liệu để trở thành một nhân sự không thể thay thế trong tương lai.
 
 Slide 123: KẾT THÚC
-Người 1: Phù! Một chương học thực sự đồ sộ và vô cùng quan trọng với 123 slides đã chính thức hoàn thành. Qua chương này, các em đã nắm vững được linh hồn của nghệ thuật phân tích dữ liệu: Mọi thứ phải luôn bắt đầu từ việc thấu hiểu sâu sắc Động lực kinh doanh và xác định đúng Mục tiêu cốt lõi! Thiếu đi những điều này, mọi kỹ năng lập trình hay sử dụng công cụ đều trở nên vô nghĩa.
-Người 2: Dạ vâng, hôm nay khối lượng kiến thức tuy dài và nhiều thách thức nhưng em thấy cấu trúc bài giảng rất liền mạch, logic và mang tính hệ thống cao. Những ví dụ thực tế đã giúp em kết nối được lý thuyết với công việc của một chuyên gia phân tích. Em chân thành cảm ơn thầy! Hẹn gặp lại thầy và mọi người ở những chương học hấp dẫn tiếp theo ạ!
+Người 1: Cảm ơn sự tập trung của các em! Chúng ta chính thức khép lại Chương 3 tại đây. Các em hãy hoàn thiện các bài tập Excel và Tableau, đồng thời ngẫm nghĩ lại về sự gắn kết giữa Động lực, Mục tiêu và Câu hỏi phân tích. Hẹn gặp lại các em ở Chương 4!
+Người 2: Dạ, bài học hôm nay thực sự rất giá trị. Nó kết nối toàn bộ các công cụ từ Excel, Tableau cho đến tư duy kinh doanh lại với nhau. Em cảm ơn thầy và hẹn gặp thầy ở chương sau ạ!
