@@ -1,0 +1,1563 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài Tập Trắc Nghiệm Buổi 8</title>
+    <style>
+        :root {
+            --primary: #1a73e8;
+            --primary-hover: #1557b0;
+            --bg: #f8f9fa;
+            --card-bg: #ffffff;
+            --text: #202124;
+            --text-secondary: #5f6368;
+            --border: #dadce0;
+            --success: #1e8e3e;
+            --error: #d93025;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .quiz-container {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 800px;
+            padding: 30px;
+            box-sizing: border-box;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .progress-bar-container {
+            width: 100%;
+            background-color: #e8eaed;
+            border-radius: 8px;
+            height: 10px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background-color: var(--primary);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .question-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        /* Multiple Choice */
+        .options-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .option-label {
+            display: flex;
+            align-items: center;
+            padding: 12px 16px;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .option-label:hover {
+            border-color: var(--primary);
+            background-color: #f1f3f4;
+        }
+
+        .option-label.selected {
+            border-color: var(--primary);
+            background-color: #e8f0fe;
+        }
+
+        .option-input {
+            margin-right: 12px;
+            transform: scale(1.2);
+            cursor: pointer;
+        }
+
+        /* Matching */
+        .matching-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .matching-row {
+            display: flex;
+            align-items: stretch;
+            gap: 15px;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .matching-left {
+            flex: 1;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+        }
+
+        .matching-right {
+            flex: 2;
+        }
+
+        .matching-select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            font-family: inherit;
+            font-size: 0.95rem;
+            outline: none;
+        }
+        
+        .matching-select:focus {
+            border-color: var(--primary);
+        }
+
+        /* Ordering */
+        .ordering-pool, .ordering-selected {
+            min-height: 50px;
+            padding: 15px;
+            border: 2px dashed var(--border);
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .ordering-selected {
+            border-color: var(--primary);
+            background-color: #f8faff;
+        }
+
+        .order-item {
+            background: white;
+            padding: 12px 16px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            cursor: pointer;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            transition: transform 0.1s, box-shadow 0.1s;
+            display: flex;
+            align-items: center;
+        }
+
+        .order-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-color: var(--primary);
+        }
+        
+        .ordering-selected .order-item::before {
+            content: counter(order-counter) ". ";
+            counter-increment: order-counter;
+            font-weight: bold;
+            color: var(--primary);
+            margin-right: 10px;
+        }
+        
+        .ordering-selected {
+            counter-reset: order-counter;
+        }
+
+        /* Fill in Blanks */
+        .fill-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .blank-slot {
+            display: inline-block;
+            min-width: 150px;
+            height: 30px;
+            border-bottom: 2px solid var(--primary);
+            margin: 0 5px;
+            vertical-align: bottom;
+            text-align: center;
+            font-weight: 600;
+            color: var(--primary);
+            cursor: pointer;
+            padding: 0 10px;
+            background-color: #f8faff;
+            border-radius: 4px 4px 0 0;
+            transition: background-color 0.2s;
+        }
+        
+        .blank-slot.active {
+            background-color: #e8f0fe;
+            border-bottom: 3px solid var(--primary);
+        }
+
+        .word-bank {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 15px;
+            background: #f1f3f4;
+            border-radius: 8px;
+        }
+
+        .word-item {
+            background: white;
+            padding: 8px 16px;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        
+        .word-item:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        .word-item.used {
+            opacity: 0.5;
+            pointer-events: none;
+            background: #e8eaed;
+        }
+
+        /* Actions */
+        .actions {
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 10px 24px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .btn-primary:disabled {
+            background-color: #8ab4f8;
+            cursor: not-allowed;
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background-color: #f8faff;
+        }
+
+        /* Feedback */
+        .feedback-container {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .feedback-container.show {
+            display: block;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .feedback-container.correct {
+            background-color: #e6f4ea;
+            border: 1px solid var(--success);
+        }
+
+        .feedback-container.incorrect {
+            background-color: #fce8e6;
+            border: 1px solid var(--error);
+        }
+
+        .feedback-title {
+            font-weight: bold;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .correct .feedback-title { color: var(--success); }
+        .incorrect .feedback-title { color: var(--error); }
+
+        .explanation {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: var(--text-secondary);
+        }
+        
+        /* Result Screen */
+        .result-screen {
+            text-align: center;
+            padding: 40px 20px;
+        }
+        
+        .score-circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: conic-gradient(var(--primary) 0%, #e8eaed 0%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            position: relative;
+        }
+        
+        .score-inner {
+            width: 120px;
+            height: 120px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        
+        .score-text {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+        
+        .score-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="quiz-container">
+    <div id="quiz-screen">
+        <div class="header">
+            <span id="question-counter" style="font-weight: 600; color: var(--text-secondary);">Câu hỏi 1 / 6</span>
+            <span class="badge" style="background: #e8eaed; padding: 4px 10px; border-radius: 12px; font-size: 0.85rem; font-weight: 600;" id="difficulty-badge">Dễ</span>
+        </div>
+        <div class="progress-bar-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+
+        <div id="question-content">
+            <!-- Content gets injected here -->
+        </div>
+
+        <div class="feedback-container" id="feedback">
+            <div class="feedback-title" id="feedback-title"></div>
+            <div class="explanation" id="explanation"></div>
+        </div>
+
+        <div class="actions">
+            <button class="btn btn-primary" id="btn-check">Kiểm tra</button>
+            <button class="btn btn-primary" id="btn-next" style="display: none;">Tiếp theo</button>
+        </div>
+    </div>
+    
+    <div id="result-screen" class="result-screen" style="display: none;">
+        <h2>Chúc mừng bạn đã hoàn thành!</h2>
+        <div class="score-circle" id="score-circle">
+            <div class="score-inner">
+                <span class="score-text" id="final-score">0/6</span>
+                <span class="score-label">Điểm</span>
+            </div>
+        </div>
+        <p id="result-message" style="margin-bottom: 30px; font-size: 1.1rem; color: var(--text-secondary);"></p>
+        <button class="btn btn-outline" onclick="location.reload()">Làm lại bài kiểm tra</button>
+    </div>
+</div>
+
+<script>
+    const questions = [
+    {
+        "type": "multiple_choice",
+        "difficulty": "Dễ",
+        "question": "Gian lận nhấp chuột vào quảng cáo (Ad click fraud) nhằm mục đích gì trong chiến dịch kỹ thuật số?",
+        "options": [
+            {
+                "id": "a",
+                "text": "Thao túng phân tích quảng cáo và thu nhập PPC"
+            },
+            {
+                "id": "b",
+                "text": "Cải thiện trải nghiệm của khách hàng mua hàng"
+            },
+            {
+                "id": "c",
+                "text": "Làm cho hình ảnh sản phẩm trở nên đẹp đẽ hơn"
+            },
+            {
+                "id": "d",
+                "text": "Giảm lượng tiêu thụ điện năng của máy chủ web"
+            }
+        ],
+        "correctAnswer": "a",
+        "explanation": "Lừa đảo nhấp chuột vào quảng cáo thao túng mô hình PPC (Pay-per-click) để làm cạn kiệt ngân sách của đối thủ hoặc kiếm tiền bất chính."
+    },
+    {
+        "type": "multiple_choice",
+        "difficulty": "Trung bình",
+        "question": "Theo báo cáo, phương thức tấn công xếp chồng quảng cáo (Ad stacking) hoạt động như thế nào?",
+        "options": [
+            {
+                "id": "a",
+                "text": "Nhiều quảng cáo xếp lớp lên nhau trong một vị trí"
+            },
+            {
+                "id": "b",
+                "text": "Gửi hàng triệu email rác cho khách hàng cũ"
+            },
+            {
+                "id": "c",
+                "text": "Sao chép mã nguồn của trang web đối thủ"
+            },
+            {
+                "id": "d",
+                "text": "In nhiều tờ rơi quảng cáo ở định dạng giấy"
+            }
+        ],
+        "correctAnswer": "a",
+        "explanation": "Xếp chồng quảng cáo là khi nhiều quảng cáo được xếp lớp trong một vị trí duy nhất, người dùng chỉ thấy lớp trên cùng nhưng nhấp chuột đăng ký cho tất cả."
+    },
+    {
+        "type": "matching",
+        "difficulty": "Dễ",
+        "question": "Ghép nối các loại gian lận quảng cáo với đặc điểm của chúng:",
+        "left": [
+            {
+                "id": "l1",
+                "text": "Bot tự động"
+            },
+            {
+                "id": "l2",
+                "text": "Bấm vào trang trại (Click farm)"
+            },
+            {
+                "id": "l3",
+                "text": "Nhà xuất bản lừa đảo"
+            }
+        ],
+        "right": [
+            {
+                "id": "r1",
+                "text": "Tập lệnh được lập trình để mô phỏng con người"
+            },
+            {
+                "id": "r2",
+                "text": "Nhóm cá nhân nhấp chuột thủ công số lượng lớn"
+            },
+            {
+                "id": "r3",
+                "text": "Chủ trang web tự nhấp để tăng thu nhập giả tạo"
+            }
+        ],
+        "correctPairs": {
+            "l1": "r1",
+            "l2": "r2",
+            "l3": "r3"
+        },
+        "explanation": "Bot dùng phần mềm, Click farm dùng sức người giá rẻ, Nhà xuất bản tự nhấp để kiếm tiền bất chính."
+    },
+    {
+        "type": "ordering",
+        "difficulty": "Trung bình",
+        "question": "Sắp xếp quy trình ứng dụng AI trong bảo lãnh khoản vay (Loan Underwriting):",
+        "instruction": "(Nhấn vào từng mục ở danh sách bên dưới để chuyển lên bảng đã chọn)",
+        "items": [
+            {
+                "id": "1",
+                "text": "Thu thập dữ liệu mạng xã hội và thương mại điện tử"
+            },
+            {
+                "id": "2",
+                "text": "Phân tích mẫu hành vi và thông tin vị trí, giao dịch"
+            },
+            {
+                "id": "3",
+                "text": "Hệ thống AI tạo ra xác suất vỡ nợ của người nộp đơn"
+            },
+            {
+                "id": "4",
+                "text": "Chuyển khoản vay vào ví điện tử trong 15 phút"
+            }
+        ],
+        "correctOrder": [
+            "1",
+            "2",
+            "3",
+            "4"
+        ],
+        "explanation": "Quy trình bảo lãnh khoản vay bằng AI: Thu thập -> Phân tích hành vi -> Tính xác suất vỡ nợ -> Cấp vốn tự động."
+    },
+    {
+        "type": "fill_in_blanks",
+        "difficulty": "Trung bình",
+        "question": "Điền từ về Giao dịch thuật toán bằng AI:",
+        "instruction": "(Nhấn vào chỗ trống, sau đó nhấn vào từ bên dưới để điền)",
+        "text": "Khác với giao dịch định lượng truyền thống, AI có khả năng hoạt động như một <span class=\"blank-slot\" data-id=\"1\">___(1)___</span> tham gia thị trường. Công cụ <span class=\"blank-slot\" data-id=\"2\">___(2)___</span> giúp máy phân tích báo cáo tin tức để dự báo tâm lý quản lý.",
+        "words": [
+            {
+                "id": "w1",
+                "text": "đại lý độc lập"
+            },
+            {
+                "id": "w2",
+                "text": "NLP (Xử lý ngôn ngữ tự nhiên)"
+            },
+            {
+                "id": "w3",
+                "text": "kế toán viên phụ tá"
+            }
+        ],
+        "correctAnswers": {
+            "1": "w1",
+            "2": "w2"
+        },
+        "explanation": "AI trong trading hoạt động như đại lý độc lập, sử dụng NLP để phân tích tin tức và cảm xúc."
+    },
+    {
+        "type": "multiple_choice",
+        "difficulty": "Khó",
+        "question": "Học chuyển giao (Transfer learning) trong phát hiện gian lận mang lại lợi ích gì?",
+        "options": [
+            {
+                "id": "a",
+                "text": "Áp dụng mô hình gian lận này sang miền gian lận khác"
+            },
+            {
+                "id": "b",
+                "text": "Chuyển tiền của kẻ lừa đảo lại cho người bị hại"
+            },
+            {
+                "id": "c",
+                "text": "Đào tạo nhân viên mới qua các khóa học trực tuyến"
+            },
+            {
+                "id": "d",
+                "text": "Xóa toàn bộ các dữ liệu lịch sử để bảo mật hệ thống"
+            }
+        ],
+        "correctAnswer": "a",
+        "explanation": "Học chuyển giao (Transfer learning) là quá trình vận dụng kiến thức từ một miền (ví dụ gian lận thẻ tín dụng) để cải thiện mô hình phát hiện ở miền khác."
+    },
+    {
+        "type": "multiple_choice",
+        "difficulty": "Dễ",
+        "question": "Công nghệ nào được dùng để trích xuất văn bản từ hình ảnh hóa đơn lừa đảo?",
+        "options": [
+            {
+                "id": "a",
+                "text": "Nhận dạng ký tự quang học (OCR)"
+            },
+            {
+                "id": "b",
+                "text": "Công cụ tìm kiếm thông tin"
+            },
+            {
+                "id": "c",
+                "text": "Máy chiếu slide bài giảng"
+            },
+            {
+                "id": "d",
+                "text": "Giao thức truyền tập tin mạng"
+            }
+        ],
+        "correctAnswer": "a",
+        "explanation": "OCR (Optical Character Recognition) được sử dụng để đọc chữ trên hình ảnh tài liệu."
+    },
+    {
+        "type": "matching",
+        "difficulty": "Khó",
+        "question": "Ghép các công nghệ với vai trò tương ứng trong phát hiện gian lận:",
+        "left": [
+            {
+                "id": "l1",
+                "text": "Xử lý Ngôn ngữ Tự nhiên (NLP)"
+            },
+            {
+                "id": "l2",
+                "text": "AI có thể giải thích (Explainable AI)"
+            },
+            {
+                "id": "l3",
+                "text": "Blockchain (DLT)"
+            }
+        ],
+        "right": [
+            {
+                "id": "r1",
+                "text": "Tìm kiếm lỗi ngữ pháp, bất thường từ ngữ trong hóa đơn"
+            },
+            {
+                "id": "r2",
+                "text": "Làm rõ quyết định hộp đen để tuân thủ quy định đạo đức"
+            },
+            {
+                "id": "r3",
+                "text": "Tạo sổ cái bất biến chống lại việc sửa đổi giao dịch"
+            }
+        ],
+        "correctPairs": {
+            "l1": "r1",
+            "l2": "r2",
+            "l3": "r3"
+        },
+        "explanation": "NLP phân tích văn bản, Explainable AI minh bạch hóa thuật toán, Blockchain tạo sổ cái bất biến."
+    },
+    {
+        "type": "fill_in_blanks",
+        "difficulty": "Trung bình",
+        "question": "Điền từ về Cố vấn Robot (Robo-Advisors):",
+        "instruction": "(Nhấn vào chỗ trống, sau đó nhấn vào từ bên dưới để điền)",
+        "text": "Cố vấn robot cung cấp dịch vụ đầu tư tài chính <span class=\"blank-slot\" data-id=\"1\">___(1)___</span>. Mô hình lai kết hợp tư vấn truyền thống và robot được kỳ vọng sẽ trở thành <span class=\"blank-slot\" data-id=\"2\">___(2)___</span> trên thị trường.",
+        "words": [
+            {
+                "id": "w1",
+                "text": "tự động dựa trên thuật toán"
+            },
+            {
+                "id": "w2",
+                "text": "người chiến thắng"
+            },
+            {
+                "id": "w3",
+                "text": "chiến lược lỗi thời"
+            }
+        ],
+        "correctAnswers": {
+            "1": "w1",
+            "2": "w2"
+        },
+        "explanation": "Robo-advisors tự động hóa đầu tư, mô hình hybrid (lai) được dự báo là người chiến thắng."
+    },
+    {
+        "type": "ordering",
+        "difficulty": "Khó",
+        "question": "Sắp xếp các bước Phân tích Tên miền chéo (Cross-domain Analysis) trong phát hiện gian lận:",
+        "instruction": "(Nhấn vào từng mục ở danh sách bên dưới để chuyển lên bảng đã chọn)",
+        "items": [
+            {
+                "id": "1",
+                "text": "Thu thập dữ liệu giao dịch nội bộ và hồ sơ khách hàng"
+            },
+            {
+                "id": "2",
+                "text": "Tích hợp với dữ liệu thị trường và chỉ số kinh tế vĩ mô"
+            },
+            {
+                "id": "3",
+                "text": "Sử dụng ML để tìm sự khác thường giữa các miền dữ liệu"
+            },
+            {
+                "id": "4",
+                "text": "Cảnh báo sớm gian lận mà không thể thấy ở từng miền lẻ"
+            }
+        ],
+        "correctOrder": [
+            "1",
+            "2",
+            "3",
+            "4"
+        ],
+        "explanation": "Cross-domain kết hợp dữ liệu nhiều nguồn (nội bộ, vĩ mô) dùng ML để phát hiện dấu hiệu cảnh báo sớm."
+    },
+    {
+        "type": "multiple_choice",
+        "difficulty": "Trung bình",
+        "question": "Cuộc tấn công đối nghịch (Adversarial attacks) nhắm vào mô hình AI là gì?",
+        "options": [
+            {
+                "id": "a",
+                "text": "Thay đổi dữ liệu đầu vào để đánh lừa mô hình AI"
+            },
+            {
+                "id": "b",
+                "text": "Gửi email nặc danh tống tiền lãnh đạo doanh nghiệp"
+            },
+            {
+                "id": "c",
+                "text": "Làm quá tải máy chủ bằng các lệnh truy cập liên tục"
+            },
+            {
+                "id": "d",
+                "text": "Cắt đứt đường truyền cáp quang của tòa nhà máy chủ"
+            }
+        ],
+        "correctAnswer": "a",
+        "explanation": "Adversarial attacks cố tình thay đổi dữ liệu đầu vào một cách tinh vi để AI phân loại sai."
+    },
+    {
+        "type": "multiple_choice",
+        "difficulty": "Dễ",
+        "question": "Generative AI (AI Tạo sinh) giúp gì trong việc giảm thiểu rủi ro gian lận?",
+        "options": [
+            {
+                "id": "a",
+                "text": "Sản xuất dữ liệu tổng hợp để đào tạo mô hình gian lận"
+            },
+            {
+                "id": "b",
+                "text": "In hóa đơn giả mạo để kiểm tra độ nhạy của nhân viên"
+            },
+            {
+                "id": "c",
+                "text": "Thiết kế logo mới cho hệ thống nhận diện thương hiệu"
+            },
+            {
+                "id": "d",
+                "text": "Đánh bóng hình ảnh công ty trên các phương tiện báo chí"
+            }
+        ],
+        "correctAnswer": "a",
+        "explanation": "Gian lận thực tế ('Thiên nga đen') rất hiếm, Generative AI tạo dữ liệu mô phỏng để huấn luyện hệ thống phòng thủ."
+    },
+    {
+        "type": "matching",
+        "difficulty": "Trung bình",
+        "question": "Ghép nối các công nghệ với ví dụ thực tiễn trong tài chính:",
+        "left": [
+            {
+                "id": "l1",
+                "text": "Chatbots"
+            },
+            {
+                "id": "l2",
+                "text": "Hệ thống AI 'Quyền anh trắng' (White-boxing)"
+            },
+            {
+                "id": "l3",
+                "text": "Máy học (Machine Learning)"
+            }
+        ],
+        "right": [
+            {
+                "id": "r1",
+                "text": "Hỗ trợ khách hàng gọi taxi, chuyển tiền trên WeChat"
+            },
+            {
+                "id": "r2",
+                "text": "Phát hiện gian lận bằng cách tính toán điểm minh bạch"
+            },
+            {
+                "id": "r3",
+                "text": "Học từ dữ liệu giao dịch lịch sử để dự báo gian lận"
+            }
+        ],
+        "correctPairs": {
+            "l1": "r1",
+            "l2": "r2",
+            "l3": "r3"
+        },
+        "explanation": "Chatbot để tương tác, White-boxing giúp minh bạch cách chấm điểm, ML dùng để học dữ liệu."
+    },
+    {
+        "type": "fill_in_blanks",
+        "difficulty": "Khó",
+        "question": "Điền từ về sự thiên vị (Bias) trong mô hình AI:",
+        "instruction": "(Nhấn vào chỗ trống, sau đó nhấn vào từ bên dưới để điền)",
+        "text": "Sự <span class=\"blank-slot\" data-id=\"1\">___(1)___</span> trong dữ liệu đào tạo AI có thể dẫn đến kết quả không công bằng hoặc phân biệt đối xử. Để giải quyết, tổ chức cần thực hiện quá trình tiền xử lý dữ liệu và <span class=\"blank-slot\" data-id=\"2\">___(2)___</span> mô hình liên tục.",
+        "words": [
+            {
+                "id": "w1",
+                "text": "thiên vị (bias)"
+            },
+            {
+                "id": "w2",
+                "text": "hiệu chỉnh (calibration)"
+            },
+            {
+                "id": "w3",
+                "text": "tuyệt đối hóa"
+            }
+        ],
+        "correctAnswers": {
+            "1": "w1",
+            "2": "w2"
+        },
+        "explanation": "Sự thiên vị (Bias) yêu cầu phải hiệu chuẩn và tiền xử lý dữ liệu (Calibration) liên tục."
+    },
+    {
+        "type": "ordering",
+        "difficulty": "Trung bình",
+        "question": "Sắp xếp lịch sử phát triển của phát hiện gian lận tài chính:",
+        "instruction": "(Nhấn vào từng mục ở danh sách bên dưới để chuyển lên bảng đã chọn)",
+        "items": [
+            {
+                "id": "1",
+                "text": "Kiểm toán thủ công bằng sổ sách giấy tờ"
+            },
+            {
+                "id": "2",
+                "text": "Hệ thống chuyên gia dựa trên quy tắc (Rule-based)"
+            },
+            {
+                "id": "3",
+                "text": "Mô hình Học máy (Machine Learning) nhận diện tự động"
+            },
+            {
+                "id": "4",
+                "text": "Mô hình AI dự đoán và AI tạo sinh (Generative AI)"
+            }
+        ],
+        "correctOrder": [
+            "1",
+            "2",
+            "3",
+            "4"
+        ],
+        "explanation": "Từ thủ công -> Dựa trên quy tắc cố định -> ML thích ứng -> AI dự đoán/tạo sinh tiên tiến."
+    },
+    {
+        "type": "multiple_choice",
+        "difficulty": "Trung bình",
+        "question": "Tại sao hệ thống phát hiện gian lận dựa trên quy tắc (rule-based) lại bộc lộ nhiều điểm yếu hiện nay?",
+        "options": [
+            {
+                "id": "a",
+                "text": "Chúng không thể phát hiện các kiểu gian lận chưa từng có"
+            },
+            {
+                "id": "b",
+                "text": "Luôn yêu cầu phải có kết nối mạng Internet 5G"
+            },
+            {
+                "id": "c",
+                "text": "Nhân sự không biết lập trình các câu lệnh If-Else"
+            },
+            {
+                "id": "d",
+                "text": "Chi phí mua hệ thống máy chủ quá đắt đỏ và tốn kém"
+            }
+        ],
+        "correctAnswer": "a",
+        "explanation": "Hệ thống Rule-based không thể nhận diện các phương thức gian lận mới tinh vi (không nằm trong tập quy tắc đã biết)."
+    },
+    {
+        "type": "matching",
+        "difficulty": "Dễ",
+        "question": "Ghép các quy định pháp lý (Regulatory compliance) với ý nghĩa:",
+        "left": [
+            {
+                "id": "l1",
+                "text": "AML"
+            },
+            {
+                "id": "l2",
+                "text": "KYC"
+            },
+            {
+                "id": "l3",
+                "text": "PCI DSS"
+            }
+        ],
+        "right": [
+            {
+                "id": "r1",
+                "text": "Các biện pháp phòng chống rửa tiền (Anti-Money Laundering)"
+            },
+            {
+                "id": "r2",
+                "text": "Quy tắc nhận biết khách hàng (Know Your Customer)"
+            },
+            {
+                "id": "r3",
+                "text": "Tiêu chuẩn bảo mật dữ liệu ngành thẻ thanh toán"
+            }
+        ],
+        "correctPairs": {
+            "l1": "r1",
+            "l2": "r2",
+            "l3": "r3"
+        },
+        "explanation": "AML = Anti-Money Laundering; KYC = Know Your Customer; PCI DSS = Payment Card Industry Data Security Standard."
+    },
+    {
+        "type": "multiple_choice",
+        "difficulty": "Khó",
+        "question": "Mô hình 'Thiên nga đen' (Black Swan) trong phát hiện gian lận ám chỉ điều gì?",
+        "options": [
+            {
+                "id": "a",
+                "text": "Sự kiện hiếm khi xảy ra nhưng gây tổn thất thảm khốc"
+            },
+            {
+                "id": "b",
+                "text": "Sự kiện thường xuyên xảy ra với mức thiệt hại siêu nhỏ"
+            },
+            {
+                "id": "c",
+                "text": "Hiện tượng khách hàng rút tiền đồng loạt khỏi ngân hàng"
+            },
+            {
+                "id": "d",
+                "text": "Thuật toán chuyên phát hiện các lỗi đánh máy tài liệu"
+            }
+        ],
+        "correctAnswer": "a",
+        "explanation": "Black Swan events (Thiên nga đen) là các sự kiện gian lận quy mô lớn, hiếm xảy ra nhưng thiệt hại khổng lồ."
+    },
+    {
+        "type": "fill_in_blanks",
+        "difficulty": "Dễ",
+        "question": "Điền từ về rủi ro đạo đức trong AI:",
+        "instruction": "(Nhấn vào chỗ trống, sau đó nhấn vào từ bên dưới để điền)",
+        "text": "Trong ngành tài chính, các tổ chức phải đảm bảo AI tuân thủ đạo đức, không phân biệt đối xử và <span class=\"blank-slot\" data-id=\"1\">___(1)___</span>. Tính <span class=\"blank-slot\" data-id=\"2\">___(2)___</span> là bắt buộc để người dùng hiểu được quá trình AI ra quyết định.",
+        "words": [
+            {
+                "id": "w1",
+                "text": "bảo mật quyền riêng tư"
+            },
+            {
+                "id": "w2",
+                "text": "minh bạch (transparency)"
+            },
+            {
+                "id": "w3",
+                "text": "phức tạp (complexity)"
+            }
+        ],
+        "correctAnswers": {
+            "1": "w1",
+            "2": "w2"
+        },
+        "explanation": "AI phải bảo mật quyền riêng tư và đảm bảo tính minh bạch để có thể giải thích được."
+    },
+    {
+        "type": "multiple_choice",
+        "difficulty": "Trung bình",
+        "question": "Trong AI Algorithmic Trading, AI sử dụng dữ liệu phi cấu trúc nào để xác định xu hướng đầu tư?",
+        "options": [
+            {
+                "id": "a",
+                "text": "Tin tức, blog và mạng xã hội"
+            },
+            {
+                "id": "b",
+                "text": "Bảng cân đối kế toán nội bộ"
+            },
+            {
+                "id": "c",
+                "text": "Danh sách mã số thuế"
+            },
+            {
+                "id": "d",
+                "text": "Biên lai chi phí tiền điện"
+            }
+        ],
+        "correctAnswer": "a",
+        "explanation": "AI Trading phân tích dữ liệu phi cấu trúc như mạng xã hội, báo cáo tin tức để đoán tâm lý thị trường."
+    },
+    {
+        "type": "ordering",
+        "difficulty": "Dễ",
+        "question": "Sắp xếp quá trình AI phát hiện gian lận Thẻ Tín Dụng:",
+        "instruction": "(Nhấn vào từng mục ở danh sách bên dưới để chuyển lên bảng đã chọn)",
+        "items": [
+            {
+                "id": "1",
+                "text": "Ghi nhận dữ liệu thẻ (số tiền, địa điểm, thời gian)"
+            },
+            {
+                "id": "2",
+                "text": "Máy học đối chiếu với thói quen tiêu dùng lịch sử"
+            },
+            {
+                "id": "3",
+                "text": "Xác định sai lệch (VD: quẹt thẻ tại 2 quốc gia cùng lúc)"
+            },
+            {
+                "id": "4",
+                "text": "Cảnh báo và tự động khóa thẻ tạm thời"
+            }
+        ],
+        "correctOrder": [
+            "1",
+            "2",
+            "3",
+            "4"
+        ],
+        "explanation": "Quy trình: Thu thập -> Đối chiếu lịch sử -> Xác định sai lệch -> Đưa ra hành động cảnh báo."
+    },
+    {
+        "type": "matching",
+        "difficulty": "Khó",
+        "question": "Ghép các khái niệm kỹ thuật với ứng dụng tài chính:",
+        "left": [
+            {
+                "id": "l1",
+                "text": "Khả năng mở rộng (Scalability)"
+            },
+            {
+                "id": "l2",
+                "text": "Độ bền của mô hình (Robustness)"
+            },
+            {
+                "id": "l3",
+                "text": "False Positive (Dương tính giả)"
+            }
+        ],
+        "right": [
+            {
+                "id": "r1",
+                "text": "Xử lý khối lượng giao dịch cực lớn trong thời gian thực"
+            },
+            {
+                "id": "r2",
+                "text": "Phòng thủ trước các cuộc tấn công đối nghịch vào dữ liệu"
+            },
+            {
+                "id": "r3",
+                "text": "Nhận diện nhầm giao dịch hợp pháp thành gian lận"
+            }
+        ],
+        "correctPairs": {
+            "l1": "r1",
+            "l2": "r2",
+            "l3": "r3"
+        },
+        "explanation": "Scalability là tốc độ/quy mô xử lý, Robustness là sự bền bỉ trước tấn công, False positive là khóa nhầm thẻ."
+    },
+    {
+        "type": "multiple_choice",
+        "difficulty": "Trung bình",
+        "question": "Sự khác biệt quan trọng giữa Robot-Advisor (cố vấn robot) và các nhà quản lý quỹ truyền thống là gì?",
+        "options": [
+            {
+                "id": "a",
+                "text": "Tự động phân bổ danh mục dựa trên thuật toán và dữ liệu"
+            },
+            {
+                "id": "b",
+                "text": "Robot-Advisor luôn cam kết sinh lời 100% không rủi ro"
+            },
+            {
+                "id": "c",
+                "text": "Hoạt động hoàn toàn bằng năng lượng mặt trời"
+            },
+            {
+                "id": "d",
+                "text": "Bỏ qua các nguyên tắc tính toán tài chính cơ bản"
+            }
+        ],
+        "correctAnswer": "a",
+        "explanation": "Robo-advisor sử dụng thuật toán phân bổ danh mục tự động và tiết kiệm chi phí nhân sự."
+    },
+    {
+        "type": "fill_in_blanks",
+        "difficulty": "Trung bình",
+        "question": "Điền từ về tác dụng của AI trong Tuân thủ quy định (RegTech):",
+        "instruction": "(Nhấn vào chỗ trống, sau đó nhấn vào từ bên dưới để điền)",
+        "text": "Hệ thống AI giám sát quy định có thể tự động kiểm tra <span class=\"blank-slot\" data-id=\"1\">___(1)___</span> theo tiêu chuẩn KYC (Nhận biết khách hàng) và quét giao dịch để phát hiện dấu hiệu của việc <span class=\"blank-slot\" data-id=\"2\">___(2)___</span>.",
+        "words": [
+            {
+                "id": "w1",
+                "text": "danh tính khách hàng"
+            },
+            {
+                "id": "w2",
+                "text": "rửa tiền (AML)"
+            },
+            {
+                "id": "w3",
+                "text": "thay đổi lãi suất"
+            }
+        ],
+        "correctAnswers": {
+            "1": "w1",
+            "2": "w2"
+        },
+        "explanation": "AI trong RegTech giúp định danh KYC và quét dấu hiệu rửa tiền AML."
+    },
+    {
+        "type": "ordering",
+        "difficulty": "Trung bình",
+        "question": "Sắp xếp quá trình AI phân tích tài liệu phân phối trong Thương mại điện tử:",
+        "instruction": "(Nhấn vào từng mục ở danh sách bên dưới để chuyển lên bảng đã chọn)",
+        "items": [
+            {
+                "id": "1",
+                "text": "Nhận hình ảnh hóa đơn, lệnh vận chuyển từ hệ thống"
+            },
+            {
+                "id": "2",
+                "text": "Dùng OCR để trích xuất chữ và NLP để kiểm tra văn phong"
+            },
+            {
+                "id": "3",
+                "text": "Phát hiện độ lệch (VD: sai giá, sai số lượng) bằng ML"
+            },
+            {
+                "id": "4",
+                "text": "Chuyên viên con người đánh giá lại (Human-in-the-loop)"
+            }
+        ],
+        "correctOrder": [
+            "1",
+            "2",
+            "3",
+            "4"
+        ],
+        "explanation": "Thu hình ảnh -> OCR/NLP trích xuất -> Nhận diện sai lệch -> Con người xác minh."
+    },
+    {
+        "type": "multiple_choice",
+        "difficulty": "Dễ",
+        "question": "Lĩnh vực Tài chính Ngân hàng sử dụng GRC để quản lý cái gì?",
+        "options": [
+            {
+                "id": "a",
+                "text": "Quản trị, Quản lý rủi ro và Tuân thủ (Governance, Risk, Compliance)"
+            },
+            {
+                "id": "b",
+                "text": "Tăng trưởng, Doanh thu và Chi phí (Growth, Revenue, Cost)"
+            },
+            {
+                "id": "c",
+                "text": "Giao tiếp, Đánh giá và Cạnh tranh"
+            },
+            {
+                "id": "d",
+                "text": "Khai thác vàng, Đọc sách và Ghi chép"
+            }
+        ],
+        "correctAnswer": "a",
+        "explanation": "GRC viết tắt của Governance, Risk management, and Compliance."
+    },
+    {
+        "type": "matching",
+        "difficulty": "Trung bình",
+        "question": "Ghép cặp rủi ro và cách khắc phục khi sử dụng AI:",
+        "left": [
+            {
+                "id": "l1",
+                "text": "Dữ liệu huấn luyện bị định kiến (Bias)"
+            },
+            {
+                "id": "l2",
+                "text": "Vi phạm quyền riêng tư khách hàng"
+            },
+            {
+                "id": "l3",
+                "text": "Thuật toán hoạt động như 'hộp đen'"
+            }
+        ],
+        "right": [
+            {
+                "id": "r1",
+                "text": "Hiệu chỉnh dữ liệu để đảm bảo tính công bằng (Fairness)"
+            },
+            {
+                "id": "r2",
+                "text": "Mã hóa dữ liệu và tuân thủ chặt chẽ quyền riêng tư"
+            },
+            {
+                "id": "r3",
+                "text": "Sử dụng các mô hình AI có thể giải thích (Explainable AI)"
+            }
+        ],
+        "correctPairs": {
+            "l1": "r1",
+            "l2": "r2",
+            "l3": "r3"
+        },
+        "explanation": "Bias cần Fairness; Quyền riêng tư cần mã hóa; Hộp đen cần Explainable AI."
+    },
+    {
+        "type": "fill_in_blanks",
+        "difficulty": "Khó",
+        "question": "Điền từ về khả năng tổng hợp dữ liệu của Generative AI:",
+        "instruction": "(Nhấn vào chỗ trống, sau đó nhấn vào từ bên dưới để điền)",
+        "text": "Do gian lận là các sự kiện hiếm, Generative AI có thể được sử dụng trong mạng biệt lập để <span class=\"blank-slot\" data-id=\"1\">___(1)___</span> dữ liệu mô phỏng. Việc này giúp cải thiện <span class=\"blank-slot\" data-id=\"2\">___(2)___</span> của mô hình mà không cần chờ đợi gian lận thực xảy ra.",
+        "words": [
+            {
+                "id": "w1",
+                "text": "tạo ra (generate)"
+            },
+            {
+                "id": "w2",
+                "text": "độ nhạy bén (accuracy)"
+            },
+            {
+                "id": "w3",
+                "text": "xóa bỏ hoàn toàn"
+            }
+        ],
+        "correctAnswers": {
+            "1": "w1",
+            "2": "w2"
+        },
+        "explanation": "Generative AI tạo dữ liệu giả lập để tăng độ nhạy bén cho bộ máy phát hiện gian lận."
+    },
+    {
+        "type": "ordering",
+        "difficulty": "Dễ",
+        "question": "Sắp xếp cấu trúc các chương trình tự động hóa tương tác tài chính từ đơn giản đến phức tạp:",
+        "instruction": "(Nhấn vào từng mục ở danh sách bên dưới để chuyển lên bảng đã chọn)",
+        "items": [
+            {
+                "id": "1",
+                "text": "Chatbot quy tắc quét từ khóa cơ bản (Rule-based Bot)"
+            },
+            {
+                "id": "2",
+                "text": "Chatbot sử dụng NLP hiểu ý định người dùng (NLP Bot)"
+            },
+            {
+                "id": "3",
+                "text": "Robo-advisor phân bổ danh mục đầu tư bán tự động"
+            },
+            {
+                "id": "4",
+                "text": "AI Algorithmic Trading độc lập ra quyết định mua bán"
+            }
+        ],
+        "correctOrder": [
+            "1",
+            "2",
+            "3",
+            "4"
+        ],
+        "explanation": "Từ cấp thấp (rule chatbot) -> NLP chatbot -> Robo-advisor -> Thuật toán Trading siêu tốc."
+    },
+    {
+        "type": "multiple_choice",
+        "difficulty": "Trung bình",
+        "question": "Sự xuất hiện của 'Deep Learning' (Học sâu) mang lại bước tiến gì cho ngành ngân hàng?",
+        "options": [
+            {
+                "id": "a",
+                "text": "Xác định các cấu trúc mạng lưới ẩn, phức tạp của gian lận"
+            },
+            {
+                "id": "b",
+                "text": "Làm cho phần cứng máy tính trở nên nhẹ và rẻ tiền hơn"
+            },
+            {
+                "id": "c",
+                "text": "Giảm lượng dữ liệu cần thiết để kiểm toán doanh nghiệp"
+            },
+            {
+                "id": "d",
+                "text": "In sao kê ngân hàng nhanh hơn trên giấy A4"
+            }
+        ],
+        "correctAnswer": "a",
+        "explanation": "Học sâu (Deep Learning) sử dụng mạng nơ-ron giúp ngân hàng phát hiện các mẫu gian lận tinh vi, phức tạp."
+    }
+];
+
+    let currentQ = 0;
+    let score = 0;
+    let isAnswered = false;
+
+    // Shuffle utility
+    function shuffleArray(array) {
+        let curId = array.length, temp, randId;
+        while (0 !== curId) {
+            randId = Math.floor(Math.random() * curId);
+            curId -= 1;
+            temp = array[curId];
+            array[curId] = array[randId];
+            array[randId] = temp;
+        }
+        return array;
+    }
+
+    const contentDiv = document.getElementById('question-content');
+    const checkBtn = document.getElementById('btn-check');
+    const nextBtn = document.getElementById('btn-next');
+    const feedback = document.getElementById('feedback');
+    const feedbackTitle = document.getElementById('feedback-title');
+    const explanation = document.getElementById('explanation');
+
+    function renderQuestion() {
+        const q = questions[currentQ];
+        isAnswered = false;
+        checkBtn.style.display = 'inline-block';
+        nextBtn.style.display = 'none';
+        feedback.className = 'feedback-container';
+        
+        document.getElementById('question-counter').innerText = `Câu hỏi ${currentQ + 1} / ${questions.length}`;
+        document.getElementById('difficulty-badge').innerText = q.difficulty;
+        document.getElementById('progress-bar').style.width = `${(currentQ / questions.length) * 100}%`;
+        
+        let instruction = q.instruction ? `<p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: -10px;">${q.instruction}</p>` : '';
+        let html = `<div class="question-title">${q.question}</div>${instruction}`;
+
+        if (q.type === 'multiple_choice') {
+            html += `<div class="options-container">`;
+            q.options.forEach(opt => {
+                html += `
+                    <label class="option-label" id="label-${opt.id}">
+                        <input type="radio" name="mcq" value="${opt.id}" class="option-input" onclick="selectOption('${opt.id}')">
+                        <span>${opt.text}</span>
+                    </label>
+                `;
+            });
+            html += `</div>`;
+        } 
+        else if (q.type === 'ordering') {
+            let shuffled = shuffleArray([...q.items]);
+            html += `
+                <div class="ordering-selected" id="order-selected"></div>
+                <h4 style="margin: 0 0 10px 0; color: var(--text-secondary); font-size: 0.95rem;">Các mục có sẵn:</h4>
+                <div class="ordering-pool" id="order-pool">
+                    ${shuffled.map(item => `<div class="order-item" onclick="moveItem(this, '${item.id}')" data-id="${item.id}">${item.text}</div>`).join('')}
+                </div>
+            `;
+        }
+        else if (q.type === 'matching') {
+            let shuffledRight = shuffleArray([...q.right]);
+            html += `<div class="matching-container">`;
+            q.left.forEach(leftItem => {
+                let optionsHtml = `<option value="">-- Chọn đáp án --</option>` + 
+                    shuffledRight.map(r => `<option value="${r.id}">${r.text}</option>`).join('');
+                
+                html += `
+                    <div class="matching-row">
+                        <div class="matching-left">${leftItem.text}</div>
+                        <div class="matching-right">
+                            <select class="matching-select" id="match-${leftItem.id}">
+                                ${optionsHtml}
+                            </select>
+                        </div>
+                    </div>
+                `;
+            });
+            html += `</div>`;
+        }
+        else if (q.type === 'fill_in_blanks') {
+            html += `
+                <div class="fill-text">${q.text}</div>
+                <h4 style="margin: 0 0 10px 0; color: var(--text-secondary); font-size: 0.95rem;">Ngân hàng từ:</h4>
+                <div class="word-bank">
+                    ${q.words.map(w => `<div class="word-item" id="word-${w.id}" onclick="selectWord('${w.id}', '${w.text}')">${w.text}</div>`).join('')}
+                </div>
+            `;
+        }
+
+        contentDiv.innerHTML = html;
+        
+        // Add event listeners for blanks if needed
+        if (q.type === 'fill_in_blanks') {
+            document.querySelectorAll('.blank-slot').forEach(el => {
+                el.addEventListener('click', () => activateBlank(el));
+            });
+        }
+    }
+
+    // -- Logic for Multiple Choice --
+    function selectOption(id) {
+        if(isAnswered) return;
+        document.querySelectorAll('.option-label').forEach(el => el.classList.remove('selected'));
+        document.getElementById(`label-${id}`).classList.add('selected');
+    }
+
+    // -- Logic for Ordering --
+    window.moveItem = function(elem, id) {
+        if(isAnswered) return;
+        const pool = document.getElementById('order-pool');
+        const selected = document.getElementById('order-selected');
+        
+        if (elem.parentElement.id === 'order-pool') {
+            selected.appendChild(elem);
+        } else {
+            pool.appendChild(elem);
+        }
+    }
+
+    // -- Logic for Fill in blanks --
+    let activeBlank = null;
+    let blankAnswers = {};
+
+    window.activateBlank = function(elem) {
+        if(isAnswered) return;
+        document.querySelectorAll('.blank-slot').forEach(e => e.classList.remove('active'));
+        elem.classList.add('active');
+        activeBlank = elem;
+    }
+
+    window.selectWord = function(id, text) {
+        if(isAnswered) return;
+        if (!activeBlank) {
+            alert('Vui lòng chọn một chỗ trống trước!');
+            return;
+        }
+        
+        // If blank already has a word, un-use it
+        let blankId = activeBlank.getAttribute('data-id');
+        if (blankAnswers[blankId]) {
+            document.getElementById(`word-${blankAnswers[blankId]}`).classList.remove('used');
+        }
+        
+        // Set new word
+        activeBlank.innerText = text;
+        activeBlank.classList.remove('active');
+        blankAnswers[blankId] = id;
+        
+        document.getElementById(`word-${id}`).classList.add('used');
+        activeBlank = null;
+    }
+
+    // -- Checking Answers --
+    checkBtn.addEventListener('click', () => {
+        if (isAnswered) return;
+        const q = questions[currentQ];
+        let isCorrect = false;
+
+        if (q.type === 'multiple_choice') {
+            const selected = document.querySelector('input[name="mcq"]:checked');
+            if (!selected) return alert('Vui lòng chọn một đáp án!');
+            isCorrect = selected.value === q.correctAnswer;
+            
+            // Highlight
+            if(isCorrect) {
+                document.getElementById(`label-${selected.value}`).style.backgroundColor = '#e6f4ea';
+                document.getElementById(`label-${selected.value}`).style.borderColor = 'var(--success)';
+            } else {
+                document.getElementById(`label-${selected.value}`).style.backgroundColor = '#fce8e6';
+                document.getElementById(`label-${selected.value}`).style.borderColor = 'var(--error)';
+                document.getElementById(`label-${q.correctAnswer}`).style.backgroundColor = '#e6f4ea';
+                document.getElementById(`label-${q.correctAnswer}`).style.borderColor = 'var(--success)';
+            }
+        } 
+        else if (q.type === 'ordering') {
+            const selectedItems = Array.from(document.getElementById('order-selected').children).map(el => el.getAttribute('data-id'));
+            if (selectedItems.length < q.items.length) return alert('Vui lòng sắp xếp tất cả các mục!');
+            
+            isCorrect = JSON.stringify(selectedItems) === JSON.stringify(q.correctOrder);
+        }
+        else if (q.type === 'matching') {
+            let allSelected = true;
+            let correctCount = 0;
+            q.left.forEach(leftItem => {
+                const val = document.getElementById(`match-${leftItem.id}`).value;
+                if (!val) allSelected = false;
+                if (val === q.correctPairs[leftItem.id]) correctCount++;
+                
+                // UI feedback
+                const selectEl = document.getElementById(`match-${leftItem.id}`);
+                selectEl.disabled = true;
+                if (val === q.correctPairs[leftItem.id]) {
+                    selectEl.style.backgroundColor = '#e6f4ea';
+                    selectEl.style.borderColor = 'var(--success)';
+                } else {
+                    selectEl.style.backgroundColor = '#fce8e6';
+                    selectEl.style.borderColor = 'var(--error)';
+                }
+            });
+            if (!allSelected) return alert('Vui lòng ghép nối tất cả các mục!');
+            isCorrect = correctCount === q.left.length;
+        }
+        else if (q.type === 'fill_in_blanks') {
+            let allFilled = true;
+            let correctCount = 0;
+            Object.keys(q.correctAnswers).forEach(key => {
+                if (!blankAnswers[key]) allFilled = false;
+                if (blankAnswers[key] === q.correctAnswers[key]) correctCount++;
+            });
+            if (!allFilled) return alert('Vui lòng điền vào tất cả chỗ trống!');
+            isCorrect = correctCount === Object.keys(q.correctAnswers).length;
+            
+            // Lock UI
+            document.querySelectorAll('.blank-slot').forEach(el => el.style.cursor = 'default');
+            document.querySelectorAll('.word-item').forEach(el => el.style.cursor = 'default');
+        }
+
+        if (isCorrect) score++;
+
+        // Show feedback
+        feedback.className = `feedback-container show ${isCorrect ? 'correct' : 'incorrect'}`;
+        feedbackTitle.innerHTML = isCorrect ? '✅ Chính xác!' : '❌ Chưa chính xác!';
+        explanation.innerHTML = q.explanation;
+
+        isAnswered = true;
+        checkBtn.style.display = 'none';
+        nextBtn.style.display = 'inline-block';
+        blankAnswers = {}; // reset
+    });
+
+    nextBtn.addEventListener('click', () => {
+        currentQ++;
+        if (currentQ < questions.length) {
+            renderQuestion();
+        } else {
+            showResult();
+        }
+    });
+
+    function showResult() {
+        document.getElementById('quiz-screen').style.display = 'none';
+        const resScreen = document.getElementById('result-screen');
+        resScreen.style.display = 'block';
+        
+        document.getElementById('final-score').innerText = `${score}/${questions.length}`;
+        const pct = (score / questions.length) * 100;
+        document.getElementById('score-circle').style.background = `conic-gradient(var(--primary) ${pct}%, #e8eaed 0%)`;
+        
+        const msg = document.getElementById('result-message');
+        if(score === questions.length) msg.innerText = "Tuyệt vời! Bạn đã nắm vững toàn bộ kiến thức của Buổi 8.";
+        else if (score >= questions.length / 2) msg.innerText = "Làm tốt lắm! Hãy ôn tập lại một chút để đạt điểm tối đa nhé.";
+        else msg.innerText = "Cố gắng lên! Bạn nên đọc lại tài liệu Buổi 8 để củng cố kiến thức.";
+    }
+
+    // Initialize
+    renderQuestion();
+
+</script>
+
+</body>
+</html>

@@ -335,7 +335,7 @@ Dưới đây là **11 Hình ảnh & Bảng trực quan hóa học thuật** đ�
 
 #### ** 🎬 Video **
 
-<iframe src="video/Day06/index.html" style="width: 100%; aspect-ratio: 16/9; max-height: 75vh; border: none; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"></iframe>
+<iframe src="video/Day06/index.html?v=1785919941" style="width: 100%; aspect-ratio: 16/9; max-height: 75vh; border: none; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"></iframe>
 
 #### ** 🎦 Slide Bài Giảng **
 
@@ -344,4 +344,39 @@ Dưới đây là **11 Hình ảnh & Bảng trực quan hóa học thuật** đ�
 </object>
 <p style="text-align: right;"><a href="TaiLieu/slideAIAcc/Slide_AIAcc_Day06.pdf#view=FitH" target="_blank" style="font-weight: bold; color: #0056b3;">📥 Tải về Slide Bài Giảng (PDF)</a></p>
 
+#### ** 📝 Bài tập Trắc nghiệm **
+
+<iframe src="quizzes/Day06/index.html?v=1785919941" style="width: 100%; min-height: 700px; border: none; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"></iframe>
+
+
+#### ** ✍️ Bài tập Luyện tập **
+
+**Bài tập 1: Phát hiện bất thường trong mua sắm công (Độ khó: Dễ)**
+Theo Case study 4 (Chương 5) về chống tham nhũng khu vực công, AI có thể phát hiện điểm bất thường (Anomaly detection) nào trong hồ sơ dự thầu?
+<details>
+<summary>💡 Gợi ý trả lời (Click để xem)</summary>
+
+- AI phân tích các mạng lưới liên kết (Network analysis) giữa các công ty dự thầu, phát hiện trùng lặp địa chỉ IP, chung số điện thoại hoặc việc các công ty luân phiên nhau trúng thầu với mức giá chênh lệch cực nhỏ (dấu hiệu thông đồng/Bid rigging).
+</details>
+<br>
+
+**Bài tập 2: AI trong hệ thống phòng chống rửa tiền (AML) (Độ khó: Trung bình)**
+Hệ thống AML (Chống rửa tiền) truyền thống dựa trên các quy tắc (Rules-based) thường tạo ra lượng lớn "Cảnh báo giả" (False positives). AI giải quyết vấn đề này ra sao?
+<details>
+<summary>💡 Gợi ý trả lời (Click để xem)</summary>
+
+- Rules-based AML cảnh báo bất kỳ giao dịch nào > 10.000 USD (gây quá tải vì nhiều giao dịch hợp pháp).
+- AI (Machine Learning) học hành vi giao dịch trong quá khứ của khách hàng. Nó chỉ cảnh báo nếu giao dịch đó *bất thường so với lịch sử* của khách hàng, giúp giảm thiểu đáng kể False Positives và tiết kiệm chi phí điều tra.
+</details>
+<br>
+
+**Bài tập 3: AI và Ổn định Kinh tế Vĩ mô (Độ khó: Khó)**
+Theo Chương 1, phân tích cách AI thu thập dữ liệu để cảnh báo sớm rủi ro, qua đó duy trì sự ổn định tài chính (Financial Stability) của một quốc gia.
+<details>
+<summary>💡 Gợi ý trả lời (Click để xem)</summary>
+
+- AI không chỉ dựa vào BCTC của các ngân hàng. Nó thu thập dữ liệu vĩ mô thời gian thực (giá bất động sản, dòng vốn toàn cầu, tin tức Sentiment analysis) để mô phỏng (Stress testing) nguy cơ vỡ nợ dây chuyền (Contagion risk).
+- Nhờ đó, Ngân hàng Trung ương có thể can thiệp bơm thanh khoản trước khi khủng hoảng xảy ra.
+</details>
+<br>
 <!-- tabs:end -->

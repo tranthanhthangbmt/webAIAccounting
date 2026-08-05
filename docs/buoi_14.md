@@ -537,7 +537,7 @@ Kế toán viên hiện đại có thể kết hợp PivotTable Excel và AI t�
 
 #### ** 🎬 Video **
 
-<iframe src="video/Day14/index.html" style="width: 100%; aspect-ratio: 16/9; max-height: 75vh; border: none; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"></iframe>
+<iframe src="video/Day14/index.html?v=1785919941" style="width: 100%; aspect-ratio: 16/9; max-height: 75vh; border: none; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"></iframe>
 
 #### ** 🎦 Slide Bài Giảng **
 
@@ -546,4 +546,40 @@ Kế toán viên hiện đại có thể kết hợp PivotTable Excel và AI t�
 </object>
 <p style="text-align: right;"><a href="TaiLieu/slideAIAcc/Slide_AIAcc_Day14.pdf#view=FitH" target="_blank" style="font-weight: bold; color: #0056b3;">📥 Tải về Slide Bài Giảng (PDF)</a></p>
 
+#### ** 📝 Bài tập Trắc nghiệm **
+
+<iframe src="quizzes/Day14/index.html?v=1785919941" style="width: 100%; min-height: 700px; border: none; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"></iframe>
+
+
+#### ** ✍️ Bài tập Luyện tập **
+
+**Bài tập 1: Khám phá Dữ liệu - EDA (Độ khó: Dễ)**
+Theo Chương 7, Phân tích Khám phá (Exploratory Data Analysis - EDA) khác biệt gì với Phân tích Kiểm định (Confirmatory Analysis) trước khi lập mô hình?
+<details>
+<summary>💡 Gợi ý trả lời (Click để xem)</summary>
+
+- Phân tích Kiểm định (Confirmatory) là bạn có sẵn một giả thuyết (Ví dụ: "Quảng cáo FB làm tăng doanh thu") và bạn dùng thống kê để chứng minh nó.
+- Khám phá Dữ liệu (EDA) là bạn "bơi" trong dữ liệu mà không có giả thuyết trước, dùng biểu đồ để tìm ra các xu hướng, điểm bất thường (outliers) hay mối tương quan ẩn giấu chưa ai biết.
+</details>
+<br>
+
+**Bài tập 2: Lựa chọn Biểu đồ Thăm dò (Độ khó: Trung bình)**
+Kể tên mô hình biểu đồ đồ thị thích hợp nhất để thể hiện: (1) Sự biến động doanh thu theo thời gian, và (2) Cơ cấu/Tỷ trọng nợ trên tổng tài sản.
+<details>
+<summary>💡 Gợi ý trả lời (Click để xem)</summary>
+
+- (1) Thay đổi theo thời gian (Trend): Biểu đồ đường (Line chart) hoặc Biểu đồ miền (Area chart).
+- (2) Tỷ trọng thành phần: Biểu đồ tròn (Pie chart) hoặc Biểu đồ dạng vòng (Donut chart), Cây thư mục (Treemap).
+</details>
+<br>
+
+**Bài tập 3: Nghệ thuật Data Storytelling (Độ khó: Khó)**
+Theo Chương 9, khi trình bày báo cáo phân tích AI cho Ban Giám đốc cấp cao (C-Suite), tại sao nguyên tắc "Kể chuyện dữ liệu" (Data Storytelling) lại quan trọng hơn việc trình bày các chỉ số thống kê kỹ thuật (như P-value, R-squared)?
+<details>
+<summary>💡 Gợi ý trả lời (Click để xem)</summary>
+
+- Ban Giám đốc không quan tâm và thường không hiểu các thuật ngữ khoa học dữ liệu phức tạp. Họ chỉ quan tâm: Mô hình này giúp công ty kiếm thêm bao nhiêu tiền? Tiết kiệm bao nhiêu? Rủi ro là gì?
+- Data Storytelling giúp dịch các con số kỹ thuật khô khan thành một câu chuyện kinh doanh có bối cảnh, cao trào và lời kêu gọi hành động (Actionable insights) dễ hiểu.
+</details>
+<br>
 <!-- tabs:end -->

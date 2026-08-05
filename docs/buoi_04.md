@@ -321,7 +321,7 @@ Bao gồm các định nghĩa về tỷ lệ nợ trên vốn chủ sở hữu, 
 
 #### ** 🎬 Video **
 
-<iframe src="video/Day04/index.html" style="width: 100%; aspect-ratio: 16/9; max-height: 75vh; border: none; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"></iframe>
+<iframe src="video/Day04/index.html?v=1785919941" style="width: 100%; aspect-ratio: 16/9; max-height: 75vh; border: none; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"></iframe>
 
 #### ** 🎦 Slide Bài Giảng **
 
@@ -330,4 +330,40 @@ Bao gồm các định nghĩa về tỷ lệ nợ trên vốn chủ sở hữu, 
 </object>
 <p style="text-align: right;"><a href="TaiLieu/slideAIAcc/Slide_AIAcc_Day04.pdf#view=FitH" target="_blank" style="font-weight: bold; color: #0056b3;">📥 Tải về Slide Bài Giảng (PDF)</a></p>
 
+#### ** 📝 Bài tập Trắc nghiệm **
+
+<iframe src="quizzes/Day04/index.html?v=1785919941" style="width: 100%; min-height: 700px; border: none; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"></iframe>
+
+
+#### ** ✍️ Bài tập Luyện tập **
+
+**Bài tập 1: Phân khúc Khách hàng bằng Gom cụm (Độ khó: Dễ)**
+Theo Chương 5, thuật toán Gom cụm (Clustering) giúp ích gì cho Kế toán quản trị trong việc phân khúc khách hàng (Market Segmentation) theo mức độ sinh lời?
+<details>
+<summary>💡 Gợi ý trả lời (Click để xem)</summary>
+
+- Clustering là học không giám sát. Nó tự động nhóm khách hàng có chung đặc điểm (tần suất mua, giá trị đơn hàng, chi phí phục vụ) thành các cụm. 
+- Kế toán quản trị dùng kết quả này để xác định nhóm khách hàng mang lại biên lợi nhuận cao nhất để tối ưu hóa ngân sách marketing.
+</details>
+<br>
+
+**Bài tập 2: Dự báo sức khỏe tài chính bằng Classification (Độ khó: Trung bình)**
+Phân loại (Classification) khác với Hồi quy (Regression) như thế nào khi áp dụng để dự báo sức khỏe tài chính (Chương 10)?
+<details>
+<summary>💡 Gợi ý trả lời (Click để xem)</summary>
+
+- Hồi quy (Regression) dự đoán một giá trị liên tục. Ví dụ: Dự báo tỷ suất sinh lời trên tài sản (ROA) là 15.5%.
+- Phân loại (Classification) dự đoán một danh mục rời rạc. Ví dụ: Phân loại tình trạng công ty là "Phá sản" (Default) hoặc "Khỏe mạnh" (Healthy).
+</details>
+<br>
+
+**Bài tập 3: AI so với Mô hình Z-score truyền thống (Độ khó: Khó)**
+Lợi thế của mạng nơ-ron nhân tạo (ANN) so với các mô hình thống kê phân tích phân biệt truyền thống (như Altman Z-score) khi dự báo nguy cơ phá sản.
+<details>
+<summary>💡 Gợi ý trả lời (Click để xem)</summary>
+
+- Altman Z-score giả định mối quan hệ tuyến tính giữa các chỉ số tài chính. Tuy nhiên, rủi ro tài chính thực tế phức tạp và phi tuyến.
+- Mạng nơ-ron (ANN) không cần giả định trước về sự phân phối dữ liệu, chúng tự tìm ra các mối quan hệ phi tuyến tính ẩn sâu giữa hàng ngàn biến số, mang lại độ chính xác dự báo cao hơn nhiều trong môi trường kinh tế biến động.
+</details>
+<br>
 <!-- tabs:end -->

@@ -334,7 +334,7 @@ d. Khi các nhóm bị phụ thuộc
 
 #### ** 🎬 Video **
 
-<iframe src="video/Day05/index.html" style="width: 100%; aspect-ratio: 16/9; max-height: 75vh; border: none; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"></iframe>
+<iframe src="video/Day05/index.html?v=1785919941" style="width: 100%; aspect-ratio: 16/9; max-height: 75vh; border: none; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"></iframe>
 
 #### ** 🎦 Slide Bài Giảng **
 
@@ -343,4 +343,40 @@ d. Khi các nhóm bị phụ thuộc
 </object>
 <p style="text-align: right;"><a href="TaiLieu/slideAIAcc/Slide_AIAcc_Day05.pdf#view=FitH" target="_blank" style="font-weight: bold; color: #0056b3;">📥 Tải về Slide Bài Giảng (PDF)</a></p>
 
+#### ** 📝 Bài tập Trắc nghiệm **
+
+<iframe src="quizzes/Day05/index.html?v=1785919941" style="width: 100%; min-height: 700px; border: none; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"></iframe>
+
+
+#### ** ✍️ Bài tập Luyện tập **
+
+**Bài tập 1: Giảm thiểu bất định với Decision Trees (Độ khó: Dễ)**
+Cây quyết định (Decision Trees) trong Chương 12 giúp Kế toán quản trị giảm thiểu sự bất định (Uncertainty) như thế nào khi lựa chọn dự án đầu tư?
+<details>
+<summary>💡 Gợi ý trả lời (Click để xem)</summary>
+
+- Cây quyết định trực quan hóa mọi nhánh rủi ro có thể xảy ra của một dự án (thành công/thất bại).
+- Bằng cách gán xác suất và dòng tiền (Payoffs) cho từng nút, kế toán tính được Giá trị kỳ vọng (Expected Value - EV) để ra quyết định dựa trên dữ liệu thay vì cảm tính.
+</details>
+<br>
+
+**Bài tập 2: Phát triển Sản phẩm Mới và Capital Budgeting (Độ khó: Trung bình)**
+Theo Chương 14, AI dự báo vòng đời sản phẩm (New Product Development) đóng góp gì cho việc lập ngân sách vốn (Capital Budgeting)?
+<details>
+<summary>💡 Gợi ý trả lời (Click để xem)</summary>
+
+- AI dự báo được nhu cầu thị trường và độ dài vòng đời sản phẩm chính xác hơn.
+- Từ đó, kế toán dự phóng được chính xác hơn Dòng tiền trong tương lai (Cash flows), giúp tính NPV và IRR tin cậy hơn, tránh đầu tư vốn lớn vào các sản phẩm mau chóng lỗi thời.
+</details>
+<br>
+
+**Bài tập 3: Hiện tượng Overfitting trong mô hình kinh doanh (Độ khó: Khó)**
+Giải thích hiện tượng "Overfitting" (Học vẹt) trong mô hình học máy. Hậu quả của nó khi doanh nghiệp dùng mô hình này để ra quyết định là gì?
+<details>
+<summary>💡 Gợi ý trả lời (Click để xem)</summary>
+
+- Overfitting xảy ra khi mô hình học quá mức các chi tiết và "nhiễu" của dữ liệu huấn luyện trong quá khứ, khiến nó hoạt động hoàn hảo trên dữ liệu cũ nhưng dự báo rất tệ đối với dữ liệu tương lai mới.
+- Hậu quả: Dẫn đến quyết định sai lầm trầm trọng (ví dụ: mô hình dự báo doanh số quá lạc quan, dẫn đến sản xuất thừa hàng tồn kho).
+</details>
+<br>
 <!-- tabs:end -->

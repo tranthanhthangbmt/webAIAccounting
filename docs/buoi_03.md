@@ -142,7 +142,7 @@ Cấu trúc nói trên quy định sự giám sát liên tục (constant monitor
 
 #### ** 🎬 Video **
 
-<iframe src="video/Day03/index.html" style="width: 100%; aspect-ratio: 16/9; max-height: 75vh; border: none; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"></iframe>
+<iframe src="video/Day03/index.html?v=1785919941" style="width: 100%; aspect-ratio: 16/9; max-height: 75vh; border: none; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"></iframe>
 
 #### ** 🎦 Slide Bài Giảng **
 
@@ -151,4 +151,39 @@ Cấu trúc nói trên quy định sự giám sát liên tục (constant monitor
 </object>
 <p style="text-align: right;"><a href="TaiLieu/slideAIAcc/Slide_AIAcc_Day03.pdf#view=FitH" target="_blank" style="font-weight: bold; color: #0056b3;">📥 Tải về Slide Bài Giảng (PDF)</a></p>
 
+#### ** 📝 Bài tập Trắc nghiệm **
+
+<iframe src="quizzes/Day03/index.html?v=1785919941" style="width: 100%; min-height: 700px; border: none; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"></iframe>
+
+
+#### ** ✍️ Bài tập Luyện tập **
+
+**Bài tập 1: Ứng dụng NLP trong Kế toán (Độ khó: Dễ)**
+Giáo trình (Chương 1) đề cập đến Xử lý ngôn ngữ tự nhiên (NLP). Kế toán viên có thể dùng NLP để làm gì khi đối mặt với hàng ngàn hợp đồng thuê tài sản (Lease contracts)?
+<details>
+<summary>💡 Gợi ý trả lời (Click để xem)</summary>
+
+- Kế toán viên sử dụng NLP để tự động đọc và trích xuất các điều khoản quan trọng (thời hạn thuê, lãi suất ngầm định, số tiền thanh toán định kỳ) từ văn bản hợp đồng phi cấu trúc, sau đó tự động phân loại theo chuẩn mực IFRS 16 thay vì nhập liệu thủ công.
+</details>
+<br>
+
+**Bài tập 2: Machine Reasoning vs Machine Learning (Độ khó: Trung bình)**
+Phân biệt giữa Machine Reasoning (Lập luận máy) và Machine Learning (Học máy) trong việc tự động hóa các bút toán.
+<details>
+<summary>💡 Gợi ý trả lời (Click để xem)</summary>
+
+- Machine Reasoning: Dựa trên các quy tắc do con người thiết lập (Rule-based). Ví dụ: "NẾU hóa đơn chứa từ 'điện', GHI NHẬN vào chi phí tiện ích". Dễ giải thích nhưng kém linh hoạt.
+- Machine Learning: Mô hình tự học từ dữ liệu lịch sử mà không cần lập trình quy tắc cụ thể. Nó có thể phân loại đúng các hóa đơn phức tạp chưa từng gặp trước đó.
+</details>
+<br>
+
+**Bài tập 3: Rủi ro Đạo đức AI - Ethics (Độ khó: Khó)**
+Dựa trên Chương 15 (Đạo đức AI): Nếu một hệ thống AI đánh giá rủi ro tín dụng từ chối khoản vay của một nhóm khách hàng do thiên kiến dữ liệu (Bias), ngân hàng phải đối mặt với rủi ro gì? Nêu giải pháp.
+<details>
+<summary>💡 Gợi ý trả lời (Click để xem)</summary>
+
+- Rủi ro: Vi phạm pháp luật về chống phân biệt đối xử, tổn hại uy tín thương hiệu, và rủi ro pháp lý (kiện tụng).
+- Giải pháp: Kế toán viên/Kiểm toán viên hệ thống cần yêu cầu sự minh bạch (Explainable AI - XAI), kiểm tra bộ dữ liệu huấn luyện để loại bỏ các thuộc tính nhạy cảm (giới tính, chủng tộc), và có cơ chế con người can thiệp (Human-in-the-loop).
+</details>
+<br>
 <!-- tabs:end -->

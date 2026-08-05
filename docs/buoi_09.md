@@ -259,7 +259,7 @@ Với sự phổ biến ngày càng tăng của công nghệ AI sáng tạo tron
 
 #### ** 🎬 Video **
 
-<iframe src="video/Day09/index.html" style="width: 100%; aspect-ratio: 16/9; max-height: 75vh; border: none; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"></iframe>
+<iframe src="video/Day09/index.html?v=1785919941" style="width: 100%; aspect-ratio: 16/9; max-height: 75vh; border: none; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"></iframe>
 
 #### ** 🎦 Slide Bài Giảng **
 
@@ -268,4 +268,38 @@ Với sự phổ biến ngày càng tăng của công nghệ AI sáng tạo tron
 </object>
 <p style="text-align: right;"><a href="TaiLieu/slideAIAcc/Slide_AIAcc_Day09.pdf#view=FitH" target="_blank" style="font-weight: bold; color: #0056b3;">📥 Tải về Slide Bài Giảng (PDF)</a></p>
 
+#### ** 📝 Bài tập Trắc nghiệm **
+
+<iframe src="quizzes/Day09/index.html?v=1785919941" style="width: 100%; min-height: 700px; border: none; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"></iframe>
+
+
+#### ** ✍️ Bài tập Luyện tập **
+
+**Bài tập 1: Kế toán Tài sản mã hóa (Crypto Assets) (Độ khó: Dễ)**
+Theo Chương 2, đặc điểm ẩn danh (Pseudonymity) của tiền mã hóa gây khó khăn gì cho kiểm toán viên khi xác minh tính hiện hữu của tài sản?
+<details>
+<summary>💡 Gợi ý trả lời (Click để xem)</summary>
+
+- Do địa chỉ ví Crypto là ẩn danh (chỉ là chuỗi ký tự hash), kiểm toán viên rất khó chứng minh doanh nghiệp có thực sự nắm giữ Private Key của ví đó hay không, dẫn đến khó xác minh quyền sở hữu tài sản (Ownership & Existence).
+</details>
+<br>
+
+**Bài tập 2: Robo-Advisors trong Tư vấn Tài chính (Độ khó: Trung bình)**
+Dựa vào Chương 6, Cố vấn Robot (Robo-Advisors) xây dựng danh mục đầu tư cho khách hàng dựa trên những tiêu chí nào? Lợi thế lớn nhất của nó là gì?
+<details>
+<summary>💡 Gợi ý trả lời (Click để xem)</summary>
+
+- Tiêu chí: Dựa trên độ tuổi, thu nhập, mục tiêu tài chính và khẩu vị rủi ro (Risk tolerance) được thu thập qua bảng khảo sát đầu vào.
+- Lợi thế lớn nhất: Chi phí quản lý cực thấp, hoạt động 24/7, và tự động tái cân bằng danh mục (Rebalancing) không bị cảm xúc chi phối so với Broker con người.
+</details>
+<br>
+
+**Bài tập 3: Đánh giá lại giá trị (Revaluation) đối với Crypto (Độ khó: Khó)**
+Đánh giá rủi ro trong việc ghi nhận và đánh giá lại (Revaluation) đối với tài sản Crypto trên Bảng cân đối kế toán khi thị trường biến động mạnh.
+<details>
+<summary>💡 Gợi ý trả lời (Click để xem)</summary>
+
+- Crypto có độ biến động (Volatility) cực lớn (có thể giảm 30% trong 1 ngày). Việc đánh giá lại giá trị hợp lý (Fair Value) vào cuối kỳ kế toán có thể gây ra những khoản lỗ chưa thực hiện (Unrealized losses) khổng lồ, làm biến dạng lợi nhuận và sức khỏe tài chính thực sự của doanh nghiệp hoạt động cốt lõi không thuộc ngành crypto.
+</details>
+<br>
 <!-- tabs:end -->

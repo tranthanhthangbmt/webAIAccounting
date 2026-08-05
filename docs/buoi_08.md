@@ -333,7 +333,7 @@ có nghĩa là họ khó làm việc cùng hơn. Sau đây cuộc biểu tình s
 
 #### ** 🎬 Video **
 
-<iframe src="video/Day08/index.html" style="width: 100%; aspect-ratio: 16/9; max-height: 75vh; border: none; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"></iframe>
+<iframe src="video/Day08/index.html?v=1785919941" style="width: 100%; aspect-ratio: 16/9; max-height: 75vh; border: none; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"></iframe>
 
 #### ** 🎦 Slide Bài Giảng **
 
@@ -342,4 +342,40 @@ có nghĩa là họ khó làm việc cùng hơn. Sau đây cuộc biểu tình s
 </object>
 <p style="text-align: right;"><a href="TaiLieu/slideAIAcc/Slide_AIAcc_Day08.pdf#view=FitH" target="_blank" style="font-weight: bold; color: #0056b3;">📥 Tải về Slide Bài Giảng (PDF)</a></p>
 
+#### ** 📝 Bài tập Trắc nghiệm **
+
+<iframe src="quizzes/Day08/index.html?v=1785919941" style="width: 100%; min-height: 700px; border: none; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"></iframe>
+
+
+#### ** ✍️ Bài tập Luyện tập **
+
+**Bài tập 1: Chấm điểm tín dụng bằng Alternative Data (Độ khó: Dễ)**
+Theo Chương 6, Mô hình AI chấm điểm tín dụng (Credit Scoring) sử dụng các nguồn dữ liệu phi truyền thống (Alternative data) nào so với ngân hàng truyền thống?
+<details>
+<summary>💡 Gợi ý trả lời (Click để xem)</summary>
+
+- Ngân hàng truyền thống: Lịch sử vay nợ CIC, tài sản đảm bảo, BCTC.
+- AI dùng Dữ liệu thay thế (Alternative Data): Lịch sử đóng tiền điện nước, thói quen mua sắm online, thanh toán tiền cước viễn thông, mạng xã hội. Giúp những người không có tài khoản ngân hàng (Unbanked) vẫn tiếp cận được tín dụng.
+</details>
+<br>
+
+**Bài tập 2: Giao dịch Thuật toán - Algorithmic Trading (Độ khó: Trung bình)**
+Giao dịch thuật toán do AI thực hiện mang lại lợi thế gì về tốc độ, và tiềm ẩn rủi ro thao túng cục bộ (Flash Crash) như thế nào?
+<details>
+<summary>💡 Gợi ý trả lời (Click để xem)</summary>
+
+- Lợi thế: Thực hiện hàng nghìn lệnh mua bán trong phần nghìn giây (HFT - High Frequency Trading), kiếm lời từ sự chênh lệch giá cực nhỏ (Arbitrage) mà con người không thể làm.
+- Rủi ro Flash Crash: Nếu nhiều thuật toán cùng phản ứng bán tháo với một tin tức giả mạo, giá cổ phiếu có thể sụp đổ gần bằng 0 trong vài phút trước khi con người kịp can thiệp.
+</details>
+<br>
+
+**Bài tập 3: Thao túng thị trường (Spoofing) bằng AI (Độ khó: Khó)**
+Theo Chương 4, nêu hình thức thao túng thị trường "Spoofing" (Đặt lệnh ảo) bằng AI. Kế toán/Kiểm toán viên cần công cụ gì để phát hiện?
+<details>
+<summary>💡 Gợi ý trả lời (Click để xem)</summary>
+
+- Spoofing: AI đặt khối lượng lớn lệnh Mua để tạo cảm giác cầu thị trường cao (đẩy giá lên), nhưng hủy toàn bộ lệnh đó ngay trước khi khớp lệnh.
+- Để phát hiện: Kiểm toán viên phải dùng chính AI phân tích Dữ liệu sổ lệnh (Order book data) cấp độ vi mô, nhận dạng tỷ lệ Hủy lệnh/Đặt lệnh bất thường (Order-to-trade ratio) vượt ngưỡng cho phép.
+</details>
+<br>
 <!-- tabs:end -->

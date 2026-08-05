@@ -218,7 +218,7 @@ Buổi 13 là sự giao thoa hoàn hảo giữa công nghệ hiện đại (**K�
 
 #### ** 🎬 Video **
 
-<iframe src="video/Day13/index.html" style="width: 100%; aspect-ratio: 16/9; max-height: 75vh; border: none; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"></iframe>
+<iframe src="video/Day13/index.html?v=1785919941" style="width: 100%; aspect-ratio: 16/9; max-height: 75vh; border: none; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"></iframe>
 
 #### ** 🎦 Slide Bài Giảng **
 
@@ -227,4 +227,39 @@ Buổi 13 là sự giao thoa hoàn hảo giữa công nghệ hiện đại (**K�
 </object>
 <p style="text-align: right;"><a href="TaiLieu/slideAIAcc/Slide_AIAcc_Day13.pdf#view=FitH" target="_blank" style="font-weight: bold; color: #0056b3;">📥 Tải về Slide Bài Giảng (PDF)</a></p>
 
+#### ** 📝 Bài tập Trắc nghiệm **
+
+<iframe src="quizzes/Day13/index.html?v=1785919941" style="width: 100%; min-height: 700px; border: none; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"></iframe>
+
+
+#### ** ✍️ Bài tập Luyện tập **
+
+**Bài tập 1: Bốn cấp độ Phân tích dữ liệu (Độ khó: Dễ)**
+Kể tên 4 cấp độ phân tích dữ liệu từ thấp đến cao (Chương 6). Việc hệ thống AI gợi ý ban giám đốc "Nên phân bổ ngân sách marketing vào khu vực nào để tối đa hóa doanh thu" thuộc cấp độ phân tích nào?
+<details>
+<summary>💡 Gợi ý trả lời (Click để xem)</summary>
+
+- 4 Cấp độ: Descriptive (Mô tả) -> Diagnostic (Chẩn đoán) -> Predictive (Dự đoán) -> Prescriptive (Đề xuất/Chỉ định).
+- Việc AI "gợi ý hành động tối ưu hóa ngân sách" thuộc mức độ cao nhất: **Prescriptive Analytics**.
+</details>
+<br>
+
+**Bài tập 2: Áp dụng Khung tư duy SPARKS (Độ khó: Trung bình)**
+Chương 6 giới thiệu Khung tư duy phân tích SPARKS. Chữ "S" (Stakeholders) và "P" (Purpose) quan trọng như thế nào trước khi bắt tay vào code các mô hình dữ liệu?
+<details>
+<summary>💡 Gợi ý trả lời (Click để xem)</summary>
+
+- Nếu không hiểu ai là người dùng cuối (Stakeholders) và mục tiêu kinh doanh cốt lõi (Purpose), kế toán viên có thể phân tích ra những mô hình toán học rất phức tạp, độ chính xác cao nhưng hoàn toàn vô dụng vì không giải quyết đúng "nỗi đau" thực tế của doanh nghiệp.
+</details>
+<br>
+
+**Bài tập 3: Chiến lược Dữ liệu - Data Strategy (Độ khó: Khó)**
+Dựa trên Chương 3 & 4, Kiến trúc dữ liệu (Data Architecture) đóng vai trò gì trong một Chiến lược Dữ liệu tổng thể? Tại sao không có Data Architecture thì ứng dụng AI sẽ thất bại?
+<details>
+<summary>💡 Gợi ý trả lời (Click để xem)</summary>
+
+- Data Architecture (Kiến trúc dữ liệu) quy định cách dữ liệu được thu thập, tổ chức, lưu trữ và luân chuyển (Data Pipelines) trong toàn công ty.
+- AI cần dữ liệu lớn, liên tục và sạch. Nếu kiến trúc dữ liệu yếu kém (dữ liệu nằm rời rạc ở các phòng ban/Silos), AI sẽ không có nguyên liệu đầu vào để học, dẫn đến "Garbage in, Garbage out" (GIGO) làm dự án đổ vỡ.
+</details>
+<br>
 <!-- tabs:end -->

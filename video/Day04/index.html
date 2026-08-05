@@ -423,6 +423,7 @@
     const AUDIO_PREFIX = 'audio/slide_';
     const IMG_EXT = '.png';
     const AUD_EXT = '.mp3';
+    let isInitialLoad = true;
 
     /* ==================== QUẢN LÝ TÀI NGUYÊN (New) ==================== */
     class ResourceManager {
@@ -789,8 +790,13 @@
 
         // 4. Phát audio & Auto-scroll
         try {
-          await slideAudio.play();
-          startAutoScrollIfNeeded();
+          if (isInitialLoad) {
+            isInitialLoad = false;
+            playPauseBtn.innerHTML = '▶️';
+          } else {
+            await slideAudio.play();
+            startAutoScrollIfNeeded();
+          }
         } catch (err) {
           console.log("Autoplay blocked or waiting for interaction", err);
           playPauseBtn.innerHTML = '▶️'; // Hiển thị nút play
@@ -1004,6 +1010,39 @@
     // Lắng nghe sự kiện xoay và resize
     window.addEventListener('resize', checkOrientation);
     window.addEventListener('orientationchange', checkOrientation);
+
+    /* ================= VISIBILITY CHANGER (Ngừng phát khi chuyển tab) ================= */
+    function checkVisibility() {
+      if (window.innerWidth === 0 || window.innerHeight === 0) return false;
+      try {
+        if (window.frameElement) {
+          let el = window.frameElement;
+          while (el && el !== window.parent.document.body) {
+             const style = window.parent.getComputedStyle(el);
+             if (style.display === 'none' || style.opacity === '0' || style.visibility === 'hidden') {
+                 return false;
+             }
+             el = el.parentElement;
+          }
+        }
+      } catch (e) {
+        // Bỏ qua lỗi cross-origin
+      }
+      return true;
+    }
+
+    setInterval(() => {
+      if (!checkVisibility()) {
+        if (typeof slideAudio !== 'undefined' && slideAudio && !slideAudio.paused) {
+            slideAudio.pause();
+            playPauseBtn.innerHTML = '▶️';
+            cancelAnimationFrame(scrollAnimationId);
+        }
+        if (typeof videoElement !== 'undefined' && videoElement && !videoElement.paused) {
+            videoElement.pause();
+        }
+      }
+    }, 500);
 
     /* ================= INIT ================= */
     window.addEventListener('load', () => {

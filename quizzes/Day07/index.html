@@ -1,0 +1,1563 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài Tập Trắc Nghiệm Buổi 7</title>
+    <style>
+        :root {
+            --primary: #1a73e8;
+            --primary-hover: #1557b0;
+            --bg: #f8f9fa;
+            --card-bg: #ffffff;
+            --text: #202124;
+            --text-secondary: #5f6368;
+            --border: #dadce0;
+            --success: #1e8e3e;
+            --error: #d93025;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .quiz-container {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 800px;
+            padding: 30px;
+            box-sizing: border-box;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .progress-bar-container {
+            width: 100%;
+            background-color: #e8eaed;
+            border-radius: 8px;
+            height: 10px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background-color: var(--primary);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .question-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        /* Multiple Choice */
+        .options-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .option-label {
+            display: flex;
+            align-items: center;
+            padding: 12px 16px;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .option-label:hover {
+            border-color: var(--primary);
+            background-color: #f1f3f4;
+        }
+
+        .option-label.selected {
+            border-color: var(--primary);
+            background-color: #e8f0fe;
+        }
+
+        .option-input {
+            margin-right: 12px;
+            transform: scale(1.2);
+            cursor: pointer;
+        }
+
+        /* Matching */
+        .matching-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .matching-row {
+            display: flex;
+            align-items: stretch;
+            gap: 15px;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .matching-left {
+            flex: 1;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+        }
+
+        .matching-right {
+            flex: 2;
+        }
+
+        .matching-select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            font-family: inherit;
+            font-size: 0.95rem;
+            outline: none;
+        }
+        
+        .matching-select:focus {
+            border-color: var(--primary);
+        }
+
+        /* Ordering */
+        .ordering-pool, .ordering-selected {
+            min-height: 50px;
+            padding: 15px;
+            border: 2px dashed var(--border);
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .ordering-selected {
+            border-color: var(--primary);
+            background-color: #f8faff;
+        }
+
+        .order-item {
+            background: white;
+            padding: 12px 16px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            cursor: pointer;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            transition: transform 0.1s, box-shadow 0.1s;
+            display: flex;
+            align-items: center;
+        }
+
+        .order-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-color: var(--primary);
+        }
+        
+        .ordering-selected .order-item::before {
+            content: counter(order-counter) ". ";
+            counter-increment: order-counter;
+            font-weight: bold;
+            color: var(--primary);
+            margin-right: 10px;
+        }
+        
+        .ordering-selected {
+            counter-reset: order-counter;
+        }
+
+        /* Fill in Blanks */
+        .fill-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .blank-slot {
+            display: inline-block;
+            min-width: 150px;
+            height: 30px;
+            border-bottom: 2px solid var(--primary);
+            margin: 0 5px;
+            vertical-align: bottom;
+            text-align: center;
+            font-weight: 600;
+            color: var(--primary);
+            cursor: pointer;
+            padding: 0 10px;
+            background-color: #f8faff;
+            border-radius: 4px 4px 0 0;
+            transition: background-color 0.2s;
+        }
+        
+        .blank-slot.active {
+            background-color: #e8f0fe;
+            border-bottom: 3px solid var(--primary);
+        }
+
+        .word-bank {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 15px;
+            background: #f1f3f4;
+            border-radius: 8px;
+        }
+
+        .word-item {
+            background: white;
+            padding: 8px 16px;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        
+        .word-item:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        .word-item.used {
+            opacity: 0.5;
+            pointer-events: none;
+            background: #e8eaed;
+        }
+
+        /* Actions */
+        .actions {
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 10px 24px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .btn-primary:disabled {
+            background-color: #8ab4f8;
+            cursor: not-allowed;
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background-color: #f8faff;
+        }
+
+        /* Feedback */
+        .feedback-container {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .feedback-container.show {
+            display: block;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .feedback-container.correct {
+            background-color: #e6f4ea;
+            border: 1px solid var(--success);
+        }
+
+        .feedback-container.incorrect {
+            background-color: #fce8e6;
+            border: 1px solid var(--error);
+        }
+
+        .feedback-title {
+            font-weight: bold;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .correct .feedback-title { color: var(--success); }
+        .incorrect .feedback-title { color: var(--error); }
+
+        .explanation {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: var(--text-secondary);
+        }
+        
+        /* Result Screen */
+        .result-screen {
+            text-align: center;
+            padding: 40px 20px;
+        }
+        
+        .score-circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: conic-gradient(var(--primary) 0%, #e8eaed 0%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            position: relative;
+        }
+        
+        .score-inner {
+            width: 120px;
+            height: 120px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        
+        .score-text {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+        
+        .score-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="quiz-container">
+    <div id="quiz-screen">
+        <div class="header">
+            <span id="question-counter" style="font-weight: 600; color: var(--text-secondary);">Câu hỏi 1 / 6</span>
+            <span class="badge" style="background: #e8eaed; padding: 4px 10px; border-radius: 12px; font-size: 0.85rem; font-weight: 600;" id="difficulty-badge">Dễ</span>
+        </div>
+        <div class="progress-bar-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+
+        <div id="question-content">
+            <!-- Content gets injected here -->
+        </div>
+
+        <div class="feedback-container" id="feedback">
+            <div class="feedback-title" id="feedback-title"></div>
+            <div class="explanation" id="explanation"></div>
+        </div>
+
+        <div class="actions">
+            <button class="btn btn-primary" id="btn-check">Kiểm tra</button>
+            <button class="btn btn-primary" id="btn-next" style="display: none;">Tiếp theo</button>
+        </div>
+    </div>
+    
+    <div id="result-screen" class="result-screen" style="display: none;">
+        <h2>Chúc mừng bạn đã hoàn thành!</h2>
+        <div class="score-circle" id="score-circle">
+            <div class="score-inner">
+                <span class="score-text" id="final-score">0/6</span>
+                <span class="score-label">Điểm</span>
+            </div>
+        </div>
+        <p id="result-message" style="margin-bottom: 30px; font-size: 1.1rem; color: var(--text-secondary);"></p>
+        <button class="btn btn-outline" onclick="location.reload()">Làm lại bài kiểm tra</button>
+    </div>
+</div>
+
+<script>
+    const questions = [
+    {
+        "type": "multiple_choice",
+        "difficulty": "Dễ",
+        "question": "Theo COSO (2013), có bao nhiêu thành phần chính trong hệ thống kiểm soát nội bộ?",
+        "options": [
+            {
+                "id": "a",
+                "text": "3 thành phần"
+            },
+            {
+                "id": "b",
+                "text": "5 thành phần"
+            },
+            {
+                "id": "c",
+                "text": "7 thành phần"
+            },
+            {
+                "id": "d",
+                "text": "17 thành phần"
+            }
+        ],
+        "correctAnswer": "b",
+        "explanation": "Kiểm soát nội bộ theo COSO gồm 5 thành phần: Môi trường kiểm soát, Đánh giá rủi ro, Hoạt động kiểm soát, Giám sát, Thông tin & Truyền thông."
+    },
+    {
+        "type": "multiple_choice",
+        "difficulty": "Trung bình",
+        "question": "Rủi ro kiểm soát nội bộ (Internal Controls Risk) khác với rủi ro tiềm tàng (Inherent Risk) ở điểm nào?",
+        "options": [
+            {
+                "id": "a",
+                "text": "Rủi ro kiểm soát phụ thuộc vào các quyết định quản lý của doanh nghiệp"
+            },
+            {
+                "id": "b",
+                "text": "Rủi ro kiểm soát luôn luôn không thể thay đổi hay quản lý được"
+            },
+            {
+                "id": "c",
+                "text": "Rủi ro kiểm soát chỉ liên quan đến các đối thủ cạnh tranh bên ngoài"
+            },
+            {
+                "id": "d",
+                "text": "Rủi ro kiểm soát phát sinh khi không có sự tồn tại của nhân viên"
+            }
+        ],
+        "correctAnswer": "a",
+        "explanation": "Rủi ro tiềm tàng gắn liền với ngành nghề kinh doanh, còn rủi ro kiểm soát là sản phẩm của cách ban quản lý thiết lập quy trình kiểm soát."
+    },
+    {
+        "type": "matching",
+        "difficulty": "Dễ",
+        "question": "Ghép các loại rủi ro với định nghĩa của chúng:",
+        "left": [
+            {
+                "id": "l1",
+                "text": "Rủi ro tiềm tàng (Inherent Risk)"
+            },
+            {
+                "id": "l2",
+                "text": "Rủi ro kiểm soát (Control Risk)"
+            },
+            {
+                "id": "l3",
+                "text": "Rủi ro kiểm toán (Audit Risk)"
+            }
+        ],
+        "right": [
+            {
+                "id": "r1",
+                "text": "Rủi ro tồn tại tự nhiên khi chưa có bất kỳ biện pháp kiểm soát nào"
+            },
+            {
+                "id": "r2",
+                "text": "Rủi ro xảy ra do thiếu sót trong quy trình phòng ngừa của công ty"
+            },
+            {
+                "id": "r3",
+                "text": "Rủi ro tổng thể liên quan đến cả khả năng phát hiện của kiểm toán viên"
+            }
+        ],
+        "correctPairs": {
+            "l1": "r1",
+            "l2": "r2",
+            "l3": "r3"
+        },
+        "explanation": "Audit Risk là hàm số của Inherent Risk, Control Risk, và Detection Risk."
+    },
+    {
+        "type": "ordering",
+        "difficulty": "Trung bình",
+        "question": "Sắp xếp 4 Cấp độ Đánh giá Rủi ro Tự động từ ngoài vào trong:",
+        "instruction": "(Nhấn vào từng mục ở danh sách bên dưới để chuyển lên bảng đã chọn)",
+        "items": [
+            {
+                "id": "1",
+                "text": "Cấp độ 1: Từ ngoài vào trong (Dữ liệu công khai)"
+            },
+            {
+                "id": "2",
+                "text": "Cấp độ 2: Tập trung vào quy trình (Process centric)"
+            },
+            {
+                "id": "3",
+                "text": "Cấp độ 3: Rủi ro doanh nghiệp (Enterprise chuỗi giá trị)"
+            },
+            {
+                "id": "4",
+                "text": "Cấp độ 4: Quyết định kinh doanh (Business decisions)"
+            }
+        ],
+        "correctOrder": [
+            "1",
+            "2",
+            "3",
+            "4"
+        ],
+        "explanation": "Bốn cấp độ: Outside-in, Process centric, Enterprise, và Business decisions."
+    },
+    {
+        "type": "fill_in_blanks",
+        "difficulty": "Trung bình",
+        "question": "Điền từ về Khai thác Quy trình (Process Mining):",
+        "instruction": "(Nhấn vào chỗ trống, sau đó nhấn vào từ bên dưới để điền)",
+        "text": "Công nghệ Khai thác Quy trình (Process Mining) trích xuất <span class=\"blank-slot\" data-id=\"1\">___(1)___</span> từ các hệ thống để kiểm tra dấu vết kiểm toán, xem ai đã truy cập hệ thống vào lúc nào. Điều này cho phép kiểm toán phân tích toàn bộ <span class=\"blank-slot\" data-id=\"2\">___(2)___</span> dữ liệu thay vì chỉ chọn mẫu.",
+        "words": [
+            {
+                "id": "w1",
+                "text": "nhật ký sự kiện (event logs)"
+            },
+            {
+                "id": "w2",
+                "text": "tổng thể (population)"
+            },
+            {
+                "id": "w3",
+                "text": "biên bản giấy"
+            }
+        ],
+        "correctAnswers": {
+            "1": "w1",
+            "2": "w2"
+        },
+        "explanation": "Process mining sử dụng log sự kiện (event logs) để phân tích 100% (toàn bộ tổng thể) thay vì lấy mẫu."
+    },
+    {
+        "type": "multiple_choice",
+        "difficulty": "Khó",
+        "question": "Trong đánh giá Môi trường Kiểm soát, phương pháp TF-IDF (Tần suất Thuật ngữ) được dùng để làm gì?",
+        "options": [
+            {
+                "id": "a",
+                "text": "Tính tần suất chữ ký của Giám đốc trên sổ cái"
+            },
+            {
+                "id": "b",
+                "text": "Xác định mức độ bao phủ của các quy định nội bộ"
+            },
+            {
+                "id": "c",
+                "text": "Tự động gửi email đòi nợ khách hàng"
+            },
+            {
+                "id": "d",
+                "text": "Quay video giám sát việc chấm công"
+            }
+        ],
+        "correctAnswer": "b",
+        "explanation": "TF-IDF phân tích các tài liệu chính sách và quy trình (NLP) để xem chúng có đề cập đủ đến các rủi ro cốt lõi không."
+    },
+    {
+        "type": "multiple_choice",
+        "difficulty": "Dễ",
+        "question": "Hiệp hội ACFE chia gian lận thành 2 loại chính nào?",
+        "options": [
+            {
+                "id": "a",
+                "text": "Gian lận thẻ tín dụng và gian lận bảo hiểm"
+            },
+            {
+                "id": "b",
+                "text": "Gian lận nội bộ và gian lận bên ngoài"
+            },
+            {
+                "id": "c",
+                "text": "Tham nhũng và biển thủ tài sản"
+            },
+            {
+                "id": "d",
+                "text": "Sai sót vô ý và gian lận cố ý"
+            }
+        ],
+        "correctAnswer": "b",
+        "explanation": "ACFE phân chia thành gian lận từ bên trong (Internal fraud) và bên ngoài (External fraud)."
+    },
+    {
+        "type": "matching",
+        "difficulty": "Khó",
+        "question": "Ghép các mô hình quy trình với ý nghĩa thực tế:",
+        "left": [
+            {
+                "id": "l1",
+                "text": "Mô hình De jure (Theo quy chuẩn)"
+            },
+            {
+                "id": "l2",
+                "text": "Mô hình De facto (Trên thực tế)"
+            },
+            {
+                "id": "l3",
+                "text": "Bất đồng (Discrepancy)"
+            }
+        ],
+        "right": [
+            {
+                "id": "r1",
+                "text": "Mô tả cách làm việc chuẩn mực, mong muốn hoặc bắt buộc"
+            },
+            {
+                "id": "r2",
+                "text": "Cách quy trình thực sự đang diễn ra, kể cả những vi phạm"
+            },
+            {
+                "id": "r3",
+                "text": "Khoảng cách giữa lý thuyết và thực hành được AI phát hiện"
+            }
+        ],
+        "correctPairs": {
+            "l1": "r1",
+            "l2": "r2",
+            "l3": "r3"
+        },
+        "explanation": "De jure là chuẩn mực lý thuyết, De facto là những gì thực sự đang diễn ra. AI tìm sự khác biệt (Discrepancy) giữa hai mô hình này."
+    },
+    {
+        "type": "fill_in_blanks",
+        "difficulty": "Trung bình",
+        "question": "Điền từ về Cây Gian lận (Fraud Tree):",
+        "instruction": "(Nhấn vào chỗ trống, sau đó nhấn vào từ bên dưới để điền)",
+        "text": "Theo ACFE, gian lận nội bộ được chia làm ba nhánh lớn: Tham nhũng (Corruption), <span class=\"blank-slot\" data-id=\"1\">___(1)___</span> (Asset misappropriation), và Gian lận <span class=\"blank-slot\" data-id=\"2\">___(2)___</span> (Financial statement fraud).",
+        "words": [
+            {
+                "id": "w1",
+                "text": "Biển thủ tài sản"
+            },
+            {
+                "id": "w2",
+                "text": "Báo cáo tài chính"
+            },
+            {
+                "id": "w3",
+                "text": "Thuế thu nhập"
+            }
+        ],
+        "correctAnswers": {
+            "1": "w1",
+            "2": "w2"
+        },
+        "explanation": "3 nhánh của Fraud Tree là: Corruption, Asset Misappropriation, và Financial Statement Fraud."
+    },
+    {
+        "type": "ordering",
+        "difficulty": "Khó",
+        "question": "Sắp xếp 4 thành tố của Hình thoi Gian lận (Fraud Diamond) theo trình tự mô hình mở rộng:",
+        "instruction": "(Nhấn vào từng mục ở danh sách bên dưới để chuyển lên bảng đã chọn)",
+        "items": [
+            {
+                "id": "1",
+                "text": "Áp lực (Pressure/Motivation)"
+            },
+            {
+                "id": "2",
+                "text": "Cơ hội (Opportunity)"
+            },
+            {
+                "id": "3",
+                "text": "Sự biện minh (Rationalization)"
+            },
+            {
+                "id": "4",
+                "text": "Khả năng thực hiện (Capability)"
+            }
+        ],
+        "correctOrder": [
+            "1",
+            "2",
+            "3",
+            "4"
+        ],
+        "explanation": "Fraud Diamond thêm Capability vào 3 yếu tố gốc (Pressure, Opportunity, Rationalization)."
+    },
+    {
+        "type": "multiple_choice",
+        "difficulty": "Trung bình",
+        "question": "Trong Tam giác gian lận, AI phát hiện 'Cơ hội' (Opportunity) chủ yếu dựa vào việc đánh giá yếu tố nào?",
+        "options": [
+            {
+                "id": "a",
+                "text": "Giá cổ phiếu của các đối thủ trên sàn"
+            },
+            {
+                "id": "b",
+                "text": "Nhược điểm của hệ thống kiểm soát nội bộ"
+            },
+            {
+                "id": "c",
+                "text": "Tâm trạng buồn bực của nhân viên"
+            },
+            {
+                "id": "d",
+                "text": "Biến động của tỷ giá hối đoái quốc tế"
+            }
+        ],
+        "correctAnswer": "b",
+        "explanation": "Cơ hội cho gian lận được tạo ra khi có điểm yếu trong kiểm soát nội bộ (thiếu quy trình, văn hóa lỏng lẻo)."
+    },
+    {
+        "type": "multiple_choice",
+        "difficulty": "Dễ",
+        "question": "Tự động hóa Đánh giá Kiểm soát Nội bộ trong kỷ nguyên AI kết hợp những công nghệ nào?",
+        "options": [
+            {
+                "id": "a",
+                "text": "Chỉ sử dụng máy tính bỏ túi (Calculator) và sổ tay"
+            },
+            {
+                "id": "b",
+                "text": "Chỉ dựa vào các bảng câu hỏi giấy được in sẵn"
+            },
+            {
+                "id": "c",
+                "text": "Khai thác quy trình, học máy và hệ chuyên gia"
+            },
+            {
+                "id": "d",
+                "text": "Máy fax, điện thoại cố định và băng từ lưu trữ"
+            }
+        ],
+        "correctAnswer": "c",
+        "explanation": "Chiến lược tự động hóa đòi hỏi Process mining, Machine learning, RPA, và Expert systems."
+    },
+    {
+        "type": "matching",
+        "difficulty": "Trung bình",
+        "question": "Ghép các loại phân tích Kiểm soát nội bộ với cách hoạt động:",
+        "left": [
+            {
+                "id": "l1",
+                "text": "Tập trung vào Dữ liệu (Data-centric)"
+            },
+            {
+                "id": "l2",
+                "text": "Tập trung vào Siêu dữ liệu (Metadata-centric)"
+            },
+            {
+                "id": "l3",
+                "text": "Dữ liệu + Siêu dữ liệu"
+            }
+        ],
+        "right": [
+            {
+                "id": "r1",
+                "text": "Kiểm tra ngân sách, dòng tiền và giao dịch kế toán thuần túy"
+            },
+            {
+                "id": "r2",
+                "text": "Kiểm tra nhật ký sự kiện, ai đăng nhập, lúc nào (Process Mining)"
+            },
+            {
+                "id": "r3",
+                "text": "Dùng học máy (ML) để phân loại bất thường từ nhật ký quy trình"
+            }
+        ],
+        "correctPairs": {
+            "l1": "r1",
+            "l2": "r2",
+            "l3": "r3"
+        },
+        "explanation": "Data: Giao dịch kế toán. Metadata: Nhật ký truy cập hệ thống. Kết hợp cả 2: ML + Process Mining."
+    },
+    {
+        "type": "fill_in_blanks",
+        "difficulty": "Khó",
+        "question": "Điền từ về rủi ro Biện minh (Rationalization):",
+        "instruction": "(Nhấn vào chỗ trống, sau đó nhấn vào từ bên dưới để điền)",
+        "text": "Sự biện minh là sự tự lừa dối bản thân, nơi kẻ gian lận tự nhủ hành động sai trái là <span class=\"blank-slot\" data-id=\"1\">___(1)___</span>. AI sử dụng công nghệ phân tích <span class=\"blank-slot\" data-id=\"2\">___(2)___</span> để dò tìm những mẫu giao tiếp bất thường trong email báo hiệu tâm lý này.",
+        "words": [
+            {
+                "id": "w1",
+                "text": "có thể chấp nhận được"
+            },
+            {
+                "id": "w2",
+                "text": "hành vi (behavior)"
+            },
+            {
+                "id": "w3",
+                "text": "hoàn toàn hợp pháp"
+            }
+        ],
+        "correctAnswers": {
+            "1": "w1",
+            "2": "w2"
+        },
+        "explanation": "Sự biện minh coi gian lận là có thể chấp nhận được (ví dụ 'tôi chỉ mượn tạm'). AI phân tích hành vi để bắt mạch tâm lý này."
+    },
+    {
+        "type": "ordering",
+        "difficulty": "Trung bình",
+        "question": "Sắp xếp 4 chữ cái đầu trong mô hình STOPSCAM của Viện Trí tuệ Nhân tạo Hoa Kỳ:",
+        "instruction": "(Nhấn vào từng mục ở danh sách bên dưới để chuyển lên bảng đã chọn)",
+        "items": [
+            {
+                "id": "1",
+                "text": "S - Strategy (Chiến lược)"
+            },
+            {
+                "id": "2",
+                "text": "T - Transactions (Giao dịch)"
+            },
+            {
+                "id": "3",
+                "text": "O - Operations (Hoạt động)"
+            },
+            {
+                "id": "4",
+                "text": "P - Processes (Quy trình)"
+            }
+        ],
+        "correctOrder": [
+            "1",
+            "2",
+            "3",
+            "4"
+        ],
+        "explanation": "STOPSCAM bắt đầu với S (Strategy), T (Transactions), O (Operations), P (Processes)."
+    },
+    {
+        "type": "multiple_choice",
+        "difficulty": "Trung bình",
+        "question": "Sự sụp đổ của công ty du lịch Thomas Cook (2019) cho thấy hạn chế gì của kiểm toán truyền thống?",
+        "options": [
+            {
+                "id": "a",
+                "text": "Kiểm toán viên không biết sử dụng phần mềm kế toán"
+            },
+            {
+                "id": "b",
+                "text": "Rủi ro kinh doanh không được đánh giá đúng mực"
+            },
+            {
+                "id": "c",
+                "text": "Họ quên thu thập hóa đơn bán hàng"
+            },
+            {
+                "id": "d",
+                "text": "Nhân viên công ty đã giả mạo chữ ký trên toàn bộ cổ phiếu"
+            }
+        ],
+        "correctAnswer": "b",
+        "explanation": "PwC và EY dù biết vấn đề rủi ro chiến lược kinh doanh của công ty nhưng vẫn ra báo cáo sạch (clean audit)."
+    },
+    {
+        "type": "matching",
+        "difficulty": "Dễ",
+        "question": "Ghép các khía cạnh của COSO với ví dụ thực tiễn:",
+        "left": [
+            {
+                "id": "l1",
+                "text": "Mục tiêu: Tuân thủ luật pháp"
+            },
+            {
+                "id": "l2",
+                "text": "Mục tiêu: Báo cáo đáng tin cậy"
+            },
+            {
+                "id": "l3",
+                "text": "Môi trường kiểm soát"
+            }
+        ],
+        "right": [
+            {
+                "id": "r1",
+                "text": "Không trốn thuế và tuân thủ luật lao động"
+            },
+            {
+                "id": "r2",
+                "text": "Số liệu lợi nhuận đúng thực tế, không khai khống"
+            },
+            {
+                "id": "r3",
+                "text": "Văn hóa công ty, tính chính trực của Ban giám đốc"
+            }
+        ],
+        "correctPairs": {
+            "l1": "r1",
+            "l2": "r2",
+            "l3": "r3"
+        },
+        "explanation": "Tuân thủ liên quan luật pháp. Báo cáo liên quan số liệu. Môi trường kiểm soát liên quan văn hóa."
+    },
+    {
+        "type": "multiple_choice",
+        "difficulty": "Khó",
+        "question": "Trong AI, khái niệm Human-in-the-loop đối với kiểm soát nội bộ nghĩa là gì?",
+        "options": [
+            {
+                "id": "a",
+                "text": "Chỉ có máy tính tự ra quyết định về các điểm yếu của hệ thống"
+            },
+            {
+                "id": "b",
+                "text": "Hệ thống AI không cần sự kiểm duyệt sau khi đã hoạt động"
+            },
+            {
+                "id": "c",
+                "text": "Con người luôn giám sát và kiểm duyệt các cảnh báo từ máy"
+            },
+            {
+                "id": "d",
+                "text": "Máy tính thay thế hoàn toàn mọi trách nhiệm của con người"
+            }
+        ],
+        "correctAnswer": "c",
+        "explanation": "Dù AI tự động hóa cao, quyết định và thẩm định cuối cùng vẫn cần sự đánh giá của Kế toán viên/Kiểm toán viên (Human-in-the-loop)."
+    },
+    {
+        "type": "fill_in_blanks",
+        "difficulty": "Dễ",
+        "question": "Điền từ về hệ thống phát hiện gian lận tự động (IFFDI):",
+        "instruction": "(Nhấn vào chỗ trống, sau đó nhấn vào từ bên dưới để điền)",
+        "text": "Kiểm soát nội bộ đóng vai trò là một <span class=\"blank-slot\" data-id=\"1\">___(1)___</span> để bảo vệ tài sản, tuy nhiên khi gian lận vẫn xảy ra, AI sẽ chuyển sang chức năng <span class=\"blank-slot\" data-id=\"2\">___(2)___</span> để khoanh vùng và phân tích lỗi.",
+        "words": [
+            {
+                "id": "w1",
+                "text": "bức tường lửa (firewall)"
+            },
+            {
+                "id": "w2",
+                "text": "phát hiện và điều tra"
+            },
+            {
+                "id": "w3",
+                "text": "công cụ tính thuế"
+            }
+        ],
+        "correctAnswers": {
+            "1": "w1",
+            "2": "w2"
+        },
+        "explanation": "Kiểm soát nội bộ là phòng ngừa (bức tường lửa). Nếu thủng, chức năng điều tra (investigation) bằng AI sẽ tiếp quản."
+    },
+    {
+        "type": "multiple_choice",
+        "difficulty": "Trung bình",
+        "question": "Chữ 'C' trong mô hình STOPSCAM đại diện cho phân tích yếu tố nào?",
+        "options": [
+            {
+                "id": "a",
+                "text": "Chi phí kiểm toán thường niên của công ty khách hàng"
+            },
+            {
+                "id": "b",
+                "text": "Văn hóa công ty, ban quản trị và mạng lưới xã hội"
+            },
+            {
+                "id": "c",
+                "text": "Các thay đổi cấu trúc thuế thu nhập doanh nghiệp"
+            },
+            {
+                "id": "d",
+                "text": "Tỷ giá chuyển đổi ngoại tệ của thị trường"
+            }
+        ],
+        "correctAnswer": "b",
+        "explanation": "C = Culture (Văn hóa). Phân tích văn hóa công ty, sức ép từ CEO, độ tuân thủ của Ban giám đốc."
+    },
+    {
+        "type": "ordering",
+        "difficulty": "Dễ",
+        "question": "Sắp xếp 4 chữ cái cuối trong mô hình STOPSCAM:",
+        "instruction": "(Nhấn vào từng mục ở danh sách bên dưới để chuyển lên bảng đã chọn)",
+        "items": [
+            {
+                "id": "1",
+                "text": "S - Statements (Báo cáo)"
+            },
+            {
+                "id": "2",
+                "text": "C - Culture (Văn hóa)"
+            },
+            {
+                "id": "3",
+                "text": "A - Attitudes (Thái độ)"
+            },
+            {
+                "id": "4",
+                "text": "M - Model (Mô hình)"
+            }
+        ],
+        "correctOrder": [
+            "1",
+            "2",
+            "3",
+            "4"
+        ],
+        "explanation": "STOPSCAM: S (Statements), C (Culture), A (Attitude), M (Model)."
+    },
+    {
+        "type": "matching",
+        "difficulty": "Khó",
+        "question": "Ghép các thành phần Đánh giá Môi trường Kiểm soát với kỹ thuật AI:",
+        "left": [
+            {
+                "id": "l1",
+                "text": "Sự chính trực và Đạo đức"
+            },
+            {
+                "id": "l2",
+                "text": "Cấu trúc tổ chức & Quyền hạn"
+            },
+            {
+                "id": "l3",
+                "text": "Kiểm soát vật lý"
+            }
+        ],
+        "right": [
+            {
+                "id": "r1",
+                "text": "Dùng NLP phân tích từ ngữ trong MD&A và Biên bản họp"
+            },
+            {
+                "id": "r2",
+                "text": "Phân tích mạng lưới từ siêu dữ liệu Email nội bộ"
+            },
+            {
+                "id": "r3",
+                "text": "Phân tích Computer Vision (thị giác máy tính) từ camera"
+            }
+        ],
+        "correctPairs": {
+            "l1": "r1",
+            "l2": "r2",
+            "l3": "r3"
+        },
+        "explanation": "Đạo đức thể hiện qua văn bản (NLP). Cấu trúc quyền lực thể hiện qua tần suất email. Kiểm soát vật lý dùng camera (Vision)."
+    },
+    {
+        "type": "multiple_choice",
+        "difficulty": "Trung bình",
+        "question": "Theo nghiên cứu của Simsek et al. (2018), họ đã làm gì với dữ liệu từ ngoài vào trong?",
+        "options": [
+            {
+                "id": "a",
+                "text": "Dự đoán giá cổ phiếu của các công ty công nghệ"
+            },
+            {
+                "id": "b",
+                "text": "Nhận diện rủi ro kiểm soát nội bộ từ báo cáo tài chính lịch sử"
+            },
+            {
+                "id": "c",
+                "text": "Phân loại các khoản lỗ tỷ giá hối đoái quốc tế"
+            },
+            {
+                "id": "d",
+                "text": "Gửi tự động bảng khảo sát rủi ro đến nhân viên"
+            }
+        ],
+        "correctAnswer": "b",
+        "explanation": "Nhóm nghiên cứu dùng tỷ số tài chính quá khứ để dự đoán MWIC (nhược điểm trọng yếu của kiểm soát nội bộ) với độ chính xác 70-80%."
+    },
+    {
+        "type": "fill_in_blanks",
+        "difficulty": "Trung bình",
+        "question": "Điền từ về việc phân tích Quyền hạn (Authority):",
+        "instruction": "(Nhấn vào chỗ trống, sau đó nhấn vào từ bên dưới để điền)",
+        "text": "Trong doanh nghiệp, <span class=\"blank-slot\" data-id=\"1\">___(1)___</span> hệ thống (logs) từ các phần mềm ERP có thể chỉ ra việc phê duyệt có được thực hiện đúng người và đúng cấp độ hay không. Phân tích này là ứng dụng cốt lõi của <span class=\"blank-slot\" data-id=\"2\">___(2)___</span>.",
+        "words": [
+            {
+                "id": "w1",
+                "text": "nhật ký truy cập"
+            },
+            {
+                "id": "w2",
+                "text": "khai thác quy trình"
+            },
+            {
+                "id": "w3",
+                "text": "sổ quỹ tiền mặt"
+            }
+        ],
+        "correctAnswers": {
+            "1": "w1",
+            "2": "w2"
+        },
+        "explanation": "Nhật ký hệ thống (logs) được dùng trong Khai thác quy trình (Process Mining) để phân tích quyền hạn."
+    },
+    {
+        "type": "ordering",
+        "difficulty": "Trung bình",
+        "question": "Quy trình ứng phó gian lận từ nhận diện đến quản lý:",
+        "instruction": "(Nhấn vào từng mục ở danh sách bên dưới để chuyển lên bảng đã chọn)",
+        "items": [
+            {
+                "id": "1",
+                "text": "Nhận diện điểm yếu của Kiểm soát nội bộ (Cơ hội gian lận)"
+            },
+            {
+                "id": "2",
+                "text": "Mô phỏng rủi ro (Risk Simulation) bằng công cụ AI"
+            },
+            {
+                "id": "3",
+                "text": "Giám sát tự động (Continuous Control Monitoring)"
+            },
+            {
+                "id": "4",
+                "text": "Đưa ra giải pháp khắc phục (Prescriptive remedies)"
+            }
+        ],
+        "correctOrder": [
+            "1",
+            "2",
+            "3",
+            "4"
+        ],
+        "explanation": "Nhận diện điểm yếu -> Mô phỏng tình huống -> Giám sát liên tục -> Báo cáo giải pháp."
+    },
+    {
+        "type": "multiple_choice",
+        "difficulty": "Dễ",
+        "question": "Chữ T trong STOPSCAM là viết tắt của 'Transactions', nghĩa là AI sẽ kiểm tra gì?",
+        "options": [
+            {
+                "id": "a",
+                "text": "Hệ thống điện lạnh của doanh nghiệp"
+            },
+            {
+                "id": "b",
+                "text": "Toàn bộ dữ liệu giao dịch sổ cái (G/L) và bút toán"
+            },
+            {
+                "id": "c",
+                "text": "Danh sách nhân viên mới gia nhập công ty"
+            },
+            {
+                "id": "d",
+                "text": "Chiến lược tiếp thị sản phẩm mới"
+            }
+        ],
+        "correctAnswer": "b",
+        "explanation": "Transactions (giao dịch) liên quan đến kiểm tra dữ liệu bút toán nhật ký, sổ cái."
+    },
+    {
+        "type": "matching",
+        "difficulty": "Trung bình",
+        "question": "Ghép các công nghệ AI với lĩnh vực kiểm soát rủi ro:",
+        "left": [
+            {
+                "id": "l1",
+                "text": "NLP (Xử lý Ngôn ngữ Tự nhiên)"
+            },
+            {
+                "id": "l2",
+                "text": "Computer Vision (Thị giác máy tính)"
+            },
+            {
+                "id": "l3",
+                "text": "Unsupervised ML (Học không giám sát)"
+            }
+        ],
+        "right": [
+            {
+                "id": "r1",
+                "text": "Phân tích thái độ qua nội dung Email/Biên bản họp"
+            },
+            {
+                "id": "r2",
+                "text": "Phân tích camera hành vi trộm cắp ở nhà kho"
+            },
+            {
+                "id": "r3",
+                "text": "Gom cụm phát hiện các hóa đơn thanh toán lạ"
+            }
+        ],
+        "correctPairs": {
+            "l1": "r1",
+            "l2": "r2",
+            "l3": "r3"
+        },
+        "explanation": "NLP phân tích chữ. Computer Vision phân tích video/ảnh. Unsupervised ML gom cụm dữ liệu giao dịch."
+    },
+    {
+        "type": "fill_in_blanks",
+        "difficulty": "Khó",
+        "question": "Điền từ về Khả năng (Capability) trong gian lận:",
+        "instruction": "(Nhấn vào chỗ trống, sau đó nhấn vào từ bên dưới để điền)",
+        "text": "Khả năng xảy ra gian lận lớn khi một cá nhân tin rằng họ có quyền lực hoặc năng lực để che giấu hành vi. AI đánh giá <span class=\"blank-slot\" data-id=\"1\">___(1)___</span> của cá nhân này qua dữ liệu nhân sự (HR) và <span class=\"blank-slot\" data-id=\"2\">___(2)___</span> để xem họ có đủ sức thao túng hệ thống hay không.",
+        "words": [
+            {
+                "id": "w1",
+                "text": "mức độ trọng yếu (materiality)"
+            },
+            {
+                "id": "w2",
+                "text": "mạng lưới xã hội (social network)"
+            },
+            {
+                "id": "w3",
+                "text": "báo cáo tài chính"
+            }
+        ],
+        "correctAnswers": {
+            "1": "w1",
+            "2": "w2"
+        },
+        "explanation": "Khả năng/quyền lực được phân tích thông qua tác động trọng yếu và mạng lưới quan hệ nội bộ của cá nhân."
+    },
+    {
+        "type": "ordering",
+        "difficulty": "Dễ",
+        "question": "Sắp xếp quá trình AI phát triển từ dữ liệu thô đến đề xuất hành động (Analytics):",
+        "instruction": "(Nhấn vào từng mục ở danh sách bên dưới để chuyển lên bảng đã chọn)",
+        "items": [
+            {
+                "id": "1",
+                "text": "Mô tả: AI thống kê điều gì đã xảy ra từ sổ kế toán"
+            },
+            {
+                "id": "2",
+                "text": "Dự đoán: AI dự đoán gian lận nào có thể xảy ra sắp tới"
+            },
+            {
+                "id": "3",
+                "text": "Đề xuất: AI tự động chặn tài khoản nghi ngờ (Prescriptive)"
+            },
+            {
+                "id": "4",
+                "text": "Giám sát: Kế toán viên đánh giá hiệu quả giải pháp AI"
+            }
+        ],
+        "correctOrder": [
+            "1",
+            "2",
+            "3",
+            "4"
+        ],
+        "explanation": "Phân tích dữ liệu đi từ Descriptive -> Predictive -> Prescriptive -> Monitoring."
+    },
+    {
+        "type": "multiple_choice",
+        "difficulty": "Trung bình",
+        "question": "Theo nghiên cứu, việc ban quản lý tích cực sử dụng AI để tìm hiểu 'rủi ro mới nổi' (emergent risks) cho thấy điều gì?",
+        "options": [
+            {
+                "id": "a",
+                "text": "Sự yếu kém trong năng lực tài chính của nhân sự"
+            },
+            {
+                "id": "b",
+                "text": "Ban quản lý chủ động bảo vệ công ty trước sai sót"
+            },
+            {
+                "id": "c",
+                "text": "Công ty đang chuẩn bị hồ sơ đệ đơn phá sản"
+            },
+            {
+                "id": "d",
+                "text": "Sự lãng phí tiền bạc vào các phần mềm AI đắt đỏ"
+            }
+        ],
+        "correctAnswer": "b",
+        "explanation": "Khi ban quản lý chủ động dùng công nghệ phân tích rủi ro mới, đó là dấu hiệu của môi trường kiểm soát mạnh, chủ động ngăn ngừa lỗi."
+    }
+];
+
+    let currentQ = 0;
+    let score = 0;
+    let isAnswered = false;
+
+    // Shuffle utility
+    function shuffleArray(array) {
+        let curId = array.length, temp, randId;
+        while (0 !== curId) {
+            randId = Math.floor(Math.random() * curId);
+            curId -= 1;
+            temp = array[curId];
+            array[curId] = array[randId];
+            array[randId] = temp;
+        }
+        return array;
+    }
+
+    const contentDiv = document.getElementById('question-content');
+    const checkBtn = document.getElementById('btn-check');
+    const nextBtn = document.getElementById('btn-next');
+    const feedback = document.getElementById('feedback');
+    const feedbackTitle = document.getElementById('feedback-title');
+    const explanation = document.getElementById('explanation');
+
+    function renderQuestion() {
+        const q = questions[currentQ];
+        isAnswered = false;
+        checkBtn.style.display = 'inline-block';
+        nextBtn.style.display = 'none';
+        feedback.className = 'feedback-container';
+        
+        document.getElementById('question-counter').innerText = `Câu hỏi ${currentQ + 1} / ${questions.length}`;
+        document.getElementById('difficulty-badge').innerText = q.difficulty;
+        document.getElementById('progress-bar').style.width = `${(currentQ / questions.length) * 100}%`;
+        
+        let instruction = q.instruction ? `<p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: -10px;">${q.instruction}</p>` : '';
+        let html = `<div class="question-title">${q.question}</div>${instruction}`;
+
+        if (q.type === 'multiple_choice') {
+            html += `<div class="options-container">`;
+            q.options.forEach(opt => {
+                html += `
+                    <label class="option-label" id="label-${opt.id}">
+                        <input type="radio" name="mcq" value="${opt.id}" class="option-input" onclick="selectOption('${opt.id}')">
+                        <span>${opt.text}</span>
+                    </label>
+                `;
+            });
+            html += `</div>`;
+        } 
+        else if (q.type === 'ordering') {
+            let shuffled = shuffleArray([...q.items]);
+            html += `
+                <div class="ordering-selected" id="order-selected"></div>
+                <h4 style="margin: 0 0 10px 0; color: var(--text-secondary); font-size: 0.95rem;">Các mục có sẵn:</h4>
+                <div class="ordering-pool" id="order-pool">
+                    ${shuffled.map(item => `<div class="order-item" onclick="moveItem(this, '${item.id}')" data-id="${item.id}">${item.text}</div>`).join('')}
+                </div>
+            `;
+        }
+        else if (q.type === 'matching') {
+            let shuffledRight = shuffleArray([...q.right]);
+            html += `<div class="matching-container">`;
+            q.left.forEach(leftItem => {
+                let optionsHtml = `<option value="">-- Chọn đáp án --</option>` + 
+                    shuffledRight.map(r => `<option value="${r.id}">${r.text}</option>`).join('');
+                
+                html += `
+                    <div class="matching-row">
+                        <div class="matching-left">${leftItem.text}</div>
+                        <div class="matching-right">
+                            <select class="matching-select" id="match-${leftItem.id}">
+                                ${optionsHtml}
+                            </select>
+                        </div>
+                    </div>
+                `;
+            });
+            html += `</div>`;
+        }
+        else if (q.type === 'fill_in_blanks') {
+            html += `
+                <div class="fill-text">${q.text}</div>
+                <h4 style="margin: 0 0 10px 0; color: var(--text-secondary); font-size: 0.95rem;">Ngân hàng từ:</h4>
+                <div class="word-bank">
+                    ${q.words.map(w => `<div class="word-item" id="word-${w.id}" onclick="selectWord('${w.id}', '${w.text}')">${w.text}</div>`).join('')}
+                </div>
+            `;
+        }
+
+        contentDiv.innerHTML = html;
+        
+        // Add event listeners for blanks if needed
+        if (q.type === 'fill_in_blanks') {
+            document.querySelectorAll('.blank-slot').forEach(el => {
+                el.addEventListener('click', () => activateBlank(el));
+            });
+        }
+    }
+
+    // -- Logic for Multiple Choice --
+    function selectOption(id) {
+        if(isAnswered) return;
+        document.querySelectorAll('.option-label').forEach(el => el.classList.remove('selected'));
+        document.getElementById(`label-${id}`).classList.add('selected');
+    }
+
+    // -- Logic for Ordering --
+    window.moveItem = function(elem, id) {
+        if(isAnswered) return;
+        const pool = document.getElementById('order-pool');
+        const selected = document.getElementById('order-selected');
+        
+        if (elem.parentElement.id === 'order-pool') {
+            selected.appendChild(elem);
+        } else {
+            pool.appendChild(elem);
+        }
+    }
+
+    // -- Logic for Fill in blanks --
+    let activeBlank = null;
+    let blankAnswers = {};
+
+    window.activateBlank = function(elem) {
+        if(isAnswered) return;
+        document.querySelectorAll('.blank-slot').forEach(e => e.classList.remove('active'));
+        elem.classList.add('active');
+        activeBlank = elem;
+    }
+
+    window.selectWord = function(id, text) {
+        if(isAnswered) return;
+        if (!activeBlank) {
+            alert('Vui lòng chọn một chỗ trống trước!');
+            return;
+        }
+        
+        // If blank already has a word, un-use it
+        let blankId = activeBlank.getAttribute('data-id');
+        if (blankAnswers[blankId]) {
+            document.getElementById(`word-${blankAnswers[blankId]}`).classList.remove('used');
+        }
+        
+        // Set new word
+        activeBlank.innerText = text;
+        activeBlank.classList.remove('active');
+        blankAnswers[blankId] = id;
+        
+        document.getElementById(`word-${id}`).classList.add('used');
+        activeBlank = null;
+    }
+
+    // -- Checking Answers --
+    checkBtn.addEventListener('click', () => {
+        if (isAnswered) return;
+        const q = questions[currentQ];
+        let isCorrect = false;
+
+        if (q.type === 'multiple_choice') {
+            const selected = document.querySelector('input[name="mcq"]:checked');
+            if (!selected) return alert('Vui lòng chọn một đáp án!');
+            isCorrect = selected.value === q.correctAnswer;
+            
+            // Highlight
+            if(isCorrect) {
+                document.getElementById(`label-${selected.value}`).style.backgroundColor = '#e6f4ea';
+                document.getElementById(`label-${selected.value}`).style.borderColor = 'var(--success)';
+            } else {
+                document.getElementById(`label-${selected.value}`).style.backgroundColor = '#fce8e6';
+                document.getElementById(`label-${selected.value}`).style.borderColor = 'var(--error)';
+                document.getElementById(`label-${q.correctAnswer}`).style.backgroundColor = '#e6f4ea';
+                document.getElementById(`label-${q.correctAnswer}`).style.borderColor = 'var(--success)';
+            }
+        } 
+        else if (q.type === 'ordering') {
+            const selectedItems = Array.from(document.getElementById('order-selected').children).map(el => el.getAttribute('data-id'));
+            if (selectedItems.length < q.items.length) return alert('Vui lòng sắp xếp tất cả các mục!');
+            
+            isCorrect = JSON.stringify(selectedItems) === JSON.stringify(q.correctOrder);
+        }
+        else if (q.type === 'matching') {
+            let allSelected = true;
+            let correctCount = 0;
+            q.left.forEach(leftItem => {
+                const val = document.getElementById(`match-${leftItem.id}`).value;
+                if (!val) allSelected = false;
+                if (val === q.correctPairs[leftItem.id]) correctCount++;
+                
+                // UI feedback
+                const selectEl = document.getElementById(`match-${leftItem.id}`);
+                selectEl.disabled = true;
+                if (val === q.correctPairs[leftItem.id]) {
+                    selectEl.style.backgroundColor = '#e6f4ea';
+                    selectEl.style.borderColor = 'var(--success)';
+                } else {
+                    selectEl.style.backgroundColor = '#fce8e6';
+                    selectEl.style.borderColor = 'var(--error)';
+                }
+            });
+            if (!allSelected) return alert('Vui lòng ghép nối tất cả các mục!');
+            isCorrect = correctCount === q.left.length;
+        }
+        else if (q.type === 'fill_in_blanks') {
+            let allFilled = true;
+            let correctCount = 0;
+            Object.keys(q.correctAnswers).forEach(key => {
+                if (!blankAnswers[key]) allFilled = false;
+                if (blankAnswers[key] === q.correctAnswers[key]) correctCount++;
+            });
+            if (!allFilled) return alert('Vui lòng điền vào tất cả chỗ trống!');
+            isCorrect = correctCount === Object.keys(q.correctAnswers).length;
+            
+            // Lock UI
+            document.querySelectorAll('.blank-slot').forEach(el => el.style.cursor = 'default');
+            document.querySelectorAll('.word-item').forEach(el => el.style.cursor = 'default');
+        }
+
+        if (isCorrect) score++;
+
+        // Show feedback
+        feedback.className = `feedback-container show ${isCorrect ? 'correct' : 'incorrect'}`;
+        feedbackTitle.innerHTML = isCorrect ? '✅ Chính xác!' : '❌ Chưa chính xác!';
+        explanation.innerHTML = q.explanation;
+
+        isAnswered = true;
+        checkBtn.style.display = 'none';
+        nextBtn.style.display = 'inline-block';
+        blankAnswers = {}; // reset
+    });
+
+    nextBtn.addEventListener('click', () => {
+        currentQ++;
+        if (currentQ < questions.length) {
+            renderQuestion();
+        } else {
+            showResult();
+        }
+    });
+
+    function showResult() {
+        document.getElementById('quiz-screen').style.display = 'none';
+        const resScreen = document.getElementById('result-screen');
+        resScreen.style.display = 'block';
+        
+        document.getElementById('final-score').innerText = `${score}/${questions.length}`;
+        const pct = (score / questions.length) * 100;
+        document.getElementById('score-circle').style.background = `conic-gradient(var(--primary) ${pct}%, #e8eaed 0%)`;
+        
+        const msg = document.getElementById('result-message');
+        if(score === questions.length) msg.innerText = "Tuyệt vời! Bạn đã nắm vững toàn bộ kiến thức của Buổi 7.";
+        else if (score >= questions.length / 2) msg.innerText = "Làm tốt lắm! Hãy ôn tập lại một chút để đạt điểm tối đa nhé.";
+        else msg.innerText = "Cố gắng lên! Bạn nên đọc lại tài liệu Buổi 7 để củng cố kiến thức.";
+    }
+
+    // Initialize
+    renderQuestion();
+
+</script>
+
+</body>
+</html>

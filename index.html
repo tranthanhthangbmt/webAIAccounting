@@ -406,6 +406,69 @@
       },
       window.$docsify.plugins || []
     );
+
+    // Make docsify-tabs horizontally draggable
+    (function() {
+      // Inject CSS for dragging cursor
+      const style = document.createElement('style');
+      style.textContent = `
+        .docsify-tabs.is-dragging {
+           cursor: grabbing !important;
+           user-select: none;
+        }
+        .docsify-tabs.is-dragging .docsify-tabs__tab {
+           cursor: grabbing !important;
+           pointer-events: none;
+        }
+      `;
+      document.head.appendChild(style);
+
+      let isDown = false;
+      let startX;
+      let scrollLeft;
+      let activeTabContainer = null;
+      let isDraggingTabs = false;
+
+      document.addEventListener('mousedown', (e) => {
+        const tabs = e.target.closest('.docsify-tabs');
+        if (!tabs) return;
+        isDown = true;
+        isDraggingTabs = false;
+        activeTabContainer = tabs;
+        startX = e.pageX - tabs.offsetLeft;
+        scrollLeft = tabs.scrollLeft;
+      });
+
+      document.addEventListener('mouseup', () => {
+        isDown = false;
+        if (activeTabContainer) {
+            activeTabContainer.classList.remove('is-dragging');
+        }
+        setTimeout(() => { isDraggingTabs = false; }, 50);
+      });
+
+      document.addEventListener('mousemove', (e) => {
+        if (!isDown || !activeTabContainer) return;
+        const x = e.pageX - activeTabContainer.offsetLeft;
+        const walk = (x - startX) * 1.5; 
+        if (Math.abs(walk) > 5) {
+            isDraggingTabs = true;
+            activeTabContainer.classList.add('is-dragging');
+        }
+        if (isDraggingTabs) {
+            e.preventDefault();
+            activeTabContainer.scrollLeft = scrollLeft - walk;
+        }
+      });
+
+      // Chặn click nếu đang kéo
+      document.addEventListener('click', (e) => {
+        if (isDraggingTabs && e.target.closest('.docsify-tabs')) {
+           e.preventDefault();
+           e.stopPropagation();
+        }
+      }, true);
+    })();
   </script>
 
 </body>

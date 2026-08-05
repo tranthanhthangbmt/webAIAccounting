@@ -256,7 +256,7 @@ Cửa hàng GPT (GPT Store) và công nghệ GPT tùy chỉnh trong ChatGPT đá
 
 #### ** 🎬 Video **
 
-<iframe src="video/Day12/index.html" style="width: 100%; aspect-ratio: 16/9; max-height: 75vh; border: none; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"></iframe>
+<iframe src="video/Day12/index.html?v=1785919941" style="width: 100%; aspect-ratio: 16/9; max-height: 75vh; border: none; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"></iframe>
 
 #### ** 🎦 Slide Bài Giảng **
 
@@ -265,4 +265,42 @@ Cửa hàng GPT (GPT Store) và công nghệ GPT tùy chỉnh trong ChatGPT đá
 </object>
 <p style="text-align: right;"><a href="TaiLieu/slideAIAcc/Slide_AIAcc_Day12.pdf#view=FitH" target="_blank" style="font-weight: bold; color: #0056b3;">📥 Tải về Slide Bài Giảng (PDF)</a></p>
 
+#### ** 📝 Bài tập Trắc nghiệm **
+
+<iframe src="quizzes/Day12/index.html?v=1785919941" style="width: 100%; min-height: 700px; border: none; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"></iframe>
+
+
+#### ** ✍️ Bài tập Luyện tập **
+
+**Bài tập 1: Sự khác biệt của Generative AI (Độ khó: Dễ)**
+Generative AI (như ChatGPT - Chương 12) khác biệt như thế nào so với AI truyền thống (Predictive/Analytical AI) trong khả năng xử lý nghiệp vụ?
+<details>
+<summary>💡 Gợi ý trả lời (Click để xem)</summary>
+
+- Predictive AI: Chuyên phân tích dữ liệu lịch sử để dự báo xu hướng (Dự báo phá sản, dự báo giá).
+- Generative AI: Có khả năng SÁNG TẠO nội dung mới (viết email, dịch văn bản, sinh mã code, tạo báo cáo phân tích tài chính) dựa trên dữ liệu đầu vào.
+</details>
+<br>
+
+**Bài tập 2: Hiện tượng "Hallucinations" (Ảo giác AI) (Độ khó: Trung bình)**
+Theo Chương 12, khi sử dụng ChatGPT để phân tích báo cáo tài chính, hiện tượng "Hallucinations" là gì? Cho ví dụ về hậu quả của nó.
+<details>
+<summary>💡 Gợi ý trả lời (Click để xem)</summary>
+
+- Hallucination (Ảo giác) là việc AI tự tin đưa ra câu trả lời hoàn toàn sai sự thật và tự bịa đặt thông tin.
+- Ví dụ hậu quả: ChatGPT có thể tự bịa ra một chuẩn mực IFRS không tồn tại hoặc trích dẫn các số liệu tài chính giả mạo để lý giải cho biến động lợi nhuận, khiến kế toán viên lập BCTC sai lệch pháp lý.
+</details>
+<br>
+
+**Bài tập 3: Cấu trúc Prompt Kế toán hiệu quả (Độ khó: Khó)**
+Dựa trên kiến thức về Web-Enhanced ChatGPT, hãy viết một "Prompt" (Câu lệnh) hoàn chỉnh theo cấu trúc 4 phần (Vai trò, Bối cảnh, Nhiệm vụ, Định dạng) để yêu cầu AI tóm tắt tình hình tài chính.
+<details>
+<summary>💡 Gợi ý trả lời (Click để xem)</summary>
+
+- **Vai trò:** Đóng vai là Giám đốc Tài chính (CFO) chuyên nghiệp.
+- **Bối cảnh:** Đối mặt với báo cáo Q3 giảm lợi nhuận do chi phí nguyên vật liệu tăng.
+- **Nhiệm vụ:** Tóm tắt báo cáo tài chính đính kèm, tìm ra 3 nguyên nhân cốt lõi làm tăng chi phí.
+- **Định dạng:** Trình bày bằng gạch đầu dòng ngắn gọn, không quá 300 chữ, dùng tông giọng trang trọng.
+</details>
+<br>
 <!-- tabs:end -->

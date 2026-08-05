@@ -879,7 +879,7 @@ Trường hợp tiếp theo của Le Grind: Xác minh và giải thích phân t�
 
 #### ** 🎬 Video **
 
-<iframe src="videoPractice/Chapter08/index.html" style="width: 100%; aspect-ratio: 16/9; max-height: 75vh; border: none; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"></iframe>
+<iframe src="videoPractice/Chapter08/index.html?v=1785919941" style="width: 100%; aspect-ratio: 16/9; max-height: 75vh; border: none; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"></iframe>
 
 #### ** 🎦 Slide Bài Giảng **
 

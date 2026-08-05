@@ -1,0 +1,1554 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài Tập Trắc Nghiệm Buổi 9</title>
+    <style>
+        :root {
+            --primary: #1a73e8;
+            --primary-hover: #1557b0;
+            --bg: #f8f9fa;
+            --card-bg: #ffffff;
+            --text: #202124;
+            --text-secondary: #5f6368;
+            --border: #dadce0;
+            --success: #1e8e3e;
+            --error: #d93025;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .quiz-container {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 800px;
+            padding: 30px;
+            box-sizing: border-box;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .progress-bar-container {
+            width: 100%;
+            background-color: #e8eaed;
+            border-radius: 8px;
+            height: 10px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background-color: var(--primary);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .question-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        /* Multiple Choice */
+        .options-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .option-label {
+            display: flex;
+            align-items: center;
+            padding: 12px 16px;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .option-label:hover {
+            border-color: var(--primary);
+            background-color: #f1f3f4;
+        }
+
+        .option-label.selected {
+            border-color: var(--primary);
+            background-color: #e8f0fe;
+        }
+
+        .option-input {
+            margin-right: 12px;
+            transform: scale(1.2);
+            cursor: pointer;
+        }
+
+        /* Matching */
+        .matching-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .matching-row {
+            display: flex;
+            align-items: stretch;
+            gap: 15px;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .matching-left {
+            flex: 1;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+        }
+
+        .matching-right {
+            flex: 2;
+        }
+
+        .matching-select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            font-family: inherit;
+            font-size: 0.95rem;
+            outline: none;
+        }
+        
+        .matching-select:focus {
+            border-color: var(--primary);
+        }
+
+        /* Ordering */
+        .ordering-pool, .ordering-selected {
+            min-height: 50px;
+            padding: 15px;
+            border: 2px dashed var(--border);
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .ordering-selected {
+            border-color: var(--primary);
+            background-color: #f8faff;
+        }
+
+        .order-item {
+            background: white;
+            padding: 12px 16px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            cursor: pointer;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            transition: transform 0.1s, box-shadow 0.1s;
+            display: flex;
+            align-items: center;
+        }
+
+        .order-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-color: var(--primary);
+        }
+        
+        .ordering-selected .order-item::before {
+            content: counter(order-counter) ". ";
+            counter-increment: order-counter;
+            font-weight: bold;
+            color: var(--primary);
+            margin-right: 10px;
+        }
+        
+        .ordering-selected {
+            counter-reset: order-counter;
+        }
+
+        /* Fill in Blanks */
+        .fill-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .blank-slot {
+            display: inline-block;
+            min-width: 150px;
+            height: 30px;
+            border-bottom: 2px solid var(--primary);
+            margin: 0 5px;
+            vertical-align: bottom;
+            text-align: center;
+            font-weight: 600;
+            color: var(--primary);
+            cursor: pointer;
+            padding: 0 10px;
+            background-color: #f8faff;
+            border-radius: 4px 4px 0 0;
+            transition: background-color 0.2s;
+        }
+        
+        .blank-slot.active {
+            background-color: #e8f0fe;
+            border-bottom: 3px solid var(--primary);
+        }
+
+        .word-bank {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 15px;
+            background: #f1f3f4;
+            border-radius: 8px;
+        }
+
+        .word-item {
+            background: white;
+            padding: 8px 16px;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        
+        .word-item:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        .word-item.used {
+            opacity: 0.5;
+            pointer-events: none;
+            background: #e8eaed;
+        }
+
+        /* Actions */
+        .actions {
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 10px 24px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .btn-primary:disabled {
+            background-color: #8ab4f8;
+            cursor: not-allowed;
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background-color: #f8faff;
+        }
+
+        /* Feedback */
+        .feedback-container {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .feedback-container.show {
+            display: block;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .feedback-container.correct {
+            background-color: #e6f4ea;
+            border: 1px solid var(--success);
+        }
+
+        .feedback-container.incorrect {
+            background-color: #fce8e6;
+            border: 1px solid var(--error);
+        }
+
+        .feedback-title {
+            font-weight: bold;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .correct .feedback-title { color: var(--success); }
+        .incorrect .feedback-title { color: var(--error); }
+
+        .explanation {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: var(--text-secondary);
+        }
+        
+        /* Result Screen */
+        .result-screen {
+            text-align: center;
+            padding: 40px 20px;
+        }
+        
+        .score-circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: conic-gradient(var(--primary) 0%, #e8eaed 0%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            position: relative;
+        }
+        
+        .score-inner {
+            width: 120px;
+            height: 120px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        
+        .score-text {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+        
+        .score-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="quiz-container">
+    <div id="quiz-screen">
+        <div class="header">
+            <span id="question-counter" style="font-weight: 600; color: var(--text-secondary);">Câu hỏi 1 / 6</span>
+            <span class="badge" style="background: #e8eaed; padding: 4px 10px; border-radius: 12px; font-size: 0.85rem; font-weight: 600;" id="difficulty-badge">Dễ</span>
+        </div>
+        <div class="progress-bar-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+
+        <div id="question-content">
+            <!-- Content gets injected here -->
+        </div>
+
+        <div class="feedback-container" id="feedback">
+            <div class="feedback-title" id="feedback-title"></div>
+            <div class="explanation" id="explanation"></div>
+        </div>
+
+        <div class="actions">
+            <button class="btn btn-primary" id="btn-check">Kiểm tra</button>
+            <button class="btn btn-primary" id="btn-next" style="display: none;">Tiếp theo</button>
+        </div>
+    </div>
+    
+    <div id="result-screen" class="result-screen" style="display: none;">
+        <h2>Chúc mừng bạn đã hoàn thành!</h2>
+        <div class="score-circle" id="score-circle">
+            <div class="score-inner">
+                <span class="score-text" id="final-score">0/6</span>
+                <span class="score-label">Điểm</span>
+            </div>
+        </div>
+        <p id="result-message" style="margin-bottom: 30px; font-size: 1.1rem; color: var(--text-secondary);"></p>
+        <button class="btn btn-outline" onclick="location.reload()">Làm lại bài kiểm tra</button>
+    </div>
+</div>
+
+<script>
+    const questions = [
+    {
+        "type": "multiple_choice",
+        "difficulty": "Dễ",
+        "question": "Mục đích chính của Toàn cầu hóa tài chính (Financial Globalization) là gì?",
+        "options": [
+            {
+                "id": "a",
+                "text": "Hội nhập thị trường tài chính trong nước và quốc tế"
+            },
+            {
+                "id": "b",
+                "text": "Ngăn chặn các nhà đầu tư nước ngoài mua cổ phiếu"
+            },
+            {
+                "id": "c",
+                "text": "Xóa bỏ hoàn toàn các loại tiền tệ của các quốc gia"
+            },
+            {
+                "id": "d",
+                "text": "Chỉ phát triển thị trường nội địa bằng tiền mặt thật"
+            }
+        ],
+        "correctAnswer": "a",
+        "explanation": "Toàn cầu hóa tài chính là sự hội nhập ngày càng tăng của thị trường tài chính trong nước và quốc tế."
+    },
+    {
+        "type": "multiple_choice",
+        "difficulty": "Trung bình",
+        "question": "Tính năng bất biến (Immutability) của công nghệ Blockchain mang lại lợi ích gì?",
+        "options": [
+            {
+                "id": "a",
+                "text": "Từ chối mọi sửa đổi bất hợp pháp đối với giao dịch"
+            },
+            {
+                "id": "b",
+                "text": "Cho phép thay đổi lịch sử để sửa lỗi một cách dễ dàng"
+            },
+            {
+                "id": "c",
+                "text": "Tăng cường tốc độ xử lý dữ liệu lên gấp hàng trăm lần"
+            },
+            {
+                "id": "d",
+                "text": "Xóa toàn bộ các giao dịch cũ để giải phóng bộ nhớ lưu"
+            }
+        ],
+        "correctAnswer": "a",
+        "explanation": "Blockchain tạo ra một sổ cái bất biến, nơi dữ liệu giao dịch đã ghi không thể bị thay đổi."
+    },
+    {
+        "type": "matching",
+        "difficulty": "Dễ",
+        "question": "Ghép các thuật ngữ liên quan đến tiền điện tử và tài chính phi tập trung:",
+        "left": [
+            {
+                "id": "l1",
+                "text": "DeFi"
+            },
+            {
+                "id": "l2",
+                "text": "CBDC"
+            },
+            {
+                "id": "l3",
+                "text": "Smart Contract"
+            }
+        ],
+        "right": [
+            {
+                "id": "r1",
+                "text": "Tài chính phi tập trung"
+            },
+            {
+                "id": "r2",
+                "text": "Tiền kỹ thuật số của Ngân hàng Trung ương"
+            },
+            {
+                "id": "r3",
+                "text": "Hợp đồng thông minh tự động thực thi"
+            }
+        ],
+        "correctPairs": {
+            "l1": "r1",
+            "l2": "r2",
+            "l3": "r3"
+        },
+        "explanation": "DeFi: Decentralized Finance; CBDC: Central Bank Digital Currency; Smart Contract: Hợp đồng thông minh."
+    },
+    {
+        "type": "ordering",
+        "difficulty": "Trung bình",
+        "question": "Sắp xếp thứ tự các mức độ từ truyền thống đến phi tập trung trong dịch vụ tài chính:",
+        "instruction": "(Nhấn vào từng mục ở danh sách bên dưới để chuyển lên bảng đã chọn)",
+        "items": [
+            {
+                "id": "1",
+                "text": "Ngân hàng thương mại truyền thống giao dịch bằng tiền giấy"
+            },
+            {
+                "id": "2",
+                "text": "Dịch vụ tài chính trực tuyến, ngân hàng số (Fintech)"
+            },
+            {
+                "id": "3",
+                "text": "Sử dụng tiền điện tử trên sàn giao dịch tập trung (CeFi)"
+            },
+            {
+                "id": "4",
+                "text": "Tài chính phi tập trung hoàn toàn bằng Hợp đồng thông minh (DeFi)"
+            }
+        ],
+        "correctOrder": [
+            "1",
+            "2",
+            "3",
+            "4"
+        ],
+        "explanation": "Quá trình số hóa diễn ra từ ngân hàng truyền thống (tiền giấy) -> Fintech (ngân hàng số) -> CeFi -> DeFi (không có trung gian)."
+    },
+    {
+        "type": "fill_in_blanks",
+        "difficulty": "Trung bình",
+        "question": "Điền từ về tác động của số hóa đối với nền kinh tế:",
+        "instruction": "(Nhấn vào chỗ trống, sau đó nhấn vào từ bên dưới để điền)",
+        "text": "Số hóa tạo cơ hội cho các sản phẩm và dịch vụ mới, do đó không chỉ nâng cao hiệu quả của luồng <span class=\"blank-slot\" data-id=\"1\">___(1)___</span> mà còn theo dõi và nhận biết <span class=\"blank-slot\" data-id=\"2\">___(2)___</span>.",
+        "words": [
+            {
+                "id": "w1",
+                "text": "hàng tồn kho"
+            },
+            {
+                "id": "w2",
+                "text": "khách hàng"
+            },
+            {
+                "id": "w3",
+                "text": "giám đốc điều hành"
+            }
+        ],
+        "correctAnswers": {
+            "1": "w1",
+            "2": "w2"
+        },
+        "explanation": "Số hóa giúp tối ưu hóa hàng tồn kho (chuỗi cung ứng) và nhận diện/chăm sóc khách hàng (CRM)."
+    },
+    {
+        "type": "multiple_choice",
+        "difficulty": "Khó",
+        "question": "Trong không gian DeFi (Tài chính phi tập trung), vì sao các khoản vay thường yêu cầu thế chấp quá mức (over-collateralization)?",
+        "options": [
+            {
+                "id": "a",
+                "text": "Bù đắp rủi ro do tính ẩn danh và tiền điện tử biến động"
+            },
+            {
+                "id": "b",
+                "text": "Để ngân hàng trung ương có thể thu thuế một cách dễ dàng"
+            },
+            {
+                "id": "c",
+                "text": "Khuyến khích người vay mua thêm nhiều tài sản vật chất"
+            },
+            {
+                "id": "d",
+                "text": "Giúp sàn giao dịch thu được phí hoa hồng cao hơn rất nhiều"
+            }
+        ],
+        "correctAnswer": "a",
+        "explanation": "Trong DeFi, người vay ẩn danh nên không thể đánh giá rủi ro tín dụng (như chấm điểm tín dụng), do đó phải dùng thế chấp quá mức để bù đắp rủi ro biến động giá tiền điện tử."
+    },
+    {
+        "type": "multiple_choice",
+        "difficulty": "Dễ",
+        "question": "Tập trung hóa (Centralization) trong hệ thống tài chính có đặc điểm gì?",
+        "options": [
+            {
+                "id": "a",
+                "text": "Sổ cái tập trung ghi lại tất cả dữ liệu giao dịch"
+            },
+            {
+                "id": "b",
+                "text": "Tất cả người dùng đều có quyền biểu quyết ngang nhau"
+            },
+            {
+                "id": "c",
+                "text": "Dữ liệu được lưu trữ ngẫu nhiên trên máy tính cá nhân"
+            },
+            {
+                "id": "d",
+                "text": "Không có bất kỳ sự can thiệp của chính phủ hay pháp luật"
+            }
+        ],
+        "correctAnswer": "a",
+        "explanation": "Tập trung hóa đặc trưng bởi một tổ chức/cơ quan trung ương kiểm soát sổ cái và quyết định."
+    },
+    {
+        "type": "matching",
+        "difficulty": "Khó",
+        "question": "Ghép các khái niệm tài chính tiền mã hóa với rủi ro tương ứng:",
+        "left": [
+            {
+                "id": "l1",
+                "text": "Oracles trong DeFi"
+            },
+            {
+                "id": "l2",
+                "text": "Smart Contract"
+            },
+            {
+                "id": "l3",
+                "text": "Tiền điện tử (như Bitcoin)"
+            }
+        ],
+        "right": [
+            {
+                "id": "r1",
+                "text": "Rủi ro nhà cung cấp bên thứ 3 cấp sai thông tin thị trường"
+            },
+            {
+                "id": "r2",
+                "text": "Rủi ro xuất hiện lỗ hổng lập trình khiến quỹ bị tin tặc bòn rút"
+            },
+            {
+                "id": "r3",
+                "text": "Tính biến động giá cả rất cao, cản trở việc trở thành tiền tệ"
+            }
+        ],
+        "correctPairs": {
+            "l1": "r1",
+            "l2": "r2",
+            "l3": "r3"
+        },
+        "explanation": "Oracle cung cấp dữ liệu ngoài chuỗi nên có rủi ro tin giả; Hợp đồng thông minh rủi ro code; Tiền điện tử rủi ro biến động giá."
+    },
+    {
+        "type": "fill_in_blanks",
+        "difficulty": "Trung bình",
+        "question": "Điền từ về Cố vấn Robot (Robo-Advisors):",
+        "instruction": "(Nhấn vào chỗ trống, sau đó nhấn vào từ bên dưới để điền)",
+        "text": "Robo-advisors cung cấp dịch vụ quản lý danh mục đầu tư bằng <span class=\"blank-slot\" data-id=\"1\">___(1)___</span> tự động, với chi phí <span class=\"blank-slot\" data-id=\"2\">___(2)___</span> so với cố vấn con người truyền thống.",
+        "words": [
+            {
+                "id": "w1",
+                "text": "thuật toán"
+            },
+            {
+                "id": "w2",
+                "text": "thấp hơn"
+            },
+            {
+                "id": "w3",
+                "text": "cao hơn rất nhiều"
+            }
+        ],
+        "correctAnswers": {
+            "1": "w1",
+            "2": "w2"
+        },
+        "explanation": "Robo-advisors sử dụng thuật toán để phân bổ tài sản với chi phí thấp."
+    },
+    {
+        "type": "ordering",
+        "difficulty": "Khó",
+        "question": "Sắp xếp trình tự hoạt động của một Hợp đồng thông minh (Smart Contract) trong DeFi:",
+        "instruction": "(Nhấn vào từng mục ở danh sách bên dưới để chuyển lên bảng đã chọn)",
+        "items": [
+            {
+                "id": "1",
+                "text": "Lập trình viên viết mã điều kiện (VD: Nếu giá > X thì bán)"
+            },
+            {
+                "id": "2",
+                "text": "Triển khai đoạn mã đó lên mạng lưới Blockchain (VD: Ethereum)"
+            },
+            {
+                "id": "3",
+                "text": "Oracle cung cấp dữ liệu giá từ bên ngoài vào Blockchain"
+            },
+            {
+                "id": "4",
+                "text": "Hợp đồng thông minh tự động thực thi khi điều kiện thỏa mãn"
+            }
+        ],
+        "correctOrder": [
+            "1",
+            "2",
+            "3",
+            "4"
+        ],
+        "explanation": "Viết mã -> Đưa lên Blockchain -> Nhận dữ liệu (Oracle) -> Tự động kích hoạt thực thi."
+    },
+    {
+        "type": "multiple_choice",
+        "difficulty": "Trung bình",
+        "question": "Stablecoin được tạo ra nhằm giải quyết vấn đề gì của tiền điện tử?",
+        "options": [
+            {
+                "id": "a",
+                "text": "Giảm thiểu tính biến động giá cả quá lớn"
+            },
+            {
+                "id": "b",
+                "text": "Tăng tốc độ khai thác Bitcoin lên nhiều lần"
+            },
+            {
+                "id": "c",
+                "text": "Thay thế hoàn toàn mạng lưới Internet hiện tại"
+            },
+            {
+                "id": "d",
+                "text": "Ngăn chặn chính phủ phát hành tiền pháp định"
+            }
+        ],
+        "correctAnswer": "a",
+        "explanation": "Stablecoin được gắn giá trị với một tài sản ổn định (như USD) để khắc phục tính biến động lớn của tiền điện tử."
+    },
+    {
+        "type": "multiple_choice",
+        "difficulty": "Dễ",
+        "question": "CBDC (Central Bank Digital Currency) là gì?",
+        "options": [
+            {
+                "id": "a",
+                "text": "Tiền kỹ thuật số do Ngân hàng Trung ương phát hành"
+            },
+            {
+                "id": "b",
+                "text": "Một loại thẻ tín dụng mới dành riêng cho sinh viên"
+            },
+            {
+                "id": "c",
+                "text": "Tên gọi khác của Bitcoin tại thị trường chứng khoán"
+            },
+            {
+                "id": "d",
+                "text": "Công cụ chỉ để vay vốn mua nhà của các ngân hàng"
+            }
+        ],
+        "correctAnswer": "a",
+        "explanation": "CBDC là tiền kỹ thuật số chính thức được phát hành và kiểm soát bởi Ngân hàng Trung ương của một quốc gia."
+    },
+    {
+        "type": "matching",
+        "difficulty": "Trung bình",
+        "question": "Ghép các công nghệ / khái niệm với vai trò tương ứng:",
+        "left": [
+            {
+                "id": "l1",
+                "text": "Điện toán đám mây (Cloud Computing)"
+            },
+            {
+                "id": "l2",
+                "text": "Stablecoin"
+            },
+            {
+                "id": "l3",
+                "text": "Giao dịch nội gián (Insider Trading)"
+            }
+        ],
+        "right": [
+            {
+                "id": "r1",
+                "text": "Cung cấp hạ tầng số tập trung cho phép lưu trữ và xử lý lớn"
+            },
+            {
+                "id": "r2",
+                "text": "Đồng tiền điện tử neo giá trị vào tài sản thực tế"
+            },
+            {
+                "id": "r3",
+                "text": "Hành vi giao dịch bất hợp pháp dựa trên thông tin chưa công bố"
+            }
+        ],
+        "correctPairs": {
+            "l1": "r1",
+            "l2": "r2",
+            "l3": "r3"
+        },
+        "explanation": "Cloud lưu trữ/xử lý; Stablecoin neo giá; Giao dịch nội gián dùng thông tin riêng tư trục lợi."
+    },
+    {
+        "type": "fill_in_blanks",
+        "difficulty": "Khó",
+        "question": "Điền từ về sự khác biệt giữa CeFi và DeFi:",
+        "instruction": "(Nhấn vào chỗ trống, sau đó nhấn vào từ bên dưới để điền)",
+        "text": "Trong CeFi, niềm tin được xây dựng dựa trên danh tiếng của <span class=\"blank-slot\" data-id=\"1\">___(1)___</span>. Ngược lại, trong DeFi, niềm tin được tạo ra nhờ tính minh bạch và thuật toán của <span class=\"blank-slot\" data-id=\"2\">___(2)___</span>.",
+        "words": [
+            {
+                "id": "w1",
+                "text": "tổ chức trung gian"
+            },
+            {
+                "id": "w2",
+                "text": "công nghệ blockchain"
+            },
+            {
+                "id": "w3",
+                "text": "hệ thống kiểm toán"
+            }
+        ],
+        "correctAnswers": {
+            "1": "w1",
+            "2": "w2"
+        },
+        "explanation": "CeFi dựa vào người trung gian (như ngân hàng, sàn giao dịch). DeFi dựa vào mã nguồn và Blockchain (trustless)."
+    },
+    {
+        "type": "ordering",
+        "difficulty": "Trung bình",
+        "question": "Sắp xếp quá trình phát triển của tiền tệ:",
+        "instruction": "(Nhấn vào từng mục ở danh sách bên dưới để chuyển lên bảng đã chọn)",
+        "items": [
+            {
+                "id": "1",
+                "text": "Hệ thống hàng đổi hàng và tiền kim loại quý (Vàng, bạc)"
+            },
+            {
+                "id": "2",
+                "text": "Tiền pháp định (Fiat) do chính phủ in ấn bằng tiền giấy"
+            },
+            {
+                "id": "3",
+                "text": "Hệ thống thanh toán kỹ thuật số và thẻ ngân hàng"
+            },
+            {
+                "id": "4",
+                "text": "Tiền điện tử phi tập trung và Tiền kỹ thuật số Ngân hàng Trung ương (CBDC)"
+            }
+        ],
+        "correctOrder": [
+            "1",
+            "2",
+            "3",
+            "4"
+        ],
+        "explanation": "Sự phát triển từ tiền hàng hóa -> Tiền pháp định giấy -> Thanh toán điện tử -> Tiền mã hóa & CBDC."
+    },
+    {
+        "type": "multiple_choice",
+        "difficulty": "Trung bình",
+        "question": "Tiền kỹ thuật số CBDC giúp ngân hàng trung ương đạt được mục tiêu nào?",
+        "options": [
+            {
+                "id": "a",
+                "text": "Duy trì ổn định tài chính và giới hạn tiền ảo tư nhân"
+            },
+            {
+                "id": "b",
+                "text": "Giúp người dùng dễ dàng ẩn danh khi mua hàng hóa"
+            },
+            {
+                "id": "c",
+                "text": "Loại bỏ hoàn toàn công nghệ trí tuệ nhân tạo (AI)"
+            },
+            {
+                "id": "d",
+                "text": "Từ bỏ trách nhiệm quản lý lạm phát của quốc gia đó"
+            }
+        ],
+        "correctAnswer": "a",
+        "explanation": "CBDC giúp ngân hàng trung ương giữ vai trò phát hành tiền, đảm bảo an toàn tài chính, hạn chế sự thống trị của tiền ảo tư nhân."
+    },
+    {
+        "type": "matching",
+        "difficulty": "Dễ",
+        "question": "Ghép các mô hình hệ thống với đặc trưng:",
+        "left": [
+            {
+                "id": "l1",
+                "text": "Tập trung (Centralized)"
+            },
+            {
+                "id": "l2",
+                "text": "Phi tập trung (Decentralized)"
+            }
+        ],
+        "right": [
+            {
+                "id": "r1",
+                "text": "Dữ liệu và quyết định nằm trong tay một tổ chức duy nhất"
+            },
+            {
+                "id": "r2",
+                "text": "Quyền lực phân tán, giao dịch ngang hàng (P2P)"
+            }
+        ],
+        "correctPairs": {
+            "l1": "r1",
+            "l2": "r2"
+        },
+        "explanation": "Tập trung là 1 trung tâm quyền lực; Phi tập trung là mạng lưới ngang hàng P2P không có trung gian."
+    },
+    {
+        "type": "multiple_choice",
+        "difficulty": "Khó",
+        "question": "Tại sao AI được kỳ vọng có thể giảm thiểu giao dịch nội gián trong quá trình M&A xuyên biên giới?",
+        "options": [
+            {
+                "id": "a",
+                "text": "AI phát hiện hành vi bất thường và ngăn chặn kịp thời"
+            },
+            {
+                "id": "b",
+                "text": "AI sẽ trực tiếp tiến hành thu hồi tiền của người vi phạm"
+            },
+            {
+                "id": "c",
+                "text": "AI hoàn toàn tự động thực hiện mọi giao dịch nội gián"
+            },
+            {
+                "id": "d",
+                "text": "AI buộc mọi nhà đầu tư phải nộp thêm thuế thu nhập"
+            }
+        ],
+        "correctAnswer": "a",
+        "explanation": "AI có khả năng phát hiện các luồng tiền, hành vi giao dịch chứng khoán bất thường (mua gom trước khi công bố thông tin)."
+    },
+    {
+        "type": "fill_in_blanks",
+        "difficulty": "Dễ",
+        "question": "Điền từ về rủi ro của DeFi:",
+        "instruction": "(Nhấn vào chỗ trống, sau đó nhấn vào từ bên dưới để điền)",
+        "text": "Bất chấp tính ưu việt, DeFi vẫn đối mặt với rủi ro <span class=\"blank-slot\" data-id=\"1\">___(1)___</span> cao của tiền mã hóa và sự không chắc chắn về <span class=\"blank-slot\" data-id=\"2\">___(2)___</span> do thiếu kiểm tra nhận diện khách hàng KYC.",
+        "words": [
+            {
+                "id": "w1",
+                "text": "biến động (volatility)"
+            },
+            {
+                "id": "w2",
+                "text": "pháp lý, quy định"
+            },
+            {
+                "id": "w3",
+                "text": "máy chủ trung tâm"
+            }
+        ],
+        "correctAnswers": {
+            "1": "w1",
+            "2": "w2"
+        },
+        "explanation": "DeFi có rủi ro về độ biến động lớn và các vấn đề quy định (chưa tuân thủ KYC/AML)."
+    },
+    {
+        "type": "multiple_choice",
+        "difficulty": "Trung bình",
+        "question": "Số hóa (Digitalization) đem lại lợi thế kinh tế theo quy mô như thế nào cho các tập đoàn công nghệ lớn?",
+        "options": [
+            {
+                "id": "a",
+                "text": "Chi phí cố định cao nhưng chi phí cận biên giảm dần"
+            },
+            {
+                "id": "b",
+                "text": "Cả chi phí cố định và chi phí cận biên đều tăng cao"
+            },
+            {
+                "id": "c",
+                "text": "Không cần đầu tư vốn mà vẫn có lợi nhuận tối đa"
+            },
+            {
+                "id": "d",
+                "text": "Chỉ các tập đoàn có nhiều nhân sự mới có lợi nhuận"
+            }
+        ],
+        "correctAnswer": "a",
+        "explanation": "Số hóa (như phát triển phần mềm) tốn chi phí cố định tạo ra ban đầu, nhưng việc phân phối sản phẩm số tốn rất ít chi phí cận biên."
+    },
+    {
+        "type": "ordering",
+        "difficulty": "Dễ",
+        "question": "Sắp xếp sự tham gia của Robo-Advisor trong quản lý tài sản:",
+        "instruction": "(Nhấn vào từng mục ở danh sách bên dưới để chuyển lên bảng đã chọn)",
+        "items": [
+            {
+                "id": "1",
+                "text": "Khảo sát mức độ chấp nhận rủi ro của khách hàng"
+            },
+            {
+                "id": "2",
+                "text": "Thuật toán gợi ý danh mục đầu tư phù hợp (ETF, cổ phiếu)"
+            },
+            {
+                "id": "3",
+                "text": "Khách hàng đồng ý và nộp tiền vào hệ thống"
+            },
+            {
+                "id": "4",
+                "text": "Hệ thống tự động tái cân bằng danh mục theo thời gian"
+            }
+        ],
+        "correctOrder": [
+            "1",
+            "2",
+            "3",
+            "4"
+        ],
+        "explanation": "Đánh giá rủi ro -> Gợi ý danh mục -> Đầu tư tiền -> Tự động tái cân bằng."
+    },
+    {
+        "type": "matching",
+        "difficulty": "Khó",
+        "question": "Ghép các công nghệ / tổ chức với vai trò quản trị:",
+        "left": [
+            {
+                "id": "l1",
+                "text": "Thuật toán Đồng thuận (Consensus)"
+            },
+            {
+                "id": "l2",
+                "text": "Ngân hàng Trung ương"
+            },
+            {
+                "id": "l3",
+                "text": "Cơ quan Quản lý (SEC)"
+            }
+        ],
+        "right": [
+            {
+                "id": "r1",
+                "text": "Duy trì tính nhất quán của mạng lưới Blockchain phi tập trung"
+            },
+            {
+                "id": "r2",
+                "text": "Quản lý lạm phát và phát hành tiền tệ hợp pháp (như CBDC)"
+            },
+            {
+                "id": "r3",
+                "text": "Điều tra, trừng phạt các hành vi giao dịch nội gián phi pháp"
+            }
+        ],
+        "correctPairs": {
+            "l1": "r1",
+            "l2": "r2",
+            "l3": "r3"
+        },
+        "explanation": "Consensus trong blockchain thay thế tổ chức trung ương; Ngân hàng phát hành tiền; SEC quản lý thị trường chứng khoán."
+    },
+    {
+        "type": "multiple_choice",
+        "difficulty": "Trung bình",
+        "question": "Tính minh bạch (Transparency) của chuỗi khối (Blockchain) cũng dẫn đến lo ngại gì?",
+        "options": [
+            {
+                "id": "a",
+                "text": "Vi phạm quyền riêng tư khi dữ liệu giao dịch bị lộ"
+            },
+            {
+                "id": "b",
+                "text": "Chi phí mua điện thoại thông minh trở nên đắt đỏ hơn"
+            },
+            {
+                "id": "c",
+                "text": "Các nhân viên ngân hàng sẽ không biết sử dụng máy tính"
+            },
+            {
+                "id": "d",
+                "text": "Các tập đoàn đóng cửa toàn bộ nhà máy sản xuất giấy"
+            }
+        ],
+        "correctAnswer": "a",
+        "explanation": "Mọi giao dịch trên Blockchain public đều có thể được xem bởi bất kỳ ai, dẫn đến rủi ro lộ quyền riêng tư tài chính."
+    },
+    {
+        "type": "fill_in_blanks",
+        "difficulty": "Trung bình",
+        "question": "Điền từ về tác động của Fintech:",
+        "instruction": "(Nhấn vào chỗ trống, sau đó nhấn vào từ bên dưới để điền)",
+        "text": "Fintech tạo ra nền tảng phân phối dịch vụ tài chính <span class=\"blank-slot\" data-id=\"1\">___(1)___</span>. Nó làm tăng tính <span class=\"blank-slot\" data-id=\"2\">___(2)___</span> trong ngành, buộc các ngân hàng truyền thống phải chuyển đổi số.",
+        "words": [
+            {
+                "id": "w1",
+                "text": "nhanh chóng, thuận tiện"
+            },
+            {
+                "id": "w2",
+                "text": "cạnh tranh khốc liệt"
+            },
+            {
+                "id": "w3",
+                "text": "kiểm duyệt gắt gao"
+            }
+        ],
+        "correctAnswers": {
+            "1": "w1",
+            "2": "w2"
+        },
+        "explanation": "Fintech giúp dịch vụ nhanh chóng hơn và làm tăng tính cạnh tranh trong ngành tài chính."
+    },
+    {
+        "type": "ordering",
+        "difficulty": "Trung bình",
+        "question": "Sắp xếp mức độ phức tạp trong bảo lãnh phát hành khoản vay:",
+        "instruction": "(Nhấn vào từng mục ở danh sách bên dưới để chuyển lên bảng đã chọn)",
+        "items": [
+            {
+                "id": "1",
+                "text": "Đánh giá thủ công sổ sách chứng từ bằng giấy"
+            },
+            {
+                "id": "2",
+                "text": "Sử dụng điểm tín dụng truyền thống (FICO score)"
+            },
+            {
+                "id": "3",
+                "text": "Thu thập dữ liệu lớn (Big Data) từ mạng xã hội"
+            },
+            {
+                "id": "4",
+                "text": "Mô hình AI tự động duyệt khoản vay trong thời gian thực"
+            }
+        ],
+        "correctOrder": [
+            "1",
+            "2",
+            "3",
+            "4"
+        ],
+        "explanation": "Từ thủ công -> Mô hình điểm số -> Big Data -> AI Real-time."
+    },
+    {
+        "type": "multiple_choice",
+        "difficulty": "Dễ",
+        "question": "Dịch vụ P2P (Peer-to-Peer) trong tài chính phi tập trung là gì?",
+        "options": [
+            {
+                "id": "a",
+                "text": "Giao dịch ngang hàng trực tiếp không qua trung gian"
+            },
+            {
+                "id": "b",
+                "text": "Quy trình nộp thuế tiêu thụ đặc biệt cho nhà nước"
+            },
+            {
+                "id": "c",
+                "text": "Hệ thống xếp hạng mức độ uy tín của các ngân hàng"
+            },
+            {
+                "id": "d",
+                "text": "Gửi tin nhắn sms quảng cáo bất động sản tự động"
+            }
+        ],
+        "correctAnswer": "a",
+        "explanation": "P2P (Ngang hàng) là giao dịch trực tiếp giữa 2 cá nhân/thực thể mà không cần có bên thứ 3."
+    },
+    {
+        "type": "matching",
+        "difficulty": "Trung bình",
+        "question": "Ghép các công cụ kỹ thuật số với chức năng chính:",
+        "left": [
+            {
+                "id": "l1",
+                "text": "AI (Trí tuệ nhân tạo)"
+            },
+            {
+                "id": "l2",
+                "text": "Blockchain"
+            },
+            {
+                "id": "l3",
+                "text": "Robo-Advisors"
+            }
+        ],
+        "right": [
+            {
+                "id": "r1",
+                "text": "Phân tích khối lượng dữ liệu khổng lồ để phát hiện mẫu"
+            },
+            {
+                "id": "r2",
+                "text": "Cung cấp sổ cái phi tập trung an toàn, không thể sửa đổi"
+            },
+            {
+                "id": "r3",
+                "text": "Tư vấn đầu tư tài chính tự động bằng thuật toán được lập sẵn"
+            }
+        ],
+        "correctPairs": {
+            "l1": "r1",
+            "l2": "r2",
+            "l3": "r3"
+        },
+        "explanation": "AI phân tích dữ liệu; Blockchain lưu trữ an toàn; Robo-Advisors hỗ trợ đầu tư."
+    },
+    {
+        "type": "fill_in_blanks",
+        "difficulty": "Khó",
+        "question": "Điền từ về tác động của Tài sản vô hình (Intangible assets):",
+        "instruction": "(Nhấn vào chỗ trống, sau đó nhấn vào từ bên dưới để điền)",
+        "text": "Trong nền kinh tế số, các đầu vào vô hình như <span class=\"blank-slot\" data-id=\"1\">___(1)___</span> và dữ liệu đóng vai trò quyết định, giúp các công ty công nghệ tạo ra giá trị khác biệt và giành lấy <span class=\"blank-slot\" data-id=\"2\">___(2)___</span> mạnh mẽ trên thị trường.",
+        "words": [
+            {
+                "id": "w1",
+                "text": "phần mềm"
+            },
+            {
+                "id": "w2",
+                "text": "lợi thế cạnh tranh"
+            },
+            {
+                "id": "w3",
+                "text": "nhà xưởng vật lý"
+            }
+        ],
+        "correctAnswers": {
+            "1": "w1",
+            "2": "w2"
+        },
+        "explanation": "Tài sản vô hình như phần mềm, dữ liệu, thuật toán giúp công ty có lợi thế cạnh tranh rất lớn so với tài sản vật lý."
+    },
+    {
+        "type": "ordering",
+        "difficulty": "Dễ",
+        "question": "Sắp xếp cấu trúc từ tập trung đến phi tập trung của dữ liệu người dùng:",
+        "instruction": "(Nhấn vào từng mục ở danh sách bên dưới để chuyển lên bảng đã chọn)",
+        "items": [
+            {
+                "id": "1",
+                "text": "Hồ sơ lưu trữ trên giấy tại chi nhánh ngân hàng"
+            },
+            {
+                "id": "2",
+                "text": "Lưu trữ máy chủ nội bộ tập trung của một ngân hàng"
+            },
+            {
+                "id": "3",
+                "text": "Điện toán đám mây với sự kiểm soát của nhà cung cấp dịch vụ"
+            },
+            {
+                "id": "4",
+                "text": "Lưu trữ phân tán trên mạng Blockchain (Không ai toàn quyền)"
+            }
+        ],
+        "correctOrder": [
+            "1",
+            "2",
+            "3",
+            "4"
+        ],
+        "explanation": "Lưu trữ giấy -> Máy chủ riêng -> Đám mây (tập trung) -> Blockchain (phi tập trung)."
+    },
+    {
+        "type": "multiple_choice",
+        "difficulty": "Trung bình",
+        "question": "Tiềm năng quan trọng nhất của Tài chính toàn diện (Financial Inclusion) là gì?",
+        "options": [
+            {
+                "id": "a",
+                "text": "Giúp người dân thu nhập thấp tiếp cận dịch vụ tài chính"
+            },
+            {
+                "id": "b",
+                "text": "Tăng phí giao dịch tại tất cả các quốc gia trên thế giới"
+            },
+            {
+                "id": "c",
+                "text": "Bắt buộc mọi người đều phải đầu tư vào tiền điện tử"
+            },
+            {
+                "id": "d",
+                "text": "Loại bỏ hoàn toàn tiền giấy trong vòng 1 tháng"
+            }
+        ],
+        "correctAnswer": "a",
+        "explanation": "Tài chính toàn diện nhằm cung cấp quyền tiếp cận dịch vụ ngân hàng, tín dụng, thanh toán cho mọi tầng lớp, đặc biệt là người nghèo."
+    }
+];
+
+    let currentQ = 0;
+    let score = 0;
+    let isAnswered = false;
+
+    // Shuffle utility
+    function shuffleArray(array) {
+        let curId = array.length, temp, randId;
+        while (0 !== curId) {
+            randId = Math.floor(Math.random() * curId);
+            curId -= 1;
+            temp = array[curId];
+            array[curId] = array[randId];
+            array[randId] = temp;
+        }
+        return array;
+    }
+
+    const contentDiv = document.getElementById('question-content');
+    const checkBtn = document.getElementById('btn-check');
+    const nextBtn = document.getElementById('btn-next');
+    const feedback = document.getElementById('feedback');
+    const feedbackTitle = document.getElementById('feedback-title');
+    const explanation = document.getElementById('explanation');
+
+    function renderQuestion() {
+        const q = questions[currentQ];
+        isAnswered = false;
+        checkBtn.style.display = 'inline-block';
+        nextBtn.style.display = 'none';
+        feedback.className = 'feedback-container';
+        
+        document.getElementById('question-counter').innerText = `Câu hỏi ${currentQ + 1} / ${questions.length}`;
+        document.getElementById('difficulty-badge').innerText = q.difficulty;
+        document.getElementById('progress-bar').style.width = `${(currentQ / questions.length) * 100}%`;
+        
+        let instruction = q.instruction ? `<p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: -10px;">${q.instruction}</p>` : '';
+        let html = `<div class="question-title">${q.question}</div>${instruction}`;
+
+        if (q.type === 'multiple_choice') {
+            html += `<div class="options-container">`;
+            q.options.forEach(opt => {
+                html += `
+                    <label class="option-label" id="label-${opt.id}">
+                        <input type="radio" name="mcq" value="${opt.id}" class="option-input" onclick="selectOption('${opt.id}')">
+                        <span>${opt.text}</span>
+                    </label>
+                `;
+            });
+            html += `</div>`;
+        } 
+        else if (q.type === 'ordering') {
+            let shuffled = shuffleArray([...q.items]);
+            html += `
+                <div class="ordering-selected" id="order-selected"></div>
+                <h4 style="margin: 0 0 10px 0; color: var(--text-secondary); font-size: 0.95rem;">Các mục có sẵn:</h4>
+                <div class="ordering-pool" id="order-pool">
+                    ${shuffled.map(item => `<div class="order-item" onclick="moveItem(this, '${item.id}')" data-id="${item.id}">${item.text}</div>`).join('')}
+                </div>
+            `;
+        }
+        else if (q.type === 'matching') {
+            let shuffledRight = shuffleArray([...q.right]);
+            html += `<div class="matching-container">`;
+            q.left.forEach(leftItem => {
+                let optionsHtml = `<option value="">-- Chọn đáp án --</option>` + 
+                    shuffledRight.map(r => `<option value="${r.id}">${r.text}</option>`).join('');
+                
+                html += `
+                    <div class="matching-row">
+                        <div class="matching-left">${leftItem.text}</div>
+                        <div class="matching-right">
+                            <select class="matching-select" id="match-${leftItem.id}">
+                                ${optionsHtml}
+                            </select>
+                        </div>
+                    </div>
+                `;
+            });
+            html += `</div>`;
+        }
+        else if (q.type === 'fill_in_blanks') {
+            html += `
+                <div class="fill-text">${q.text}</div>
+                <h4 style="margin: 0 0 10px 0; color: var(--text-secondary); font-size: 0.95rem;">Ngân hàng từ:</h4>
+                <div class="word-bank">
+                    ${q.words.map(w => `<div class="word-item" id="word-${w.id}" onclick="selectWord('${w.id}', '${w.text}')">${w.text}</div>`).join('')}
+                </div>
+            `;
+        }
+
+        contentDiv.innerHTML = html;
+        
+        // Add event listeners for blanks if needed
+        if (q.type === 'fill_in_blanks') {
+            document.querySelectorAll('.blank-slot').forEach(el => {
+                el.addEventListener('click', () => activateBlank(el));
+            });
+        }
+    }
+
+    // -- Logic for Multiple Choice --
+    function selectOption(id) {
+        if(isAnswered) return;
+        document.querySelectorAll('.option-label').forEach(el => el.classList.remove('selected'));
+        document.getElementById(`label-${id}`).classList.add('selected');
+    }
+
+    // -- Logic for Ordering --
+    window.moveItem = function(elem, id) {
+        if(isAnswered) return;
+        const pool = document.getElementById('order-pool');
+        const selected = document.getElementById('order-selected');
+        
+        if (elem.parentElement.id === 'order-pool') {
+            selected.appendChild(elem);
+        } else {
+            pool.appendChild(elem);
+        }
+    }
+
+    // -- Logic for Fill in blanks --
+    let activeBlank = null;
+    let blankAnswers = {};
+
+    window.activateBlank = function(elem) {
+        if(isAnswered) return;
+        document.querySelectorAll('.blank-slot').forEach(e => e.classList.remove('active'));
+        elem.classList.add('active');
+        activeBlank = elem;
+    }
+
+    window.selectWord = function(id, text) {
+        if(isAnswered) return;
+        if (!activeBlank) {
+            alert('Vui lòng chọn một chỗ trống trước!');
+            return;
+        }
+        
+        // If blank already has a word, un-use it
+        let blankId = activeBlank.getAttribute('data-id');
+        if (blankAnswers[blankId]) {
+            document.getElementById(`word-${blankAnswers[blankId]}`).classList.remove('used');
+        }
+        
+        // Set new word
+        activeBlank.innerText = text;
+        activeBlank.classList.remove('active');
+        blankAnswers[blankId] = id;
+        
+        document.getElementById(`word-${id}`).classList.add('used');
+        activeBlank = null;
+    }
+
+    // -- Checking Answers --
+    checkBtn.addEventListener('click', () => {
+        if (isAnswered) return;
+        const q = questions[currentQ];
+        let isCorrect = false;
+
+        if (q.type === 'multiple_choice') {
+            const selected = document.querySelector('input[name="mcq"]:checked');
+            if (!selected) return alert('Vui lòng chọn một đáp án!');
+            isCorrect = selected.value === q.correctAnswer;
+            
+            // Highlight
+            if(isCorrect) {
+                document.getElementById(`label-${selected.value}`).style.backgroundColor = '#e6f4ea';
+                document.getElementById(`label-${selected.value}`).style.borderColor = 'var(--success)';
+            } else {
+                document.getElementById(`label-${selected.value}`).style.backgroundColor = '#fce8e6';
+                document.getElementById(`label-${selected.value}`).style.borderColor = 'var(--error)';
+                document.getElementById(`label-${q.correctAnswer}`).style.backgroundColor = '#e6f4ea';
+                document.getElementById(`label-${q.correctAnswer}`).style.borderColor = 'var(--success)';
+            }
+        } 
+        else if (q.type === 'ordering') {
+            const selectedItems = Array.from(document.getElementById('order-selected').children).map(el => el.getAttribute('data-id'));
+            if (selectedItems.length < q.items.length) return alert('Vui lòng sắp xếp tất cả các mục!');
+            
+            isCorrect = JSON.stringify(selectedItems) === JSON.stringify(q.correctOrder);
+        }
+        else if (q.type === 'matching') {
+            let allSelected = true;
+            let correctCount = 0;
+            q.left.forEach(leftItem => {
+                const val = document.getElementById(`match-${leftItem.id}`).value;
+                if (!val) allSelected = false;
+                if (val === q.correctPairs[leftItem.id]) correctCount++;
+                
+                // UI feedback
+                const selectEl = document.getElementById(`match-${leftItem.id}`);
+                selectEl.disabled = true;
+                if (val === q.correctPairs[leftItem.id]) {
+                    selectEl.style.backgroundColor = '#e6f4ea';
+                    selectEl.style.borderColor = 'var(--success)';
+                } else {
+                    selectEl.style.backgroundColor = '#fce8e6';
+                    selectEl.style.borderColor = 'var(--error)';
+                }
+            });
+            if (!allSelected) return alert('Vui lòng ghép nối tất cả các mục!');
+            isCorrect = correctCount === q.left.length;
+        }
+        else if (q.type === 'fill_in_blanks') {
+            let allFilled = true;
+            let correctCount = 0;
+            Object.keys(q.correctAnswers).forEach(key => {
+                if (!blankAnswers[key]) allFilled = false;
+                if (blankAnswers[key] === q.correctAnswers[key]) correctCount++;
+            });
+            if (!allFilled) return alert('Vui lòng điền vào tất cả chỗ trống!');
+            isCorrect = correctCount === Object.keys(q.correctAnswers).length;
+            
+            // Lock UI
+            document.querySelectorAll('.blank-slot').forEach(el => el.style.cursor = 'default');
+            document.querySelectorAll('.word-item').forEach(el => el.style.cursor = 'default');
+        }
+
+        if (isCorrect) score++;
+
+        // Show feedback
+        feedback.className = `feedback-container show ${isCorrect ? 'correct' : 'incorrect'}`;
+        feedbackTitle.innerHTML = isCorrect ? '✅ Chính xác!' : '❌ Chưa chính xác!';
+        explanation.innerHTML = q.explanation;
+
+        isAnswered = true;
+        checkBtn.style.display = 'none';
+        nextBtn.style.display = 'inline-block';
+        blankAnswers = {}; // reset
+    });
+
+    nextBtn.addEventListener('click', () => {
+        currentQ++;
+        if (currentQ < questions.length) {
+            renderQuestion();
+        } else {
+            showResult();
+        }
+    });
+
+    function showResult() {
+        document.getElementById('quiz-screen').style.display = 'none';
+        const resScreen = document.getElementById('result-screen');
+        resScreen.style.display = 'block';
+        
+        document.getElementById('final-score').innerText = `${score}/${questions.length}`;
+        const pct = (score / questions.length) * 100;
+        document.getElementById('score-circle').style.background = `conic-gradient(var(--primary) ${pct}%, #e8eaed 0%)`;
+        
+        const msg = document.getElementById('result-message');
+        if(score === questions.length) msg.innerText = "Tuyệt vời! Bạn đã nắm vững toàn bộ kiến thức của Buổi 9.";
+        else if (score >= questions.length / 2) msg.innerText = "Làm tốt lắm! Hãy ôn tập lại một chút để đạt điểm tối đa nhé.";
+        else msg.innerText = "Cố gắng lên! Bạn nên đọc lại tài liệu Buổi 9 để củng cố kiến thức.";
+    }
+
+    // Initialize
+    renderQuestion();
+
+</script>
+
+</body>
+</html>

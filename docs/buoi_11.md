@@ -1174,7 +1174,7 @@ Trường hợp tiếp theo của Le Grind: Sử dụng số liệu thống kê 
 
 #### ** 🎬 Video **
 
-<iframe src="video/Day11/index.html" style="width: 100%; aspect-ratio: 16/9; max-height: 75vh; border: none; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"></iframe>
+<iframe src="video/Day11/index.html?v=1785919941" style="width: 100%; aspect-ratio: 16/9; max-height: 75vh; border: none; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"></iframe>
 
 #### ** 🎦 Slide Bài Giảng **
 
@@ -1183,4 +1183,41 @@ Trường hợp tiếp theo của Le Grind: Sử dụng số liệu thống kê 
 </object>
 <p style="text-align: right;"><a href="TaiLieu/slideAIAcc/Slide_AIAcc_Day11.pdf#view=FitH" target="_blank" style="font-weight: bold; color: #0056b3;">📥 Tải về Slide Bài Giảng (PDF)</a></p>
 
+#### ** 📝 Bài tập Trắc nghiệm **
+
+<iframe src="quizzes/Day11/index.html?v=1785919941" style="width: 100%; min-height: 700px; border: none; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"></iframe>
+
+
+#### ** ✍️ Bài tập Luyện tập **
+
+**Bài tập 1: Phân biệt dữ liệu Structured vs Unstructured (Độ khó: Dễ)**
+Theo Chương 2, hãy cho ví dụ về Dữ liệu có cấu trúc (Structured) và Dữ liệu phi cấu trúc (Unstructured) trong hệ thống tài chính của một doanh nghiệp.
+<details>
+<summary>💡 Gợi ý trả lời (Click để xem)</summary>
+
+- Structured Data: Sổ cái kế toán, Bảng cân đối, số lượng hàng tồn kho (dữ liệu dạng bảng biểu, số liệu rõ ràng trong CSDL quan hệ).
+- Unstructured Data: Email trao đổi của ban giám đốc, hình ảnh hóa đơn viết tay, đoạn ghi âm cuộc gọi của khách hàng đến phòng CSKH.
+</details>
+<br>
+
+**Bài tập 2: Làm sạch dữ liệu - Data Cleansing (Độ khó: Trung bình)**
+Làm sạch dữ liệu là bước tốn nhiều thời gian nhất (chiếm 80% thời gian phân tích). Nêu 3 lỗi dữ liệu phổ biến cần xử lý trước khi chạy mô hình phân tích rủi ro.
+<details>
+<summary>💡 Gợi ý trả lời (Click để xem)</summary>
+
+- 1. Missing values (Dữ liệu bị thiếu hoặc rỗng, ví dụ thiếu ngày sinh khách hàng).
+- 2. Duplicates (Dữ liệu bị lặp lại nhiều lần do lỗi hệ thống).
+- 3. Outliers (Dữ liệu ngoại lai phi lý, ví dụ tuổi = 999).
+</details>
+<br>
+
+**Bài tập 3: Độ lệch chuẩn (Standard Deviation) trong đo lường rủi ro (Độ khó: Khó)**
+Độ lệch chuẩn đo lường điều gì trong thống kê phân tích? Tại sao dữ liệu lợi nhuận tài chính có độ lệch chuẩn cao lại được coi là mang tính rủi ro nguy hiểm?
+<details>
+<summary>💡 Gợi ý trả lời (Click để xem)</summary>
+
+- Độ lệch chuẩn đo lường mức độ phân tán của dữ liệu xung quanh giá trị trung bình.
+- Lợi nhuận có độ lệch chuẩn cao nghĩa là nó dao động biên độ rất mạnh (tháng lãi lớn, tháng lỗ nặng). Sự biến động (Volatility) khó đoán định này chính là định nghĩa cốt lõi của Rủi ro tài chính.
+</details>
+<br>
 <!-- tabs:end -->

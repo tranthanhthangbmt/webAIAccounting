@@ -1,0 +1,1563 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài Tập Trắc Nghiệm Buổi 12</title>
+    <style>
+        :root {
+            --primary: #1a73e8;
+            --primary-hover: #1557b0;
+            --bg: #f8f9fa;
+            --card-bg: #ffffff;
+            --text: #202124;
+            --text-secondary: #5f6368;
+            --border: #dadce0;
+            --success: #1e8e3e;
+            --error: #d93025;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .quiz-container {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 800px;
+            padding: 30px;
+            box-sizing: border-box;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .progress-bar-container {
+            width: 100%;
+            background-color: #e8eaed;
+            border-radius: 8px;
+            height: 10px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background-color: var(--primary);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .question-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        /* Multiple Choice */
+        .options-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .option-label {
+            display: flex;
+            align-items: center;
+            padding: 12px 16px;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .option-label:hover {
+            border-color: var(--primary);
+            background-color: #f1f3f4;
+        }
+
+        .option-label.selected {
+            border-color: var(--primary);
+            background-color: #e8f0fe;
+        }
+
+        .option-input {
+            margin-right: 12px;
+            transform: scale(1.2);
+            cursor: pointer;
+        }
+
+        /* Matching */
+        .matching-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .matching-row {
+            display: flex;
+            align-items: stretch;
+            gap: 15px;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .matching-left {
+            flex: 1;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+        }
+
+        .matching-right {
+            flex: 2;
+        }
+
+        .matching-select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            font-family: inherit;
+            font-size: 0.95rem;
+            outline: none;
+        }
+        
+        .matching-select:focus {
+            border-color: var(--primary);
+        }
+
+        /* Ordering */
+        .ordering-pool, .ordering-selected {
+            min-height: 50px;
+            padding: 15px;
+            border: 2px dashed var(--border);
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .ordering-selected {
+            border-color: var(--primary);
+            background-color: #f8faff;
+        }
+
+        .order-item {
+            background: white;
+            padding: 12px 16px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            cursor: pointer;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            transition: transform 0.1s, box-shadow 0.1s;
+            display: flex;
+            align-items: center;
+        }
+
+        .order-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-color: var(--primary);
+        }
+        
+        .ordering-selected .order-item::before {
+            content: counter(order-counter) ". ";
+            counter-increment: order-counter;
+            font-weight: bold;
+            color: var(--primary);
+            margin-right: 10px;
+        }
+        
+        .ordering-selected {
+            counter-reset: order-counter;
+        }
+
+        /* Fill in Blanks */
+        .fill-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .blank-slot {
+            display: inline-block;
+            min-width: 150px;
+            height: 30px;
+            border-bottom: 2px solid var(--primary);
+            margin: 0 5px;
+            vertical-align: bottom;
+            text-align: center;
+            font-weight: 600;
+            color: var(--primary);
+            cursor: pointer;
+            padding: 0 10px;
+            background-color: #f8faff;
+            border-radius: 4px 4px 0 0;
+            transition: background-color 0.2s;
+        }
+        
+        .blank-slot.active {
+            background-color: #e8f0fe;
+            border-bottom: 3px solid var(--primary);
+        }
+
+        .word-bank {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 15px;
+            background: #f1f3f4;
+            border-radius: 8px;
+        }
+
+        .word-item {
+            background: white;
+            padding: 8px 16px;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        
+        .word-item:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        .word-item.used {
+            opacity: 0.5;
+            pointer-events: none;
+            background: #e8eaed;
+        }
+
+        /* Actions */
+        .actions {
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 10px 24px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .btn-primary:disabled {
+            background-color: #8ab4f8;
+            cursor: not-allowed;
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background-color: #f8faff;
+        }
+
+        /* Feedback */
+        .feedback-container {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .feedback-container.show {
+            display: block;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .feedback-container.correct {
+            background-color: #e6f4ea;
+            border: 1px solid var(--success);
+        }
+
+        .feedback-container.incorrect {
+            background-color: #fce8e6;
+            border: 1px solid var(--error);
+        }
+
+        .feedback-title {
+            font-weight: bold;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .correct .feedback-title { color: var(--success); }
+        .incorrect .feedback-title { color: var(--error); }
+
+        .explanation {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: var(--text-secondary);
+        }
+        
+        /* Result Screen */
+        .result-screen {
+            text-align: center;
+            padding: 40px 20px;
+        }
+        
+        .score-circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: conic-gradient(var(--primary) 0%, #e8eaed 0%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            position: relative;
+        }
+        
+        .score-inner {
+            width: 120px;
+            height: 120px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        
+        .score-text {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+        
+        .score-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="quiz-container">
+    <div id="quiz-screen">
+        <div class="header">
+            <span id="question-counter" style="font-weight: 600; color: var(--text-secondary);">Câu hỏi 1 / 6</span>
+            <span class="badge" style="background: #e8eaed; padding: 4px 10px; border-radius: 12px; font-size: 0.85rem; font-weight: 600;" id="difficulty-badge">Dễ</span>
+        </div>
+        <div class="progress-bar-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+
+        <div id="question-content">
+            <!-- Content gets injected here -->
+        </div>
+
+        <div class="feedback-container" id="feedback">
+            <div class="feedback-title" id="feedback-title"></div>
+            <div class="explanation" id="explanation"></div>
+        </div>
+
+        <div class="actions">
+            <button class="btn btn-primary" id="btn-check">Kiểm tra</button>
+            <button class="btn btn-primary" id="btn-next" style="display: none;">Tiếp theo</button>
+        </div>
+    </div>
+    
+    <div id="result-screen" class="result-screen" style="display: none;">
+        <h2>Chúc mừng bạn đã hoàn thành!</h2>
+        <div class="score-circle" id="score-circle">
+            <div class="score-inner">
+                <span class="score-text" id="final-score">0/6</span>
+                <span class="score-label">Điểm</span>
+            </div>
+        </div>
+        <p id="result-message" style="margin-bottom: 30px; font-size: 1.1rem; color: var(--text-secondary);"></p>
+        <button class="btn btn-outline" onclick="location.reload()">Làm lại bài kiểm tra</button>
+    </div>
+</div>
+
+<script>
+    const questions = [
+    {
+        "type": "multiple_choice",
+        "difficulty": "Dễ",
+        "question": "Trí tuệ nhân tạo sáng tạo (Generative AI - GAI) trong kế toán đại diện cho điều gì?",
+        "options": [
+            {
+                "id": "a",
+                "text": "Sự thay đổi mô hình xử lý, phân tích dữ liệu tài chính"
+            },
+            {
+                "id": "b",
+                "text": "Việc cấm hoàn toàn kế toán viên làm báo cáo thủ công"
+            },
+            {
+                "id": "c",
+                "text": "Hệ thống tự động in toàn bộ hóa đơn ra giấy A4"
+            },
+            {
+                "id": "d",
+                "text": "Máy móc vật lý thay thế 100% nhân sự văn phòng"
+            }
+        ],
+        "correctAnswer": "a",
+        "explanation": "GAI không chỉ là công cụ mà còn là sự thay đổi mô hình (paradigm shift) trong cách kế toán xử lý và phân tích dữ liệu."
+    },
+    {
+        "type": "multiple_choice",
+        "difficulty": "Trung bình",
+        "question": "Điều kiện tiên quyết nào KHÔNG phải là công cụ công nghệ nhưng lại rất quan trọng để tiếp cận AI?",
+        "options": [
+            {
+                "id": "a",
+                "text": "Sự tò mò trí tuệ (Intellectual Curiosity)"
+            },
+            {
+                "id": "b",
+                "text": "Phần mềm chống vi-rút bản quyền rất đắt"
+            },
+            {
+                "id": "c",
+                "text": "Máy quét tài liệu siêu tốc chuyên nghiệp"
+            },
+            {
+                "id": "d",
+                "text": "Một trung tâm dữ liệu khổng lồ cá nhân"
+            }
+        ],
+        "correctAnswer": "a",
+        "explanation": "Sự tò mò trí tuệ là nền tảng tư duy, giúp người dùng sẵn sàng khám phá và thử nghiệm phương thức mới với AI."
+    },
+    {
+        "type": "matching",
+        "difficulty": "Dễ",
+        "question": "Ghép các công cụ phần mềm với chức năng chính của chúng khi kết hợp AI:",
+        "left": [
+            {
+                "id": "l1",
+                "text": "QuickBooks Online"
+            },
+            {
+                "id": "l2",
+                "text": "Tableau"
+            },
+            {
+                "id": "l3",
+                "text": "IBM Cognos Analytics"
+            }
+        ],
+        "right": [
+            {
+                "id": "r1",
+                "text": "Xử lý, tự động hóa sổ sách, phân loại chi phí"
+            },
+            {
+                "id": "r2",
+                "text": "Trực quan hóa dữ liệu bằng các biểu đồ dễ hiểu"
+            },
+            {
+                "id": "r3",
+                "text": "Thực hiện phân tích dự đoán và lập kế hoạch"
+            }
+        ],
+        "correctPairs": {
+            "l1": "r1",
+            "l2": "r2",
+            "l3": "r3"
+        },
+        "explanation": "QuickBooks cho sổ sách; Tableau để trực quan hóa; IBM Cognos mạnh về phân tích dự đoán."
+    },
+    {
+        "type": "ordering",
+        "difficulty": "Trung bình",
+        "question": "Sắp xếp lộ trình chiến lược triển khai AI vào phòng kế toán doanh nghiệp:",
+        "instruction": "(Nhấn vào từng mục ở danh sách bên dưới để chuyển lên bảng đã chọn)",
+        "items": [
+            {
+                "id": "1",
+                "text": "Đánh giá quy trình hiện tại và lập kế hoạch chiến lược"
+            },
+            {
+                "id": "2",
+                "text": "Lựa chọn công cụ AI phù hợp với nhu cầu doanh nghiệp"
+            },
+            {
+                "id": "3",
+                "text": "Đào tạo nhân viên và triển khai áp dụng theo từng giai đoạn"
+            },
+            {
+                "id": "4",
+                "text": "Giám sát hiệu suất, thu thập phản hồi và cải tiến liên tục"
+            }
+        ],
+        "correctOrder": [
+            "1",
+            "2",
+            "3",
+            "4"
+        ],
+        "explanation": "Đánh giá -> Lựa chọn công cụ -> Đào tạo & Triển khai -> Giám sát và Cải tiến."
+    },
+    {
+        "type": "fill_in_blanks",
+        "difficulty": "Trung bình",
+        "question": "Điền từ về vai trò của AI trong phân tích dự đoán:",
+        "instruction": "(Nhấn vào chỗ trống, sau đó nhấn vào từ bên dưới để điền)",
+        "text": "AI phân tích các mẫu dữ liệu <span class=\"blank-slot\" data-id=\"1\">___(1)___</span> để dự đoán các kịch bản tài chính trong <span class=\"blank-slot\" data-id=\"2\">___(2)___</span>.",
+        "words": [
+            {
+                "id": "w1",
+                "text": "lịch sử"
+            },
+            {
+                "id": "w2",
+                "text": "tương lai"
+            },
+            {
+                "id": "w3",
+                "text": "phi thực tế"
+            }
+        ],
+        "correctAnswers": {
+            "1": "w1",
+            "2": "w2"
+        },
+        "explanation": "Phân tích dự đoán sử dụng dữ liệu quá khứ (lịch sử) để dự đoán xu hướng tương lai."
+    },
+    {
+        "type": "multiple_choice",
+        "difficulty": "Khó",
+        "question": "Sự khác biệt chính của Custom GPTs so với công cụ ChatGPT thông thường là gì?",
+        "options": [
+            {
+                "id": "a",
+                "text": "Có thể tích hợp dữ liệu, hướng dẫn nghiệp vụ và API riêng"
+            },
+            {
+                "id": "b",
+                "text": "Luôn luôn phản hồi nhanh hơn gấp 10 lần bản gốc"
+            },
+            {
+                "id": "c",
+                "text": "Chỉ hoạt động được trên các máy tính Apple Macbook"
+            },
+            {
+                "id": "d",
+                "text": "Yêu cầu người dùng phải tự viết toàn bộ mã nguồn"
+            }
+        ],
+        "correctAnswer": "a",
+        "explanation": "Custom GPTs cho phép người dùng tùy chỉnh sâu bằng cách nạp dữ liệu riêng, cài đặt hướng dẫn cụ thể và kết nối API/Actions."
+    },
+    {
+        "type": "multiple_choice",
+        "difficulty": "Dễ",
+        "question": "Thuật ngữ 'Data Literacy' (Hiểu biết về dữ liệu) nghĩa là gì?",
+        "options": [
+            {
+                "id": "a",
+                "text": "Khả năng đọc, quản lý và giao tiếp qua dữ liệu"
+            },
+            {
+                "id": "b",
+                "text": "Chỉ đọc được mã nhị phân của các hệ thống"
+            },
+            {
+                "id": "c",
+                "text": "Viết được ngôn ngữ lập trình Python thuần thục"
+            },
+            {
+                "id": "d",
+                "text": "Tốc độ gõ phím và nhập số liệu thật nhanh chóng"
+            }
+        ],
+        "correctAnswer": "a",
+        "explanation": "Data Literacy là khả năng đọc, hiểu, quản lý và giao tiếp hiệu quả với dữ liệu."
+    },
+    {
+        "type": "matching",
+        "difficulty": "Khó",
+        "question": "Ghép các công ty (Case studies) với thách thức và giải pháp AI của họ:",
+        "left": [
+            {
+                "id": "l1",
+                "text": "Brewed Awakenings (Doanh nghiệp nhỏ)"
+            },
+            {
+                "id": "l2",
+                "text": "Cityscape Consulting (Công ty tư vấn)"
+            },
+            {
+                "id": "l3",
+                "text": "GlobalTech Enterprises (Tập đoàn đa quốc gia)"
+            }
+        ],
+        "right": [
+            {
+                "id": "r1",
+                "text": "Theo dõi chi phí tự động qua QuickBooks"
+            },
+            {
+                "id": "r2",
+                "text": "Quản lý ngân sách dự án phức tạp bằng Xero"
+            },
+            {
+                "id": "r3",
+                "text": "Quản lý luật thuế đa dạng bằng IBM Watson"
+            }
+        ],
+        "correctPairs": {
+            "l1": "r1",
+            "l2": "r2",
+            "l3": "r3"
+        },
+        "explanation": "Brewed Awakenings dùng QuickBooks; Cityscape dùng Xero; GlobalTech dùng IBM Watson."
+    },
+    {
+        "type": "fill_in_blanks",
+        "difficulty": "Trung bình",
+        "question": "Điền từ về hiện tượng ảo giác AI:",
+        "instruction": "(Nhấn vào chỗ trống, sau đó nhấn vào từ bên dưới để điền)",
+        "text": "Mặc dù GPT rất thông minh, hiện tượng <span class=\"blank-slot\" data-id=\"1\">___(1)___</span> (hallucination) vẫn có thể xảy ra, do đó kế toán viên luôn phải dùng tư duy chuyên môn để <span class=\"blank-slot\" data-id=\"2\">___(2)___</span> thông tin.",
+        "words": [
+            {
+                "id": "w1",
+                "text": "ảo giác"
+            },
+            {
+                "id": "w2",
+                "text": "kiểm chứng"
+            },
+            {
+                "id": "w3",
+                "text": "tin tưởng"
+            }
+        ],
+        "correctAnswers": {
+            "1": "w1",
+            "2": "w2"
+        },
+        "explanation": "Ảo giác (Hallucination) là khi AI bịa ra thông tin sai lệch nhưng diễn đạt rất tự tin. Cần phải kiểm chứng (verify)."
+    },
+    {
+        "type": "ordering",
+        "difficulty": "Khó",
+        "question": "Sắp xếp các bước GPT tùy chỉnh thực hiện khi có kết nối API (Actions):",
+        "instruction": "(Nhấn vào từng mục ở danh sách bên dưới để chuyển lên bảng đã chọn)",
+        "items": [
+            {
+                "id": "1",
+                "text": "Người dùng đưa ra yêu cầu bằng ngôn ngữ tự nhiên"
+            },
+            {
+                "id": "2",
+                "text": "GPT nhận diện ý định và chuẩn bị tham số gọi API"
+            },
+            {
+                "id": "3",
+                "text": "GPT gửi truy vấn đến hệ thống cơ sở dữ liệu bên ngoài"
+            },
+            {
+                "id": "4",
+                "text": "GPT nhận kết quả trả về, tóm tắt và phản hồi người dùng"
+            }
+        ],
+        "correctOrder": [
+            "1",
+            "2",
+            "3",
+            "4"
+        ],
+        "explanation": "Nhận lệnh -> Xử lý tham số -> Gọi API ngoài -> Trả kết quả cho người dùng."
+    },
+    {
+        "type": "multiple_choice",
+        "difficulty": "Trung bình",
+        "question": "Lợi ích lớn nhất của việc GAI tự động hóa các phép tính phức tạp (như khấu hao, ước tính thuế) là gì?",
+        "options": [
+            {
+                "id": "a",
+                "text": "Nâng cao tốc độ, độ chính xác và giảm thiểu sai sót"
+            },
+            {
+                "id": "b",
+                "text": "Giúp ngân sách công ty không phải đóng thuế thu nhập"
+            },
+            {
+                "id": "c",
+                "text": "Xóa bỏ hoàn toàn quy định về kiểm toán doanh nghiệp"
+            },
+            {
+                "id": "d",
+                "text": "Khiến việc đào tạo kế toán viên mới trở nên vô dụng"
+            }
+        ],
+        "correctAnswer": "a",
+        "explanation": "AI thực hiện phép tính với tốc độ cao và ít sai sót hơn con người, giúp tăng tính tuân thủ."
+    },
+    {
+        "type": "multiple_choice",
+        "difficulty": "Dễ",
+        "question": "GPT Store (Cửa hàng GPT) mang lại tiện ích gì cho cộng đồng người dùng?",
+        "options": [
+            {
+                "id": "a",
+                "text": "Cung cấp hàng ngàn GPT tùy chỉnh để khám phá và sử dụng"
+            },
+            {
+                "id": "b",
+                "text": "Là nơi mua bán thiết bị điện tử, phần cứng siêu máy tính"
+            },
+            {
+                "id": "c",
+                "text": "Cho phép tải các game di động hoàn toàn miễn phí"
+            },
+            {
+                "id": "d",
+                "text": "Chuyên phân phối các tài liệu mật của chính phủ các nước"
+            }
+        ],
+        "correctAnswer": "a",
+        "explanation": "GPT Store giống như App Store nhưng dành cho các Custom GPTs được cộng đồng xây dựng."
+    },
+    {
+        "type": "matching",
+        "difficulty": "Trung bình",
+        "question": "Ghép các kỹ năng cần thiết với ý nghĩa của nó đối với kế toán viên thời đại AI:",
+        "left": [
+            {
+                "id": "l1",
+                "text": "Data Literacy (Hiểu dữ liệu)"
+            },
+            {
+                "id": "l2",
+                "text": "Critical Thinking (Tư duy phê phán)"
+            },
+            {
+                "id": "l3",
+                "text": "Continuous Learning (Học tập liên tục)"
+            }
+        ],
+        "right": [
+            {
+                "id": "r1",
+                "text": "Nền tảng để điều hướng các nền tảng phân tích tài chính"
+            },
+            {
+                "id": "r2",
+                "text": "Chìa khóa để đánh giá tính xác thực của thông tin từ AI"
+            },
+            {
+                "id": "r3",
+                "text": "Bắt kịp tốc độ cải tiến công nghệ và quy định nghề nghiệp"
+            }
+        ],
+        "correctPairs": {
+            "l1": "r1",
+            "l2": "r2",
+            "l3": "r3"
+        },
+        "explanation": "Data Literacy để làm việc với dữ liệu; Critical thinking để thẩm định AI; Continuous learning để không bị tụt hậu."
+    },
+    {
+        "type": "fill_in_blanks",
+        "difficulty": "Khó",
+        "question": "Điền từ về rủi ro của Custom GPTs:",
+        "instruction": "(Nhấn vào chỗ trống, sau đó nhấn vào từ bên dưới để điền)",
+        "text": "Khi tải lên các tài liệu tài chính nhạy cảm vào GPT, tổ chức phải đối mặt với thách thức lớn về <span class=\"blank-slot\" data-id=\"1\">___(1)___</span> và đảm bảo không xảy ra sự cố <span class=\"blank-slot\" data-id=\"2\">___(2)___</span> thông tin.",
+        "words": [
+            {
+                "id": "w1",
+                "text": "quyền riêng tư"
+            },
+            {
+                "id": "w2",
+                "text": "rò rỉ"
+            },
+            {
+                "id": "w3",
+                "text": "biến động giá"
+            }
+        ],
+        "correctAnswers": {
+            "1": "w1",
+            "2": "w2"
+        },
+        "explanation": "Quyền riêng tư (Privacy) và rò rỉ dữ liệu (Data leakage) là 2 rủi ro hàng đầu khi đưa tài liệu mật vào AI."
+    },
+    {
+        "type": "ordering",
+        "difficulty": "Trung bình",
+        "question": "Các bước cơ bản để tạo một Custom GPT riêng trong ChatGPT:",
+        "instruction": "(Nhấn vào từng mục ở danh sách bên dưới để chuyển lên bảng đã chọn)",
+        "items": [
+            {
+                "id": "1",
+                "text": "Mở tab Explore và chọn 'Create a GPT'"
+            },
+            {
+                "id": "2",
+                "text": "Nhập hướng dẫn (Instructions) chi tiết về vai trò của GPT"
+            },
+            {
+                "id": "3",
+                "text": "Tải lên các tệp dữ liệu kiến thức bổ sung (Knowledge files)"
+            },
+            {
+                "id": "4",
+                "text": "Lưu và tùy chọn quyền chia sẻ (Chỉ mình tôi, Mọi người...)"
+            }
+        ],
+        "correctOrder": [
+            "1",
+            "2",
+            "3",
+            "4"
+        ],
+        "explanation": "Tạo mới -> Cấp lệnh hướng dẫn -> Nạp tài liệu tri thức -> Xuất bản (Save)."
+    },
+    {
+        "type": "multiple_choice",
+        "difficulty": "Trung bình",
+        "question": "Tính năng Actions trong Custom GPTs cho phép nó làm gì?",
+        "options": [
+            {
+                "id": "a",
+                "text": "Kết nối và tương tác với các hệ thống phần mềm bên ngoài"
+            },
+            {
+                "id": "b",
+                "text": "Hoạt động mà không cần kết nối mạng internet"
+            },
+            {
+                "id": "c",
+                "text": "Tự động tắt nguồn máy tính khi xong công việc"
+            },
+            {
+                "id": "d",
+                "text": "Viết mã độc để tấn công máy chủ của ngân hàng"
+            }
+        ],
+        "correctAnswer": "a",
+        "explanation": "Actions sử dụng API để kết nối với cơ sở dữ liệu hoặc hệ thống SaaS bên ngoài."
+    },
+    {
+        "type": "matching",
+        "difficulty": "Dễ",
+        "question": "Ghép các ứng dụng của AI với bộ phận hoặc nghiệp vụ tương ứng:",
+        "left": [
+            {
+                "id": "l1",
+                "text": "Tự động phân loại chi phí"
+            },
+            {
+                "id": "l2",
+                "text": "Trợ lý hỗ trợ khách hàng 24/7"
+            },
+            {
+                "id": "l3",
+                "text": "Phân tích dự báo dòng tiền"
+            }
+        ],
+        "right": [
+            {
+                "id": "r1",
+                "text": "Nghiệp vụ hạch toán, kế toán sổ sách"
+            },
+            {
+                "id": "r2",
+                "text": "Chăm sóc khách hàng và tư vấn dịch vụ"
+            },
+            {
+                "id": "r3",
+                "text": "Quản trị tài chính chiến lược"
+            }
+        ],
+        "correctPairs": {
+            "l1": "r1",
+            "l2": "r2",
+            "l3": "r3"
+        },
+        "explanation": "Phân loại chi phí thuộc hạch toán; Hỗ trợ 24/7 thuộc CSKH; Dự báo thuộc quản trị chiến lược."
+    },
+    {
+        "type": "multiple_choice",
+        "difficulty": "Khó",
+        "question": "Tại sao việc áp dụng AI theo từng giai đoạn (phased integration) lại được khuyến khích?",
+        "options": [
+            {
+                "id": "a",
+                "text": "Tránh làm gián đoạn hệ thống và giúp nhân viên dễ thích nghi"
+            },
+            {
+                "id": "b",
+                "text": "Vì các công cụ AI không thể xử lý dữ liệu cùng một lúc"
+            },
+            {
+                "id": "c",
+                "text": "Để chi phí bản quyền phần mềm rẻ hơn đáng kể mỗi năm"
+            },
+            {
+                "id": "d",
+                "text": "Tránh việc cơ quan thuế phát hiện doanh nghiệp gian lận"
+            }
+        ],
+        "correctAnswer": "a",
+        "explanation": "Tích hợp từng giai đoạn giảm thiểu rủi ro gián đoạn quy trình kinh doanh và cho phép người dùng có thời gian học hỏi."
+    },
+    {
+        "type": "fill_in_blanks",
+        "difficulty": "Dễ",
+        "question": "Điền từ về tác động của AI đối với lỗi con người:",
+        "instruction": "(Nhấn vào chỗ trống, sau đó nhấn vào từ bên dưới để điền)",
+        "text": "Việc tự động hóa các phép tính giúp giảm đáng kể <span class=\"blank-slot\" data-id=\"1\">___(1)___</span>, qua đó đảm bảo tính <span class=\"blank-slot\" data-id=\"2\">___(2)___</span> trong báo cáo tài chính.",
+        "words": [
+            {
+                "id": "w1",
+                "text": "lỗi thủ công"
+            },
+            {
+                "id": "w2",
+                "text": "chính xác"
+            },
+            {
+                "id": "w3",
+                "text": "sáng tạo"
+            }
+        ],
+        "correctAnswers": {
+            "1": "w1",
+            "2": "w2"
+        },
+        "explanation": "AI giảm lỗi nhập liệu thủ công (human errors) để tăng độ chính xác."
+    },
+    {
+        "type": "multiple_choice",
+        "difficulty": "Trung bình",
+        "question": "Hỗ trợ đa phương tiện nâng cao của Custom GPTs mang lại lợi ích gì?",
+        "options": [
+            {
+                "id": "a",
+                "text": "Đọc file PDF, phân tích Excel và xử lý hình ảnh cùng lúc"
+            },
+            {
+                "id": "b",
+                "text": "Chỉ phát nhạc nền khi người dùng đọc báo cáo tài chính"
+            },
+            {
+                "id": "c",
+                "text": "Cho phép thay đổi phông chữ của toàn bộ hệ điều hành"
+            },
+            {
+                "id": "d",
+                "text": "Tự động thiết kế văn phòng ảo 3D cho các kiểm toán viên"
+            }
+        ],
+        "correctAnswer": "a",
+        "explanation": "Khả năng Multimodal của GPT-4 cho phép xử lý đồng thời văn bản, hình ảnh, file PDF và bảng tính Excel."
+    },
+    {
+        "type": "ordering",
+        "difficulty": "Dễ",
+        "question": "Trình tự thao tác với GPT Trợ lý Kế toán để trích xuất hóa đơn:",
+        "instruction": "(Nhấn vào từng mục ở danh sách bên dưới để chuyển lên bảng đã chọn)",
+        "items": [
+            {
+                "id": "1",
+                "text": "Tải file ảnh hoặc PDF hóa đơn lên khung chat của GPT"
+            },
+            {
+                "id": "2",
+                "text": "Viết prompt: 'Hãy trích xuất tên công ty, mã số thuế, tổng tiền'"
+            },
+            {
+                "id": "3",
+                "text": "GPT xử lý hình ảnh và hiển thị kết quả bằng bảng"
+            },
+            {
+                "id": "4",
+                "text": "Người dùng sao chép bảng kết quả vào phần mềm kế toán"
+            }
+        ],
+        "correctOrder": [
+            "1",
+            "2",
+            "3",
+            "4"
+        ],
+        "explanation": "Upload file -> Ra lệnh prompt -> Chờ AI xử lý -> Sao chép dữ liệu hoàn thiện."
+    },
+    {
+        "type": "matching",
+        "difficulty": "Khó",
+        "question": "Ghép các công cụ bảo mật, quản trị dữ liệu với ứng dụng của chúng trong AI:",
+        "left": [
+            {
+                "id": "l1",
+                "text": "Mã hóa dữ liệu (Encryption)"
+            },
+            {
+                "id": "l2",
+                "text": "Tuân thủ GDPR / CCPA"
+            },
+            {
+                "id": "l3",
+                "text": "Quản lý truy cập (Access Control)"
+            }
+        ],
+        "right": [
+            {
+                "id": "r1",
+                "text": "Bảo vệ an toàn cho dữ liệu trong lúc truyền tải và lưu trữ"
+            },
+            {
+                "id": "r2",
+                "text": "Đảm bảo quyền riêng tư và quyền lợi dữ liệu hợp pháp"
+            },
+            {
+                "id": "r3",
+                "text": "Chỉ cấp quyền cho nhân sự được phân quyền trong hệ thống"
+            }
+        ],
+        "correctPairs": {
+            "l1": "r1",
+            "l2": "r2",
+            "l3": "r3"
+        },
+        "explanation": "Mã hóa bảo vệ dữ liệu vật lý; GDPR quy định luật quyền riêng tư; Access control bảo vệ người dùng."
+    },
+    {
+        "type": "multiple_choice",
+        "difficulty": "Trung bình",
+        "question": "Trong giáo dục nội bộ, một Custom GPT (Tutor GPT) có thể giúp gì cho nhân sự mới?",
+        "options": [
+            {
+                "id": "a",
+                "text": "Giải thích chi tiết các chuẩn mực kế toán một cách dễ hiểu"
+            },
+            {
+                "id": "b",
+                "text": "Chấm công và trừ lương tự động nếu nhân viên đến muộn"
+            },
+            {
+                "id": "c",
+                "text": "Thay thế nhân sự quản lý cấp cao ra quyết định đuổi việc"
+            },
+            {
+                "id": "d",
+                "text": "Mua hộ thức ăn nhanh và cà phê trong giờ nghỉ giải lao"
+            }
+        ],
+        "correctAnswer": "a",
+        "explanation": "Tutor GPT hoạt động như gia sư ảo, hỗ trợ nhân sự mới tra cứu và hiểu các nghiệp vụ kế toán phức tạp."
+    },
+    {
+        "type": "fill_in_blanks",
+        "difficulty": "Trung bình",
+        "question": "Điền từ về sự chuyển dịch trong ngành kế toán:",
+        "instruction": "(Nhấn vào chỗ trống, sau đó nhấn vào từ bên dưới để điền)",
+        "text": "Lĩnh vực kế toán đang chứng kiến một cuộc cách mạng mang tính <span class=\"blank-slot\" data-id=\"1\">___(1)___</span> nhờ AI. Các nhiệm vụ <span class=\"blank-slot\" data-id=\"2\">___(2)___</span> và lặp đi lặp lại đang dần được tự động hóa.",
+        "words": [
+            {
+                "id": "w1",
+                "text": "biến đổi"
+            },
+            {
+                "id": "w2",
+                "text": "thủ công"
+            },
+            {
+                "id": "w3",
+                "text": "vui nhộn"
+            }
+        ],
+        "correctAnswers": {
+            "1": "w1",
+            "2": "w2"
+        },
+        "explanation": "Kế toán chuyển đổi từ các quy trình thủ công sang tự động hóa thông minh."
+    },
+    {
+        "type": "ordering",
+        "difficulty": "Trung bình",
+        "question": "Sắp xếp cấp độ tương tác từ đơn giản đến phức tạp khi sử dụng ChatGPT:",
+        "instruction": "(Nhấn vào từng mục ở danh sách bên dưới để chuyển lên bảng đã chọn)",
+        "items": [
+            {
+                "id": "1",
+                "text": "Hỏi đáp kiến thức chung bằng phiên bản ChatGPT mặc định"
+            },
+            {
+                "id": "2",
+                "text": "Viết prompt có cấu trúc và đính kèm file dữ liệu PDF"
+            },
+            {
+                "id": "3",
+                "text": "Sử dụng Custom GPT được huấn luyện sẵn dữ liệu nội bộ"
+            },
+            {
+                "id": "4",
+                "text": "Cấu hình Custom GPT tích hợp API gọi lệnh ra bên ngoài"
+            }
+        ],
+        "correctOrder": [
+            "1",
+            "2",
+            "3",
+            "4"
+        ],
+        "explanation": "Trò chuyện bình thường -> Dùng prompt dài/file -> Dùng Custom GPT -> Custom GPT + API."
+    },
+    {
+        "type": "multiple_choice",
+        "difficulty": "Dễ",
+        "question": "Điều nào sau đây là hệ quả của việc AI giúp 'tự động hóa sổ sách'?",
+        "options": [
+            {
+                "id": "a",
+                "text": "Kế toán viên có nhiều thời gian hơn để tư vấn chiến lược"
+            },
+            {
+                "id": "b",
+                "text": "Người làm kế toán sẽ không còn bất kỳ công việc nào"
+            },
+            {
+                "id": "c",
+                "text": "Thuế thu nhập doanh nghiệp sẽ tự động giảm đi 50%"
+            },
+            {
+                "id": "d",
+                "text": "Mọi giấy tờ bằng giấy sẽ biến mất trong vòng một tuần"
+            }
+        ],
+        "correctAnswer": "a",
+        "explanation": "Giảm bớt gánh nặng sổ sách giúp kế toán viên chuyển hướng sang các nhiệm vụ phân tích tài chính giá trị cao."
+    },
+    {
+        "type": "matching",
+        "difficulty": "Trung bình",
+        "question": "Ghép các công cụ lưu trữ/phân tích với đặc trưng hỗ trợ AI:",
+        "left": [
+            {
+                "id": "l1",
+                "text": "Cloud Storage (AWS/Azure)"
+            },
+            {
+                "id": "l2",
+                "text": "Data Visualization (Tableau)"
+            },
+            {
+                "id": "l3",
+                "text": "Predictive Analytics"
+            }
+        ],
+        "right": [
+            {
+                "id": "r1",
+                "text": "Mang lại khả năng mở rộng an toàn chứa dữ liệu lớn"
+            },
+            {
+                "id": "r2",
+                "text": "Biến dữ liệu phức tạp thành biểu đồ dễ hiểu, có thể hành động"
+            },
+            {
+                "id": "r3",
+                "text": "Phân tích mẫu dữ liệu để dự báo rủi ro tương lai"
+            }
+        ],
+        "correctPairs": {
+            "l1": "r1",
+            "l2": "r2",
+            "l3": "r3"
+        },
+        "explanation": "Cloud lưu trữ lớn; Tableau vẽ biểu đồ; Predictive Analytics dự báo tương lai."
+    },
+    {
+        "type": "fill_in_blanks",
+        "difficulty": "Khó",
+        "question": "Điền từ về sự tùy biến của Custom GPTs:",
+        "instruction": "(Nhấn vào chỗ trống, sau đó nhấn vào từ bên dưới để điền)",
+        "text": "Sự khác biệt lớn nhất của Custom GPTs so với plugin cũ là khả năng <span class=\"blank-slot\" data-id=\"1\">___(1)___</span> chuyên sâu, cho phép kết hợp các <span class=\"blank-slot\" data-id=\"2\">___(2)___</span> nội bộ của từng tổ chức.",
+        "words": [
+            {
+                "id": "w1",
+                "text": "tùy biến"
+            },
+            {
+                "id": "w2",
+                "text": "quy trình"
+            },
+            {
+                "id": "w3",
+                "text": "linh kiện"
+            }
+        ],
+        "correctAnswers": {
+            "1": "w1",
+            "2": "w2"
+        },
+        "explanation": "Custom GPTs mạnh ở tùy biến (customization) và nạp được quy trình (workflows) nội bộ."
+    },
+    {
+        "type": "ordering",
+        "difficulty": "Dễ",
+        "question": "Trình tự thích ứng với AI của một cá nhân kế toán:",
+        "instruction": "(Nhấn vào từng mục ở danh sách bên dưới để chuyển lên bảng đã chọn)",
+        "items": [
+            {
+                "id": "1",
+                "text": "Nhận thức về sự xuất hiện và xu hướng của công nghệ AI"
+            },
+            {
+                "id": "2",
+                "text": "Bắt đầu học các khái niệm cơ bản (Data Literacy)"
+            },
+            {
+                "id": "3",
+                "text": "Thử nghiệm sử dụng ChatGPT vào công việc thường ngày"
+            },
+            {
+                "id": "4",
+                "text": "Ứng dụng AI phân tích tài chính sâu và ra quyết định"
+            }
+        ],
+        "correctOrder": [
+            "1",
+            "2",
+            "3",
+            "4"
+        ],
+        "explanation": "Nhận thức -> Học căn bản -> Thử nghiệm công cụ -> Trở thành chuyên gia ứng dụng."
+    },
+    {
+        "type": "multiple_choice",
+        "difficulty": "Trung bình",
+        "question": "Đâu là quan điểm đúng đắn nhất về việc AI sẽ 'lấy đi việc làm' của kế toán viên?",
+        "options": [
+            {
+                "id": "a",
+                "text": "AI thay thế nhiệm vụ thủ công, không thay thế hoàn toàn nghề kế toán"
+            },
+            {
+                "id": "b",
+                "text": "Chắc chắn 100% tất cả kế toán viên sẽ thất nghiệp trong năm tới"
+            },
+            {
+                "id": "c",
+                "text": "AI không thể làm bất cứ việc gì liên quan đến toán học và số liệu"
+            },
+            {
+                "id": "d",
+                "text": "AI chỉ làm mất việc của nhân sự làm marketing và quảng cáo"
+            }
+        ],
+        "correctAnswer": "a",
+        "explanation": "AI thay thế công việc nhập liệu lặp đi lặp lại, nâng cao vai trò của kế toán viên lên mức cố vấn chiến lược, chứ không diệt vong nghề này."
+    }
+];
+
+    let currentQ = 0;
+    let score = 0;
+    let isAnswered = false;
+
+    // Shuffle utility
+    function shuffleArray(array) {
+        let curId = array.length, temp, randId;
+        while (0 !== curId) {
+            randId = Math.floor(Math.random() * curId);
+            curId -= 1;
+            temp = array[curId];
+            array[curId] = array[randId];
+            array[randId] = temp;
+        }
+        return array;
+    }
+
+    const contentDiv = document.getElementById('question-content');
+    const checkBtn = document.getElementById('btn-check');
+    const nextBtn = document.getElementById('btn-next');
+    const feedback = document.getElementById('feedback');
+    const feedbackTitle = document.getElementById('feedback-title');
+    const explanation = document.getElementById('explanation');
+
+    function renderQuestion() {
+        const q = questions[currentQ];
+        isAnswered = false;
+        checkBtn.style.display = 'inline-block';
+        nextBtn.style.display = 'none';
+        feedback.className = 'feedback-container';
+        
+        document.getElementById('question-counter').innerText = `Câu hỏi ${currentQ + 1} / ${questions.length}`;
+        document.getElementById('difficulty-badge').innerText = q.difficulty;
+        document.getElementById('progress-bar').style.width = `${(currentQ / questions.length) * 100}%`;
+        
+        let instruction = q.instruction ? `<p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: -10px;">${q.instruction}</p>` : '';
+        let html = `<div class="question-title">${q.question}</div>${instruction}`;
+
+        if (q.type === 'multiple_choice') {
+            html += `<div class="options-container">`;
+            q.options.forEach(opt => {
+                html += `
+                    <label class="option-label" id="label-${opt.id}">
+                        <input type="radio" name="mcq" value="${opt.id}" class="option-input" onclick="selectOption('${opt.id}')">
+                        <span>${opt.text}</span>
+                    </label>
+                `;
+            });
+            html += `</div>`;
+        } 
+        else if (q.type === 'ordering') {
+            let shuffled = shuffleArray([...q.items]);
+            html += `
+                <div class="ordering-selected" id="order-selected"></div>
+                <h4 style="margin: 0 0 10px 0; color: var(--text-secondary); font-size: 0.95rem;">Các mục có sẵn:</h4>
+                <div class="ordering-pool" id="order-pool">
+                    ${shuffled.map(item => `<div class="order-item" onclick="moveItem(this, '${item.id}')" data-id="${item.id}">${item.text}</div>`).join('')}
+                </div>
+            `;
+        }
+        else if (q.type === 'matching') {
+            let shuffledRight = shuffleArray([...q.right]);
+            html += `<div class="matching-container">`;
+            q.left.forEach(leftItem => {
+                let optionsHtml = `<option value="">-- Chọn đáp án --</option>` + 
+                    shuffledRight.map(r => `<option value="${r.id}">${r.text}</option>`).join('');
+                
+                html += `
+                    <div class="matching-row">
+                        <div class="matching-left">${leftItem.text}</div>
+                        <div class="matching-right">
+                            <select class="matching-select" id="match-${leftItem.id}">
+                                ${optionsHtml}
+                            </select>
+                        </div>
+                    </div>
+                `;
+            });
+            html += `</div>`;
+        }
+        else if (q.type === 'fill_in_blanks') {
+            html += `
+                <div class="fill-text">${q.text}</div>
+                <h4 style="margin: 0 0 10px 0; color: var(--text-secondary); font-size: 0.95rem;">Ngân hàng từ:</h4>
+                <div class="word-bank">
+                    ${q.words.map(w => `<div class="word-item" id="word-${w.id}" onclick="selectWord('${w.id}', '${w.text}')">${w.text}</div>`).join('')}
+                </div>
+            `;
+        }
+
+        contentDiv.innerHTML = html;
+        
+        // Add event listeners for blanks if needed
+        if (q.type === 'fill_in_blanks') {
+            document.querySelectorAll('.blank-slot').forEach(el => {
+                el.addEventListener('click', () => activateBlank(el));
+            });
+        }
+    }
+
+    // -- Logic for Multiple Choice --
+    function selectOption(id) {
+        if(isAnswered) return;
+        document.querySelectorAll('.option-label').forEach(el => el.classList.remove('selected'));
+        document.getElementById(`label-${id}`).classList.add('selected');
+    }
+
+    // -- Logic for Ordering --
+    window.moveItem = function(elem, id) {
+        if(isAnswered) return;
+        const pool = document.getElementById('order-pool');
+        const selected = document.getElementById('order-selected');
+        
+        if (elem.parentElement.id === 'order-pool') {
+            selected.appendChild(elem);
+        } else {
+            pool.appendChild(elem);
+        }
+    }
+
+    // -- Logic for Fill in blanks --
+    let activeBlank = null;
+    let blankAnswers = {};
+
+    window.activateBlank = function(elem) {
+        if(isAnswered) return;
+        document.querySelectorAll('.blank-slot').forEach(e => e.classList.remove('active'));
+        elem.classList.add('active');
+        activeBlank = elem;
+    }
+
+    window.selectWord = function(id, text) {
+        if(isAnswered) return;
+        if (!activeBlank) {
+            alert('Vui lòng chọn một chỗ trống trước!');
+            return;
+        }
+        
+        // If blank already has a word, un-use it
+        let blankId = activeBlank.getAttribute('data-id');
+        if (blankAnswers[blankId]) {
+            document.getElementById(`word-${blankAnswers[blankId]}`).classList.remove('used');
+        }
+        
+        // Set new word
+        activeBlank.innerText = text;
+        activeBlank.classList.remove('active');
+        blankAnswers[blankId] = id;
+        
+        document.getElementById(`word-${id}`).classList.add('used');
+        activeBlank = null;
+    }
+
+    // -- Checking Answers --
+    checkBtn.addEventListener('click', () => {
+        if (isAnswered) return;
+        const q = questions[currentQ];
+        let isCorrect = false;
+
+        if (q.type === 'multiple_choice') {
+            const selected = document.querySelector('input[name="mcq"]:checked');
+            if (!selected) return alert('Vui lòng chọn một đáp án!');
+            isCorrect = selected.value === q.correctAnswer;
+            
+            // Highlight
+            if(isCorrect) {
+                document.getElementById(`label-${selected.value}`).style.backgroundColor = '#e6f4ea';
+                document.getElementById(`label-${selected.value}`).style.borderColor = 'var(--success)';
+            } else {
+                document.getElementById(`label-${selected.value}`).style.backgroundColor = '#fce8e6';
+                document.getElementById(`label-${selected.value}`).style.borderColor = 'var(--error)';
+                document.getElementById(`label-${q.correctAnswer}`).style.backgroundColor = '#e6f4ea';
+                document.getElementById(`label-${q.correctAnswer}`).style.borderColor = 'var(--success)';
+            }
+        } 
+        else if (q.type === 'ordering') {
+            const selectedItems = Array.from(document.getElementById('order-selected').children).map(el => el.getAttribute('data-id'));
+            if (selectedItems.length < q.items.length) return alert('Vui lòng sắp xếp tất cả các mục!');
+            
+            isCorrect = JSON.stringify(selectedItems) === JSON.stringify(q.correctOrder);
+        }
+        else if (q.type === 'matching') {
+            let allSelected = true;
+            let correctCount = 0;
+            q.left.forEach(leftItem => {
+                const val = document.getElementById(`match-${leftItem.id}`).value;
+                if (!val) allSelected = false;
+                if (val === q.correctPairs[leftItem.id]) correctCount++;
+                
+                // UI feedback
+                const selectEl = document.getElementById(`match-${leftItem.id}`);
+                selectEl.disabled = true;
+                if (val === q.correctPairs[leftItem.id]) {
+                    selectEl.style.backgroundColor = '#e6f4ea';
+                    selectEl.style.borderColor = 'var(--success)';
+                } else {
+                    selectEl.style.backgroundColor = '#fce8e6';
+                    selectEl.style.borderColor = 'var(--error)';
+                }
+            });
+            if (!allSelected) return alert('Vui lòng ghép nối tất cả các mục!');
+            isCorrect = correctCount === q.left.length;
+        }
+        else if (q.type === 'fill_in_blanks') {
+            let allFilled = true;
+            let correctCount = 0;
+            Object.keys(q.correctAnswers).forEach(key => {
+                if (!blankAnswers[key]) allFilled = false;
+                if (blankAnswers[key] === q.correctAnswers[key]) correctCount++;
+            });
+            if (!allFilled) return alert('Vui lòng điền vào tất cả chỗ trống!');
+            isCorrect = correctCount === Object.keys(q.correctAnswers).length;
+            
+            // Lock UI
+            document.querySelectorAll('.blank-slot').forEach(el => el.style.cursor = 'default');
+            document.querySelectorAll('.word-item').forEach(el => el.style.cursor = 'default');
+        }
+
+        if (isCorrect) score++;
+
+        // Show feedback
+        feedback.className = `feedback-container show ${isCorrect ? 'correct' : 'incorrect'}`;
+        feedbackTitle.innerHTML = isCorrect ? '✅ Chính xác!' : '❌ Chưa chính xác!';
+        explanation.innerHTML = q.explanation;
+
+        isAnswered = true;
+        checkBtn.style.display = 'none';
+        nextBtn.style.display = 'inline-block';
+        blankAnswers = {}; // reset
+    });
+
+    nextBtn.addEventListener('click', () => {
+        currentQ++;
+        if (currentQ < questions.length) {
+            renderQuestion();
+        } else {
+            showResult();
+        }
+    });
+
+    function showResult() {
+        document.getElementById('quiz-screen').style.display = 'none';
+        const resScreen = document.getElementById('result-screen');
+        resScreen.style.display = 'block';
+        
+        document.getElementById('final-score').innerText = `${score}/${questions.length}`;
+        const pct = (score / questions.length) * 100;
+        document.getElementById('score-circle').style.background = `conic-gradient(var(--primary) ${pct}%, #e8eaed 0%)`;
+        
+        const msg = document.getElementById('result-message');
+        if(score === questions.length) msg.innerText = "Tuyệt vời! Bạn đã nắm vững toàn bộ kiến thức của Buổi 12.";
+        else if (score >= questions.length / 2) msg.innerText = "Làm tốt lắm! Hãy ôn tập lại một chút để đạt điểm tối đa nhé.";
+        else msg.innerText = "Cố gắng lên! Bạn nên đọc lại tài liệu Buổi 12 để củng cố kiến thức.";
+    }
+
+    // Initialize
+    renderQuestion();
+
+</script>
+
+</body>
+</html>

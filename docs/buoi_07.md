@@ -376,7 +376,7 @@ Wolfe, D. T. and Hermanson, D. R. (2004) The Fraud diamond: Considering the four
 
 #### ** 🎬 Video **
 
-<iframe src="video/Day07/index.html" style="width: 100%; aspect-ratio: 16/9; max-height: 75vh; border: none; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"></iframe>
+<iframe src="video/Day07/index.html?v=1785919941" style="width: 100%; aspect-ratio: 16/9; max-height: 75vh; border: none; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"></iframe>
 
 #### ** 🎦 Slide Bài Giảng **
 
@@ -385,4 +385,40 @@ Wolfe, D. T. and Hermanson, D. R. (2004) The Fraud diamond: Considering the four
 </object>
 <p style="text-align: right;"><a href="TaiLieu/slideAIAcc/Slide_AIAcc_Day07.pdf#view=FitH" target="_blank" style="font-weight: bold; color: #0056b3;">📥 Tải về Slide Bài Giảng (PDF)</a></p>
 
+#### ** 📝 Bài tập Trắc nghiệm **
+
+<iframe src="quizzes/Day07/index.html?v=1785919941" style="width: 100%; min-height: 700px; border: none; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"></iframe>
+
+
+#### ** ✍️ Bài tập Luyện tập **
+
+**Bài tập 1: RPA và AI trong kiểm soát chứng từ (Độ khó: Dễ)**
+Phân biệt RPA (Robotic Process Automation) và AI. Đâu là công cụ phù hợp để trích xuất dữ liệu từ các hóa đơn có định dạng hoàn toàn khác nhau của hàng trăm nhà cung cấp?
+<details>
+<summary>💡 Gợi ý trả lời (Click để xem)</summary>
+
+- RPA là "cơ bắp", hoạt động theo quy tắc cố định (Click vào tọa độ X, copy ô Y). RPA sẽ thất bại nếu định dạng hóa đơn thay đổi.
+- AI (đặc biệt là Machine Learning / OCR kết hợp NLP) là "bộ não". Nó có khả năng tự hiểu ngữ cảnh và bóc tách đúng số tiền, mã số thuế dù các hóa đơn có form khác nhau.
+</details>
+<br>
+
+**Bài tập 2: Kiểm toán Liên tục - Continuous Auditing (Độ khó: Trung bình)**
+Theo Chương 9, khái niệm "Kiểm toán liên tục" bằng AI thay đổi quy trình kiểm toán truyền thống như thế nào?
+<details>
+<summary>💡 Gợi ý trả lời (Click để xem)</summary>
+
+- Truyền thống: Kiểm toán dựa trên mẫu (Sampling) và thực hiện sau khi kết thúc niên độ. Kẻ gian lận có đủ thời gian che giấu.
+- Continuous Auditing (CA): AI kết nối trực tiếp vào ERP, kiểm tra 100% giao dịch ngay khi chúng phát sinh theo thời gian thực (Real-time). Bất kỳ giao dịch đáng ngờ nào cũng bị cờ đỏ (Red-flag) tức thời.
+</details>
+<br>
+
+**Bài tập 3: Unsupervised Learning phát hiện gian lận mới (Độ khó: Khó)**
+Theo Chương 12, phân tích cách Học không giám sát (Unsupervised Learning) phát hiện một mẫu giao dịch gian lận hoàn toàn mới chưa từng có trong lịch sử (Zero-day fraud).
+<details>
+<summary>💡 Gợi ý trả lời (Click để xem)</summary>
+
+- Mô hình có giám sát (Supervised) chỉ phát hiện được các kiểu gian lận đã được gán nhãn trong quá khứ.
+- Unsupervised Learning không cần nhãn. Nó chỉ tìm kiếm "điểm dị biệt" (Anomaly). Bất cứ giao dịch nào lệch xa khỏi cụm hành vi thông thường của đám đông (Ví dụ: Chuyển tiền lúc 3h sáng từ IP nước ngoài) đều bị cô lập thành bất thường, kể cả khi chiêu thức này chưa từng xuất hiện.
+</details>
+<br>
 <!-- tabs:end -->

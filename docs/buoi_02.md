@@ -402,7 +402,7 @@ Chúng tôi muốn cảm ơn AXA vì đã cung cấp một môi trường trí t
 
 #### ** 🎬 Video **
 
-<iframe src="video/Day02/index.html" style="width: 100%; aspect-ratio: 16/9; max-height: 75vh; border: none; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"></iframe>
+<iframe src="video/Day02/index.html?v=1785919941" style="width: 100%; aspect-ratio: 16/9; max-height: 75vh; border: none; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"></iframe>
 
 #### ** 🎦 Slide Bài Giảng **
 
@@ -411,4 +411,41 @@ Chúng tôi muốn cảm ơn AXA vì đã cung cấp một môi trường trí t
 </object>
 <p style="text-align: right;"><a href="TaiLieu/slideAIAcc/Slide_AIAcc_Day02.pdf#view=FitH" target="_blank" style="font-weight: bold; color: #0056b3;">📥 Tải về Slide Bài Giảng (PDF)</a></p>
 
+#### ** 📝 Bài tập Trắc nghiệm **
+
+<iframe src="quizzes/Day02/index.html?v=1785919941" style="width: 100%; min-height: 700px; border: none; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"></iframe>
+
+
+#### ** ✍️ Bài tập Luyện tập **
+
+**Bài tập 1: Đặc trưng của Big Data (Độ khó: Dễ)**
+Dựa vào bài giảng về Big Data (Chương 1), hãy nêu 4 đặc tính (4Vs) của Dữ liệu lớn. Lấy ví dụ về "Velocity" (Tốc độ) trong dữ liệu kế toán của một công ty thương mại điện tử.
+<details>
+<summary>💡 Gợi ý trả lời (Click để xem)</summary>
+
+- 4Vs: Volume (Dung lượng), Velocity (Tốc độ), Variety (Đa dạng), Veracity (Độ tin cậy).
+- Ví dụ "Velocity": Sàn TMĐT xử lý hàng triệu giao dịch mỗi giây vào dịp Black Friday. Hệ thống kế toán phải ghi nhận doanh thu và hàng tồn kho theo thời gian thực (Real-time) thay vì chờ cuối ngày khóa sổ.
+</details>
+<br>
+
+**Bài tập 2: Nguyên lý Blockchain (Độ khó: Trung bình)**
+Sổ cái phân tán (Distributed Ledger) của Blockchain giải quyết vấn đề "tin cậy" trong giao dịch tài chính như thế nào so với hệ thống sổ cái tập trung truyền thống?
+<details>
+<summary>💡 Gợi ý trả lời (Click để xem)</summary>
+
+- Hệ thống tập trung: Dữ liệu nằm ở máy chủ trung tâm (ngân hàng), dễ bị hack hoặc sửa đổi đơn phương.
+- Blockchain (Sổ cái phân tán): Mọi nút (node) trong mạng đều lưu bản sao sổ cái. Một giao dịch khi được xác nhận bằng cơ chế đồng thuận sẽ không thể bị xóa hoặc sửa chữa (Tính bất biến - Immutability). Điều này loại bỏ rủi ro gian lận đơn phương.
+</details>
+<br>
+
+**Bài tập 3: AI kết hợp Blockchain (Độ khó: Khó)**
+Theo textbook, sự kết hợp giữa AI và Blockchain tạo ra hợp đồng thông minh (Smart Contracts). Hãy thiết kế một quy trình thanh toán tự động ứng dụng Smart Contract cho dịch vụ logistics.
+<details>
+<summary>💡 Gợi ý trả lời (Click để xem)</summary>
+
+- Cảm biến IoT trên xe tải theo dõi vị trí và nhiệt độ hàng hóa. Dữ liệu này (Variety) được AI phân tích liên tục.
+- Smart Contract trên Blockchain quy định: "Nếu hàng hóa đến kho đúng giờ và nhiệt độ được duy trì dưới -5 độ C, tự động thanh toán 100% cước phí".
+- Lợi ích: Tự động hóa kế toán công nợ và thanh toán, loại bỏ tranh chấp hợp đồng.
+</details>
+<br>
 <!-- tabs:end -->

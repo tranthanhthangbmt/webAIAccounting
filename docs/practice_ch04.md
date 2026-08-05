@@ -1489,7 +1489,7 @@ Hãy truy cập nền tảng học tập trực tuyến của Wiley để xem b�
 
 #### ** 🎬 Video **
 
-<iframe src="videoPractice/Chapter04/index.html" style="width: 100%; aspect-ratio: 16/9; max-height: 75vh; border: none; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"></iframe>
+<iframe src="videoPractice/Chapter04/index.html?v=1785919941" style="width: 100%; aspect-ratio: 16/9; max-height: 75vh; border: none; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"></iframe>
 
 #### ** 🎦 Slide Bài Giảng **
 
