@@ -1,0 +1,176 @@
+\documentclass[aspectratio=169]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T5]{fontenc}
+\usepackage[vietnamese]{babel}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{xcolor}
+
+\usetheme{Madrid}
+\usecolortheme{default}
+
+\title[Tổng quan môn học]{ỨNG DỤNG TRÍ TUỆ NHÂN TẠO TRONG KẾ TOÁN \\ TỔNG QUAN MÔN HỌC}
+\author{Giảng viên: \dots}
+\institute{Đại học Đông Á}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame}{Nội dung chính}
+    \tableofcontents
+\end{frame}
+
+\section{Thông tin chung \& Đánh giá}
+\begin{frame}{Mục tiêu môn học}
+    \begin{itemize}
+        \item Cung cấp kiến thức nền tảng về Trí tuệ nhân tạo (AI) và cách áp dụng trong Kế toán.
+        \item Trang bị kỹ năng \textbf{Thực hành No-Code} với AI (ChatGPT, Copilot, Power Query, Advanced Data Analysis).
+        \item Hiểu rõ và áp dụng quy trình phân tích dữ liệu MOSAIC.
+        \item Nâng cao nhận thức về đạo đức, bảo mật và trách nhiệm pháp lý khi dùng AI.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Cấu trúc Điểm đánh giá}
+    \begin{table}[]
+        \centering
+        \begin{tabular}{|l|c|p{7cm}|}
+        \hline
+        \textbf{Thành phần} & \textbf{Tỷ trọng} & \textbf{Hình thức} \\ \hline
+        \textbf{Chuyên cần} & 10\% & Điểm danh, tham gia trên lớp \\ \hline
+        \textbf{Thường xuyên} & 25\% & Bài trắc nghiệm (Quiz) và nộp Bài tập thực hành trên Canvas \\ \hline
+        \textbf{Giữa kỳ} & 15\% & Kiểm tra thực hành / Tự luận \\ \hline
+        \textbf{Cuối kỳ} & 50\% & Dự án nhóm (Project No-Code) - Thuyết trình và nộp báo cáo \\ \hline
+        \end{tabular}
+    \end{table}
+\end{frame}
+
+\section{Tài liệu học tập}
+\begin{frame}{Tài liệu tham khảo chính}
+    \textbf{1. Tài liệu Lý thuyết:}
+    \begin{itemize}
+        \item \textit{Artificial Intelligence in Accounting: Practical Applications} (Cory Ng) - Chương 1
+        \item \textit{ChatGPT and AI for Accountants} (Scott Dell) - Chương 1, 2, 7, 10, 15
+        \item \textit{Machine Learning in Accounting} (Ethan Blake) - Chương 4
+        \item \textit{Accounting AI} (Charnelle Gibson) - Chương 5, 8, 9, 11
+        \item \textit{Business Analytics: Solving Business Problems} (Arul Mishra) - Chương 11
+        \item \textit{Artificial Intelligence for Audit, Forensic Accounting...} (Al Naqvi) - Chương 7, 8, 15
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Tài liệu thực hành}
+    \textbf{2. Tài liệu Thực hành \& Dữ liệu (No-Code):}
+    \begin{itemize}
+        \item \textit{Data and Analytics in Accounting} (Ann C. Dzuranin)
+        \begin{itemize}
+            \item Ch. 2: Kỹ năng phân tích dữ liệu nền tảng
+            \item Ch. 7: Khám phá dữ liệu (Data Exploration)
+            \item Ch. 9: Xây dựng Dashboard báo cáo tương tác
+            \item Khung phân tích dữ liệu \textbf{MOSAIC} (Dự án cuối kỳ)
+        \end{itemize}
+        \item Bộ \textbf{Sổ tay Prompt Kế toán} (Tổng hợp từ giáo trình)
+        \item Datasets mẫu: Sổ cái, Hóa đơn, Doanh thu (sử dụng trên Excel/Power Query).
+    \end{itemize}
+\end{frame}
+
+\section{Lộ trình 15 buổi}
+
+\begin{frame}{Lộ trình học tập - Phần 1: Nền tảng \& Nhập liệu}
+    \begin{itemize}
+        \item \textbf{Buổi 1: Tổng quan ứng dụng AI trong Kế toán}
+        \begin{itemize}
+            \item \textit{Thực hành:} Làm quen ChatGPT/Copilot. Viết prompt tóm tắt chuẩn mực.
+        \end{itemize}
+        \item \textbf{Buổi 2: Nhận diện \& Xử lý dữ liệu kế toán}
+        \begin{itemize}
+            \item \textit{Thực hành:} Làm sạch dữ liệu "bẩn" bằng Power Query (Excel) và ChatGPT.
+        \end{itemize}
+        \item \textbf{Buổi 3: AI hỗ trợ nhập liệu \& Xử lý chứng từ (OCR)}
+        \begin{itemize}
+            \item \textit{Thực hành:} Bóc tách dữ liệu hóa đơn (Hình ảnh/PDF) thành định dạng bảng.
+        \end{itemize}
+        \item \textbf{Buổi 4: AI xử lý công việc chi tiết (Định khoản)}
+        \begin{itemize}
+            \item \textit{Thực hành:} Đóng vai (Persona), định khoản nghiệp vụ tự động từ văn bản.
+        \end{itemize}
+        \vspace{0.3cm}
+        \item \textbf{Đọc thêm (Sách Data \& Analytics):} Chương 1 (Tổng quan), Chương 3 \& 4 (Thu thập, chuẩn bị và làm sạch dữ liệu).
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Lộ trình học tập - Phần 2: Phân tích \& Báo cáo}
+    \begin{itemize}
+        \item \textbf{Buổi 5: AI phát hiện sai sót và chẩn đoán bất thường}
+        \begin{itemize}
+            \item \textit{Thực hành:} Tìm điểm bất thường (ngày nghỉ, số chẵn) trong Sổ Nhật ký chung.
+        \end{itemize}
+        \item \textbf{Buổi 6: Ứng dụng AI phân tích Báo cáo Tài chính}
+        \begin{itemize}
+            \item \textit{Thực hành:} Tính tỷ số tài chính tự động và viết nhận xét "Sức khỏe tài chính".
+        \end{itemize}
+        \item \textbf{Buổi 7: AI hỗ trợ lập báo cáo theo yêu cầu (Dashboards)}
+        \begin{itemize}
+            \item \textit{Thực hành:} Lên outline Thuyết minh BCTC, vẽ Dashboard trực quan.
+        \end{itemize}
+        \item \textbf{Buổi 8: Ứng dụng AI trong Kế toán Quản trị}
+        \begin{itemize}
+            \item \textit{Thực hành:} Phân tích xu hướng \& dự báo dòng tiền/doanh thu các kịch bản.
+        \end{itemize}
+        \vspace{0.3cm}
+        \item \textbf{Đọc thêm (Sách Data \& Analytics):} Chương 5 (Phân tích mô tả), Chương 6 (Phân tích chẩn đoán), Chương 8 (Phân tích dự báo).
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Lộ trình học tập - Phần 3: Kiểm soát, Thuế \& Đạo đức}
+    \begin{itemize}
+        \item \textbf{Buổi 9: Ứng dụng AI trong Kiểm soát nội bộ}
+        \begin{itemize}
+            \item \textit{Thực hành:} Dò tìm "lỗ hổng" từ quy trình văn bản, đề xuất lưu đồ kiểm soát mới.
+        \end{itemize}
+        \item \textbf{Buổi 10: Ứng dụng AI trong Kiểm toán}
+        \begin{itemize}
+            \item \textit{Thực hành:} Lập "Bảng đánh giá rủi ro kiểm toán" bằng AI.
+        \end{itemize}
+        \item \textbf{Buổi 11: Ứng dụng AI trong Kế toán Thuế \& Tuân thủ}
+        \begin{itemize}
+            \item \textit{Thực hành:} Tóm tắt thông tư thuế dài, liệt kê điều kiện khấu trừ.
+        \end{itemize}
+        \item \textbf{Buổi 12: Đạo đức – Pháp lý – Trách nhiệm nghề nghiệp}
+        \begin{itemize}
+            \item \textit{Thực hành:} Phân tích tình huống đạo đức, kiểm tra tính "ảo giác" của AI.
+        \end{itemize}
+        \vspace{0.3cm}
+        \item \textbf{Đọc thêm (Sách Data \& Analytics):} Các chương còn lại (Ứng dụng Analytics trong Kiểm toán, Thuế \& Đạo đức nghề nghiệp).
+    \end{itemize}
+\end{frame}
+
+\section{Dự án cuối kỳ}
+\begin{frame}{Dự án cuối kỳ (Buổi 13 - 15)}
+    \textbf{Project No-Code: Vận dụng toàn diện AI vào Dữ liệu Kế toán}
+    \begin{itemize}
+        \item \textbf{Dữ liệu thực tế:} Mỗi nhóm nhận một Raw Dataset (Sổ cái, Hóa đơn).
+        \item \textbf{Quy trình MOSAIC:}
+        \begin{enumerate}
+            \item \textbf{Motivation \& Objective:} Xác định mục tiêu phân tích.
+            \item \textbf{Strategy:} Chọn chiến lược xử lý dữ liệu với AI.
+            \item \textbf{Analyze:} Dùng AI làm sạch, định khoản và tính toán.
+            \item \textbf{Interpret:} Phân tích kết quả, lập báo cáo.
+            \item \textbf{Communicate:} Xây dựng Dashboard và Thuyết trình (Buổi 14-15).
+        \end{enumerate}
+        \item \textbf{Yêu cầu:} Vận dụng kỹ thuật Prompt Engineering \& Advanced Data Analysis đã học.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Tổng kết}
+    \begin{center}
+        \Large \textbf{Chào mừng các bạn đến với môn học!} \\
+        \vspace{0.5cm}
+        \normalsize Cùng sẵn sàng bứt phá với Kế toán trong kỷ nguyên AI.
+    \end{center}
+\end{frame}
+
+\end{document}
