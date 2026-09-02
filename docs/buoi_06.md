@@ -2,6 +2,210 @@
 
 <!-- tabs:start -->
 
+#### ** 📚 Thuật ngữ & Khái niệm **
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Kế toán Điều tra (Forensic Accounting)</b></summary>
+<br>
+
+Chuyên ngành kết hợp giữa kế toán, kiểm toán và kỹ năng điều tra hình sự để bóc trần các vụ gian lận tài chính phức tạp, thu thập bằng chứng hợp pháp trước tòa án.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Chọn mẫu thống kê (Statistical Sampling)</b></summary>
+<br>
+
+Phương pháp kiểm toán truyền thống, chỉ bốc ngẫu nhiên 5% - 10% hồ sơ để kiểm tra. Phương pháp này bị ví như "bịt mắt mò kim đáy biển", dễ dàng bỏ lọt các tội phạm tinh vi.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Mô hình Phòng ngừa chủ động (Proactive Prevention)</b></summary>
+<br>
+
+Sự chuyển dịch vĩ đại nhờ AI. Thay vì mô hình "Hậu kiểm" (đợi mất tiền mới đi tìm nguyên nhân), AI đứng gác ở cửa và chặn đứng các giao dịch đáng ngờ ngay trước khi chúng được thực thi.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Kiểm tra toàn phần (100% Population Analysis)</b></summary>
+<br>
+
+Sức mạnh cày ải của AI, thay vì chọn mẫu lèo tèo, máy tính rà quét toàn bộ 100% dữ liệu giao dịch trong suốt 24/7 theo thời gian thực (Real-time).
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Cảnh báo giả (False Positives)</b></summary>
+<br>
+
+Hiện tượng hệ thống báo động nhầm một giao dịch hợp lệ thành gian lận. Hệ thống quy tắc cũ (Rules-based) tạo ra quá nhiều cảnh báo giả gây "bội thực" cho kế toán viên. AI giải quyết triệt để việc này nhờ khả năng tự học hỏi.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Vòng đời Dự án Khoa học Dữ liệu (Data Science Lifecycle)</b></summary>
+<br>
+
+Quy trình 5 bước khép kín để tạo ra AI: Hiểu bài toán nghiệp vụ $\rightarrow$ Chuẩn bị dữ liệu $\rightarrow$ Mô hình hóa Học máy $\rightarrow$ Đánh giá hiệu suất $\rightarrow$ Đưa vào giám sát thực chiến.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Khám phá Dữ liệu Tài chính (Exploratory Data Analysis - EDA)</b></summary>
+<br>
+
+Bước thăm dò số liệu ban đầu của kế toán viên trước khi chạy AI. Dùng để "nhìn lướt" xem dữ liệu có bị bóp méo không, phát hiện các giá trị ngoại lai và xem xét tương quan giữa các tài khoản chi phí.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Học có giám sát (Supervised Learning)</b></summary>
+<br>
+
+Phương pháp huấn luyện AI bằng cách "chỉ tận tay" các hồ sơ đã gán nhãn rõ ràng (Đâu là lừa đảo, đâu là hợp lệ). Rất xuất sắc trong việc bắt lại các chiêu thức lừa đảo cũ đã từng xảy ra.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Phát hiện Bất thường (Anomaly Detection)</b></summary>
+<br>
+
+Kỹ thuật đỉnh cao của Học không giám sát. Máy tính tự gom nhóm giao dịch bình thường lại. Bất cứ giao dịch nào hành xử "kỳ quặc" nằm ngoài lề sẽ bị tóm cổ ngay lập tức. Đây là vũ khí để bắt các chiêu lừa đảo chưa từng xuất hiện bao giờ (Unknown Unknowns).
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Xử lý Ngôn ngữ Tự nhiên & Sắc thái (NLP & Sentiment Analysis)</b></summary>
+<br>
+
+Công nghệ bẻ khóa dữ liệu văn bản. Máy tính sẽ đọc lướt hàng nghìn email nội bộ, hợp đồng để đánh hơi "sắc thái tình cảm", phát hiện sự giấu giếm, thông đồng hoặc ngôn từ trốn tránh trách nhiệm của Ban giám đốc.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Phân tích Đồ thị (Graph Analytics)</b></summary>
+<br>
+
+Vũ khí tối thượng phá các đường dây rửa tiền. Thay vì nhìn bảng Excel khô khan, AI vẽ ra một mạng lưới nhện chằng chịt, làm lộ diện các công ty ma có vỏ bọc khác nhau nhưng lại dùng chung 1 địa chỉ IP và 1 số điện thoại.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Sự cân bằng Độ lệch và Phương sai (Bias vs. Variance Tradeoff)</b></summary>
+<br>
+
+Bài toán đánh đổi khi lập trình AI. Nếu mô hình AI quá đơn giản thì bị Độ lệch cao (Underfitting - học dốt). Nhưng nếu mô hình nhồi nhét quá phức tạp thì bị Phương sai cao (Overfitting - học vẹt). Kế toán viên phải tinh chỉnh để tìm điểm cân bằng hoàn hảo.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Đào tạo liên tục (Continuous Training)</b></summary>
+<br>
+
+Trách nhiệm bảo trì AI của Kế toán. Tội phạm luôn đẻ ra mánh khóe mới, hệ thống AI không thể "mua 1 lần xài cả đời" mà phải liên tục được mớm thêm dữ liệu lừa đảo mới ngoài thị trường để duy trì sự sắc bén.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Chia nhỏ giao dịch (Smurfing)</b></summary>
+<br>
+
+Chiêu trò ma lanh của kẻ gian lận nhằm lách qua các ngưỡng kiểm soát tự động. Ví dụ: Quy định duyệt chi > 1 tỷ đồng, kẻ gian sẽ chia nhỏ dự án thành 3 gói 350 triệu để tự do chỉ định thầu. AI dễ dàng bóc mẽ trò này bằng cách gom nhóm các hóa đơn sát giờ nhau.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Nhân viên ma (Ghost Employees)</b></summary>
+<br>
+
+Một dạng gian lận quỹ lương, khi quản lý tạo ra các hồ sơ nhân sự giả mạo để chấm công khống và đút túi tiền lương. AI dùng Phân tích Đồ thị đối chiếu số tài khoản ngân hàng để tóm gọn.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Thông đồng đấu thầu (Bid-Rigging)</b></summary>
+<br>
+
+Hành vi móc ngoặc trong mua sắm công, khi các nhà thầu thỏa thuận ngầm với nhau, luân phiên thay nhau thắng thầu với mức giá sát nút dự toán nhà nước.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Tiền hoa hồng bất hợp pháp (Kickbacks)</b></summary>
+<br>
+
+Tiền "lại quả" chảy vào túi riêng của các nhân viên mua sắm hoặc cán bộ phê duyệt khi họ cố tình thông đồng chọn các nhà thầu có mức giá bị thổi phồng.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Khung Rủi ro Văn hóa (STPCM Culture Risk)</b></summary>
+<br>
+
+Kế toán điều tra không chỉ bắt số liệu mà bắt cả "Văn hóa". AI đọc tin nhắn chat để chấm điểm rủi ro. Những phòng ban có văn hóa độc hại (Ví dụ: Sếp ép nhân viên làm sai quy trình lúc nửa đêm) sẽ bị tô đỏ vì đó là mầm mống sinh ra lừa đảo.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Cuộc chạy đua vũ trang AI (AI Arms Race)</b></summary>
+<br>
+
+Trận chiến công nghệ khốc liệt. Kế toán dùng AI để phòng thủ thì bọn tội phạm cũng dùng AI (GenAI) để làm giả báo cáo tài chính đẹp như thật. Kế toán phải cài cắm sự giao thoa giữa số liệu (ML) và văn bản (NLP) để lôi cổ tội phạm ra.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Ổn định Tài chính Vĩ mô (Financial Stability)</b></summary>
+<br>
+
+Nhiệm vụ bảo vệ tính mạng của cả một nền kinh tế. Ngân hàng Trung ương dùng Big Data và AI cắm rễ vào mạng lưới để theo dõi nhịp đập tiền tệ, chặn đứng khủng hoảng trước khi nó nổ ra.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Rủi ro lây lan (Contagion Effect)</b></summary>
+<br>
+
+Nỗi ám ảnh của ngành tài chính. Khi một ngân hàng lớn sụp đổ, sự hoảng loạn sẽ lan truyền như virus, kéo theo toàn bộ hệ thống ngân hàng khác chết chùm nếu không được cách ly và cấp cứu thanh khoản kịp thời.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Sự kiện Rút tiền ồ ạt (Bank Run)</b></summary>
+<br>
+
+Hiện tượng người dân hoảng loạn đồng loạt rút tiền khỏi ngân hàng. Trong kỷ nguyên số, Bank Run chỉ mất vài giờ đồng hồ qua App điện thoại. AI của Ngân hàng Trung ương phải lắng nghe mạng xã hội để gõ chuông báo động dập lửa ngay tức khắc.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Kiểm tra Sức chịu đựng (Stress Testing)</b></summary>
+<br>
+
+Hoạt động mô phỏng "kịch bản ngày tận thế" (như siêu lạm phát, chiến tranh). AI sẽ đẩy các ngân hàng vào giả định này xem họ có bị vỡ nợ không, nhằm đo lường và củng cố "tấm đệm vốn" an toàn cho quốc gia.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">AI có khả năng giải thích (Explainable AI - XAI)</b></summary>
+<br>
+
+Chấm dứt kỷ nguyên máy tính là một "Hộp đen". XAI ép thuật toán phải giải trình minh bạch bằng tiếng người tại sao nó lại đưa ra quyết định đó (VD: Tại sao khách hàng A bị từ chối vay vốn?), đảm bảo trách nhiệm giải trình và chống phân biệt đối xử.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Tư duy Phản biện & Đạo đức nghề nghiệp (Critical Thinking & Ethics)</b></summary>
+<br>
+
+Vũ khí sinh tồn của "Phi công" Kế toán thời đại mới. Máy móc chỉ tính xác suất và hoàn toàn có thể sai. Con người luôn là tuyến phòng thủ cuối cùng để phản biện kết quả của AI và gìn giữ ranh giới đạo đức kinh doanh.
+
+</details>
+
+
+
 #### ** 🇬🇧 Tiếng Anh **
 
 ### 📄 Tài liệu PDF 1 (Phần A): Chương 5 (Case Study 4): Tackling Public Sector Corruption

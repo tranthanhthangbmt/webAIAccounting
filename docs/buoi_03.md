@@ -2,6 +2,210 @@
 
 <!-- tabs:start -->
 
+#### ** 📚 Thuật ngữ & Khái niệm **
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Kế toán Tiên đoán (Predictive Accounting)</b></summary>
+<br>
+
+Sự dịch chuyển tư duy từ việc ghi nhận sổ sách chiếu hậu (phân tích sự kiện đã xảy ra) sang việc sử dụng AI để dự báo tương lai. Kế toán viên không chỉ nhìn vào "gương chiếu hậu" mà chủ động phân tích hàng tỷ điểm dữ liệu bên ngoài (như thời tiết, xu hướng mạng xã hội) để dự báo dòng tiền và quản trị rủi ro ngay từ trong trứng nước.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Học sâu (Deep Learning - DL) & Mạng nơ-ron nhân tạo (ANN)</b></summary>
+<br>
+
+Mạng lưới thuật toán đa tầng mô phỏng cấu trúc não bộ con người. Thay vì nhận luật IF-THEN, máy tự điều chỉnh hàng triệu "trọng số" để học cách nhận diện mẫu phức tạp. Trong kế toán, công nghệ này bóc tách hoàn hảo các hóa đơn nhòe nát mà các công cụ OCR truyền thống phải bó tay.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Bộ xử lý tensor (Tensor Processing Unit - TPU)</b></summary>
+<br>
+
+Vi mạch chuyên dụng do Google phát triển để tăng tốc độ xử lý siêu tốc cho các ứng dụng Học máy và Học sâu. Nó cung cấp sức mạnh phần cứng đằng sau khả năng phân tích khối lượng dữ liệu khổng lồ của AI tài chính hiện đại.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Hộp đen thuật toán (Black Box)</b></summary>
+<br>
+
+Đặc tính của các mô hình Học sâu khi chúng đưa ra quyết định nhưng không thể giải thích được "TẠI SAO". Đây là rủi ro khổng lồ trong kiểm toán, vì Kế toán viên không thể kiểm chứng được logic định giá hay từ chối khoản vay của máy tính.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Khai phá dữ liệu (Data Mining)</b></summary>
+<br>
+
+Quá trình phân tích tập dữ liệu khổng lồ để khám phá các mô hình ẩn chưa từng biết tới. Khác với Học máy (dùng để dự báo), Khai phá dữ liệu được dùng để "tìm kiếm" các quy luật, ví dụ như tự động khoanh vùng giao dịch chuyển tiền tỷ diễn ra lúc 3h sáng (Phát hiện ngoại lai - Outliers).
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Kế toán pháp y (Forensic Accounting)</b></summary>
+<br>
+
+Việc ứng dụng công nghệ điều tra để phát hiện gian lận tài chính. Bằng cách kết hợp Khai phá dữ liệu và phân tích mạng lưới, AI đóng vai trò như một "thám tử kỹ thuật số" chạy ngầm, tự động rà soát hàng triệu bút toán và email để tìm ra dấu vết lại quả (kickback) hay tham ô.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Khai phá văn bản (Text Mining)</b></summary>
+<br>
+
+Phương pháp trích xuất dữ liệu có ý nghĩa từ các tài liệu phi cấu trúc (hợp đồng, báo cáo, email, mạng xã hội). Rất hữu ích cho Kế toán để quét các hợp đồng có rủi ro cao hoặc trích xuất điều khoản tài chính tự động.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Xử lý Ngôn ngữ Tự nhiên (NLP)</b></summary>
+<br>
+
+Lĩnh vực AI giúp máy tính tương tác bằng ngôn ngữ con người. Nó chuyển hóa từ vựng thành các "vectơ số học", cho phép máy đọc hiểu ngữ cảnh pháp lý của hợp đồng hệt như một luật sư, thay vì chỉ tìm kiếm từ khóa cứng nhắc bằng lệnh Ctrl+F.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Hiểu Ngôn ngữ (NLU) & Sinh Ngôn ngữ (NLG)</b></summary>
+<br>
+
+Hai nhánh của NLP. NLU giúp máy "hiểu" ngữ cảnh (ví dụ: bóc tách thời hạn thuê trong hợp đồng IFRS 16). NLG giúp máy "sinh ra" văn bản (ví dụ: tự động viết một báo cáo phân tích tài chính mượt mà chỉ từ một biểu đồ doanh thu thô).
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Tự động hóa Quy trình bằng Robot (RPA)</b></summary>
+<br>
+
+"Robot phần mềm" đóng vai trò như bàn tay cơ bắp, chuyên bắt chước các thao tác click chuột lặp đi lặp lại của con người. Ứng dụng phổ biến nhất là tự động tải sổ phụ ngân hàng, đối chiếu số liệu và ghi sổ khoản phải trả.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Giao diện Lập trình Ứng dụng (API)</b></summary>
+<br>
+
+"Người bồi bàn" kỹ thuật số giúp các phần mềm khác nhau giao tiếp và truyền tải dữ liệu theo thời gian thực. API chấm dứt kỷ nguyên kế toán phải xuất Excel rồi nhập lại thủ công, cho phép truyền thẳng hóa đơn từ ERP lên Cổng thuế điện tử.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Hệ sinh thái Kế toán mở (Open Accounting)</b></summary>
+<br>
+
+Môi trường nơi mọi ứng dụng tài chính, ngân hàng và thuế được liên kết chặt chẽ qua API. Kế toán viên thậm chí có thể tích hợp AI vào thẳng Excel để hỏi đáp dữ liệu tài chính như đang trò chuyện với người thật.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Nền tảng Low-code (Tự tùy biến AI)</b></summary>
+<br>
+
+Công cụ cho phép người dùng không chuyên môn IT thiết kế ứng dụng bằng cách kéo-thả trực quan. Xu hướng "Do-It-Yourself" này trao quyền cho kế toán viên tự xây dựng mô hình dự báo dòng tiền riêng mà không cần viết code thủ công.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Quyền riêng tư dữ liệu (Data Privacy) & Hũ mật (Honeypot)</b></summary>
+<br>
+
+Rủi ro rò rỉ dữ liệu khi AI cần gom hàng triệu hồ sơ cá nhân vào một máy chủ trung tâm để huấn luyện, vô tình tạo ra một "hũ mật" béo bở thu hút tin tặc toàn cầu (Ví dụ vụ sụp đổ dữ liệu Equifax 2017).
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Lập hồ sơ Khách hàng (Customer Profiling)</b></summary>
+<br>
+
+Việc sử dụng AI để tạo ra chân dung toàn diện về khách hàng. Dù cải thiện dịch vụ, nhưng nó xâm phạm sâu vào thói quen sinh hoạt hàng ngày, tạo ra nguy cơ bị các tổ chức lợi dụng để nhắm mục tiêu tín dụng theo cách hung hăng.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Thiên kiến thuật toán (Algorithmic Bias)</b></summary>
+<br>
+
+Hiện tượng AI kế thừa các định kiến phân biệt chủng tộc/giới tính từ dữ liệu lịch sử con người, dẫn đến việc đưa ra các quyết định phân biệt đối xử (Ví dụ: Apple Card cấp hạn mức cho chồng cao gấp 20 lần vợ vào năm 2019).
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Biến đại diện (Proxy Variables)</b></summary>
+<br>
+
+Thủ đoạn ngầm của AI để lách luật. Dù con người đã xóa cột "Giới tính", thuật toán Học sâu vẫn âm thầm hạ điểm tín dụng của nhóm mua sắm tại "cửa hàng mỹ phẩm". Điều này khiến việc kiểm soát thiên kiến trở nên cực kỳ phức tạp.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Thao túng thị trường (Market Manipulation) & Flash Crash</b></summary>
+<br>
+
+Sự hoảng loạn dây chuyền của các "Hộp đen" giao dịch thuật toán tự động. Lệnh bán phá giá siêu tốc của máy tính có thể thổi bay hàng tỷ USD vốn hóa thị trường chỉ trong vài phút trước khi con người kịp phản ứng (Ví dụ: Sự kiện Flash Crash 2010).
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Hiệu ứng bầy đàn (Herding Effect)</b></summary>
+<br>
+
+Rủi ro hệ thống khủng khiếp nếu mọi định chế tài chính đều dùng chung một mô hình AI. Khi đó, tất cả sẽ cùng dự báo giống nhau và cùng đồng loạt "bán tháo", kích hoạt cuộc đại suy thoái tài chính nhanh nhất lịch sử.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Đạo luật AI của Châu Âu (EU AI Act)</b></summary>
+<br>
+
+Khung pháp lý toàn diện đầu tiên trên thế giới kiểm soát AI. Nhấn mạnh việc buộc các công ty tài chính phải giải trình nguồn gốc dữ liệu và đảm bảo tính minh bạch trước khi áp dụng thuật toán vào các dịch vụ nhạy cảm.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Cách tiếp cận Dựa trên Rủi ro (Risk-Based Approach)</b></summary>
+<br>
+
+Phương pháp quản lý đạo luật AI như "đèn giao thông". Các ứng dụng rủi ro thấp (lọc thư rác) được bật đèn xanh, trong khi các hệ thống AI cấp tín dụng hay tuyển dụng bị xếp vào vùng "Đèn đỏ" rủi ro cao, chịu sự giám sát ngặt nghèo.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Nghịch lý Giám sát Kiểm soát Liên tục (CCM Paradox)</b></summary>
+<br>
+
+Sử dụng AI để giám sát gian lận (CCM), nhưng rủi ro là cỗ máy AI đó có thể học cách lách luật, che giấu dữ liệu chỉ để làm đẹp điểm hiệu suất KPIs, thoát khỏi tầm kiểm soát của chính con người tạo ra nó.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Trách nhiệm giải trình (Accountability)</b></summary>
+<br>
+
+Nguyên tắc pháp lý tối thượng: Bạn không thể bỏ tù một cái máy chủ! Khi AI quyết định sai gây thất thoát, người chịu trách nhiệm hình sự luôn là Kế toán trưởng, Giám đốc hoặc người đã phê duyệt triển khai mô hình.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Chốt chặn đạo đức (Ethical Gatekeeper)</b></summary>
+<br>
+
+Vai trò mới cao quý của Kế toán viên trong kỷ nguyên 4.0. Con người là tuyến phòng thủ cuối cùng để "nhấn nút dừng khẩn cấp", từ chối nghe theo AI khi phát hiện thuật toán có hành vi phi đạo đức hoặc vi phạm tính công bằng.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Mất việc làm do AI (Job Displacement)</b></summary>
+<br>
+
+Lịch sử lặp lại, giống như Excel thay thế chiếc bàn tính. AI sẽ đào thải thao tác tay chân, nhưng lại tôn vinh kỹ năng phán đoán. "AI không thay thế Kế toán viên, nhưng Kế toán viên biết dùng AI sẽ thay thế những người làm theo cách cũ".
+
+</details>
+
+
+
 #### ** 🇬🇧 Tiếng Anh **
 
 ### 📄 Tài liệu PDF 1: Chương 1: Machine Reasoning, Machine Learning, DL & NLP

@@ -2,6 +2,170 @@
 
 <!-- tabs:start -->
 
+#### ** 📚 Thuật ngữ & Khái niệm **
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Cơ sở dữ liệu quan hệ (Relational Database)</b></summary>
+<br>
+
+Phương thức lưu trữ dữ liệu dưới dạng các "Bảng" (Tables) nhỏ lẻ, phân tán thay vì gộp chung vào một file Excel khổng lồ. Các bảng này có thể "nói chuyện" và nối lại với nhau bằng hệ thống Khóa để chống dư thừa thông tin.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Khóa chính (Primary Key)</b></summary>
+<br>
+
+Cột có giá trị ĐỘC NHẤT cho mỗi hàng. Nó giống hệt như Số Căn cước Công dân, dùng để định danh duy nhất một bản ghi giao dịch trong bảng.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Khóa ngoại (Foreign Key)</b></summary>
+<br>
+
+Chiếc mỏ neo nằm ở bảng này nhưng lại lấy dữ liệu từ Khóa chính của bảng khác để liên kết và truy xuất thông tin chéo giữa các bảng.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Lệnh JOIN (Kết nối)</b></summary>
+<br>
+
+Từ khóa quyền lực nhất trong ngôn ngữ SQL, dùng để gom các bảng dữ liệu bị băm nhỏ lại với nhau thành một bức tranh toàn cảnh.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Inner Join (Kết nối trong / Phép giao)</b></summary>
+<br>
+
+Phương pháp nối chỉ lấy những dòng khớp nhau ở cả Bảng Trái và Bảng Phải. Kết quả trả ra một danh sách sạch sẽ, hoàn hảo nhưng thường là một "cái bẫy" che giấu sự bất thường hoặc gian lận.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Left Join (Kết nối trái)</b></summary>
+<br>
+
+Phương pháp nối ép hệ thống giữ lại TOÀN BỘ dữ liệu ở Bảng Trái và cố gắng nhét thông tin Bảng Phải vào. Đây là kỹ thuật cốt lõi trong kiểm toán để truy tìm các "kẻ cắp tàng hình" (như chi tiền cho công ty ma).
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Giá trị NULL (Rỗng)</b></summary>
+<br>
+
+Lỗ hổng đen ngòm sinh ra khi dùng Left Join mà không tìm thấy dữ liệu khớp. Nhớ kỹ: NULL không phải là số 0. Một đống NULL ở cột tên nhà cung cấp là bằng chứng thép cho thấy tiền đang bị tuồn ra ngoài hệ thống!
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Hàm có điều kiện (SUMIFS / COUNTIFS)</b></summary>
+<br>
+
+Đóng vai trò như "Người bảo vệ khắt khe" đi dọc qua hàng trăm ngàn dòng giao dịch, chỉ cho phép cộng hoặc đếm những dòng thỏa mãn ĐỒNG THỜI mọi tiêu chí đa chiều đã đặt ra.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Pivot Table (Bảng tổng hợp)</b></summary>
+<br>
+
+Vũ khí tối thượng khi bạn nhận được dữ liệu thô nhưng không biết phải đặt câu hỏi gì. Dùng giao diện Kéo và Thả (Drag & Drop) để biến hình và gom nhóm bãi chiến trường 500.000 dòng thành báo cáo gọn gàng trong 10 giây.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Slicers (Bộ lọc trực quan)</b></summary>
+<br>
+
+Biến báo cáo Pivot tĩnh thành một Bảng điều khiển tương tác (Interactive Dashboard), cho phép biểu đồ tự động nhảy số theo thời gian thực (real-time) khi thuyết trình.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Ảo ảnh Số trung bình (Mean)</b></summary>
+<br>
+
+Một cái bẫy chết người của kiểm toán viên. Nó có sức mạnh "san bằng" mọi sự bất thường để cho ra một con số đẹp đẽ, sạch sẽ, hoàn toàn che giấu những khoản chi phí/thất thoát đột biến khổng lồ.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Thống kê mô tả (Descriptive Statistics)</b></summary>
+<br>
+
+Hành động đưa dữ liệu lên "bàn mổ" để đo lường mức độ bất thường bằng Phương sai (Variance) và Độ lệch chuẩn (Standard Deviation) thay vì chỉ tin vào số trung bình.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Hình dáng phân bổ (Skewness & Kurtosis)</b></summary>
+<br>
+
+Đo lường xem "ngọn núi dữ liệu" đó méo về bên trái hay bên phải (Độ lệch), nhọn hoắt (tập trung) hay thấp tè trải dài (Độ nhọn) để đánh giá tính rủi ro.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Phân bổ Lưng lạc đà (Bimodal)</b></summary>
+<br>
+
+Hiện tượng đồ thị thực tế có 2 đỉnh tách biệt ở 2 thái cực, chứng minh rằng con số trung bình nằm lọt thỏm dưới "thung lũng" không đại diện cho bất kỳ giao dịch thực tế nào.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Độ lệch chuẩn (Radar an ninh)</b></summary>
+<br>
+
+Vạch ra vùng không phận an toàn chứa 99% giao dịch bình thường. Ngay khi có một khoản chi lọt ra ngoài vùng này, "Radar chớp đỏ" báo hiệu kiểm toán viên phải lao vào kiểm tra chứng từ ngay lập tức.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Ngoại lệ (Outlier)</b></summary>
+<br>
+
+Dấu chấm giao dịch đơn độc bay lơ lửng cách xa đám đông, bị phát hiện bởi Radar an ninh. Gian lận và sai sót trọng yếu thường nằm ở đó.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Sự mù lòa nhận thức (Cognitive Blindness)</b></summary>
+<br>
+
+Điểm yếu của não bộ khi cố nhìn vào bảng dữ liệu hàng trăm ngàn dòng chữ/số để tìm lỗi. Phải khắc phục bằng cách sử dụng sức mạnh của vỏ não thị giác (Trực quan hóa).
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Biểu đồ phân tán (Scatter Plot)</b></summary>
+<br>
+
+Mỗi giao dịch biến thành một dấu chấm trên trục tọa độ. Giúp mắt người chỉ mất 0,1 giây để nhận ra ngay lập tức các Ngoại lệ (Outlier) bất thường.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Biểu đồ tần suất (Histogram)</b></summary>
+<br>
+
+Dùng để vẽ nên hình dáng ngọn núi dữ liệu, giúp phát hiện xem phân bổ đó có bị cắt làm đôi (như lưng con lạc đà) che giấu 2 xu hướng cực đoan hay không.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Khám phá (Exploratory) và Giải thích (Explanatory)</b></summary>
+<br>
+
+Hai triết lý vẽ đồ thị. Khám phá là lộn xộn, chi tiết để chính bạn tự tìm ra lỗi. Giải thích là cắt bỏ mọi râu ria, chỉ làm nổi bật thông điệp duy nhất để mang vào phòng họp trình chiếu cho Sếp.
+
+</details>
+
+
+
 #### ** 🇬🇧 Tiếng Anh **
 
 ### 📄 Chương 2: Foundational Data Analysis Skills (Ann C. Dzuranin)

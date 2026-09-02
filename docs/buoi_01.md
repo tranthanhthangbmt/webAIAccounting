@@ -2,6 +2,210 @@
 
 <!-- tabs:start -->
 
+#### ** 📚 Thuật ngữ & Khái niệm **
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Mùa đông AI (AI Winters)</b></summary>
+<br>
+
+Những giai đoạn lịch sử khi Trí tuệ nhân tạo bị mất đi sự quan tâm và cắt giảm tài trợ nghiêm trọng do những hạn chế về phần cứng và dữ liệu ở thời điểm đó không đáp ứng được kỳ vọng. Sự bùng nổ của vi xử lý và Điện toán đám mây hiện nay đã chấm dứt hoàn toàn chu kỳ này.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Hệ thống hoạch định nguồn lực doanh nghiệp (ERP Systems)</b></summary>
+<br>
+
+Phần mềm quản trị tích hợp toàn diện các quy trình kinh doanh (Kế toán, Nhân sự, Sản xuất, Bán hàng) vào một cơ sở dữ liệu duy nhất, giúp xóa bỏ tình trạng "ốc đảo dữ liệu" (Data Silos) và là tiền đề dữ liệu sạch cho các ứng dụng AI tài chính.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Điện toán đám mây (Cloud Computing)</b></summary>
+<br>
+
+Mô hình cung cấp các tài nguyên máy tính (máy chủ, lưu trữ, cơ sở dữ liệu) qua Internet (đám mây). Đây là hạ tầng cốt lõi cung cấp sức mạnh siêu tính toán khổng lồ giúp các mô hình AI có thể phân tích hàng triệu giao dịch kế toán trong nháy mắt.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Giao diện Lập trình Ứng dụng (API)</b></summary>
+<br>
+
+Bộ quy ước giao tiếp phần mềm giúp các nền tảng tự động chia sẻ dữ liệu trực tiếp cho nhau. Ví dụ: Phần mềm kế toán gọi API sang Cổng thuế điện tử để truyền hóa đơn tự động, chấm dứt kỷ nguyên xuất/nhập Excel thủ công.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Ngôn ngữ lập trình Python</b></summary>
+<br>
+
+Ngôn ngữ lập trình mã nguồn mở mạnh mẽ và phổ biến nhất trong giới AI. Cú pháp thân thiện, cộng đồng hỗ trợ lớn và các thư viện (như Pandas) giúp kế toán viên dễ dàng xử lý gộp hàng trăm file báo cáo khổng lồ chỉ trong vài giây.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Trí tuệ Nhân tạo (Artificial Intelligence - AI)</b></summary>
+<br>
+
+Một lĩnh vực của khoa học máy tính nhằm tạo ra các hệ thống có khả năng mô phỏng trí tuệ con người để thực hiện các tác vụ phức tạp. Trong kế toán, AI được ứng dụng để tự động hóa xử lý dữ liệu, phân tích rủi ro, và dự báo tài chính.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Trí tuệ Nhân tạo Hẹp (Artificial Narrow Intelligence - ANI)</b></summary>
+<br>
+
+Các hệ thống AI được thiết kế và huấn luyện để giải quyết một nhiệm vụ cụ thể, duy nhất. Hầu hết các ứng dụng AI trong tài chính hiện nay (như nhận diện hóa đơn, phân loại chứng từ) đều thuộc phân nhóm ANI.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Trí tuệ Nhân tạo Tổng quát (Artificial General Intelligence - AGI)</b></summary>
+<br>
+
+Cấp độ lý thuyết của AI, nơi máy móc sở hữu trí tuệ toàn diện tương đương con người, có khả năng tự học, suy luận và xử lý mọi bài toán. Khái niệm này hiện đặt ra nhiều thách thức về mặt pháp lý và đạo đức trong việc truy cứu trách nhiệm khi cỗ máy mắc sai lầm.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Lập luận Máy (Machine Reasoning - MR)</b></summary>
+<br>
+
+Quá trình máy tính mô phỏng tư duy lập luận diễn dịch và quy nạp của con người dựa trên một cơ sở tri thức có sẵn để đưa ra quyết định. Trong kiểm toán, MR được dùng để suy luận tự động nhằm phát hiện các sai sót logic trong hạch toán.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Hệ chuyên gia (Expert Systems - ES)</b></summary>
+<br>
+
+Một hệ thống phần mềm sử dụng tri thức chuyên gia con người được mã hóa để giải quyết các vấn đề phức tạp (VD: bộ luật thuế được mã hóa thành các quy tắc `IF-THEN`). Nhược điểm là tốn nhiều công sức để cập nhật thủ công khi luật thay đổi.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Học máy (Machine Learning - ML)</b></summary>
+<br>
+
+Tập hợp các thuật toán cho phép máy tính tự tìm ra quy luật từ dữ liệu lịch sử để đưa ra dự báo đầu ra thay vì con người phải lập trình luật tường minh. Quy tắc bao trùm là: *Mọi Học máy đều là AI, nhưng không phải AI nào cũng là Học máy.*
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Học có giám sát (Supervised Learning)</b></summary>
+<br>
+
+Phương pháp học máy trong đó mô hình được huấn luyện trên một tập dữ liệu đã được gán nhãn sẵn. Ứng dụng phổ biến: dự báo khả năng nợ xấu của khách hàng dựa trên lịch sử thanh toán đã được phân loại (tốt/xấu).
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Học bán giám sát (Semi-supervised Learning)</b></summary>
+<br>
+
+Phương pháp kết hợp, trong đó máy học từ một lượng nhỏ dữ liệu đã gán nhãn, sau đó tự động lan truyền quy luật đó để tự động gán nhãn cho tập dữ liệu thô khổng lồ còn lại, giúp tiết kiệm triệt để công sức của kế toán viên.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Học không giám sát (Unsupervised Learning)</b></summary>
+<br>
+
+Phương pháp học máy tìm kiếm các quy luật ẩn trong dữ liệu thô không có nhãn. Sử dụng kỹ thuật gom cụm, hệ thống tự động phát hiện các điểm dị biệt (Anomaly Detection) như một giao dịch chuyển tiền tỷ diễn ra lúc 3h sáng Chủ Nhật.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Học tăng cường (Reinforcement Learning)</b></summary>
+<br>
+
+Phương pháp máy tự học thông qua chu trình Thử và Sai (Trial and Error) để tối đa hóa điểm thưởng. Ứng dụng thực tiễn trong quản trị dòng tiền tự động hoặc các thuật toán định giá sản phẩm động theo thời gian thực.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Học sâu (Deep Learning - DL)</b></summary>
+<br>
+
+Một nhánh bậc cao của Học máy, sử dụng các Mạng nơ-ron nhân tạo lấy cảm hứng từ cấu trúc não bộ. Vượt trội trong việc xử lý dữ liệu phi cấu trúc khối lượng lớn, điển hình như việc đọc và nhận diện các hóa đơn bị rách nát, nhòe chữ.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Nhận dạng ký tự quang học (OCR) & Xử lý tài liệu thông minh (IDP)</b></summary>
+<br>
+
+Sự tiến hóa từ việc quét ảnh thành chữ (OCR truyền thống) lên mức độ hiểu tài liệu (IDP bằng Học sâu). Máy không chỉ đoán chữ mà còn hiểu ngữ cảnh để nhận diện được Mã số thuế hay số tiền VAT để tự động hạch toán.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Xử lý Ngôn ngữ Tự nhiên (NLP)</b></summary>
+<br>
+
+Công nghệ giúp máy tính có khả năng đọc, hiểu và phản hồi lại ngôn ngữ con người. NLP chuyển hóa từng từ ngữ thành các "vectơ số học", cho phép hệ thống đọc và trích xuất các điều khoản phức tạp từ một bản hợp đồng thuê tài sản 50 trang.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Khai phá văn bản (Text Mining)</b></summary>
+<br>
+
+Việc áp dụng các kỹ thuật phân tích vào khối lượng dữ liệu văn bản phi cấu trúc (hợp đồng, thuyết minh BCTC, email nội bộ) để rút trích ra các mẫu thông tin có giá trị.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Phân tích cảm xúc (Sentiment Analysis)</b></summary>
+<br>
+
+Một nhánh của NLP nhằm xác định thái độ, sắc thái (tích cực, tiêu cực, trung tính) trong văn bản. Ví dụ: Phân tích giọng điệu của Ban Giám đốc trong các báo cáo thường niên để dự báo biến động giá cổ phiếu.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Khai phá dữ liệu (Data Mining)</b></summary>
+<br>
+
+Quá trình khám phá các mô hình, xu hướng có ý nghĩa từ tập dữ liệu lớn. Khác với thống kê truyền thống để kiểm định giả thuyết, Data mining mang tính chất chủ động "bới tìm" những quy luật vàng nhằm tối ưu hóa chi phí và doanh thu.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Tự động hóa Quy trình bằng Robot (RPA)</b></summary>
+<br>
+
+Sử dụng các "robot phần mềm" để bắt chước các thao tác click chuột lặp đi lặp lại của con người. Hạn chế là RPA truyền thống rất cứng nhắc, dễ bị treo nếu giao diện phần mềm thay đổi (được ví như "Robot mù").
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Tự động hóa Quy trình Thông minh (IPA / AI-RPA)</b></summary>
+<br>
+
+Sự kết hợp giữa sức mạnh cơ bắp của RPA và khả năng nhận thức của AI. Robot không chỉ lặp lại các thao tác mà còn có khả năng "Hiểu" chứng từ và tự động phân luồng xử lý các ngoại lệ mà không bị đứng máy.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Đối chiếu 3 bên (3-Way Matching)</b></summary>
+<br>
+
+Nghiệp vụ kiểm soát nội bộ so khớp 3 tài liệu: Hóa đơn, Đơn mua hàng (PO) và Phiếu nhập kho. Khi áp dụng AI-RPA, quy trình này được tự động hóa hoàn toàn 100%, con người chỉ phải can thiệp khi máy báo cáo có độ lệch giá hoặc số lượng.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Kiểm toán liên tục (Continuous Auditing)</b></summary>
+<br>
+
+Sự dịch chuyển từ mô hình "Kiểm toán định kỳ hậu kiểm" sang mô hình giám sát tự động 24/7. Các thuật toán AI chạy ngầm liên tục để phân tích từng bút toán ngay khi chúng được ghi nhận trên hệ thống, phát hiện gian lận theo thời gian thực (Real-time).
+
+</details>
+
+
+
 #### ** 🇬🇧 Tiếng Anh **
 
 ### 📄 Chương 1: What Accountants Need to Know (Introduction & History of AI)

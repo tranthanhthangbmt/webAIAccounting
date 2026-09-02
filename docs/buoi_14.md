@@ -2,6 +2,186 @@
 
 <!-- tabs:start -->
 
+#### ** 📚 Thuật ngữ & Khái niệm **
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">"Dữ liệu thô tự nó bị câm" (Raw Data is Mute)</b></summary>
+<br>
+
+Một triết lý cốt lõi. Mọi giao dịch dù được hệ thống ghi lại đầy đủ, nhưng nếu kế toán viên chỉ quăng đống dữ liệu đó cho Ban Giám đốc mà không diễn dịch, nó sẽ trở nên vô nghĩa và gây nhiễu loạn quyết định.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Báo cáo tĩnh (Reporting)</b></summary>
+<br>
+
+Cái nhìn tĩnh lặng về quá khứ (Ví dụ: xuất bảng kê hóa đơn). Nó chỉ trả lời câu hỏi "Cái gì đã xảy ra?". Đây là việc mà phần mềm 5 triệu đồng cũng làm được, không mang lại giá trị gia tăng của một kế toán viên.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Khám phá động (Exploration)</b></summary>
+<br>
+
+Hành động chủ động xoay lật các chiều dữ liệu (dùng PivotTable) để tìm sự thật. Nó trả lời câu hỏi "TẠI SAO?" (Ví dụ: Trộn dữ liệu thời tiết với doanh thu kem để tìm ra quy luật).
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Sự thật ngầm hiểu (Insights / Correlation)</b></summary>
+<br>
+
+Những quy luật, mối tương quan bất ngờ ẩn sâu dưới hàng ngàn dòng Excel, chỉ có thể được tìm thấy thông qua nỗ lực Khám phá động, mang lại lợi thế chiến lược to lớn.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Mô hình So sánh Danh nghĩa (Nominal Comparison)</b></summary>
+<br>
+
+Dùng để so sánh độ lớn giữa các đối tượng ngang hàng (Ví dụ: So chi phí 3 chi nhánh Bắc - Trung - Nam) thường thông qua Biểu đồ cột ngang.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Mô hình Phân phối & Ngoại lai (Distribution & Outliers)</b></summary>
+<br>
+
+Cực kỳ lợi hại trong kiểm toán. Phân tích tần suất để tìm ra các giao dịch đột biến (Ví dụ: Hóa đơn VPP 50 triệu bay tít lên cao). 90% ngoại lai là do gõ sai hoặc gian lận.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Mô hình Sai lệch / Phương sai (Deviation)</b></summary>
+<br>
+
+Linh hồn của Phân tích Ngân sách. So sánh số Thực tế với Dự toán, đánh dấu bằng cờ Favorable (Thuận lợi - Lãi) hoặc Unfavorable (Bất lợi - Lỗ) để Sếp lập tức cắt giảm/bơm tiền đúng chỗ.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Mô hình Xếp hạng (Ranking & Pareto)</b></summary>
+<br>
+
+Sắp xếp từ cao xuống thấp để tìm trọng tâm. Áp dụng quy tắc 80/20: Tập trung phục vụ 20% khách hàng mang lại 80% lợi nhuận, hoặc dẹp bỏ ngay những sản phẩm lỗi nhiều nhất.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Mô hình Phần-trên-Tổng thể (Part-to-Whole)</b></summary>
+<br>
+
+Xem xét cơ cấu đóng góp (Ví dụ: Tỷ trọng nợ ngắn hạn/dài hạn trong tổng vốn). Khuyến cáo dùng Biểu đồ Treemap hoặc Cột xếp chồng, tuyệt đối tránh lạm dụng biểu đồ Tròn.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Kể chuyện bằng dữ liệu (Data Storytelling)</b></summary>
+<br>
+
+Nghệ thuật "bán" Insight. Sự kết hợp hoàn hảo của 3 trụ cột: Dữ liệu (Data), Cốt truyện lôi cuốn (Narrative) và Biểu đồ đẹp mắt (Visuals) để thuyết phục sếp duyệt phương án.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Cấu trúc kịch Shakespeare (Freytag's Pyramid)</b></summary>
+<br>
+
+Mượn cấu trúc 5 hồi của kịch nghệ (Mở đầu - Thắt nút - Cao trào - Giải quyết) để trình bày báo cáo kiểm toán (Ví dụ vụ ăn hối lộ Kickback), dẫn dắt cảm xúc người nghe đi từ tò mò đến kinh ngạc.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Tâm lý học Gestalt - Quy luật gần gũi</b></summary>
+<br>
+
+Tận dụng sinh học não người: Những đối tượng đứng gần nhau tự động được não bộ coi là một nhóm. Không cần phải vẽ thêm đường viền hay khoanh tròn gây rối mắt.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Quy luật Điểm nhấn (Focal Point)</b></summary>
+<br>
+
+Tuyệt chiêu thôi miên thị giác. Đừng tô 7 sắc cầu vồng cho 10 cột. Hãy tô màu xám nhạt cho 9 cột bình thường và 1 màu ĐỎ CHÓT cho cột đang thua lỗ. Sếp sẽ lập tức chĩa mũi dùi vào thẳng điểm đó.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Lưu ý Nhân văn về Mù màu (Color-blind friendly)</b></summary>
+<br>
+
+Tránh ghép cặp Đỏ (Lỗ) và Xanh lá (Lãi) trên cùng một biểu đồ vì 8% nam giới bị mù màu sẽ chỉ thấy một cục xám xịt. Nên thay thế bằng Đỏ và Xanh dương.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Thói quen đọc chữ F (F-Pattern)</b></summary>
+<br>
+
+Mắt người luôn lia vào Góc Trên Cùng Bên Trái đầu tiên. Do đó, Chỉ số sinh tử quan trọng nhất (như Lợi nhuận ròng) BẮT BUỘC phải đặt ở vị trí này trên màn hình báo cáo.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Nguyên tắc Vàng 5 Giây</b></summary>
+<br>
+
+Dashboard thiết kế chuẩn là khi CFO nhìn vào phải biết ngay "Công ty đang sống hay hấp hối" trong đúng 5 giây. Không được bắt não bộ của sếp phải dịch mã số liệu!
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Thao túng bằng biểu đồ (Unethical Charting)</b></summary>
+<br>
+
+Ranh giới mong manh giữa "Làm cho đẹp" và "Lừa đảo nhà đầu tư". Sử dụng biểu đồ để thao túng tâm lý và che giấu sự thật là một tội ác vi phạm đạo đức kinh doanh.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Bẫy "Cắt xén trục tung" (Omitting the baseline)</b></summary>
+<br>
+
+Kẻ gian lận cắt bỏ số 0 ở trục Y, bắt đầu từ số 90. Khiến một sự sụt giảm bé tí (95 xuống 91) trông như một cú lao dốc đứt gãy kinh hoàng nhằm dọa dẫm khán giả.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Bẫy "Đi ngược quy ước" (Going against conventions)</b></summary>
+<br>
+
+Mắt người quen với "Cột cao = Tốt/Nhiều". Kẻ gian lận cố tình vẽ biểu đồ chi phí với cột rất cao nhưng lại gắn giá trị "chi phí thấp" để lừa thị giác trong 5 giây đầu.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Bẫy "Trích xuất có chọn lọc" (Cherry-picking)</b></summary>
+<br>
+
+Cắt xén dữ liệu thời gian. Giấu nhẹm 10 tháng thua lỗ, chỉ tung ra biểu đồ 2 tháng cuối năm đang tăng trưởng rực rỡ để lừa dối cổ đông.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Rủi ro từ AI - Tối ưu kịch tính</b></summary>
+<br>
+
+Giao khoán việc vẽ biểu đồ cho AI rất nguy hiểm. Máy móc không có đạo đức, nó sẽ tự động bóp xén trục tung để đồ thị trông cong vút, "đẹp mắt kịch tính" nhưng làm mất đi sự trung thực của dữ liệu tài chính.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Người kiểm duyệt tư duy (Human Moderator)</b></summary>
+<br>
+
+Vai trò tối thượng và cuối cùng của sinh viên ra trường kỷ nguyên này. Các em sinh ra không phải làm thợ nhập liệu hay vẽ biểu đồ, mà để làm đối tác chiến lược, kiểm duyệt và ngăn chặn máy móc làm lu mờ tính trung thực.
+
+</details>
+
+
+
 #### ** 🇬🇧 Tiếng Anh **
 
 > [!NOTE]

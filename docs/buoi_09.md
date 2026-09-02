@@ -2,6 +2,210 @@
 
 <!-- tabs:start -->
 
+#### ** 📚 Thuật ngữ & Khái niệm **
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Tài chính Tập trung (CeFi - Centralized Finance)</b></summary>
+<br>
+
+Hệ thống tài chính truyền thống (Ngân hàng, Visa, Mastercard) nơi quyền lực, việc xác thực dòng tiền và trách nhiệm pháp lý nằm trong tay một tổ chức trung gian duy nhất.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Tài chính Phi tập trung (DeFi - Decentralized Finance)</b></summary>
+<br>
+
+Một hệ sinh thái tài chính loại bỏ hoàn toàn trung gian (không có bồi bàn, không quản lý). Khách hàng tự tương tác trực tiếp với các thuật toán mã nguồn mở để vay, cho vay và giao dịch.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Mạng ngang hàng (Peer-to-Peer / P2P)</b></summary>
+<br>
+
+Nền tảng kỹ thuật của DeFi, nơi các máy tính của người dùng kết nối trực tiếp với nhau để chia sẻ dữ liệu và xác thực giao dịch mà không cần thông qua một máy chủ trung tâm.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Hợp đồng thông minh (Smart Contracts)</b></summary>
+<br>
+
+Những đoạn code lập trình được nhúng trên Blockchain. Nó tự động thực thi các điều khoản (ví dụ: chuyển tiền, thu hồi tài sản thế chấp) một cách tuyệt đối, lạnh lùng khi điều kiện được thỏa mãn mà không ai có thể can thiệp hay sửa đổi.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Tính Lắp ghép / Lego Tiền tệ (Composability / Money Legos)</b></summary>
+<br>
+
+Khả năng liên kết các nền tảng DeFi khác nhau lại với nhau. Người dùng có thể dùng biên lai của nền tảng A thế chấp vào nền tảng B để vay tiền, rồi lại mang tiền đó đầu tư vào nền tảng C, tạo ra chuỗi đòn bẩy không giới hạn.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Tiên tri dữ liệu (Oracle)</b></summary>
+<br>
+
+Cầu nối liên tục lấy dữ liệu giá cả từ thị trường thế giới thực (ví dụ: giá Bitcoin hiện tại là bao nhiêu) và nạp vào Blockchain để các Hợp đồng thông minh biết đường xử lý.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Thế chấp vượt mức (Over-collateralization)</b></summary>
+<br>
+
+Vì không có xác minh thu nhập (Bảng lương) nên để vay được 100 USD trong DeFi, hệ thống ép bạn phải khóa chặt một lượng tài sản Crypto trị giá lớn hơn (ví dụ: 150 USD) để đề phòng rủi ro biến động giá.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Thanh lý tự động (Liquidation)</b></summary>
+<br>
+
+Khác với ngân hàng truyền thống sẽ gọi điện ân hạn (Margin Call), khi tài sản thế chấp rớt giá chạm ngưỡng rủi ro, Hợp đồng thông minh sẽ tự động tịch thu và xả bán tài sản của bạn ngay lập tức trong một mili-giây.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Token không thể thay thế (NFT - Non-Fungible Tokens)</b></summary>
+<br>
+
+Chứng nhận quyền sở hữu kỹ thuật số đối với một tài sản ĐỘC BẢN trên mạng (ví dụ: bức tranh ảo, video). Nó biến những vật phẩm dễ dàng copy-paste thành tài sản duy nhất không thể làm giả.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Bán ẩn danh (Pseudonymous)</b></summary>
+<br>
+
+Tính chất của Blockchain. Nó không ẩn danh hoàn toàn (ai cũng thấy dòng tiền chuyển từ Ví A sang Ví B), nhưng nó "bán ẩn danh" vì không ai biết danh tính thật sự (tên tuổi, CMND) của người sở hữu Ví A hay Ví B đó.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Giao dịch Tự chéo (Wash Trading)</b></summary>
+<br>
+
+Tuyệt chiêu rửa tiền trên thị trường NFT. Tội phạm tự lấy tiền bẩn của mình (Ví B) để mua lại bức tranh rác do chính mình tạo ra (Ví A) với giá trên trời, nhằm hợp thức hóa nguồn tiền bẩn thành "doanh thu bán nghệ thuật".
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Chiến dịch "Bơm và Xả" (Pump and Dump)</b></summary>
+<br>
+
+Tội phạm mua gom đồng tiền ảo vô giá trị, tung tin đồn trên mạng xã hội để "bơm" giá lên dụ nhà đầu tư nhỏ lẻ nhảy vào. Khi giá đạt đỉnh, chúng đồng loạt "xả" hàng thu tiền thật, để lại bong bóng xì hơi.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Bất đối xứng thông tin (Information Asymmetry)</b></summary>
+<br>
+
+Cốt lõi của mọi chiêu lừa đảo tài chính. Tội phạm (người tạo ra cuộc chơi) biết chính xác khi nào chúng sẽ xả hàng, trong khi đám đông nhà đầu tư thì hoàn toàn mù tịt và bị lùa bởi lòng tham.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Biểu đồ mạng lưới (Network Graph)</b></summary>
+<br>
+
+Công cụ của pháp y tài chính AI. Máy học sẽ vẽ ra một bản đồ kết nối hàng triệu giao dịch, hiển thị rõ dòng tiền chạy lòng vòng qua hàng trăm ví điện tử phức tạp để tìm ra "hang ổ" cuối cùng.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Thuật toán Gom cụm (Clustering Algorithms)</b></summary>
+<br>
+
+Trí tuệ nhân tạo được dùng để "đánh bại tội phạm AI". Dù kẻ rửa tiền cố gắng chia nhỏ tiền qua nhiều ví (Wash Trade), thuật toán này vẫn phát hiện ra các ví đó có chung một cụm nguồn cấp vốn hoặc chung mốc thời gian giao dịch.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Sổ cái Blockchain công khai (Public Blockchain Ledger)</b></summary>
+<br>
+
+Cuốn sổ sách kế toán vĩ đại của toàn cầu. Mọi giao dịch tiền mã hóa đều được ghi chép và phơi bày công khai, không ai có thể xóa hay sửa, biến nó thành bằng chứng thép cho các công tố viên.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Cố vấn Robot (Robo-Advisors)</b></summary>
+<br>
+
+Các thuật toán AI tự động hóa hoàn toàn việc tư vấn, lập kế hoạch tài chính và quản lý danh mục đầu tư cho con người mà không cần sự can thiệp của chuyên gia bằng xương bằng thịt.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Bài toán Kinh tế theo quy mô (Economies of Scale)</b></summary>
+<br>
+
+Ưu điểm của Robo-Advisors. Một cỗ máy AI có thể quản lý hàng triệu tài khoản khách hàng cùng lúc với chi phí hoạt động (chi phí biên) gần như bằng không, giúp mở rộng tiếp cận tài chính cho cả những người ít tiền.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Lý thuyết Danh mục Đầu tư Hiện đại (Modern Portfolio Theory)</b></summary>
+<br>
+
+Khung logic mà Robo-Advisors sử dụng. Chúng không cố gắng dự đoán thị trường để "mua đáy bán đỉnh", mà chỉ tập trung phân bổ tỷ trọng tài sản (Cổ phiếu/Trái phiếu) sao cho tối ưu hóa rủi ro nhất.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Tự động tái cân bằng (Auto-Rebalancing)</b></summary>
+<br>
+
+Kỷ luật sắt của Robo-Advisors. Khi chứng khoán tăng mạnh làm lệch tỷ trọng đầu tư ban đầu, AI sẽ lạnh lùng chốt lời (bán bớt cổ phiếu) và mua trái phiếu để đưa danh mục về đúng tỷ lệ an toàn, cắt đứt sự tham lam của con người.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Hội chứng sợ thuật toán (Algorithm Aversion)</b></summary>
+<br>
+
+Một giả thuyết tâm lý cho rằng con người thà giao tiền cho con người quản lý (để có người mà đổ lỗi khi lỗ) chứ không dám giao cho máy tính. (Tuy nhiên thực tế, nhà đầu tư lại rất tin tưởng AI khi nó sinh lời).
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Điểm mù nhận thức (Cognitive Blindspot)</b></summary>
+<br>
+
+Hiện tượng tâm lý khi nhà đầu tư thua lỗ do Robo-Advisors quản lý, họ lại có xu hướng tự bào chữa cho cái máy (đổ lỗi do kinh tế vĩ mô, do chiến tranh) thay vì bắt thuật toán chịu trách nhiệm.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Rủi ro hệ thống (Systemic Risk)</b></summary>
+<br>
+
+Mối nguy cơ vĩ mô khi 80% thị trường chứng khoán được giao cho các thuật toán Robo-Advisors quản lý, tạo ra sự đồng thuận mù quáng không có cảm xúc kiểm soát của con người.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Cú sập chớp nhoáng (Flash Crash)</b></summary>
+<br>
+
+Thảm họa xảy ra khi xuất hiện một sự kiện vĩ mô xấu, hàng vạn Robo-Advisors đồng loạt "nhấn nút Bán tháo" trong cùng một phần nghìn giây, rút cạn thanh khoản và đánh sập toàn bộ thị trường ngay tức khắc.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Khoảng trống pháp lý AI (AI Legal Vacuum)</b></summary>
+<br>
+
+Thách thức lớn nhất hiện nay: Khi một thuật toán Hợp đồng thông minh hay Robo-Advisors gây ra thảm họa mất trắng tài sản, hệ thống luật pháp hiện tại không thể xác định được ai là người phải bồi thường (Lập trình viên, Sàn giao dịch hay Bản thân nền tảng AI).
+
+</details>
+
+
+
 #### ** 🇬🇧 Tiếng Anh **
 
 ### 📄 Tài liệu PDF 1: Chương 2: AI, Crypto Assets, and Financial Markets

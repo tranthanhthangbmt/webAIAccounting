@@ -2,6 +2,210 @@
 
 <!-- tabs:start -->
 
+#### ** 📚 Thuật ngữ & Khái niệm **
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Gian lận nhấp chuột (Click Fraud)</b></summary>
+<br>
+
+Thủ đoạn tiêu diệt đối thủ cạnh tranh bằng cách sử dụng công cụ tự động hoặc thuê người nhấp liên tục vào quảng cáo PPC (Pay-Per-Click), làm cạn kiệt ngân sách Marketing của đối thủ mà không tạo ra bất kỳ doanh thu nào.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Nông trại nhấp chuột (Click Farms / Botnets)</b></summary>
+<br>
+
+Tổ chức của những kẻ lừa đảo sử dụng hàng ngàn thiết bị hoặc mã độc (Click Injection) được lập trình để tạo ra các lượt nhấp chuột ảo. Chúng có quỹ đạo chuột và tốc độ di chuyển "hoàn hảo đến mức phi tự nhiên", chính điều này khiến chúng bị AI phát hiện.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Đường cơ sở hành vi (Baseline)</b></summary>
+<br>
+
+Trong chống gian lận thẻ tín dụng, AI không quét khuôn mặt tội phạm mà học thói quen chi tiêu của chính bạn (mua gì, ở đâu, lúc mấy giờ) để lập ra một "Đường cơ sở". Bất kỳ sự lệch chuẩn nào (như quẹt thẻ mua iPhone ở Nga lúc 3h sáng) sẽ lập tức kích hoạt báo động.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Lỗi Dương tính giả (False Positives)</b></summary>
+<br>
+
+"Nỗi ác mộng" của ngân hàng khi AI hiểu lầm một giao dịch hợp pháp là lừa đảo (ví dụ: bạn đi du lịch và quẹt thẻ mua đồ xa xỉ khác với bình thường). Lỗi này khiến thẻ bị khóa oan uổng, làm khách hàng giận dữ.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Nhận dạng ký tự quang học (OCR) kết hợp NLP</b></summary>
+<br>
+
+Bộ đôi tiêu diệt chứng từ giả mạo. OCR quét ảnh hóa đơn thành văn bản thô, sau đó NLP (Xử lý Ngôn ngữ Tự nhiên) nhảy vào kiểm tra "Logic" và "Văn phong" để bóc trần những tờ hóa đơn bị râu ông nọ cắm cằm bà kia.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Làm giả chứng từ kỹ thuật số (Document Dispensation)</b></summary>
+<br>
+
+Việc tội phạm sử dụng AI tạo sinh (Generative AI) và Photoshop để tạo ra các hóa đơn, biên lai y tế hoặc giấy tờ hải quan giả mạo tinh vi đến mức mắt thường của kế toán không thể nhận ra nét cắt ghép.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Nguyên tắc "Human in the loop"</b></summary>
+<br>
+
+Bất chấp AI có thông minh đến đâu, quyết định cuối cùng trong việc từ chối một giao dịch lớn hay buộc tội một khách hàng lừa đảo phải do Kế toán viên/Chuyên gia con người đưa ra dựa trên bối cảnh thực tế.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Sự kiện "Thiên nga đen" (Black Swan events)</b></summary>
+<br>
+
+Những vụ lừa đảo hoặc sự cố tài chính cực kỳ hiếm gặp, chưa từng có trong lịch sử (dữ liệu học máy không có sẵn), nhưng một khi xảy ra sẽ mang lại hậu quả thảm khốc tột độ.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Cây quyết định (Decision Tree)</b></summary>
+<br>
+
+Thuật toán AI hoạt động như trò chơi 20 câu hỏi chớp nhoáng (Máy thiết bị mới? Có. Giao dịch 3h sáng? Có. Tốc độ chuột hoàn hảo? Có $\rightarrow$ Chặn!). Dùng để lọc nhanh các hành vi gian lận đơn giản.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Rừng ngẫu nhiên (Random Forest)</b></summary>
+<br>
+
+Phiên bản nâng cấp của Cây quyết định. Thay vì 1 cây, AI chạy song song hàng ngàn Cây quyết định để rà quét tổ hợp hành vi (địa lý, bộ nhớ đệm, tốc độ cuộn trang), giúp tóm gọn các con Bot giả vờ rê chuột run run để đánh lừa hệ thống.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Mạng Nơ-ron Nhân tạo (Neural Networks)</b></summary>
+<br>
+
+Mô hình AI mô phỏng não bộ, tự động cân bằng các "Trọng số" (Weights). Giúp AI không chỉ nhìn bề mặt mà "hiểu bối cảnh" (Ví dụ: Thấy lịch sử từng mua vé máy bay đi Paris, nên việc quẹt thẻ ở Paris 3 tuần sau là hợp lý, bỏ qua báo động giả).
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Phân tích miền chéo (Cross-domain Analysis)</b></summary>
+<br>
+
+Kỹ thuật kết hợp dữ liệu từ nhiều nguồn khác nhau (thẻ tín dụng, mạng xã hội, thị trường chứng khoán). Kẻ gian có thể che giấu sổ sách rất giỏi, nhưng AI sẽ phát hiện ra sự bất thường khi đối chiếu với lịch sử tìm kiếm hoặc hành vi mua sắm cá nhân.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Mô hình Hộp trắng (White-boxing)</b></summary>
+<br>
+
+Khác với Hộp đen (chỉ đưa ra kết quả không có lời giải thích), AI Hộp trắng cho phép Kế toán viên và Kiểm toán viên nhìn thấu được lý do TẠI SAO thuật toán lại kết luận đây là một giao dịch gian lận.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Giao dịch Thuật toán (Algorithmic Trading)</b></summary>
+<br>
+
+Việc lập trình cho máy tính tự động Mua/Bán cổ phiếu với tốc độ phần nghìn giây. Nó là một "Hộp đen" giao dịch vô tri vô giác, có khả năng kích hoạt chuỗi bán tháo toàn cầu trước khi con người kịp chớp mắt.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Vụ Flash Crash 2010</b></summary>
+<br>
+
+Thảm họa chứng khoán kinh điển khi chỉ số Dow Jones bốc hơi ngàn điểm trong vài phút do các Thuật toán AI tự động hùa theo nhau Bán tháo mà không có bất kỳ con người nào can thiệp suy nghĩ logic.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Cố vấn Robot (Robo-Advisors)</b></summary>
+<br>
+
+Các ứng dụng Fintech sử dụng AI để tự động phân bổ danh mục đầu tư cho người dùng cá nhân. Dù tiện lợi, chúng mang theo nguy cơ "vừa đá bóng vừa thổi còi" (Sàn giao dịch ngầm chỉnh Bot để xúi khách hàng mua các mã cổ phiếu mà sàn muốn xả).
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Chiến dịch "Bơm và Xả" (Pump and Dump)</b></summary>
+<br>
+
+Trong thị trường Crypto, tội phạm dùng mạng xã hội tạo tin giả để "Bơm" (FOMO) giá đồng tiền ảo lên cao, dụ nhà đầu tư nhỏ lẻ lao vào, sau đó lập tức "Xả" hàng để chốt lời, để lại bong bóng đổ vỡ.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Phân tích Tâm lý bằng Học máy (NLP quét mạng xã hội)</b></summary>
+<br>
+
+Vũ khí của Ủy ban Chứng khoán. AI quét hàng triệu tin nhắn trên Telegram/Discord để đo lường tâm lý đám đông, đối chiếu với dòng tiền Blockchain để đóng băng ngay các tài khoản có dấu hiệu lùa gà.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Bảo lãnh khoản vay bằng AI (AI Loan Underwriting)</b></summary>
+<br>
+
+Thay vì chỉ xem điểm FICO hay bảng lương truyền thống, AI đánh giá rủi ro tín dụng của người vay thông qua hành vi trên mạng xã hội, cách nạp tiền điện thoại, và lịch sử mua hàng thương mại điện tử.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Kẻ gác cổng công nghệ (Gatekeepers)</b></summary>
+<br>
+
+Thuật ngữ chỉ các tập đoàn Big Tech (Google, Amazon, Apple, Meta). Họ tạo ra "Hiệu ứng mạng" (càng nhiều người dùng $\rightarrow$ dữ liệu càng lớn $\rightarrow$ dịch vụ càng vô đối) để thiết lập thế độc quyền tuyệt đối, không cho đối thủ nhỏ cơ hội ngóc đầu lên.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Sáp nhập Tiêu diệt (Killer Acquisitions)</b></summary>
+<br>
+
+Chiến thuật tàn độc của Big Tech. Họ dùng tiền tấn mua đứt các công ty khởi nghiệp tiềm năng từ trong trứng nước, không phải để phát triển, mà để "cất vào tủ kính vĩnh viễn" nhằm triệt tiêu đối thủ cạnh tranh tương lai.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Vỏ bọc "Quyền riêng tư" (Privacy Shielding)</b></summary>
+<br>
+
+Trò ngụy biện pháp lý của Big Tech. Khi bị điều tra chống độc quyền, họ chặn đối thủ tiếp cận dữ liệu công khai dưới danh nghĩa "Bảo vệ thông tin khách hàng", nhưng thực chất là để giữ độc quyền mảng kinh doanh bán dữ liệu đó (Ví dụ: Vụ LinkedIn).
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Khách hàng chính là Sản phẩm</b></summary>
+<br>
+
+Lỗ hổng của bộ luật chống độc quyền cũ (thước đo Phúc lợi Người tiêu dùng). Google, Facebook cho người dùng xài "Miễn phí" nên luật cũ không thể phạt họ lỗi "tăng giá". Trong kỷ nguyên số, khi bạn không trả tiền cho dịch vụ, Dữ liệu cá nhân của bạn chính là hàng hóa bị đem bán.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Quyền được sửa chữa (Right to Repair)</b></summary>
+<br>
+
+Phong trào pháp lý đấu tranh chống lại việc các tập đoàn (như Apple, John Deere) khóa chặt phần cứng bằng phần mềm độc quyền, ép khách hàng phải bảo hành chính hãng với giá cắt cổ thay vì đem ra tiệm ngoài.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Thẩm phán Máy móc (Machine Judge / AGI)</b></summary>
+<br>
+
+Viễn cảnh tương lai về việc dùng Trí tuệ Nhân tạo Siêu việt (AGI) thay thế con người xử án các vụ thao túng tài chính. Máy móc sẽ tuyệt đối vô tư, không nhận hối lộ, tự động giáng búa trừng phạt các siêu tập đoàn ngay khi phát hiện vi phạm.
+
+</details>
+
+
+
 #### ** 🇬🇧 Tiếng Anh **
 
 ### 📄 Tài liệu PDF 1: Chương 6: Credit Scoring & AI Algorithmic Trading

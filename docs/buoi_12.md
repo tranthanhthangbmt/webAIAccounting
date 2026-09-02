@@ -2,6 +2,170 @@
 
 <!-- tabs:start -->
 
+#### ** 📚 Thuật ngữ & Khái niệm **
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Ẩn dụ Kính chắn gió (Windshield Metaphor)</b></summary>
+<br>
+
+Hình ảnh ví von nghề kế toán cũ giống như việc lái xe chỉ nhìn vào kính chiếu hậu (cặm cụi ghi chép quá khứ). GenAI giúp gỡ bỏ màn đen, trang bị GPS để dự báo tương lai, giúp kế toán chuyển từ "Tư duy ghi chép" sang "Tư duy cố vấn".
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Trí tuệ Nhân tạo Tạo sinh (GenAI)</b></summary>
+<br>
+
+Thế hệ AI mới không chỉ biết tính toán cộng trừ như máy tính sơ khai, mà tiến hóa đến mức thấu hiểu ngôn ngữ, suy luận và sáng tạo ra nội dung mới.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Phần mềm Rule-based (Nếu-Thì)</b></summary>
+<br>
+
+Cỗ máy kế toán kiểu cũ, hoạt động như một cỗ máy "dò từ khóa" cứng nhắc. Chỉ cần hóa đơn sai một lỗi chính tả nhỏ, hệ thống sẽ báo lỗi đỏ chót và kẹt cứng.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Sự thấu hiểu ngữ nghĩa (Semantic Understanding)</b></summary>
+<br>
+
+Khả năng của Mạng Neural sâu phân tích hàng tỷ tham số để hiểu ý nghĩa thực sự của câu văn. Dù chứng từ có bị sai sót đánh máy, AI vẫn hiểu mục đích cốt lõi như một chuyên gia thuế lão làng.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Phân tích dự báo (Predictive Analytics)</b></summary>
+<br>
+
+Khả năng phân tích biến động (ví dụ: tỷ giá, dòng tiền) và hú còi báo động các nguy cơ thiếu hụt thanh khoản trong tương lai ngay theo thời gian thực thay vì đợi đến cuối quý.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Hiểu biết dữ liệu (Data Literacy)</b></summary>
+<br>
+
+Kỹ năng sinh tồn cốt lõi. Kế toán viên không cần biết viết code lập trình, nhưng bắt buộc phải hiểu cơ chế: máy nạp dữ liệu gì vào thì sẽ mớm ra kết quả gì, để kiểm soát và không bị thuật toán lừa.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Kể chuyện dữ liệu (Data Storytelling)</b></summary>
+<br>
+
+Năng lực diễn giải của con người, biến một bảng Dashboard chi chít biểu đồ vô tri thành một "câu chuyện kinh doanh" mạch lạc nhằm thuyết phục lãnh đạo chốt phương án chiến lược.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Mô hình ngôn ngữ lớn (LLMs)</b></summary>
+<br>
+
+Nền tảng cốt lõi của ChatGPT. Bản chất toán học của nó không phải là "suy nghĩ" như con người, mà chỉ là cố gắng "Đoán xác suất của từ tiếp theo" dựa trên kho dữ liệu khổng lồ nó được huấn luyện.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Ảo giác AI (Hallucination)</b></summary>
+<br>
+
+Hiện tượng vô cùng nguy hiểm khi AI tự tin bịa ra một điều khoản luật không có thật hoặc một con số ma, nhưng trình bày nó với một thái độ đĩnh đạc, cực kỳ thuyết phục.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Sự nhạy bén thương trường (Business Acumen)</b></summary>
+<br>
+
+Điểm yếu chí mạng của AI. AI giống như một cậu phụ việc siêu phàm nhưng non nớt về bối cảnh thực tế (ví dụ báo động sai một khoản chi khổng lồ thuộc về thương vụ sáp nhập đã được lên kế hoạch từ trước).
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Tư duy phản biện (Critical Thinking)</b></summary>
+<br>
+
+Vũ khí tối thượng của kế toán viên. Luôn duy trì thái độ hoài nghi với kết quả máy tính đưa ra. (Kế toán viên là Bếp trưởng, AI là Phụ bếp. Trước pháp luật, Bếp trưởng là người ký duyệt và chịu trách nhiệm).
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Dân chủ hóa AI (Democratization of AI)</b></summary>
+<br>
+
+Hiện tượng đột phá cho phép bất kỳ Kế toán viên nào cũng có thể tự xây dựng một con Bot AI riêng cho mình chỉ bằng cách trò chuyện bằng tiếng người mà không cần kỹ năng lập trình.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">GPT Store & Custom GPTs (GPT tùy chỉnh)</b></summary>
+<br>
+
+Cửa hàng ứng dụng để tải về các "Bộ não kỹ thuật số". Đặc biệt, Custom GPT cho phép doanh nghiệp nạp Sổ tay nội bộ vào để đào tạo một trợ lý AI mang tính cách và chuyên môn riêng biệt.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Cơ chế RAG (Truy xuất tăng cường)</b></summary>
+<br>
+
+"Khắc tinh" của Ảo giác AI. Kỹ thuật này khóa miệng AI lại, ép nó mỗi khi trả lời bắt buộc phải truy xuất vào đúng tài liệu nội bộ đã được doanh nghiệp cung cấp, triệt tiêu gần như hoàn toàn việc bịa chuyện.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Cửa sổ Ngữ cảnh (Context Window)</b></summary>
+<br>
+
+Bộ nhớ ngắn hạn siêu phàm của GenAI. Khả năng nhớ dai dẳng toàn bộ lịch sử hàng trăm trang tài liệu để đối chiếu chuỗi nghiệp vụ tài chính phức tạp mà không bị "nói câu sau quên câu trước".
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">AI Phiên bản Enterprise (Bong bóng kín)</b></summary>
+<br>
+
+Tiêu chuẩn bảo mật pháp lý bắt buộc (chứng chỉ SOC 2) dành cho doanh nghiệp tài chính. Dữ liệu nạp vào được cô lập, cấm nhà cung cấp AI đem đi huấn luyện, giúp ngăn chặn thảm họa rò rỉ bí mật chiến lược của công ty.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Mã hóa / Làm mờ dữ liệu (Data Masking)</b></summary>
+<br>
+
+Kỷ luật bắt buộc đối với nhân viên: luôn che giấu thông tin cá nhân khách hàng, số thẻ tín dụng trước khi nạp dữ liệu lên môi trường AI để tuân thủ các đạo luật bảo vệ quyền riêng tư (GDPR, CCPA).
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Con người trong vòng lặp (HITL - Human-in-the-loop)</b></summary>
+<br>
+
+Quy tắc Vàng trong quản trị rủi ro tự động hóa. Không bao giờ cấp quyền cho AI tự động bấm nút "Chuyển tiền". Mọi luồng lệnh tài chính sinh ra từ AI bắt buộc phải chui qua khe cửa cuối cùng là cái nhấp chuột duyệt của con người.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Kiểm toán liên tục (Continuous Auditing)</b></summary>
+<br>
+
+Tương lai của ngành kiểm toán. AI sẽ bám đuôi từng giao dịch một cách thầm lặng và phát hiện lỗi sai chỉ trong 1 phần nghìn giây sau khi thao tác được thực hiện, thay vì phải gom chờ kiểm kê vào cuối quý.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Mạng lưới tự chữa lành (Self-Healing System)</b></summary>
+<br>
+
+Đích đến vĩ đại của hệ thống tài chính kỷ nguyên số, nơi thuật toán bóp nghẹt mọi mầm mống gian lận, bòn rút ngầm hay sai sót kế toán ngay từ trong trứng nước trước khi đồng tiền bẩn kịp lọt ra ngoài.
+
+</details>
+
+
+
 #### ** 🇬🇧 Tiếng Anh **
 
 ### 📄 Tài liệu PDF 1: Chương 1: Generative AI in Accounting (Scott Dell)

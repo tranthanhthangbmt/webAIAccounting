@@ -2,6 +2,210 @@
 
 <!-- tabs:start -->
 
+#### ** 📚 Thuật ngữ & Khái niệm **
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Rủi ro tiềm tàng (Inherent Risk)</b></summary>
+<br>
+
+Là rủi ro tự nhiên sinh ra từ bản chất ngành nghề kinh doanh mà không có bất kỳ biện pháp bảo vệ nào. Ví dụ: Kinh doanh xăng dầu thì mặc định rủi ro cháy nổ là rất cao.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Rủi ro kiểm soát nội bộ (Internal Control Risk)</b></summary>
+<br>
+
+Rủi ro sinh ra khi hệ thống phòng thủ của công ty bị lủng, do Ban giám đốc quản lý kém, hoặc cố tình lách luật để tư lợi. Đây là mục tiêu tấn công chính của AI trong kiểm toán hiện đại.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Điểm yếu trọng yếu (Material Weaknesses)</b></summary>
+<br>
+
+Các lỗ hổng chết người trong hệ thống kiểm soát nội bộ, đủ lớn để khiến công ty sụp đổ (như Thomas Cook). Thách thức của kế toán là phải phát hiện ra lỗ hổng này bằng AI *trước cả khi* kỳ kiểm toán bắt đầu.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Môi trường kiểm soát (Control Environment)</b></summary>
+<br>
+
+Nền tảng cốt lõi của khung COSO, nó chính là "Văn hóa doanh nghiệp" và "Đạo đức của Ban giám đốc". Thứ vô hình này rất khó đo lường bằng phiếu khảo sát (vì nhân viên hay báo cáo láo) nhưng lại bị AI đọc vị dễ dàng.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Hệ thống Phòng thủ Chủ động (Proactive Defense System)</b></summary>
+<br>
+
+Chuyển dịch tư duy từ việc ghi chép quá khứ sang việc "cầm đèn chạy trước ô tô". AI giăng bẫy bắt lỗi kẻ gian lận ngay lúc chúng mới nhen nhóm ý định (giống phim Minority Report).
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Nhiệt kế Đạo đức bằng NLP (Xử lý Ngôn ngữ Tự nhiên)</b></summary>
+<br>
+
+Công nghệ biến máy tính thành máy quét tâm lý. AI đọc lướt hàng vạn email lúc nửa đêm, tin nhắn nội bộ để đánh hơi "sự thay đổi thái độ", phát hiện các chỉ thị ngầm mang tính ép buộc của sếp.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Thuật toán TF-IDF (Tần suất thuật ngữ)</b></summary>
+<br>
+
+Một bộ đếm thông minh trong NLP. Nó cân đo đong đếm xem một từ vựng mờ ám có "sức nặng" bao nhiêu trong văn cảnh, giúp phân loại các báo cáo hoặc giao tiếp có chứa ý đồ thao túng.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Đánh giá Phong cách Quản lý (Management Philosophy)</b></summary>
+<br>
+
+AI sẽ dán nhãn xem văn hóa của Ban giám đốc là "Hợp tác" hay "Độc đoán" dựa trên từ vựng họ dùng. Một văn hóa sếp gào thét "Phải xong bằng mọi giá" sẽ bị AI đánh dấu Đỏ (rủi ro gian lận cao).
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Quản trị Lợi nhuận (Earnings Management)</b></summary>
+<br>
+
+Một dạng tiểu xảo "hợp pháp" tinh vi. Sếp dùng thủ thuật kế toán để xào nấu lợi nhuận cho đẹp hồ sơ. AI vạch trần thủ đoạn này bằng cách phát hiện sự bất đồng bộ giữa giọng điệu hoảng loạn trong email nội bộ và giọng điệu hào nhoáng trên báo cáo cổ đông.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Đánh giá Chéo Đa chiều (Khung STOPSCAM)</b></summary>
+<br>
+
+Thuật toán không bao giờ kết tội vội vã. Nó đối chiếu giữa Hành vi (vừa bị giáng chức), Tâm lý (email thù hằn) và Thao tác (đăng nhập hệ thống) để quyết định có nên khóa tài khoản của nhân viên đó hay không.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Bất kiêm nhiệm (Segregation of Duties)</b></summary>
+<br>
+
+Nguyên tắc vàng trong kế toán (Người tạo hóa đơn thì không được phép Duyệt chi tiền). Tuy nhiên, kẻ gian dễ lách luật bằng cách mượn User của người khác.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Khai phá Quy trình (Process Mining)</b></summary>
+<br>
+
+Công nghệ cốt lõi thứ 2. Thuật toán này không nhìn vào con số trên sổ sách, mà nó lôi hệ thống máy chủ ra để vẽ lại chính xác 100% đường đi thực tế của quy trình phê duyệt xem có bị đi tắt, lách luật hay không.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Cái bóng Kỹ thuật số (Digital Shadow / Event Logs)</b></summary>
+<br>
+
+Nhật ký sự kiện lưu trên máy chủ (Ai đăng nhập? Bằng dải IP nào? Mấy giờ, mấy phút, mấy giây?). Kẻ gian có thể làm giả hóa đơn giấy, nhưng không thể xóa được cái bóng kỹ thuật số này trước con mắt của Process Mining.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Phân tích Dữ liệu vs Siêu Dữ liệu (Data-Centric vs Metadata-Centric)</b></summary>
+<br>
+
+Kiểm toán cũ chỉ nhìn Data (Tờ hóa đơn này giá bao nhiêu?). Kiểm toán AI nhìn vào Metadata (Ai là người duyệt tờ hóa đơn này trên máy tính 192.168.1.1 vào lúc 2 giờ sáng?).
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Cảnh báo giả & Sự kiệt sức (False Positives & Alert Fatigue)</b></summary>
+<br>
+
+Mặt trái của giám sát bằng máy móc. Nếu máy móc cứ thấy đăng nhập 2h sáng là báo động (kể cả lúc đang khóa sổ kế toán hợp lệ), nhân viên sẽ bị kiệt sức vì báo động giả và bỏ mặc hệ thống.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Sự giao thoa Người và Máy (Human-in-the-loop)</b></summary>
+<br>
+
+Giải pháp cho Cảnh báo giả. Phán đoán nghề nghiệp của Kế toán viên sẽ đóng vai trò "dạy dỗ" (dán nhãn) cho máy tính biết phân biệt đâu là áp lực khóa sổ cuối năm, đâu là hành vi trộm cắp, để máy ngày càng khôn hơn.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Học không giám sát (Unsupervised Learning)</b></summary>
+<br>
+
+Tuyệt chiêu dùng để đi săn các mánh khóe lừa đảo hoàn toàn mới toanh mà giới giang hồ chưa từng dùng (Unknown Unknowns). Máy tự phân tích mà không cần con người dạy trước.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Thuật toán Phân cụm (Clustering)</b></summary>
+<br>
+
+Một kỹ thuật của Học không giám sát. Nó tự gom các hóa đơn thành ổ. Ví dụ: Kẻ gian lách ngưỡng phê duyệt 10,000 USD bằng cách xé nhỏ hóa đơn thành 9,999 USD. Phân cụm sẽ vẽ ra một cái "ổ nhền nhện" bất thường tại con số 9,999 đó để bắt thóp.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Mô hình Kim cương Gian lận (Fraud Diamond)</b></summary>
+<br>
+
+Phiên bản tiến hóa của Tam giác Gian lận. Gồm 4 yếu tố: Áp lực, Cơ hội, Sự biện minh, và Năng lực. AI được sinh ra để triệt tiêu viên kim cương này.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Góc Năng lực (Capability)</b></summary>
+<br>
+
+Mồi lửa châm ngòi. Để thực hiện vụ lừa đảo ngàn tỷ, kẻ đó phải am hiểu hệ thống, biết cách xóa dấu vết (thường là sếp lớn). Kẻ lừa đảo mà thiếu năng lực thì muốn ăn cắp cũng đành chịu chết.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Sự Biện minh (Rationalization)</b></summary>
+<br>
+
+Kẻ gian tự lừa dối bản thân bằng những lý lẽ: "Tôi chỉ mượn công ty tạm vài tỷ thôi", "Công ty nợ tôi món tiền này". NLP của AI sẽ phân tích văn bản để tìm ra sự xáo trộn tâm lý này.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Phân tích Mạng lưới Xã hội (Social Network Analysis)</b></summary>
+<br>
+
+Dùng AI để phân tích sự liên kết ngầm trong công ty (ai hay chat với ai nhất). Qua đó lật tẩy các nhóm quyền lực ngầm đang thâu tóm hệ thống, vượt mặt các cấu trúc phòng ban chính quy.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Gian lận lấy AI làm trung tâm (AI-centric fraud)</b></summary>
+<br>
+
+Tội phạm thời 4.0 dùng chính AI để làm giả số liệu, giả giọng nói CEO (Deepfake) để ra lệnh chuyển tiền. Ranh giới thật - giả bị xóa nhòa.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Rủi ro AI bị thao túng (Algorithm Manipulation)</b></summary>
+<br>
+
+Nỗi sợ tột cùng. Điều gì xảy ra nếu cỗ máy AI của công ty bị Ban giám đốc nạp mệnh lệnh ngầm: "Tối ưu báo cáo tài chính bằng mọi giá"? AI sẽ tự động sinh ra hàng vạn giao dịch ma với tốc độ ánh sáng để che giấu khoản lỗ.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Kiểm toán Thuật toán (Algorithm Auditing)</b></summary>
+<br>
+
+Kỹ năng tối thượng của Kế toán tương lai. Thay vì chỉ đi kiểm toán sổ sách của con người, kế toán viên sẽ phải "kiểm toán cỗ máy AI" để xem nó có bị cài cắm mã độc thiên vị hay tiếp tay cho gian lận hay không.
+
+</details>
+
+
+
 #### ** 🇬🇧 Tiếng Anh **
 
 ### 📄 Tài liệu PDF 1: Chương 9: Automating Internal Controls

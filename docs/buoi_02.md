@@ -2,6 +2,210 @@
 
 <!-- tabs:start -->
 
+#### ** 📚 Thuật ngữ & Khái niệm **
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Blockchain (Sổ cái Phân tán - Distributed Ledger)</b></summary>
+<br>
+
+Hệ thống ghi chép dữ liệu giao dịch công khai, minh bạch và bất biến (không thể sửa chữa) trên mạng lưới ngang hàng. Đóng vai trò như một "Công chứng viên" không thể hối lộ, tạo ra "phiên bản duy nhất của sự thật" giúp kiểm toán viên đối chiếu dữ liệu một cách tuyệt đối chính xác.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Hợp đồng thông minh (Smart Contracts)</b></summary>
+<br>
+
+Các đoạn mã (code) tự động thực thi các điều khoản khi điều kiện định trước được thỏa mãn. Chúng giúp loại bỏ hoàn toàn các khâu trung gian, ví dụ tự động giải ngân hoặc bồi thường bảo hiểm ngay khi có dữ kiện được xác thực mà không cần xử lý giấy tờ thủ công.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Giao dịch Thuật toán (Algorithmic Trading)</b></summary>
+<br>
+
+Ứng dụng AI để tự động đọc tin tức thị trường và đặt lệnh mua bán chứng khoán trong vài mili-giây. Lợi thế cốt lõi là máy móc tuân thủ kỷ luật đầu tư tuyệt đối, không bị chi phối bởi tâm lý tham lam hay sợ hãi (FOMO) như con người.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Khoa học Dữ liệu (Data Science)</b></summary>
+<br>
+
+Lĩnh vực giao thoa giữa Thống kê, Lập trình và Chuyên môn nghiệp vụ (như Kế toán/Tài chính) nhằm trích xuất hiểu biết sâu sắc từ dữ liệu. Khác với Data Analyst tập trung phân tích quá khứ, Data Scientist dùng học máy để dự báo tương lai.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Dữ liệu lớn (Big Data) & 4 Chữ V</b></summary>
+<br>
+
+Khối lượng dữ liệu khổng lồ và phức tạp với 4 đặc trưng cốt lõi (Theo IBM): Volume (Khối lượng), Velocity (Tốc độ), Variety (Đa dạng), và Veracity (Độ tin cậy). Với kế toán, "Veracity" là yếu tố sống còn vì dữ liệu rác sẽ tạo ra dự báo rác (Garbage in, Garbage out).
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Hồ dữ liệu (Data Lake) vs. Kho dữ liệu (Data Warehouse)</b></summary>
+<br>
+
+*Data Lake* lưu trữ mọi loại dữ liệu thô (có và phi cấu trúc như ảnh, ghi âm) với tính linh hoạt cao, chi phí rẻ. Trong khi *Data Warehouse* lưu trữ dữ liệu đã được cấu trúc hóa chặt chẽ (dạng bảng) phục vụ trực tiếp cho báo cáo và truy vấn tài chính truyền thống.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Phân tích Dữ liệu Khám phá (Exploratory Data Analysis - EDA)</b></summary>
+<br>
+
+Một bước thiết yếu trong dự án dữ liệu, sử dụng các công cụ thống kê và trực quan hóa (biểu đồ) để tìm ra quy luật ẩn và phân tích mối quan hệ giữa các biến số trước khi xây dựng mô hình AI.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Đạo đức AI & Sự thiên vị (AI Ethics & Bias)</b></summary>
+<br>
+
+Rủi ro khi mô hình học máy đưa ra các quyết định mang tính phân biệt đối xử (ví dụ: tự động từ chối vay vốn người thu nhập thấp hoặc giới tính nữ) do dữ liệu huấn luyện lịch sử đã chứa sẵn những định kiến này. Đòi hỏi sự giám sát quản trị nghiêm ngặt.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Vòng đời Dự án Khoa học Dữ liệu (Data Science Project Lifecycle)</b></summary>
+<br>
+
+Quy trình vòng lặp khép kín bao gồm các bước từ xác định bài toán kinh doanh, thu thập dữ liệu, làm sạch, xây dựng mô hình, đến triển khai và giám sát. Trong thực tiễn kế toán, vòng đời này đặc biệt nhấn mạnh khâu phản hồi (Feedback Loop) để liên tục cải tiến mô hình dự báo.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Độ chệch (Bias)</b></summary>
+<br>
+
+Sai số xảy ra khi mô hình học máy đưa ra các giả định quá đơn giản về dữ liệu, dẫn đến việc bỏ sót các mối quan hệ quan trọng (Underfitting). Trong tài chính, một mô hình định giá tín dụng có Bias cao có thể đánh giá sai rủi ro của toàn bộ một nhóm khách hàng do bỏ qua các biến số vĩ mô.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Phương sai (Variance)</b></summary>
+<br>
+
+Sai số xảy ra khi mô hình học máy quá nhạy cảm với các nhiễu động nhỏ trong tập dữ liệu huấn luyện, dẫn đến việc "học vẹt" (Overfitting). Một mô hình phát hiện gian lận có Variance cao có thể hoạt động hoàn hảo trên dữ liệu cũ nhưng lại thất bại hoàn toàn khi áp dụng cho các giao dịch mới.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Sự đánh đổi Bias-Variance (Bias-Variance Tradeoff)</b></summary>
+<br>
+
+Bài toán tối ưu hóa trong học máy nhằm tìm ra điểm cân bằng giữa độ phức tạp của mô hình (để giảm Bias) và khả năng tổng quát hóa (để giảm Variance). Kiểm toán viên cần hiểu nguyên lý này để đánh giá tính tin cậy và sự ổn định của các mô hình dự báo.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Kiểm thử A/B (A/B Testing)</b></summary>
+<br>
+
+Kỹ thuật thiết kế thực nghiệm ngẫu nhiên có đối chứng nhằm so sánh hiệu quả giữa hai hay nhiều phiên bản. Ví dụ: Ngân hàng thử nghiệm hai mô hình AI khác nhau để gửi thông báo nhắc nợ nhằm đo lường tỷ lệ thu hồi nợ thành công trước khi triển khai diện rộng.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Định danh Tài sản mã hóa (Legal Status of Crypto Assets)</b></summary>
+<br>
+
+Việc xác định bản chất pháp lý của các loại tiền mã hóa và token theo khung pháp luật của từng quốc gia. Sự khác biệt trong định danh (ví dụ: Anh coi là "property", Tây Ban Nha coi là "incorporeal asset") ảnh hưởng trực tiếp đến cách hạch toán kế toán và nghĩa vụ thuế.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Nghịch lý McGinnis (McGinnis Paradox)</b></summary>
+<br>
+
+Một mâu thuẫn hệ thống trong lĩnh vực DeFi. Khi tiền mã hóa muốn mở rộng quy mô, nó bắt buộc phải dựa vào các tổ chức trung gian mới (như sàn giao dịch, quỹ ETF), vô tình tái lập lại đúng các rủi ro đại diện (agency risks) mà hệ thống phi tập trung ban đầu muốn loại bỏ.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Bộ quy tắc Howey (The Howey Test)</b></summary>
+<br>
+
+Khung pháp lý do SEC Hoa Kỳ thiết lập, bao gồm 4 tiêu chí để xác định xem một giao dịch có phải là "hợp đồng đầu tư" hay không. Kế toán viên áp dụng để xác định tính chất các đợt phát hành Token (ICO) nhằm hạch toán đúng chứng khoán hay tiện ích.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Ngân hàng ảo (Virtual Banks)</b></summary>
+<br>
+
+Mô hình ngân hàng hoạt động 100% trên môi trường số không có chi nhánh vật lý, sử dụng AI và Big Data để tự động hóa toàn diện các quy trình từ e-KYC (định danh khách hàng) đến phê duyệt tín dụng tức thời.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Thế chấp bằng NFT (NFTs as Collateral)</b></summary>
+<br>
+
+Nghiệp vụ DeFi cho phép người dùng sử dụng các token không thể thay thế (đại diện cho tài sản số hoặc tài sản thực) làm tài sản đảm bảo để vay mượn các loại tiền mã hóa khác, tạo thanh khoản cho tài sản kém thanh khoản.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Quyền sở hữu phân mảnh (Fractional Ownership)</b></summary>
+<br>
+
+Cơ chế chia nhỏ quyền sở hữu của một tài sản giá trị lớn (như bất động sản, tác phẩm nghệ thuật) thành nhiều token kỹ thuật số độc lập. Quá trình token hóa này hạ thấp rào cản tài chính cho nhà đầu tư nhỏ lẻ.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Cho vay ngang hàng (P2P/P2B Lending)</b></summary>
+<br>
+
+Mô hình tài chính kết nối trực tiếp người đi vay và người cho vay thông qua nền tảng công nghệ, loại bỏ ngân hàng làm trung gian để tối ưu hóa lãi suất.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Rủi ro sốc thanh khoản (Liquidity Shock Risk)</b></summary>
+<br>
+
+Điểm yếu chí mạng của mô hình P2P khi không có Ngân hàng Trung ương đóng vai trò "người cho vay cuối cùng". Khi xảy ra khủng hoảng niềm tin, làn sóng rút vốn đột ngột có thể khiến nền tảng sụp đổ nhanh chóng.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Cố vấn tài chính tự động (Robo-Advisors)</b></summary>
+<br>
+
+Nền tảng kỹ thuật số sử dụng thuật toán để cung cấp dịch vụ quản lý danh mục đầu tư tự động với sự can thiệp tối thiểu của con người, giảm thiểu đáng kể chi phí tư vấn.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Sự bài xích thuật toán (Algorithm Aversion)</b></summary>
+<br>
+
+Hiện tượng tâm lý khi con người mất niềm tin mạnh mẽ vào thuật toán nhanh hơn so với con người khi chứng kiến chúng mắc sai lầm, dẫn đến ngần ngại sử dụng hệ thống tư vấn tự động.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Tiền kỹ thuật số Ngân hàng Trung ương (CBDC)</b></summary>
+<br>
+
+Tiền tệ kỹ thuật số do Ngân hàng Trung ương phát hành, đại diện cho nghĩa vụ nợ trực tiếp của quốc gia. Tính chất lập trình được (Programmable) của CBDC cho phép tự động hóa giải ngân trợ cấp hoặc thu thuế qua hợp đồng thông minh.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Kênh truyền dẫn tiền tệ ngầm (Shadow Monetary Transmission)</b></summary>
+<br>
+
+Rủi ro vĩ mô khi CBDC quá hấp dẫn rút cạn tiền gửi tại ngân hàng thương mại, đẩy hoạt động tín dụng sang hệ thống "ngân hàng bóng tối" (shadow banks) kém kiểm soát, tạo nguy cơ bất ổn hệ thống.
+
+</details>
+
+
+
 #### ** 🇬🇧 Tiếng Anh **
 
 ### 📄 Tài liệu PDF 1: Chương 1: AI and Finance (Mục 1.2, 1.6, 1.7, 1.15)

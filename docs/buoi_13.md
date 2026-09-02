@@ -2,6 +2,186 @@
 
 <!-- tabs:start -->
 
+#### ** 📚 Thuật ngữ & Khái niệm **
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Kính viễn vọng tiên đoán (Telescope Metaphor)</b></summary>
+<br>
+
+Hình ảnh ví von sự dịch chuyển của nghề kế toán. Kế toán không còn dùng "Gương chiếu hậu" để ghi chép dĩ vãng, mà dùng AI như "Kính viễn vọng" để soi chiếu, dự báo tương lai và cảnh báo rủi ro cho doanh nghiệp.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Nguyên lý "Rác đầu vào = Rác đầu ra" (Garbage in, Garbage out)</b></summary>
+<br>
+
+Nền tảng của Chiến lược dữ liệu. Dù AI có siêu việt đến đâu, nếu dữ liệu đầu vào (hóa đơn, chứng từ) bị sai lệch hoặc giả mạo, kết quả phân tích phun ra cũng chỉ là rác rưởi.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Phân tích Mô tả (Descriptive Analytics)</b></summary>
+<br>
+
+Trụ cột 1. Trả lời câu hỏi "Chuyện gì đã xảy ra?" (Ví dụ: Bảng tỷ số báo doanh thu tăng, lợi nhuận giảm). Nhược điểm là nó không cho biết TẠI SAO điều đó xảy ra.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Phân tích Chẩn đoán (Diagnostic Analytics)</b></summary>
+<br>
+
+Trụ cột 2. Trả lời câu hỏi "Tại sao điều đó xảy ra?" thông qua việc đào sâu vào dữ liệu (như xem lại băng quay chậm) để tìm nguyên nhân gốc rễ (ví dụ: đứt gãy chuỗi cung ứng làm tăng chi phí).
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Phân tích Dự báo (Predictive Analytics)</b></summary>
+<br>
+
+Trụ cột 3. Trả lời câu hỏi "Chuyện gì sẽ xảy ra tiếp theo?". Dựa trên mô hình toán học hồi quy để dự báo tương lai (doanh thu, dòng tiền) bằng dữ liệu khoa học, không phải bằng tâm linh hay cảm tính.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Phân tích Đề xuất (Prescriptive Analytics)</b></summary>
+<br>
+
+Trụ cột 4 - Đỉnh cao nhất. Trả lời câu hỏi "Ta NÊN làm gì?". Hệ thống AI tự động tính toán và đề xuất bản đồ chiến lược tối ưu nhất (ví dụ: nên sản xuất bao nhiêu xe màu xanh/đỏ để tối đa lợi nhuận) cho Ban Giám đốc phê duyệt.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Kỹ thuật viết Prompt (Prompt Engineering)</b></summary>
+<br>
+
+Nghệ thuật và khoa học thiết kế câu lệnh để "sai bảo" và giao tiếp với AI. Nếu không có kỹ năng này, AI sẽ đoán mò và đưa ra kết quả vô dụng.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Chỉ định vai trò (Role-based Prompting)</b></summary>
+<br>
+
+Nguyên tắc vàng số 1. Thay vì ra lệnh chung chung, hãy yêu cầu AI "Đóng vai một Kế toán trưởng 15 năm kinh nghiệm về IFRS". Lập tức AI sẽ thay đổi giọng văn, độ sâu kỹ thuật và tính pháp lý cho hợp với vai diễn.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Cung cấp bối cảnh (Context Structuring)</b></summary>
+<br>
+
+Nguyên tắc vàng số 2. Phải nói rõ mục tiêu, loại hình công ty và định dạng dữ liệu rõ ràng (Bảng/Gạch đầu dòng). Ném một bãi chữ lộn xộn sẽ làm AI bị "tẩu hỏa nhập ma".
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Tư duy theo bước (Chain-of-Thought)</b></summary>
+<br>
+
+Nguyên tắc vàng số 3. Thêm thần chú "Hãy suy nghĩ từng bước một (step-by-step)". Kỹ thuật này khóa chặt logic của AI, ngăn cản nó nhảy cóc đoán mò kết quả, giúp giảm thiểu sai sót đáng kể trong các bài toán thuế lắt léo.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Hạn chế Toán học của LLM</b></summary>
+<br>
+
+Sai lầm chết người. LLM (như ChatGPT) bản chất là mô hình xử lý ngôn ngữ, rất giỏi văn nhưng lại kém toán. Bắt nó cộng trừ nhân chia số lớn rất dễ sai, kế toán viên luôn phải dùng máy tính kiểm tra lại.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Khung tư duy SPARKS</b></summary>
+<br>
+
+Quy trình làm việc 6 bước thiết kế riêng cho Kế toán viên để xử lý hàng triệu dòng dữ liệu mà không bị hoảng loạn.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">S - State the Question (Xác định câu hỏi)</b></summary>
+<br>
+
+Bước 1. Bắt đầu bằng một câu hỏi kinh doanh cốt lõi (VD: "Vì sao chi phí Quý 4 tăng?").
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">P - Partition (Cắt lớp dữ liệu)</b></summary>
+<br>
+
+Bước 2. Rút trích đúng các cột dữ liệu cần thiết để giải quyết câu hỏi, vứt bỏ râu ria thừa thãi.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">A - Analyze (Phân tích)</b></summary>
+<br>
+
+Bước 3. Áp dụng các thuật toán hoặc công cụ để phân tích mớ dữ liệu vừa cắt.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">R - Refine (Tinh chỉnh)</b></summary>
+<br>
+
+Bước 4. Đi tìm và xử lý các Ngoại lệ (Outliers) vô lý. (Đôi khi quy mô mẫu nhỏ làm bóp méo điểm trung bình, hoặc một lỗi gõ dư số 0 của thư ký làm nổ tung cả mô hình).
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">K - Communicate (Giao tiếp/Trực quan hóa)</b></summary>
+<br>
+
+Bước 5. Vẽ Dashboard, biểu đồ trực quan để trình bày kết quả "kể chuyện dữ liệu" cho Sếp.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">S - Stop (Dừng lại)</b></summary>
+<br>
+
+Bước 6. Dừng lại, suy ngẫm và phản biện xem báo cáo này đã thực sự trả lời đúng câu hỏi Sếp giao ở Bước 1 hay chưa.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Pháo đài dữ liệu (Data Fortress)</b></summary>
+<br>
+
+Giải pháp an ninh mạng bắt buộc (tuân thủ GDPR). Cô lập dữ liệu tài chính nội bộ, xây tường lửa để chống lại thảm họa rò rỉ bảo mật như vụ hack Equifax.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Hiện tượng Hộp đen (Black Box)</b></summary>
+<br>
+
+Nỗi sợ hãi khi giao quyền cho AI (VD: Giao dịch cao tần). Máy móc tự đưa ra quyết định chốt lệnh nhưng không một con người nào hiểu được logic bên trong thuật toán là gì, có nguy cơ gây sụp đổ thị trường (Flash Crash).
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Hàm mục tiêu vô cảm (Objective Function)</b></summary>
+<br>
+
+Điểm giao thoa giữa Công nghệ và Triết học. AI không có lương tâm. Nếu hàm mục tiêu là "tối đa lợi nhuận", nó sẵn sàng chà đạp đạo đức (tài trợ phá hoại môi trường) để đạt được mục tiêu đó, vì lỗi nằm ở người lập trình.
+
+</details>
+
+<details name="glossary" onclick="setTimeout(() => this.scrollIntoView({behavior: 'smooth', block: 'start'}), 150)">
+<summary><b style="font-size:1.2em">Trực giác đạo đức & Thấu cảm triết học</b></summary>
+<br>
+
+Đặc quyền vô giá và vĩnh cửu của con người. Sự khác biệt lớn nhất giữa một Chuyên gia tài chính bằng xương bằng thịt và một cỗ máy AI siêu việt. Máy tính đề xuất, nhưng con người phải nắm giữ "chiếc phanh khẩn cấp" luân lý.
+
+</details>
+
+
+
 #### ** 🇬🇧 Tiếng Anh **
 
 ### 📄 Tài liệu PDF 1: Chương 6: Turbocharging Financial Analysis (Scott Dell)
