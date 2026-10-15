@@ -1,6 +1,7 @@
 * [Trang chủ](/)
 * [Đề cương học phần](TaiLieu/Đề_cương_AI_trong_Kế_toán.pdf)
-* [📝 Bài kiểm tra Giữa kỳ (Buổi 1-6)](docs/kiemtra_giuaky.md)
+* [📝 Bài kiểm tra Giữa kỳ (Buổi 1-6) - Bản 1 (Trắc nghiệm chuẩn)](docs/kiemtra_giuaky.md)
+* [🌟 Bài kiểm tra Giữa kỳ (Buổi 1-6) - Bản 2 (Tương tác trực quan)](docs/kiemtra_giuaky_v2.md)
 
 * Các buổi học (Lý thuyết & Thực hành)
   * [Buổi 1: What Accountants Need to Know](docs/buoi_01.md)

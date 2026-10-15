@@ -2,6 +2,9 @@
 
 > **Học phần:** Trí tuệ nhân tạo (AI) trong Kế toán & Tài chính  
 > **Khoa:** Kế toán - Tài chính | Trường Đại học Đông Á  
+> 
+> 💡 *Sinh viên sau khi làm xong phiên bản này có thể thử sức các lần tiếp theo tại:*  
+> 👉 [**Bài kiểm tra Giữa kỳ - Phiên bản 2 (Tương tác trực quan)**](docs/kiemtra_giuaky_v2.md)
 
 ---
 

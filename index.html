@@ -13,6 +13,16 @@
         throw new Error("Unauthorized");
       }
     }
+
+    // Tự động chuyển tiếp nếu truy cập trực tiếp qua hash link bài kiểm tra
+    (function() {
+      var h = window.location.hash || '';
+      if (h.includes('exam_midterm_day01_06_v2/index.html') || h.includes('exam_midterm_day01_06_v2')) {
+        window.location.replace('exam_midterm_day01_06_v2/index.html');
+      } else if (h.includes('exam_midterm_day01_06/index.html')) {
+        window.location.replace('exam_midterm_day01_06/index.html');
+      }
+    })();
   </script>
   <meta charset="UTF-8">
   <title>AI trong Kế toán và Tài chính - Đại học Đông Á</title>
