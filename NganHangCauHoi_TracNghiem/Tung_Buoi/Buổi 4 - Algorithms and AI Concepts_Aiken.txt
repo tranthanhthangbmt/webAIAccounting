@@ -1,0 +1,210 @@
+Khái niệm STP trong tiếp thị là viết tắt của các từ nào?
+A. Segmentation, Targeting, Positioning
+B. Sales, Technology, Pricing strategies
+C. Systems, Tracking, Performance measures
+D. Standardization, Trading, Profitability
+ANSWER: A
+
+Trong học không giám sát (unsupervised learning), tại sao chúng ta sử dụng thuật toán phân cụm?
+A. Để tính toán lợi nhuận và doanh thu
+B. Để huấn luyện mô hình dự báo phá sản
+C. Do dữ liệu không có nhãn kết quả (unlabeled)
+D. Do cần một phương pháp hồi quy tuyến tính
+ANSWER: C
+
+Ghép các khái niệm phân khúc với định nghĩa tương ứng: Cột 1:   (1) Phân khúc động (Dynamic Segmentation)   (2) Vi phân khúc (Microsegments)   (3) Tiếp thị đại chúng (Mass marketing) Cột 2:   (a) Liên tục cập nhật phân khúc vì sở thích khách hàng luôn thay đổi   (b) Phân khúc siêu nhỏ hướng tới cá nhân hóa (hyperpersonalization)   (c) Giả định tất cả khách hàng đều giống nhau và gửi chung một thông điệp Phương án ghép cặp đúng là:
+A. 1-c, 2-b, 3-a
+B. 1-b, 2-c, 3-a
+C. 1-b, 2-a, 3-c
+D. 1-a, 2-b, 3-c
+ANSWER: D
+
+Sắp xếp các bước cơ bản của thuật toán k-Means:   (1) Xác định số lượng cụm (k)   (2) Khởi tạo ngẫu nhiên các trung tâm cụm (centroids)   (3) Gán mỗi điểm dữ liệu cho trung tâm cụm gần nhất   (4) Tính toán lại trung tâm và lặp lại cho đến khi hội tụ Thứ tự sắp xếp đúng là:
+A. (4) ➔ (3) ➔ (2) ➔ (1)
+B. (2) ➔ (1) ➔ (3) ➔ (4)
+C. (1) ➔ (2) ➔ (4) ➔ (3)
+D. (1) ➔ (2) ➔ (3) ➔ (4)
+ANSWER: D
+
+Điền từ thích hợp so sánh giữa k-Means và k-Medoid: "Thay vì sử dụng giá trị trung bình như k-Means, k-Medoid sử dụng một ___(1)___ làm trung tâm. Điều này giúp thuật toán chống ___(2)___ tốt hơn k-Means." Chọn cụm từ đúng tương ứng với các vị trí điền khuyết:
+A. (1) nhiễu ngoại lai (outliers) ; (2) điểm dữ liệu thực tế (medoid)
+B. (1) giá trị giả định ; (2) giá trị giả định
+C. (1) điểm dữ liệu thực tế (medoid) ; (2) nhiễu ngoại lai (outliers)
+D. Phương án điền từ khác 3
+ANSWER: C
+
+Lệnh `scale(df, center = TRUE, scale = TRUE)` trong R nhằm mục đích gì?
+A. Chuyển dữ liệu thành dạng số nguyên (integer)
+B. Lọc các giá trị trống (NA) ra khỏi dữ liệu
+C. Vẽ biểu đồ các trung tâm cụm ngẫu nhiên
+D. Chuyển đổi các biến về cùng thang đo (điểm Z)
+ANSWER: D
+
+Đa cộng tuyến (Multicollinearity) xảy ra khi nào trong mô hình dự báo?
+A. Khi tất cả các biến đều độc lập với nhau
+B. Khi có nhiều biến độc lập tương quan mạnh
+C. Khi dữ liệu bị thiếu hụt
+D. Khi không thể xác định được biến phụ thuộc
+ANSWER: B
+
+Ghép nối các tham số trong R với chức năng của chúng: Cột 1:   (1) centers trong kmeans()   (2) nstart trong kmeans()   (3) repel = TRUE trong fviz_cluster() Cột 2:   (a) Chỉ định số lượng cụm cần phân chia   (b) Đặt số lượng điểm khởi tạo ngẫu nhiên ban đầu   (c) Ngăn các nhãn của điểm dữ liệu đè lên nhau trên biểu đồ Phương án ghép cặp đúng là:
+A. 1-a, 2-b, 3-c
+B. 1-c, 2-b, 3-a
+C. 1-b, 2-c, 3-a
+D. 1-b, 2-a, 3-c
+ANSWER: A
+
+Điền từ vào chỗ trống về mô hình hồi quy: "Để khắc phục Đa cộng tuyến và tự động loại bỏ biến không cần thiết, người ta dùng Hồi quy ___(1)___, tiêu biểu là mô hình ___(2)___." Chọn cụm từ đúng tương ứng với các vị trí điền khuyết:
+A. (1) LASSO ; (2) có phạt (Penalized)
+B. (1) tuyến tính (Linear) ; (2) tuyến tính (Linear)
+C. (1) có phạt (Penalized) ; (2) LASSO
+D. Phương án điền từ khác 3
+ANSWER: C
+
+Sắp xếp các bước đánh giá sức khỏe tài chính bằng LASSO:   (1) Thu thập dữ liệu các chỉ số tài chính (ratios) của các công ty (cả phá sản và không phá sản)   (2) Kiểm tra sự tương quan (Biểu đồ tương quan) và VIF   (3) Chạy mô hình LASSO để tự động loại bỏ các biến có đa cộng tuyến (thu gọn hệ số về 0)   (4) Đánh giá khả năng dự đoán của mô hình bằng đường cong AUC ROC Thứ tự sắp xếp đúng là:
+A. (4) ➔ (3) ➔ (2) ➔ (1)
+B. (1) ➔ (2) ➔ (3) ➔ (4)
+C. (2) ➔ (1) ➔ (3) ➔ (4)
+D. (1) ➔ (2) ➔ (4) ➔ (3)
+ANSWER: B
+
+Đường cong AUC ROC biểu diễn mối quan hệ giữa hai yếu tố nào?
+A. Dương tính giả (X) và Dương tính thật (Y)
+B. Khoảng cách Euclide (X) và Tâm cụm (Y)
+C. Chi phí (X) và Doanh thu (Y)
+D. Thời gian mua sắm (X) và Số tiền chi tiêu (Y)
+ANSWER: A
+
+Thuật ngữ 'Vốn cổ phần tư nhân' (Private equity) trong tài liệu thường đầu tư vào dạng doanh nghiệp nào?
+A. Chỉ đầu tư vào tập đoàn công nghệ
+B. Doanh nghiệp có tiềm năng lớn nhưng đang khó khăn tài chính
+C. Chỉ đầu tư vào ngân hàng trung ương
+D. Doanh nghiệp hoàn toàn không có khoản nợ nào
+ANSWER: B
+
+Ghép các công thức chỉ số tài chính (Financial Ratios) với tên của chúng: Cột 1:   (1) Current Ratio (Tỷ lệ thanh toán hiện hành)   (2) Debt-Equity Ratio (Tỷ lệ nợ trên vốn CSH)   (3) Operating Ratio (Tỷ lệ hoạt động) Cột 2:   (a) Tài sản lưu động / Nợ ngắn hạn   (b) Giá trị sổ sách của vốn chủ sở hữu / Tổng nợ phải trả   (c) Tổng chi phí / Tổng doanh thu Phương án ghép cặp đúng là:
+A. 1-c, 2-b, 3-a
+B. 1-a, 2-b, 3-c
+C. 1-b, 2-c, 3-a
+D. 1-b, 2-a, 3-c
+ANSWER: B
+
+Điền từ liên quan đến cách hoạt động của glmnet (mô hình LASSO): "Mô hình LASSO đã thu hẹp các tham số beta của một số biến về ___(1)___, do đó giúp ___(2)___ từ 16 biến ban đầu xuống số lượng ít hơn." Chọn cụm từ đúng tương ứng với các vị trí điền khuyết:
+A. (1) lựa chọn đặc trưng (feature selection) ; (2) 0 (không)
+B. (1) gia tăng (increase) ; (2) gia tăng (increase)
+C. Phương án điền từ khác 3
+D. (1) 0 (không) ; (2) lựa chọn đặc trưng (feature selection)
+ANSWER: D
+
+Thứ tự xử lý dữ liệu trước khi phân cụm (Cluster Analysis):   (1) Đọc dữ liệu thô (vd: số tiền, thời gian mua sắm)   (2) Trừ giá trị trung bình (center = TRUE)   (3) Chia cho độ lệch chuẩn (scale = TRUE)   (4) Sử dụng dữ liệu điểm Z (Z-scores) để chạy k-Means Thứ tự sắp xếp đúng là:
+A. (4) ➔ (3) ➔ (2) ➔ (1)
+B. (2) ➔ (1) ➔ (3) ➔ (4)
+C. (1) ➔ (2) ➔ (3) ➔ (4)
+D. (1) ➔ (2) ➔ (4) ➔ (3)
+ANSWER: C
+
+Điều kiện cần thiết của dữ liệu khi truyền vào hàm glmnet() để chạy LASSO trong R là gì?
+A. Dữ liệu phải có định dạng văn bản (text)
+B. Dữ liệu phải ở dạng ma trận (matrix)
+C. Dữ liệu phải là danh sách liên kết
+D. Dữ liệu không được chứa số thập phân
+ANSWER: B
+
+Ghép các bộ phận/tổ chức với vai trò sử dụng Dự báo sức khỏe tài chính: Cột 1:   (1) Người cho vay (Ngân hàng)   (2) Ban quản lý (Doanh nghiệp)   (3) Nhà đầu tư (Cổ phần tư nhân) Cột 2:   (a) Quyết định có nên cấp tín dụng hay không   (b) Lập kế hoạch chiến lược và phân bổ nguồn lực nội bộ   (c) Mua lại các doanh nghiệp nợ cao nhưng có tiềm năng Phương án ghép cặp đúng là:
+A. 1-c, 2-b, 3-a
+B. 1-a, 2-b, 3-c
+C. 1-b, 2-c, 3-a
+D. 1-b, 2-a, 3-c
+ANSWER: B
+
+Hệ quả của Đa cộng tuyến đối với một mô hình dự báo là gì?
+A. Mô hình sẽ không thể tính toán được
+B. Nó làm tăng tốc độ xử lý dữ liệu
+C. Dẫn đến các ước tính không đáng tin cậy cho từng hệ số dự báo
+D. Làm cho biểu đồ ROC AUC luôn đạt 1.0
+ANSWER: C
+
+Điền từ liên quan đến sự tương đồng trong phân cụm: "Nếu hai khách hàng ở gần nhau trong ___(1)___, họ sẽ có nhiều điểm tương đồng và do đó nên được nhóm vào cùng một ___(2)___." Chọn cụm từ đúng tương ứng với các vị trí điền khuyết:
+A. (1) không gian đặc trưng (feature space) ; (2) cụm (cluster)
+B. (1) cụm (cluster) ; (2) không gian đặc trưng (feature space)
+C. (1) vũ trụ song song ; (2) vũ trụ song song
+D. Phương án điền từ khác 3
+ANSWER: A
+
+Nhãn kết quả (label) dự đoán trong mô hình sức khỏe tài chính của Ngân hàng Altra là gì?
+A. Doanh nghiệp có thuộc cụm 1 hay cụm 2 không
+B. Doanh nghiệp có lợi nhuận cao nhất thị trường
+C. Khách hàng có ở lại lâu không
+D. Doanh nghiệp có phá sản hay không
+ANSWER: D
+
+Thứ tự các khái niệm từ mức độ tổng quát đến cá nhân hóa trong Marketing:   (1) Tiếp thị đại chúng (Mass marketing - coi mọi người như 1)   (2) Phân khúc thị trường (Segmentation - chia nhóm lớn)   (3) Vi phân khúc (Microsegments - nhóm rất nhỏ)   (4) Siêu cá nhân hóa (Hyperpersonalization - duy nhất từng người) Thứ tự sắp xếp đúng là:
+A. (1) ➔ (2) ➔ (3) ➔ (4)
+B. (4) ➔ (3) ➔ (2) ➔ (1)
+C. (2) ➔ (1) ➔ (3) ➔ (4)
+D. (1) ➔ (2) ➔ (4) ➔ (3)
+ANSWER: A
+
+Ghép chức năng của các hàm trong R khi vẽ và đo lường mô hình: Cột 1:   (1) fviz_cluster()   (2) predict(..., type='response')   (3) performance(pred, 'auc') Cột 2:   (a) Trực quan hóa kết quả phân cụm (k-Means)   (b) Đưa ra dự đoán phá sản cho dữ liệu mới   (c) Tính toán diện tích dưới đường cong ROC để đánh giá mô hình Phương án ghép cặp đúng là:
+A. 1-c, 2-b, 3-a
+B. 1-b, 2-c, 3-a
+C. 1-a, 2-b, 3-c
+D. 1-b, 2-a, 3-c
+ANSWER: C
+
+Trong đánh giá mô hình bằng ROC, giá trị AUC (Area Under Curve) như thế nào thì được coi là tốt?
+A. Bằng 0
+B. Càng thấp càng tốt
+C. Chính xác là 0.5
+D. Các giá trị cao hơn cho thấy dự đoán tốt hơn
+ANSWER: D
+
+Điền từ liên quan đến VIF (Variance Inflation Factor): "Chúng ta có thể kiểm tra ___(1)___ (multicollinearity) bằng cách sử dụng ___(2)___ cho từng biến dự báo." Chọn cụm từ đúng tương ứng với các vị trí điền khuyết:
+A. (1) VIF ; (2) đa cộng tuyến
+B. (1) đa cộng tuyến ; (2) VIF
+C. (1) cây quyết định ; (2) cây quyết định
+D. Phương án điền từ khác 3
+ANSWER: B
+
+Sắp xếp quá trình phân khúc khách hàng theo cơ sở dữ liệu (Data-Driven Segmentation):   (1) Giới thiệu sản phẩm qua các mẫu nhỏ   (2) Theo dõi hành vi mua hàng thực tế của khách hàng (dữ liệu bán hàng)   (3) Phân tích cụm (Clustering) trên dữ liệu thu thập được   (4) Tinh chỉnh lại sản phẩm và chiến lược nhắm mục tiêu (Vòng phản hồi) Thứ tự sắp xếp đúng là:
+A. (1) ➔ (2) ➔ (3) ➔ (4)
+B. (4) ➔ (3) ➔ (2) ➔ (1)
+C. (2) ➔ (1) ➔ (3) ➔ (4)
+D. (1) ➔ (2) ➔ (4) ➔ (3)
+ANSWER: A
+
+Ví dụ về Vi phân khúc (Microsegmenting) mà Amazon áp dụng là gì?
+A. Gửi coupon giảm giá rau củ cho mọi người ở Phoenix
+B. Không đưa ra bất kỳ gợi ý nào
+C. Đề xuất sản phẩm rất cụ thể dựa trên hành vi mua hàng trong quá khứ của cá nhân
+D. Chỉ đề xuất sản phẩm dựa vào độ tuổi
+ANSWER: C
+
+Ghép ý nghĩa của các thông số/câu lệnh khi thực hành R (Phân khúc bằng k-Means): Cột 1:   (1) set.seed(12345)   (2) center = TRUE   (3) scale = TRUE Cột 2:   (a) Thiết lập giá trị gieo mầm để có thể tái tạo (reproduce) lại kết quả y hệt   (b) Trừ giá trị trung bình của biến khỏi các giá trị   (c) Chia dữ liệu cho độ lệch chuẩn để đồng bộ thang đo Phương án ghép cặp đúng là:
+A. 1-c, 2-b, 3-a
+B. 1-b, 2-c, 3-a
+C. 1-b, 2-a, 3-c
+D. 1-a, 2-b, 3-c
+ANSWER: D
+
+Điền từ vào chỗ trống liên quan đến báo cáo tài chính: "Bộ phận tài chính cung cấp cái nhìn hồi tố thông qua bảng cân đối kế toán, báo cáo ___(1)___, và báo cáo lưu chuyển tiền tệ. Họ cũng cung cấp cái nhìn hướng tới tương lai qua các dự báo và lập kế hoạch ___(2)___." Chọn cụm từ đúng tương ứng với các vị trí điền khuyết:
+A. (1) kịch bản (scenario planning) ; (2) kết quả hoạt động kinh doanh
+B. (1) kết quả hoạt động kinh doanh ; (2) kịch bản (scenario planning)
+C. (1) viễn cảnh ; (2) viễn cảnh
+D. Phương án điền từ khác 3
+ANSWER: B
+
+Sắp xếp theo thứ tự ưu tiên của việc phân khúc thị trường truyền thống đến tự động hóa AI:   (1) Nhắm mục tiêu theo nhân khẩu học chung (Demographics cơ bản)   (2) Sử dụng yếu tố tâm lý học và lối sống (Psychographics)   (3) Áp dụng học máy (k-Means) để phân cụm dựa trên dữ liệu mua sắm   (4) Siêu cá nhân hóa tự động bằng AI (Hyperpersonalization) Thứ tự sắp xếp đúng là:
+A. (1) ➔ (2) ➔ (3) ➔ (4)
+B. (4) ➔ (3) ➔ (2) ➔ (1)
+C. (2) ➔ (1) ➔ (3) ➔ (4)
+D. (1) ➔ (2) ➔ (4) ➔ (3)
+ANSWER: A
+
+Nhược điểm của k-Means dẫn đến việc ra đời k-Medoid là gì?
+A. Dễ bị ảnh hưởng mạnh bởi nhiễu (outliers) do dùng giá trị trung bình
+B. Không thể chạy trên dữ liệu lớn
+C. Chỉ hỗ trợ phân khúc theo độ tuổi
+D. Bắt buộc dữ liệu phải có nhãn kết quả (labeled)
+ANSWER: A
+
