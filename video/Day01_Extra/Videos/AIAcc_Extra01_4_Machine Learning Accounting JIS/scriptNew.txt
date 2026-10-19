@@ -1,0 +1,107 @@
+Slide 1: Ứng dụng Học máy trong Kế toán & Kiểm toán: Xu hướng hiện tại, Khoảng trống Nghiên cứu & Tương lai của Học máy Giải trình
+Người 1: Xin chào quý vị và các bạn sinh viên thân mến! Chào mừng các bạn đến với bài giảng chuyên đề đại học của Khoa Kế toán & Kiểm toán. Hôm nay, chúng ta sẽ cùng nhau khám phá một chủ đề mang tầm vóc học thuật đỉnh cao: "Ứng dụng Học máy trong Kế toán & Kiểm toán: Xu hướng hiện tại, Khoảng trống Nghiên cứu và Tương lai của Học máy Giải trình". Bài học này được xây dựng trực tiếp dựa trên công trình tổng quan hệ thống toàn diện được công bố trên Tạp chí Hệ thống Thông tin - Journal of Information Systems (JIS, 2025) của Hiệp hội Kế toán Hoa Kỳ (AAA).
+Người 2: Đúng vậy! Đây là công trình nghiên cứu mang tính bước ngoặt do nhóm tác giả Federico Chmet, Davide Calandra, Silvana Secinaro và Ahmed A. Elamer thực hiện. Nhìn vào biểu tượng đồ họa trên slide mở đầu, các bạn thấy một khối lập phương dữ liệu đa diện kết hợp cùng chiếc kính lúp công nghệ cao soi chiếu biểu đồ mũi tên tăng trưởng bứt phá. Hình ảnh này biểu trưng cho sự giao thoa hoàn hảo giữa dữ liệu kế toán truyền thống với sức mạnh của các thuật toán thông minh trong kỷ nguyên mới.
+Người 1: Mục tiêu của bài học hôm nay không chỉ đơn thuần là xem các mô hình máy học vận hành như thế nào, mà quan trọng hơn, trang bị cho các bạn tư duy phương pháp luận sắc bén để nhận diện những "khoảng trống nghiên cứu" và "điểm mù phương pháp luận" khi áp dụng Trí tuệ nhân tạo vào thực tiễn kế toán và kiểm toán.
+Người 2: Chúng ta hãy cùng nhau bắt đầu hành trình giải mã bức tranh học thuật toàn cầu này ngay bây giờ!
+
+Slide 2: 4 Động lực Thúc đẩy Sự bùng nổ của Học máy trong Kế toán
+Người 1: Để mở đầu, slide số 2 đặt ra câu hỏi nền tảng: Điều gì đã thôi thúc sự bùng nổ mạnh mẽ của Machine Learning trong ngành kế toán - kiểm toán? Nghiên cứu của JIS 2025 đã đúc kết 4 động lực cốt lõi (Antecedents) đang tái định hình toàn bộ lĩnh vực này.
+Người 2: Động lực thứ nhất bên trái là "Áp lực Đảm bảo" với biểu tượng chiếc khiên bảo mật có ổ khóa. Sự gia tăng áp lực tuân thủ từ Đạo luật Sarbanes-Oxley (SOX), các chuẩn mực của PCAOB và nhu cầu tối ưu hóa nguồn lực kiểm toán trước các dòng dữ liệu đa chiều khổng lồ đòi hỏi phải có công cụ tự động phát hiện rủi ro tức thì.
+Người 1: Động lực thứ hai là "Dữ liệu Phi cấu trúc" với biểu tượng tài liệu chuyển hóa thành các khối dữ liệu. Trong thực tế kế toán, hơn 80% thông tin quan trọng nằm ở dạng văn bản phi cấu trúc như báo cáo tường thuật, hợp đồng kinh tế và thuyết minh báo cáo tài chính. Sự bùng nổ này đòi hỏi sức mạnh của Xử lý ngôn ngữ tự nhiên (NLP) để bóc tách thông tin ngữ cảnh.
+Người 2: Động lực thứ ba là "Dự báo Rủi ro" với biểu tượng đồ thị nhịp tim tài chính và biển cảnh báo. Các mô hình thống kê tuyến tính truyền thống như Altman Z-score đã dần bộc lộ giới hạn, thúc đẩy nhu cầu cấp thiết về các mô hình học máy phi tuyến có khả năng cảnh báo sớm kiệt quệ tài chính và phá sản với độ chính xác vượt trội.
+Người 1: Và động lực thứ tư là "Số hóa Quy trình" với biểu tượng bánh răng liên kết mạng nơ-ron. Nhật ký sự kiện từ các hệ thống ERP như SAP hay Oracle mở đường cho kỹ thuật Khai phá quy trình (Process Mining), cho phép kiểm toán viên rà soát kiểm soát liên tục trên 100% tổng thể dữ liệu thay vì phương pháp lấy mẫu đại diện truyền thống.
+
+Slide 3: Phương pháp Sàng lọc Nghiên cứu: Từ 87.000 xuống 273
+Người 1: Để mang lại một cái nhìn khách quan và toàn diện nhất, bài báo JIS đã áp dụng quy trình tổng quan hệ thống PRISMA vô cùng nghiêm ngặt, được trực quan hóa chi tiết ở slide số 3.
+Người 2: Hãy nhìn vào con số khởi điểm khổng lồ ở đầu phễu sàng lọc: Có tới 87.594 bài báo được truy xuất từ cơ sở dữ liệu học thuật danh giá Web of Science Core Collection trong suốt giai đoạn từ năm 1992 đến năm 2025.
+Người 1: Từ gần 88 ngàn bài đó, nhóm tác giả đã thiết lập "Bộ lọc khắt khe" nhiều tầng như thế nào, thưa anh?
+Người 2: Tầng lọc đầu tiên loại bỏ 82.739 bài trùng lặp, bài ngoài khung thời gian hoặc thuộc các danh mục WoS không liên quan. Tiếp đó, ở bước rà soát 4.855 bài, tác giả kiên quyết loại bỏ 4.580 bài không tập trung vào AI/ML hoặc chỉ thuần túy dự báo giá cổ phiếu, rủi ro tín dụng ngân hàng mà không gắn liền với cấu trúc kế toán - kiểm toán và trách nhiệm giải trình.
+Người 1: Sau khi đánh giá toàn văn 275 báo cáo hợp lệ và loại bỏ 2 bài bị đính chính, kết quả cuối cùng chắt lọc được 273 công trình nghiên cứu học thuật tinh hoa nhất!
+Người 2: Đúng vậy! 273 nghiên cứu này đại diện cho toàn bộ tri thức học thuật cốt lõi và đáng tin cậy nhất về Học máy trong Kế toán suốt hơn 30 năm qua, tạo nên cơ sở dữ liệu thực chứng vững chắc cho toàn bộ bài giảng của chúng ta hôm nay.
+
+Slide 4: Sự tăng trưởng theo cấp số nhân kể từ năm 2018
+Người 1: Bước sang slide số 4, chúng ta chứng kiến một bước ngoặt lịch sử thông qua hai đồ thị trắc lượng thư mục (Bibliometrics).
+Người 2: Nhìn vào đồ thị bên trái về "Sản lượng khoa học hàng năm" (Annual Scientific Production): Suốt 25 năm từ 1992 đến 2017, số lượng bài báo mỗi năm chỉ duy trì ở mức khiêm tốn dưới 10 bài. Thế nhưng, bắt đầu từ năm 2018, đường cong sản lượng khoa học bứt phá dựng đứng theo cấp số nhân với tốc độ tăng trưởng hàng năm đạt tới 14,07%!
+Người 1: Một bước nhảy vọt phi thường! Vậy còn đồ thị bên phải về "Định luật Lotka" (Lotka's Law) phản ánh điều gì về cấu trúc tác giả?
+Người 2: Định luật Lotka chỉ ra rằng: Lĩnh vực này được định hình bởi một nhóm nhỏ các học giả nòng cốt đầu ngành, trong khi phần lớn các tác giả khác chỉ tham gia công bố một bài duy nhất.
+Người 1: Khung nhận định màu cam nổi bật ở chân slide đưa ra một góc nhìn lịch sử rất sâu sắc: Mặc dù học máy đã xuất hiện từ thập niên 90 để dự báo phá sản, nhưng nó chỉ thực sự bùng nổ thành "trào lưu vũ bão" từ năm 2018 nhờ sự phát triển vượt bậc của Dữ liệu lớn (Big Data), năng lực điện toán và sự đột phá của các kiến trúc học sâu.
+
+Slide 5: Bản đồ Toàn cầu & Mạng lưới Các Chủ đề Cốt lõi
+Người 1: Slide số 5 mở ra bức tranh địa lý toàn cầu và mạng lưới tri thức kết nối các chủ đề nghiên cứu trọng yếu của lĩnh vực.
+Người 2: Nhìn lên bản đồ thế giới phía trên, hai quốc gia màu đỏ sẫm nổi bật nhất chính là Hoa Kỳ và Trung Quốc. Đây là hai trụ cột học thuật lớn nhất thế giới, sở hữu số lượng công bố áp đảo và có mạng lưới hợp tác nghiên cứu chặt chẽ với Châu Âu (Vương quốc Anh, Ý, Đức) và Úc.
+Người 1: Còn mạng lưới đồng xuất hiện từ khóa bên dưới phân bổ các cụm chủ đề nghiên cứu như thế nào, thưa anh?
+Người 2: Cụm trung tâm cốt lõi xoay quanh các từ khóa: "Học máy", "Trí tuệ nhân tạo", "Kiểm toán" và "Dữ liệu lớn". Từ tâm điểm này, nghiên cứu tỏa nhánh mạnh mẽ sang hai miền ứng dụng chuyên sâu: Nhánh màu xanh lá là "Quản trị lợi nhuận" (Earnings Management) - nhận diện hành vi bóp méo số liệu kế toán; và nhánh màu tím là "Phân tích văn bản" (Textual Analysis) - giải mã các thuyết minh định tính.
+Người 1: Sự phân nhánh này chứng minh rằng Học máy không chỉ dừng lại ở các phép tính số học trên bảng cân đối kế toán, mà đang mở rộng sang việc kiểm soát hành vi quản trị và giám sát tính minh bạch thông tin của toàn bộ doanh nghiệp.
+
+Slide 6: Sự tiến hóa: Từ Dự báo Phá sản đến Phân tích Ngôn ngữ
+Người 1: Tiến trình tiến hóa của các chủ đề nghiên cứu trong một phần tư thế kỷ qua được khắc họa tuyệt đẹp ở slide số 6 qua hai biểu đồ trực quan.
+Người 2: Biểu đồ bên trái về "Dịch chuyển chủ đề theo thời gian" cho thấy: Vào những năm 2000, nghiên cứu chủ yếu tập trung vào Mạng nơ-ron sơ khai và Dự báo phá sản. Đến thập niên 2010, trọng tâm chuyển sang Phân tích phí kiểm toán và rủi ro doanh nghiệp. Và từ năm 2020 đến nay, các chủ đề bùng nổ mạnh nhất là Trí tuệ nhân tạo, Chất lượng báo cáo tài chính và Học máy thế hệ mới.
+Người 1: Còn Bản đồ chủ đề động lực (Thematic Map) 4 góc phần tư bên phải mang lại góc nhìn chiến lược gì, thưa anh?
+Người 2: Góc "Chủ đề động lực" (Motor Themes) dẫn dắt xu thế gồm: Dự báo rủi ro, Chất lượng báo cáo và Phân tích văn bản. Góc "Chủ đề nền tảng" (Basic Themes) là Kế toán, Kiểm toán và Dữ liệu lớn. Góc "Chủ đề mới nổi" (Emerging Themes) là Xử lý ngôn ngữ tự nhiên (NLP) và Phân tích hợp đồng.
+Người 1: Thông điệp cốt lõi được đúc kết ở thanh banner màu xanh đậm bên dưới: Ngành kế toán đang bước qua kỷ nguyên chỉ phân tích "số liệu cấu trúc" để tiến sâu vào kỷ nguyên giải mã "dữ liệu tường thuật" - bao gồm Báo cáo kiểm toán, phần Thảo luận & Phân tích của Ban Giám đốc (MD&A), và các Hợp đồng kinh tế phức tạp!
+
+Slide 7: Khung Phân tích ADO: Góc nhìn Chẩn đoán Nghiên cứu
+Người 1: Để đánh giá chất lượng học thuật của 273 công trình một cách toàn diện, nhóm tác giả JIS 2025 đã xây dựng Khung phân tích ADO chẩn đoán rất chặt chẽ, được mô tả ở slide số 7.
+Người 2: Khung ADO gồm 3 khối mắt xích liên hoàn:
+- Khối A - Tiền đề (Antecedents): Bài toán kế toán cốt lõi là gì? Ví dụ như phát hiện gian lận tài chính ẩn sâu, đánh giá rủi ro phá sản doanh nghiệp niêm yết.
+- Khối D - Quyết định thiết kế (Decisions): Mô hình học máy được thiết kế và kiểm chứng như thế nào? Lựa chọn thuật toán gì, kỹ thuật chia dữ liệu và thiết lập tham số ra sao?
+- Khối O - Kết quả (Outcomes): Giá trị thực tế mang lại có đáng tin cậy không? Nó có thực sự giúp ích cho người dùng báo cáo và kiểm toán viên ra quyết định hay không?
+Người 1: Và bài học phương pháp luận cốt lõi được đóng khung trang trọng ở chân slide: "Một mô hình chỉ có giá trị thực tiễn khi Quyết định Thiết kế (D) hoàn toàn khớp với Đặc thù Kế toán (A)".
+Người 2: Chính xác! Nếu người xây dựng mô hình chỉ am hiểu kỹ thuật AI mà thiếu kiến thức nghiệp vụ kế toán, mô hình tạo ra sẽ chỉ là một công cụ lý thuyết vô hồn, không thể áp dụng vào thực tế kiểm toán đầy rủi ro và phức tạp.
+
+Slide 8: Nghịch lý lớn nhất: Độ chính xác KHÔNG bằng Giá trị
+Người 1: Bước sang slide số 8, chúng ta chạm vào điểm nghẽn nhận thức lớn nhất hiện nay: Nghịch lý Độ chính xác KHÔNG bằng Giá trị quyết định trong kế toán!
+Người 2: Nhìn sang cột bên trái với biểu tượng bia bắn mục tiêu: Bài báo JIS chỉ ra một thực trạng đáng lo ngại là có tới 41% các nghiên cứu chỉ báo cáo độ chính xác kỹ thuật như Accuracy hay AUC để chứng minh mô hình hoạt động tốt trên lý thuyết phòng thí nghiệm.
+Người 1: Nhưng khi nhìn sang cột bên phải với biểu tượng mảnh ghép puzzle bị nứt vỡ: "Giá trị Quyết định Kế toán" lại hoàn toàn khác biệt! Một thuật toán đạt tới 99% accuracy vẫn có thể hoàn toàn vô dụng đối với kiểm toán viên nếu nó không giải quyết được yếu tố thời gian và chi phí của sai sót!
+Người 2: Đây chính là hố sâu ngăn cách giữa Khoa học dữ liệu lý thuyết và Nghiệp vụ kế toán thực tiễn! Một nhà khoa học dữ liệu có thể hài lòng với con số 99% accuracy, nhưng một kiểm toán viên ký tên trên báo cáo kiểm toán sẽ đối mặt với án phạt hàng triệu đô la và trách nhiệm hình sự nếu 1% sai sót còn lại là một vụ gian lận báo cáo tài chính nghiêm trọng!
+
+Slide 9: Sai lầm 1: Bỏ qua Chi phí Bất đối xứng (Asymmetric Costs)
+Người 1: Slide số 9 bóc trần sai lầm phương pháp luận kinh điển thứ nhất trong y văn: Bỏ qua Chi phí Bất đối xứng (Asymmetric Costs) - đây chính là Mệnh đề 1 (Proposition 1) của bài báo JIS 2025.
+Người 2: Hãy nhìn vào hình ảnh chiếc cân đòn bị nghiêng lệch trầm trọng trên slide! Đĩa cân bên trái nhẹ bẫng với chiếc đồng hồ cát là "Báo động giả" (False Positive - Sai số Loại I): Hệ thống gắn cờ nhầm một giao dịch hợp lệ, kiểm toán viên chỉ tốn vài giờ để đối chiếu lại chứng từ gốc.
+Người 1: Nhưng hãy nhìn sang đĩa cân bên phải trĩu nặng với túi tiền khổng lồ, tiền vàng rơi vãi và chiếc búa thẩm phán: Đó là "Bỏ lọt gian lận" (False Negative - Sai số Loại II)! Bỏ sót một vụ gian lận hàng tỷ đô la sẽ dẫn thẳng tới kiện tụng tòa án, phá sản doanh nghiệp và hủy hoại uy tín nghề nghiệp của công ty kiểm toán!
+Người 2: Hai loại sai số này có hậu quả kinh tế hoàn toàn bất đối xứng! Thế nhưng, thực trạng đáng báo động ở khung bên phải chỉ ra rằng: 0% nghiên cứu về gian lận trong tập dữ liệu khảo sát áp dụng thước đo đánh giá nhạy cảm với chi phí! Các tác giả vẫn chấm điểm mô hình như thể mọi lỗi sai đều có trọng số ngang bằng nhau!
+Người 1: Một hồi chuông cảnh tỉnh sâu sắc! JIS 2025 khẳng định rằng nghiên cứu kế toán bắt buộc phải tích hợp Hàm mất mát chi phí kỳ vọng (Expected Cost Function) để mô hình ưu tiên triệt tiêu sai số Loại II thay vì chỉ chạy theo các chỉ số cào bằng hình thức.
+
+Slide 10: Sai lầm 2: Đánh giá sai Tính Thời gian (Temporal Dependence)
+Người 1: Tiếp tục với sai lầm phương pháp luận chí mạng thứ hai ở slide số 10: Đánh giá sai Tính Thời gian (Temporal Dependence) - Mệnh đề 2 (Proposition 2) của JIS 2025.
+Người 2: Nhìn vào nửa trên slide: "Cách sai - Random Split". Khi nhà nghiên cứu chia ngẫu nhiên tập dữ liệu để huấn luyện (Train) và kiểm tra (Test), các quan sát của năm 2019, 2020, 2021 và 2022 bị xáo trộn lẫn lộn vào nhau. Điều này gây ra hiện tượng Rò rỉ dữ liệu (Data Leakage) hay thiên lệch nhìn trước (Look-ahead bias): Mô hình vô tình "nhìn thấy" thông tin tương lai để dự đoán ngược lại quá khứ!
+Người 1: Sự rò rỉ này tạo ra ảo tưởng về một mô hình có độ chính xác cao ngất ngưởng nhưng thực chất là "học vẹt". Vậy cách làm chuẩn mực ở nửa dưới slide phải như thế nào, thưa anh?
+Người 2: "Cách đúng - Out-of-Time Validation": Bắt buộc phải tôn trọng tuyệt đối trục thời gian! Dữ liệu các năm 2018-2021 dùng để huấn luyện, và kiểm chứng hoàn toàn độc lập trên năm tài chính tương lai 2022. Phải áp dụng kỹ thuật cửa sổ trượt (Rolling-window) để mô phỏng chính xác điều kiện làm việc thực tế của kiểm toán viên qua từng niên độ tài chính.
+Người 1: Khung còi báo động ở đáy slide chỉ ra con số đáng giật mình: Chỉ có 12,8% nghiên cứu áp dụng phân chia dữ liệu theo thời gian. Và trong lĩnh vực kiểm toán, con số này chỉ vỏn vẹn 2%!
+Người 2: Nghĩa là tới 98% nghiên cứu kiểm toán hiện nay đang đánh giá mô hình như thể các quan sát kế toán là độc lập và có thể hoán đổi cho nhau! Đây là bài học đắt giá: Tuyệt đối không bao giờ dùng phép chia ngẫu nhiên cho dữ liệu chuỗi thời gian kế toán!
+
+Slide 11: Sai lầm 3: 'Hộp đen' & Khả năng Giải trình (Explainability)
+Người 1: Bước sang slide số 11, chúng ta đối diện với rào cản pháp lý lớn nhất: Vấn đề "Hộp đen" và Khả năng Giải trình (Explainability) - Mệnh đề 3 (Proposition 3) của bài báo JIS 2025.
+Người 2: Nhìn vào chiếc hộp đen đóng kín bên trái: Các mô hình phức tạp như Deep Learning hay Ensembles đưa ra cảnh báo rủi ro xác suất "85.2%" nhưng không thể giải thích được lý do tại sao. Hậu quả là: Kiểm toán viên không thể dùng một con số bí ẩn làm Bằng chứng kiểm toán (Audit Evidence) trước tòa án và cơ quan thanh tra!
+Người 1: Đối lập hoàn toàn là khối lập phương pha lê minh bạch bên phải: Trí tuệ nhân tạo giải trình được (Explainable AI - XAI), nơi kiểm toán viên có thể nhìn thấu cấu trúc bên trong và trực tiếp tương tác với thuật toán!
+Người 2: XAI sử dụng các công cụ như giá trị SHAP (Shapley Additive exPlanations) để bóc tách chính xác trọng số đóng góp của từng biến số tài chính, chỉ rõ nguyên nhân vì sao giao dịch bị gắn cờ rủi ro.
+Người 1: Tuy nhiên, biểu tượng con mắt quan sát bên dưới nhắc nhở một thực trạng cần suy ngẫm: Dù có 14,3% nghiên cứu đã đưa tính năng XAI vào mô hình, nhưng hiếm có nghiên cứu nào kiểm chứng thực nghiệm xem những giải trình đó có thực sự giúp kiểm toán viên đưa ra quyết định tốt hơn hay không!
+Người 2: Nhóm tác giả JIS 2025 nhấn mạnh: XAI không được dừng lại ở một biểu đồ vẽ ra cho đẹp mắt (reported artifact), mà phải trở thành một cơ chế làm việc thực chất, được lưu vết chính thức vào Giấy tờ làm việc của kiểm toán viên (Audit Workpapers).
+
+Slide 12: Bảng Đối chiếu: Khoa học Dữ liệu vs. Thực tế Kế toán
+Người 1: Slide số 12 mang đến một Bảng đối chiếu tổng kết vô cùng giá trị: Sự khác biệt bản chất giữa góc nhìn Khoa học dữ liệu thông thường và Thực tế áp dụng trong ngành Kế toán.
+Người 2: Hãy cùng phân tích 3 khía cạnh đối lập:
+- Khía cạnh 1 - Thước đo Hiệu suất (Evaluation): Khoa học dữ liệu chỉ tối ưu hóa các chỉ số chung như Accuracy, F1-Score hay AUC. Trong khi đó, Kế toán thực tế bắt buộc phải tối ưu hóa dựa trên Chi phí kỳ vọng (Expected Cost), đánh trọng số cực nặng cho rủi ro bỏ sót sai phạm.
+- Khía cạnh 2 - Phương pháp Kiểm chứng (Validation): Khoa học dữ liệu lạm dụng K-fold Cross-validation và Random Split ngẫu nhiên. Ngược lại, Kế toán thực tế đòi hỏi kịch bản Out-of-time và Cửa sổ trượt (Rolling windows), tôn trọng tuyệt đối ranh giới của các năm tài chính.
+- Khía cạnh 3 - Mục tiêu Giải thích (Explainability): Khoa học dữ liệu chỉ vẽ biểu đồ mức độ quan trọng đặc trưng (Feature importance) để minh họa lý thuyết. Kế toán thực tế yêu cầu tích hợp trực tiếp vào hồ sơ kiểm toán, hỗ trợ tương tác Người - Máy (Human-in-the-loop).
+Người 1: Một bảng đối sánh cực kỳ sâu sắc! Nó là cẩm nang giúp sinh viên kế toán không bị cuốn theo các trào lưu công nghệ bề nổi mà luôn giữ vững bản lĩnh nghề nghiệp và yêu cầu kiểm soát rủi ro thực tế.
+
+Slide 13: Lý thuyết, Bối cảnh & Phương pháp: Góc nhìn TCM
+Người 1: Slide số 13 phân tích 273 công trình dưới lăng kính TCM: Lý thuyết (Theory) - Bối cảnh (Context) - Phương pháp (Method), chỉ ra những "điểm mù" lớn của y văn thế giới.
+Người 2: Về Lý thuyết (Theory - biểu tượng cuốn sách): Đa số các mô hình máy học hiện nay thiếu vắng nền tảng lý thuyết kế toán vững chắc. Ba lý thuyết phổ biến nhất đang được dùng là Lý thuyết Đại diện (Agency Theory), Tam giác Gian lận (Fraud Triangle), và Thuyết Tín hiệu (Signaling Theory). Khoảng trống lớn là cần kết hợp thêm các lý thuyết về hành vi chấp nhận công nghệ như TAM.
+Người 1: Về Bối cảnh (Context - biểu tượng tòa nhà định chế): Các nghiên cứu hiện tại tập trung quá nhiều vào các công ty đại chúng lớn niêm yết trên thị trường chứng khoán. Điểm mù nghiêm trọng là bỏ ngỏ khối Doanh nghiệp vừa và nhỏ (SMEs), Kế toán công (Public Sector) và Kế toán quản trị nội bộ!
+Người 2: Và về Phương pháp (Method - biểu tượng biểu đồ và kính lúp): Mô hình Hồi quy (102 bài) và Mạng nơ-ron (28 bài) chiếm ưu thế áp đảo. Điểm mù phương pháp luận là thiếu trầm trọng các nghiên cứu định tính, nghiên cứu trường hợp sâu (case study) và thực nghiệm hành vi con người (Experimental research) khi kiểm toán viên tương tác với AI.
+
+Slide 14: Định hướng Tương lai: Kỷ nguyên của 'Học máy Giải trình'
+Người 1: Nhìn về tương lai của ngành, slide số 14 vạch ra 3 bậc thang tiến hóa chiến lược, mở ra kỷ nguyên của "Học máy Giải trình" (Explainable Machine Learning in Accounting).
+Người 2: Bậc thang thứ nhất - "Đánh giá Nhận thức Chi phí": Thiết kế lại các hàm suy hao (loss functions) và ngưỡng cắt phân loại để phản ánh trực tiếp tổn thất tài chính và chi phí thực tế của một cuộc kiểm toán, thay vì dựa vào các hàm tối ưu toán học vô cảm.
+Người 1: Bậc thang thứ hai - "Bền vững theo Thời gian": Chuẩn hóa việc báo cáo hiệu suất mô hình qua các niên độ tài chính khác nhau, kiểm tra độ bền bỉ của thuật toán trước những cú sốc vĩ mô và sự thay đổi thể chế (Regime shifts) như khủng hoảng tài chính hay thay đổi chuẩn mực IFRS.
+Người 2: Và bậc thang cao nhất - "Đội ngũ Người - Thuật toán (Human-AI Teaming)": Dịch chuyển trọng tâm từ câu hỏi kỹ thuật "Mô hình này dự đoán gì?" sang câu hỏi lấy con người làm trung tâm: "Làm thế nào để kiểm toán viên sử dụng đầu ra thông minh này để cải thiện chất lượng công việc và nâng cao trách nhiệm giải trình?".
+
+Slide 15: 3 Bài học Cốt lõi (Key Takeaways)
+Người 1: Chúng ta đã cùng nhau đi qua một hành trình học thuật đầy ấn tượng: Từ tổng quan 87.000 bài báo chắt lọc về 273 công trình Web of Science của Tạp chí Hệ thống Thông tin JIS (2025). Slide số 15 đúc kết 3 bài học kim chỉ nam (Key Takeaways) cho các bạn sinh viên kế toán - kiểm toán:
+Người 2: Bài học số 1: "Học máy trong Kế toán đã vượt qua giai đoạn thử nghiệm sơ khai để chính thức trở thành công cụ phân tích dữ liệu phi cấu trúc và chuỗi quy trình cốt lõi."
+Người 1: Bài học số 2: "Chỉ chạy thuật toán là không đủ. Sự sai lệch về chi phí bất đối xứng và tính thời gian có thể biến một mô hình hoàn hảo trên lý thuyết thành một thảm họa rủi ro lớn trong thực tiễn."
+Người 2: Bài học số 3: "Tương lai không thuộc về các 'Hộp đen' với độ chính xác vô thực. Tương lai thuộc về các Hệ thống Học máy Minh bạch có khả năng giải trình và làm việc cộng sinh cùng con người!"
+Người 1: Chúc các bạn sinh viên luôn nuôi dưỡng niềm đam mê học hỏi, làm chủ các công nghệ dữ liệu tiên tiến và trở thành những kiểm toán viên xuất sắc, dẫn dắt kỷ nguyên số!
+Người 2: Cảm ơn quý vị và các bạn đã chú ý lắng nghe bài giảng hôm nay. Xin chào và hẹn gặp lại các bạn trong những chuyên đề tiếp theo!
