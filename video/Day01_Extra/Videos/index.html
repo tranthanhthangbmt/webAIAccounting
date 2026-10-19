@@ -1,0 +1,1490 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>Thư viện Video Bài giảng Học máy trong Kế toán & Kiểm toán — UDA</title>
+  <meta name="description"
+    content="Cổng tra cứu và theo dõi 6 video bài giảng tương tác chuyên đề Machine Learning trong Kế toán - Kiểm toán - Đại học Đông Á." />
+
+  <!-- Google Fonts: Plus Jakarta Sans & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-dark: #0b0f19;
+      --bg-card: rgba(18, 26, 44, 0.75);
+      --bg-card-hover: rgba(26, 38, 64, 0.9);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-glow: rgba(59, 130, 246, 0.5);
+      --primary: #3b82f6;
+      --primary-gradient: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+      --accent-cyan: #06b6d4;
+      --accent-violet: #8b5cf6;
+      --accent-amber: #f59e0b;
+      --accent-emerald: #10b981;
+      --accent-rose: #f43f5e;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.5), 0 0 1px 1px rgba(255, 255, 255, 0.05);
+      --shadow-hover: 0 20px 40px -15px rgba(59, 130, 246, 0.25), 0 0 20px rgba(59, 130, 246, 0.15);
+      --radius-lg: 20px;
+      --radius-md: 12px;
+      --radius-sm: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      min-height: 100vh;
+      overflow-x: hidden;
+      line-height: 1.6;
+      background-image:
+        radial-gradient(circle at 15% 15%, rgba(59, 130, 246, 0.12) 0%, transparent 45%),
+        radial-gradient(circle at 85% 25%, rgba(139, 92, 246, 0.12) 0%, transparent 45%),
+        radial-gradient(circle at 50% 80%, rgba(6, 182, 212, 0.08) 0%, transparent 50%);
+      background-attachment: fixed;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 5rem;
+    }
+
+    /* Navigation Breadcrumb / Top Bar */
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2.5rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .brand-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.03em;
+      color: #e2e8f0;
+      text-decoration: none;
+    }
+
+    .brand-logo-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: var(--primary-gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.35);
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .nav-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .nav-btn:hover {
+      color: var(--text-main);
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-1px);
+    }
+
+    /* Hero Header */
+    .hero {
+      text-align: center;
+      margin-bottom: 3.5rem;
+      position: relative;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      background: rgba(59, 130, 246, 0.12);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      color: #60a5fa;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.25rem;
+      background: linear-gradient(135deg, #ffffff 30%, #94a3b8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-title .gradient-text {
+      background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 50%, #38bdf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-desc {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 820px;
+      margin: 0 auto 2.5rem;
+      font-weight: 400;
+    }
+
+    /* Stats Banner */
+    .stats-bar {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+
+    .stat-pill {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 0.75rem 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      backdrop-filter: blur(8px);
+    }
+
+    .stat-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+    }
+
+    .stat-text {
+      text-align: left;
+    }
+
+    .stat-num {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.1;
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    /* Filter & Search Bar */
+    .toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+      background: rgba(18, 26, 44, 0.5);
+      padding: 0.85rem 1.25rem;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-subtle);
+      backdrop-filter: blur(12px);
+    }
+
+    .filter-pills {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--text-muted);
+      padding: 0.5rem 1.1rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+
+    .filter-btn:hover {
+      color: var(--text-main);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .filter-btn.active {
+      color: #ffffff;
+      background: var(--primary-gradient);
+      border-color: rgba(255, 255, 255, 0.15);
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+    }
+
+    .search-box {
+      position: relative;
+      flex-grow: 1;
+      max-width: 380px;
+    }
+
+    .search-input {
+      width: 100%;
+      background: rgba(11, 15, 25, 0.8);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 0.6rem 1rem 0.6rem 2.6rem;
+      color: #fff;
+      font-size: 0.9rem;
+      font-family: inherit;
+      outline: none;
+      transition: all 0.2s ease;
+    }
+
+    .search-input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 0.85rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-dim);
+      pointer-events: none;
+    }
+
+    /* Video Cards Grid */
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+      gap: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .video-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Video Card */
+    .video-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-card);
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      backdrop-filter: blur(14px);
+    }
+
+    .video-card:hover {
+      transform: translateY(-6px);
+      background: var(--bg-card-hover);
+      border-color: var(--border-glow);
+      box-shadow: var(--shadow-hover);
+    }
+
+    /* Card Thumbnail Box */
+    .card-thumb-wrapper {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%; /* 16:9 Aspect Ratio */
+      overflow: hidden;
+      background: #000;
+      cursor: pointer;
+    }
+
+    .card-thumb-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .video-card:hover .card-thumb-img {
+      transform: scale(1.05);
+    }
+
+    .thumb-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(11, 15, 25, 0.85) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0.9;
+      transition: opacity 0.3s ease;
+    }
+
+    .video-card:hover .thumb-overlay {
+      opacity: 1;
+      background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(11, 15, 25, 0.9) 100%);
+    }
+
+    .play-btn-circle {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: var(--primary-gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      box-shadow: 0 8px 24px rgba(59, 130, 246, 0.5);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .video-card:hover .play-btn-circle {
+      transform: scale(1.12);
+      box-shadow: 0 12px 30px rgba(59, 130, 246, 0.7);
+    }
+
+    .play-btn-circle svg {
+      width: 24px;
+      height: 24px;
+      margin-left: 3px;
+    }
+
+    .thumb-badge {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.3rem 0.75rem;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      background: rgba(11, 15, 25, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #fff;
+      backdrop-filter: blur(6px);
+      z-index: 2;
+    }
+
+    .thumb-slide-count {
+      position: absolute;
+      bottom: 0.85rem;
+      right: 0.85rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.25rem 0.65rem;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      background: rgba(0, 0, 0, 0.75);
+      color: #e2e8f0;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      z-index: 2;
+    }
+
+    /* Card Content */
+    .card-body {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .card-header-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .topic-icon-wrap {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .topic-category {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .card-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.28rem;
+      font-weight: 700;
+      line-height: 1.35;
+      margin-bottom: 0.85rem;
+      color: #ffffff;
+      text-decoration: none;
+      display: block;
+      transition: color 0.2s ease;
+    }
+
+    .card-title:hover {
+      color: #60a5fa;
+    }
+
+    .card-desc {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin-bottom: 1.25rem;
+      flex-grow: 1;
+    }
+
+    /* Card Metadata Tags */
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.25rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .tag-item {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-subtle);
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      font-weight: 500;
+    }
+
+    /* Card Actions */
+    .card-actions {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0.75rem;
+    }
+
+    .btn-play-main {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background: var(--primary-gradient);
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.92rem;
+      padding: 0.75rem 1.25rem;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(59, 130, 246, 0.35);
+      transition: all 0.25s ease;
+      font-family: inherit;
+    }
+
+    .btn-play-main:hover {
+      box-shadow: 0 6px 20px rgba(59, 130, 246, 0.5);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary-group {
+      display: flex;
+      gap: 0.4rem;
+    }
+
+    .btn-icon-sub {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-sm);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .btn-icon-sub:hover {
+      background: rgba(255, 255, 255, 0.12);
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.25);
+      transform: translateY(-2px);
+    }
+
+    /* Empty state */
+    .empty-state {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 4rem 1rem;
+      display: none;
+    }
+
+    .empty-state-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      opacity: 0.6;
+    }
+
+    /* Modal / Theatre Viewer */
+    .modal-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.88);
+      backdrop-filter: blur(12px);
+      z-index: 10000;
+      display: flex;
+      flex-direction: column;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .modal-backdrop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.85rem 1.5rem;
+      background: rgba(18, 26, 44, 0.95);
+      border-bottom: 1px solid var(--border-subtle);
+      color: #fff;
+    }
+
+    .modal-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+    }
+
+    .modal-btns {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .modal-ctrl-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--border-subtle);
+      color: #fff;
+      border-radius: 8px;
+      padding: 0.4rem 0.85rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+
+    .modal-ctrl-btn:hover {
+      background: rgba(255, 255, 255, 0.18);
+    }
+
+    .modal-close-btn {
+      background: rgba(244, 63, 94, 0.2);
+      border-color: rgba(244, 63, 94, 0.4);
+      color: #fda4af;
+    }
+
+    .modal-close-btn:hover {
+      background: rgba(244, 63, 94, 0.4);
+      color: #fff;
+    }
+
+    .modal-iframe-wrap {
+      flex-grow: 1;
+      width: 100%;
+      height: calc(100vh - 65px);
+      background: #000;
+      position: relative;
+    }
+
+    .modal-iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+
+    /* Footer */
+    .site-footer {
+      margin-top: 5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border-subtle);
+      text-align: center;
+      color: var(--text-dim);
+      font-size: 0.88rem;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .footer-link:hover {
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- Top Navigation -->
+    <header class="top-nav">
+      <a href="../../index.html" class="brand-badge" title="Quay về Trang chủ Môn học">
+        <div class="brand-logo-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"></path>
+            <path d="M6 6h10"></path>
+            <path d="M6 10h10"></path>
+          </svg>
+        </div>
+        <span>ĐẠI HỌC ĐÔNG Á • KHOA KẾ TOÁN & KIỂM TOÁN</span>
+      </a>
+
+      <div class="nav-actions">
+        <a href="../../index.html" class="nav-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+          Trang chủ Môn học
+        </a>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-tag">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <polygon points="5 3 19 12 5 21 5 3"></polygon>
+        </svg>
+        CHUYÊN ĐỀ BÀI GIẢNG ĐA PHƯƠNG TIỆN (DAY 01 EXTRA)
+      </div>
+
+      <h1 class="hero-title">
+        Thư Viện Video Bài Giảng <br />
+        <span class="gradient-text">Học Máy Trong Kế Toán & Kiểm Toán</span>
+      </h1>
+
+      <p class="hero-desc">
+        Hệ thống 6 bài giảng điện tử tương tác cao, kết hợp trình chiếu slide độ nét cao và audio thuyết minh chuyên sâu.
+        Trang bị toàn diện từ nền tảng thuật toán đến các công trình nghiên cứu thực chứng đỉnh cao quốc tế (JIS & RAST).
+      </p>
+
+      <!-- Stats Bar -->
+      <div class="stats-bar">
+        <div class="stat-pill">
+          <div class="stat-icon" style="background: rgba(59, 130, 246, 0.15); color: #60a5fa;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+          </div>
+          <div class="stat-text">
+            <div class="stat-num">06 Video</div>
+            <div class="stat-label">Bài giảng Tương tác</div>
+          </div>
+        </div>
+
+        <div class="stat-pill">
+          <div class="stat-icon" style="background: rgba(16, 185, 129, 0.15); color: #34d399;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect>
+              <line x1="3" x2="21" y1="9" y2="9"></line>
+              <line x1="9" x2="9" y1="21" y2="9"></line>
+            </svg>
+          </div>
+          <div class="stat-text">
+            <div class="stat-num">86 Slides</div>
+            <div class="stat-label">Slide bài giảng HD</div>
+          </div>
+        </div>
+
+        <div class="stat-pill">
+          <div class="stat-icon" style="background: rgba(245, 158, 11, 0.15); color: #fbbf24;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"></path>
+              <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+              <line x1="12" x2="12" y1="19" y2="22"></line>
+            </svg>
+          </div>
+          <div class="stat-text">
+            <div class="stat-num">100% Tiếng Việt</div>
+            <div class="stat-label">Thuyết minh Đồng bộ</div>
+          </div>
+        </div>
+
+        <div class="stat-pill">
+          <div class="stat-icon" style="background: rgba(139, 92, 246, 0.15); color: #a78bfa;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="8" r="7"></circle>
+              <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+            </svg>
+          </div>
+          <div class="stat-text">
+            <div class="stat-num">JIS & RAST</div>
+            <div class="stat-label">Chuẩn mực Học thuật</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Toolbar: Filter Pills & Search -->
+    <div class="toolbar">
+      <div class="filter-pills" id="filter-pills">
+        <button class="filter-btn active" data-category="all">Tất cả bài giảng (6)</button>
+        <button class="filter-btn" data-category="foundation">Nền tảng & Thuật toán (3)</button>
+        <button class="filter-btn" data-category="research">Nghiên cứu & Thực chứng (3)</button>
+      </div>
+
+      <div class="search-box">
+        <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.3-4.3"></path>
+        </svg>
+        <input type="text" id="search-input" class="search-input" placeholder="Tìm theo tên bài, thuật toán, từ khóa..." />
+      </div>
+    </div>
+
+    <!-- Video Cards Grid -->
+    <div class="video-grid" id="video-grid">
+
+      <!-- CARD 1: 1A. Máy Học Trong Kế Toán -->
+      <article class="video-card" data-category="foundation" data-keywords="máy học trong kế toán nền tảng ứng dụng thực tiễn rpa erp tự động hóa quy trình">
+        <div class="card-thumb-wrapper" onclick="openVideoPlayer('AIAcc_Extra01_1A_Máy_Học_Trong_Kế_Toán/index.html', 'Máy Học Trong Kế Toán: Nền Tảng & Ứng Dụng Thực Tiễn')">
+          <img class="card-thumb-img" src="AIAcc_Extra01_1A_Máy_Học_Trong_Kế_Toán/images/slide-1.png" alt="Máy Học Trong Kế Toán Thumbnail" loading="lazy" />
+          <div class="thumb-overlay">
+            <div class="play-btn-circle" title="Xem bài giảng">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+            </div>
+          </div>
+          <span class="thumb-badge" style="border-color: rgba(59, 130, 246, 0.4); color: #60a5fa;">Video 1A</span>
+          <span class="thumb-slide-count">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect>
+            </svg>
+            12 Slides
+          </span>
+        </div>
+
+        <div class="card-body">
+          <div class="card-header-meta">
+            <div class="topic-icon-wrap" style="background: rgba(59, 130, 246, 0.15); color: #60a5fa;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+              </svg>
+            </div>
+            <span class="topic-category" style="color: #60a5fa;">Nền tảng Kế toán Số</span>
+          </div>
+
+          <a href="AIAcc_Extra01_1A_Máy_Học_Trong_Kế_Toán/index.html" class="card-title">
+            1A. Máy Học Trong Kế Toán: Nền Tảng & Ứng Dụng Thực Tiễn
+          </a>
+
+          <p class="card-desc">
+            Khám phá vai trò mang tính cách mạng của Machine Learning trong số hóa kế toán, xử lý chứng từ điện tử, tự động hóa rà soát đối chiếu và hỗ trợ nhà quản trị ra quyết định.
+          </p>
+
+          <div class="card-tags">
+            <span class="tag-item">Tổng quan</span>
+            <span class="tag-item">Kế toán số</span>
+            <span class="tag-item">Tự động hóa</span>
+            <span class="tag-item">Ra quyết định</span>
+          </div>
+
+          <div class="card-actions">
+            <button class="btn-play-main" onclick="openVideoPlayer('AIAcc_Extra01_1A_Máy_Học_Trong_Kế_Toán/index.html', '1A. Máy Học Trong Kế Toán: Nền Tảng & Ứng Dụng Thực Tiễn')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+              Xem Video
+            </button>
+            <div class="btn-secondary-group">
+              <a href="AIAcc_Extra01_1A_Máy_Học_Trong_Kế_Toán/index.html" target="_blank" class="btn-icon-sub" title="Mở video tab riêng (Full)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </a>
+              <a href="AIAcc_Extra01_1A_Máy_Học_Trong_Kế_Toán/Máy_Học_Trong_Kế_Toán.pdf" target="_blank" class="btn-icon-sub" title="Tải Slide bài giảng PDF">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                </svg>
+              </a>
+              <a href="AIAcc_Extra01_1A_Máy_Học_Trong_Kế_Toán/script.txt" target="_blank" class="btn-icon-sub" title="Xem Kịch bản Thuyết minh (Script)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                  <polyline points="10 9 9 9 8 9"></polyline>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 2: 1B. Các Thuật Toán Học Máy -->
+      <article class="video-card" data-category="foundation" data-keywords="các thuật toán học máy linear regression logistic regression hồi quy cây quyết định decision tree random forest gradient descent">
+        <div class="card-thumb-wrapper" onclick="openVideoPlayer('AIAcc_Extra01_1B_Các_Thuật_Toán_Học_Máy/index.html', 'Các Thuật Toán Học Máy Trong Kế Toán')">
+          <img class="card-thumb-img" src="AIAcc_Extra01_1B_Các_Thuật_Toán_Học_Máy/images/slide-1.png" alt="Các Thuật Toán Học Máy Thumbnail" loading="lazy" />
+          <div class="thumb-overlay">
+            <div class="play-btn-circle" title="Xem bài giảng">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+            </div>
+          </div>
+          <span class="thumb-badge" style="border-color: rgba(139, 92, 246, 0.4); color: #a78bfa;">Video 1B</span>
+          <span class="thumb-slide-count">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect>
+            </svg>
+            15 Slides
+          </span>
+        </div>
+
+        <div class="card-body">
+          <div class="card-header-meta">
+            <div class="topic-icon-wrap" style="background: rgba(139, 92, 246, 0.15); color: #a78bfa;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2v4"></path>
+                <path d="m16.2 7.8 2.9-2.9"></path>
+                <path d="M18 12h4"></path>
+                <path d="m16.2 16.2 2.9 2.9"></path>
+                <path d="M12 18v4"></path>
+                <path d="m4.9 19.1 2.9-2.9"></path>
+                <path d="M2 12h4"></path>
+                <path d="m4.9 4.9 2.9 2.9"></path>
+              </svg>
+            </div>
+            <span class="topic-category" style="color: #a78bfa;">Thuật toán Cốt lõi</span>
+          </div>
+
+          <a href="AIAcc_Extra01_1B_Các_Thuật_Toán_Học_Máy/index.html" class="card-title">
+            1B. Các Thuật Toán Học Máy Trong Kế Toán
+          </a>
+
+          <p class="card-desc">
+            Đi sâu vào cơ chế toán học và phân tích logic: Hồi quy Tuyến tính (MSE & Gradient Descent), Hồi quy Logistic (Sigmoid), Cây Quyết định (Decision Tree) và Rừng Ngẫu nhiên (Random Forest).
+          </p>
+
+          <div class="card-tags">
+            <span class="tag-item">Hồi quy Tuyến tính</span>
+            <span class="tag-item">Logistic Sigmoid</span>
+            <span class="tag-item">Decision Tree</span>
+            <span class="tag-item">Random Forest</span>
+          </div>
+
+          <div class="card-actions">
+            <button class="btn-play-main" onclick="openVideoPlayer('AIAcc_Extra01_1B_Các_Thuật_Toán_Học_Máy/index.html', '1B. Các Thuật Toán Học Máy Trong Kế Toán')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+              Xem Video
+            </button>
+            <div class="btn-secondary-group">
+              <a href="AIAcc_Extra01_1B_Các_Thuật_Toán_Học_Máy/index.html" target="_blank" class="btn-icon-sub" title="Mở video tab riêng (Full)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </a>
+              <a href="AIAcc_Extra01_1B_Các_Thuật_Toán_Học_Máy/Các_Thuật_Toán_Học_Máy.pdf" target="_blank" class="btn-icon-sub" title="Tải Slide bài giảng PDF">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                </svg>
+              </a>
+              <a href="AIAcc_Extra01_1B_Các_Thuật_Toán_Học_Máy/script.txt" target="_blank" class="btn-icon-sub" title="Xem Kịch bản Thuyết minh (Script)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                  <polyline points="10 9 9 9 8 9"></polyline>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 3: 1C. Học Máy Tổng Quan -->
+      <article class="video-card" data-category="foundation" data-keywords="học máy tổng quan khái niệm arthur samuel quy trình triển khai machine learning pipeline">
+        <div class="card-thumb-wrapper" onclick="openVideoPlayer('AIAcc_Extra01_1C_Học_Máy_Tổng_Quan/index.html', 'Khám Phá Bức Tranh Tổng Quan Về Học Máy')">
+          <img class="card-thumb-img" src="AIAcc_Extra01_1C_Học_Máy_Tổng_Quan/images/slide-1.png" alt="Học Máy Tổng Quan Thumbnail" loading="lazy" />
+          <div class="thumb-overlay">
+            <div class="play-btn-circle" title="Xem bài giảng">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+            </div>
+          </div>
+          <span class="thumb-badge" style="border-color: rgba(6, 182, 212, 0.4); color: #22d3ee;">Video 1C</span>
+          <span class="thumb-slide-count">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect>
+            </svg>
+            14 Slides
+          </span>
+        </div>
+
+        <div class="card-body">
+          <div class="card-header-meta">
+            <div class="topic-icon-wrap" style="background: rgba(6, 182, 212, 0.15); color: #22d3ee;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                <polyline points="2 17 12 22 22 17"></polyline>
+                <polyline points="2 12 12 17 22 12"></polyline>
+              </svg>
+            </div>
+            <span class="topic-category" style="color: #22d3ee;">Phương pháp & Quy trình</span>
+          </div>
+
+          <a href="AIAcc_Extra01_1C_Học_Máy_Tổng_Quan/index.html" class="card-title">
+            1C. Khám Phá Bức Tranh Tổng Quan Về Học Máy
+          </a>
+
+          <p class="card-desc">
+            Định nghĩa cốt lõi của Arthur Samuel (T+E=P), sự dịch chuyển tư duy từ Lập trình truyền thống sang Học máy tự động thích nghi, và quy trình các bước chuẩn để xây dựng mô hình.
+          </p>
+
+          <div class="card-tags">
+            <span class="tag-item">Định nghĩa T-E-P</span>
+            <span class="tag-item">Lập trình vs ML</span>
+            <span class="tag-item">Pipeline quy trình</span>
+            <span class="tag-item">Ứng dụng đa ngành</span>
+          </div>
+
+          <div class="card-actions">
+            <button class="btn-play-main" onclick="openVideoPlayer('AIAcc_Extra01_1C_Học_Máy_Tổng_Quan/index.html', '1C. Khám Phá Bức Tranh Tổng Quan Về Học Máy')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+              Xem Video
+            </button>
+            <div class="btn-secondary-group">
+              <a href="AIAcc_Extra01_1C_Học_Máy_Tổng_Quan/index.html" target="_blank" class="btn-icon-sub" title="Mở video tab riêng (Full)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </a>
+              <a href="AIAcc_Extra01_1C_Học_Máy_Tổng_Quan/Học_Máy_Tổng_Quan.pdf" target="_blank" class="btn-icon-sub" title="Tải Slide bài giảng PDF">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                </svg>
+              </a>
+              <a href="AIAcc_Extra01_1C_Học_Máy_Tổng_Quan/script.txt" target="_blank" class="btn-icon-sub" title="Xem Kịch bản Thuyết minh (Script)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                  <polyline points="10 9 9 9 8 9"></polyline>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 4: 2. Phát Hiện Gian Lận Kế Toán -->
+      <article class="video-card" data-category="research" data-keywords="fraud detection phát hiện gian lận báo cáo tài chính west bhattacharya islam imbalanced data cost-sensitive">
+        <div class="card-thumb-wrapper" onclick="openVideoPlayer('AIAcc_Extra01_2_FraudDetectionusingMachineLearning/index.html', 'Phát Hiện Gian Lận Kế Toán Bằng Học Máy')">
+          <img class="card-thumb-img" src="AIAcc_Extra01_2_FraudDetectionusingMachineLearning/images/slide-1.png" alt="Fraud Detection Thumbnail" loading="lazy" />
+          <div class="thumb-overlay">
+            <div class="play-btn-circle" title="Xem bài giảng">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+            </div>
+          </div>
+          <span class="thumb-badge" style="border-color: rgba(244, 63, 94, 0.4); color: #fb7185;">Video 2</span>
+          <span class="thumb-slide-count">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect>
+            </svg>
+            15 Slides
+          </span>
+        </div>
+
+        <div class="card-body">
+          <div class="card-header-meta">
+            <div class="topic-icon-wrap" style="background: rgba(244, 63, 94, 0.15); color: #fb7185;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+            </div>
+            <span class="topic-category" style="color: #fb7185;">Nghiên cứu Gian lận BCTC</span>
+          </div>
+
+          <a href="AIAcc_Extra01_2_FraudDetectionusingMachineLearning/index.html" class="card-title">
+            2. Phát Hiện Gian Lận Kế Toán Bằng Học Máy (Fraud Detection)
+          </a>
+
+          <p class="card-desc">
+            Nghiên cứu thực chứng của West et al. (2025): Xử lý bất đối xứng dữ liệu gian lận cực đoan, giải pháp Cost-Sensitive Learning và so sánh hiệu quả giữa Logistic, Random Forest và XGBoost.
+          </p>
+
+          <div class="card-tags">
+            <span class="tag-item">Imbalanced Data</span>
+            <span class="tag-item">Gian lận BCTC</span>
+            <span class="tag-item">Cost-Sensitive</span>
+            <span class="tag-item">XGBoost & RF</span>
+          </div>
+
+          <div class="card-actions">
+            <button class="btn-play-main" onclick="openVideoPlayer('AIAcc_Extra01_2_FraudDetectionusingMachineLearning/index.html', '2. Phát Hiện Gian Lận Kế Toán Bằng Học Máy (Fraud Detection)')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+              Xem Video
+            </button>
+            <div class="btn-secondary-group">
+              <a href="AIAcc_Extra01_2_FraudDetectionusingMachineLearning/index.html" target="_blank" class="btn-icon-sub" title="Mở video tab riêng (Full)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </a>
+              <a href="AIAcc_Extra01_2_FraudDetectionusingMachineLearning/slide Machine_Learning_Fraud_Detection.pdf" target="_blank" class="btn-icon-sub" title="Tải Slide bài giảng PDF">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                </svg>
+              </a>
+              <a href="AIAcc_Extra01_2_FraudDetectionusingMachineLearning/script.txt" target="_blank" class="btn-icon-sub" title="Xem Kịch bản Thuyết minh (Script)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                  <polyline points="10 9 9 9 8 9"></polyline>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 5: 3. Thực Tiễn Học Máy Trong Kế Toán & Kiểm Toán (RAST) -->
+      <article class="video-card" data-category="research" data-keywords="fedyk hodson himick rovenskaya review of accounting studies rast thực tiễn kiểm toán kiểm toán viên tương tác ai">
+        <div class="card-thumb-wrapper" onclick="openVideoPlayer('AIAcc_Extra01_3_Machine_learning_practices_in_accounting_and_audit/index.html', 'Thực Tiễn Học Máy Trong Kế Toán và Kiểm Toán (RAST)')">
+          <img class="card-thumb-img" src="AIAcc_Extra01_3_Machine_learning_practices_in_accounting_and_audit/images/slide-1.png" alt="Thực Tiễn Học Máy Thumbnail" loading="lazy" />
+          <div class="thumb-overlay">
+            <div class="play-btn-circle" title="Xem bài giảng">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+            </div>
+          </div>
+          <span class="thumb-badge" style="border-color: rgba(245, 158, 11, 0.4); color: #fbbf24;">Video 3</span>
+          <span class="thumb-slide-count">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect>
+            </svg>
+            15 Slides
+          </span>
+        </div>
+
+        <div class="card-body">
+          <div class="card-header-meta">
+            <div class="topic-icon-wrap" style="background: rgba(245, 158, 11, 0.15); color: #fbbf24;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+              </svg>
+            </div>
+            <span class="topic-category" style="color: #fbbf24;">Thực tiễn Kiểm toán RAST</span>
+          </div>
+
+          <a href="AIAcc_Extra01_3_Machine_learning_practices_in_accounting_and_audit/index.html" class="card-title">
+            3. Thực Tiễn Học Máy Trong Kế Toán & Kiểm Toán (RAST)
+          </a>
+
+          <p class="card-desc">
+            Khảo sát thực nghiệm quy mô lớn của Fedyk et al. (Review of Accounting Studies) về mức độ thâm nhập của ML tại các hãng kiểm toán, rủi ro nhìn trước thời gian và mô hình hợp tác Người - Máy.
+          </p>
+
+          <div class="card-tags">
+            <span class="tag-item">Review of Accounting Studies</span>
+            <span class="tag-item">Kiểm toán độc lập</span>
+            <span class="tag-item">Look-ahead bias</span>
+            <span class="tag-item">Human-in-the-loop</span>
+          </div>
+
+          <div class="card-actions">
+            <button class="btn-play-main" onclick="openVideoPlayer('AIAcc_Extra01_3_Machine_learning_practices_in_accounting_and_audit/index.html', '3. Thực Tiễn Học Máy Trong Kế Toán & Kiểm Toán (RAST)')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+              Xem Video
+            </button>
+            <div class="btn-secondary-group">
+              <a href="AIAcc_Extra01_3_Machine_learning_practices_in_accounting_and_audit/index.html" target="_blank" class="btn-icon-sub" title="Mở video tab riêng (Full)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </a>
+              <a href="AIAcc_Extra01_3_Machine_learning_practices_in_accounting_and_audit/slide Học_máy_trong_Kế_toán_và_Kiểm_toán.pdf" target="_blank" class="btn-icon-sub" title="Tải Slide bài giảng PDF">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                </svg>
+              </a>
+              <a href="AIAcc_Extra01_3_Machine_learning_practices_in_accounting_and_audit/script.txt" target="_blank" class="btn-icon-sub" title="Xem Kịch bản Thuyết minh (Script)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                  <polyline points="10 9 9 9 8 9"></polyline>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 6: 4. JIS 2025: Học Máy Giải Trình -->
+      <article class="video-card" data-category="research" data-keywords="jis 2025 journal of information systems chmet calandra secinaro elamer prisma xai shap explainable machine learning khoảng trống nghiên cứu 3 mệnh đề">
+        <div class="card-thumb-wrapper" onclick="openVideoPlayer('AIAcc_Extra01_4_Machine Learning Accounting JIS/index.html', 'Học Máy Trong Kế Toán & Kiểm Toán: Khoảng Trống & Tương Lai Học Máy Giải Trình (JIS 2025)')">
+          <img class="card-thumb-img" src="AIAcc_Extra01_4_Machine Learning Accounting JIS/images/slide-1.png" alt="Machine Learning Accounting JIS Thumbnail" loading="lazy" />
+          <div class="thumb-overlay">
+            <div class="play-btn-circle" title="Xem bài giảng">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+            </div>
+          </div>
+          <span class="thumb-badge" style="border-color: rgba(16, 185, 129, 0.4); color: #34d399;">Video 4 • JIS 2025</span>
+          <span class="thumb-slide-count">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect>
+            </svg>
+            15 Slides
+          </span>
+        </div>
+
+        <div class="card-body">
+          <div class="card-header-meta">
+            <div class="topic-icon-wrap" style="background: rgba(16, 185, 129, 0.15); color: #34d399;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6 3h12l4 6-10 13L2 9Z"></path>
+                <path d="M11 3 8 9l4 13 4-13-3-6"></path>
+                <path d="M2 9h20"></path>
+              </svg>
+            </div>
+            <span class="topic-category" style="color: #34d399;">Đỉnh cao Học thuật JIS (AAA)</span>
+          </div>
+
+          <a href="AIAcc_Extra01_4_Machine Learning Accounting JIS/index.html" class="card-title">
+            4. Học Máy Trong Kế Toán: Khoảng Trống & Học Máy Giải Trình (JIS 2025)
+          </a>
+
+          <p class="card-desc">
+            Công trình tổng quan hệ thống PRISMA 273 bài báo của Chmet et al. (JIS, 2025): Bóc trần 3 sai lầm phương pháp luận (Chi phí bất đối xứng, Tính thời gian, Hộp đen) và tương lai của Explainable AI (XAI / SHAP).
+          </p>
+
+          <div class="card-tags">
+            <span class="tag-item">JIS 2025 (AAA)</span>
+            <span class="tag-item">PRISMA 273 bài</span>
+            <span class="tag-item">Chi phí bất đối xứng</span>
+            <span class="tag-item">Explainable AI (XAI)</span>
+          </div>
+
+          <div class="card-actions">
+            <button class="btn-play-main" onclick="openVideoPlayer('AIAcc_Extra01_4_Machine Learning Accounting JIS/index.html', '4. Học Máy Trong Kế Toán: Khoảng Trống & Học Máy Giải Trình (JIS 2025)')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+              Xem Video
+            </button>
+            <div class="btn-secondary-group">
+              <a href="AIAcc_Extra01_4_Machine Learning Accounting JIS/index.html" target="_blank" class="btn-icon-sub" title="Mở video tab riêng (Full)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </a>
+              <a href="AIAcc_Extra01_4_Machine Learning Accounting JIS/3B. slide Machine Learning Accounting JIS.pdf" target="_blank" class="btn-icon-sub" title="Tải Slide bài giảng PDF">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                </svg>
+              </a>
+              <a href="AIAcc_Extra01_4_Machine Learning Accounting JIS/scriptNew.txt" target="_blank" class="btn-icon-sub" title="Xem Kịch bản Thuyết minh (Script JIS 2025)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                  <polyline points="10 9 9 9 8 9"></polyline>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Empty Search Result -->
+      <div class="empty-state" id="empty-state">
+        <div class="empty-state-icon">🔍</div>
+        <h3>Không tìm thấy bài giảng phù hợp</h3>
+        <p style="color: var(--text-dim); margin-top: 0.5rem;">Vui lòng thử lại với từ khóa khác như "gian lận", "hồi quy", "JIS", "kiểm toán"...</p>
+      </div>
+
+    </div>
+
+    <!-- Site Footer -->
+    <footer class="site-footer">
+      <div class="footer-links">
+        <a href="../../index.html" class="footer-link">Trang chủ Khóa học</a>
+        <span>•</span>
+        <a href="AIAcc_Extra01_4_Machine Learning Accounting JIS/scriptNew.txt" target="_blank" class="footer-link">Kịch bản Script JIS (2025)</a>
+        <span>•</span>
+        <a href="https://donga.edu.vn" target="_blank" class="footer-link">Đại học Đông Á (UDA)</a>
+      </div>
+      <p>© 2025 - 2026 Khoa Kế toán & Kiểm toán — Trường Đại học Đông Á. Bản quyền tài liệu giảng dạy học phần Trí tuệ Nhân tạo trong Kế toán.</p>
+    </footer>
+
+  </div>
+
+  <!-- In-Page Theatre Modal Video Player -->
+  <div id="video-modal" class="modal-backdrop" aria-hidden="true">
+    <div class="modal-bar">
+      <div class="modal-title">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polygon points="5 3 19 12 5 21 5 3"></polygon>
+        </svg>
+        <span id="modal-video-title">Trình phát bài giảng tương tác</span>
+      </div>
+      <div class="modal-btns">
+        <a id="modal-open-tab-btn" href="#" target="_blank" class="modal-ctrl-btn" title="Mở trong tab trình duyệt riêng biệt">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+            <polyline points="15 3 21 3 21 9"></polyline>
+            <line x1="10" y1="14" x2="21" y2="3"></line>
+          </svg>
+          Mở tab riêng
+        </a>
+        <button class="modal-ctrl-btn modal-close-btn" onclick="closeVideoPlayer()" title="Đóng trình phát (Esc)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+          Đóng
+        </button>
+      </div>
+    </div>
+    <div class="modal-iframe-wrap">
+      <iframe id="modal-iframe" class="modal-iframe" src="" allow="autoplay; fullscreen" title="Trình phát video"></iframe>
+    </div>
+  </div>
+
+  <!-- Interactive JavaScript Logic -->
+  <script>
+    // Modal Player Logic
+    const modal = document.getElementById('video-modal');
+    const modalIframe = document.getElementById('modal-iframe');
+    const modalTitle = document.getElementById('modal-video-title');
+    const modalOpenTabBtn = document.getElementById('modal-open-tab-btn');
+
+    function openVideoPlayer(url, title) {
+      modalTitle.textContent = title;
+      modalOpenTabBtn.href = url;
+      modalIframe.src = url;
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeVideoPlayer() {
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+      modalIframe.src = ''; // Stop audio/video playback
+      document.body.style.overflow = '';
+    }
+
+    // Close on backdrop click (outside bar/iframe) or Escape key
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        closeVideoPlayer();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('open')) {
+        closeVideoPlayer();
+      }
+    });
+
+    // Category Filter & Search Logic
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const searchInput = document.getElementById('search-input');
+    const cards = document.querySelectorAll('.video-card');
+    const emptyState = document.getElementById('empty-state');
+
+    let currentCategory = 'all';
+    let currentSearchTerm = '';
+
+    function applyFilters() {
+      let visibleCount = 0;
+
+      cards.forEach(card => {
+        const category = card.getAttribute('data-category');
+        const keywords = card.getAttribute('data-keywords') || '';
+        const title = card.querySelector('.card-title').textContent.toLowerCase();
+        const desc = card.querySelector('.card-desc').textContent.toLowerCase();
+
+        const matchesCategory = (currentCategory === 'all' || category === currentCategory);
+        const matchesSearch = currentSearchTerm === '' ||
+          title.includes(currentSearchTerm) ||
+          desc.includes(currentSearchTerm) ||
+          keywords.toLowerCase().includes(currentSearchTerm);
+
+        if (matchesCategory && matchesSearch) {
+          card.style.display = 'flex';
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
+    }
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentCategory = btn.getAttribute('data-category');
+        applyFilters();
+      });
+    });
+
+    searchInput.addEventListener('input', (e) => {
+      currentSearchTerm = e.target.value.trim().toLowerCase();
+      applyFilters();
+    });
+  </script>
+
+</body>
+
+</html>
