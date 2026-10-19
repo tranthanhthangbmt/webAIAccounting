@@ -1,0 +1,1446 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>Phát Hiện Gian Lận Bằng Học Máy — Bản Dịch Học Thuật Tiếng Việt (Oladimeji Kazeem, IU University)</title>
+  <meta name="description"
+    content="Bản dịch tiếng Việt toàn văn và chuyên sâu công trình nghiên cứu 'Fraud Detection Using Machine Learning' của Oladimeji Kazeem (IU University of Applied Sciences), tích hợp đầy đủ biểu đồ gốc và mã nguồn thực thi." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-body: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-sidebar: #0f172a;
+      --sidebar-text: #e2e8f0;
+      --sidebar-muted: #94a3b8;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --primary: #2563eb;
+      --primary-light: #eff6ff;
+      --primary-border: #bfdbfe;
+      --accent: #0ea5e9;
+      --success: #10b981;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --border-color: #e2e8f0;
+      --code-bg: #1e293b;
+      --code-text: #f1f5f9;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+      --content-font-size: 1.05rem;
+      --line-height: 1.8;
+      --radius-md: 12px;
+      --radius-sm: 8px;
+    }
+
+    [data-theme="dark"] {
+      --bg-body: #0b0f19;
+      --bg-surface: #131b2e;
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --primary: #3b82f6;
+      --primary-light: rgba(59, 130, 246, 0.15);
+      --primary-border: rgba(59, 130, 246, 0.35);
+      --border-color: #1e293b;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.4);
+      --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.5);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg-body);
+      color: var(--text-main);
+      line-height: var(--line-height);
+      font-size: var(--content-font-size);
+      display: flex;
+      min-height: 100vh;
+      transition: background-color 0.25s ease, color 0.25s ease;
+    }
+
+    /* Reading Progress Bar */
+    #progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #2563eb, #38bdf8, #8b5cf6);
+      width: 0%;
+      z-index: 9999;
+      transition: width 0.1s linear;
+    }
+
+    /* Sidebar Navigation */
+    .sidebar {
+      width: 320px;
+      background-color: var(--bg-sidebar);
+      color: var(--sidebar-text);
+      height: 100vh;
+      position: sticky;
+      top: 0;
+      overflow-y: auto;
+      flex-shrink: 0;
+      border-right: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      flex-direction: column;
+      z-index: 100;
+    }
+
+    .sidebar-header {
+      padding: 1.5rem 1.25rem 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .sidebar-title {
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #38bdf8;
+      margin-bottom: 0.4rem;
+    }
+
+    .sidebar-subtitle {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.35;
+    }
+
+    .sidebar-author {
+      font-size: 0.8rem;
+      color: var(--sidebar-muted);
+      margin-top: 0.35rem;
+    }
+
+    .sidebar-nav {
+      padding: 1rem 0.75rem 2rem;
+      flex-grow: 1;
+    }
+
+    .nav-group-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #64748b;
+      padding: 0.75rem 0.65rem 0.35rem;
+    }
+
+    .sidebar-link {
+      display: block;
+      padding: 0.5rem 0.75rem;
+      font-size: 0.88rem;
+      color: var(--sidebar-muted);
+      text-decoration: none;
+      border-radius: var(--radius-sm);
+      transition: all 0.15s ease;
+      line-height: 1.4;
+      margin-bottom: 2px;
+    }
+
+    .sidebar-link:hover {
+      color: #ffffff;
+      background-color: rgba(255, 255, 255, 0.08);
+      transform: translateX(3px);
+    }
+
+    .sidebar-link.active {
+      color: #ffffff;
+      background-color: var(--primary);
+      font-weight: 600;
+    }
+
+    .sidebar-link.sub-link {
+      padding-left: 1.6rem;
+      font-size: 0.83rem;
+    }
+
+    /* Main Content Wrapper */
+    .main-wrapper {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    /* Top Floating Utility Bar */
+    .top-bar {
+      position: sticky;
+      top: 0;
+      background-color: var(--bg-surface);
+      border-bottom: 1px solid var(--border-color);
+      padding: 0.75rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 90;
+      box-shadow: var(--shadow-sm);
+      backdrop-filter: blur(10px);
+    }
+
+    .top-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 600;
+      padding: 0.4rem 0.75rem;
+      border-radius: var(--radius-sm);
+      background: var(--bg-body);
+      border: 1px solid var(--border-color);
+      transition: all 0.2s;
+    }
+
+    .back-btn:hover {
+      color: var(--primary);
+      border-color: var(--primary-border);
+      background: var(--primary-light);
+    }
+
+    .top-bar-right {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .util-btn {
+      background: var(--bg-body);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-sm);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 0.85rem;
+      font-weight: 700;
+      transition: all 0.2s;
+    }
+
+    .util-btn:hover {
+      color: var(--text-main);
+      border-color: var(--primary);
+    }
+
+    /* Article Paper Layout */
+    .article-container {
+      max-width: 960px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 3rem 2.5rem 6rem;
+      background: var(--bg-surface);
+      box-shadow: var(--shadow-sm);
+      margin-top: 1.5rem;
+      margin-bottom: 3rem;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+    }
+
+    @media (max-width: 1024px) {
+      .sidebar {
+        display: none;
+      }
+      .article-container {
+        padding: 2rem 1.25rem 4rem;
+        margin-top: 0;
+        border-radius: 0;
+        border: none;
+      }
+    }
+
+    /* Document Header */
+    .paper-header {
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 2rem;
+      margin-bottom: 2.5rem;
+      text-align: center;
+    }
+
+    .paper-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.35rem 0.9rem;
+      border-radius: 9999px;
+      background: var(--primary-light);
+      border: 1px solid var(--primary-border);
+      color: var(--primary);
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1.25rem;
+    }
+
+    .paper-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      font-weight: 800;
+      line-height: 1.2;
+      color: var(--text-main);
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .paper-title-en {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      font-style: italic;
+      margin-bottom: 1.5rem;
+    }
+
+    .paper-meta-grid {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      background: var(--bg-body);
+      padding: 1rem 1.5rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-color);
+      margin-top: 1.25rem;
+    }
+
+    .meta-item strong {
+      color: var(--text-main);
+    }
+
+    /* Abstract Block */
+    .abstract-box {
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(14, 165, 233, 0.05) 100%);
+      border-left: 4px solid var(--primary);
+      padding: 1.75rem 2rem;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      margin-bottom: 3rem;
+      border-top: 1px solid var(--border-color);
+      border-right: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .abstract-heading {
+      font-size: 1.15rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--primary);
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .abstract-text {
+      font-family: 'Merriweather', serif;
+      font-size: 1.02rem;
+      line-height: 1.85;
+      color: var(--text-main);
+      text-align: justify;
+    }
+
+    /* Academic Typography */
+    h2.section-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-top: 3.5rem;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      scroll-margin-top: 80px;
+    }
+
+    h2.section-title .section-number {
+      background: var(--primary);
+      color: #fff;
+      font-size: 1.05rem;
+      padding: 0.2rem 0.65rem;
+      border-radius: 6px;
+      font-weight: 700;
+    }
+
+    h3.sub-section-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-top: 2.25rem;
+      margin-bottom: 0.85rem;
+      scroll-margin-top: 80px;
+    }
+
+    h4.tertiary-title {
+      font-size: 1.12rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-top: 1.5rem;
+      margin-bottom: 0.6rem;
+      scroll-margin-top: 80px;
+    }
+
+    p {
+      margin-bottom: 1.35rem;
+      text-align: justify;
+    }
+
+    ul, ol {
+      margin-left: 1.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+
+    strong {
+      color: var(--text-main);
+      font-weight: 700;
+    }
+
+    /* Callout & Alerts */
+    .callout {
+      padding: 1.25rem 1.5rem;
+      border-radius: var(--radius-sm);
+      margin: 1.75rem 0;
+      border-left: 4px solid;
+      background: var(--bg-body);
+      border-top: 1px solid var(--border-color);
+      border-right: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .callout-info {
+      border-left-color: var(--primary);
+      background: var(--primary-light);
+    }
+
+    .callout-warning {
+      border-left-color: var(--warning);
+      background: rgba(245, 158, 11, 0.08);
+    }
+
+    .callout-success {
+      border-left-color: var(--success);
+      background: rgba(16, 185, 129, 0.08);
+    }
+
+    .callout-title {
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    /* Figure Card */
+    .figure-wrapper {
+      margin: 2.5rem 0;
+      background: var(--bg-body);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      text-align: center;
+    }
+
+    .figure-header {
+      padding: 0.75rem 1.25rem;
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .figure-badge {
+      background: var(--primary-light);
+      color: var(--primary);
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 0.8rem;
+    }
+
+    .figure-img-container {
+      padding: 1.5rem;
+      background: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .figure-img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+      transition: transform 0.25s ease;
+      cursor: zoom-in;
+    }
+
+    .figure-img:hover {
+      transform: scale(1.02);
+    }
+
+    .figure-caption {
+      padding: 1rem 1.5rem;
+      background: var(--bg-surface);
+      border-top: 1px solid var(--border-color);
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    .figure-caption strong {
+      color: var(--text-main);
+    }
+
+    /* Academic Data Tables */
+    .table-container {
+      overflow-x: auto;
+      margin: 2rem 0;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+    }
+
+    table.academic-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+      text-align: left;
+    }
+
+    table.academic-table th {
+      background: var(--primary);
+      color: #ffffff;
+      padding: 0.85rem 1rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    table.academic-table td {
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--border-color);
+      background: var(--bg-surface);
+      color: var(--text-main);
+    }
+
+    table.academic-table tr:nth-child(even) td {
+      background: var(--bg-body);
+    }
+
+    table.academic-table tr:hover td {
+      background: var(--primary-light);
+    }
+
+    /* Code Blocks */
+    .code-wrapper {
+      margin: 1.75rem 0;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      border: 1px solid #334155;
+      background: var(--code-bg);
+      box-shadow: var(--shadow-md);
+    }
+
+    .code-header {
+      background: #0f172a;
+      padding: 0.5rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #94a3b8;
+      font-size: 0.8rem;
+      font-family: 'Fira Code', monospace;
+      border-bottom: 1px solid #1e293b;
+    }
+
+    pre code {
+      display: block;
+      padding: 1.25rem 1.5rem;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.88rem;
+      line-height: 1.6;
+      color: var(--code-text);
+      overflow-x: auto;
+      white-space: pre;
+    }
+
+    /* References List */
+    .references-list {
+      list-style-type: none;
+      margin-left: 0;
+    }
+
+    .references-list li {
+      padding-left: 2rem;
+      text-indent: -2rem;
+      margin-bottom: 1rem;
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .references-list li strong {
+      color: var(--text-main);
+    }
+
+    /* Footer */
+    .article-footer {
+      border-top: 2px solid var(--border-color);
+      padding-top: 2rem;
+      margin-top: 4rem;
+      text-align: center;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    /* Print Styles */
+    @media print {
+      .sidebar, .top-bar, #progress-bar {
+        display: none !important;
+      }
+      .article-container {
+        box-shadow: none;
+        border: none;
+        padding: 0;
+        margin: 0;
+        max-width: 100%;
+      }
+      body {
+        background: #fff;
+        color: #000;
+        font-size: 11pt;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Reading Progress Bar -->
+  <div id="progress-bar"></div>
+
+  <!-- Sidebar Navigation -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-title">Bản Dịch Học Thuật Toàn Văn</div>
+      <div class="sidebar-subtitle">Phát Hiện Gian Lận Bằng Học Máy</div>
+      <div class="sidebar-author">Tác giả: Oladimeji Kazeem (IU University)</div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <div class="nav-group-title">Nội Dung Chính</div>
+      <a href="#abstract" class="sidebar-link">Tóm Tắt Nghiên Cứu (Abstract)</a>
+      <a href="#sec1" class="sidebar-link">1. Mở Đầu (Introduction)</a>
+      <a href="#sec1-1" class="sidebar-link sub-link">1.1 Mục Tiêu Nghiên Cứu</a>
+      <a href="#sec1-2" class="sidebar-link sub-link">1.2 Câu Hỏi Nghiên Cứu</a>
+
+      <a href="#sec2" class="sidebar-link">2. Tổng Quan Nghiên Cứu (Literature Review)</a>
+      <a href="#sec2-1" class="sidebar-link sub-link">2.1 Phương Pháp Học Có Giám Sát</a>
+      <a href="#sec2-2" class="sidebar-link sub-link">2.2 Phương Pháp Học Không Giám Sát</a>
+      <a href="#sec2-3" class="sidebar-link sub-link">2.3 Phương Pháp Lai Ghép (Hybrid)</a>
+      <a href="#sec2-4" class="sidebar-link sub-link">2.4 Phương Pháp Học Sâu (Deep Learning)</a>
+      <a href="#sec2-5" class="sidebar-link sub-link">2.5 Khoảng Trống Nghiên Cứu (Gaps)</a>
+      <a href="#sec2-6" class="sidebar-link sub-link">2.6 Kỹ Thuật Đặc Trưng & Giảm Chiều</a>
+
+      <a href="#sec3" class="sidebar-link">3. Phương Pháp Luận (Methodology)</a>
+      <a href="#sec3-1" class="sidebar-link sub-link">3.1 Mô Tả Tập Dữ Liệu</a>
+      <a href="#sec3-2" class="sidebar-link sub-link">3.2 Các Bước Tiền Xử Lý</a>
+      <a href="#sec3-3" class="sidebar-link sub-link">3.3 Khám Phá Dữ Liệu (EDA)</a>
+      <a href="#sec3-4" class="sidebar-link sub-link">3.4 Kỹ Thuật Đặc Trưng & Giảm Chiều</a>
+      <a href="#sec3-5" class="sidebar-link sub-link">3.5 Các Thuật Toán Học Máy</a>
+      <a href="#sec3-6" class="sidebar-link sub-link">3.6 Triển Khai Giải Pháp Thực Tế</a>
+      <a href="#sec3-7" class="sidebar-link sub-link">3.7 Các Phương Án Triển Khai Mô Hình</a>
+
+      <a href="#sec4" class="sidebar-link">4. Kết Quả & Phát Hiện Thực Nghiệm</a>
+      <a href="#sec4-1" class="sidebar-link sub-link">4.1 Phân Tích Danh Mục Khách Hàng</a>
+      <a href="#sec4-2" class="sidebar-link sub-link">4.2 Đánh Giá & So Sánh Mô Hình</a>
+
+      <a href="#sec5" class="sidebar-link">5. Thảo Luận Chuyên Sâu (Discussions)</a>
+      <a href="#sec5-1" class="sidebar-link sub-link">5.1 Các Biện Pháp Ngăn Chặn Chủ Động</a>
+      <a href="#sec5-2" class="sidebar-link sub-link">5.2 Khả Năng Mở Rộng & Xử Lý Dữ Liệu Lớn</a>
+
+      <a href="#sec6" class="sidebar-link">6. Kết Luận (Conclusion)</a>
+      <a href="#sec7" class="sidebar-link">7. Tài Liệu Tham Khảo (References)</a>
+
+      <div class="nav-group-title">Mã Nguồn & Thực Thi</div>
+      <a href="#app1" class="sidebar-link">Phụ Lục 1: Mã Nguồn OOP (VS Code)</a>
+      <a href="#app2" class="sidebar-link">Phụ Lục 2: Thực Nghiệm Jupyter & Biểu Đồ Gốc</a>
+      <a href="#fig1" class="sidebar-link sub-link">Hình 1: Phân Bố Giao Dịch Gian Lận</a>
+      <a href="#fig2" class="sidebar-link sub-link">Hình 2: Phân Bố Loại Giao Dịch</a>
+      <a href="#fig3" class="sidebar-link sub-link">Hình 3: Tương Quan Số Tiền vs Gian Lận</a>
+      <a href="#fig4" class="sidebar-link sub-link">Hình 4: Tỷ Lệ Gian Lận (Pie Chart)</a>
+      <a href="#fig5" class="sidebar-link sub-link">Hình 5: Bản Đồ Nhiệt Tương Quan</a>
+      <a href="#fig6" class="sidebar-link sub-link">Hình 6: So Sánh Đường Cong ROC</a>
+    </nav>
+  </aside>
+
+  <!-- Main Wrapper -->
+  <div class="main-wrapper">
+
+    <!-- Top Utility Bar -->
+    <header class="top-bar">
+      <div class="top-bar-left">
+        <a href="../index.html" class="back-btn" title="Quay về Danh mục Thư viện Video Bài giảng">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+          Thư viện Video
+        </a>
+        <a href="index.html" class="back-btn" style="color: var(--primary);" title="Mở Video Bài giảng Tương tác">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+          </svg>
+          Xem Trình phát Video
+        </a>
+      </div>
+
+      <div class="top-bar-right">
+        <button class="util-btn" onclick="toggleTheme()" title="Chuyển chế độ Sáng/Tối">🌓</button>
+        <button class="util-btn" onclick="adjustFontSize(-1)" title="Giảm cỡ chữ">A-</button>
+        <button class="util-btn" onclick="adjustFontSize(1)" title="Tăng cỡ chữ">A+</button>
+        <button class="util-btn" onclick="window.print()" title="In hoặc Xuất PDF">🖨️</button>
+      </div>
+    </header>
+
+    <!-- Article Container -->
+    <main class="article-container">
+
+      <!-- Paper Header -->
+      <header class="paper-header">
+        <div class="paper-badge">BÁO CÁO NGHIÊN CỨU HỌC THUẬT &amp; THỰC NGHIỆM PYTHON</div>
+        <h1 class="paper-title">Phát Hiện Gian Lận Giao Dịch Tài Chính Bằng Học Máy</h1>
+        <div class="paper-title-en">Fraud Detection Using Machine Learning</div>
+
+        <div class="paper-meta-grid">
+          <div class="meta-item">
+            <span>Tác giả:</span> <strong>Oladimeji Kazeem</strong>
+          </div>
+          <div class="meta-item">
+            <span>Học phần:</span> <strong>Lập trình Python (Python Programming)</strong>
+          </div>
+          <div class="meta-item">
+            <span>Đơn vị:</span> <strong>Đại học Khoa học Ứng dụng IU (IU University of Applied Sciences)</strong>
+          </div>
+          <div class="meta-item">
+            <span>Quy mô dữ liệu:</span> <strong>6.362.620 bản ghi giao dịch (PaySim)</strong>
+          </div>
+        </div>
+      </header>
+
+      <!-- Abstract -->
+      <section id="abstract" class="abstract-box">
+        <div class="abstract-heading">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="16" x2="12" y2="12"></line>
+            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+          </svg>
+          Tóm Tắt Nghiên Cứu (Abstract)
+        </div>
+        <p class="abstract-text">
+          Mối đe dọa từ gian lận giao dịch tài chính đối với các tổ chức và cá nhân đã thúc đẩy sự ra đời của các phương pháp phát hiện và ngăn chặn tiên tiến. Công trình nghiên cứu này đi sâu khám phá việc ứng dụng các hệ thống giám sát thời gian thực và thuật toán học máy nhằm nâng cao năng lực phát hiện và phòng ngừa gian lận trong các giao dịch tài chính. Bài báo giải quyết những hạn chế cố hữu của các hệ thống dựa trên luật lệ truyền thống (Rule-based systems), lý giải sự cần thiết của việc áp dụng học máy và giám sát thời gian thực, đồng thời xác lập các mục tiêu cốt lõi của nghiên cứu.
+        </p>
+        <p class="abstract-text" style="margin-top: 0.85rem;">
+          Một cuộc tổng quan tài liệu toàn diện được thực hiện để thấu hiểu các phương pháp hiện hành và chỉ ra những khoảng trống nghiên cứu quan trọng. Khung phương pháp luận đề xuất bao gồm: tiền xử lý dữ liệu, kỹ thuật trích xuất đặc trưng (Feature Engineering), giảm chiều dữ liệu (Dimensionality Reduction), và triển khai các mô hình học máy được tích hợp trong hệ thống giám sát thời gian thực. Các kết quả thực nghiệm được đánh giá thông qua các chỉ số đo lường hiệu suất (Precision, Recall, F1-Score, ROC-AUC) và đối chiếu với các phương pháp hiện có. Bên cạnh đó, nghiên cứu cũng khảo sát các chiến lược phòng ngừa gian lận chủ động như Ngưỡng thích ứng (Adaptive Thresholds) và Chấm điểm rủi ro động (Dynamic Risk Scoring). Các yếu tố then chốt về khả năng mở rộng quy mô, kiến trúc phân tán, bảo mật dữ liệu và tuân thủ pháp lý cũng được thảo luận sâu sắc, mở ra định hướng cho các nghiên cứu tiếp theo nhằm xây dựng hệ thống phát hiện gian lận tài chính đáng tin cậy.
+        </p>
+      </section>
+
+      <!-- Section 1 -->
+      <section id="sec1">
+        <h2 class="section-title"><span class="section-number">1</span> Mở Đầu (Introduction)</h2>
+        <p>
+          Đối với các doanh nghiệp, tổ chức tài chính và mọi cá nhân trên toàn cầu, việc phát hiện và ngăn chặn gian lận trong các giao dịch tài chính luôn là ưu tiên hàng đầu. Nhu cầu nghiên cứu các kỹ thuật tinh vi hơn đã xuất hiện khi gian lận ngày càng trở nên phức tạp, làm bộc lộ rõ những giới hạn của các hệ thống dựa trên luật lệ truyền thống (Rule-based systems). Nghiên cứu này khám phá cách thức mà các hệ thống giám sát thời gian thực và thuật toán học máy có thể được kết hợp để tăng cường khả năng phát hiện và phòng ngừa gian lận trong các giao dịch tài chính.
+        </p>
+        <p>
+          Trong y văn học thuật, tầm quan trọng của việc phòng chống gian lận tài chính đã được thảo luận sâu rộng. Không chỉ gây ra những thiệt hại kinh tế khổng lồ lên tới hàng tỷ đô la mỗi năm, gian lận tài chính còn làm xói mòn niềm tin của công chúng vào hệ thống tài chính và ngân hàng (Association of Certified Fraud Examiners - ACFE, 2020). Các hệ thống truyền thống tìm kiếm hành vi gian lận thông qua các quy tắc và mẫu được định nghĩa trước (ví dụ: cảnh báo khi giao dịch vượt 10.000 USD). Tuy nhiên, các hệ thống cứng nhắc này gặp rất nhiều khó khăn trong việc thích ứng với các thủ đoạn gian lận mới nổi và liên tục biến đổi, dẫn đến tỷ lệ bỏ sót gian lận (False Negatives) rất cao và gây tổn thất tài chính nghiêm trọng (Kumar et al., 2020).
+        </p>
+        <p>
+          Việc ứng dụng các thuật toán học máy đã thu hút sự quan tâm to lớn như một giải pháp cứu cánh cho những hạn chế trên. Khối lượng dữ liệu giao dịch khổng lồ (Big Data) có thể được tự động khai phá để tìm kiếm các quy luật ẩn và các điểm dị biệt bằng cách sử dụng các thuật toán máy học, mang lại độ chính xác cao hơn và khả năng thích ứng linh hoạt hơn. Các định chế tài chính có thể phân tích dữ liệu giao dịch lịch sử để nhận diện các xu hướng gắn liền với hành vi gian lận thông qua các kỹ thuật học có giám sát (Supervised Learning), học không giám sát (Unsupervised Learning) và học sâu (Deep Learning) (Dal Pozzolo et al., 2015).
+        </p>
+        <p>
+          Hơn nữa, bằng việc liên tục giám sát giao dịch theo thời gian thực và tự động phát đi các tín hiệu cảnh báo nghi vấn, sự tích hợp của các hệ thống thời gian thực sẽ nâng cao đáng kể năng lực phòng ngừa (Bolton et al., 2011). Với hành động can thiệp kịp thời từ chiến lược chủ động này, các thiệt hại và tổn thất tiềm tàng sẽ được giảm thiểu tối đa. Gian lận tài chính mang tính động, đòi hỏi các hệ thống tự thích nghi có thể phát hiện các mẫu dị biệt mới nổi. Máy học cho phép nhận diện các mẫu gian lận tinh vi và phức tạp từ sớm (Phua et al., 2010), kết hợp với tốc độ phản hồi tính bằng mili-giây của hệ thống giám sát thời gian thực để chặn đứng giao dịch gian lận trước khi tiền bị chuyển đi (Kou et al., 2020).
+        </p>
+
+        <!-- Sub 1.1 -->
+        <h3 id="sec1-1" class="sub-section-title">1.1 Mục Tiêu Nghiên Cứu (Research Objectives)</h3>
+        <p>Nghiên cứu này được thiết lập nhằm đạt được 5 mục tiêu cụ thể sau đây:</p>
+        <ul>
+          <li><strong>Mục tiêu 1:</strong> Điều tra và đánh giá việc áp dụng các thuật toán học máy (Machine Learning) để phát hiện gian lận trong giao dịch tài chính.</li>
+          <li><strong>Mục tiêu 2:</strong> Thiết kế và phát triển một hệ thống giám sát thời gian thực (Real-time monitoring system) nhằm phát hiện và ngăn chặn gian lận liên tục.</li>
+          <li><strong>Mục tiêu 3:</strong> Đánh giá hiệu suất của phương pháp đề xuất thông qua việc đối chiếu với các hệ thống dựa trên quy tắc truyền thống.</li>
+          <li><strong>Mục tiêu 4:</strong> Khám phá các biện pháp chủ động ngăn chặn gian lận, cụ thể là chấm điểm rủi ro động (Dynamic Risk Scoring) và ngưỡng thích ứng (Adaptive Thresholds).</li>
+          <li><strong>Mục tiêu 5:</strong> Phân tích các yếu tố về khả năng mở rộng (Scalability) và các cân nhắc triển khai khi đưa hệ thống đề xuất vào các định chế tài chính trong thế giới thực.</li>
+        </ul>
+
+        <!-- Sub 1.2 -->
+        <h3 id="sec1-2" class="sub-section-title">1.2 Câu Hỏi Nghiên Cứu (Research Questions)</h3>
+        <p>Để định hướng quá trình thực nghiệm, nghiên cứu tập trung giải quyết 5 câu hỏi cốt lõi:</p>
+        <ol>
+          <li>Các thuật toán học máy có thể được sử dụng như thế nào trong các giao dịch tài chính để nhận diện và ngăn chặn gian lận?</li>
+          <li>Hệ thống giám sát thời gian thực có tác động như thế nào đến năng lực phát hiện và phòng ngừa gian lận?</li>
+          <li>Độ hiệu quả và độ chính xác của phương pháp đề xuất đạt mức nào khi so sánh với các hệ thống dựa trên luật lệ truyền thống?</li>
+          <li>Những biện pháp phòng ngừa chủ động nào có thể được xây dựng vào hệ thống để ngăn chặn gian lận trước khi nó thực sự xảy ra?</li>
+          <li>Những yếu tố kỹ thuật, kiến trúc và bảo mật nào cần được cân nhắc khi triển khai hệ thống đề xuất tại các tổ chức tài chính thực tế?</li>
+        </ol>
+      </section>
+
+      <!-- Section 2 -->
+      <section id="sec2">
+        <h2 class="section-title"><span class="section-number">2</span> Tổng Quan Nghiên Cứu (Literature Review)</h2>
+        <p>
+          Trong những năm gần đây, đã có rất nhiều công trình khoa học nghiên cứu việc áp dụng máy học vào bài toán gian lận tài chính. Nhiều chiến lược và thuật toán khác nhau đã được khảo sát nhằm nâng cao độ chính xác và tính thực tiễn. Phần này điểm lại các nghiên cứu tiêu biểu trước đây, phân tích ưu nhược điểm của từng phương pháp và chỉ ra các khoảng trống tri thức mà nghiên cứu này hướng tới giải quyết.
+        </p>
+
+        <!-- Sub 2.1 -->
+        <h3 id="sec2-1" class="sub-section-title">2.1 Phương Pháp Học Có Giám Sát (Supervised Learning Approaches)</h3>
+        <p>
+          Học có giám sát đòi hỏi dữ liệu huấn luyện phải được gán nhãn từ trước (Gian lận = 1, Hợp lệ = 0). Buczak & Guven (2016) đã đề xuất hệ thống phát hiện gian lận dựa trên <strong>Hồi quy Logistic (Logistic Regression)</strong>. Nghiên cứu đã chứng minh rằng hồi quy logistic rất hữu ích trong việc ước lượng xác suất một giao dịch là gian lận dựa trên mối quan hệ giữa các biến đầu vào. Ưu điểm nổi bật của hồi quy logistic là tính tường minh, tốc độ tính toán cực nhanh và khả năng diễn giải trọng số của từng biến số tài chính rất dễ dàng.
+        </p>
+        <p>
+          Một kỹ thuật giám sát phổ biến khác là <strong>Cây quyết định (Decision Trees)</strong>, chẳng hạn như thuật toán C4.5. Mô hình này xây dựng cấu trúc cây rẽ nhánh dựa trên giá trị của các đặc trưng. Cây quyết định có ưu thế lớn trong việc xử lý các mối quan hệ phi tuyến tính phức tạp giữa các thuộc tính tài chính và biến mục tiêu, giúp trực quan hóa rõ ràng chuỗi quy tắc phân loại gian lận.
+        </p>
+        <p>
+          Bên cạnh đó, <strong>Máy vectơ hỗ trợ (Support Vector Machines - SVM)</strong> và <strong>Rừng ngẫu nhiên (Random Forest)</strong> cũng được chứng minh là các thuật toán hàng đầu. SVM tìm kiếm siêu phẳng tối ưu có lề cực đại (Maximum Margin) để phân tách các lớp dữ liệu trong không gian nhiều chiều. Tuy nhiên, thách thức lớn nhất của học có giám sát trong kế toán tài chính là <strong>sự mất cân bằng dữ liệu cực đoan (Class Imbalance)</strong>: số giao dịch gian lận chỉ chiếm chưa tới 0.1% tổng thể. Các kỹ thuật như <strong>SMOTE (Synthetic Minority Over-sampling Technique)</strong> để tạo mẫu nhân tạo cho lớp thiểu số, hoặc phương pháp giảm mẫu (Under-sampling) lớp đa số đã được áp dụng để cân bằng phân bố lớp.
+        </p>
+
+        <!-- Sub 2.2 -->
+        <h3 id="sec2-2" class="sub-section-title">2.2 Phương Pháp Học Không Giám Sát (Unsupervised Learning Approaches)</h3>
+        <p>
+          Trong thực tế, dữ liệu tài chính phần lớn không được gán nhãn hoặc nhãn gian lận có độ trễ rất lớn (vài tháng sau khi kiểm toán mới phát hiện). Học không giám sát, đặc biệt là các kỹ thuật <strong>Phân cụm (Clustering)</strong> và <strong>Phát hiện dị biệt (Anomaly Detection)</strong>, không đòi hỏi dữ liệu gán nhãn mà tập trung tìm kiếm các mẫu hành vi bất thường lệch khỏi số đông.
+        </p>
+        <p>
+          Ranshous et al. (2015) đã sử dụng các thuật toán phân cụm (như K-Means, DBSCAN) để phát hiện các cụm giao dịch gian lận liên kết với nhau. Ưu thế vượt trội của phương pháp này là khả năng nhận diện các thủ đoạn gian lận hoàn toàn mới (Novel Fraud Patterns) mà các quy tắc định sẵn chưa từng ghi nhận. Tuy nhiên, nhược điểm chí mạng của học không giám sát là <strong>tỷ lệ báo động giả (False Positive Rate) rất cao</strong>, dễ gây phiền toái và làm tăng chi phí xác minh thủ công của kiểm toán viên.
+        </p>
+
+        <!-- Sub 2.3 -->
+        <h3 id="sec2-3" class="sub-section-title">2.3 Phương Pháp Lai Ghép (Hybrid Approaches)</h3>
+        <p>
+          Để tận dụng ưu điểm của cả hai trường phái, Bhattacharyya et al. (2018) đã đề xuất hệ thống lai ghép tích hợp phân cụm và phân loại. Đầu tiên, thuật toán phân cụm không giám sát gom nhóm các giao dịch có hành vi tương tự. Sau đó, mô hình phân loại có giám sát được huấn luyện riêng biệt trong từng cụm để nhận diện ranh giới gian lận chính xác hơn.
+        </p>
+        <p>
+          Mô hình lai ghép giúp giảm đáng kể tỷ lệ báo động giả trong khi vẫn duy trì độ nhạy cao với các thủ đoạn gian lận mới. Mặc dù vậy, việc triển khai hệ thống lai ghép trong môi trường sản xuất thực tế đòi hỏi năng lực tính toán lớn và độ phức tạp kiến trúc cao hơn rất nhiều.
+        </p>
+
+        <!-- Sub 2.4 -->
+        <h3 id="sec2-4" class="sub-section-title">2.4 Phương Pháp Học Sâu (Deep Learning Approaches)</h3>
+        <p>
+          Với khả năng tự động bóc tách các biểu diễn đặc trưng phức tạp từ dữ liệu lớn mà không cần can thiệp thủ công, Mạng nơ-ron sâu (Deep Neural Networks), Mạng nơ-ron tích chập (CNN) và Mạng nơ-ron hồi quy (RNN / LSTM) đã tạo nên bước đột phá lớn (Phua et al., 2010). LSTM đặc biệt xuất sắc trong việc mô hình hóa các chuỗi giao dịch liên tiếp theo thời gian. Autoencoder (Mạng tự mã hóa) học biểu diễn nén của các giao dịch bình thường; khi gặp giao dịch gian lận, sai số tái thiết (Reconstruction Error) sẽ tăng vọt, báo hiệu bất thường.
+        </p>
+        <p>
+          Thách thức lớn nhất của học sâu nằm ở chi phí tài nguyên phần cứng (yêu cầu GPU/TPU) và đặc biệt là <strong>vấn đề "Hộp đen" (Black Box)</strong>: mô hình đưa ra dự đoán nhưng không thể giải thích được lý do tại sao, gây khó khăn cho việc sử dụng làm bằng chứng pháp lý trước cơ quan quản lý.
+        </p>
+
+        <!-- Sub 2.5 -->
+        <h3 id="sec2-5" class="sub-section-title">2.5 Khoảng Trống Nghiên Cứu Trong Y Văn (Research Gaps)</h3>
+        <p>Dù có nhiều bước tiến, y văn hiện nay vẫn tồn tại 4 khoảng trống phương pháp luận lớn:</p>
+        <div class="callout callout-warning">
+          <div class="callout-title">⚠️ 4 Điểm Mù Lớn Của Nghiên Cứu Gian Lận Hiện Nay:</div>
+          <ol>
+            <li><strong>Thiếu tập trung vào phát hiện thời gian thực (Real-time):</strong> Đa số các nghiên cứu học thuật chỉ dừng lại ở phân tích ngoại tuyến (Offline) trên các tập dữ liệu lịch sử tĩnh, chưa giải quyết được bài toán ra quyết định trong vài mili-giây khi giao dịch đang diễn ra.</li>
+            <li><strong>Bỏ qua tính phụ thuộc thời gian (Temporal Aspects):</strong> Các giao dịch tài chính có tính chuỗi thời gian chặt chẽ, nhưng nhiều nghiên cứu vẫn chia ngẫu nhiên (Random Split) gây rò rỉ dữ liệu tương lai.</li>
+            <li><strong>Thiếu khả năng giải trình (Interpretability &amp; Explainability):</strong> Các mô hình phức tạp thiếu cơ chế giải thích rõ ràng để phục vụ công tác thanh tra kiểm toán và đáp ứng quy định pháp lý.</li>
+            <li><strong>Chưa xử lý thấu đáo sự mất cân bằng dữ liệu cực đoan:</strong> Việc áp dụng các thước đo thông thường (như Accuracy) làm sai lệch đánh giá, khiến mô hình đạt 99% accuracy nhưng lại bỏ sót phần lớn các vụ gian lận thực sự.</li>
+          </ol>
+        </div>
+
+        <!-- Sub 2.6 -->
+        <h3 id="sec2-6" class="sub-section-title">2.6 Kỹ Thuật Đặc Trưng &amp; Giảm Chiều Dữ Liệu</h3>
+        <p>
+          Chất lượng của mô hình phụ thuộc sống còn vào khâu trích xuất đặc trưng (Feature Engineering):
+        </p>
+        <ul>
+          <li><strong>Đặc trưng thời gian (Time-based):</strong> Bóc tách thời điểm trong ngày, ngày trong tuần, khoảng cách thời gian giữa hai giao dịch liên tiếp của cùng một tài khoản.</li>
+          <li><strong>Đặc trưng thống kê (Statistical):</strong> Giá trị trung bình, độ lệch chuẩn, độ bất đối xứng (Skewness) của số tiền giao dịch trong 24 giờ qua.</li>
+          <li><strong>Giảm chiều dữ liệu (Dimensionality Reduction):</strong> Sử dụng <strong>Phân tích thành phần chính (PCA)</strong> để chuyển đổi các biến tương quan thành tập biến độc lập giữ lại tối đa phương sai; <strong>t-SNE</strong> để trực quan hóa dữ liệu đa chiều; và kỹ thuật chọn lọc đặc trưng (Feature Selection) để loại bỏ nhiễu và tránh hiện tượng quá khớp (Overfitting).</li>
+        </ul>
+      </section>
+
+      <!-- Section 3 -->
+      <section id="sec3">
+        <h2 class="section-title"><span class="section-number">3</span> Phương Pháp Luận Nghiên Cứu (Methodology)</h2>
+        <p>
+          Phần này trình bày chi tiết quy trình thực nghiệm từ khâu chuẩn bị dữ liệu, tiền xử lý, lựa chọn thuật toán đến thiết kế kiến trúc triển khai thực tế.
+        </p>
+
+        <!-- Sub 3.1 -->
+        <h3 id="sec3-1" class="sub-section-title">3.1 Mô Tả Tập Dữ Liệu Thực Nghiệm (Dataset Description)</h3>
+        <p>
+          Nghiên cứu sử dụng tập dữ liệu giao dịch tài chính mô phỏng <strong>PaySim</strong> (dựa trên dữ liệu tài chính di động thực tế từ một công ty đa quốc gia). Bộ dữ liệu chứa tổng cộng <strong>6.362.620 bản ghi giao dịch</strong> với 11 thuộc tính chi tiết:
+        </p>
+        <div class="table-container">
+          <table class="academic-table">
+            <thead>
+              <tr>
+                <th>Tên Biến (Feature)</th>
+                <th>Kiểu Dữ Liệu</th>
+                <th>Ý Nghĩa Nghiệp Vụ Kế Toán - Tài Chính</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>step</code></td>
+                <td>Số nguyên (int64)</td>
+                <td>Thời gian tính theo đơn vị giờ (1 step = 1 giờ). Tổng thời gian mô phỏng là 744 giờ (31 ngày).</td>
+              </tr>
+              <tr>
+                <td><code>type</code></td>
+                <td>Chuỗi (object)</td>
+                <td>Loại hình giao dịch: <strong>CASH-IN</strong>, <strong>CASH-OUT</strong>, <strong>DEBIT</strong>, <strong>PAYMENT</strong>, <strong>TRANSFER</strong>.</td>
+              </tr>
+              <tr>
+                <td><code>amount</code></td>
+                <td>Số thực (float64)</td>
+                <td>Số tiền giao dịch thực hiện tính theo đồng nội tệ.</td>
+              </tr>
+              <tr>
+                <td><code>nameOrig</code></td>
+                <td>Chuỗi (object)</td>
+                <td>Mã định danh khách hàng khởi tạo giao dịch (bắt đầu bằng ký tự 'C').</td>
+              </tr>
+              <tr>
+                <td><code>oldbalanceOrg</code></td>
+                <td>Số thực (float64)</td>
+                <td>Số dư ban đầu của tài khoản nguồn trước khi thực hiện giao dịch.</td>
+              </tr>
+              <tr>
+                <td><code>newbalanceOrig</code></td>
+                <td>Số thực (float64)</td>
+                <td>Số dư mới của tài khoản nguồn sau khi giao dịch hoàn tất.</td>
+              </tr>
+              <tr>
+                <td><code>nameDest</code></td>
+                <td>Chuỗi (object)</td>
+                <td>Mã định danh tài khoản nhận ('C' đối với khách hàng, 'M' đối với đơn vị bán hàng).</td>
+              </tr>
+              <tr>
+                <td><code>oldbalanceDest</code></td>
+                <td>Số thực (float64)</td>
+                <td>Số dư ban đầu của tài khoản thụ hưởng trước giao dịch.</td>
+              </tr>
+              <tr>
+                <td><code>newbalanceDest</code></td>
+                <td>Số thực (float64)</td>
+                <td>Số dư mới của tài khoản thụ hưởng sau khi nhận tiền.</td>
+              </tr>
+              <tr>
+                <td><code>isFraud</code></td>
+                <td>Số nguyên (int64)</td>
+                <td>Biến mục tiêu: <strong>1</strong> là giao dịch gian lận thực tế, <strong>0</strong> là giao dịch hợp lệ.</td>
+              </tr>
+              <tr>
+                <td><code>isFlaggedFraud</code></td>
+                <td>Số nguyên (int64)</td>
+                <td>Cờ cảnh báo của hệ thống luật cũ: đánh dấu 1 khi số tiền chuyển vượt quá 200.000 trong 1 giao dịch.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Sub 3.2 -->
+        <h3 id="sec3-2" class="sub-section-title">3.2 Các Bước Tiền Xử Lý Dữ Liệu (Preprocessing Steps)</h3>
+        <p>
+          Quy trình tiền xử lý được thực hiện qua 4 giai đoạn chuẩn mực:
+        </p>
+        <ol>
+          <li><strong>Xử lý giá trị khuyết thiếu:</strong> Kiểm tra bằng <code>df.isnull().sum()</code> cho thấy tập dữ liệu không có giá trị khuyết thiếu (0 null values).</li>
+          <li><strong>Loại bỏ thuộc tính không mang giá trị tổng quát hóa:</strong> Loại bỏ các cột định danh văn bản tĩnh như <code>nameOrig</code>, <code>nameDest</code> và cột cờ luật cũ <code>isFlaggedFraud</code> nhằm tránh rủi ro quá khớp.</li>
+          <li><strong>Mã hóa biến phân loại (Categorical Encoding):</strong> Sử dụng <strong>One-Hot Encoding</strong> (<code>pd.get_dummies</code>) để chuyển đổi biến <code>type</code> thành các cột nhị phân độc lập, giúp thuật toán xử lý chính xác đặc trưng phi số học.</li>
+          <li><strong>Chuẩn hóa đặc trưng (Feature Scaling):</strong> Áp dụng <strong>StandardScaler</strong> đưa các biến số tiền và số dư về cùng phân phối chuẩn có giá trị trung bình bằng 0 và phương sai bằng 1 ($z = \frac{x - \mu}{\sigma}$), triệt tiêu sự thiên lệch do đơn vị tiền tệ quá lớn.</li>
+        </ol>
+
+        <!-- Sub 3.3 & 3.4 & 3.5 -->
+        <h3 id="sec3-3" class="sub-section-title">3.3 Khám Phá Dữ Liệu (Exploratory Data Analysis - EDA)</h3>
+        <p>
+          Phân tích EDA tập trung vào việc mô tả cấu trúc phân phối, kiểm tra tỷ lệ gian lận trên từng loại hình giao dịch và đo lường mức độ tương quan giữa số dư tài khoản trước - sau giao dịch.
+        </p>
+
+        <h3 id="sec3-5" class="sub-section-title">3.5 Các Thuật Toán Học Máy Được Huấn Luyện</h3>
+        <p>
+          Nghiên cứu lựa chọn 4 đại diện tiêu biểu cho các trường phái học máy khác nhau:
+        </p>
+        <ul>
+          <li><strong>Hồi quy Logistic (Logistic Regression):</strong> Đại diện tuyến tính cơ bản, đóng vai trò mô hình đường cơ sở (Baseline).</li>
+          <li><strong>Rừng ngẫu nhiên (Random Forest):</strong> Đại diện phương pháp kết hợp (Ensemble Learning), xây dựng nhiều cây quyết định với cơ chế lấy mẫu ngẫu nhiên (Bagging) giúp chống quá khớp vượt trội.</li>
+          <li><strong>Máy vectơ hỗ trợ (Support Vector Machine - SVM):</strong> Tối ưu hóa ranh giới phân tách đa chiều với hàm nhân RBF.</li>
+          <li><strong>Phân cụm K-Means (K-Means Clustering):</strong> Đại diện học không giám sát phát hiện bất thường với số cụm $K=2$.</li>
+        </ul>
+
+        <!-- Sub 3.6 & 3.7 -->
+        <h3 id="sec3-6" class="sub-section-title">3.6 Triển Khai Giải Pháp Giám Sát Thời Gian Thực</h3>
+        <p>
+          Mô hình sau khi huấn luyện đạt kết quả tối ưu được <strong>tuần tự hóa (Model Serialization)</strong> thông qua thư viện <code>joblib</code>, lưu trữ dưới dạng nhị phân nhẹ để dễ dàng nạp vào bộ nhớ trong quá trình thực thi thời gian thực.
+        </p>
+
+        <h3 id="sec3-7" class="sub-section-title">3.7 Các Phương Án Kiến Trúc Triển Khai (Deployment Options)</h3>
+        <p>
+          Báo cáo xem xét 4 kiến trúc hạ tầng cho các định chế tài chính:
+        </p>
+        <ul>
+          <li><strong>Triển khai tại chỗ (On-Premises):</strong> Đặt máy chủ mô hình trực tiếp trong trung tâm dữ liệu nội bộ của ngân hàng, tối đa hóa bảo mật dữ liệu khách hàng.</li>
+          <li><strong>Đám mây (Cloud Deployment):</strong> Sử dụng hạ tầng AWS, Azure hoặc GCP với năng lực co giãn tài nguyên tự động.</li>
+          <li><strong>Đóng gói Container (Docker &amp; Kubernetes):</strong> Đóng gói mô hình cùng toàn bộ môi trường phụ thuộc vào container Docker, điều phối tự động bằng Kubernetes đảm bảo tính sẵn sàng cao (High Availability).</li>
+          <li><strong>Kiến trúc Microservices &amp; API Endpoint:</strong> Đưa mô hình vào một dịch vụ microservice độc lập, giao tiếp với hệ thống xử lý giao dịch lõi (Core Banking) thông qua giao thức REST API hoặc gRPC, xử lý luồng dữ liệu tức thời qua Apache Kafka.</li>
+        </ul>
+      </section>
+
+      <!-- Section 4 -->
+      <section id="sec4">
+        <h2 class="section-title"><span class="section-number">4</span> Kết Quả Thực Nghiệm &amp; Phát Hiện Chính (Results &amp; Findings)</h2>
+        
+        <h3 id="sec4-1" class="sub-section-title">4.1 Phân Tích Danh Mục Khách Hàng &amp; Kênh Giao Dịch</h3>
+        <p>
+          Phân tích thực nghiệm trên toàn bộ 6.362.620 giao dịch mang lại phát hiện mang tính quy luật cực kỳ quan trọng:
+        </p>
+        <div class="callout callout-info">
+          <div class="callout-title">💡 Phát Hiện Quy Luật Nghiệp Vụ Cốt Lõi:</div>
+          <p>
+            Gian lận trong bộ dữ liệu PaySim <strong>CHỈ XUẤT HIỆN DUY NHẤT Ở 2 LOẠI HÌNH GIAO DỊCH</strong>: <strong>TRANSFER (Chuyển khoản)</strong> và <strong>CASH_OUT (Rút tiền mặt)</strong>. Tất cả các loại hình PAYMENT, CASH_IN và DEBIT hoàn toàn không ghi nhận bất kỳ giao dịch gian lận nào! Kẻ gian thực hiện thủ đoạn chuyển tiền bất hợp pháp sang tài khoản trung gian (TRANSFER), sau đó ngay lập tức tẩu tán thành tiền mặt (CASH_OUT).
+          </p>
+        </div>
+
+        <h3 id="sec4-2" class="sub-section-title">4.2 Đánh Giá &amp; So Sánh Hiệu Suất Giữa Các Mô Hình</h3>
+        <p>
+          Tập dữ liệu được chia theo tỷ lệ chuẩn <strong>80% huấn luyện (Training Set)</strong> và <strong>20% kiểm tra độc lập (Testing Set)</strong> gồm 1.272.524 giao dịch kiểm chứng. Bảng dưới đây đối chiếu chi tiết báo cáo phân loại (Classification Report) của các mô hình:
+        </p>
+
+        <div class="table-container">
+          <table class="academic-table">
+            <thead>
+              <tr>
+                <th>Mô Hình (Algorithm)</th>
+                <th>Độ Chính Xác Tổng Thể (Accuracy)</th>
+                <th>Độ Chuẩn Xác Lớp Gian Lận (Precision)</th>
+                <th>Độ Nhạy Lớp Gian Lận (Recall)</th>
+                <th>F1-Score Lớp Gian Lận</th>
+                <th>Đánh Giá Thực Tiễn Kiểm Toán</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Random Forest (Rừng ngẫu nhiên)</strong></td>
+                <td><strong>100% (1.00)</strong></td>
+                <td><strong>0.96 (96%)</strong></td>
+                <td><strong>0.79 (79%)</strong></td>
+                <td><strong>0.87 (87%)</strong></td>
+                <td><span style="color: var(--success); font-weight:700;">★ Xuất sắc nhất</span>: Cân bằng lý tưởng giữa việc bắt đúng gian lận và tỷ lệ báo động giả cực thấp.</td>
+              </tr>
+              <tr>
+                <td><strong>Support Vector Machine (SVM)</strong></td>
+                <td>100% (1.00)</td>
+                <td>0.99 (99%)</td>
+                <td>0.47 (47%)</td>
+                <td>0.64 (64%)</td>
+                <td><span style="color: var(--warning); font-weight:700;">Nguy hiểm</span>: Bỏ lọt tới 53% giao dịch gian lận (Recall quá thấp dù Precision 99%).</td>
+              </tr>
+              <tr>
+                <td><strong>K-Means Clustering (Không giám sát)</strong></td>
+                <td>94% (0.94)</td>
+                <td>0.00 (0%)</td>
+                <td>0.03 (3%)</td>
+                <td>0.00 (0%)</td>
+                <td><span style="color: var(--danger); font-weight:700;">Thất bại hoàn toàn</span>: Không thể phân tách được gian lận trong dữ liệu mất cân bằng cực đoan.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout callout-warning">
+          <div class="callout-title">⚠️ Bài Học Phương Pháp Luận Đắt Giá Về Chỉ Số Accuracy:</div>
+          <p>
+            Nhìn vào bảng trên, cả Random Forest và SVM đều đạt <strong>Accuracy = 1.00 (100%)</strong>. Tuy nhiên, SVM bỏ lọt hơn một nửa số vụ gian lận (Recall chỉ đạt 47%). K-Means đạt Accuracy tới 94% nhưng thực chất F1-score bằng 0! Điều này minh chứng sâu sắc rằng: <em>Trong kiểm toán và kế toán, độ chính xác kỹ thuật (Accuracy) hoàn toàn vô nghĩa nếu không đi kèm với Precision, Recall và Chi phí bất đối xứng của sai sót!</em>
+          </p>
+        </div>
+      </section>
+
+      <!-- Section 5 -->
+      <section id="sec5">
+        <h2 class="section-title"><span class="section-number">5</span> Thảo Luận Chuyên Sâu (Discussions)</h2>
+        
+        <h3 id="sec5-1" class="sub-section-title">5.1 Các Biện Pháp Ngăn Chặn Gian Lận Chủ Động (Proactive Measures)</h3>
+        <p>Thay vì chỉ thụ động gắn cờ sau khi giao dịch đã hoàn tất, nghiên cứu đề xuất 3 cơ chế chủ động:</p>
+        <ul>
+          <li><strong>Chấm điểm rủi ro động (Dynamic Risk Scoring):</strong> Đánh giá rủi ro tức thời của từng giao dịch dựa trên tổng hòa các yếu tố: số tiền, thời gian, vị trí địa lý, thiết bị và lịch sử tài khoản.</li>
+          <li><strong>Ngưỡng thích ứng (Adaptive Thresholds):</strong> Thay vì dùng một hạn mức cứng nhắc (ví dụ 10.000 USD), hệ thống tự động điều chỉnh ngưỡng cảnh báo dựa trên hành vi chi tiêu thường nhật của từng khách hàng cá nhân.</li>
+          <li><strong>Phân tích hành vi (Behavioral Analysis):</strong> Thiết lập hồ sơ hành vi cơ sở (Baseline) của khách hàng để nhận biết các chuỗi hành động dị thường (ví dụ: tài khoản lâu năm không hoạt động bỗng nhiên nhận tiền lớn và rút sạch ngay trong 5 phút).</li>
+        </ul>
+
+        <h3 id="sec5-2" class="sub-section-title">5.2 Khả Năng Mở Rộng &amp; Thách Thức Xử Lý Dữ Liệu Lớn (Scalability)</h3>
+        <p>Để vận hành trong môi trường ngân hàng thực tế với hàng triệu giao dịch mỗi giây, hệ thống đòi hỏi:</p>
+        <ul>
+          <li><strong>Hạ tầng dữ liệu lớn (Big Data Infrastructure):</strong> Ứng dụng Apache Spark và Kafka để xử lý luồng sự kiện phân tán.</li>
+          <li><strong>Bảo mật &amp; Tuân thủ pháp lý:</strong> Mã hóa đầu cuối (End-to-End Encryption), kiểm soát truy cập dựa trên vai trò (RBAC), tuân thủ nghiêm ngặt các tiêu chuẩn quốc tế như <strong>PCI-DSS</strong> (Bảo mật thanh toán thẻ), <strong>GDPR</strong> (Bảo vệ dữ liệu cá nhân) và các quy định phòng chống rửa tiền (<strong>AML</strong>).</li>
+          <li><strong>Vượt qua rào cản hệ thống di sản (Legacy Systems):</strong> Thiết lập các lớp trung gian (Middleware/API Adapter) để đồng bộ dữ liệu giữa hệ thống kế toán cũ và mô hình AI mới mà không gây gián đoạn hoạt động kinh doanh.</li>
+        </ul>
+      </section>
+
+      <!-- Section 6 -->
+      <section id="sec6">
+        <h2 class="section-title"><span class="section-number">6</span> Kết Luận &amp; Hướng Phát Triển (Conclusion)</h2>
+        <p>
+          Nghiên cứu đã chứng minh tính ưu việt của việc kết hợp mô hình học máy (đặc biệt là Random Forest) với hệ thống giám sát thời gian thực trong phát hiện gian lận tài chính. Giải pháp đề xuất đã vượt qua các giới hạn cố hữu của hệ thống dựa trên luật truyền thống, nhận diện chính xác các hành vi gian lận phức tạp trên tập dữ liệu hơn 6,3 triệu giao dịch.
+        </p>
+        <p><strong>Hướng nghiên cứu trong tương lai:</strong></p>
+        <ul>
+          <li>Áp dụng kỹ thuật <strong>Học trực tuyến (Online Learning)</strong> để cập nhật trọng số mô hình tức thì ngay khi xuất hiện dữ liệu mới.</li>
+          <li>Nghiên cứu <strong>Học tăng cường sâu (Deep Reinforcement Learning)</strong> giúp hệ thống tự học các chiến lược đối kháng với các mạng lưới tội phạm tài chính.</li>
+          <li>Tích hợp các nguồn dữ liệu phi cấu trúc ngoại vi như mạng xã hội, nhật ký cuộc gọi và dữ liệu liên kết giữa các tổ chức tài chính.</li>
+        </ul>
+      </section>
+
+      <!-- Section 7 -->
+      <section id="sec7">
+        <h2 class="section-title"><span class="section-number">7</span> Tài Liệu Tham Khảo Học Thuật (References)</h2>
+        <ul class="references-list">
+          <li><strong>1. Buczak, A. L., &amp; Guven, E. (2016).</strong> A Survey of Data Mining and Machine Learning Methods for Cyber Security Intrusion Detection. <em>IEEE Communications Surveys &amp; Tutorials</em>, 18(2), 1153-1176.</li>
+          <li><strong>2. Ranshous, S., Bay, C., Cramer, N., Henricksen, M., &amp; Hannigan, B. (2015).</strong> Combining Clustering and Classification for Anomalous Activity Detection in Cybersecurity. <em>Proceedings of the 2015 Workshop on Artificial Intelligence and Security</em>, 49-58.</li>
+          <li><strong>3. Bhattacharyya, D., Kalaimannan, E., &amp; Verma, A. (2018).</strong> Anomalous Pattern Detection in Enterprise Data Using Hybrid Classification and Clustering Techniques. <em>Procedia Computer Science</em>, 132, 1066-1075.</li>
+          <li><strong>4. Phua, C., Lee, V., Smith, K., &amp; Gayler, R. (2010).</strong> A Comprehensive Survey of Data Mining-based Fraud Detection Research. <em>Artificial Intelligence Review</em>, 33(4), 229-246.</li>
+          <li><strong>5. Friedman, J., Hastie, T., &amp; Tibshirani, R. (2001).</strong> <em>The Elements of Statistical Learning: Data Mining, Inference, and Prediction</em>. New York, NY: Springer-Verlag.</li>
+          <li><strong>6. Dal Pozzolo, A., Boracchi, G., Caelen, O., Alippi, C., &amp; Bontempi, G. (2015).</strong> Credit Card Fraud Detection: A Realistic Modeling and a Novel Learning Strategy. <em>IEEE Transactions on Neural Networks and Learning Systems</em>, 29(8), 3784-3797.</li>
+          <li><strong>7. Bolton, R. J., &amp; Hand, D. J. (2002).</strong> Statistical Fraud Detection: A Review. <em>Statistical Science</em>, 17(3), 235-255.</li>
+          <li><strong>8. Kou, G., Peng, Y., &amp; Wang, G. (2020).</strong> Evaluation of Multi-Class Classification Methods on Imbalanced Data for Financial Risk Detection. <em>Journal of the Operational Research Society</em>, 71(8), 1272-1288.</li>
+        </ul>
+      </section>
+
+      <!-- Section Appendix 1 -->
+      <section id="app1">
+        <h2 class="section-title"><span class="section-number">8</span> Phụ Lục 1: Mã Nguồn Python Hướng Đối Tượng (OOP trong VS Code)</h2>
+        <p>Dưới đây là toàn bộ mã nguồn xây dựng lớp <code>FraudDetection</code> hoàn chỉnh bằng Python, cho phép nạp dữ liệu, tiền xử lý, huấn luyện đa mô hình và dự đoán dữ liệu giao dịch mới:</p>
+
+        <div class="code-wrapper">
+          <div class="code-header">
+            <span>fraud_detection_pipeline.py</span>
+            <span>Python 3.10+</span>
+          </div>
+          <pre><code>import pandas as pd
+import joblib
+from sklearn.preprocessing import LabelEncoder, StandardScaler
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.svm import SVC
+from sklearn.cluster import KMeans
+from sklearn.metrics import classification_report
+
+class FraudDetection:
+    def __init__(self):
+        self.data = None
+        self.model = None
+        self.X = None
+        self.y = None
+        self.scaler = StandardScaler()
+
+    def load_data(self, file_path):
+        """Tải dữ liệu giao dịch từ tệp CSV"""
+        self.data = pd.read_csv(file_path)
+        print(f"Đã tải thành công {self.data.shape[0]} bản ghi giao dịch.")
+
+    def preprocess_data(self):
+        """Thực hiện mã hóa One-Hot, loại bỏ cột thừa và chuẩn hóa đặc trưng"""
+        # Mã hóa biến phân loại One-Hot
+        categorical_cols = ['type']
+        self.data_encoded = pd.get_dummies(self.data, columns=categorical_cols)
+
+        # Loại bỏ các cột định danh không mang tính tổng quát
+        drop_cols = ['step', 'nameOrig', 'nameDest', 'isFlaggedFraud']
+        self.data_encoded.drop([c for c in drop_cols if c in self.data_encoded.columns], axis=1, inplace=True)
+
+        # Phân tách biến đầu vào (X) và biến mục tiêu (y)
+        self.X = self.data_encoded.drop('isFraud', axis=1)
+        self.y = self.data_encoded['isFraud']
+
+        # Chuẩn hóa số liệu
+        self.X_scaled = self.scaler.fit_transform(self.X)
+        print("Hoàn tất tiền xử lý và chuẩn hóa dữ liệu.")
+
+    def train_model(self, model_type='RandomForest'):
+        """Huấn luyện và đánh giá mô hình học máy được lựa chọn"""
+        if model_type == 'RandomForest':
+            self.model = RandomForestClassifier(n_estimators=100, random_state=42)
+        elif model_type == 'SVM':
+            self.model = SVC(probability=True, random_state=42)
+        elif model_type == 'KMeans':
+            self.model = KMeans(n_clusters=2, random_state=42)
+        else:
+            raise ValueError("Mô hình không hợp lệ. Chọn 'RandomForest', 'SVM', hoặc 'KMeans'.")
+
+        # Phân chia 80% train - 20% test
+        X_train, X_test, y_train, y_test = train_test_split(
+            self.X_scaled, self.y, test_size=0.2, random_state=42
+        )
+
+        print(f"Bắt đầu huấn luyện mô hình: {model_type}...")
+        self.model.fit(X_train, y_train)
+
+        # Đánh giá hiệu suất
+        y_pred = self.model.predict(X_test)
+        print(f"--- BÁO CÁO PHÂN LOẠI ({model_type}) ---")
+        print(classification_report(y_test, y_pred))
+
+    def save_model(self, output_file='fraud_model.joblib'):
+        """Lưu trữ mô hình đã huấn luyện thành tệp tuần tự hóa"""
+        joblib.dump(self.model, output_file)
+        print(f"Đã lưu mô hình thành công vào: {output_file}")
+
+    def load_model(self, model_file):
+        """Nạp mô hình đã lưu để sẵn sàng phục vụ suy luận thời gian thực"""
+        self.model = joblib.load(model_file)
+        print(f"Đã nạp mô hình từ: {model_file}")
+
+    def make_prediction(self, sample_data):
+        """Dự đoán giao dịch mới: 1 = Gian lận, 0 = Hợp lệ"""
+        sample_scaled = self.scaler.transform(sample_data)
+        predictions = self.model.predict(sample_scaled)
+        return predictions
+
+if __name__ == "__main__":
+    detector = FraudDetection()
+    # Khởi chạy pipeline mẫu
+    # detector.load_data('financial_transaction_log.csv')
+    # detector.preprocess_data()
+    # detector.train_model(model_type='RandomForest')
+</code></pre>
+        </div>
+      </section>
+
+      <!-- Section Appendix 2 -->
+      <section id="app2">
+        <h2 class="section-title"><span class="section-number">9</span> Phụ Lục 2: Thực Nghiệm Trên Jupyter Notebook &amp; Đầy Đủ 6 Biểu Đồ Gốc</h2>
+        <p>
+          Dưới đây là chi tiết toàn bộ các bước khám phá dữ liệu, đoạn mã thực thi trong Jupyter Notebook cùng <strong>toàn bộ 6 hình ảnh và biểu đồ trực quan gốc</strong> được trích xuất trực tiếp từ tài liệu nghiên cứu:
+        </p>
+
+        <!-- FIGURE 1 -->
+        <div id="fig1" class="figure-wrapper">
+          <div class="figure-header">
+            <span>BƯỚC 1: PHÂN BỐ BIẾN MỤC TIÊU (isFraud)</span>
+            <span class="figure-badge">HÌNH 1 GỐC</span>
+          </div>
+          <div class="figure-img-container">
+            <img class="figure-img" src="figures/fig_p28_1.png" alt="Biểu đồ phân bố giao dịch gian lận và hợp lệ" />
+          </div>
+          <div class="figure-caption">
+            <strong>Hình 1:</strong> Biểu đồ phân bố số lượng giao dịch gian lận và không gian lận (<code>sns.countplot(df['isFraud'])</code>). Minh chứng rõ nét cho thấy số lượng giao dịch hợp lệ (cột 0) áp đảo tuyệt đối, trong khi số giao dịch gian lận (cột 1) chỉ là một vệt mỏng sát đáy.
+          </div>
+        </div>
+
+        <!-- FIGURE 2 -->
+        <div id="fig2" class="figure-wrapper">
+          <div class="figure-header">
+            <span>BƯỚC 2: PHÂN BỐ CÁC LOẠI HÌNH GIAO DỊCH</span>
+            <span class="figure-badge">HÌNH 2 GỐC</span>
+          </div>
+          <div class="figure-img-container">
+            <img class="figure-img" src="figures/fig_p29_1.png" alt="Biểu đồ tần suất các loại hình giao dịch" />
+          </div>
+          <div class="figure-caption">
+            <strong>Hình 2:</strong> Phân bố tần suất các loại hình giao dịch (<code>df['type'].value_counts().plot(kind='bar')</code>). Ba kênh thanh toán lớn nhất gồm <strong>PAYMENT</strong>, <strong>CASH_OUT</strong> và <strong>CASH_IN</strong>, tiếp theo là <strong>TRANSFER</strong> và chiếm ít nhất là <strong>DEBIT</strong>.
+          </div>
+        </div>
+
+        <!-- FIGURE 3 -->
+        <div id="fig3" class="figure-wrapper">
+          <div class="figure-header">
+            <span>BƯỚC 3: TƯƠNG QUAN SỐ TIỀN GIAO DỊCH VÀ GIAN LẬN</span>
+            <span class="figure-badge">HÌNH 3 GỐC</span>
+          </div>
+          <div class="figure-img-container">
+            <img class="figure-img" src="figures/fig_p30_1.png" alt="Biểu đồ hộp số tiền giao dịch so với gian lận" />
+          </div>
+          <div class="figure-caption">
+            <strong>Hình 3:</strong> Biểu đồ hộp (Box Plot) thể hiện mối tương quan giữa Số tiền giao dịch (Amount) và Gian lận (isFraud). Các giao dịch gian lận (Fraud) có giá trị giao dịch trung vị và các điểm ngoại lệ (Outliers) cao đột biến so với giao dịch thông thường.
+          </div>
+        </div>
+
+        <!-- FIGURE 4 -->
+        <div id="fig4" class="figure-wrapper">
+          <div class="figure-header">
+            <span>BƯỚC 4: TỶ LỆ PHẦN TRĂM GIAO DỊCH GIAN LẬN</span>
+            <span class="figure-badge">HÌNH 4 GỐC</span>
+          </div>
+          <div class="figure-img-container">
+            <img class="figure-img" src="figures/fig_p31_1.png" alt="Biểu đồ tròn tỷ lệ phần trăm gian lận" />
+          </div>
+          <div class="figure-caption">
+            <strong>Hình 4:</strong> Biểu đồ tròn (Pie Chart) minh chứng cho sự mất cân bằng dữ liệu cực đoan: Giao dịch hợp lệ (Not Fraud) chiếm tới <strong>99.9%</strong>, trong khi giao dịch gian lận chỉ chiếm vỏn vẹn <strong>0.1%</strong>.
+          </div>
+        </div>
+
+        <!-- FIGURE 5 -->
+        <div id="fig5" class="figure-wrapper">
+          <div class="figure-header">
+            <span>BƯỚC 5: MA TRẬN BẢN ĐỒ NHIỆT TƯƠNG QUAN (CORRELATION HEATMAP)</span>
+            <span class="figure-badge">HÌNH 5 GỐC</span>
+          </div>
+          <div class="figure-img-container">
+            <img class="figure-img" src="figures/fig_p32_1.png" alt="Bản đồ nhiệt tương quan giữa các đặc trưng" />
+          </div>
+          <div class="figure-caption">
+            <strong>Hình 5:</strong> Bản đồ nhiệt tương quan (<code>sns.heatmap(df_encoded.corr())</code>). Cho thấy mối liên hệ mật thiết giữa số dư nguồn ban đầu (oldbalanceOrg) và số dư nguồn mới (newbalanceOrig), cũng như sự tương quan giữa số tiền chuyển (amount) với số dư nhận (newbalanceDest).
+          </div>
+        </div>
+
+        <!-- FIGURE 6 -->
+        <div id="fig6" class="figure-wrapper">
+          <div class="figure-header">
+            <span>BƯỚC 6: ĐƯỜNG CONG ROC SO SÁNH CÁC MÔ HÌNH HỌC MÁY</span>
+            <span class="figure-badge">HÌNH 6 GỐC</span>
+          </div>
+          <div class="figure-img-container">
+            <img class="figure-img" src="figures/fig_p35_1.png" alt="Đường cong ROC so sánh Random Forest, SVM và KMeans" />
+          </div>
+          <div class="figure-caption">
+            <strong>Hình 6:</strong> Đường cong ROC (Receiver Operating Characteristic) so sánh giữa <strong>Random Forest</strong> (đường màu xanh dương trên cùng, ôm sát góc trên bên trái, diện tích AUC đạt tiệm cận 1.00), <strong>Support Vector Machine</strong> (đường màu cam) và <strong>K-Means Clustering</strong> (đường màu xanh lá cây nằm sát đường chéo ngẫu nhiên).
+          </div>
+        </div>
+
+        <!-- Notebook Evaluation Output Snippet -->
+        <h3 class="sub-section-title">Kết Quả Báo Cáo Phân Loại Chi Tiết Từ Jupyter Notebook (Cell In [136]):</h3>
+        <div class="code-wrapper">
+          <div class="code-header">
+            <span>Classification_Reports_Output.txt</span>
+            <span>Jupyter Notebook Log</span>
+          </div>
+          <pre><code>Random Forest:
+              precision    recall  f1-score   support
+
+           0       1.00      1.00      1.00   1270904
+           1       0.96      0.79      0.87      1620
+
+    accuracy                           1.00   1272524
+   macro avg       0.98      0.90      0.93   1272524
+weighted avg       1.00      1.00      1.00   1272524
+
+Support Vector Machine:
+              precision    recall  f1-score   support
+
+           0       1.00      1.00      1.00   1270904
+           1       0.99      0.47      0.64      1620
+
+    accuracy                           1.00   1272524
+   macro avg       1.00      0.73      0.82   1272524
+weighted avg       1.00      1.00      1.00   1272524
+
+K-Means Clustering:
+              precision    recall  f1-score   support
+
+           0       1.00      0.94      0.97   1270904
+           1       0.00      0.03      0.00      1620
+
+    accuracy                           0.94   1272524
+   macro avg       0.50      0.49      0.49   1272524
+weighted avg       1.00      0.94      0.97   1272524
+</code></pre>
+        </div>
+
+      </section>
+
+      <!-- Footer -->
+      <footer class="article-footer">
+        <p><strong>Bản Dịch Học Thuật Tiếng Việt Đầy Đủ</strong> — Học phần Trí Tuệ Nhân Tạo &amp; Học Máy Trong Kế Toán - Kiểm Toán</p>
+        <p style="margin-top: 0.35rem; color: var(--text-muted);">Trường Đại học Đông Á (UDA) • Lưu trữ phục vụ giảng dạy và nghiên cứu chuyên sâu</p>
+      </footer>
+
+    </main>
+
+  </div>
+
+  <!-- Interactive JavaScript Logic -->
+  <script>
+    // Reading Progress Bar Logic
+    window.addEventListener('scroll', () => {
+      const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.getElementById('progress-bar').style.width = scrolled + '%';
+    });
+
+    // Dark/Light Theme Toggle
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme');
+      const target = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', target);
+      localStorage.setItem('doc_theme', target);
+    }
+
+    // Initialize Theme
+    const savedTheme = localStorage.getItem('doc_theme');
+    if (savedTheme) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+
+    // Font Size Adjustment
+    let currentFontSizeRem = 1.05;
+    function adjustFontSize(delta) {
+      currentFontSizeRem = Math.max(0.85, Math.min(1.4, currentFontSizeRem + delta * 0.05));
+      document.documentElement.style.setProperty('--content-font-size', currentFontSizeRem + 'rem');
+    }
+
+    // Active Sidebar Link Spy
+    const sections = document.querySelectorAll('section[id], div[id]');
+    const navLinks = document.querySelectorAll('.sidebar-link');
+
+    window.addEventListener('scroll', () => {
+      let currentSectionId = '';
+      sections.forEach(sec => {
+        const top = sec.offsetTop - 120;
+        if (window.pageYOffset >= top) {
+          currentSectionId = sec.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + currentSectionId) {
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
+
+</body>
+
+</html>

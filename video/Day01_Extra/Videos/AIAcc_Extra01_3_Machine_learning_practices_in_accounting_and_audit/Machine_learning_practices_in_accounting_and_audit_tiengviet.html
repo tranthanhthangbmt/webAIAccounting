@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>Thực Tiễn Học Máy Trong Kế Toán & Kiểm Toán — Bản Dịch Học Thuật Tiếng Việt (IJSRA & RAST)</title>
+  <meta name="description"
+    content="Bản dịch tiếng Việt toàn văn và chuyên sâu công trình nghiên cứu 'Machine Learning Practices in Accounting and Auditing' của Chetanpal Singh et al., kết hợp khảo sát thực tiễn kiểm toán độc lập RAST (Fedyk et al.)." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-body: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-sidebar: #0f172a;
+      --sidebar-text: #e2e8f0;
+      --sidebar-muted: #94a3b8;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --primary: #d97706;
+      --primary-light: #fef3c7;
+      --primary-border: #fde68a;
+      --accent: #2563eb;
+      --success: #10b981;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --border-color: #e2e8f0;
+      --code-bg: #1e293b;
+      --code-text: #f1f5f9;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+      --content-font-size: 1.05rem;
+      --line-height: 1.8;
+      --radius-md: 12px;
+      --radius-sm: 8px;
+    }
+
+    [data-theme="dark"] {
+      --bg-body: #0b0f19;
+      --bg-surface: #131b2e;
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --primary: #f59e0b;
+      --primary-light: rgba(245, 158, 11, 0.15);
+      --primary-border: rgba(245, 158, 11, 0.35);
+      --border-color: #1e293b;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.4);
+      --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.5);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg-body);
+      color: var(--text-main);
+      line-height: var(--line-height);
+      font-size: var(--content-font-size);
+      display: flex;
+      min-height: 100vh;
+      transition: background-color 0.25s ease, color 0.25s ease;
+    }
+
+    /* Reading Progress Bar */
+    #progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #f59e0b, #ef4444, #8b5cf6);
+      width: 0%;
+      z-index: 9999;
+      transition: width 0.1s linear;
+    }
+
+    /* Sidebar Navigation */
+    .sidebar {
+      width: 330px;
+      background-color: var(--bg-sidebar);
+      color: var(--sidebar-text);
+      height: 100vh;
+      position: sticky;
+      top: 0;
+      overflow-y: auto;
+      flex-shrink: 0;
+      border-right: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      flex-direction: column;
+      z-index: 100;
+    }
+
+    .sidebar-header {
+      padding: 1.5rem 1.25rem 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .sidebar-title {
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #fbbf24;
+      margin-bottom: 0.4rem;
+    }
+
+    .sidebar-subtitle {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.35;
+    }
+
+    .sidebar-nav {
+      padding: 1rem 0;
+      flex-grow: 1;
+    }
+
+    .sidebar-nav ul {
+      list-style: none;
+    }
+
+    .sidebar-nav li {
+      margin-bottom: 0.25rem;
+    }
+
+    .sidebar-link {
+      display: flex;
+      align-items: center;
+      padding: 0.55rem 1.25rem;
+      color: var(--sidebar-muted);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      border-left: 3px solid transparent;
+    }
+
+    .sidebar-link:hover,
+    .sidebar-link.active {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.06);
+      border-left-color: var(--primary);
+    }
+
+    .sidebar-link.sub-link {
+      padding-left: 2.2rem;
+      font-size: 0.82rem;
+    }
+
+    .sidebar-footer {
+      padding: 1.25rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 0.8rem;
+      color: var(--sidebar-muted);
+    }
+
+    /* Main Reading Container */
+    .main-wrapper {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    /* Top Control Bar */
+    .top-bar {
+      position: sticky;
+      top: 0;
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-color);
+      padding: 0.75rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 90;
+      backdrop-filter: blur(8px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .doc-meta-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--primary-light);
+      border: 1px solid var(--primary-border);
+      color: var(--primary);
+      padding: 0.35rem 0.85rem;
+      border-radius: 9999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    [data-theme="dark"] .doc-meta-badge {
+      color: #fbbf24;
+    }
+
+    .ctrl-group {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .ctrl-btn {
+      background: transparent;
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 0.4rem 0.75rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.2s ease;
+      font-weight: 500;
+    }
+
+    .ctrl-btn:hover {
+      background: rgba(0, 0, 0, 0.04);
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    [data-theme="dark"] .ctrl-btn:hover {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    /* Document Content */
+    .content-area {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 3rem 2.5rem 6rem;
+      width: 100%;
+    }
+
+    /* Typography & Academic Layout */
+    .paper-header {
+      margin-bottom: 3.5rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 2px solid var(--border-color);
+    }
+
+    .journal-badge {
+      display: inline-block;
+      text-transform: uppercase;
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      color: #d97706;
+      margin-bottom: 0.75rem;
+    }
+
+    .paper-title {
+      font-family: 'Merriweather', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      line-height: 1.35;
+      margin-bottom: 1.25rem;
+      color: var(--text-main);
+    }
+
+    .paper-authors {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .authors-affiliation {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      font-style: italic;
+      margin-bottom: 1.5rem;
+    }
+
+    .paper-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      padding: 1.25rem;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .meta-item-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+    }
+
+    .meta-item-value {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-top: 0.2rem;
+    }
+
+    /* Abstract Block */
+    .abstract-box {
+      background: var(--bg-surface);
+      border-left: 4px solid var(--primary);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      padding: 1.75rem 2rem;
+      margin: 2.5rem 0;
+      box-shadow: var(--shadow-md);
+    }
+
+    .abstract-title {
+      font-family: 'Merriweather', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 0.85rem;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .abstract-content {
+      font-family: 'Merriweather', serif;
+      font-size: 1.05rem;
+      line-height: 1.85;
+      font-style: italic;
+      color: var(--text-main);
+    }
+
+    .keywords-line {
+      margin-top: 1.25rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      font-style: normal;
+    }
+
+    .keywords-line strong {
+      color: var(--text-main);
+    }
+
+    /* Headings */
+    h2.section-title {
+      font-family: 'Merriweather', serif;
+      font-size: 1.65rem;
+      font-weight: 700;
+      margin: 3.5rem 0 1.25rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 1px solid var(--border-color);
+      color: var(--text-main);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+
+    h2.section-title .section-number {
+      color: var(--primary);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 800;
+    }
+
+    h3.sub-section-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin: 2rem 0 0.85rem;
+      color: var(--text-main);
+    }
+
+    p {
+      margin-bottom: 1.35rem;
+      text-align: justify;
+    }
+
+    /* Callout & Highlights */
+    .callout {
+      padding: 1.25rem 1.5rem;
+      border-radius: var(--radius-md);
+      margin: 1.75rem 0;
+      border-left: 4px solid;
+    }
+
+    .callout-info {
+      background: rgba(37, 99, 235, 0.08);
+      border-color: #2563eb;
+    }
+
+    .callout-warning {
+      background: rgba(245, 158, 11, 0.08);
+      border-color: #f59e0b;
+    }
+
+    .callout-success {
+      background: rgba(16, 185, 129, 0.08);
+      border-color: #10b981;
+    }
+
+    .callout-title {
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* Code Block */
+    .code-wrapper {
+      margin: 2rem 0;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background: var(--code-bg);
+      color: var(--code-text);
+      box-shadow: var(--shadow-md);
+    }
+
+    .code-header {
+      background: #0f172a;
+      padding: 0.75rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.82rem;
+      color: #94a3b8;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      font-family: 'Fira Code', monospace;
+    }
+
+    pre {
+      padding: 1.25rem;
+      overflow-x: auto;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.88rem;
+      line-height: 1.7;
+    }
+
+    /* Tables */
+    .table-container {
+      overflow-x: auto;
+      margin: 2rem 0;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      background: var(--bg-surface);
+      box-shadow: var(--shadow-sm);
+    }
+
+    table.academic-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+      text-align: left;
+    }
+
+    table.academic-table th {
+      background: rgba(0, 0, 0, 0.03);
+      padding: 0.85rem 1.15rem;
+      font-weight: 700;
+      color: var(--text-main);
+      border-bottom: 2px solid var(--border-color);
+    }
+
+    [data-theme="dark"] table.academic-table th {
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    table.academic-table td {
+      padding: 0.75rem 1.15rem;
+      border-bottom: 1px solid var(--border-color);
+      vertical-align: top;
+    }
+
+    table.academic-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    table.academic-table tr:hover td {
+      background: rgba(0, 0, 0, 0.015);
+    }
+
+    /* Figures */
+    .figure-wrapper {
+      margin: 2.75rem 0;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+
+    .figure-header {
+      padding: 0.85rem 1.25rem;
+      background: rgba(0, 0, 0, 0.03);
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+
+    [data-theme="dark"] .figure-header {
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .figure-badge {
+      background: var(--primary);
+      color: #fff;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+
+    .figure-img-container {
+      padding: 1.5rem;
+      display: flex;
+      justify-content: center;
+      background: #fff;
+      align-items: center;
+    }
+
+    [data-theme="dark"] .figure-img-container {
+      background: #0f172a;
+    }
+
+    .figure-img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: transform 0.25s ease;
+    }
+
+    .figure-img:hover {
+      transform: scale(1.015);
+    }
+
+    .figure-caption {
+      padding: 1.15rem 1.5rem;
+      background: var(--bg-surface);
+      border-top: 1px solid var(--border-color);
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .figure-caption strong {
+      color: var(--text-main);
+    }
+
+    /* Lists */
+    ul, ol {
+      margin: 1rem 0 1.5rem 1.75rem;
+    }
+
+    li {
+      margin-bottom: 0.65rem;
+    }
+
+    /* Footer */
+    .article-footer {
+      margin-top: 5rem;
+      padding-top: 2.5rem;
+      border-top: 2px solid var(--border-color);
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 1024px) {
+      .sidebar {
+        display: none;
+      }
+      .content-area {
+        padding: 2rem 1.5rem 4rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Reading Progress Bar -->
+  <div id="progress-bar"></div>
+
+  <!-- Sidebar Navigation -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-title">International Journal of Science &amp; Research Archive</div>
+      <div class="sidebar-subtitle">Thực Tiễn Học Máy Trong Kế Toán &amp; Kiểm Toán</div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <ul>
+        <li><a href="#abstract" class="sidebar-link active">Tóm Tắt (Abstract)</a></li>
+        <li><a href="#sec1" class="sidebar-link">1. Mở Đầu &amp; Động Lực Nghiên Cứu</a></li>
+        <li><a href="#sec2" class="sidebar-link">2. Tổng Quan Lý Thuyết &amp; Công Nghệ</a></li>
+        <li><a href="#sec2-2" class="sidebar-link sub-link">2.2 Ứng Dụng Thực Tiễn (Argus, Halo)</a></li>
+        <li><a href="#sec2-3" class="sidebar-link sub-link">2.3 Thách Thức &amp; 4 Thiên Lệch Tâm Lý</a></li>
+        <li><a href="#sec3" class="sidebar-link">3. Thực Nghiệm Pipeline Học Máy (Python)</a></li>
+        <li><a href="#sec3-1" class="sidebar-link sub-link">3.1 Khám Phá Dữ Liệu EDA (Hình 3-17)</a></li>
+        <li><a href="#sec3-2" class="sidebar-link sub-link">3.2 Làm Sạch Dữ Liệu &amp; Outliers (Hình 24-30)</a></li>
+        <li><a href="#sec3-3" class="sidebar-link sub-link">3.3 Kiểm Định VIF &amp; Wald Chi-Square</a></li>
+        <li><a href="#sec3-4" class="sidebar-link sub-link">3.4 Mô Hình Hồi Quy Logistic &amp; Đánh Giá</a></li>
+        <li><a href="#sec3-5" class="sidebar-link sub-link">3.5 Xử Lý Mất Cân Bằng Lớp (Imbalance)</a></li>
+        <li><a href="#sec4" class="sidebar-link">4. Góc Nhìn Thực Chứng RAST (Fedyk et al.)</a></li>
+        <li><a href="#sec5" class="sidebar-link">5. Kết Luận &amp; Khuyến Nghị Cho Kiểm Toán Viên</a></li>
+      </ul>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div><strong>Tạp chí:</strong> IJSRA (2023) • Vol 10(01), 131–162</div>
+      <div><strong>Bổ sung:</strong> Review of Accounting Studies (RAST)</div>
+    </div>
+  </aside>
+
+  <!-- Main Content Wrapper -->
+  <div class="main-wrapper">
+
+    <!-- Top Action Bar -->
+    <header class="top-bar">
+      <div class="doc-meta-badge">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        <span>Bản Dịch Học Thuật Tiếng Việt Toàn Văn • Kết Hợp Thực Nghiệm Python &amp; RAST</span>
+      </div>
+
+      <div class="ctrl-group">
+        <button class="ctrl-btn" onclick="adjustFontSize(-1)" title="Giảm cỡ chữ">A-</button>
+        <button class="ctrl-btn" onclick="adjustFontSize(1)" title="Tăng cỡ chữ">A+</button>
+        <button class="ctrl-btn" onclick="toggleTheme()" title="Chuyển chế độ Sáng / Tối">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          Giao diện
+        </button>
+        <button class="ctrl-btn" onclick="window.print()" title="In hoặc Lưu PDF">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 6 2 18 2 18 9"></polyline>
+            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+            <rect x="6" y="14" width="12" height="8"></rect>
+          </svg>
+          In / PDF
+        </button>
+        <a href="../index.html" class="ctrl-btn" style="text-decoration:none;" title="Quay lại Thư viện Video">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+          Thư viện
+        </a>
+      </div>
+    </header>
+
+    <!-- Content Area -->
+    <main class="content-area">
+
+      <!-- Paper Title & Metadata -->
+      <article class="paper-header">
+        <span class="journal-badge">International Journal of Science and Research Archive • IJSRA (2023)</span>
+        <h1 class="paper-title">Thực Tiễn Ứng Dụng Học Máy Trong Kế Toán Và Kiểm Toán</h1>
+        <div style="font-size: 1.15rem; color: var(--text-muted); margin-bottom: 1rem; font-style: italic;">
+          (Original Title: Machine Learning Practices in Accounting and Auditing)
+        </div>
+
+        <div class="paper-authors">
+          <strong>Chetanpal Singh</strong><sup>1</sup>, 
+          <strong>Rahul Thakkar</strong><sup>2</sup>, 
+          <strong>Rashikala Weerawarna</strong><sup>1</sup>, 
+          <strong>Vimal B Patel</strong><sup>3</sup>
+        </div>
+
+        <div class="authors-affiliation">
+          <sup>1</sup> Khoa Kinh doanh &amp; CNTT, Holmesglen Institute Melbourne, Úc • 
+          <sup>2</sup> Khoa ICT, Học viện Công nghệ Victoria (VIT) Melbourne, Úc • 
+          <sup>3</sup> Navsari Agricultural University, Ấn Độ • DOI: 10.30574/ijsra.2023.10.1.0720
+        </div>
+
+        <div class="paper-meta-grid">
+          <div>
+            <div class="meta-item-label">Lĩnh vực ứng dụng</div>
+            <div class="meta-item-value">Kế toán quản trị &amp; Kiểm toán độc lập</div>
+          </div>
+          <div>
+            <div class="meta-item-label">Mô hình thực nghiệm</div>
+            <div class="meta-item-value">Logistic Regression (Statsmodels &amp; Sklearn)</div>
+          </div>
+          <div>
+            <div class="meta-item-label">Công cụ triển khai</div>
+            <div class="meta-item-value">Python (Pandas, Seaborn, Matplotlib, VIF, Wald)</div>
+          </div>
+          <div>
+            <div class="meta-item-label">Khung khảo sát thực tế</div>
+            <div class="meta-item-value">Fedyk et al. (Review of Accounting Studies - RAST)</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Abstract Section -->
+      <section id="abstract" class="abstract-box">
+        <h3 class="abstract-title">Tóm Tắt Nghiên Cứu (Abstract)</h3>
+        <p class="abstract-content">
+          Trong kỷ nguyên công nghệ hiện nay, các ứng dụng Học máy (Machine Learning - ML) đang trở nên phổ biến từng ngày. Công trình nghiên cứu này cung cấp thông tin toàn diện về hiệu quả của các kỹ thuật ML trong quy trình kế toán cũng như kiểm toán. Để thu được các kết quả khách quan, nhiều thư viện ML mạnh mẽ trên nền tảng Python đã được khai thác triệt để, bao gồm Seaborn, Matplotlib, NumPy, Statsmodels và Scikit-learn. 
+          Trong phần mở đầu, mục đích và các mục tiêu nghiên cứu cụ thể được xác lập nhằm định hướng toàn bộ quy trình phân tích. Một mô hình học máy Hồi quy Logistic (Logistic Regression Machine Learning Model) hoàn chỉnh được xây dựng và kiểm thử từng bước trên bộ dữ liệu tài chính thực nghiệm 25 biến. 
+          Các nguồn tài liệu học thuật được phân tích sâu sắc trong phần tổng quan y văn, giúp người đọc nắm bắt đa chiều bối cảnh thực tiễn và nhận diện rõ vai trò của các thuật toán ML trong tự động hóa rà soát hợp đồng (Argus), kiểm tra toàn diện nhật ký chứng từ (Halo), cũng như vượt qua các rào cản về tâm lý thiên lệch nhận thức của kiểm toán viên. Bài báo đem lại bức tranh tri thức vững chắc cho việc ứng dụng công nghệ học máy trong các tổ chức kiểm toán và doanh nghiệp hiện đại.
+        </p>
+        <div class="keywords-line">
+          <strong>Từ khóa cốt lõi:</strong> Machine Learning; Algorithm; Accounting; Auditing; Artificial Neural Network; Logistic Regression; VIF; Confusion Matrix; Class Imbalance.
+        </div>
+      </section>
+
+      <!-- Section 1 -->
+      <section id="sec1">
+        <h2 class="section-title"><span class="section-number">1</span> Mở Đầu &amp; Động Lực Nghiên Cứu (Introduction)</h2>
+        <p>
+          Hãng nghiên cứu công nghệ hàng đầu thế giới <strong>Gartner Inc.</strong> khẳng định rằng: Để duy trì lợi thế cạnh tranh sống còn, các doanh nghiệp bắt buộc phải phân tích sâu sắc cách thức các công nghệ then chốt đang định hình lại toàn bộ hoạt động vận hành của mình. Doanh nghiệp sẽ đối mặt với rủi ro tụt hậu và bị đào thải nếu không chủ động khảo sát và áp dụng những công nghệ này. Học máy (Machine Learning) là một ví dụ tiêu biểu cho công nghệ chiến lược sử dụng trí tuệ nhân tạo. Nhờ vào những đột phá vượt bậc của học máy, rất nhiều công việc kế toán thủ công trước đây từng cần sự can thiệp của con người thì nay đã có thể được thực hiện với tốc độ tính bằng giây và độ chuẩn xác vượt trội bởi máy tính.
+        </p>
+        <p>
+          Không giống như các thuật toán dựa trên luật lệ tĩnh truyền thống (*Rule-based*), hệ thống học máy có khả năng tự động học hỏi từ dữ liệu, thích nghi với các mẫu hình mới và hoạt động với sự can thiệp tối thiểu từ người vận hành (Jordan &amp; Mitchell, 2015). Nhờ đó, doanh nghiệp không chỉ tiết kiệm được chi phí nhân sự khổng lồ mà còn triệt tiêu các sai sót phát sinh từ yếu tố mệt mỏi của con người.
+        </p>
+        <p>
+          Sức ảnh hưởng của học máy lan tỏa mạnh mẽ vào mọi ngóc ngách của đời sống kinh tế, và ngành kiểm toán không phải là ngoại lệ. Năng suất kiểm toán, tỷ lệ sai sót, rủi ro kiểm toán và chi phí hợp đồng kiểm toán đều có thể được cải thiện vượt bậc. <strong>PricewaterhouseCoopers (PwC)</strong> đã chính thức công nhận tầm quan trọng của các học phần học máy nâng cao trong chương trình đào tạo kế toán bậc đại học, khẳng định rằng học máy là một kỹ năng AI cốt lõi mà bất kỳ kế toán viên và kiểm toán viên chuyên nghiệp nào trong kỷ nguyên số cũng bắt buộc phải thành thạo.
+        </p>
+
+        <h3 class="sub-section-title">Mục Tiêu &amp; Câu Hỏi Nghiên Cứu:</h3>
+        <ul>
+          <li><strong>Câu hỏi 1:</strong> Những kỹ thuật học máy nào có thể tích hợp hiệu quả vào hệ thống kế toán - kiểm toán hiện tại?</li>
+          <li><strong>Câu hỏi 2:</strong> Ưu điểm và hạn chế tiềm ẩn của các phương pháp học máy là gì và cơ chế vận hành của chúng ra sao?</li>
+          <li><strong>Câu hỏi 3:</strong> Những yếu tố nào cần được cân nhắc và những quy trình kỹ thuật nào phải tuân thủ trước khi áp dụng công cụ học máy vào thực tế?</li>
+        </ul>
+      </section>
+
+      <!-- Section 2 -->
+      <section id="sec2">
+        <h2 class="section-title"><span class="section-number">2</span> Tổng Quan Lý Thuyết &amp; Công Nghệ Thực Tiễn</h2>
+        
+        <h3 class="sub-section-title">2.1 Phân Loại Học Máy Trong Kế Toán</h3>
+        <p>
+          Học máy trong kế toán được phân thành hai trường phái chính:
+        </p>
+        <ul>
+          <li><strong>Học có giám sát (Supervised Learning):</strong> Dữ liệu lịch sử đã được gắn nhãn kết quả (ví dụ: khách hàng vỡ nợ = 1, thanh toán đúng hạn = 0; hoặc giao dịch gian lận = 1, hợp lệ = 0). Thuật toán tìm kiếm hàm ánh xạ tối ưu để dự báo cho dữ liệu mới trong tương lai.</li>
+          <li><strong>Học không giám sát (Unsupervised Learning):</strong> Không có nhãn gán trước. Thuật toán tự động phân cụm (Clustering) và phát hiện các mẫu dị thường lệch khỏi hành vi thông thường, rất hữu ích trong giai đoạn đánh giá rủi ro sơ bộ để nhận diện các thủ đoạn gian lận mới nổi.</li>
+        </ul>
+
+        <!-- Sub 2.2 -->
+        <h3 id="sec2-2" class="sub-section-title">2.2 Các Ứng Dụng Thực Tế Hiện Hành Tại Các Hãng Kiểm Toán Lớn</h3>
+        <div class="callout callout-info">
+          <div class="callout-title">💼 Ứng Dụng Đột Phá Tại Các Hãng Kiểm Toán Quốc Tế:</div>
+          <p>
+            <strong>1. Hệ thống Argus (Deloitte):</strong> Công nghệ học máy tự động quét, bóc tách và diễn giải các văn bản pháp lý phức tạp như hợp đồng thuê tài sản, hợp đồng công cụ tài chính phái sinh và hợp đồng mua bán hàng. Thuật toán tự động đọc hợp đồng thuê, trích xuất các điều khoản then chốt và hỗ trợ kiểm toán viên phân loại chính xác xem đó là thuê tài chính (Capital Lease) hay thuê hoạt động (Operating Lease), đồng thời phát hiện ngay các điều khoản bất thường đòi hỏi phán đoán nghề nghiệp cao.
+          </p>
+          <p>
+            <strong>2. Hệ thống Halo (PwC):</strong> Công cụ phân tích dữ liệu kiểm toán rà soát 100% toàn bộ các bút toán nhật ký chung (Journal Entries) của doanh nghiệp thay vì chỉ chọn mẫu ngẫu nhiên vài chục chứng từ như trước. Halo tự động phát hiện các bút toán bất thường: chứa từ khóa nhạy cảm, hạch toán vào ngày nghỉ cuối tuần hoặc nửa đêm, ghi nhận bởi người dùng không có thẩm quyền, hoặc các bút toán được cố tình chia nhỏ sát dưới hạn mức phê duyệt của ban giám đốc.
+          </p>
+        </div>
+
+        <!-- Sub 2.3 -->
+        <h3 id="sec2-3" class="sub-section-title">2.3 Thách Thức Về Dữ Liệu &amp; Bốn Thiên Lệch Tâm Lý Của Kiểm Toán Viên</h3>
+        <p>
+          Việc đưa học máy vào kiểm toán vấp phải những thách thức lớn về an toàn dữ liệu khách hàng, tính đầy đủ và tính chính xác của dữ liệu đầu vào. Kiểm toán viên không thể tin tưởng mù quáng vào kết quả của máy móc mà phải kết hợp chặt chẽ với các chuyên gia an ninh mạng và nhà khoa học dữ liệu.
+        </p>
+        <p>
+          Đặc biệt, nghiên cứu chỉ ra <strong>4 thiên lệch nhận thức tâm lý (Cognitive Biases)</strong> mà kiểm toán viên dễ mắc phải khi làm việc cùng hệ thống AI:
+        </p>
+        <ol>
+          <li><strong>Thiên lệch xác nhận (Confirmation Bias):</strong> Kiểm toán viên có xu hướng chỉ tìm kiếm hoặc ưu tiên các dữ liệu đầu vào củng cố cho phán đoán chủ quan ban đầu của mình, phớt lờ các cảnh báo bất thường từ mô hình.</li>
+          <li><strong>Thiên lệch sẵn có (Availability Bias):</strong> Đưa ra kết luận dựa trên các thông tin dễ tiếp cận hoặc các sự kiện vừa mới xảy ra gần nhất thay vì phân tích toàn diện chuỗi dữ liệu lịch sử.</li>
+          <li><strong>Thiên lệch quá tự tin vào công nghệ (Overconfidence Bias):</strong> Tin tưởng tuyệt đối vào độ chính xác của thuật toán máy tính mà không kiểm tra lại tính hợp lý của dữ liệu huấn luyện và các giả định kinh tế đằng sau mô hình.</li>
+          <li><strong>Thiên lệch neo thông tin (Anchoring Bias):</strong> Kiểm toán viên bị "neo" vào kết quả phân tích do hệ thống phần mềm của khách hàng cung cấp thay vì duy trì thái độ hoài nghi nghề nghiệp và kiểm chứng chéo độc lập.</li>
+        </ol>
+      </section>
+
+      <!-- Section 3: Experimental Pipeline -->
+      <section id="sec3">
+        <h2 class="section-title"><span class="section-number">3</span> Thực Nghiệm Chuyên Sâu: Xây Dựng Pipeline Học Máy Trên Python</h2>
+        <p>
+          Nghiên cứu tiến hành thực nghiệm toàn diện trên bộ dữ liệu tài chính <strong>Default of Credit Card Clients Dataset</strong> gồm 25 thuộc tính quan trọng:
+        </p>
+
+        <div class="table-container">
+          <table class="academic-table">
+            <thead>
+              <tr>
+                <th>Nhóm Thuộc Tính</th>
+                <th>Tên Biến Cụ Thể Trong Dữ Liệu</th>
+                <th>Ý Nghĩa Nghiệp Vụ Tài Chính - Kế Toán</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Biến mục tiêu (Target)</strong></td>
+                <td><code>default.payment.next.month</code></td>
+                <td><strong>1</strong> = Khách hàng vỡ nợ/không thanh toán kỳ tới; <strong>0</strong> = Thanh toán đúng hạn.</td>
+              </tr>
+              <tr>
+                <td><strong>Hạn mức &amp; Nhân khẩu</strong></td>
+                <td><code>LIMIT_BAL</code>, <code>SEX</code>, <code>EDUCATION</code>, <code>MARRIAGE</code>, <code>AGE</code></td>
+                <td>Số tiền hạn mức cấp tín dụng, giới tính, trình độ học vấn, tình trạng hôn nhân và độ tuổi khách hàng.</td>
+              </tr>
+              <tr>
+                <td><strong>Lịch sử trả nợ (6 tháng)</strong></td>
+                <td><code>PAY_0</code>, <code>PAY_2</code>, <code>PAY_3</code>, <code>PAY_4</code>, <code>PAY_5</code>, <code>PAY_6</code></td>
+                <td>Tình trạng trả nợ từ tháng 4 đến tháng 9 (-1 = đúng hạn, 1 = trễ 1 tháng, 2 = trễ 2 tháng,...).</td>
+              </tr>
+              <tr>
+                <td><strong>Số tiền hóa đơn (6 tháng)</strong></td>
+                <td><code>BILL_AMT1</code> đến <code>BILL_AMT6</code></td>
+                <td>Số dư nợ trên sao kê hóa đơn qua các kỳ kế toán liên tiếp.</td>
+              </tr>
+              <tr>
+                <td><strong>Số tiền đã trả (6 tháng)</strong></td>
+                <td><code>PAY_AMT1</code> đến <code>PAY_AMT6</code></td>
+                <td>Số tiền thanh toán thực tế của khách hàng trong từng kỳ đối soát.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Sub 3.1 -->
+        <h3 id="sec3-1" class="sub-section-title">3.1 Khám Phá Dữ Liệu EDA (Exploratory Data Analysis)</h3>
+        <p>
+          Sử dụng thư viện <code>pandas</code>, <code>seaborn</code> và <code>matplotlib</code> để khảo sát cấu trúc phân phối dữ liệu:
+        </p>
+
+        <!-- FIGURE 3 & 4 -->
+        <div class="figure-wrapper">
+          <div class="figure-header">
+            <span>BƯỚC 1: NHẬP DỮ LIỆU &amp; KIỂM TRA GIÁ TRỊ KHUYẾT THIẾU (NULL VALUES)</span>
+            <span class="figure-badge">HÌNH 4 &amp; 6 GỐC</span>
+          </div>
+          <div class="figure-img-container">
+            <img class="figure-img" src="figures/fig_p10_2.jpeg" alt="Kiểm tra dữ liệu khuyết thiếu" />
+          </div>
+          <div class="figure-caption">
+            <strong>Hình 4: Quy trình kiểm tra dữ liệu trong Python.</strong> 
+            Sử dụng hàm <code>df.isnull().sum()</code> để quét toàn bộ 25 biến số tài chính, xác nhận không có giá trị khuyết thiếu trong bảng dữ liệu đầu vào.
+          </div>
+        </div>
+
+        <!-- FIGURE 11 & 12 -->
+        <div class="figure-wrapper">
+          <div class="figure-header">
+            <span>BƯỚC 2: PHÂN BỐ ĐẶC TRƯNG ĐỘ TUỔI KHÁCH HÀNG (AGE)</span>
+            <span class="figure-badge">HÌNH 11 &amp; 12 GỐC</span>
+          </div>
+          <div class="figure-img-container">
+            <img class="figure-img" src="figures/fig_p13_1.png" alt="Phân bố độ tuổi khách hàng" />
+          </div>
+          <div class="figure-caption">
+            <strong>Hình 11 &amp; 12: Khảo sát biến độ tuổi (Age).</strong> 
+            Trực quan hóa bằng biểu đồ cột tần số cho thấy độ tuổi khách hàng tập trung chủ yếu trong dải 25 đến 45 tuổi, xuất hiện một số khách hàng cao tuổi ngoại lệ (trên 70 tuổi).
+          </div>
+        </div>
+
+        <!-- FIGURE 14 & 15 -->
+        <div class="figure-wrapper">
+          <div class="figure-header">
+            <span>BƯỚC 3: PHÂN BỐ TỶ LỆ VỠ NỢ THEO GIỚI TÍNH &amp; HỌC VẤN (COUNTPLOT)</span>
+            <span class="figure-badge">HÌNH 14 &amp; 15 GỐC</span>
+          </div>
+          <div class="figure-img-container">
+            <img class="figure-img" src="figures/fig_p14_1.png" alt="Tỷ lệ vỡ nợ theo giới tính và học vấn" />
+          </div>
+          <div class="figure-caption">
+            <strong>Hình 14 &amp; 15: Phân tích đa biến bằng Countplot.</strong> 
+            Sử dụng <code>sns.countplot(x='SEX', hue='default.payment.next.month')</code> và phân bố theo trình độ học vấn (<code>EDUCATION</code>). Tỷ lệ vỡ nợ duy trì tương đối đồng nhất giữa nam và nữ nhưng có sự chênh lệch rõ nét theo trình độ học vấn.
+          </div>
+        </div>
+
+        <!-- Sub 3.2 -->
+        <h3 id="sec3-2" class="sub-section-title">3.2 Làm Sạch Dữ Liệu &amp; Xử Lý Ngoại Lệ (Outlier Detection)</h3>
+        <p>
+          Trong dữ liệu kế toán thực tế, các giao dịch có giá trị cực lớn đột biến (Extreme Outliers) thường làm sai lệch nghiêm trọng trọng số của mô hình hồi quy. Nghiên cứu áp dụng kỹ thuật lọc phân vị (Quantile Filtering) để loại bỏ 1% giá trị biên cực đoan của hạn mức tín dụng <code>LIMIT_BAL</code> và số tiền hóa đơn <code>BILL_AMT</code>.
+        </p>
+
+        <!-- FIGURE 24 & 26 -->
+        <div class="figure-wrapper">
+          <div class="figure-header">
+            <span>BƯỚC 4: LỌC NGOẠI LỆ 1% VÀ LÀM SẠCH BẢNG DỮ LIỆU</span>
+            <span class="figure-badge">HÌNH 24 &amp; 26 GỐC</span>
+          </div>
+          <div class="figure-img-container">
+            <img class="figure-img" src="figures/fig_p17_3.png" alt="Xử lý ngoại lệ Outliers" />
+          </div>
+          <div class="figure-caption">
+            <strong>Hình 24 &amp; 26: Xử lý ngoại lệ (Data Cleaning).</strong> 
+            Loại bỏ các điểm nhiễu cực đoan giúp phân phối dữ liệu tài chính tiệm cận phân phối chuẩn, gia tăng tính ổn định của các ước lượng tham số hồi quy.
+          </div>
+        </div>
+
+        <!-- Sub 3.3 -->
+        <h3 id="sec3-3" class="sub-section-title">3.3 Kiểm Định Đa Cộng Tuyến VIF &amp; Lựa Chọn Biến Bằng Wald Chi-Square</h3>
+        <div class="callout callout-warning">
+          <div class="callout-title">🔍 Hai Bước Kiểm Định Thống Kê Sống Còn Trước Khi Huấn Luyện ML:</div>
+          <p>
+            <strong>1. Hệ số phóng đại phương sai (Variance Inflation Factor - VIF):</strong> Đa cộng tuyến giữa các biến số tiền hóa đơn liên tiếp (<code>BILL_AMT1</code> đến <code>BILL_AMT6</code>) là rất nghiêm trọng. Quy tắc thực nghiệm: Giữ lại các biến có $VIF < 5$, loại bỏ các biến có $VIF \ge 5$ để tránh làm sai lệch dấu của hệ số hồi quy.
+          </p>
+          <p>
+            <strong>2. Kiểm định Wald Chi-Square:</strong> Đo lường mức độ đóng góp thống kê thực sự của từng biến độc lập đối với biến mục tiêu vỡ nợ, cho phép chọn lọc ra top các đặc trưng then chốt nhất (Top Ranking Features).
+          </p>
+        </div>
+
+        <!-- FIGURE 33 & 37 -->
+        <div class="figure-wrapper">
+          <div class="figure-header">
+            <span>BƯỚC 5: KIỂM ĐỊNH VIF VÀ PHƯƠNG PHÁP WALD CHI-SQUARE</span>
+            <span class="figure-badge">HÌNH 33 &amp; 37 GỐC</span>
+          </div>
+          <div class="figure-img-container">
+            <img class="figure-img" src="figures/fig_p21_1.png" alt="Kiểm định VIF và Wald Chi-Square" />
+          </div>
+          <div class="figure-caption">
+            <strong>Hình 33 &amp; 37: Kiểm định VIF và Lựa chọn biến Wald Chi-Square.</strong> 
+            Xác định rõ các biến độc lập có ý nghĩa thống kê cao nhất (đặc biệt là lịch sử trả nợ gần nhất <code>PAY_0</code> và <code>LIMIT_BAL</code>), loại bỏ các biến dư thừa không mang lại giá trị giải thích.
+          </div>
+        </div>
+
+        <!-- Sub 3.4 -->
+        <h3 id="sec3-4" class="sub-section-title">3.4 Huấn Luyện Mô Hình Hồi Quy Logistic &amp; Đánh Giá Toàn Diện</h3>
+        <p>
+          Mô hình được xây dựng song song qua thư viện thống kê học thuật <code>statsmodels.api.Logit</code> (để phân tích sâu hệ số $P > |z|$ và khoảng tin cậy) và thư viện thực thi tốc độ cao <code>sklearn.linear_model.LogisticRegression</code>.
+        </p>
+
+        <!-- FIGURE 41 & 42 -->
+        <div class="figure-wrapper">
+          <div class="figure-header">
+            <span>BƯỚC 6: BÁO CÁO KẾT QUẢ STATSMODELS &amp; MA TRẬN NHẦM LẪN (CONFUSION MATRIX)</span>
+            <span class="figure-badge">HÌNH 41 &amp; 42 GỐC</span>
+          </div>
+          <div class="figure-img-container">
+            <img class="figure-img" src="figures/fig_p24_2.jpeg" alt="Kết quả mô hình Statsmodels" />
+          </div>
+          <div class="figure-caption">
+            <strong>Hình 41 &amp; 42: Kết quả ước lượng mô hình Hồi quy Logistic.</strong> 
+            Bảng kết quả chi tiết chỉ rõ các hệ số hồi quy, sai số chuẩn (Std Err), giá trị z-score và giá trị $P > |z|$. Ma trận nhầm lẫn đo lường chính xác các chỉ số: True Positives, False Positives, True Negatives và False Negatives.
+          </div>
+        </div>
+
+        <div class="table-container">
+          <table class="academic-table">
+            <thead>
+              <tr>
+                <th>Chỉ Số Đánh Giá Mô Hình</th>
+                <th>Giá Trị Đạt Được Ban Đầu</th>
+                <th>Phân Tích Nghiệp Vụ Kiểm Toán &amp; Quản Trị Rủi Ro</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Độ chính xác tổng thể (Accuracy)</strong></td>
+                <td><strong>81.0% (0.81)</strong></td>
+                <td>Trông có vẻ ấn tượng trên lý thuyết, nhưng thực chất bị đánh lừa bởi số lượng khách hàng trả nợ đúng hạn chiếm đa số.</td>
+              </tr>
+              <tr>
+                <td><strong>Độ đặc hiệu (Specificity - Lớp 0)</strong></td>
+                <td><strong>97.0% (0.97)</strong></td>
+                <td>Nhận diện cực kỳ chính xác các trường hợp trả nợ đúng hạn, hầu như không báo động nhầm.</td>
+              </tr>
+              <tr>
+                <td><strong>Độ nhạy (Sensitivity / Recall - Lớp 1)</strong></td>
+                <td><strong style="color: var(--danger);">24.0% (0.24)</strong></td>
+                <td><span style="color: var(--danger); font-weight:700;">RỦI RO CHÍ MẠNG</span>: Mô hình bỏ sót tới <strong>76%</strong> các trường hợp vỡ nợ thực tế!</td>
+              </tr>
+              <tr>
+                <td><strong>F1-Score lớp vỡ nợ</strong></td>
+                <td><strong>0.36</strong></td>
+                <td>Quá thấp do sự mất cân bằng dữ liệu nghiêm trọng trong tập huấn luyện.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Sub 3.5 -->
+        <h3 id="sec3-5" class="sub-section-title">3.5 Giải Quyết Bài Toán Mất Cân Bằng Dữ Liệu (Class Imbalance)</h3>
+        <p>
+          Để khắc phục triệt để tỷ lệ bỏ sót 76%, nghiên cứu tiến hành cân bằng lại tập dữ liệu (Handling Class Imbalance) bằng kỹ thuật lấy mẫu lại cân bằng (Balanced Resampling).
+        </p>
+
+        <!-- FIGURE 51 & 52 -->
+        <div class="figure-wrapper">
+          <div class="figure-header">
+            <span>BƯỚC 7: TẠO LẬP BỘ DỮ LIỆU CÂN BẰNG &amp; ĐÁNH GIÁ LẠI HIỆU NĂNG</span>
+            <span class="figure-badge">HÌNH 51 &amp; 52 GỐC</span>
+          </div>
+          <div class="figure-img-container">
+            <img class="figure-img" src="figures/fig_p28_3.png" alt="Dữ liệu cân bằng và trực quan hóa" />
+          </div>
+          <div class="figure-caption">
+            <strong>Hình 51 &amp; 52: Tập dữ liệu sau khi được cân bằng lớp.</strong> 
+            Sau khi cân bằng tỷ lệ giữa khách hàng vỡ nợ và không vỡ nợ, mô hình hồi quy Logistic mới đã nâng vọt độ nhạy (Recall) đối với các trường hợp rủi ro, giúp tổ chức tín dụng và kiểm toán viên phát hiện kịp thời các khoản nợ xấu tiềm ẩn.
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 4: RAST Perspective -->
+      <section id="sec4">
+        <h2 class="section-title"><span class="section-number">4</span> Góc Nhìn Thực Chứng RAST (Fedyk et al. - Review of Accounting Studies)</h2>
+        <p>
+          Để mở rộng kết quả thực nghiệm từ phòng lab ra bối cảnh thị trường kiểm toán thực tế, nghiên cứu đối chiếu trực tiếp với công trình khảo sát quy mô lớn của <strong>Fedyk, Hodson, Himick và Rovenskaya</strong> xuất bản trên tạp chí đỉnh cao <em>Review of Accounting Studies (RAST)</em>:
+        </p>
+        
+        <div class="callout callout-info">
+          <div class="callout-title">📊 3 Kết Luận Thực Chứng Mang Tính Bước Ngoặt Từ Khảo Sát RAST:</div>
+          <ol>
+            <li><strong>Mức độ thâm nhập thực tế tại các hãng kiểm toán:</strong> Trái với sự hào nhoáng của truyền thông, việc áp dụng ML tại các công ty kiểm toán độc lập hiện chủ yếu tập trung vào các công đoạn tiền kiểm toán (sàng lọc rủi ro chấp nhận khách hàng mới) và kiểm tra chứng từ tự động (Halo, Argus). Các quyết định đưa ra ý kiến kiểm toán cuối cùng vẫn hoàn toàn dựa vào phán đoán con người.</li>
+            <li><strong>Mô hình hợp tác Người - Máy (Human-in-the-loop):</strong> Các công ty kiểm toán áp dụng thành công ML không bao giờ để máy tính tự động ra quyết định độc lập. ML đóng vai trò là một "trợ lý phân tích siêu tốc" (Auditor Assistant), tự động xếp hạng mức độ rủi ro của từng giao dịch để kiểm toán viên dồn 80% thời gian vào 20% các điểm bất thường phức tạp nhất.</li>
+            <li><strong>Nguy cơ của sự ỷ lại công nghệ:</strong> Nghiên cứu cảnh báo rằng các kiểm toán viên trẻ tuổi nếu quá tin tưởng vào kết quả phân tích tự động sẽ dần đánh mất khả năng tư duy phản biện và phán đoán nghề nghiệp độc lập khi gặp phải các tình huống gian lận phi truyền thống.</li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- Section 5: Conclusion -->
+      <section id="sec5">
+        <h2 class="section-title"><span class="section-number">5</span> Kết Luận &amp; Khuyến Nghị Cho Kiểm Toán Viên Thế Hệ Mới</h2>
+        <p>
+          Công trình nghiên cứu đã chứng minh một cách tường minh cả trên phương diện lý thuyết lẫn thực nghiệm lập trình Python rằng: <strong>Machine Learning không còn là một khái niệm xa vời mà đã trở thành công cụ thực chiến không thể thiếu trong kế toán và kiểm toán hiện đại.</strong>
+        </p>
+        <p><strong>Khuyến nghị then chốt dành cho giảng viên, sinh viên và kiểm toán viên:</strong></p>
+        <ul>
+          <li><strong>Thành thạo công cụ xử lý dữ liệu:</strong> Cần nắm vững các thư viện Python chuyên ngành (Pandas, Scikit-learn, Statsmodels) để có thể tự tay làm sạch dữ liệu, kiểm tra đa cộng tuyến VIF và xây dựng mô hình dự báo.</li>
+          <li><strong>Cảnh giác trước bẫy chỉ số Accuracy:</strong> Luôn phân tích Ma trận nhầm lẫn (Confusion Matrix), tập trung vào Precision, Recall và đặc biệt là chi phí kinh tế của việc bỏ sót sai phạm.</li>
+          <li><strong>Duy trì thái độ hoài nghi nghề nghiệp:</strong> Nhận biết và chủ động khắc phục 4 thiên lệch tâm lý (Xác nhận, Sẵn có, Quá tự tin, Neo thông tin) khi tương tác với các công cụ AI trong kiểm toán.</li>
+        </ul>
+      </section>
+
+      <!-- Footer -->
+      <footer class="article-footer">
+        <p><strong>Bản Dịch Học Thuật Tiếng Việt Toàn Văn &amp; Chuyên Sâu</strong> — Môn Trí Tuệ Nhân Tạo &amp; Học Máy Trong Kế Toán</p>
+        <p style="margin-top: 0.35rem; color: var(--text-muted);">Trường Đại học Đông Á (UDA) • Khoa Kế toán - Kiểm toán • Phục vụ công tác nghiên cứu và học tập chuyên sâu</p>
+      </footer>
+
+    </main>
+
+  </div>
+
+  <!-- Interactive JavaScript Logic -->
+  <script>
+    window.addEventListener('scroll', () => {
+      const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.getElementById('progress-bar').style.width = scrolled + '%';
+    });
+
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme');
+      const target = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', target);
+      localStorage.setItem('doc_theme', target);
+    }
+
+    const savedTheme = localStorage.getItem('doc_theme');
+    if (savedTheme) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+
+    let currentFontSizeRem = 1.05;
+    function adjustFontSize(delta) {
+      currentFontSizeRem = Math.max(0.85, Math.min(1.4, currentFontSizeRem + delta * 0.05));
+      document.documentElement.style.setProperty('--content-font-size', currentFontSizeRem + 'rem');
+    }
+
+    const sections = document.querySelectorAll('section[id], div[id]');
+    const navLinks = document.querySelectorAll('.sidebar-link');
+
+    window.addEventListener('scroll', () => {
+      let currentSectionId = '';
+      sections.forEach(sec => {
+        const top = sec.offsetTop - 120;
+        if (window.pageYOffset >= top) {
+          currentSectionId = sec.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + currentSectionId) {
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
+
+</body>
+
+</html>

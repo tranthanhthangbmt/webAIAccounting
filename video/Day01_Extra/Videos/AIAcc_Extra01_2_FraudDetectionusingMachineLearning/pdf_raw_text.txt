@@ -1,0 +1,1721 @@
+=== PAGE 1 ===
+ 
+ 
+ 
+ 
+FRAUD DETECTION USING MACHINE 
+LEARNING 
+ 
+ 
+By  
+Oladimeji Kazeem 
+Python Programming 
+IU University of Applied Sciences 
+      
+ 
+
+
+=== PAGE 2 ===
+1 
+ 
+Abstract 
+The threat posed by financial transaction fraud to organizations and individuals has 
+prompted the development of cutting-edge methods for detection and prevention. The use of 
+real-time monitoring systems and machine learning algorithms to improve fraud detection 
+and prevention in financial transactions is explored in this research study. The paper 
+addresses the drawbacks of conventional rule-based systems, explains why real-time 
+monitoring and machine learning should be used, and describes the goals of the research. 
+To comprehend the current methodologies and pinpoint research gaps, a thorough literature 
+study is done. The suggested approach includes dimensionality reduction, feature 
+engineering, data preparation, and the application of machine learning models built into a 
+real-time monitoring system. Results are assessed using performance measures and 
+contrasted with the performance of current systems. Adaptive thresholds and dynamic risk 
+scoring are two proactive fraud prevention strategies that being investigated. Considerations 
+for scalability and deployment, including data security and legal compliance, are also 
+covered. The study suggests areas for additional research in this field and helps to design 
+reliable fraud detection systems. 
+ 
+ 
+ 
+
+
+=== PAGE 3 ===
+2 
+ 
+Table of Contents 
+1. 
+Introduction................................................................................................................................................... 3 
+1.1 
+Research Objectives .......................................................................................................................... 4 
+1.2 
+Research Questions........................................................................................................................... 4 
+2.  
+Literature Review .................................................................................................................................... 5 
+2.1 
+Supervised Learning Approaches .................................................................................................... 5 
+2.2 
+Unsupervised Learning Approaches ................................................................................................ 6 
+2.3 
+Hybrid Approaches ............................................................................................................................. 6 
+2.4 
+Deep Learning Approaches .............................................................................................................. 7 
+2.4 
+Features Engineering and Dimensionality Reduction ................................................................... 8 
+2.5 
+Feature extraction .............................................................................................................................. 8 
+2.6 
+Dimensionality Reduction .................................................................................................................. 9 
+3 
+Methodology............................................................................................................................................... 10 
+3.1 
+Dataset Description .......................................................................................................................... 10 
+3.2 
+Preprocessing Steps ........................................................................................................................ 10 
+3.3 
+Exploratory Data Analysis ............................................................................................................... 10 
+3.4 
+Feature Engineering and Dimensionality Reduction ................................................................... 11 
+3.5 
+Machine Learning Algorithms ......................................................................................................... 11 
+3.6 
+Solution Deployment ........................................................................................................................ 12 
+3.7 
+Model Deployment Options ............................................................................................................. 12 
+4 
+Results & Findings .................................................................................................................................... 14 
+4.1 
+Categorical Analysis of Customer Categories .............................................................................. 14 
+5 
+Discussions ................................................................................................................................................ 15 
+5.1 
+Proactive Measure for Fraud Prevention ...................................................................................... 15 
+5.1.1 
+Solution Integration into the System ..................................................................................... 15 
+5.1.2 
+Potential Efficacy and Restrictions ........................................................................................ 16 
+5.2 
+Scalability Large-Scale Financial Transaction Data Handling Issues ....................................... 16 
+5.2.1 
+Architectural Points to Keep in Mind for Financial Institutions in the Real World ........... 17 
+5.2.2 
+Data security and adherence to legal requirements ........................................................... 17 
+5.2.3 
+system integration difficulties ................................................................................................. 17 
+6  
+Conclusion .................................................................................................................................................. 18 
+6.1 
+Research Contributions and Findings ........................................................................................... 18 
+6.2 
+Future Study and Developments .................................................................................................... 18 
+ 
+ 
+ 
+
+
+=== PAGE 4 ===
+3 
+ 
+1. 
+Introduction 
+For organizations, financial institutions, and people everywhere, detecting and preventing 
+fraud in financial transactions is a top priority. The need to investigate more sophisticated 
+techniques has arisen as sophisticated fraud has made clear the limitations of conventional 
+rule-based systems. This study explores how real-time monitoring systems and machine 
+learning algorithms can be used to improve financial transaction fraud detection and 
+prevention capabilities.  
+In the literature, the importance of fraud prevention and detection in financial transactions 
+has been extensively discussed. In addition to causing significant financial losses, financial 
+fraud also erodes public faith in the financial system (Association of Certified Fraud 
+Examiners, 2020). Traditional rule-based systems look for suspected fraudulent actions 
+using predetermined rules and patterns. But these systems struggle to adjust to new and 
+developing fraud strategies, which results in many false negatives and potential financial 
+losses (Kumar et al., 2020). The use of machine learning algorithms has drawn a lot of 
+interest as a solution to these restrictions.  
+Large volumes of transactional data can be automatically mined for patterns and 
+abnormalities using machine learning algorithms, leading to more precise and adaptable 
+fraud detection. Financial institutions can examine past transactional data to find trends 
+linked to fraudulent actions by utilizing machine learning techniques like supervised learning, 
+unsupervised learning, and deep learning (Dal Pozzolo et al., 2015). Additionally, by 
+continuously monitoring transactions in real-time and sending out notifications for suspected 
+fraud, the integration of real-time monitoring systems improves fraud detection (Bolton et al., 
+2011). With timely action made possible by this proactive strategy, potential losses and 
+damages are reduced.  
+The necessity for a more effective and efficient strategy to counteract changing fraud 
+strategies is what motivates the use of machine learning algorithms and real-time monitoring 
+systems. Financial fraud is dynamic, necessitating the use of adaptable systems that can 
+recognize emerging trends and abnormalities. Detecting complex and changing fraud 
+patterns is made possible by machine learning algorithms, allowing for early identification 
+and prevention (Phua et al., 2010). In addition to machine learning, real-time monitoring 
+systems offer fast response capabilities, enabling prompt intervention to stop fraudulent 
+transactions (Kou et al., 2020).  
+
+
+=== PAGE 5 ===
+4 
+ 
+1.1 
+Research Objectives 
+1. Investigate the use of machine learning algorithms for fraud detection in financial 
+transactions. 
+2. Design and develop a real-time monitoring system for continuous fraud detection and 
+prevention. 
+3. Assessing the performance of the suggested approach in comparison to conventional 
+rule-based systems. 
+4. Exploring proactive measures for fraud prevention, such as dynamic risk scoring and 
+adaptive thresholds. 
+5. Analyse scalability and deployment considerations for implementing the proposed 
+system in real – world financial institutions. 
+ 
+1.2 
+Research Questions 
+1. How can machine learning algorithms be used in financial transactions to spot and 
+stop fraud?  
+2. What effect do real-time monitoring systems have on the capacity for fraud detection 
+and prevention? 
+3. How effective and accurate at detecting fraud is the suggested method compared to 
+conventional rule - based systems? 
+4. What preventative measures can be built into the system to stop fraud before it 
+happens?  
+5. What factors need to be considered while deploying the suggested system in actual 
+financial institutions?  
+ 
+ 
+ 
+
+
+=== PAGE 6 ===
+5 
+ 
+2.  
+Literature Review 
+In recent years, there has been a lot of study on applying machine learning algorithms to 
+detect fraud in financial transactions. Various strategies and algorithms have been examined 
+in several research to increase the precision and effectiveness of fraud detection systems. 
+This section reviews earlier studies and research articles in the field, addressing the benefits 
+and drawbacks of various strategies while identifying the gaps in the body of knowledge that 
+the current study seeks to fill. 
+2.1 
+Supervised Learning Approaches 
+A fraud detection system based on logistic regression was proposed by Buczak & Guven  
+2016. The study proved that logistic regression is useful for spotting fraudulent transactions. 
+A popular classification approach called logistic regression predicts the association between 
+input features and the likelihood that a transaction is fraudulent. It is a desirable option for 
+fraud detection systems because of its readability and simplicity. 
+Another well-liked supervised learning strategy for fraud detection is decision trees. To 
+categorize occurrences as fraudulent or authentic, decision tree algorithms, such the C4.5 
+algorithm, build a tree-like model that divides the dataset depending on feature values. 
+Because they can manage non-linear correlations between features and the target variable, 
+decision trees have the advantage of being ideal for identifying intricate fraud patterns. 
+The ability of Support Vector Machines (SVMs) to handle high-dimensional data and 
+nonlinear relationships has led to their use in fraud detection as well. SVMs look for an ideal 
+hyperplane that can distinguish between fraudulent and legal transactions with the greatest 
+margin. at dealing with unbalanced datasets, SVMs have shown to perform well at 
+classifying fraudulent transactions. 
+Although these supervised learning algorithms are easy to use and interpret, they could 
+have trouble spotting fraud. The complexity of fraud patterns is one of the biggest problems. 
+The techniques used by fraudsters are constantly changing, creating complex and dynamic 
+fraud patterns that these algorithms would find challenging to successfully detect. 
+The unbalanced character of fraud datasets—where the proportion of legal transactions is 
+noticeably higher than that of fraudulent transactions—presents another difficulty. The model 
+may be biased toward the majority class (legal transactions) because of unbalanced 
+datasets, which will lead to decreased performance in identifying the minority class 
+(fraudulent transactions). 
+
+
+=== PAGE 7 ===
+6 
+ 
+Techniques such using the Synthetic Minority Over-sampling Technique (SMOTE), which 
+oversamples the minority class, or under-sampling the majority class have been suggested 
+as solutions to the problem of unbalanced data. These methods seek to improve the 
+identification of fraudulent transactions while balancing the distribution of classes. 
+2.2 
+Unsupervised Learning Approaches 
+For spotting fraud in numerous domains, unsupervised learning techniques like clustering 
+and anomaly detection have been investigated. The goal of these strategies, which do not 
+require labelled data, is to find patterns and anomalies in the data that may point to 
+fraudulent activity. 
+Clustering algorithms were used in a study by Ranshous et al. (2015) to identify fraud. To 
+find clusters of connected fraudulent transactions, the authors used clustering techniques, 
+which made it possible to spot trends and similarities in fraudulent behaviour. This method is 
+especially beneficial for identifying innovative or previously unidentified fraud patterns that 
+may not be picked up by predetermined rules or labelled data. 
+Unsupervised learning techniques have the advantage of being able to adapt to new fraud 
+methods without relying on labels that have been predetermined. They can find irregularities 
+and patterns in the data that may be signs of fraud. Unsupervised learning techniques face 
+considerable difficulties due to their increased false positive rate when compared to 
+supervised methods. Unsupervised models have a high rate of false positives because they 
+can classify genuine transactions as anomalies or find clusters that include both valid and 
+fraudulent transactions. 
+Another drawback is the challenge of identifying specific fraud incidents. While unsupervised 
+learning techniques offer a more comprehensive perspective of fraud tendencies, they could 
+fall short in terms of the level of detail needed to pinpoint fraudulent transactions or the 
+participants. To recognize and authenticate specific fraud cases, more research and analysis 
+are frequently required. 
+Hybrid methods that blend supervised and unsupervised techniques have been developed 
+to solve the issues of false positives and the difficulty in identifying specific fraud instances. 
+2.3 
+Hybrid Approaches 
+In fraud detection research, hybrid systems that blend supervised and unsupervised 
+techniques have gained popularity. These solutions try to take use of the advantages of both 
+tactics while addressing the weaknesses of each, such as high false positive rates or the 
+inability to manage intricate fraud patterns. 
+
+
+=== PAGE 8 ===
+7 
+ 
+A hybrid fraud detection system with integrated clustering and classification algorithms was 
+proposed by Bhattacharyya et al. (2018). The classification technique was used to separate 
+between fraudulent and valid transactions inside each cluster once the clustering algorithm 
+had identified groups of similar transactions. When compared to employing either strategy 
+alone, our hybrid model showed enhanced fraud detection performance. 
+The benefit of hybrid techniques is their capacity for both supervised learning to capture 
+well-known fraud patterns and unsupervised learning to detect new fraud patterns. Hybrid 
+models seek to increase fraud detection accuracy while lowering false positives by 
+incorporating the best features of both approaches. 
+However, using hybrid models in practical settings is not without its difficulties. When 
+compared to individual approaches, these models are typically more intricate and 
+computationally intensive. Large-scale implementation may be more difficult because to the 
+need for additional resources and knowledge for the integration and coordination of multiple 
+algorithms. 
+2.4 
+Deep Learning Approaches 
+Due to their effectiveness in extracting complicated patterns from vast amounts of data, 
+deep learning models, particularly neural networks, have drawn a lot of interest in the field of 
+fraud detection. In a thorough review of data mining-based fraud detection research, Phua et 
+al. (2010) emphasized the efficiency of neural networks in identifying credit card fraud. 
+Deep learning methods neural networks have demonstrated exceptional performance in 
+detecting credit card fraud. Even complex fraud patterns that are difficult for people or 
+conventional machine learning algorithms to recognize can be detected by these models, 
+which can automatically learn key attributes and capture them. Deep neural networks may 
+successfully extract high-level representations of the input data by using numerous layers of 
+interconnected nodes (neurons), enabling precise fraud detection. 
+However, there are a few things to consider when using deep learning models for fraud 
+detection. First off, for deep learning models to operate at their best, a lot of labelled training 
+data is frequently necessary. In the area of fraud detection, gathering an extensive and 
+precisely annotated dataset might be difficult because fraudulent instances are frequently 
+more rare than valid ones. To lessen the problem of imbalanced datasets, sophisticated 
+sampling techniques and data augmentation approaches might be used. 
+ 
+
+
+=== PAGE 9 ===
+8 
+ 
+Second, training and optimizing deep learning models can be computationally taxing and 
+may call for a lot of processing power. Large datasets and complex neural architectures may 
+require the utilization of specialized hardware or distributed computing resources in order to 
+train models effectively. 
+Despite these difficulties, convolutional neural networks and recurrent neural networks are 
+examples of deep learning approaches that have advanced and continue to help fraud 
+detection systems become more effective. The goal of ongoing research is to improve the 
+effectiveness of deep learning models for fraud detection. This includes developing 
+lightweight architectures, model compression methods, transfer learning, and transfer 
+learning methods. 
+The current study tries to fill various gaps in the literature despite the advancements made in 
+machine learning-based fraud detection. These gaps include the following: 
+1. Limited attention paid to real-time fraud detection: While real-time fraud detection 
+calls for prompt identification and prevention during live transactions, many existing 
+research concentrate on offline analysis of past data. 
+2. Insufficient attention to temporal aspects: Although they frequently go unnoticed, 
+time-dependent characteristics and temporal dependencies in financial transactions 
+are vital for spotting fraud. 
+3. Lack of consideration for interpretability and explainability: To win the trust of 
+stakeholders and meet regulatory obligations, it is crucial to offer explanations and 
+interpretability as machine learning models get increasingly complicated. 
+4. inadequate analysis of unbalanced datasets: In fraud detection, where there are far 
+fewer cases of fraud than there are of valid transactions, unbalanced datasets are 
+typical. Further research is required to determine how well current approaches 
+perform on data that is unbalanced. 
+2.4 
+Feature extraction 
+The process of building new features out of already existing ones to collect more data. The 
+following are some methods frequently employed for feature extraction in financial 
+transaction data: 
+• 
+Aggregation: The summarization of transaction data over predetermined time 
+periods (e.g., daily, weekly) in order to extract characteristics like the total number of 
+transactions, the average frequency of transactions, or the maximum amount of 
+transactions. 
+
+
+=== PAGE 10 ===
+9 
+ 
+• 
+Time-Based Features: Extraction of temporal data, such as the day of the week, the 
+hour of the day, or the amount of time since the last transaction, using transaction 
+timestamps. 
+• 
+Statistical Features: Calculating statistical measures of transaction amounts or 
+other pertinent variables, such as mean, standard deviation, and skewness. 
+• 
+Text mining: The process of extracting terms or patterns from text-based fields, such 
+as transaction descriptions, that may be indicators of fraud. 
+2.5 
+Dimensionality Reduction 
+Methods for reducing the number of characteristics in a dataset while keeping the most 
+crucial data are known as dimensionality reduction techniques. This aids in combating 
+computational complexity and the "curse of dimensionality." Techniques for dimensionality 
+reduction that are frequently employed include: 
+• 
+Using principal component analysis (PCA), the original characteristics are converted 
+into a fresh collection of uncorrelated variables (principal components), which 
+account for most of the variance in the data. 
+• 
+The supervised dimensionality reduction technique linear discriminant analysis (LDA) 
+maximizes the separation between several classes while minimizing within-class 
+variation. 
+• 
+t-Distributed Stochastic Neighbour Embedding, or t-SNE a non-linear technique, 
+frequently used for visualization, that maintains the data's local structure while 
+lowering its dimensionality. 
+• 
+Feature aggregation is the process of taking averages, sums, or other aggregations 
+to combine several related features into a single feature. 
+ 
+ 
+
+
+=== PAGE 11 ===
+10 
+ 
+3 
+Methodology 
+3.1 
+Dataset Description 
+The dataset used for the research is a synthetic dataset generated for the purpose of this 
+study, appendix 1. It contains information about financial transactions, including transaction 
+IDs, customer IDs, transaction amounts, transaction timestamps, regions, states, customer 
+categories, and account balances. The dataset consists of 10000 records and includes 
+characteristics such as geographical information, customer profiles, and transaction details. 
+3.2 
+Preprocessing Steps 
+Before applying machine learning algorithms for fraud detection, several preprocessing 
+steps were employed to clean and transform the data. These steps are as follow: 
+• 
+Handling missing values: Identify and handle any missing values in the dataset, 
+either by imputing them or removing the corresponding records. 
+• 
+Data normalization: Scale numerical features such as transaction amounts and 
+account balances to a common range to ensure they have a similar impact during 
+model training. 
+• 
+Encoding categorical variables: Convert categorical variables like regions, states, 
+and customer categories into numerical representations using techniques like one-
+hot encoding or label encoding. 
+• 
+Feature selection: Identify and select the most relevant features that contribute 
+significantly to fraud detection, considering their impact and reducing computational 
+complexity. 
+3.3 
+Exploratory Data Analysis 
+Data visualization can be a valuable step to gain insights into the dataset and understand its 
+characteristics. Visualization techniques applied were: 
+• 
+Histograms: Plotting histograms can provide an overview of the distribution of 
+numerical features such as transaction amounts and account balances. 
+• 
+Bar plots: Visualizing categorical variables like regions, states, and customer 
+categories using bar plots can help understand their frequency distribution. 
+• 
+Scatter plots: Plotting transaction amounts against account balances can reveal 
+potential patterns or outliers. 
+• 
+Heatmaps: Using a heatmap, correlations between different features can be 
+explored, which can help identify relationships and potential predictors of fraud. 
+
+
+=== PAGE 12 ===
+11 
+ 
+By visualizing the data, it becomes easier to identify any anomalies, outliers, or patterns that 
+may require further investigation or preprocessing before training the machine learning 
+models. 
+3.4 
+Feature Engineering and Dimensionality Reduction 
+The specific properties of the financial transaction data and the goals of fraud detection 
+should be aligned with the chosen feature engineering approaches and dimensionality 
+reduction techniques. The following methods were adopted: 
+• 
+Feature Selection: By focusing on the most crucial elements that helped with fraud 
+detection, we scanned through the data to identify noise. This lessened the possibility 
+of overfitting while also enhancing the model's accuracy and interpretability. 
+• 
+Feature Extraction: Transaction data frequently contains important information that 
+may not be readily captured by the raw features. This is known as feature extraction. 
+Meaningful representations and identify significant fraud-related patterns or trends 
+were created. 
+• 
+Dimensionality reduction: Datasets related to financial transactions may be highly 
+dimensional, which increases computing complexity and raises the possibility of 
+overfitting. Methods for dimensionality reduction reduced the number of features 
+while retaining the most important data, which helped to solve these problems. 
+The trade-off between model performance and interpretability were considered while 
+choosing certain strategies. Higher predicted accuracy may be obtained using more 
+sophisticated approaches like deep learning or ensemble methods, but they may also be 
+more difficult to comprehend. To balance model complexity, interpretability, and computing 
+efficiency, one must consider both the resources at hand as well as the needs of the fraud 
+detection system. 
+3.5 
+Machine Learning Algorithms 
+The selection and implementation of machine learning algorithms for fraud detection depend 
+on the specific requirements of the problem and the characteristics of the dataset. In this 
+research, the following algorithms were applied: 
+• 
+Logistic Regression: This algorithm is suitable for binary classification tasks and 
+can provide interpretable results. 
+• 
+Decision Trees: Decision trees can capture non-linear relationships and are 
+effective in handling categorical features. 
+• 
+Random Forest: This ensemble method combines multiple decision trees to improve 
+accuracy and handle complex fraud patterns. 
+
+
+=== PAGE 13 ===
+12 
+ 
+• 
+Support Vector Machines (SVM): SVMs can handle high-dimensional data and are 
+effective in separating classes with a clear margin. 
+The four algorithms were used to be able to establish the best possible result, and the 
+associated algorithm as well as the applicable hyperparameters. 
+3.6 
+Solution Deployment 
+Deploying the machine learning models for fraud detection in a production setting comes 
+next after they have been trained and assessed. The following are the main factors for 
+algorithm deployment were applied: 
+• 
+Model serialization 
+A format was created to that makes it simple to load and use the trained machine 
+learning models during deployment by serializing them . Pickle files, joblib files, or 
+serialized representations particular to the machine learning framework of choice are 
+examples of common formats. 
+The final machine learning model were deployed to a local device on which simulates 
+the on-premise scenario 
+3.7 
+Model Deployment Options 
+Machine learning models can be deployed in a variety of ways, depending on the 
+infrastructure and needs: 
+• 
+On-Premises Deployment: Setting up the models on the organization's own local servers 
+or infrastructure. 
+• 
+Cloud Deployment: Hosting the models on cloud infrastructure like AWS, Azure, or 
+Google Cloud. 
+• 
+Containerization: Packing the models into containers for scalability and simple 
+deployment (like Docker). 
+• 
+Serverless Deployment: This method involves deploying the models as functions using 
+serverless platforms (such as AWS Lambda and Google Cloud Functions). 
+API Development 
+To expose the deployed models, a microservice or an API endpoint was created. This made 
+it possible for other programs or systems to communicate with fraud detection models and 
+make predictions. Transaction data are accepted as input by the API, which should then 
+output estimated fraud probability or binary labels. 
+Scalability and effectiveness 
+
+
+=== PAGE 14 ===
+13 
+ 
+The solution was developed to allow increasing transaction volumes in real-time. To increase 
+performance and scalability, strategies like load balancing, caching, and parallel processing 
+are suggested. 
+Monitoring and logging systems 
+Implementing monitoring and logging systems to keep tabs on the operation and behaviour 
+of the deployed models. This entailed logging all input information, forecasts, and runtime 
+faults or exceptions. Continuous improvement is made possible via monitoring, which helps 
+find any drift in model performance over time. 
+Security Consideration 
+Applying the proper security precautions to safeguard the deployed models and the data 
+they analyse. Access controls, encryption of sensitive data, and frequent security audits may 
+all be necessary for this. 
+Versioning and Updates 
+Versioning mechanism for the deployed models was created to keep track of changes and 
+simplify future updates. To adapt to changing fraud tendencies, automated pipelines are 
+suggested for model updates and retraining. 
+A/B Testing and Evaluation 
+A/B testing were performed to compare the performance of the deployed models against a 
+baseline or alternative approaches. Continuous evaluation of the effectiveness of the 
+deployed models using relevant metrics including precision, recall, and F1-score. 
+Continuous Improvement 
+Feedback loops were incorporated to collect labelled data on detected fraud cases and use 
+it to improve the models. This iterative process helps enhanced the accuracy and 
+effectiveness of the fraud detection system over time. 
+ 
+ 
+
+
+=== PAGE 15 ===
+14 
+ 
+4 
+Results & Findings 
+4.1 
+Categorical Analysis of Customer Categories 
+The bar plot reveals the distribution of customer categories in the dataset. The x-axis 
+represents the different customer categories, and the y-axis represents the count of 
+customers in each category. The following observations can be made from the plot: 
+Low-Profile: This category has the highest count, indicating that a significant portion of the 
+customers falls into this category. 
+Medium-Profile: The count of customers in this category is moderately high, suggesting a 
+considerable presence. 
+High-Profile: This category has a relatively low count compared to the others, indicating a 
+smaller proportion of customers. 
+Implications: 
+The distribution of customer categories provides valuable insights into the customer base. 
+The dominance of the Low-Profile category suggests that most customers in the dataset 
+have low transaction activity or account balances. On the other hand, the presence of 
+Medium-Profile and High-Profile categories indicates the existence of customers with 
+relatively higher transaction activity or account balances. 
+Understanding the distribution of customer categories can be useful for various purposes, 
+such as targeted marketing campaigns, customer segmentation, and fraud detection. Further 
+analysis can be performed to explore the relationships between customer categories and 
+other variables in the dataset. 
+It is important to note that this analysis is based on the given dataset and may not represent 
+the entire population accurately. Additional data and more comprehensive analysis can 
+provide deeper insights into customer categories and their significance in the context of the 
+domain. 
+In conclusion, the categorical analysis of the 'customer_category' variable provides a high-
+level understanding of the distribution of customer categories within the dataset. The bar plot 
+visually represents the counts of each category, highlighting the dominance of the Low-
+Profile category and the presence of Medium-Profile and High-Profile categories. 
+ 
+ 
+
+
+=== PAGE 16 ===
+15 
+ 
+5 
+Discussions 
+5.1 
+Proactive Measure for Fraud Prevention 
+Dynamic risk scoring: entails continually and in-the-moment evaluating the risk attached to 
+each financial transaction. It considers several factors, including the transaction amount, 
+previous interactions with customers, location, and the device utilized for the transaction. 
+Each transaction is given a risk score, which allows the system to detect suspicious activity 
+based on changes in the customer's usual behavior. 
+Adaptive Thresholds: Based on past trends and the current risk level, adaptive thresholds 
+modify the fraud detection criteria. The system dynamically modifies the thresholds to 
+account for legitimate variances and maintain sensitivity to suspected fraud trends as the 
+risk level changes. This lessens the likelihood of both false positives and false negatives 
+(valid transactions marked as fraudulent). 
+Behavioural Analysis: Analyzing consumer behavior and transaction trends over time is 
+called behavior analysis. The system can spot abnormal actions that differ from the 
+customer's typical usage patterns by creating a baseline of normal behavior. Changes in 
+transaction quantities, frequency, places, or unexpected transaction sequences fall under 
+this category. 
+ 
+5.1.1 Solution Integration into the System 
+The following proactive procedures should be incorporated into the fraud detection system to 
+proactively identify and prevent fraudulent activities: 
+Real-time Monitoring: Put in place a system for real-time monitoring that continuously 
+assesses incoming transactions utilizing dynamic risk scoring and flexible thresholds. This 
+makes it possible to quickly identify and stop suspicious transactions before they are 
+executed. 
+Machine Learning Model: Use machine learning models to analyze activity and spot odd 
+transaction patterns. These methods include anomaly detection and prediction modeling. To 
+identifying new fraud tendencies, these models can be trained using past data. 
+Multi-Factor Authentication: When conducting high-risk transactions or when behavior 
+analysis suggests there may be fraud, use multi-factor authentication techniques, such as 
+biometrics or one-time passwords. 
+ 
+
+
+=== PAGE 17 ===
+16 
+ 
+Integrate rule-based filters to detect well-known fraud behaviors and use them as extra 
+levels of security. 
+5.1.2 Potential Efficacy and Restrictions 
+Solution Effectiveness 
+• 
+Real-time fraud detection is made possible by dynamic risk scoring and adaptive 
+thresholds, which lowers the possibility of successful fraud attempts. 
+• 
+Behavior analysis improves accuracy by spotting fresh, unheard-of fraud patterns. 
+• 
+The financial losses brought on by fraudulent activity might be considerably 
+decreased with proactive actions. 
+Limitations 
+• 
+If adaptive criteria are set too conservatively, high-risk transactions may result in 
+false positives, which would inconvenience real customers. 
+• 
+It may take time for proactive methods to identify sophisticated fraud techniques, 
+necessitating ongoing model training and upgrades. 
+• 
+Without adequate previous data to establish a baseline, behavior analysis can be 
+difficult for new clients. 
+5.2 
+Scalability Large-Scale Financial Transaction Data Handling Issues 
+• 
+Large-scale financial transaction data handling calls for a strong big data 
+infrastructure. To effectively handle the volume and velocity of data, consideration 
+should be given to employing distributed storage and processing frameworks like 
+Apache Hadoop and Apache Spark. 
+• 
+Data partitioning: Distributing the workload and enhancing the capacity for parallel 
+processing by partitioning data among several nodes or clusters. Data segmentation 
+should be considered depending on pertinent elements like the transaction ID, 
+customer ID, or timestamp. 
+• 
+Real-time processing of financial transactions necessitates the use of streaming data 
+architecture. Use software to manage continuous data streams and enable real-time 
+analytics, such as Apache Kafka or Apache Flink. 
+• 
+As data volume increases, horizontal scaling becomes increasingly important. Use 
+cloud-based solutions to ensure cost-effectiveness and elasticity by allowing you to 
+scale up or down in response to demand. 
+• 
+In-Memory Processing: Use in-memory databases like Redis or Apache Ignite, which 
+store data in RAM for quicker access, to improve processing performance and 
+decrease latency. 
+
+
+=== PAGE 18 ===
+17 
+ 
+5.2.1 Architectural Practices for Financial Institutions  
+• 
+Adopting a microservices design enables the independent and modular construction 
+of system components, making it simpler to grow, update, and manage the system. 
+• 
+Implement load-balancing strategies to split up incoming requests among several 
+servers, guaranteeing optimum resource usage and avoiding overloading of 
+components. 
+• 
+High Availability: Assure the system's high availability by implementing failover 
+methods, deploying redundant components, and taking disaster recovery plans into 
+account. 
+• 
+Data Replication: To ensure data redundancy and preserve service continuity in the 
+event of data center failure, use data replication across geographically dispersed 
+data centers. 
+5.2.2 Data security and adherence to legal requirements 
+• 
+Encryption: To prevent unwanted access to sensitive financial information, use end-
+to-end encryption for data transfer and storage. 
+• 
+Access Control: Use role-based authentication and stringent access controls to 
+ensure that only authorized personnel can access data. 
+• 
+Ensure that the system complies with financial standards like GDPR, PCI-DSS, and 
+AML (Anti-Money Laundering) guidelines by routinely monitoring and auditing it. 
+• 
+To reduce the chance of identity theft or data leakage, anonymize or pseudonymize 
+sensitive data. 
+5.2.3 system integration difficulties 
+• 
+Legacy Systems: It can be difficult to integrate with already-existing legacy systems. 
+To facilitate communication between several systems, take into account using 
+middleware technologies like API gateways or Enterprise Service Buses (ESBs). 
+• 
+Data Format Standardization: To facilitate easy data interchange and interoperability, 
+make sure data formats are standardized across a variety of applications. 
+• 
+API Security: To avoid unwanted access or data modification during integration, 
+provide strong security measures for APIs. 
+• 
+Establish trustworthy data synchronization technologies to guarantee data 
+consistency throughout interconnected systems. 
+ 
+ 
+
+
+=== PAGE 19 ===
+18 
+ 
+6  
+Conclusion 
+This study examined numerous methods to deal with this pressing issue as it pertained to 
+financial transaction fraud detection and prevention. In order to identify fraudulent activity, 
+the study looked at the usage of supervised learning algorithms, unsupervised learning 
+algorithms, and hybrid approaches. In addition, the capacity to recognize intricate fraud 
+patterns was tested for deep learning models, notably neural networks. The study also 
+stressed the significance of incorporating machine learning models into real-time monitoring 
+to create a reliable fraud detection system. 
+ 
+6.1 
+Research Contributions and Findings 
+The research's conclusions showed that each strategy had advantages and disadvantages. 
+While demonstrating interpretability and ease of use, supervised learning methods such as 
+logistic regression and decision trees struggled with complicated fraud patterns and 
+unbalanced datasets. Clustering and anomaly detection are two unsupervised learning 
+approaches that excel at spotting novel or undiscovered fraud trends but have a high rate of 
+false positives and are unable to identify specific fraud instances. Although hybrid 
+approaches sought to integrate the best features of both supervised and unsupervised 
+techniques, their complexity and processing requirements made large-scale deployment 
+difficult. By extracting complex patterns from enormous volumes of data, deep learning 
+models, in particular neural networks, showed promise in the detection of fraud. For efficient 
+training, they needed a lot of labeled data and processing power. 
+ 
+6.2 
+Future Study and Developments 
+a) Despite the advancements gained in this research, there are still a number of 
+opportunities for system improvements and exploration in the future. 
+b) Examine the usage of ensemble models, like Random Forest or Gradient Boosting 
+Machines, to combine the advantages of many methods and raise the accuracy of 
+fraud detection. 
+c) Focus on creating more explainable AI models to offer insights into how fraud 
+detection judgments are made, improving system transparency and trust. 
+ 
+
+
+=== PAGE 20 ===
+19 
+ 
+d) Investigate the use of online learning strategies to modify the fraud detection system 
+in real-time as new data becomes available, enhancing its response to changing 
+fraud patterns. 
+e) Investigate how deep reinforcement learning can be used to detect fraud. Through 
+interactions with its environment, the system can learn the best practices for 
+preventing fraud. 
+f) Enhanced Data Preprocessing: Improve the training dataset's quality by further 
+refining data preprocessing procedures to manage missing or noisy data. 
+g) Integration with External Data Sources: To improve the fraud detection process, think 
+about integrating external data sources, such as social media data or transaction 
+history from partner institutions. 
+h) Develop a thorough system for continual monitoring, evaluation, and modifications to 
+accommodate new fraud schemes and guarantee the system's continued 
+applicability. 
+ 
+ 
+
+
+=== PAGE 21 ===
+20 
+ 
+7 
+References 
+1. Buczak, A. L., & Guven, E. (2016). A Survey of Data Mining and Machine Learning Methods 
+for Cyber Security Intrusion Detection. IEEE Communications Surveys & Tutorials, 18(2), 
+1153-1176. DOI: 10.1109/COMST.2015.2494502. 
+2. Ranshous, S., Bay, C., Cramer, N., Henricksen, M., & Hannigan, B. (2015). Combining 
+Clustering and Classification for Anomalous Activity Detection in Cybersecurity. In 
+Proceedings of the 2015 Workshop on Artificial Intelligence and Security (pp. 49-58). 
+3. Bhattacharyya, D., Kalaimannan, E., & Verma, A. (2018). Anomalous Pattern Detection in 
+Enterprise Data Using Hybrid Classification and Clustering Techniques. Procedia Computer 
+Science, 132, 1066-1075. DOI: 10.1016/j.procs.2018.05.110. 
+4. Phua, C., Lee, V., Smith, K., & Gayler, R. (2010). A Comprehensive Survey of Data Mining-
+based Fraud Detection Research. Artificial Intelligence Review, 33(4), 229-246. DOI: 
+10.1007/s10462-009-9128-7. 
+5. Friedman, J., Hastie, T., & Tibshirani, R. (2001). The Elements of Statistical Learning: Data 
+Mining, Inference, and Prediction. New York, NY: Springer-Verlag. 
+6. Brownlee, J. (2020). Master Machine Learning Algorithms. Machine Learning Mastery. 
+7. Chollet, F. (2018). Deep Learning with Python. Manning Publications. 
+8. Varshney, A., Mishra, S., & Jha, R. P. (2019). A Review on Machine Learning Algorithms for 
+Fraud Detection. Procedia Computer Science, 132, 1575-1584. DOI: 
+10.1016/j.procs.2019.04.169. 
+9. Cawley, G. C., & Talbot, N. L. (2010). On Over-fitting in Model Selection and Subsequent 
+Selection Bias in Performance Evaluation. Journal of Machine Learning Research, 11, 2079-
+2107. 
+10. Kuhn, M., & Johnson, K. (2013). Applied Predictive Modeling. New York, NY: Springer-Verlag. 
+11. Kotsiantis, S. B. (2013). Decision Trees: A Recent Overview. Artificial Intelligence Review, 
+39(4), 261-283. DOI: 10.1007/s10462-011-9272-4. 
+12. Kingma, D. P., & Ba, J. (2015). Adam: A Method for Stochastic Optimization. International 
+Conference on Learning Representations (ICLR). 
+ 
+ 
+ 
+
+
+=== PAGE 22 ===
+21 
+ 
+8  
+Appendix 1 – Code using VSCODE 
+import pandas as pd 
+import joblib 
+from sklearn.preprocessing import LabelEncoder, StandardScaler 
+from sklearn.model_selection import train_test_split 
+from sklearn.ensemble import RandomForestClassifier 
+from sklearn.svm import SVC 
+from sklearn.cluster import KMeans 
+from sklearn.metrics import classification_report 
+ 
+class FraudDetection: 
+    def __init__(self): 
+        self.data = None 
+        self.model = None 
+        self.X = None 
+        self.y = None 
+ 
+    def load_data(self, file_path): 
+        self.data = pd.read_csv(file_path) 
+ 
+    def preprocess_data(self): 
+        # Data Encoding 
+        label_encoder = LabelEncoder() 
+        self.data['region'] = label_encoder.fit_transform(self.data['region']) 
+        self.data['state'] = label_encoder.fit_transform(self.data['state']) 
+        self.data['customer_category'] = 
+label_encoder.fit_transform(self.data['customer_category']) 
+ 
+        # Perform one-hot encoding on categorical variables 
+        categorical_cols = ['region', 'state', 'customer_category'] 
+        self.data_encoded = pd.get_dummies(self.data, 
+columns=categorical_cols) 
+ 
+        # Preprocessing steps 
+        self.data_encoded.drop(['step', 'type', 'nameOrig', 'nameDest', 
+'isFlaggedFraud'], axis=1, inplace=True) 
+ 
+        # Split the dataset into features (X) and labels (y) 
+        self.X = self.data_encoded.drop('isFraud', axis=1) 
+        self.y = self.data_encoded['isFraud'] 
+ 
+        # Scale the numerical features 
+        scaler = StandardScaler() 
+        self.X_scaled = scaler.fit_transform(self.X) 
+ 
+    def train_model(self, model_type='RandomForest'): 
+        if model_type == 'RandomForest': 
+            self.model = RandomForestClassifier() 
+
+
+=== PAGE 23 ===
+22 
+ 
+        elif model_type == 'SVM': 
+            self.model = SVC() 
+        elif model_type == 'KMeans': 
+            self.model = KMeans(n_clusters=2, random_state=42) 
+        else: 
+            raise ValueError("Invalid model type. Please choose 
+'RandomForest', 'SVM', or 'KMeans'.") 
+ 
+        # Split the dataset into training and testing sets 
+        X_train, X_test, y_train, y_test = train_test_split(self.X_scaled, 
+self.y, test_size=0.2, random_state=42) 
+ 
+        # Train the model 
+        self.model.fit(X_train, y_train) 
+ 
+        # Evaluate the model 
+        y_pred = self.model.predict(X_test) 
+        print(classification_report(y_test, y_pred)) 
+ 
+    def load_model(self, model_file): 
+        self.model = joblib.load(model_file) 
+ 
+    def make_prediction(self, sample_data): 
+        # Perform the necessary preprocessing on the sample_data DataFrame to 
+match the training data format 
+ 
+        # Use the loaded model to make predictions on the input data 
+        predictions = self.model.predict(sample_data) 
+ 
+        return predictions 
+     
+ 
+    if __name__ == "__main__": 
+        # Instantiate the FraudDetection class 
+        fraud_detector = FraudDetection() 
+ 
+        # Load the dataset 
+        fraud_detector.load_data('financial_transactions.csv') 
+ 
+        # Preprocess the data 
+        fraud_detector.preprocess_data() 
+ 
+        # Train and evaluate the model 
+        fraud_detector.train_model(model_type='RandomForest') 
+ 
+        # Load the trained model 
+        fraud_detector.load_model('model.pkl') 
+ 
+
+
+=== PAGE 24 ===
+23 
+ 
+        # Sample data for prediction (replace this with your sample data) 
+        sample_data = pd.DataFrame(...)  # Provide your sample data as a 
+DataFrame 
+ 
+        # Make a sample prediction 
+        predictions = fraud_detector.make_prediction(sample_data) 
+        print(predictions) 
+ 
+ 
+Appendix 2 – Code using Jupyter Notebook with the outputs 
+Fraud Shield: Finacial Fraud Prdiction Solution 
+1. Importing the required packages 
+In [1]: 
+# Import the necessary libraries 
+import pandas as pd 
+import numpy as np 
+import matplotlib.pyplot as plt 
+import seaborn as sns 
+from sklearn.model_selection import train_test_split, GridSearchCV 
+from sklearn.preprocessing import MinMaxScaler, LabelEncoder 
+from sklearn.feature_selection import SelectKBest, f_classif 
+from sklearn.ensemble import RandomForestClassifier 
+from sklearn.svm import SVC 
+from sklearn.tree import DecisionTreeClassifier 
+from sklearn.linear_model import LogisticRegression 
+from sklearn.metrics import accuracy_score, precision_score, recall_score, 
+f1_score 
+from sklearn.preprocessing import LabelEncoder, StandardScaler 
+from sklearn import svm 
+from sklearn.metrics import classification_report 
+from sklearn.metrics import classification_report, roc_curve, auc 
+2. Data Understanding 
+In [2]: 
+# Load the dataset 
+df = pd.read_csv("financial_transaction_log.csv") 
+In [3]: 
+#CHecking the first 5 records 
+df.head() 
+Out[3]: 
+ 
+st
+ep 
+type 
+amo
+unt 
+nameO
+rig 
+oldbala
+nceOrg 
+newbala
+nceOrig 
+nameDe
+st 
+oldbalan
+ceDest 
+newbalan
+ceDest 
+isFr
+aud 
+isFlagge
+dFraud 
+0 
+1 
+PAYM
+ENT 
+9839
+.64 
+C12310
+06815 
+170136.
+0 
+160296.3
+6 
+M19797
+87155 
+0.0 
+0.0 
+0 
+0 
+
+
+=== PAGE 25 ===
+24 
+ 
+ 
+st
+ep 
+type 
+amo
+unt 
+nameO
+rig 
+oldbala
+nceOrg 
+newbala
+nceOrig 
+nameDe
+st 
+oldbalan
+ceDest 
+newbalan
+ceDest 
+isFr
+aud 
+isFlagge
+dFraud 
+1 
+1 
+PAYM
+ENT 
+1864
+.28 
+C16665
+44295 
+21249.0 
+19384.72 
+M20442
+82225 
+0.0 
+0.0 
+0 
+0 
+2 
+1 
+TRAN
+SFER 
+181.
+00 
+C13054
+86145 
+181.0 
+0.00 
+C55326
+4065 
+0.0 
+0.0 
+1 
+0 
+3 
+1 
+CASH
+_OUT 
+181.
+00 
+C84008
+3671 
+181.0 
+0.00 
+C38997
+010 
+21182.0 
+0.0 
+1 
+0 
+4 
+1 
+PAYM
+ENT 
+1166
+8.14 
+C20485
+37720 
+41554.0 
+29885.86 
+M12307
+01703 
+0.0 
+0.0 
+0 
+0 
+In [4]: 
+df.tail() 
+Out[4]: 
+ 
+st
+e
+p 
+type 
+amou
+nt 
+nameO
+rig 
+oldbala
+nceOrg 
+newbala
+nceOrig 
+nameD
+est 
+oldbala
+nceDest 
+newbala
+nceDest 
+isFr
+aud 
+isFlagge
+dFraud 
+636
+261
+5 
+7
+4
+3 
+CASH
+_OUT 
+33968
+2.13 
+C78648
+4425 
+339682.
+13 
+0.0 
+C77691
+9290 
+0.00 
+339682.1
+3 
+1 
+0 
+636
+261
+6 
+7
+4
+3 
+TRAN
+SFER 
+63114
+09.28 
+C15290
+08245 
+631140
+9.28 
+0.0 
+C18818
+41831 
+0.00 
+0.00 
+1 
+0 
+636
+261
+7 
+7
+4
+3 
+CASH
+_OUT 
+63114
+09.28 
+C11629
+22333 
+631140
+9.28 
+0.0 
+C13651
+25890 
+68488.8
+4 
+6379898.
+11 
+1 
+0 
+636
+261
+8 
+7
+4
+3 
+TRAN
+SFER 
+85000
+2.52 
+C16859
+95037 
+850002.
+52 
+0.0 
+C20803
+88513 
+0.00 
+0.00 
+1 
+0 
+636
+261
+9 
+7
+4
+3 
+CASH
+_OUT 
+85000
+2.52 
+C12803
+23807 
+850002.
+52 
+0.0 
+C87322
+1189 
+6510099
+.11 
+7360101.
+63 
+1 
+0 
+In [5]: 
+#check the data columns and rows 
+df.shape 
+
+
+=== PAGE 26 ===
+25 
+ 
+Out[5]: 
+(6362620, 11) 
+In [6]: 
+#checking the columns or variables in the dataset 
+df.columns 
+Out[6]: 
+Index(['step', 'type', 'amount', 'nameOrig', 'oldbalanceOrg', 'newbalanceOr
+ig', 
+       'nameDest', 'oldbalanceDest', 'newbalanceDest', 'isFraud', 
+       'isFlaggedFraud'], 
+      dtype='object') 
+In [7]: 
+#idnetifying the column types 
+df.dtypes 
+Out[7]: 
+step                int64 
+type               object 
+amount            float64 
+nameOrig           object 
+oldbalanceOrg     float64 
+newbalanceOrig    float64 
+nameDest           object 
+oldbalanceDest    float64 
+newbalanceDest    float64 
+isFraud             int64 
+isFlaggedFraud      int64 
+dtype: object 
+The dataset contains 10,000 records with 8 variables or columns: 
+• 
+step: Time in hours. 
+• 
+type: transaction type: CASH-IN, CASH-OUT, DEBIT, PAYMENT and TRANSFER 
+• 
+amount: transaction amount in local currency 
+• 
+nameOrig: customer who initiated the transaction 
+• 
+oldbalanceOrg: Initial balance before the transaction. 
+• 
+newbalanceOrig: New balance after transaction 
+• 
+nameDest: transaction recepient ID. 
+• 
+oldbalanceDest: Initial recipient balance before the transaction 
+• 
+newbalanceDest: Recepient balance after the transaction 
+• 
+isFraud: identifies a fraudulent transaction (1) and non fraudulent (0) 
+• 
+isFlaggedFraud: flags illegal attempts to transfer more than 200.000 in a single transaction. 
+In [8]: 
+#missing values 
+df.isnull().sum() 
+Out[8]: 
+step              0 
+type              0 
+amount            0 
+nameOrig          0 
+oldbalanceOrg     0 
+newbalanceOrig    0 
+
+
+=== PAGE 27 ===
+26 
+ 
+nameDest          0 
+oldbalanceDest    0 
+newbalanceDest    0 
+isFraud           0 
+isFlaggedFraud    0 
+dtype: int64 
+In [9]: 
+# Handling missing values 
+df.dropna(inplace=True)  # Drop rows with missing values 
+In [10]: 
+df.shape 
+Out[10]: 
+(6362620, 11) 
+After dropping the missing values' rows the number of rows remains 10,000 implying that there are 
+no missing values in the dataset. 
+3. Exploratory Data Analysis 
+In [11]: 
+df.describe() 
+Out[11]: 
+ 
+step 
+amount 
+oldbalanc
+eOrg 
+newbalanc
+eOrig 
+oldbalance
+Dest 
+newbalance
+Dest 
+isFraud 
+isFlaggedF
+raud 
+cou
+nt 
+6.362620
+e+06 
+6.362620
+e+06 
+6.362620e
++06 
+6.362620e+
+06 
+6.362620e
++06 
+6.362620e+
+06 
+6.362620
+e+06 
+6.362620e
++06 
+me
+an 
+2.433972
+e+02 
+1.798619
+e+05 
+8.338831e
++05 
+8.551137e+
+05 
+1.100702e
++06 
+1.224996e+
+06 
+1.290820
+e-03 
+2.514687e
+-06 
+std 
+1.423320
+e+02 
+6.038582
+e+05 
+2.888243e
++06 
+2.924049e+
+06 
+3.399180e
++06 
+3.674129e+
+06 
+3.590480
+e-02 
+1.585775e
+-03 
+min 
+1.000000
+e+00 
+0.000000
+e+00 
+0.000000e
++00 
+0.000000e+
+00 
+0.000000e
++00 
+0.000000e+
+00 
+0.000000
+e+00 
+0.000000e
++00 
+25
+% 
+1.560000
+e+02 
+1.338957
+e+04 
+0.000000e
++00 
+0.000000e+
+00 
+0.000000e
++00 
+0.000000e+
+00 
+0.000000
+e+00 
+0.000000e
++00 
+50
+% 
+2.390000
+e+02 
+7.487194
+e+04 
+1.420800e
++04 
+0.000000e+
+00 
+1.327057e
++05 
+2.146614e+
+05 
+0.000000
+e+00 
+0.000000e
++00 
+75
+% 
+3.350000
+e+02 
+2.087215
+e+05 
+1.073152e
++05 
+1.442584e+
+05 
+9.430367e
++05 
+1.111909e+
+06 
+0.000000
+e+00 
+0.000000e
++00 
+
+
+=== PAGE 28 ===
+27 
+ 
+ 
+step 
+amount 
+oldbalanc
+eOrg 
+newbalanc
+eOrig 
+oldbalance
+Dest 
+newbalance
+Dest 
+isFraud 
+isFlaggedF
+raud 
+ma
+x 
+7.430000
+e+02 
+9.244552
+e+07 
+5.958504e
++07 
+4.958504e+
+07 
+3.560159e
++08 
+3.561793e+
+08 
+1.000000
+e+00 
+1.000000e
++00 
+In [12]: 
+# Visualize the distribution of the target variable (isFraud) 
+sns.countplot(df['isFraud']) 
+plt.title('Distribution of Fraudulent and Non-Fraudulent Transactions') 
+plt.xlabel('isFraud') 
+plt.ylabel('Count') 
+plt.show() 
+C:\Users\Hp 2022\anaconda3\lib\site-packages\seaborn\_decorators.py:36: Fut
+ureWarning: Pass the following variable as a keyword arg: x. From version 0
+.12, the only valid positional argument will be `data`, and passing other a
+rguments without an explicit keyword will result in an error or misinterpre
+tation. 
+  warnings.warn( 
+ 
+In [20]: 
+# Explore the distribution of 'amount' column using a histogram 
+plt.figure(figsize=(10, 6)) 
+plt.hist(df['amount'], bins=50, color='blue') 
+plt.xlabel('Transaction Amount') 
+plt.ylabel('Frequency') 
+plt.title('Distribution of Transaction Amount') 
+
+
+=== PAGE 29 ===
+28 
+ 
+plt.show() 
+ 
+In [22]: 
+# Explore the distribution of 'type' column using a bar plot 
+plt.figure(figsize=(8, 5)) 
+df['type'].value_counts().plot(kind='bar', color='green') 
+plt.xlabel('Transaction Type') 
+plt.ylabel('Frequency') 
+plt.title('Distribution of Transaction Types') 
+plt.xticks(rotation=45) 
+plt.show() 
+
+
+=== PAGE 30 ===
+29 
+ 
+ 
+In [23]: 
+# Explore the relationship between 'amount' and 'isFraud' using a box plot 
+plt.figure(figsize=(8, 5)) 
+plt.boxplot([df[df['isFraud'] == 0]['amount'], df[df['isFraud'] == 
+1]['amount']], labels=['Not Fraud', 'Fraud']) 
+plt.xlabel('Fraud') 
+plt.ylabel('Transaction Amount') 
+plt.title('Transaction Amount vs. Fraud') 
+plt.show() 
+
+
+=== PAGE 31 ===
+30 
+ 
+ 
+In [24]: 
+# Explore the distribution of 'isFraud' using a pie chart 
+plt.figure(figsize=(6, 6)) 
+df['isFraud'].value_counts().plot(kind='pie', autopct='%1.1f%%', 
+colors=['lightcoral', 'lightgreen']) 
+plt.title('Percentage of Fraudulent Transactions') 
+plt.legend(['Not Fraud', 'Fraud']) 
+plt.show() 
+
+
+=== PAGE 32 ===
+31 
+ 
+ 
+In [13]: 
+# Encode categorical variables using LabelEncoder 
+label_encoder = LabelEncoder() 
+df['type'] = label_encoder.fit_transform(df['type']) 
+In [14]: 
+# Remove unnecessary columns 
+df.drop(['step', 'nameOrig', 'nameDest', 'isFlaggedFraud'], axis=1, 
+inplace=True) 
+In [15]: 
+# Perform one-hot encoding on categorical variables 
+categorical_cols = ['type'] 
+df_encoded = pd.get_dummies(df, columns=categorical_cols) 
+In [16]: 
+# Split the dataset into features (X) and labels (y) 
+X = df.drop('isFraud', axis=1) 
+y = df['isFraud'] 
+In [17]: 
+# Split the dataset into training and testing sets 
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, 
+random_state=42) 
+In [18]: 
+
+
+=== PAGE 33 ===
+32 
+ 
+# Scale the numerical features 
+scaler = StandardScaler() 
+X_train_scaled = scaler.fit_transform(X_train) 
+X_test_scaled = scaler.transform(X_test) 
+Machine learning algorithms for fraud detection 
+In [127]: 
+# Logistic Regression 
+lr_model = LogisticRegression() 
+lr_model.fit(X_train_scaled, y_train) 
+lr_predictions = lr_model.predict(X_test_scaled) 
+In [128]: 
+# Random Forest 
+rf_model = RandomForestClassifier() 
+rf_model.fit(X_train_scaled, y_train) 
+rf_predictions = rf_model.predict(X_test_scaled) 
+In [131]: 
+# Support Vector Machine 
+svm_model = svm.SVC() 
+svm_model.fit(X_train_scaled, y_train) 
+svm_predictions = svm_model.predict(X_test_scaled) 
+In [132]: 
+from sklearn.cluster import KMeans 
+ 
+# Clustering for anomaly detection 
+kmeans_model = KMeans(n_clusters=2, random_state=42) 
+kmeans_model.fit(X_train_scaled) 
+kmeans_predictions = kmeans_model.predict(X_test_scaled) 
+C:\Users\Hp 2022\anaconda3\lib\site-packages\sklearn\cluster\_kmeans.py:870
+: FutureWarning: The default value of `n_init` will change from 10 to 'auto
+' in 1.4. Set the value of `n_init` explicitly to suppress the warning 
+  warnings.warn( 
+In [136]: 
+print("Random Forest:") 
+print(classification_report(y_test, rf_predictions)) 
+print("Support Vector Machine:") 
+print(classification_report(y_test, svm_predictions)) 
+print("K-Means Clustering:") 
+print(classification_report(y_test, kmeans_predictions)) 
+Random Forest: 
+              precision    recall  f1-score   support 
+ 
+           0       1.00      1.00      1.00   1270904 
+           1       0.96      0.79      0.87      1620 
+ 
+    accuracy                           1.00   1272524 
+   macro avg       0.98      0.90      0.93   1272524 
+weighted avg       1.00      1.00      1.00   1272524 
+ 
+Support Vector Machine: 
+              precision    recall  f1-score   support 
+ 
+
+
+=== PAGE 34 ===
+33 
+ 
+           0       1.00      1.00      1.00   1270904 
+           1       0.99      0.47      0.64      1620 
+ 
+    accuracy                           1.00   1272524 
+   macro avg       1.00      0.73      0.82   1272524 
+weighted avg       1.00      1.00      1.00   1272524 
+ 
+K-Means Clustering: 
+              precision    recall  f1-score   support 
+ 
+           0       1.00      0.94      0.97   1270904 
+           1       0.00      0.03      0.00      1620 
+ 
+    accuracy                           0.94   1272524 
+   macro avg       0.50      0.49      0.49   1272524 
+weighted avg       1.00      0.94      0.97   1272524 
+ 
+In [138]: 
+# ROC Curve 
+rf_probs = rf_model.predict_proba(X_test)[:, 1] 
+svm_probs = svm_model.decision_function(X_test) 
+kmeans_probs = kmeans_model.transform(X_test)[:, 1] 
+C:\Users\Hp 2022\anaconda3\lib\site-packages\sklearn\base.py:432: UserWarni
+ng: X has feature names, but RandomForestClassifier was fitted without feat
+ure names 
+  warnings.warn( 
+C:\Users\Hp 2022\anaconda3\lib\site-packages\sklearn\base.py:432: UserWarni
+ng: X has feature names, but SVC was fitted without feature names 
+  warnings.warn( 
+C:\Users\Hp 2022\anaconda3\lib\site-packages\sklearn\base.py:432: UserWarni
+ng: X has feature names, but KMeans was fitted without feature names 
+  warnings.warn( 
+In [141]: 
+rf_fpr, rf_tpr, _ = roc_curve(y_test, rf_probs) 
+svm_fpr, svm_tpr, _ = roc_curve(y_test, svm_probs) 
+kmeans_fpr, kmeans_tpr, _ = roc_curve(y_test, kmeans_probs) 
+In [142]: 
+plt.plot(rf_fpr, rf_tpr, label='Random Forest') 
+plt.plot(svm_fpr, svm_tpr, label='Support Vector Machine') 
+plt.plot(kmeans_fpr, kmeans_tpr, label='K-Means Clustering') 
+plt.plot([0, 1], [0, 1], 'k--') 
+plt.xlabel('False Positive Rate') 
+plt.ylabel('True Positive Rate') 
+plt.title('ROC Curve') 
+plt.legend() 
+plt.show() 
+
+
+=== PAGE 35 ===
+34 
+ 
+ 
+In [ ]: 
+  
+ 
+
+

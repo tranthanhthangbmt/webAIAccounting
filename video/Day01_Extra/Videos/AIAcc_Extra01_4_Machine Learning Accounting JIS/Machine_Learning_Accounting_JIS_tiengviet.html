@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>Ứng Dụng Học Máy Trong Kế Toán: Xu Hướng Hiện Tại & Triển Vọng Tương Lai (JIS 2026 - AAA)</title>
+  <meta name="description"
+    content="Bản dịch học thuật tiếng Việt toàn văn công trình nghiên cứu 'Applications of Machine Learning in Accounting: Current Trends and Future Perspectives' xuất bản trên Journal of Information Systems (American Accounting Association - AAA, 2026)." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-body: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-sidebar: #0f172a;
+      --sidebar-text: #e2e8f0;
+      --sidebar-muted: #94a3b8;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --primary: #059669;
+      --primary-light: #ecfdf5;
+      --primary-border: #a7f3d0;
+      --accent: #0284c7;
+      --success: #10b981;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --border-color: #e2e8f0;
+      --code-bg: #1e293b;
+      --code-text: #f1f5f9;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+      --content-font-size: 1.05rem;
+      --line-height: 1.8;
+      --radius-md: 12px;
+      --radius-sm: 8px;
+    }
+
+    [data-theme="dark"] {
+      --bg-body: #0b0f19;
+      --bg-surface: #131b2e;
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --primary: #10b981;
+      --primary-light: rgba(16, 185, 129, 0.15);
+      --primary-border: rgba(16, 185, 129, 0.35);
+      --border-color: #1e293b;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.4);
+      --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.5);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg-body);
+      color: var(--text-main);
+      line-height: var(--line-height);
+      font-size: var(--content-font-size);
+      display: flex;
+      min-height: 100vh;
+      transition: background-color 0.25s ease, color 0.25s ease;
+    }
+
+    /* Reading Progress Bar */
+    #progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #10b981, #06b6d4, #3b82f6);
+      width: 0%;
+      z-index: 9999;
+      transition: width 0.1s linear;
+    }
+
+    /* Sidebar Navigation */
+    .sidebar {
+      width: 330px;
+      background-color: var(--bg-sidebar);
+      color: var(--sidebar-text);
+      height: 100vh;
+      position: sticky;
+      top: 0;
+      overflow-y: auto;
+      flex-shrink: 0;
+      border-right: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      flex-direction: column;
+      z-index: 100;
+    }
+
+    .sidebar-header {
+      padding: 1.5rem 1.25rem 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .sidebar-title {
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #34d399;
+      margin-bottom: 0.4rem;
+    }
+
+    .sidebar-subtitle {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.35;
+    }
+
+    .sidebar-nav {
+      padding: 1rem 0;
+      flex-grow: 1;
+    }
+
+    .sidebar-nav ul {
+      list-style: none;
+    }
+
+    .sidebar-nav li {
+      margin-bottom: 0.25rem;
+    }
+
+    .sidebar-link {
+      display: flex;
+      align-items: center;
+      padding: 0.55rem 1.25rem;
+      color: var(--sidebar-muted);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      border-left: 3px solid transparent;
+    }
+
+    .sidebar-link:hover,
+    .sidebar-link.active {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.06);
+      border-left-color: var(--primary);
+    }
+
+    .sidebar-link.sub-link {
+      padding-left: 2.2rem;
+      font-size: 0.82rem;
+    }
+
+    .sidebar-footer {
+      padding: 1.25rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 0.8rem;
+      color: var(--sidebar-muted);
+    }
+
+    /* Main Reading Container */
+    .main-wrapper {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    /* Top Control Bar */
+    .top-bar {
+      position: sticky;
+      top: 0;
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-color);
+      padding: 0.75rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 90;
+      backdrop-filter: blur(8px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .doc-meta-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--primary-light);
+      border: 1px solid var(--primary-border);
+      color: var(--primary);
+      padding: 0.35rem 0.85rem;
+      border-radius: 9999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .ctrl-group {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .ctrl-btn {
+      background: transparent;
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 0.4rem 0.75rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.2s ease;
+      font-weight: 500;
+    }
+
+    .ctrl-btn:hover {
+      background: rgba(0, 0, 0, 0.04);
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    [data-theme="dark"] .ctrl-btn:hover {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    /* Document Content */
+    .content-area {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 3rem 2.5rem 6rem;
+      width: 100%;
+    }
+
+    /* Typography & Academic Layout */
+    .paper-header {
+      margin-bottom: 3.5rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 2px solid var(--border-color);
+    }
+
+    .journal-badge {
+      display: inline-block;
+      text-transform: uppercase;
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      color: #059669;
+      margin-bottom: 0.75rem;
+    }
+
+    .paper-title {
+      font-family: 'Merriweather', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      line-height: 1.35;
+      margin-bottom: 1.25rem;
+      color: var(--text-main);
+    }
+
+    .paper-authors {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .authors-affiliation {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      font-style: italic;
+      margin-bottom: 1.5rem;
+    }
+
+    .paper-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      padding: 1.25rem;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .meta-item-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+    }
+
+    .meta-item-value {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-top: 0.2rem;
+    }
+
+    /* Abstract Block */
+    .abstract-box {
+      background: var(--bg-surface);
+      border-left: 4px solid var(--primary);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      padding: 1.75rem 2rem;
+      margin: 2.5rem 0;
+      box-shadow: var(--shadow-md);
+    }
+
+    .abstract-title {
+      font-family: 'Merriweather', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 0.85rem;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .abstract-content {
+      font-family: 'Merriweather', serif;
+      font-size: 1.05rem;
+      line-height: 1.85;
+      font-style: italic;
+      color: var(--text-main);
+    }
+
+    .keywords-line {
+      margin-top: 1.25rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      font-style: normal;
+    }
+
+    .keywords-line strong {
+      color: var(--text-main);
+    }
+
+    /* Headings */
+    h2.section-title {
+      font-family: 'Merriweather', serif;
+      font-size: 1.65rem;
+      font-weight: 700;
+      margin: 3.5rem 0 1.25rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 1px solid var(--border-color);
+      color: var(--text-main);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+
+    h2.section-title .section-number {
+      color: var(--primary);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 800;
+    }
+
+    h3.sub-section-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin: 2rem 0 0.85rem;
+      color: var(--text-main);
+    }
+
+    h4.sub-sub-section-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 1.5rem 0 0.65rem;
+      color: var(--text-main);
+    }
+
+    p {
+      margin-bottom: 1.35rem;
+      text-align: justify;
+    }
+
+    /* Callout & Highlights */
+    .callout {
+      padding: 1.25rem 1.5rem;
+      border-radius: var(--radius-md);
+      margin: 1.75rem 0;
+      border-left: 4px solid;
+    }
+
+    .callout-info {
+      background: rgba(2, 132, 199, 0.08);
+      border-color: #0284c7;
+    }
+
+    .callout-warning {
+      background: rgba(245, 158, 11, 0.08);
+      border-color: #f59e0b;
+    }
+
+    .callout-danger {
+      background: rgba(239, 68, 68, 0.08);
+      border-color: #ef4444;
+    }
+
+    .callout-success {
+      background: rgba(16, 185, 129, 0.08);
+      border-color: #10b981;
+    }
+
+    .callout-title {
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* Tables */
+    .table-container {
+      overflow-x: auto;
+      margin: 2rem 0;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      background: var(--bg-surface);
+      box-shadow: var(--shadow-sm);
+    }
+
+    table.academic-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+      text-align: left;
+    }
+
+    table.academic-table th {
+      background: rgba(0, 0, 0, 0.03);
+      padding: 0.85rem 1.15rem;
+      font-weight: 700;
+      color: var(--text-main);
+      border-bottom: 2px solid var(--border-color);
+    }
+
+    [data-theme="dark"] table.academic-table th {
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    table.academic-table td {
+      padding: 0.75rem 1.15rem;
+      border-bottom: 1px solid var(--border-color);
+      vertical-align: top;
+    }
+
+    table.academic-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    table.academic-table tr:hover td {
+      background: rgba(0, 0, 0, 0.015);
+    }
+
+    [data-theme="dark"] table.academic-table tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    /* Figures & Media */
+    .figure-wrapper {
+      margin: 2.75rem 0;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+
+    .figure-header {
+      padding: 0.85rem 1.25rem;
+      background: rgba(0, 0, 0, 0.03);
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+
+    [data-theme="dark"] .figure-header {
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .figure-badge {
+      background: var(--primary);
+      color: #fff;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+
+    .figure-img-container {
+      padding: 1.5rem;
+      display: flex;
+      justify-content: center;
+      background: #fff;
+      align-items: center;
+    }
+
+    [data-theme="dark"] .figure-img-container {
+      background: #0f172a;
+    }
+
+    .figure-img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: transform 0.25s ease;
+    }
+
+    .figure-img:hover {
+      transform: scale(1.015);
+    }
+
+    .figure-caption {
+      padding: 1.15rem 1.5rem;
+      background: var(--bg-surface);
+      border-top: 1px solid var(--border-color);
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .figure-caption strong {
+      color: var(--text-main);
+    }
+
+    /* Lists */
+    ul, ol {
+      margin: 1rem 0 1.5rem 1.75rem;
+    }
+
+    li {
+      margin-bottom: 0.65rem;
+    }
+
+    /* Footer */
+    .article-footer {
+      margin-top: 5rem;
+      padding-top: 2.5rem;
+      border-top: 2px solid var(--border-color);
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .sidebar {
+        display: none;
+      }
+      .content-area {
+        padding: 2rem 1.5rem 4rem;
+      }
+    }
+
+    /* Print View */
+    @media print {
+      .sidebar, .top-bar, #progress-bar {
+        display: none !important;
+      }
+      body {
+        background: #fff !important;
+        color: #000 !important;
+      }
+      .content-area {
+        max-width: 100% !important;
+        padding: 0 !important;
+      }
+      .figure-wrapper {
+        page-break-inside: avoid;
+        box-shadow: none !important;
+        border: 1px solid #ccc !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Reading Progress Bar -->
+  <div id="progress-bar"></div>
+
+  <!-- Sidebar Navigation -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-title">American Accounting Association</div>
+      <div class="sidebar-subtitle">Học Máy Trong Kế Toán: Xu Hướng & Tương Lai</div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <ul>
+        <li><a href="#abstract" class="sidebar-link active">Tóm Tắt (Abstract)</a></li>
+        <li><a href="#sec1" class="sidebar-link">1. Mở Đầu (Introduction)</a></li>
+        <li><a href="#sec2" class="sidebar-link">2. Bối Cảnh & Định Vị Nghiên Cứu</a></li>
+        <li><a href="#sec3" class="sidebar-link">3. Phương Pháp Luận & Quy Trình PRISMA</a></li>
+        <li><a href="#sec4" class="sidebar-link">4. Kết Quả Trắc Lượng Thư Mục (Bibliometrics)</a></li>
+        <li><a href="#sec4-1" class="sidebar-link sub-link">4.1 Sản Lượng Hàng Năm (Hình 2)</a></li>
+        <li><a href="#sec4-2" class="sidebar-link sub-link">4.2 Tạp Chí & Tác Giả (Hình 3)</a></li>
+        <li><a href="#sec4-3" class="sidebar-link sub-link">4.3 Chủ Đề & Mạng Lưới Từ Khóa (Hình 4, 5)</a></li>
+        <li><a href="#sec4-4" class="sidebar-link sub-link">4.4 Bản Đồ Chủ Đề & Hợp Tác Quốc Tế (Hình 6, 7)</a></li>
+        <li><a href="#sec5" class="sidebar-link">5. Tổng Hợp ADO-TCM & 3 Sai Lầm Lớn</a></li>
+        <li><a href="#sec5-1" class="sidebar-link sub-link">5.1 Chi Phí Sai Số Bất Đối Xứng</a></li>
+        <li><a href="#sec5-2" class="sidebar-link sub-link">5.2 Xác Thực Thời Gian & Look-Ahead Bias</a></li>
+        <li><a href="#sec5-3" class="sidebar-link sub-link">5.3 Học Máy Giải Trình (XAI / SHAP)</a></li>
+        <li><a href="#sec6" class="sidebar-link">6. Bảng Chương Trình Nghị Sự Tương Lai (Table 7)</a></li>
+        <li><a href="#sec7" class="sidebar-link">7. Kết Luận & Hàm Ý Thực Tiễn</a></li>
+        <li><a href="#figures-gallery" class="sidebar-link">8. Thư Viện 7 Biểu Đồ Gốc Chuẩn AAA</a></li>
+      </ul>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div><strong>Tạp chí:</strong> Journal of Information Systems (JIS)</div>
+      <div><strong>Xuất bản:</strong> AAA (2026) • DOI: 10.2308/ISYS-2025-064</div>
+    </div>
+  </aside>
+
+  <!-- Main Content Wrapper -->
+  <div class="main-wrapper">
+
+    <!-- Top Action Bar -->
+    <header class="top-bar">
+      <div class="doc-meta-badge">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        <span>Bản Dịch Học Thuật Tiếng Việt Toàn Văn • Đỉnh Cao Học Thuật AAA (JIS 2026)</span>
+      </div>
+
+      <div class="ctrl-group">
+        <button class="ctrl-btn" onclick="adjustFontSize(-1)" title="Giảm cỡ chữ">A-</button>
+        <button class="ctrl-btn" onclick="adjustFontSize(1)" title="Tăng cỡ chữ">A+</button>
+        <button class="ctrl-btn" onclick="toggleTheme()" title="Chuyển chế độ Sáng / Tối">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          Giao diện
+        </button>
+        <button class="ctrl-btn" onclick="window.print()" title="In hoặc Lưu PDF">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 6 2 18 2 18 9"></polyline>
+            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+            <rect x="6" y="14" width="12" height="8"></rect>
+          </svg>
+          In / PDF
+        </button>
+        <a href="../index.html" class="ctrl-btn" style="text-decoration:none;" title="Quay lại Thư viện Video">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+          Thư viện
+        </a>
+      </div>
+    </header>
+
+    <!-- Content Body -->
+    <main class="content-area">
+
+      <!-- Paper Title & Metadata -->
+      <article class="paper-header">
+        <span class="journal-badge">Journal of Information Systems • American Accounting Association (AAA)</span>
+        <h1 class="paper-title">Ứng Dụng Học Máy Trong Kế Toán: Xu Hướng Hiện Tại và Triển Vọng Tương Lai</h1>
+        <div style="font-size: 1.15rem; color: var(--text-muted); margin-bottom: 1rem; font-style: italic;">
+          (Original Title: Applications of Machine Learning in Accounting: Current Trends and Future Perspectives)
+        </div>
+
+        <div class="paper-authors">
+          <strong>Federico Chmet</strong> (Đại học Piemonte Orientale, Ý), 
+          <strong>Davide Calandra</strong> &amp; <strong>Silvana Secinaro</strong> (Đại học Torino, Ý), 
+          <strong>Ahmed A. Elamer</strong> (Đại học Alfaisal, Ả Rập Xê Út)
+        </div>
+
+        <div class="authors-affiliation">
+          Chấp thuận đăng bởi Trưởng ban Biên tập (Senior Editor) Tawei Wang • Journal of Information Systems • DOI: 10.2308/ISYS-2025-064
+        </div>
+
+        <div class="paper-meta-grid">
+          <div>
+            <div class="meta-item-label">Thời gian khảo sát</div>
+            <div class="meta-item-value">1992 – 2025 (34 năm)</div>
+          </div>
+          <div>
+            <div class="meta-item-label">Quy mô mẫu dữ liệu</div>
+            <div class="meta-item-value">273 bài báo bình duyệt WoSCC</div>
+          </div>
+          <div>
+            <div class="meta-item-label">Nguồn học thuật</div>
+            <div class="meta-item-value">125 tạp chí kế toán đỉnh cao</div>
+          </div>
+          <div>
+            <div class="meta-item-label">Khung nghiên cứu</div>
+            <div class="meta-item-value">PRISMA + ADO-TCM Framework</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Abstract Section -->
+      <section id="abstract" class="abstract-box">
+        <h3 class="abstract-title">Tóm Tắt Nghiên Cứu (Abstract)</h3>
+        <p class="abstract-content">
+          Học máy (Machine Learning - ML) ngày càng được ứng dụng rộng rãi nhằm phát hiện gian lận, dự báo kiệt quệ tài chính, phân tích công bố thông tin và hỗ trợ công tác kiểm toán. Các nghiên cứu tổng quan trước đây thường lập bản đồ các ứng dụng hoặc phương pháp kỹ thuật đơn lẻ nhưng hiếm khi kết nối các bài toán nghiệp vụ kế toán với các quyết định thiết kế, kiểm chứng và quản trị mô hình ML. 
+          Chúng tôi đã thực hiện tổng quan hệ thống trên 273 bài báo bình duyệt thuộc danh mục Web of Science Core Collection xuất bản từ năm 1992 đến năm 2025, kết hợp giữa bản đồ khoa học trắc lượng thư mục (Bibliometric Science Mapping) với khung tổng hợp Tiền đề - Quyết định - Kết quả (Antecedents-Decisions-Outcomes - ADO) được bồi đắp qua lăng kính Lý thuyết - Bối cảnh - Phương pháp (Theory-Context-Method - TCM).
+          Y văn tập trung thành các cụm xung quanh việc dự báo phá sản & kiệt quệ tài chính, chất lượng báo cáo và gian lận, được kết nối xuyên suốt thông qua phân tích dữ liệu kiểm toán và phân tích văn bản. Việc áp dụng ML được thúc đẩy chủ yếu bởi áp lực chứng thực (Assurance Pressure), thông tin phi cấu trúc và dữ liệu quy trình kỹ thuật số. Tuy nhiên, phần lớn các nghiên cứu hiện nay vẫn dựa dẫm quá mức vào các chỉ số thiên về độ chính xác thuần túy (Accuracy-oriented metrics), kiểm chứng phi thời gian (Nontemporal validation) và khả năng giải trình mang tính "báo cáo cho có" chứ chưa được kiểm thử trong thực tế. Chúng tôi chỉ ra cách thức các điều kiện kế toán cần phải rèn giũa quy trình đánh giá ML và đề xuất một chương trình nghị sự nghiên cứu hướng tới mô hình ML nhạy cảm với chi phí (Cost-aware), vững chắc theo thời gian (Temporally robust) và có thể quản trị, kiểm soát được trong kế toán.
+        </p>
+        <div class="keywords-line">
+          <strong>Từ khóa cốt lõi:</strong> Machine learning; Accounting; Auditing; Bibliometric analysis; ADO-TCM framework; Cost-sensitive learning; Look-ahead bias; Explainable AI (XAI / SHAP).
+        </div>
+      </section>
+
+      <!-- Section 1 -->
+      <section id="sec1">
+        <h2 class="section-title"><span class="section-number">1</span> Mở Đầu (Introduction)</h2>
+        <p>
+          Học máy (ML) hiện nay đóng vai trò vô cùng quan trọng đối với ngành kế toán - kiểm toán, vừa là một công cụ thực tiễn mạnh mẽ để giải quyết các khối lượng bằng chứng khổng lồ và không đồng nhất, vừa là một đối tượng nghiên cứu học thuật sâu sắc nhằm thấu hiểu cách thức các mô hình điều khiển bằng dữ liệu tác động đến phán đoán nghề nghiệp, hoạt động chứng thực và chất lượng báo cáo tài chính. Các hệ sinh thái doanh nghiệp (ERP) tạo ra các dấu vết giao dịch chi tiết, nhật ký kiểm soát quy trình và siêu dữ liệu vận hành ở cấp độ từng dòng nghiệp vụ; trong khi đó, báo cáo doanh nghiệp là sự kết hợp phức hợp giữa báo cáo số liệu định lượng với các thuyết minh tường thuật, báo cáo kiểm toán và các tài liệu chứa đầy ngôn ngữ tự nhiên. Trong môi trường này, ML — một nhánh con định hướng dữ liệu của Trí tuệ nhân tạo (AI) — đã được áp dụng để giải quyết những tác vụ mà quy mô, tính không đồng nhất và mối quan hệ phi tuyến tính vượt qua năng lực của các phương pháp phân tích truyền thống (Jordan và Mitchell 2015; Bhimani và Willcocks 2014).
+        </p>
+        <p>
+          Trong nghiên cứu kế toán, các ứng dụng của ML đã mở rộng từ các mục đích dự báo ban đầu (như sàng lọc kiệt quệ tài chính và gian lận) sang một phổ ứng dụng phong phú hơn rất nhiều: phát hiện sai sót trọng yếu, phân tích dữ liệu kiểm toán chuyên sâu, và khai phá văn bản đối với các thuyết minh tài chính cùng các vấn đề kiểm toán quan trọng (Key Audit Matters - KAMs) (Perols 2011; Hayes và Boritz 2021; Bao et al. 2020).
+        </p>
+        <p>
+          Đồng thời, bối cảnh đặc thù của kế toán đặt ra những ràng buộc vô cùng khắt khe làm phức tạp hóa quá trình chuyển hóa từ hiệu suất dự báo kỹ thuật thành giá trị ra quyết định thực tế. Đầu ra của mô hình ML thường hỗ trợ phán đoán chuyên môn của kế toán viên và kiểm toán viên dưới các điều kiện: <strong>chi phí sai số bất đối xứng (Asymmetric error costs)</strong>, <strong>sự phụ thuộc chặt chẽ theo thời gian (Temporal dependence)</strong>, và <strong>yêu cầu nghiêm ngặt về trách nhiệm giải trình</strong> đòi hỏi tính tài liệu hóa, khả năng tái lập và tính thẩm tra được (Bertomeu 2020; Zhang et al. 2022).
+        </p>
+
+        <div class="callout callout-warning">
+          <div class="callout-title">⚠️ Hai Giới Hạn Cốt Lõi Của Các Nghiên Cứu Tổng Quan Trước Đây:</div>
+          <ol>
+            <li><strong>Chỉ mô tả nơi ứng dụng ML mà không đánh giá sự tương thích phương pháp:</strong> Các bài tổng quan trước đây thường chỉ liệt kê các chủ đề (gian lận, phá sản, văn bản) hoặc phân loại theo thuật toán (mạng nơ-ron, SVM, cây quyết định), nhưng bỏ ngỏ câu hỏi sống còn: <em>Liệu thiết kế mô hình và phương pháp kiểm chứng có tương thích với bản chất nghiệp vụ kế toán hay không?</em></li>
+            <li><strong>Lý thuyết chỉ dùng để giới thiệu bối cảnh chứ chưa định hình thiết kế kỹ thuật:</strong> Các lý thuyết kế toán (lý thuyết đại diện, tam giác gian lận) thường chỉ được trích dẫn để mở đầu bài báo, chứ chưa bao giờ được dùng để điều chỉnh hàm mất mát nhạy cảm chi phí (Cost-sensitive loss function), cửa sổ thời gian kiểm chứng (Validation windows), hay ngưỡng cắt phán đoán kiểm toán.</li>
+          </ol>
+        </div>
+
+        <h3 class="sub-section-title">Hai Câu Hỏi Nghiên Cứu Cốt Lõi (Research Questions):</h3>
+        <ul>
+          <li><strong>RQ1:</strong> Cấu trúc tri thức, các lĩnh vực ứng dụng và các mẫu hình Lý thuyết - Bối cảnh - Phương pháp (TCM) nào đang định hình nghiên cứu học máy trong kế toán?</li>
+          <li><strong>RQ2:</strong> Các tiền đề kế toán định hình quyết định thiết kế và kiểm chứng ML như thế nào, và những quyết định này tạo ra các kết quả công bố cùng các khoảng trống nghiên cứu ra sao?</li>
+        </ul>
+      </section>
+
+      <!-- Section 2 & 3 -->
+      <section id="sec2">
+        <h2 class="section-title"><span class="section-number">2</span> Bối Cảnh Nghiên Cứu &amp; Khung Phân Tích Kép ADO-TCM</h2>
+        <p>
+          Để giải quyết triệt để các hạn chế trên, công trình tiên phong kết hợp giữa <strong>Khung tổng hợp ADO (Antecedents - Decisions - Outcomes)</strong> với lăng kính <strong>TCM (Theory - Context - Method)</strong>:
+        </p>
+        <ul>
+          <li><strong>Tiền đề (Antecedents):</strong> Các áp lực nghiệp vụ buộc doanh nghiệp và kiểm toán viên phải tìm đến ML, bao gồm: rủi ro gian lận báo cáo tài chính, áp lực tuân thủ và chứng thực kiểm toán, sự bùng nổ của thông tin văn bản phi cấu trúc, và dữ liệu nhật ký quy trình số hóa (Process logs).</li>
+          <li><strong>Quyết định thiết kế (Decisions):</strong> Cách thức xây dựng mô hình ML: định dạng bài toán (phân loại nhị phân, xử lý sự kiện hiếm), biểu diễn đặc trưng dữ liệu, kỹ thuật kiểm chứng mô hình (kiểm chứng theo thời gian hay chia ngẫu nhiên), thiết lập ngưỡng cắt nhạy cảm chi phí, và xây dựng hiện vật giải trình (Explainability artifacts).</li>
+          <li><strong>Kết quả (Outcomes):</strong> Hiệu quả thực tế đạt được: độ tăng trưởng năng lực dự báo (Predictive lift), tối ưu hóa phân bổ nguồn lực kiểm toán, sàng lọc dị biệt tự động, và tính thẩm tra được trước cơ quan thanh tra giám sát.</li>
+          <li><strong>Lăng kính TCM:</strong> Khảo sát thấu đáo các lý thuyết nền tảng (Agency theory, Fraud triangle), bối cảnh nghiên cứu (Hoa Kỳ, Trung Quốc, Châu Âu; BCTC, kiểm toán độc lập, thuế), và phương pháp thực nghiệm (Hồi quy, NLP, Học sâu).</li>
+        </ul>
+      </section>
+
+      <!-- Section 3: PRISMA -->
+      <section id="sec3">
+        <h2 class="section-title"><span class="section-number">3</span> Phương Pháp Luận &amp; Quy Trình Tuyển Chọn PRISMA</h2>
+        <p>
+          Nghiên cứu áp dụng quy trình tổng quan y văn có cấu trúc (Structured Literature Review - SLR) kết hợp chặt chẽ theo hướng dẫn chuẩn quốc tế <strong>PRISMA 2020 (Page et al., 2021)</strong> trên cơ sở dữ liệu học thuật uy tín nhất thế giới: <strong>Web of Science Core Collection (WoSCC)</strong>.
+        </p>
+
+        <!-- FIGURE 1 -->
+        <div id="fig1" class="figure-wrapper">
+          <div class="figure-header">
+            <span>QUY TRÌNH LỌC TỔNG QUAN THEO CHUẨN PRISMA 2020</span>
+            <span class="figure-badge">HÌNH 1 GỐC</span>
+          </div>
+          <div class="figure-img-container">
+            <img class="figure-img" src="figures/fig1_prisma_workflow.jpeg" alt="Quy trình lọc tổng quan nghiên cứu PRISMA 2020" />
+          </div>
+          <div class="figure-caption">
+            <strong>Hình 1: Quy trình lọc tổng quan và tuyển chọn nghiên cứu (Review Workflow and Study Selection Process).</strong> 
+            Sơ đồ dòng chảy PRISMA thể hiện 4 giai đoạn minh bạch: (1) Nhận diện (Identification) với 1.482 bản ghi ban đầu từ WoSCC; (2) Sàng lọc sơ bộ (Screening) loại bỏ trùng lặp và bài ngoài phạm vi; (3) Đánh giá toàn văn (Eligibility) với 389 bài; và (4) Mẫu chính thức đưa vào phân tích chuyên sâu gồm <strong>273 bài báo bình duyệt đỉnh cao</strong> xuất bản trong giai đoạn 1992 - 2025.
+          </div>
+        </div>
+
+        <div class="table-container">
+          <table class="academic-table">
+            <thead>
+              <tr>
+                <th>Chỉ Tiêu Thống Kê Dữ Liệu (WoSCC 1992 - 2025)</th>
+                <th>Giá Trị Ghi Nhận</th>
+                <th>Ý Nghĩa Học Thuật Trong Kế Toán &amp; Kiểm Toán</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Khung thời gian nghiên cứu (Timespan)</td>
+                <td><strong>1992 – 2025</strong></td>
+                <td>34 năm phát triển từ mạng nơ-ron sơ khai đến XAI và LLM hiện đại.</td>
+              </tr>
+              <tr>
+                <td>Tổng số công trình bình duyệt chính thức (Documents)</td>
+                <td><strong>273 bài báo</strong></td>
+                <td>Bộ ngữ liệu chuẩn mực, chất lượng cao nhất được lọc qua các tiêu chí khắt khe.</td>
+              </tr>
+              <tr>
+                <td>Số lượng tạp chí học thuật tham gia (Sources)</td>
+                <td><strong>125 tạp chí</strong></td>
+                <td>Độ phân tán rộng khắp, hội tụ ở các tạp chí hàng đầu về Hệ thống thông tin kế toán (AIS).</td>
+              </tr>
+              <tr>
+                <td>Tốc độ tăng trưởng sản lượng hàng năm (Annual Growth Rate)</td>
+                <td><strong>11.45%</strong></td>
+                <td>Tốc độ phát triển bùng nổ, đặc biệt tăng mạnh sau năm 2018.</td>
+              </tr>
+              <tr>
+                <td>Số lượng tác giả đóng góp (Authors)</td>
+                <td><strong>753 nhà khoa học</strong></td>
+                <td>Trung bình 3.04 đồng tác giả/bài, 26.37% có hợp tác quốc tế.</td>
+              </tr>
+              <tr>
+                <td>Số lượt trích dẫn trung bình trên mỗi bài (Avg Citations/Doc)</td>
+                <td><strong>21.16 lần</strong></td>
+                <td>Tác động học thuật rất vững chắc trong một lĩnh vực liên ngành tương đối trẻ.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Section 4: Bibliometrics -->
+      <section id="sec4">
+        <h2 class="section-title"><span class="section-number">4</span> Kết Quả Trắc Lượng Thư Mục (Bibliometric Science Mapping)</h2>
+
+        <!-- Sub 4.1 -->
+        <h3 id="sec4-1" class="sub-section-title">4.1 Sản Lượng Khoa Học &amp; Tiến Trình Phát Triển Hàng Năm</h3>
+        <p>
+          Lịch sử phát triển của Machine Learning trong kế toán có thể chia làm 3 làn sóng rõ rệt: Giai đoạn ươm mầm (1992 - 2010) với các thử nghiệm dự báo phá sản bằng mạng nơ-ron; Giai đoạn định hình (2011 - 2017) với hồi quy Logistic, SVM và Random Forest; và Giai đoạn bùng nổ (2018 - 2025) với học sâu, khai phá quy trình và xử lý ngôn ngữ tự nhiên.
+        </p>
+
+        <!-- FIGURE 2 -->
+        <div id="fig2" class="figure-wrapper">
+          <div class="figure-header">
+            <span>XU HƯỚNG SẢN LƯỢNG KHOA HỌC HÀNG NĂM (1992 – 2025)</span>
+            <span class="figure-badge">HÌNH 2 GỐC</span>
+          </div>
+          <div class="figure-img-container">
+            <img class="figure-img" src="figures/fig2_annual_production.jpeg" alt="Biểu đồ sản lượng khoa học hàng năm 1992 - 2025" />
+          </div>
+          <div class="figure-caption">
+            <strong>Hình 2: Sản lượng bài báo khoa học hàng năm (Annual Scientific Production).</strong> 
+            Biểu đồ cột thể hiện số lượng bài báo công bố từ năm 1992 đến 2025. Sản lượng tăng trưởng theo hàm mũ: từ dưới 5 bài/năm trước năm 2015 lên tới đỉnh cao hơn 40 bài/năm trong giai đoạn 2023 - 2025, phản ánh sự dịch chuyển trọng tâm của ngành kế toán sang chuyển đổi số và trí tuệ nhân tạo.
+          </div>
+        </div>
+
+        <!-- Sub 4.2 -->
+        <h3 id="sec4-2" class="sub-section-title">4.2 Tạp Chí Xuất Bản Hàng Đầu &amp; Năng Suất Tác Giả</h3>
+        <p>
+          Các bài báo phân bố tập trung tại các tạp chí đầu ngành về hệ thống thông tin kế toán (AIS): dẫn đầu là <em>International Journal of Accounting Information Systems (IJAIS)</em> với 18 bài, tiếp theo là <em>Journal of Information Systems (JIS)</em> với 13 bài, và các tạp chí kế toán danh giá như <em>The Accounting Review (TAR)</em> (7 bài), <em>Accounting Horizons (AH)</em> (7 bài), <em>Contemporary Accounting Research (CAR)</em> (6 bài).
+        </p>
+
+        <!-- FIGURE 3 -->
+        <div id="fig3" class="figure-wrapper">
+          <div class="figure-header">
+            <span>NĂNG SUẤT TÁC GIẢ THEO ĐỊNH LUẬT LOTKA</span>
+            <span class="figure-badge">HÌNH 3 GỐC</span>
+          </div>
+          <div class="figure-img-container">
+            <img class="figure-img" src="figures/fig3_lotka_law.jpeg" alt="Năng suất tác giả theo định luật Lotka" />
+          </div>
+          <div class="figure-caption">
+            <strong>Hình 3: Phân bố năng suất tác giả theo Định luật Lotka (Author Productivity through Lotka's Law).</strong> 
+            Minh chứng quy luật kinh điển trong nghiên cứu khoa học: Một nhóm nhỏ các tác giả nòng cốt (dẫn đầu là Giáo sư Miklos A. Vasarhelyi - Đại học Rutgers) có năng suất công bố liên tục và tạo lập nền móng cho ngành, trong khi phần lớn các nhà nghiên cứu khác tham gia đóng góp mang tính chuyên khảo đơn lẻ.
+          </div>
+        </div>
+
+        <!-- Sub 4.3 -->
+        <h3 id="sec4-3" class="sub-section-title">4.3 Tiến Hóa Chủ Đề &amp; Mạng Lưới Đồng Xuất Hiện Từ Khóa</h3>
+        <p>
+          Phân tích tiến hóa chủ đề (Trend Topics) qua các giai đoạn cho thấy sự chuyển hướng căn bản từ các thuật toán phân loại hộp đen truyền thống sang các chủ đề hiện đại: <strong>Xử lý ngôn ngữ tự nhiên (NLP)</strong> phân tích báo cáo thường niên 10-K, <strong>Khai phá văn bản (Text mining)</strong>, và <strong>Học máy giải trình (Explainable AI - XAI)</strong>.
+        </p>
+
+        <!-- FIGURE 4 -->
+        <div id="fig4" class="figure-wrapper">
+          <div class="figure-header">
+            <span>TIẾN HÓA CÁC CHỦ ĐỀ NGHIÊN CỨU NỔI BẬT (TREND TOPICS)</span>
+            <span class="figure-badge">HÌNH 4 GỐC</span>
+          </div>
+          <div class="figure-img-container">
+            <img class="figure-img" src="figures/fig4_trend_topics.jpeg" alt="Tiến hóa chủ đề nghiên cứu học máy trong kế toán" />
+          </div>
+          <div class="figure-caption">
+            <strong>Hình 4: Tiến hóa các chủ đề nghiên cứu nổi bật (Trend Topics).</strong> 
+            Biểu đồ thể hiện quãng thời gian xuất hiện và mật độ của các từ khóa chủ chốt. Giai đoạn gần đây ghi nhận sự lên ngôi vượt trội của các chủ đề: Textual Analysis, Audit Analytics, Deep Learning, Process Mining và Explainable AI.
+          </div>
+        </div>
+
+        <!-- FIGURE 5 -->
+        <div id="fig5" class="figure-wrapper">
+          <div class="figure-header">
+            <span>MẠNG LƯỚI ĐỒNG XUẤT HIỆN TỪ KHÓA TOÀN DIỆN (CO-OCCURRENCE NETWORK)</span>
+            <span class="figure-badge">HÌNH 5 GỐC</span>
+          </div>
+          <div class="figure-img-container">
+            <img class="figure-img" src="figures/fig5_cooccurrence_network.jpeg" alt="Mạng lưới đồng xuất hiện từ khóa" />
+          </div>
+          <div class="figure-caption">
+            <strong>Hình 5: Mạng lưới đồng xuất hiện từ khóa (Co-Occurrence Network).</strong> 
+            "Machine learning" đóng vai trò tâm điểm kết nối (Hub trung tâm), liên kết trực tiếp với "Artificial Intelligence", "Bankruptcy prediction", "Fraud detection", "Audit quality", và "Deep learning". Các cụm màu sắc đại diện cho các phân nhánh chuyên sâu trong nghiên cứu kế toán - kiểm toán.
+          </div>
+        </div>
+
+        <!-- Sub 4.4 -->
+        <h3 id="sec4-4" class="sub-section-title">4.4 Bản Đồ Cấu Trúc Chủ Đề &amp; Mạng Lưới Hợp Tác Quốc Tế</h3>
+        <p>
+          Bản đồ chủ đề (Thematic Map) phân chia y văn thành 4 góc phần tư dựa trên hai trục: Mật độ phát triển nội tại (Density) và Mức độ liên kết bên ngoài (Centrality).
+        </p>
+
+        <!-- FIGURE 6 -->
+        <div id="fig6" class="figure-wrapper">
+          <div class="figure-header">
+            <span>BẢN ĐỒ CHỦ ĐỀ 4 GÓC PHẦN TƯ (THEMATIC MAP)</span>
+            <span class="figure-badge">HÌNH 6 GỐC</span>
+          </div>
+          <div class="figure-img-container">
+            <img class="figure-img" src="figures/fig6_thematic_map.jpeg" alt="Bản đồ chủ đề Thematic Map" />
+          </div>
+          <div class="figure-caption">
+            <strong>Hình 6: Bản đồ chủ đề (Thematic Map).</strong> 
+            Góc phần tư trên cùng bên phải thể hiện các <strong>Chủ đề động lực (Motor Themes)</strong>: Đánh giá rủi ro dự báo (Predictive risk assessment) và Kết quả báo cáo (Reporting outcomes). Góc dưới bên phải là các <strong>Chủ đề nền tảng (Basic Themes)</strong>: AI/ML, Big Data, phân tích hệ thống. Góc trên bên trái là các <strong>Chủ đề ngách (Niche Themes)</strong>: Phán đoán của kiểm toán viên, giải trình và truyền thông.
+          </div>
+        </div>
+
+        <!-- FIGURE 7 -->
+        <div id="fig7" class="figure-wrapper">
+          <div class="figure-header">
+            <span>BẢN ĐỒ HỢP TÁC QUỐC TẾ GIỮA CÁC QUỐC GIA (WORLD COLLABORATION MAP)</span>
+            <span class="figure-badge">HÌNH 7 GỐC</span>
+          </div>
+          <div class="figure-img-container">
+            <img class="figure-img" src="figures/fig7_countries_collaboration.jpeg" alt="Bản đồ hợp tác khoa học quốc tế" />
+          </div>
+          <div class="figure-caption">
+            <strong>Hình 7: Bản đồ hợp tác nghiên cứu giữa các quốc gia (Countries' Collaboration World Map).</strong> 
+            Hoa Kỳ là trung tâm học thuật lớn nhất với mạng lưới liên kết dày đặc tới Trung Quốc, Vương quốc Anh, Canada, Úc và Tây Âu. Trung Quốc là cực nghiên cứu lớn thứ hai với sản lượng bài báo gia tăng nhanh chóng trong thập kỷ qua.
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 5: ADO-TCM & 3 Critical Flaws -->
+      <section id="sec5">
+        <h2 class="section-title"><span class="section-number">5</span> Tổng Hợp ADO-TCM &amp; Bóc Trần 3 Sai Lầm Phương Pháp Luận Chí Mạng</h2>
+        <p>
+          Đóng góp học thuật chấn động nhất của công trình nghiên cứu trên <em>Journal of Information Systems</em> nằm ở việc <strong>bóc trần 3 sai lầm phương pháp luận phổ biến</strong> mà rất nhiều nghiên cứu ứng dụng ML trong kế toán - kiểm toán hiện nay đang mắc phải:
+        </p>
+
+        <!-- Flaw 1 -->
+        <div class="callout callout-danger">
+          <h3 style="color: #dc2626; margin-bottom: 0.5rem;">🚨 Sai Lầm 1: Bỏ Quên Chi Phí Sai Số Bất Đối Xứng (Asymmetric Error Costs)</h3>
+          <p>
+            Trong kỹ thuật máy học thuần túy, các nhà nghiên cứu thường tối ưu hóa <strong>Accuracy (Độ chính xác)</strong> hoặc <strong>AUC-ROC</strong>, ngầm định rằng sai số Loại I (False Positive - Báo động giả) và sai số Loại II (False Negative - Bỏ lọt gian lận/phá sản) có mức độ thiệt hại ngang bằng nhau ($C_{FP} = C_{FN}$).
+          </p>
+          <p>
+            <strong>Thực tế kiểm toán:</strong> Đây là một sai lầm chết người! Nếu kiểm toán viên gắn cờ nhầm một giao dịch hợp lệ (False Positive), chi phí chỉ là mất thêm 15 phút rà soát thủ công ($C_{FP}$ nhỏ). Nhưng nếu mô hình bỏ lọt một vụ gian lận báo cáo tài chính hàng triệu USD (False Negative), hậu quả là kiện tụng phá sản, mất giấy phép hành nghề và sự sụp đổ của công ty kiểm toán ($C_{FN}$ lớn gấp hàng trăm đến hàng nghìn lần). 
+            Do đó, việc khoe khoang một mô hình đạt "99% Accuracy" trên dữ liệu mất cân bằng là hoàn toàn vô nghĩa và độc hại. Bắt buộc phải áp dụng <strong>Cost-Sensitive Learning (Học máy nhạy cảm chi phí)</strong> và tối ưu hóa theo ma trận tổn thất kinh tế thực tế!
+          </p>
+        </div>
+
+        <!-- Flaw 2 -->
+        <div class="callout callout-warning">
+          <h3 style="color: #d97706; margin-bottom: 0.5rem;">🚨 Sai Lầm 2: Xác Thực Phi Thời Gian &amp; Rủi Ro Nhìn Trước (Look-Ahead Bias)</h3>
+          <p>
+            Rất nhiều bài báo áp dụng phương pháp chia mẫu ngẫu nhiên truyền thống (Random $K$-fold cross-validation hoặc 80/20 random train-test split). Điều này đồng nghĩa với việc lấy dữ liệu năm 2024 để "huấn luyện" mô hình dự đoán cho các báo cáo tài chính năm 2021!
+          </p>
+          <p>
+            <strong>Thực tế kiểm toán:</strong> Dữ liệu kế toán mang tính chuỗi thời gian chặt chẽ và chịu tác động của chu kỳ kinh tế, thay đổi chế độ kế toán và lạm phát. Việc chia mẫu ngẫu nhiên dẫn đến hiện tượng <strong>Rò rỉ thông tin tương lai (Information Leakage / Look-ahead Bias)</strong>, tạo ra độ chính xác ảo trên bài báo nhưng khi đưa vào thực tế kiểm toán sẽ thất bại thảm hại. Nghiên cứu yêu cầu bắt buộc phải sử dụng phương pháp <strong>Kiểm chứng cửa sổ cuốn theo thời gian (Rolling-window / Expanding-window temporal validation)</strong>: chỉ được dùng dữ liệu quá khứ $t-1$ để dự báo cho thời điểm $t$.
+          </p>
+        </div>
+
+        <!-- Flaw 3 -->
+        <div class="callout callout-info">
+          <h3 style="color: #0284c7; margin-bottom: 0.5rem;">🚨 Sai Lầm 3: Khả Năng Giải Trình "Báo Cáo Cho Có" (Reported rather than Tested Explainability)</h3>
+          <p>
+            Gần đây, các tác giả thường thêm vào bài viết một vài biểu đồ tầm quan trọng của biến (Feature Importance) hoặc giá trị SHAP (SHapley Additive exPlanations) và tuyên bố rằng mô hình của họ "hoàn toàn có thể giải trình được" (Explainable AI - XAI).
+          </p>
+          <p>
+            <strong>Thực tế kiểm toán:</strong> Một biểu đồ SHAP trừu tượng không có giá trị gì nếu kiểm toán viên hiện trường không thể hiểu và không thể dùng nó làm bằng chứng biện minh trước Hội đồng kiểm toán hoặc cơ quan quản lý (PCAOB, SEC, Bộ Tài chính). Tính giải trình phải được <strong>kiểm nghiệm thực tế trong môi trường tương tác Người - Máy (Human-in-the-loop experiment)</strong>: Kiểm toán viên có đưa ra quyết định tốt hơn, nhanh hơn và ít thiên lệch hơn khi nhìn vào các chỉ số giải thích đó hay không?
+          </p>
+        </div>
+      </section>
+
+      <!-- Section 6: Forward Agenda Table -->
+      <section id="sec6">
+        <h2 class="section-title"><span class="section-number">6</span> Bảng Chương Trình Nghị Sự Nghiên Cứu Tương Lai (Table 7)</h2>
+        <p>
+          Dưới đây là bảng tổng hợp toàn văn chương trình nghiên cứu tương lai được xây dựng trực tiếp từ kết quả tổng hợp ADO-TCM, định hướng cho các luận văn thạc sĩ, tiến sĩ và các đề tài cấp bộ về AI trong Kế toán - Kiểm toán:
+        </p>
+
+        <div class="table-container">
+          <table class="academic-table">
+            <thead>
+              <tr>
+                <th>Lĩnh Vực Trọng Tâm &amp; Khoảng Trống</th>
+                <th>Định Hướng Nghiên Cứu Cụ Thể (Research Directions)</th>
+                <th>Khung Lý Thuyết Tiềm Năng</th>
+                <th>Chiến Lược Dữ Liệu &amp; Thực Nghiệm</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>1. Đánh giá nhạy cảm chi phí (Cost-Aware Evaluation)</strong></td>
+                <td>Tích hợp trực tiếp chi phí bất đối xứng giữa sai số báo động giả ($C_{FP}$) và bỏ lọt gian lận ($C_{FN}$) vào hàm mục tiêu tối ưu; so sánh ranh giới ra quyết định thay vì chỉ đo AUC đơn thuần.</td>
+                <td>Lý thuyết đại diện (Agency theory), Lý thuyết chi phí giao dịch, Lý thuyết quyết định thống kê.</td>
+                <td>Mô phỏng ma trận tổn thất tài chính thực tế; bộ dữ liệu gian lận BCTC có trọng số tổn thất kinh tế của SEC AAERs.</td>
+              </tr>
+              <tr>
+                <td><strong>2. Kiểm chứng theo thời gian (Temporal Robustness)</strong></td>
+                <td>Đánh giá mô hình bằng kỹ thuật cửa sổ cuốn (Rolling/Expanding windows); nghiên cứu hiện tượng dịch chuyển khái niệm (Concept drift) khi nền kinh tế bước qua khủng hoảng.</td>
+                <td>Lý thuyết thể chế (Institutional theory), Lý thuyết chu kỳ kinh doanh.</td>
+                <td>Dữ liệu chuỗi thời gian dài hạn (Compustat, CRSP 1990–2025); kiểm thử sức căng (Stress testing) qua các đợt sốc kinh tế.</td>
+              </tr>
+              <tr>
+                <td><strong>3. Hợp tác Người - Máy (Human-Algorithm Teaming)</strong></td>
+                <td>Kiểm định thực nghiệm xem kiểm toán viên phản ứng thế nào trước các khuyến nghị của ML; phân tích hiện tượng thiên lệch tự động hóa (Automation bias) hoặc mất niềm tin (Algorithm aversion).</td>
+                <td>Lý thuyết xử lý thông tin nhận thức (Cognitive load), Lý thuyết hành vi ra quyết định.</td>
+                <td>Thực nghiệm trong phòng lab (Lab experiments) với kiểm toán viên thực thụ; đo lường độ chính xác và thời gian ra quyết định.</td>
+              </tr>
+              <tr>
+                <td><strong>4. Kiểm toán và Quản trị Mô hình (Model Governance &amp; Auditability)</strong></td>
+                <td>Thiết lập quy trình kiểm toán chính các mô hình AI (Auditing the Algorithm); lưu trữ dấu vết siêu dữ liệu, tính tái lập và bảo vệ dữ liệu nhạy cảm theo tiêu chuẩn quốc tế.</td>
+                <td>Lý thuyết trách nhiệm giải trình (Accountability theory), Lý thuyết đạo đức AI.</td>
+                <td>Phân tích trường hợp điển hình tại Big 4; xây dựng khung kiểm soát nội bộ theo chuẩn mực COSO và COBIT cho AI.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Section 7: Conclusion -->
+      <section id="sec7">
+        <h2 class="section-title"><span class="section-number">7</span> Kết Luận &amp; Hàm Ý Cho Đào Tạo Kế Toán Số</h2>
+        <p>
+          Công trình nghiên cứu của Federico Chmet và các cộng sự trên <em>Journal of Information Systems (2026)</em> khẳng định rằng: <strong>Kỷ nguyên áp dụng học máy ngây thơ (Naive ML adoption) vào kế toán đã chính thức khép lại.</strong> Việc chỉ đơn thuần lấy một bộ dữ liệu tài chính, nạp vào thư viện Scikit-learn hay XGBoost rồi khoe điểm Accuracy 98% không còn được cộng đồng học thuật đỉnh cao và các hãng kiểm toán quốc tế chấp nhận.
+        </p>
+        <p>
+          Tương lai của kế toán số và kiểm toán số đòi hỏi sự giao thoa sâu sắc:
+        </p>
+        <ul>
+          <li><strong>Kiến thức nghiệp vụ kế toán chuyên sâu:</strong> Hiểu rõ bản chất các tài khoản, nguyên tắc dồn tích, và hậu quả pháp lý của sai sót trọng yếu.</li>
+          <li><strong>Tư duy khoa học dữ liệu chặt chẽ:</strong> Làm chủ các kỹ thuật xử lý dữ liệu mất cân bằng cực đoan, kiểm chứng theo thời gian không rò rỉ tương lai, và áp dụng học máy giải trình (XAI) minh bạch.</li>
+          <li><strong>Đạo đức nghề nghiệp và Quản trị AI:</strong> Đảm bảo hệ thống AI luôn phục vụ con người, tuân thủ các chuẩn mực kiểm toán quốc tế (ISA, VSA) và bảo vệ an toàn tối đa cho hệ thống tài chính quốc gia.</li>
+        </ul>
+      </section>
+
+      <!-- Section 8: Figures Gallery -->
+      <section id="figures-gallery">
+        <h2 class="section-title"><span class="section-number">8</span> Danh Mục Trọn Vẹn 7 Hình Ảnh &amp; Biểu Đồ Trực Quan Gốc</h2>
+        <p>
+          Dưới đây là danh sách toàn bộ 7 hình ảnh gốc chuẩn độ phân giải cao được trích xuất trực tiếp từ bài báo khoa học gốc trên <em>Journal of Information Systems (AAA, 2026)</em>:
+        </p>
+        <ol>
+          <li><a href="#fig1" style="color: var(--primary); font-weight:600;">Hình 1:</a> Quy trình tuyển chọn và xử lý bài báo theo chuẩn PRISMA 2020 (Page 5).</li>
+          <li><a href="#fig2" style="color: var(--primary); font-weight:600;">Hình 2:</a> Sản lượng khoa học hàng năm giai đoạn 1992 - 2025 (Page 7).</li>
+          <li><a href="#fig3" style="color: var(--primary); font-weight:600;">Hình 3:</a> Phân bố năng suất tác giả theo Định luật Lotka (Page 9).</li>
+          <li><a href="#fig4" style="color: var(--primary); font-weight:600;">Hình 4:</a> Tiến hóa các chủ đề nghiên cứu nổi bật (Trend Topics) (Page 11).</li>
+          <li><a href="#fig5" style="color: var(--primary); font-weight:600;">Hình 5:</a> Mạng lưới đồng xuất hiện từ khóa toàn diện (Co-occurrence Network) (Page 11).</li>
+          <li><a href="#fig6" style="color: var(--primary); font-weight:600;">Hình 6:</a> Bản đồ chủ đề 4 góc phần tư Thematic Map (Page 12).</li>
+          <li><a href="#fig7" style="color: var(--primary); font-weight:600;">Hình 7:</a> Bản đồ hợp tác nghiên cứu giữa các quốc gia (Page 13).</li>
+        </ol>
+      </section>
+
+      <!-- Footer -->
+      <footer class="article-footer">
+        <p><strong>Bản Dịch Học Thuật Tiếng Việt Toàn Văn &amp; Chuyên Sâu</strong> — Môn Trí Tuệ Nhân Tạo &amp; Học Máy Trong Kế Toán</p>
+        <p style="margin-top: 0.35rem; color: var(--text-muted);">Trường Đại học Đông Á (UDA) • Khoa Kế toán - Kiểm toán • Phục vụ công tác nghiên cứu và giảng dạy chất lượng cao</p>
+      </footer>
+
+    </main>
+
+  </div>
+
+  <!-- Interactive JavaScript Logic -->
+  <script>
+    // Reading Progress Bar Logic
+    window.addEventListener('scroll', () => {
+      const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.getElementById('progress-bar').style.width = scrolled + '%';
+    });
+
+    // Dark/Light Theme Toggle
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme');
+      const target = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', target);
+      localStorage.setItem('doc_theme', target);
+    }
+
+    // Initialize Theme
+    const savedTheme = localStorage.getItem('doc_theme');
+    if (savedTheme) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+
+    // Font Size Adjustment
+    let currentFontSizeRem = 1.05;
+    function adjustFontSize(delta) {
+      currentFontSizeRem = Math.max(0.85, Math.min(1.4, currentFontSizeRem + delta * 0.05));
+      document.documentElement.style.setProperty('--content-font-size', currentFontSizeRem + 'rem');
+    }
+
+    // Active Sidebar Link Spy
+    const sections = document.querySelectorAll('section[id], div[id]');
+    const navLinks = document.querySelectorAll('.sidebar-link');
+
+    window.addEventListener('scroll', () => {
+      let currentSectionId = '';
+      sections.forEach(sec => {
+        const top = sec.offsetTop - 120;
+        if (window.pageYOffset >= top) {
+          currentSectionId = sec.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + currentSectionId) {
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
+
+</body>
+
+</html>
