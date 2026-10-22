@@ -1,0 +1,686 @@
+
+--- PAGE 1 ---
+ScienceDirect
+Available online at www.sciencedirect.com
+Procedia Computer Science 243 (2024) 1069–1078
+1877-0509 © 2024 The Authors. Published by Elsevier B.V.
+This is an open access article under the CC BY-NC-ND license (https://creativecommons.org/licenses/by-nc-nd/4.0)
+Peer-review under responsibility of the scientific committee of the 4th International Conference on Machine Learning 
+and Big Data Analytics for IoT Security and Privacy
+10.1016/j.procs.2024.09.127
+Keywords: deep learning; Listed company; Prediction of financial distress
+1. Introduction
+Enterprises will face many risks in the process of development, and financial risk is an inevitable type of risk. 
+Once any enterprise has a financial crisis, it will inevitably have a certain impact on the interests of the company, 
+investors and the stability of the capital market. In the face of increasingly fierce market competition, on the one 
+hand, enterprises in this environment will have a broader space for development, on the other hand, there will also 
+be a lot of crises, once the financial crisis occurs, it is likely to lead to bankruptcy of enterprises. Most of the 
+companies will face a gradual deterioration of the financial crisis. Therefore, if we can timely find the problems in 
+the process of enterprise operation, timely predict the financial crisis signals and possible financial losses of 
+enterprises, and ensure that enterprises can timely make effective adjustments to the actual situation in the 
+* Corresponding author. Tel.: +0-000-000-0000 ; fax: +0-000-000-0000 .
+E-mail address: Dyzyxy308@163.com
+The 4th International Conference on Machine Learning and Big Data Analytics for IoT Security and Privacy
+Financial distress Prediction based on deep learning model
+Yongliang Sun* 
+Dongying Vocational Institute, Dongying 257091,China
+Abstract
+In order to better solve the problem that the traditional prediction model can not effectively describe the causes of enterprise 
+financial crisis, this article uses deep learning model to further improve the effectiveness of enterprise financial distress
+prediction. To this end, this article selects A-share (non-financial industry) listed companies in Shanghai and Shenzhen from 
+2001 to 2018 as ST sample companies, the financial distress prediction model of listed companies including 23 financial 
+indicators based on deep learning was constructed, and the BP algorithm was used to test and verify the model. The prediction
+accuracy of the model is 78.33%, and the accuracy of predicting ST company is 82%, which verifies the feasibility of the model 
+in predicting financial distress.
+© 2024 The Authors. Published by Elsevier B.V.
+This is an open access article under the CC BY-NC-ND license (https://creativecommons.org/licenses/by-nc-nd/4.0)
+Peer-review under responsibility of the scientific committee of the 4th International Conference on Machine Learning and Big Data 
+Analytics for IoT Security and Privacy
+
+--- PAGE 2 ---
+1070
+Yongliang Sun  et al. / Procedia Computer Science 243 (2024) 1069–1078
+embryonic stage of financial crisis, we can better realize the healthy development of enterprises. Based on this, this 
+article constructs a deep learning model based on financial distress prediction, and takes listed companies as an 
+example to better capture the financial crisis that may exist in the development process of enterprises through the 
+improvement of the model, and timely help enterprises stop loss [1]. 
+2. Literature review
+For some analysts, recession is a model for determining whether a company is in financial trouble, and self-
+determination is a model for predicting stress finance first [2]. Based on the single financial ratio data of 19 sample 
+companies, the financial status of the company is predicted. The warning value of financial indicators is set to 
+determine whether the enterprise has fallen into financial distress. At the same time, it was determined that revenues 
+(membership equity and membership equity) had the greatest impact on the results observed [3]. Based on data from 
+the financial assessments of 79 companies in and out of financial crisis, an estimate of 30 financial indicators was 
+assessed using a different determination. The results showed that the estimation of the value of the income / total 
+expenses index was the best and the model had accurate accuracy. However, univariate analysis method can only 
+use one financial ratio index to predict the financial situation, so it is difficult to determine which index can 
+effectively distinguish the financial normal company from the financial distress company, and the model is set too 
+simple, so its forecasting ability is very limited[4]. Based on the non-matching principle, the distribution of sample 
+companies on the probability interval of bankruptcy, the relationship between the two discriminant errors and the 
+segmentation points are studied by using the Logistic nonlinear regression model. The results show that there are no 
+less than four kinds of indicators which can greatly affect the probability of bankruptcy of enterprises, and the 
+prediction accuracy of bankruptcy can be more than 90% by using these four variables. Through F test on the 
+financial index data of bankrupt companies and non-bankrupt companies, the results show that financial leverage, 
+rate of return, stock return and fixed income security can significantly affect the accuracy of the model prediction. 
+However, this method still has the constraint that collinearity cannot exist between independent variables[5]. Based 
+on 70 financially distressed enterprises and 70 financially normal enterprises as research samples, Domestic 
+researchers have successfully used Fisher's linear decision analysis, various horizontal modeling, and logistic 
+regression analysis to estimate a company's financial position. By comparing the prediction results of the three 
+methods, the Logistic regression model has the best prediction effect. It is pointed out that the financial forecast 
+using cash flow index is short-term, and the linear probability model and Logistic model are used to predict the 
+financial situation respectively. The conclusion is that the earning cash ratio is more important in both models, and 
+the Logistic model has better predictive ability[6].
+3. Construction of financial distress prediction of listed companies based on deep learning model
+3.1. Deep learning model construction
+The purpose of this line is to create a multi-layer deep neural network model that predicts the financial problems 
+of listed companies. As shown in Figure 1: The bottom layer is the input layer, and the input file is the financial 
+indicator selected in this section. An article that estimates the financial situation of listed companies. The number of 
+d cells in the entry process is determined by the final number of options. The process layer is the latent layer, the k 
+layer is the latent layer, and the number of neurons in each layer is determined only after the training network. The 
+top procedure is the output procedure, which is the result of the final distribution [7]. The result is the result that the 
+listed companies will be divided into ST and NON-ST, respectively.
+Figure 1 Deep learning model
+
+--- PAGE 3 ---
+Yongliang Sun  et al. / Procedia Computer Science 243 (2024) 1069–1078
+1071
+This article will select as many financial indicators as possible that can fully reflect the financial situation of the 
+enterprise, reduce the dimensionality of the multidimensional financial indicator data of the company through 
+unsupervised learning (feature learning), extract useful features, and then classify the sample company through 
+supervised learning (whether it is ST). Given training set is shown in Formula (1):
+𝐷𝐷= {(𝑥𝑥1, 𝑦𝑦1), (𝑥𝑥2, 𝑦𝑦2), . . . , (𝑥𝑥𝑚𝑚, 𝑦𝑦𝑚𝑚)}, 𝑥𝑥𝑖𝑖∈𝑅𝑅𝑑𝑑, 𝑦𝑦𝑖𝑖∈𝑅𝑅2(1)
+m represents the number of samples, x represents the d -dimensional vector, representing d selected financial 
+indicators, and y represents the 2-dimensional vector, representing two different classification results (ST and 
+NON-ST) [13]. The selected financial indicators are mapped to the hidden layer, and the output results of each 
+neuron in the first hidden layer, as shown in Formula (2):
+𝐹𝐹11 = 𝑓𝑓(∑𝜔𝜔𝑖𝑖1𝑥𝑥𝑖𝑖+ 𝑏𝑏1
+𝑑𝑑
+𝑖𝑖=1
+)
+𝐹𝐹12 = 𝑓𝑓(∑𝜔𝜔𝑖𝑖2𝑥𝑥𝑖𝑖+ 𝑏𝑏2
+𝑑𝑑
+𝑖𝑖=1
+)
+. . .
+𝐹𝐹1𝑝𝑝= 𝑓𝑓(∑
+𝜔𝜔𝑖𝑖𝑖𝑖𝑥𝑥𝑖𝑖+ 𝑏𝑏𝑝𝑝
+𝑑𝑑
+𝑖𝑖=1
+) (2)
+The output of the first latent layer is then taken as input from the second latent layer, and the output of each 
+neuron of the second latent layer, as shown in Formula (3):
+𝐹𝐹21 = 𝑓𝑓(∑𝑣𝑣𝑖𝑖1𝐹𝐹1𝑖𝑖+ 𝑐𝑐1
+𝑝𝑝
+𝑖𝑖=1
+)
+𝐹𝐹22 = 𝑓𝑓(∑𝑣𝑣𝑖𝑖2𝐹𝐹1𝑖𝑖+ 𝑐𝑐2
+𝑝𝑝
+𝑖𝑖=1
+)
+. . .
+𝐹𝐹2𝑞𝑞= 𝑓𝑓(∑
+𝑣𝑣𝑖𝑖𝑖𝑖𝐹𝐹1𝑖𝑖+ 𝑐𝑐𝑞𝑞
+𝑝𝑝
+𝑖𝑖=1
+)(3)
+3.2. Selection of research objects
+This line will select both good and bad companies with bad financial institutions and NON-ST companies. When 
+selecting a timeline survey, this article will select financial statements (t-3) of all company models for t year to 
+estimate whether the company will be ST [8]. The reason why according to the process involved in the publication 
+of the annual publications of listed companies in the Company of China, the deadline for the publication of the 
+publications The annual period of listed companies is within 4 months after the end of the annual financial year. 
+Therefore, the time to identify the company in t-year ST and (t-1) annual reports is almost the same. Therefore, it is 
+not advisable to use the information in the annual report of the company (t-1) to estimate whether the company will 
+be estimated by ST year t. This undoubtedly exaggerates the predictive power of the model and has no effect on 
+prior prediction. Therefore, the financial data of all sample companies (t-3) will be selected in this article to predict 
+whether the company will be ST in t year, so as to ensure that the trained model can be objective and robust in 
+achieving high prediction accuracy [9]. When selecting ST and NON-ST sample companies, the following criteria 
+are mainly followed:
+In t year, whether ST company or NON-ST company is selected, the financial data of (t-3) year is needed to 
+predict the situation of T year. Therefore, it is necessary to ensure that all companies in the sample of t years have 
+been listed at least in (t-3) years, otherwise it is impossible or difficult to obtain financial indicator data.
+(1) Due to the particularity of financial companies, financial companies are excluded from the sample companies 
+in this study;
+(2) When selecting the sample of ST companies, only the companies that are ST for the first time are selected, 
+that is, the companies change from normal to ST state for the first time since listing. For example, a company was 
+ST for the first time in 2001, and then became normal and experienced ST for many times, then only the financial 
+data of the company in 1998 were selected to predict the state of the company in 2001.
+(3) When selecting the sample of ST company, other companies that are not in abnormal financial condition are 
+
+--- PAGE 4 ---
+1072
+Yongliang Sun  et al. / Procedia Computer Science 243 (2024) 1069–1078
+excluded, so that the sample can better match the research content of this article;
+(4) When selecting the sample of NON-ST companies, we select the NON-ST companies of the current year with 
+a certain proportion of the number of companies selected for the first time every year. NON-ST companies here 
+refer to companies that have never been ST during the time span studied in this article [10].
+3.3. Establishment of index system
+According to the previous experience and the comprehensive principle of index selection, this article initially 
+selected the above 27 second-level indicators. In the process of data collection, there are a lot of missing data of the 
+four financial indicators including interest multiple, expansion rate of fixed asset investment, net cash content of net 
+profit and cash dividend guarantee multiple. According to the operable principle of index selection, these four 
+indicators should either be eliminated in order to retain all sample companies, or the sample companies with missing 
+data should be eliminated in order to retain these four indicators. Since there are not many ST sample companies, 
+this article keeps these sample companies and removes the above four indicators. Therefore, the index system finally 
+determined in this article consists of six first-level indicators and twenty-three second-level indicators, as shown in 
+Table 1.
+Table 1 Finalized index system
+First-level index
+Second-level index
+Calculation formula
+Solvency indicator
+Flow ratio X1
+Current assets/current liabilities
+Quick ratio X2
+(Current assets - net inventories)/ current liabilities
+Cash ratio X3
+(Monetary capital + tradable financial assets + notes receivable)/ current 
+liabilities
+Equity ratio X4
+Total liabilities/Total shareholders' equity
+Cash flow liability ratio X5
+Net cash flows/current liabilities from operating activities
+Profitability indicator
+Return on equity X6
+Net profit attributable to shareholders of parent company/average shareholders' 
+equity ×100%
+Return on total assets X7
+Earnings before interest and tax (EBIT)/ Average total assets ×100%
+Net interest rate on total 
+assets X8
+Net profit (including profit and loss of minority shareholders)/ total average 
+assets ×100%
+Net profit margin on sales 
+X9
+Net profit/operating revenue ×100%
+Operating margin X10
+Operating profit/operating revenue ×100%
+Earnings per share X11
+Current earnings / weighted average of current shareholders
+Operational 
+capability 
+indicator
+Inventory turnover X12
+Operating cost/average net inventory
+Accounts 
+receivable 
+turnover X13
+Operating income/average net accounts receivable
+Fixed asset turnover rate 
+X14
+Operating income/average total fixed assets
+Current asset turnover X15
+Operating income/Total average current assets
+Total asset turnover X16
+Operating income/Total average assets
+Indicators 
+of growth 
+ability
+Net profit growth rate X17
+(Net profit for the same period - net profit for the same period last year) / Net 
+profit for the same period last year × 100%
+Growth rate of total assets 
+X18
+(Total assets at the end of time - all assets at the beginning of the reporting 
+period) / Total assets at the beginning of time × 100%
+Revenue growth rate X19
+(Current earnings - earnings for the same period last year) / Earnings for the 
+same period last year × 100%
+Cash flow indicator
+Cash operating index X20
+Net cash flow from operating activities/gross operating cash flow
+Cash recovery rate of total 
+assets X21
+Net cash flow from operating activities/Total ending assets ×100%
+Net operating income cash 
+content X22
+Net cash flow from operating activities/operating income
+Capital 
+structure 
+indicator
+Asset-liability ratio X23
+Total liabilities/Total assets x 1100%
+
+--- PAGE 5 ---
+Yongliang Sun  et al. / Procedia Computer Science 243 (2024) 1069–1078
+1073
+4. A study of financial stress estimates of listed companies based on in-depth research standards
+4.1. Sample Selection
+In this article, A total of 465 listed companies in Shanghai and Shenzhen A-shares (non-financial industries) from 
+2001 to 2018 were selected as ST sample companies because of their abnormal financial conditions and were 
+specially treated for the first time. A total of 2325 companies that have never been ST from 2001 to 2018 were 
+selected as NON-ST sample companies with 5 times the number of ST companies each year. 
+In addition, when NON-ST sample companies are selected every year, the overall number of selected companies 
+is 5 times that of ST sample companies. This article also makes statistics on the number of companies in various 
+industries (non-financial industries) that are first ST listed every year, and then selects samples of NON-ST 
+companies in corresponding industries with the number of ST companies in each industry 5 times. 
+4.2. Financial distress prediction of listed companies based on deep learning network model
+(1) Training of deep learning network model
+After many times of network training and debugging, this article finally determines the network structure that is 
+suitable for the prediction effect of this study. It contains four hidden layers, and the dimensions of each layer are 
+18,14,10 and 5 respectively. Therefore, this article finally builds a five-layer deep learning network 
+(23,18,14,10,5,2). In the first step, auto-encoder algorithm is used for feature learning, and in the second step, BP 
+algorithm is used for classification learning. Next, the training process and results will be shown in detail.
+Firstly, the first four layers of deep learning network (23,18,14,10,5) are trained unsupervised layer by layer by 
+layer by auto-encoder algorithm. First, the first Encoder1 (23,18) and decoder Decoder1 (18,23) were trained. The 
+training loss function figure is shown in figure 2.
+0
+200
+400
+600
+800
+1000
+0.0
+0.2
+0.4
+0.6
+0.8
+Loss for every epoch
+Figure 2 Root mean square error of first-layer parameter training in deep learning network
+It can be seen from Figure 2 that when the training times are less than 400, the mean square error loss function 
+decreases rapidly. After 400 times, the value of the loss function began to decline steadily, accompanied by a small 
+range of local oscillation. But in general, the loss function shows a downward trend and eventually converges [19].
+The second layer parameter training loss function is shown in Figure 3. In this round of training, the mean square 
+error MSE loss function was used to calculate the reconstruction error, and the Tanh function was used as the 
+nonlinear activation function. After repeated debugging, the learning rate of this round of training is set at 0.001, 
+which can get better training effect. It can be seen that when the number of training is less than 200 times, the mean 
+square error loss function decreases rapidly. After 200 times, the value of the loss function decreases slowly, and 
+finally tends to be stable, and the loss function reaches convergence.
+
+--- PAGE 6 ---
+1074
+Yongliang Sun  et al. / Procedia Computer Science 243 (2024) 1069–1078
+0
+200
+400
+600
+800
+1000
+0.00
+0.01
+0.02
+0.03
+0.04
+0.05
+0.06
+0.07
+ Loss for every epoch
+Figure 3 Root mean square error of layer 2 parameter training in deep learning network
+After repeated debugging, the learning rate of this round of training is set at 0.001, which can get better training 
+effect. As shown in Figure 4, the mean square error loss function drops rapidly when the training times are less than 
+100 times. From 100 to 400 times, the cost of labor decreases rapidly. After 400 training sessions, the 
+unemployment gradually started to decline, eventually reaching a similar level.
+0
+200
+400
+600
+800
+1000
+0.00
+0.02
+0.04
+0.06
+0.08
+0.10
+0.12
+Loss for every epoch
+Figure 4 Root mean square error of layer 3 parameter training in deep learning network
+After completing the third layer of training, Encoder3 and Decoder3 are saved. The Code2 output after the 
+second encoder is input to the trained Encoder3 (14,10), and Code3 is output, which is then used as the input of the 
+fourth Encoder4 (10,5) and decoder Decoder4 (5,10) for the fourth layer parameter training. The loss function of 
+training is shown in Figure 5.
+0
+200
+400
+600
+800
+1000
+0.00
+0.02
+0.04
+0.06
+0.08
+0.10
+0.12
+Loss for every epoch
+Figure 5 Root mean square error of layer 4 parameter training in deep learning network
+Verification of deep learning network model
+The test set contains a total of 300 samples, including 50 ST companies and 250 NON-ST companies. The 
+
+--- PAGE 7 ---
+Yongliang Sun  et al. / Procedia Computer Science 243 (2024) 1069–1078
+1075
+samples of the test set do not coincide with the samples of the training set. The financial indicator data of the sample 
+company in the test set (T-3) in year T are successively passed through Encoder1, Encoder2, Encoder3, Encoder4 
+and Classifier, and the financial state prediction results of year T are shown in Table 2:
+Table 2 Prediction results of deep learning network model
+The actual
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+Prediction
+0 0 0 0 0 1 0 1 0 0 0 0 0 0 1 0 0 0 1 0 0 1 0 1 0 0 0 1 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0
+The actual
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+Prediction
+0 0 0 0 0 1 1 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 0 1 1 1 0 0 0 0 0 0 0 1 0 1 0 0 0 0 1 0 1 0 0
+The actual
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+Prediction
+1 1 1 0 0 1 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 1 0 1 1 0 1 0 0 0 0 0 0 1 0 1
+The actual
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+Prediction
+0 0 0 0 0 0 0 0 0 0 0 0 1 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 0 0 1 0 0 0 1 0 0 1 0 0 0 0
+The actual
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+Prediction
+1 1 1 1 1 1 0 1 1 0 0 1 1 1 0 1 0 1 1 1 1 1 1 1 1 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 0 0 0 0 1 0
+The actual
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+Prediction
+1 1 1 1 1 1 1 1 0 1 1 0 0 1 1 1 1 1 0 1 1 1 1 1 1 0 0 1 1 1 0 1 0 1 1 0 0 0 0 0 0 0 0 0 1 0 0 0 1 0
+0 represents the NON-ST company, 1 represents the ST company, the black number indicates that the model 
+correctly predicts the financial state of the company and the red number indicates that the model incorrectly predicts 
+the ST company to be the NON-ST company [20]. The confusion matrix between the actual state and the predicted 
+state was calculated by statistical calculation of the predicted results, so as to calculate the overall accuracy and sub-
+classification accuracy of the deep learning model, as shown in Table 3:
+Table 3 Prediction accuracy of deep learning network model
+Prediction state
+Actual state
+NON-ST Company
+ST company
+Accuracy of prediction
+NON-ST Company
+194
+56
+77.60%
+ST company
+9
+41
+82.00%
+78.33%
+Table 3 shows that in the view of NON-ST companies, the standard to be identified was 194 NON-ST companies 
+and 56 unconvented NON-ST companies. sold as ST companies. The accuracy of NON-ST company estimates can 
+be estimated at 77.60%. In ST company thinking, the model was identified as 41 ST company. The accuracy of ST 
+company assumptions is 82.00%, as nine ST companies have decided not to be ST companies. On the whole, the 
+model correctly identified 235 company states, with an overall prediction accuracy of 78.33%.
+First, the Logistic model is trained. In order to make an effective comparison, the same training set is used to 
+train the Logistic (23,2) binary classification model. The cross-entropy loss function of the training is shown in 
+figure (7): it can be seen that the value of the cross-entropy loss function basically converges after 1000 times of 
+training. Similarly, the test set will be used to verify the generalization ability of the Logistic model. The prediction 
+results of the Logistic model are shown in Table 4.
+0
+200
+400
+600
+800
+1000
+0.56
+0.58
+0.60
+0.62
+0.64
+0.66
+0.68
+0.70
+Loss for every epoch
+Figure 6 Cross entropy loss function of Logistic model training
+
+--- PAGE 8 ---
+1076
+Yongliang Sun  et al. / Procedia Computer Science 243 (2024) 1069–1078
+Table 4 Prediction results of Logistic model
+The actual
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+Prediction
+0 0 0 0 0 1 0 1 0 1 0 0 0 1 1 0 0 0 1 0 0 0 0 1 0 0 0 1 0 0 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0
+The actual
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+Prediction
+0 0 1 0 0 1 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 1 1 1 1 0 0 0 1 0 0 0 1 0 0 0 0 0 0 1 0 1 0 0
+The actual
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+Prediction
+1 1 1 1 1 0 1 1 0 0 0 1 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 1 1 0 0 0 0 0 0 1 1 0 1 1 0 1 0 0 0 0 0 0 1 0 1
+The actual
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+Prediction
+0 0 0 0 0 1 1 1 0 0 0 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 1 1 1 0 0 0 0 0 0 0 1 0 0 1 1 0 0 0
+The actual
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+Prediction
+1 1 1 0 1 0 0 1 1 0 0 1 1 0 0 1 0 1 1 1 1 1 1 1 1 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0
+The actual
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+Prediction
+1 1 1 1 1 0 1 1 0 1 1 0 0 1 1 1 1 1 0 1 1 1 1 1 1 1 0 1 1 1 0 1 0 1 1 1 1 1 1 0 1 1 0 0 1 0 0 0 1 0
+The confusion matrix between the actual state and the predicted state was calculated statistically based on the 
+prediction results, and the overall accuracy and sub-classification accuracy of the Logistic model were calculated as 
+shown in Table 5:
+Table 5 Prediction accuracy of Logistic model
+Prediction state
+Actual state
+NON-ST Company
+ST company
+Accuracy of prediction
+NON-ST Company
+176
+74
+70.40%
+ST company
+13
+37
+74.00%
+71.00%
+The Logistic model trained in this article has an overall prediction accuracy of more than 70% for financial 
+distress of listed companies, but its performance is obviously inferior to that of the deep learning model. This further 
+proves that establishing deep model can effectively improve the expression ability of the model.
+4.3. Financial distress prediction of listed companies based on BP neural network model
+In this article, two steps of auto-encoder unsupervised training and BP supervised training are used to train the 
+deep learning model in order to improve the defect of training the deep neural network only with BP algorithm. In 
+order to verify this point, BP algorithm will be adopted in this section to conduct supervisory training on the fifth 
+layer of deep neural network (23,18,14,10,5,2). The loss function of training is shown in Figure 7.
+0
+200
+400
+600
+800
+1000
+0.56
+0.58
+0.60
+0.62
+0.64
+0.66
+0.68
+0.70
+0.72
+Loss for every epoch
+Figure 7 Cross entropy loss function of BP neural network model training
+After the model training is completed, the test set is put into the trained model, and the prediction results are 
+shown in Table 6.
+Table 6 Prediction results of BP neural network model
+The actual
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+Prediction
+0 0 0 0 0 1 0 1 0 1 0 0 0 1 1 0 0 0 1 0 0 0 0 1 0 0 0 1 0 0 1 0 0 1 0 0 0 0 1 1 0 0 0 0 0 1 0 0 0 1
+The actual
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+--- PAGE 9 ---
+Yongliang Sun  et al. / Procedia Computer Science 243 (2024) 1069–1078
+1077
+Prediction
+0 0 1 0 0 1 1 0 1 1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 0 1 1 0 0 0 1 0 0 0 1 0 0 0 0 0 0 1 0 1 0 0
+The actual
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+Prediction
+0 0 1 1 0 1 1 0 0 0 1 0 1 0 1 0 0 0 0 0 1 0 0 1 0 0 0 1 0 0 0 0 0 0 1 1 0 1 1 0 1 0 0 0 0 0 0 1 0 1
+The actual
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+Prediction
+0 0 0 0 0 1 1 1 0 0 0 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 1 1 1 0 0 0 0 0 0 0 1 0 0 1 1 0 0 0
+The actual
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+Prediction
+1 1 1 0 1 0 0 1 1 0 0 1 1 0 0 1 1 1 1 1 1 0 1 1 1 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0
+The actual
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+Prediction
+0 1 1 1 1 0 1 1 0 0 1 0 1 1 1 1 1 1 0 1 1 1 1 0 1 1 0 1 1 1 0 1 0 1 1 1 1 0 0 0 1 1 0 0 1 0 0 0 1 0
+The confusion matrix between the actual state and the predicted state was calculated by statistical calculation of 
+the prediction results, and the overall accuracy and sub-classification accuracy of the BP neural network model were 
+calculated as shown in Table 7:
+Table 7 Prediction accuracy of BP neural network model
+Prediction state
+Actual state
+NON-ST Company
+ST company
+Accuracy of prediction
+NON-ST Company
+174
+76
+69.60%
+ST company
+15
+35
+70.00%
+69.67%
+4.4. Comparison and analysis of prediction results
+In this article, the deep learning model, Logistic model and BP neural network model are respectively used to 
+predict the financial state of the listed company (T-3) in T year based on its financial index data. The prediction 
+results are shown in Table 8:
+Table 8 Comparison of prediction results
+Deep learning model
+Logistic model
+BP neural network model
+Judge 
+correctly
+Judge 
+wrongly
+Accuracy 
+Rate
+Judge 
+correctly
+Judge 
+wrongly
+Accuracy 
+Rate
+Judge 
+correctly
+Judge 
+wrongly
+Accuracy 
+Rate
+NON-ST
+194
+56
+77.60%
+176
+74
+70.40%
+174
+76
+69.60%
+ST
+41
+9
+82.00%
+37
+13
+74.00%
+35
+15
+70.00%
+Total
+235
+65
+78.33%
+213
+87
+71.00%
+209
+91
+69.67%
+From the comparison results of the three models, it can be seen that the deep learning model performs better than 
+the Logistic model and BP neural network model in predicting NON-ST companies and predicting ST companies, as 
+well as in the overall forecasting ability of the model.
+A comparison of the benefits of in-depth training models and logistics model needs suggests that the overall 
+approximation of in-depth training models is better than in logistics models. The accuracy of the first assumption is 
+78.33%, and the last is 71.00%. Comparing the assumptions of the two models, making the depth of the model better 
+the model's ability to describe the real world, and this improvement in presentation is mainly due to the performance 
+of the model in-depth learning standards.
+The NON-ST company is 77.60% accurate and the logistics model is 70.40% accurate. Compared with the 
+logistics model, the in-depth research model has similarities in estimating NON-ST companies. In ST estimates, in-
+depth research models show higher estimates than delivery models, with estimated accuracy of 82.00% and 74.00%. 
+In practice, the higher the accuracy of ST requirements, the lower the negative understanding, because the cost of 
+reporting ST-based non-CT companies is greater than the NON-ST. According to the company ST, ST's high-
+precision (82%) and low error (18%) in the depth of the study model have the advantage of learning about financial 
+difficulties. Comparing the resulting estimates of the deep learning model and the BP neural network model, we can 
+see that the total estimates of the deep learning model, the NON-ST project, and the ST the forecast was better than 
+before. The accuracy of the total BP neural estimates was 78.33% and 69.67%, respectively. When it comes to 
+predicting NON-ST companies, the prediction accuracy is 77.60% and 69.60%, respectively. When predicting ST 
+company, the accuracy of the two predictions is 82.00% and 70.00% respectively. It can be seen from the 
+comparison of the prediction results of the two models that although the network structure of the two models is the 
+same (23,18,14,10,5,2) five-layer network, the prediction ability of the models is greatly different due to different 
+
+--- PAGE 10 ---
+1078
+Yongliang Sun  et al. / Procedia Computer Science 243 (2024) 1069–1078
+training algorithms. It can be seen from this that the deep learning model is not only able to show stronger prediction 
+ability by simply deepening the layers of traditional shallow neural network, but also depends on the improvement 
+of training algorithm to a large extent. In the previous article, it has been mentioned that BP algorithm is suitable for 
+training shallow neural networks. As the number of layers deepens, the training of BP algorithm has become very 
+difficult. If BP algorithm is used to train a deep neural network, its prediction ability may be inferior to that of 
+shallow neural network.       
+Therefore, in this article, the auto-encoder algorithm is first used for unsupervised layer by layer greedy training, 
+and then the BP algorithm is used for supervised training to train the whole network. This not only solves the 
+problem of gradient diffusion of the BP algorithm to train all the deep gradients, but also improves the distribution 
+of the samples. Comparing the benefits of standard logistics model and BP neural network model, the overall 
+accuracy of the standard logistics model is slightly higher than that of BP neural network model, while the overall 
+accuracy of the logistics model and BP neural network model standard is slightly higher. The patterns are 71.00% 
+and 69.67%. NON-ST estimated accuracy of Logsitic model at 70.40% and accuracy of BP neural network model at 
+69.60%. ST's calculations are accurate at 74.00% and 70.00%, respectively. Comparing the hypotheses of the two 
+models, it can be argued that simply increasing the neural network lag does not work better than competition in the 
+network, network issues, train the deep neural network.
+5. Conclusion 
+Compared with the traditional financial distress prediction model, the deep learning model can depict the real 
+world from linear to nonlinear and from shallow learning to deep learning. This improvement enables the deep 
+learning model to depict the nonlinear complex relationship between high-dimensional data and the hidden features, 
+and finally achieve the purpose of feature judgment. Based on this, this article constructs a five-layer 
+(23,18,14,10,5,2) deep learning network model, using the 23-dimensional financial index data of Shanghai and 
+Shenzhen A-share (non-financial) listed companies (T-3) in t years to predict their financial status (whether ST). 
+From the results, the deep learning model is obviously superior to the Logistic model and BP neural network model 
+in both the ability of predicting ST companies and NON-ST companies and the overall forecasting ability of the 
+model. Especially in the prediction of ST Company, the prediction accuracy of the deep learning model is as high as 
+82%. Which indicates that the deep learning model constructed and trained in this article can be fully applied to the 
+financial distress prediction of listed companies. Moreover, compared with the traditional Logistic model and BP 
+neural network model, it has a stronger ability of three years' early warning.
+References
+[1]
+Xu, Z. ,  Zhang, J. ,  Wang, J. , &  Xu, Z. . (2020). Prediction research of financial time series based on deep learning. Soft Computing, 
+24(6).
+[2]
+Lu, M. . (2020). A monetary policy prediction model based on deep learning. Neural Computing and Applications, 32(10), 5649-5668.
+[3]
+Xiaolan Qu. Analysis of Credit Risk Assessment Model for Financial Data Based on Intelligent Optimization Algorithm. Procedia 
+Computer Science, Volume 228, 2023, Pages 421-428.
+[4]
+Bo Huang, Xiao Yao, Yinqing Luo, Jing Li. Improving financial distress prediction using textual sentiment of annual reports. Ann. Oper. 
+Res. 330(1): 457-484 (2023).
+[5]
+Guan, R. ,  Wang, H. , &  Zheng, H. . (2020). Improving accuracy of financial distress prediction by considering volatility: an interval-
+data-based discriminant model. Computational Statistics, 35(4).
+[6]
+Jan, C. L. . (2021). Financial information asymmetry: using deep learning algorithms to predict financial distress. Symmetry, 13(3), 443.
+[7]
+Ji, X. ,  Wang, J. , &  Yan, Z. . (2021). A stock price prediction method based on deep learning technology. International Journal of Crowd 
+Science, 5(1), 55-72.
+[8]
+Ying Chen, Xiaojun Kuang, Jifeng Guo. LiFoL: An Efficient Framework for Financial Distress Prediction in High-Dimensional 
+Unbalanced Scenario. IEEE Trans. Comput. Soc. Syst. 11(2): 2784-2795 (2024).
+[9]
+Podhorska, I. ,  Vrbka, J. ,  Lazaroiu, G. , &  Kovacova, M. . (2020). Innovations in financial management: recursive prediction model 
+based on decision trees. Marketing and Management of Innovations(3), 276-292.
+[10]
+Kaoutar El Madou, Said Marso, Moad El Kharrim, Mohamed El Merouani. Evolutions in machine learning technology for financial 
+distress prediction: A comprehensive review and comparative analysis. Expert Syst. J. Knowl. Eng. 41(2) (2024).

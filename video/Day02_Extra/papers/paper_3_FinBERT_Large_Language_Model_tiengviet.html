@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>FinBERT: Mô Hình Ngôn Ngữ Lớn Đặc Thù Tài Chính Để Trích Xuất Thông Tin Từ Văn Bản Kế Toán — Bản Dịch Học Thuật Tiếng Việt (UDA)</title>
+  <meta name="description" content="Bản dịch tiếng Việt học thuật toàn văn công trình nghiên cứu: FinBERT: A Large Language Model for Extracting Information from Financial Text (Allen H. Huang (HKUST), Hui Wang (Đại học Nhân Dân Trung Hoa), Yi Yang (HKUST)). Tích hợp biểu đồ, ma trận dữ liệu và phân tích nghiệp vụ kế toán kiểm toán chuyên sâu." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-body: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-sidebar: #0f172a;
+      --sidebar-text: #e2e8f0;
+      --sidebar-muted: #94a3b8;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --primary: #2563eb;
+      --primary-light: #eff6ff;
+      --primary-border: #bfdbfe;
+      --accent: #0ea5e9;
+      --success: #10b981;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --border-color: #e2e8f0;
+      --code-bg: #1e293b;
+      --code-text: #f1f5f9;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+      --content-font-size: 1.05rem;
+      --line-height: 1.85;
+      --radius-md: 12px;
+      --radius-sm: 8px;
+    }
+
+    [data-theme="dark"] {
+      --bg-body: #0b0f19;
+      --bg-surface: #131b2e;
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --primary: #3b82f6;
+      --primary-light: rgba(59, 130, 246, 0.15);
+      --primary-border: rgba(59, 130, 246, 0.35);
+      --border-color: #1e293b;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.4);
+      --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.5);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg-body);
+      color: var(--text-main);
+      line-height: var(--line-height);
+      font-size: var(--content-font-size);
+      display: flex;
+      min-height: 100vh;
+      transition: background-color 0.25s ease, color 0.25s ease;
+    }
+
+    /* Reading Progress Bar */
+    #progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #2563eb, #38bdf8, #8b5cf6);
+      width: 0%;
+      z-index: 9999;
+      transition: width 0.1s linear;
+    }
+
+    /* Sidebar Navigation */
+    .sidebar {
+      width: 330px;
+      background-color: var(--bg-sidebar);
+      color: var(--sidebar-text);
+      height: 100vh;
+      position: sticky;
+      top: 0;
+      overflow-y: auto;
+      flex-shrink: 0;
+      border-right: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      flex-direction: column;
+      z-index: 100;
+    }
+
+    .sidebar-header {
+      padding: 1.5rem 1.25rem 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .sidebar-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #38bdf8;
+      margin-bottom: 0.4rem;
+    }
+
+    .sidebar-subtitle {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.35;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    .sidebar-author {
+      font-size: 0.8rem;
+      color: var(--sidebar-muted);
+      margin-top: 0.35rem;
+    }
+
+    .sidebar-nav {
+      padding: 1rem 0.75rem 2.5rem;
+      flex-grow: 1;
+    }
+
+    .nav-group-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #64748b;
+      padding: 0.85rem 0.65rem 0.35rem;
+    }
+
+    .sidebar-link {
+      display: block;
+      padding: 0.5rem 0.75rem;
+      font-size: 0.88rem;
+      color: var(--sidebar-muted);
+      text-decoration: none;
+      border-radius: var(--radius-sm);
+      transition: all 0.15s ease;
+      line-height: 1.4;
+      margin-bottom: 2px;
+    }
+
+    .sidebar-link:hover {
+      color: #ffffff;
+      background-color: rgba(255, 255, 255, 0.08);
+      transform: translateX(3px);
+    }
+
+    .sidebar-link.active {
+      color: #ffffff;
+      background-color: var(--primary);
+      font-weight: 600;
+    }
+
+    .sidebar-link.sub-link {
+      padding-left: 1.6rem;
+      font-size: 0.83rem;
+    }
+
+    /* Main Content Wrapper */
+    .main-wrapper {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    /* Top Floating Utility Bar */
+    .top-bar {
+      position: sticky;
+      top: 0;
+      background-color: var(--bg-surface);
+      border-bottom: 1px solid var(--border-color);
+      padding: 0.75rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 90;
+      box-shadow: var(--shadow-sm);
+      backdrop-filter: blur(10px);
+    }
+
+    .top-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 600;
+      padding: 0.4rem 0.75rem;
+      border-radius: var(--radius-sm);
+      background: var(--bg-body);
+      border: 1px solid var(--border-color);
+      transition: all 0.2s;
+    }
+
+    .back-btn:hover {
+      color: var(--primary);
+      border-color: var(--primary-border);
+      background: var(--primary-light);
+    }
+
+    .top-bar-right {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .util-btn {
+      background: var(--bg-body);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-sm);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 0.85rem;
+      font-weight: 700;
+      transition: all 0.2s;
+    }
+
+    .util-btn:hover {
+      color: var(--text-main);
+      border-color: var(--primary);
+    }
+
+    /* Article Paper Layout */
+    .article-container {
+      max-width: 980px;
+      width: 100%;
+      margin: 1.5rem auto 4rem;
+      padding: 3rem 2.75rem 6rem;
+      background: var(--bg-surface);
+      box-shadow: var(--shadow-sm);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+    }
+
+    @media (max-width: 1024px) {
+      .sidebar {
+        display: none;
+      }
+      .article-container {
+        padding: 2rem 1.25rem 4rem;
+        margin-top: 0;
+        border-radius: 0;
+        border: none;
+      }
+    }
+
+    /* Document Header */
+    .paper-header {
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 2rem;
+      margin-bottom: 2.5rem;
+      text-align: center;
+    }
+
+    .paper-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.35rem 0.9rem;
+      border-radius: 9999px;
+      background: var(--primary-light);
+      border: 1px solid var(--primary-border);
+      color: var(--primary);
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1.25rem;
+    }
+
+    .paper-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(1.85rem, 3.5vw, 2.6rem);
+      font-weight: 800;
+      line-height: 1.25;
+      color: var(--text-main);
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .paper-title-en {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      font-style: italic;
+      margin-bottom: 1.5rem;
+      line-height: 1.45;
+    }
+
+    .paper-meta-grid {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      background: var(--bg-body);
+      padding: 1rem 1.5rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-color);
+      margin-top: 1.25rem;
+      text-align: left;
+    }
+
+    .meta-item strong {
+      color: var(--text-main);
+    }
+
+    /* Abstract Block */
+    .abstract-box {
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.04) 0%, rgba(14, 165, 233, 0.04) 100%);
+      border-left: 4px solid var(--primary);
+      padding: 1.75rem 2rem;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      margin-bottom: 3rem;
+      border-top: 1px solid var(--border-color);
+      border-right: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .abstract-heading {
+      font-size: 1.15rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--primary);
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    .abstract-text {
+      font-family: 'Merriweather', serif;
+      font-size: 1.02rem;
+      line-height: 1.85;
+      color: var(--text-main);
+      text-align: justify;
+    }
+
+    .keywords-box {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .keywords-box strong {
+      color: var(--primary);
+    }
+
+    /* Academic Typography */
+    h2.section-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-top: 3.5rem;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      scroll-margin-top: 80px;
+    }
+
+    h2.section-title .section-number {
+      background: var(--primary);
+      color: #fff;
+      font-size: 1rem;
+      padding: 0.2rem 0.65rem;
+      border-radius: 6px;
+      font-weight: 700;
+    }
+
+    h3.sub-section-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-top: 2.25rem;
+      margin-bottom: 0.85rem;
+      scroll-margin-top: 80px;
+    }
+
+    h4.tertiary-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-top: 1.5rem;
+      margin-bottom: 0.6rem;
+      scroll-margin-top: 80px;
+    }
+
+    p {
+      margin-bottom: 1.35rem;
+      text-align: justify;
+    }
+
+    ul, ol {
+      margin-left: 1.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+
+    strong {
+      color: var(--text-main);
+      font-weight: 700;
+    }
+
+    /* Callout & Alerts */
+    .callout {
+      padding: 1.25rem 1.5rem;
+      border-radius: var(--radius-sm);
+      margin: 1.75rem 0;
+      border-left: 4px solid;
+      background: var(--bg-body);
+      border-top: 1px solid var(--border-color);
+      border-right: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .callout-info {
+      border-left-color: var(--primary);
+      background: var(--primary-light);
+    }
+
+    .callout-warning {
+      border-left-color: var(--warning);
+      background: rgba(245, 158, 11, 0.08);
+    }
+
+    .callout-success {
+      border-left-color: var(--success);
+      background: rgba(16, 185, 129, 0.08);
+    }
+
+    .callout-title {
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    /* Figure Card */
+    .figure-wrapper {
+      margin: 2.5rem 0;
+      background: var(--bg-body);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      text-align: center;
+    }
+
+    .figure-header {
+      padding: 0.75rem 1.25rem;
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .figure-badge {
+      background: var(--primary-light);
+      color: var(--primary);
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 0.8rem;
+    }
+
+    .figure-img-container {
+      padding: 1.5rem;
+      background: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .figure-img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+      transition: transform 0.25s ease;
+      cursor: zoom-in;
+    }
+
+    .figure-img:hover {
+      transform: scale(1.02);
+    }
+
+    .figure-caption {
+      padding: 1rem 1.5rem;
+      background: var(--bg-surface);
+      border-top: 1px solid var(--border-color);
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    .figure-caption strong {
+      color: var(--text-main);
+    }
+
+    /* Academic Data Tables */
+    .table-container {
+      overflow-x: auto;
+      margin: 2rem 0;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+    }
+
+    table.academic-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+      text-align: left;
+    }
+
+    table.academic-table th {
+      background: var(--primary);
+      color: #ffffff;
+      padding: 0.85rem 1rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    table.academic-table td {
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--border-color);
+      background: var(--bg-surface);
+      color: var(--text-main);
+    }
+
+    table.academic-table tr:nth-child(even) td {
+      background: var(--bg-body);
+    }
+
+    table.academic-table tr:hover td {
+      background: var(--primary-light);
+    }
+
+    /* Math Formula Block */
+    .formula-box {
+      background: var(--bg-body);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 1.25rem;
+      margin: 1.5rem 0;
+      text-align: center;
+      font-family: 'Fira Code', monospace;
+      font-size: 1.05rem;
+      color: var(--text-main);
+      overflow-x: auto;
+    }
+
+    /* Code Blocks */
+    .code-wrapper {
+      margin: 1.75rem 0;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      border: 1px solid #334155;
+      background: var(--code-bg);
+      box-shadow: var(--shadow-md);
+    }
+
+    .code-header {
+      background: #0f172a;
+      padding: 0.5rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #94a3b8;
+      font-size: 0.8rem;
+      font-family: 'Fira Code', monospace;
+      border-bottom: 1px solid #1e293b;
+    }
+
+    pre code {
+      display: block;
+      padding: 1.25rem 1.5rem;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.88rem;
+      line-height: 1.6;
+      color: var(--code-text);
+      overflow-x: auto;
+      white-space: pre;
+    }
+
+    /* References List */
+    .references-list {
+      list-style-type: none;
+      margin-left: 0;
+    }
+
+    .references-list li {
+      padding-left: 2rem;
+      text-indent: -2rem;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .references-list li strong {
+      color: var(--text-main);
+    }
+
+    /* Footer */
+    .article-footer {
+      border-top: 2px solid var(--border-color);
+      padding-top: 2.5rem;
+      margin-top: 4rem;
+      text-align: center;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .footer-nav-buttons {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-nav-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.25rem;
+      border-radius: var(--radius-sm);
+      background: var(--bg-body);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.2s ease;
+    }
+
+    .footer-nav-btn:hover {
+      border-color: var(--primary);
+      background: var(--primary-light);
+      color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    /* Print Styles */
+    @media print {
+      .sidebar, .top-bar, #progress-bar, .footer-nav-buttons {
+        display: none !important;
+      }
+      .article-container {
+        box-shadow: none;
+        border: none;
+        padding: 0;
+        margin: 0;
+        max-width: 100%;
+      }
+      body {
+        background: #fff;
+        color: #000;
+        font-size: 11pt;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Reading Progress Bar -->
+  <div id="progress-bar"></div>
+
+  <!-- Sidebar Navigation -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-title">Bản Dịch Học Thuật Tiếng Việt (UDA)</div>
+      <div class="sidebar-subtitle">Paper 3 • CAR (FT50) Landmark</div>
+      <div class="sidebar-author">Allen H. Huang (HKUST), Hui Wang (Đại học Nhân Dân Trung Hoa), Yi Yang (HKUST)</div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <div class="nav-group-title">Nội Dung Bài Báo</div>
+      
+      <a href="#abstract" class="sidebar-link">Tóm Tắt Nghiên Cứu</a>
+      <a href="#sec1" class="sidebar-link">1. Mở Đầu & Dữ Liệu Văn Bản</a>
+      <a href="#sec2" class="sidebar-link">2. Pretraining & Self-Attention</a>
+      <a href="#sec3" class="sidebar-link">3. Phân Loại Sắc Thái Câu</a>
+      <a href="#sec4" class="sidebar-link">4. Phân Loại Thảo Luận ESG</a>
+      <a href="#sec5" class="sidebar-link">5. Phản Ứng Thị Trường Vốn</a>
+      <a href="#sec6" class="sidebar-link">6. Đúc Kết Cho Kiểm Toán Số</a>
+      <a href="#sec7" class="sidebar-link">7. Tài Liệu Tham Khảo</a>
+    
+      
+      <div class="nav-group-title">Danh Mục Bài Báo Day 02</div>
+      <a href="paper_1_Detecting_Accounting_Fraud_tiengviet.html" class="sidebar-link ">Bài 1: Gian Lận BCTC (JAR/ACML)</a>
+      <a href="paper_2_Financial_Distress_Prediction_tiengviet.html" class="sidebar-link ">Bài 2: Kiệt Quệ Tài Chính (Elsevier)</a>
+      <a href="paper_3_FinBERT_Large_Language_Model_tiengviet.html" class="sidebar-link active">Bài 3: FinBERT NLP (CAR)</a>
+      <a href="paper_4_Deep_Autoencoder_Anomaly_Detection_tiengviet.html" class="sidebar-link ">Bài 4: Autoencoder Sổ Cái (DFKI/PwC)</a>
+      
+      <div class="nav-group-title">Tài Liệu Gốc</div>
+      <a href="paper 3_FinBERT_A Large Language Model for Extracting Information from Financial Text.pdf" target="_blank" class="sidebar-link">📄 Tải PDF Gốc Tiếng Anh</a>
+      <a href="index.html" class="sidebar-link">📚 Thư Viện Bài Báo Day 02</a>
+    </nav>
+  </aside>
+
+  <!-- Main Wrapper -->
+  <div class="main-wrapper">
+
+    <!-- Top Utility Bar -->
+    <header class="top-bar">
+      <div class="top-bar-left">
+        <a href="index.html" class="back-btn" title="Quay về Danh mục Thư viện Bài báo Day 02">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+          Thư Viện Bài Báo
+        </a>
+        <a href="../index.html" class="back-btn" title="Quay về Trang chủ Chuyên đề Day 02 Extra">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+          </svg>
+          Day 02 Extra
+        </a>
+        <a href="paper 3_FinBERT_A Large Language Model for Extracting Information from Financial Text.pdf" target="_blank" class="back-btn" style="color: var(--primary);" title="Mở file PDF gốc">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+          </svg>
+          PDF Gốc
+        </a>
+      </div>
+
+      <div class="top-bar-right">
+        <button class="util-btn" onclick="toggleTheme()" title="Chuyển chế độ Sáng/Tối">🌓</button>
+        <button class="util-btn" onclick="adjustFontSize(-1)" title="Giảm cỡ chữ">A-</button>
+        <button class="util-btn" onclick="adjustFontSize(1)" title="Tăng cỡ chữ">A+</button>
+        <button class="util-btn" onclick="window.print()" title="In hoặc Xuất PDF">🖨️</button>
+      </div>
+    </header>
+
+    <!-- Article Container -->
+    <main class="article-container">
+
+      <!-- Paper Header -->
+      <header class="paper-header">
+        <div class="paper-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+          </svg>
+          Paper 3 • CAR (FT50) Landmark
+        </div>
+        <h1 class="paper-title">FinBERT: Mô Hình Ngôn Ngữ Lớn Đặc Thù Tài Chính Để Trích Xuất Thông Tin Từ Văn Bản Kế Toán</h1>
+        <div class="paper-title-en">FinBERT: A Large Language Model for Extracting Information from Financial Text</div>
+
+        <div class="paper-meta-grid">
+          <div class="meta-item"><strong>Tác giả:</strong> Allen H. Huang (HKUST), Hui Wang (Đại học Nhân Dân Trung Hoa), Yi Yang (HKUST)</div>
+          <div class="meta-item"><strong>Xuất bản:</strong> Contemporary Accounting Research (CAR) — Tạp chí Kế toán Hàng đầu Thế giới (FT50)</div>
+          <div class="meta-item"><strong>Định danh:</strong> 10.1111/1911-3846.12832</div>
+        </div>
+      </header>
+
+      <!-- Main Body Content -->
+      
+      <!-- Abstract Box -->
+      <section id="abstract" class="abstract-box">
+        <div class="abstract-heading">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          </svg>
+          TÓM TẮT NGHIÊN CỨU (ABSTRACT)
+        </div>
+        <p class="abstract-text">
+          Chúng tôi phát triển <strong>FinBERT</strong>, một mô hình ngôn ngữ lớn (<em>Large Language Model</em>) tiên tiến được huấn luyện thích nghi chuyên biệt cho lĩnh vực tài chính - kế toán. FinBERT tích hợp sâu sắc tri thức tài chính và có khả năng nắm bắt ngữ cảnh vượt trội. Sử dụng mẫu 10.000 câu gán nhãn thủ công từ các báo cáo phân tích, FinBERT <strong>vượt trội hoàn toàn so với Từ điển Loughran & McDonald (LM)</strong> và các thuật toán học máy khác (Naïve Bayes, SVM, Random Forest, CNN, LSTM) trong phân loại sắc thái câu. FinBERT đặc biệt xuất sắc trong việc phát hiện sắc thái của các câu mà mô hình khác gắn nhãn nhầm là "Trung tính". Lợi thế của FinBERT duy trì vững vàng ngay cả khi cỡ mẫu huấn luyện giảm xuống 10% và trên các thuật ngữ tài chính hiếm gặp. FinBERT cũng đạt độ chính xác <strong>89,5%</strong> trong phân loại thảo luận ESG. Cuối cùng, nghiên cứu chứng minh các phương pháp truyền thống đánh giá thấp mức độ truyền tải thông tin của văn bản kế toán ít nhất <strong>18%</strong> so với FinBERT.
+        </p>
+        <div class="keywords-box">
+          <strong>Từ khóa:</strong> Deep Learning; Large Language Model; FinBERT; Transfer Learning; Sentiment Classification; ESG; Thuyết minh BCTC; Earnings Calls.
+        </div>
+      </section>
+
+      <!-- Section 1 -->
+      <section id="sec1">
+        <h2 class="section-title"><span class="section-number">1</span> MỞ ĐẦU & TẦM QUAN TRỌNG CỦA DỮ LIỆU VĂN BẢN KẾ TOÁN</h2>
+        <p>Hơn 80% thông tin công bố của các doanh nghiệp tồn tại dưới dạng <strong>văn bản phi cấu trúc</strong>: Thuyết minh BCTC (Footnotes), Báo cáo MD&A, biên bản họp hội nghị báo cáo lợi nhuận, báo cáo phân tích tài chính. Khi doanh nghiệp gặp khó khăn hoặc muốn xào nấu sổ sách, ban lãnh đạo thường sử dụng ngôn từ vòng vo, thuật ngữ mơ hồ trong phần thuyết minh để che giấu rủi ro.</p>
+
+        <div class="callout callout-warning">
+          <div class="callout-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+              <line x1="12" y1="9" x2="12" y2="13"></line>
+              <line x1="12" y1="17" x2="12.01" y2="17"></line>
+            </svg>
+            Giới hạn của từ điển đếm từ (Loughran & McDonald Dictionary):
+          </div>
+          <p style="margin-bottom:0;">Phương pháp từ điển coi văn bản như "túi từ", đếm tần suất xuất hiện các từ tích cực/tiêu cực. Nó hoàn toàn bất lực trước ngữ cảnh phủ định và từ ngữ đa nghĩa trong tài chính (như từ "liability", "depreciation", "credit").</p>
+        </div>
+      </section>
+
+      <!-- Section 2 -->
+      <section id="sec2">
+        <h2 class="section-title"><span class="section-number">2</span> PRETRAINING & CƠ CHẾ SELF-ATTENTION CỦA FinBERT</h2>
+        <p>FinBERT được xây dựng trên kiến trúc Transformer 12 tầng với cơ chế Self-Attention. Mô hình được huấn luyện trước trên 2,5 triệu đoạn văn bản từ các báo cáo 10-K, 10-Q của các công ty niêm yết Mỹ và các cuộc họp hội nghị phân tích tài chính.</p>
+
+        <!-- Figure 4 -->
+        <div class="figure-wrapper">
+          <div class="figure-header">
+            <span>TRỌNG SỐ CHÚ Ý TỰ THÂN (SELF-ATTENTION WEIGHTS) CỦA FinBERT</span>
+            <span class="figure-badge">Hình 4</span>
+          </div>
+          <div class="figure-img-container">
+            <img src="figures_paper3/fig4_finbert_attention_weights.png" alt="Hình 4: Trọng số Attention FinBERT" class="figure-img" />
+          </div>
+          <div class="figure-caption">
+            <strong>Hình 4:</strong> Trực quan hóa ma trận trọng số Self-Attention của FinBERT. Mô hình tự động tập trung sự chú ý vào các liên kết từ then chốt biểu thị rủi ro và hiệu suất kinh doanh trong câu.
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3 -->
+      <section id="sec3">
+        <h2 class="section-title"><span class="section-number">3</span> THỰC NGHIỆM 1: PHÂN LOẠI SẮC THÁI CÂU (SENTIMENT CLASSIFICATION)</h2>
+        <p>Thực nghiệm trên 1.000 câu kiểm thử gán nhãn thủ công (Bảng 1 bài báo gốc):</p>
+
+        <div class="table-container">
+          <table class="academic-table">
+            <thead>
+              <tr>
+                <th>Mô Hình / Thuật Toán</th>
+                <th>Accuracy (%)</th>
+                <th>Precision (%)</th>
+                <th>Recall (%)</th>
+                <th>F1-Score (%)</th>
+                <th>Recall Tích Cực</th>
+                <th>Recall Trung Tính</th>
+                <th>Recall Tiêu Cực</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="background: rgba(16, 185, 129, 0.08); font-weight: 700;">
+                <td><strong>FinBERT (Đề xuất)</strong></td>
+                <td><strong style="color: #059669; font-size: 1.05rem;">88,2%</strong></td>
+                <td><strong>87,2%</strong></td>
+                <td><strong>88,5%</strong></td>
+                <td><strong style="color: #059669; font-size: 1.05rem;">87,8%</strong></td>
+                <td>88,5%</td>
+                <td>87,3%</td>
+                <td><strong style="color: #059669;">89,7%</strong></td>
+              </tr>
+              <tr>
+                <td>BERT (Google gốc)</td>
+                <td>85,0%</td>
+                <td>83,6%</td>
+                <td>85,1%</td>
+                <td>84,2%</td>
+                <td>86,3%</td>
+                <td>84,1%</td>
+                <td>84,8%</td>
+              </tr>
+              <tr>
+                <td>LSTM (Mạng chuỗi thời gian)</td>
+                <td>76,3%</td>
+                <td>74,8%</td>
+                <td>72,5%</td>
+                <td>73,3%</td>
+                <td>79,3%</td>
+                <td>82,1%</td>
+                <td>56,0%</td>
+              </tr>
+              <tr>
+                <td>CNN (Mạng tích chập)</td>
+                <td>75,1%</td>
+                <td>74,4%</td>
+                <td>71,4%</td>
+                <td>72,5%</td>
+                <td>73,5%</td>
+                <td>83,6%</td>
+                <td>57,1%</td>
+              </tr>
+              <tr>
+                <td>Naïve Bayes (NB)</td>
+                <td>73,6%</td>
+                <td>71,8%</td>
+                <td>70,7%</td>
+                <td>71,1%</td>
+                <td>75,4%</td>
+                <td>78,4%</td>
+                <td>58,2%</td>
+              </tr>
+              <tr>
+                <td>Support Vector Machine (SVM)</td>
+                <td>72,6%</td>
+                <td>71,0%</td>
+                <td>68,8%</td>
+                <td>69,6%</td>
+                <td>68,7%</td>
+                <td>82,8%</td>
+                <td>54,9%</td>
+              </tr>
+              <tr>
+                <td>Random Forest (RF)</td>
+                <td>71,9%</td>
+                <td>75,4%</td>
+                <td>64,8%</td>
+                <td>66,8%</td>
+                <td>70,7%</td>
+                <td>86,9%</td>
+                <td>37,0%</td>
+              </tr>
+              <tr style="background: rgba(239, 68, 68, 0.05);">
+                <td><strong>Từ điển Loughran & McDonald (LM)</strong></td>
+                <td><strong>62,1%</strong></td>
+                <td>64,4%</td>
+                <td>58,0%</td>
+                <td><strong>58,1%</strong></td>
+                <td>40,2%</td>
+                <td>84,3%</td>
+                <td>49,5%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="figure-wrapper">
+          <div class="figure-header">
+            <span>ĐỘ BỀN VỮNG KHI GIẢM QUY MÔ MẪU HUẤN LUYỆN</span>
+            <span class="figure-badge">Hình 1</span>
+          </div>
+          <div class="figure-img-container">
+            <img src="figures_paper3/fig1_sample_size_accuracy.png" alt="Hình 1: Độ chính xác theo kích thước mẫu" class="figure-img" />
+          </div>
+          <div class="figure-caption">
+            <strong>Hình 1:</strong> Khi giảm mẫu huấn luyện xuống chỉ còn 10% (810 câu), FinBERT vẫn đạt độ chính xác 81,3%, trong khi các mô hình khác sụt giảm nghiêm trọng xuống dưới 65%.
+          </div>
+        </div>
+
+        <div class="figure-wrapper">
+          <div class="figure-header">
+            <span>THỬ NGHIỆM XÁO TRỘN TỪ NGẪU NHIÊN (WORD RANDOMIZATION)</span>
+            <span class="figure-badge">Hình 2</span>
+          </div>
+          <div class="figure-img-container">
+            <img src="figures_paper3/fig2_word_randomization.png" alt="Hình 2: Hiệu ứng xáo trộn từ" class="figure-img" />
+          </div>
+          <div class="figure-caption">
+            <strong>Hình 2:</strong> FinBERT bị suy giảm độ chính xác nhiều nhất khi xáo trộn thứ tự từ, khẳng định mô hình thực sự phân tích cấu trúc cú pháp và chuỗi quan hệ từ ngữ chứ không dựa vào danh sách từ vựng đơn thuần.
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 4 -->
+      <section id="sec4">
+        <h2 class="section-title"><span class="section-number">4</span> THỰC NGHIỆM 2: PHÂN LOẠI THẢO LUẬN ESG</h2>
+        <p>Phân loại văn bản công bố trách nhiệm Môi trường (E), Xã hội (S), Quản trị (G) và Phi ESG:</p>
+
+        <div class="table-container">
+          <table class="academic-table">
+            <thead>
+              <tr>
+                <th>Thuật Toán NLP</th>
+                <th>Accuracy Toàn Diện (%)</th>
+                <th>Precision (%)</th>
+                <th>F1-Score (%)</th>
+                <th>Recall Môi Trường (E)</th>
+                <th>Recall Xã Hội (S)</th>
+                <th>Recall Quản Trị (G)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="background: rgba(16, 185, 129, 0.08); font-weight: 700;">
+                <td><strong>FinBERT</strong></td>
+                <td><strong style="color: #059669; font-size: 1.05rem;">89,5%</strong></td>
+                <td><strong>90,0%</strong></td>
+                <td><strong style="color: #059669;">89,6%</strong></td>
+                <td>90,0%</td>
+                <td>90,0%</td>
+                <td>92,0%</td>
+              </tr>
+              <tr>
+                <td>BERT (Gốc)</td>
+                <td>87,0%</td>
+                <td>87,0%</td>
+                <td>86,9%</td>
+                <td>96,0%</td>
+                <td>86,0%</td>
+                <td>86,0%</td>
+              </tr>
+              <tr>
+                <td>LSTM</td>
+                <td>86,0%</td>
+                <td>86,1%</td>
+                <td>86,0%</td>
+                <td>90,0%</td>
+                <td>82,0%</td>
+                <td>86,0%</td>
+              </tr>
+              <tr>
+                <td>CNN</td>
+                <td>82,0%</td>
+                <td>82,2%</td>
+                <td>81,9%</td>
+                <td>86,0%</td>
+                <td>70,0%</td>
+                <td>88,0%</td>
+              </tr>
+              <tr>
+                <td>Naïve Bayes</td>
+                <td>80,0%</td>
+                <td>80,1%</td>
+                <td>80,0%</td>
+                <td>78,0%</td>
+                <td>76,0%</td>
+                <td>88,0%</td>
+              </tr>
+              <tr>
+                <td>Random Forest</td>
+                <td>78,0%</td>
+                <td>79,9%</td>
+                <td>78,3%</td>
+                <td>72,0%</td>
+                <td>84,0%</td>
+                <td>78,0%</td>
+              </tr>
+              <tr>
+                <td>Support Vector Machine</td>
+                <td>75,0%</td>
+                <td>75,3%</td>
+                <td>75,0%</td>
+                <td>78,0%</td>
+                <td>66,0%</td>
+                <td>74,0%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Section 5 -->
+      <section id="sec5">
+        <h2 class="section-title"><span class="section-number">5</span> KIỂM CHỨNG BẰNG PHẢN ỨNG THỊ TRƯỜNG VỐN</h2>
+        <p>Mô hình hồi quy kiểm chứng phản ứng giá cổ phiếu (Cumulative Abnormal Returns - CAR 3 ngày quanh sự kiện họp công bố lợi nhuận):</p>
+        <div class="formula-box">
+          CAR = &alpha; + &beta;<sub>1</sub> &times; Tone<sub>j</sub> + &beta;<sub>2</sub> &times; Earn + &beta;<sub>3</sub> &times; UE + &beta;<sub>4</sub> &times; Accruals + ... + &epsilon;
+        </div>
+        <p>Kết quả cho thấy hệ số của Tone trích xuất bởi FinBERT đạt <strong>&beta; = 0.907 (t = 20.35, p &lt; 0.001)</strong>, vượt trội hơn từ điển LM (&beta; = 0.640, t = 14.89) ít nhất <strong>18% đến 40%</strong>. Điều này chứng minh thị trường vốn thực sự cảm nhận và phản ứng với ngữ cảnh sâu sắc mà FinBERT đã trích xuất thành công.</p>
+      </section>
+
+      <!-- Section 6 -->
+      <section id="sec6">
+        <h2 class="section-title"><span class="section-number">6</span> ĐÚC KẾT CHO NGHỀ NGHIỆP KIỂM TOÁN SỐ</h2>
+        <ul>
+          <li><strong>Tự động đọc hiểu Thuyết minh BCTC:</strong> Quét hàng trăm trang thuyết minh báo cáo tài chính trong 3 giây, tự động tô đỏ các đoạn văn bản có cấu trúc ngôn ngữ che giấu nợ tiềm tàng hoặc rủi ro pháp lý.</li>
+          <li><strong>Rà soát hợp đồng kinh tế theo IFRS 16:</strong> Tự động bóc tách các điều khoản thuê tài sản, nghĩa vụ nợ ngầm trong hàng nghìn trang hợp đồng phức tạp.</li>
+          <li><strong>Chống "tẩy xanh" (Anti-Greenwashing) trong kiểm toán ESG:</strong> Thẩm định tính xác thực của các công bố về phát triển bền vững theo chuẩn IFRS S1 và IFRS S2.</li>
+        </ul>
+      </section>
+
+      <!-- Section 7 -->
+      <section id="sec7">
+        <h2 class="section-title"><span class="section-number">7</span> TÀI LIỆU THAM KHẢO CHÍNH (REFERENCES)</h2>
+        <ul class="references-list">
+          <li><strong>Huang, A. H., Wang, H., & Yang, Y. (2023).</strong> FinBERT: A large language model for extracting information from financial text. <em>Contemporary Accounting Research</em>, 40(2), 806–841.</li>
+          <li><strong>Loughran, T., & McDonald, B. (2011).</strong> When is a liability not a liability? Textual analysis, dictionaries, and 10-Ks. <em>The Journal of Finance</em>, 66(1), 35–65.</li>
+          <li><strong>Devlin, J., Chang, M. W., Lee, K., & Toutanova, K. (2019).</strong> BERT: Pre-training of deep bidirectional transformers for language understanding. <em>NAACL-HLT 2019</em>, 4171–4186.</li>
+          <li><strong>Li, F. (2010).</strong> The information content of forward-looking statements in corporate filings. <em>Journal of Accounting Research</em>, 48(5), 1049–1102.</li>
+        </ul>
+      </section>
+    
+
+      <!-- Article Footer -->
+      <footer class="article-footer">
+        <div class="footer-nav-buttons">
+          <a href="paper_2_Financial_Distress_Prediction_tiengviet.html" class="footer-nav-btn">← Bài 2: Kiệt Quệ Tài Chính (Elsevier)</a>
+<a href="paper_4_Deep_Autoencoder_Anomaly_Detection_tiengviet.html" class="footer-nav-btn">Bài 4: Autoencoder Sổ Cái (DFKI/PwC) →</a>
+        </div>
+        <p>Khoa Kế toán & Kiểm toán — Trường Đại học Đông Á (UDA)</p>
+        <p style="margin-top: 0.35rem; font-size: 0.8rem; color: var(--text-muted);">Tài liệu phục vụ giảng dạy và nghiên cứu học phần Trí Tuệ Nhân Tạo Trong Kế Toán & Kiểm Toán (2026)</p>
+      </footer>
+
+    </main>
+
+  </div>
+
+  <script>
+    // Reading Progress Bar
+    window.addEventListener('scroll', () => {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.getElementById('progress-bar').style.width = scrolled + '%';
+    });
+
+    // Theme Switcher (Dark / Light)
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme');
+      const target = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', target);
+      localStorage.setItem('doc_theme', target);
+    }
+
+    // Initialize Theme
+    const savedTheme = localStorage.getItem('doc_theme');
+    if (savedTheme) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+
+    // Font Size Adjustment
+    let currentFontSizeRem = 1.05;
+    function adjustFontSize(delta) {
+      currentFontSizeRem = Math.max(0.85, Math.min(1.35, currentFontSizeRem + delta * 0.05));
+      document.documentElement.style.setProperty('--content-font-size', currentFontSizeRem + 'rem');
+    }
+
+    // Active Sidebar Link Spy
+    const sections = document.querySelectorAll('section[id], div[id]');
+    const navLinks = document.querySelectorAll('.sidebar-link');
+
+    window.addEventListener('scroll', () => {
+      let currentSectionId = '';
+      sections.forEach(sec => {
+        const top = sec.offsetTop - 120;
+        if (window.pageYOffset >= top) {
+          currentSectionId = sec.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        if (link.getAttribute('href') && link.getAttribute('href').startsWith('#')) {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === '#' + currentSectionId) {
+            link.classList.add('active');
+          }
+        }
+      });
+    });
+  </script>
+
+</body>
+
+</html>

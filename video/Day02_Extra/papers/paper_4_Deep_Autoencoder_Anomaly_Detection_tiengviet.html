@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>Phát Hiện Bất Thường Trong Dữ Liệu Kế Toán Quy Mô Lớn Bằng Mạng Deep Autoencoder — Bản Dịch Học Thuật Tiếng Việt (UDA)</title>
+  <meta name="description" content="Bản dịch tiếng Việt học thuật toàn văn công trình nghiên cứu: Detection of Anomalies in Large Scale Accounting Data using Deep Autoencoder Networks (Marco Schreyer (DFKI), Timur Sattarov (PwC), Damian Borth (DFKI), Andreas Dengel (DFKI), Bernd Reimer (PwC)). Tích hợp biểu đồ, ma trận dữ liệu và phân tích nghiệp vụ kế toán kiểm toán chuyên sâu." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-body: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-sidebar: #0f172a;
+      --sidebar-text: #e2e8f0;
+      --sidebar-muted: #94a3b8;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --primary: #2563eb;
+      --primary-light: #eff6ff;
+      --primary-border: #bfdbfe;
+      --accent: #0ea5e9;
+      --success: #10b981;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --border-color: #e2e8f0;
+      --code-bg: #1e293b;
+      --code-text: #f1f5f9;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+      --content-font-size: 1.05rem;
+      --line-height: 1.85;
+      --radius-md: 12px;
+      --radius-sm: 8px;
+    }
+
+    [data-theme="dark"] {
+      --bg-body: #0b0f19;
+      --bg-surface: #131b2e;
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --primary: #3b82f6;
+      --primary-light: rgba(59, 130, 246, 0.15);
+      --primary-border: rgba(59, 130, 246, 0.35);
+      --border-color: #1e293b;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.4);
+      --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.5);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg-body);
+      color: var(--text-main);
+      line-height: var(--line-height);
+      font-size: var(--content-font-size);
+      display: flex;
+      min-height: 100vh;
+      transition: background-color 0.25s ease, color 0.25s ease;
+    }
+
+    /* Reading Progress Bar */
+    #progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #2563eb, #38bdf8, #8b5cf6);
+      width: 0%;
+      z-index: 9999;
+      transition: width 0.1s linear;
+    }
+
+    /* Sidebar Navigation */
+    .sidebar {
+      width: 330px;
+      background-color: var(--bg-sidebar);
+      color: var(--sidebar-text);
+      height: 100vh;
+      position: sticky;
+      top: 0;
+      overflow-y: auto;
+      flex-shrink: 0;
+      border-right: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      flex-direction: column;
+      z-index: 100;
+    }
+
+    .sidebar-header {
+      padding: 1.5rem 1.25rem 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .sidebar-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #38bdf8;
+      margin-bottom: 0.4rem;
+    }
+
+    .sidebar-subtitle {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.35;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    .sidebar-author {
+      font-size: 0.8rem;
+      color: var(--sidebar-muted);
+      margin-top: 0.35rem;
+    }
+
+    .sidebar-nav {
+      padding: 1rem 0.75rem 2.5rem;
+      flex-grow: 1;
+    }
+
+    .nav-group-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #64748b;
+      padding: 0.85rem 0.65rem 0.35rem;
+    }
+
+    .sidebar-link {
+      display: block;
+      padding: 0.5rem 0.75rem;
+      font-size: 0.88rem;
+      color: var(--sidebar-muted);
+      text-decoration: none;
+      border-radius: var(--radius-sm);
+      transition: all 0.15s ease;
+      line-height: 1.4;
+      margin-bottom: 2px;
+    }
+
+    .sidebar-link:hover {
+      color: #ffffff;
+      background-color: rgba(255, 255, 255, 0.08);
+      transform: translateX(3px);
+    }
+
+    .sidebar-link.active {
+      color: #ffffff;
+      background-color: var(--primary);
+      font-weight: 600;
+    }
+
+    .sidebar-link.sub-link {
+      padding-left: 1.6rem;
+      font-size: 0.83rem;
+    }
+
+    /* Main Content Wrapper */
+    .main-wrapper {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    /* Top Floating Utility Bar */
+    .top-bar {
+      position: sticky;
+      top: 0;
+      background-color: var(--bg-surface);
+      border-bottom: 1px solid var(--border-color);
+      padding: 0.75rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 90;
+      box-shadow: var(--shadow-sm);
+      backdrop-filter: blur(10px);
+    }
+
+    .top-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 600;
+      padding: 0.4rem 0.75rem;
+      border-radius: var(--radius-sm);
+      background: var(--bg-body);
+      border: 1px solid var(--border-color);
+      transition: all 0.2s;
+    }
+
+    .back-btn:hover {
+      color: var(--primary);
+      border-color: var(--primary-border);
+      background: var(--primary-light);
+    }
+
+    .top-bar-right {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .util-btn {
+      background: var(--bg-body);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-sm);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 0.85rem;
+      font-weight: 700;
+      transition: all 0.2s;
+    }
+
+    .util-btn:hover {
+      color: var(--text-main);
+      border-color: var(--primary);
+    }
+
+    /* Article Paper Layout */
+    .article-container {
+      max-width: 980px;
+      width: 100%;
+      margin: 1.5rem auto 4rem;
+      padding: 3rem 2.75rem 6rem;
+      background: var(--bg-surface);
+      box-shadow: var(--shadow-sm);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+    }
+
+    @media (max-width: 1024px) {
+      .sidebar {
+        display: none;
+      }
+      .article-container {
+        padding: 2rem 1.25rem 4rem;
+        margin-top: 0;
+        border-radius: 0;
+        border: none;
+      }
+    }
+
+    /* Document Header */
+    .paper-header {
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 2rem;
+      margin-bottom: 2.5rem;
+      text-align: center;
+    }
+
+    .paper-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.35rem 0.9rem;
+      border-radius: 9999px;
+      background: var(--primary-light);
+      border: 1px solid var(--primary-border);
+      color: var(--primary);
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1.25rem;
+    }
+
+    .paper-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(1.85rem, 3.5vw, 2.6rem);
+      font-weight: 800;
+      line-height: 1.25;
+      color: var(--text-main);
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .paper-title-en {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      font-style: italic;
+      margin-bottom: 1.5rem;
+      line-height: 1.45;
+    }
+
+    .paper-meta-grid {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      background: var(--bg-body);
+      padding: 1rem 1.5rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-color);
+      margin-top: 1.25rem;
+      text-align: left;
+    }
+
+    .meta-item strong {
+      color: var(--text-main);
+    }
+
+    /* Abstract Block */
+    .abstract-box {
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.04) 0%, rgba(14, 165, 233, 0.04) 100%);
+      border-left: 4px solid var(--primary);
+      padding: 1.75rem 2rem;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      margin-bottom: 3rem;
+      border-top: 1px solid var(--border-color);
+      border-right: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .abstract-heading {
+      font-size: 1.15rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--primary);
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    .abstract-text {
+      font-family: 'Merriweather', serif;
+      font-size: 1.02rem;
+      line-height: 1.85;
+      color: var(--text-main);
+      text-align: justify;
+    }
+
+    .keywords-box {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .keywords-box strong {
+      color: var(--primary);
+    }
+
+    /* Academic Typography */
+    h2.section-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-top: 3.5rem;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      scroll-margin-top: 80px;
+    }
+
+    h2.section-title .section-number {
+      background: var(--primary);
+      color: #fff;
+      font-size: 1rem;
+      padding: 0.2rem 0.65rem;
+      border-radius: 6px;
+      font-weight: 700;
+    }
+
+    h3.sub-section-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-top: 2.25rem;
+      margin-bottom: 0.85rem;
+      scroll-margin-top: 80px;
+    }
+
+    h4.tertiary-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-top: 1.5rem;
+      margin-bottom: 0.6rem;
+      scroll-margin-top: 80px;
+    }
+
+    p {
+      margin-bottom: 1.35rem;
+      text-align: justify;
+    }
+
+    ul, ol {
+      margin-left: 1.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+
+    strong {
+      color: var(--text-main);
+      font-weight: 700;
+    }
+
+    /* Callout & Alerts */
+    .callout {
+      padding: 1.25rem 1.5rem;
+      border-radius: var(--radius-sm);
+      margin: 1.75rem 0;
+      border-left: 4px solid;
+      background: var(--bg-body);
+      border-top: 1px solid var(--border-color);
+      border-right: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .callout-info {
+      border-left-color: var(--primary);
+      background: var(--primary-light);
+    }
+
+    .callout-warning {
+      border-left-color: var(--warning);
+      background: rgba(245, 158, 11, 0.08);
+    }
+
+    .callout-success {
+      border-left-color: var(--success);
+      background: rgba(16, 185, 129, 0.08);
+    }
+
+    .callout-title {
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    /* Figure Card */
+    .figure-wrapper {
+      margin: 2.5rem 0;
+      background: var(--bg-body);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      text-align: center;
+    }
+
+    .figure-header {
+      padding: 0.75rem 1.25rem;
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .figure-badge {
+      background: var(--primary-light);
+      color: var(--primary);
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 0.8rem;
+    }
+
+    .figure-img-container {
+      padding: 1.5rem;
+      background: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .figure-img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+      transition: transform 0.25s ease;
+      cursor: zoom-in;
+    }
+
+    .figure-img:hover {
+      transform: scale(1.02);
+    }
+
+    .figure-caption {
+      padding: 1rem 1.5rem;
+      background: var(--bg-surface);
+      border-top: 1px solid var(--border-color);
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    .figure-caption strong {
+      color: var(--text-main);
+    }
+
+    /* Academic Data Tables */
+    .table-container {
+      overflow-x: auto;
+      margin: 2rem 0;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+    }
+
+    table.academic-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+      text-align: left;
+    }
+
+    table.academic-table th {
+      background: var(--primary);
+      color: #ffffff;
+      padding: 0.85rem 1rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    table.academic-table td {
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--border-color);
+      background: var(--bg-surface);
+      color: var(--text-main);
+    }
+
+    table.academic-table tr:nth-child(even) td {
+      background: var(--bg-body);
+    }
+
+    table.academic-table tr:hover td {
+      background: var(--primary-light);
+    }
+
+    /* Math Formula Block */
+    .formula-box {
+      background: var(--bg-body);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 1.25rem;
+      margin: 1.5rem 0;
+      text-align: center;
+      font-family: 'Fira Code', monospace;
+      font-size: 1.05rem;
+      color: var(--text-main);
+      overflow-x: auto;
+    }
+
+    /* Code Blocks */
+    .code-wrapper {
+      margin: 1.75rem 0;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      border: 1px solid #334155;
+      background: var(--code-bg);
+      box-shadow: var(--shadow-md);
+    }
+
+    .code-header {
+      background: #0f172a;
+      padding: 0.5rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #94a3b8;
+      font-size: 0.8rem;
+      font-family: 'Fira Code', monospace;
+      border-bottom: 1px solid #1e293b;
+    }
+
+    pre code {
+      display: block;
+      padding: 1.25rem 1.5rem;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.88rem;
+      line-height: 1.6;
+      color: var(--code-text);
+      overflow-x: auto;
+      white-space: pre;
+    }
+
+    /* References List */
+    .references-list {
+      list-style-type: none;
+      margin-left: 0;
+    }
+
+    .references-list li {
+      padding-left: 2rem;
+      text-indent: -2rem;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .references-list li strong {
+      color: var(--text-main);
+    }
+
+    /* Footer */
+    .article-footer {
+      border-top: 2px solid var(--border-color);
+      padding-top: 2.5rem;
+      margin-top: 4rem;
+      text-align: center;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .footer-nav-buttons {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-nav-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.25rem;
+      border-radius: var(--radius-sm);
+      background: var(--bg-body);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.2s ease;
+    }
+
+    .footer-nav-btn:hover {
+      border-color: var(--primary);
+      background: var(--primary-light);
+      color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    /* Print Styles */
+    @media print {
+      .sidebar, .top-bar, #progress-bar, .footer-nav-buttons {
+        display: none !important;
+      }
+      .article-container {
+        box-shadow: none;
+        border: none;
+        padding: 0;
+        margin: 0;
+        max-width: 100%;
+      }
+      body {
+        background: #fff;
+        color: #000;
+        font-size: 11pt;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Reading Progress Bar -->
+  <div id="progress-bar"></div>
+
+  <!-- Sidebar Navigation -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-title">Bản Dịch Học Thuật Tiếng Việt (UDA)</div>
+      <div class="sidebar-subtitle">Paper 4 • PwC & DFKI Landmark</div>
+      <div class="sidebar-author">Marco Schreyer (DFKI), Timur Sattarov (PwC), Damian Borth (DFKI), Andreas Dengel (DFKI), Bernd Reimer (PwC)</div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <div class="nav-group-title">Nội Dung Bài Báo</div>
+      
+      <a href="#abstract" class="sidebar-link">Tóm Tắt Nghiên Cứu</a>
+      <a href="#sec1" class="sidebar-link">1. Động Lực Kiểm Toán Sổ Cái</a>
+      <a href="#sec2" class="sidebar-link">2. Bản Chất Bút Toán SAP ERP</a>
+      <a href="#sec3" class="sidebar-link">3. Bất Thường Global vs Local</a>
+      <a href="#sec4" class="sidebar-link">4. Kiến Trúc Deep Autoencoder</a>
+      <a href="#sec5" class="sidebar-link">5. Kết Quả Định Lượng Thực Tế</a>
+      <a href="#sec6" class="sidebar-link">6. Đánh Giá Từ Chuyên Gia PwC</a>
+      <a href="#sec7" class="sidebar-link">7. Đúc Kết Kiểm Toán Liên Tục</a>
+      <a href="#sec8" class="sidebar-link">8. Tài Liệu Tham Khảo</a>
+    
+      
+      <div class="nav-group-title">Danh Mục Bài Báo Day 02</div>
+      <a href="paper_1_Detecting_Accounting_Fraud_tiengviet.html" class="sidebar-link ">Bài 1: Gian Lận BCTC (JAR/ACML)</a>
+      <a href="paper_2_Financial_Distress_Prediction_tiengviet.html" class="sidebar-link ">Bài 2: Kiệt Quệ Tài Chính (Elsevier)</a>
+      <a href="paper_3_FinBERT_Large_Language_Model_tiengviet.html" class="sidebar-link ">Bài 3: FinBERT NLP (CAR)</a>
+      <a href="paper_4_Deep_Autoencoder_Anomaly_Detection_tiengviet.html" class="sidebar-link active">Bài 4: Autoencoder Sổ Cái (DFKI/PwC)</a>
+      
+      <div class="nav-group-title">Tài Liệu Gốc</div>
+      <a href="paper 4_Detection of Anomalies in Large Scale Accounting Data using Deep Autoencoder Networks.pdf" target="_blank" class="sidebar-link">📄 Tải PDF Gốc Tiếng Anh</a>
+      <a href="index.html" class="sidebar-link">📚 Thư Viện Bài Báo Day 02</a>
+    </nav>
+  </aside>
+
+  <!-- Main Wrapper -->
+  <div class="main-wrapper">
+
+    <!-- Top Utility Bar -->
+    <header class="top-bar">
+      <div class="top-bar-left">
+        <a href="index.html" class="back-btn" title="Quay về Danh mục Thư viện Bài báo Day 02">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+          Thư Viện Bài Báo
+        </a>
+        <a href="../index.html" class="back-btn" title="Quay về Trang chủ Chuyên đề Day 02 Extra">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+          </svg>
+          Day 02 Extra
+        </a>
+        <a href="paper 4_Detection of Anomalies in Large Scale Accounting Data using Deep Autoencoder Networks.pdf" target="_blank" class="back-btn" style="color: var(--primary);" title="Mở file PDF gốc">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+          </svg>
+          PDF Gốc
+        </a>
+      </div>
+
+      <div class="top-bar-right">
+        <button class="util-btn" onclick="toggleTheme()" title="Chuyển chế độ Sáng/Tối">🌓</button>
+        <button class="util-btn" onclick="adjustFontSize(-1)" title="Giảm cỡ chữ">A-</button>
+        <button class="util-btn" onclick="adjustFontSize(1)" title="Tăng cỡ chữ">A+</button>
+        <button class="util-btn" onclick="window.print()" title="In hoặc Xuất PDF">🖨️</button>
+      </div>
+    </header>
+
+    <!-- Article Container -->
+    <main class="article-container">
+
+      <!-- Paper Header -->
+      <header class="paper-header">
+        <div class="paper-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+          </svg>
+          Paper 4 • PwC & DFKI Landmark
+        </div>
+        <h1 class="paper-title">Phát Hiện Bất Thường Trong Dữ Liệu Kế Toán Quy Mô Lớn Bằng Mạng Deep Autoencoder</h1>
+        <div class="paper-title-en">Detection of Anomalies in Large Scale Accounting Data using Deep Autoencoder Networks</div>
+
+        <div class="paper-meta-grid">
+          <div class="meta-item"><strong>Tác giả:</strong> Marco Schreyer (DFKI), Timur Sattarov (PwC), Damian Borth (DFKI), Andreas Dengel (DFKI), Bernd Reimer (PwC)</div>
+          <div class="meta-item"><strong>Xuất bản:</strong> DFKI & PricewaterhouseCoopers (PwC) / arXiv & IJAIS Research Stream</div>
+          <div class="meta-item"><strong>Định danh:</strong> arXiv:1709.05254 / PwC Forensic Data Analytics</div>
+        </div>
+      </header>
+
+      <!-- Main Body Content -->
+      
+      <!-- Abstract Box -->
+      <section id="abstract" class="abstract-box">
+        <div class="abstract-heading">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          </svg>
+          TÓM TẮT NGHIÊN CỨU (ABSTRACT)
+        </div>
+        <p class="abstract-text">
+          Phát hiện gian lận trong dữ liệu kế toán quy mô lớn là bài toán thách thức cốt tử trong kiểm toán báo cáo tài chính và điều tra gian lận nội bộ. Phần lớn các phương pháp hiện hành vẫn dựa vào các quy tắc thủ công (<em>handcrafted IF-ELSE rules</em>) dễ bị kẻ gian lách qua và sinh ra hàng nghìn cảnh báo giả. Lấy cảm hứng từ học sâu, chúng tôi đề xuất ứng dụng <strong>Mạng nơ-ron Tự mã hóa Sâu (Deep Autoencoder Neural Networks)</strong> để tự động nhận diện các bút toán nhật ký chung bất thường. Sai số tái tạo (<em>reconstruction error</em>) kết hợp với xác suất thuộc tính đóng vai trò thang đo bất thường có tính thích nghi cực cao. Thực nghiệm trên 2 bộ dữ liệu SAP ERP thực tế của hai tập đoàn đa quốc gia chứng minh mô hình đạt F1-score <strong>32,93%</strong> (Dataset A) và <strong>16,95%</strong> (Dataset B), đồng thời <strong>giảm thiểu tới 97,5% số lượng cảnh báo giả</strong> so với mạng nông. Đánh giá thực tế từ các kiểm toán viên và chuyên gia điều tra gian lận tại PwC khẳng định mô hình bắt trúng các bất thường kế toán trọng yếu trong thực tế.
+        </p>
+        <div class="keywords-box">
+          <strong>Từ khóa:</strong> Accounting Information Systems; Computer Assisted Audit Techniques (CAATs); Journal Entry Testing; Forensic Accounting; Fraud Detection; Deep Learning; Autoencoder; PwC.
+        </div>
+      </section>
+
+      <!-- Section 1 -->
+      <section id="sec1">
+        <h2 class="section-title"><span class="section-number">1</span> ĐỘNG LỰC & THÁCH THỨC TRONG KIỂM TOÁN SỔ CÁI (GENERAL LEDGER)</h2>
+        <p>Báo cáo của ACFE ước tính các doanh nghiệp thất thoát trung bình <strong>5% doanh thu hàng năm</strong> do gian lận nội bộ. Theo Chuẩn mực Kiểm toán Quốc tế <strong>ISA 240</strong>, kiểm toán viên bắt buộc phải kiểm tra các bút toán nhật ký chung (<em>Journal Entry Testing - JET</em>) để phát hiện rủi ro ban quản lý ghi đè kiểm soát.</p>
+
+        <div class="callout callout-warning">
+          <div class="callout-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+              <line x1="12" y1="9" x2="12" y2="13"></line>
+              <line x1="12" y1="17" x2="12.01" y2="17"></line>
+            </svg>
+            Nghịch lý của các quy tắc kiểm toán thủ công (IF-ELSE Rules):
+          </div>
+          <p style="margin-bottom:0;">Trong hệ thống ERP lớn với hàng triệu dòng bút toán, việc dùng các câu lệnh lọc thủ công (như lọc bút toán cuối tuần, số tiền làm tròn) tạo ra hàng chục nghìn cảnh báo giả. Kiểm toán viên bị quá tải, trong khi kẻ gian dễ dàng né tránh bằng cách hạch toán vào giờ hành chính với các con số lẻ.</p>
+        </div>
+      </section>
+
+      <!-- Section 2 -->
+      <section id="sec2">
+        <h2 class="section-title"><span class="section-number">2</span> BẢN CHẤT DỮ LIỆU BÚT TOÁN KẾ TOÁN TRONG HỆ THỐNG SAP ERP</h2>
+        <p>Mỗi chứng từ kế toán trong hệ thống SAP ERP được lưu trữ theo cấu trúc 2 tầng: Tầng tiêu đề chứng từ (bảng <code>BKPF</code>) và tầng dòng bút toán chi tiết (bảng <code>BSEG</code>).</p>
+
+        <!-- Figure 1 -->
+        <div class="figure-wrapper">
+          <div class="figure-header">
+            <span>QUY TRÌNH HẠCH TOÁN BÚT TOÁN KÉP TRONG ERP</span>
+            <span class="figure-badge">Hình 1</span>
+          </div>
+          <div class="figure-img-container">
+            <img src="figures_paper4/fig1_journal_process_cropped.png" alt="Hình 1: Quy trình hạch toán ERP" class="figure-img" />
+          </div>
+          <div class="figure-caption">
+            <strong>Hình 1:</strong> Dòng chảy chứng từ kế toán kép trong hệ thống ERP: Nhận hóa đơn đầu vào ($1.000) &rarr; Xuất tiền thanh toán từ ngân hàng ($1.000). Dữ liệu được mã hóa One-Hot thành véc-tơ nhị phân 401 chiều (Dataset A) và 576 chiều (Dataset B).
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3 -->
+      <section id="sec3">
+        <h2 class="section-title"><span class="section-number">3</span> PHÂN LOẠI BẤT THƯỜNG TOÀN CỤC (GLOBAL) VS. CỤC BỘ (LOCAL)</h2>
+        <ul>
+          <li><strong>Bất thường Toàn cục (Global Anomalies):</strong> Các bút toán có số tiền bất thường cực lớn hoặc thuộc tính cực hiếm (ví dụ: loại chứng từ lạ chưa từng xuất hiện).</li>
+          <li><strong>Bất thường Cục bộ / Ngữ cảnh (Local/Contextual Anomalies):</strong> Các bút toán có số tiền bình thường, tài khoản bình thường, nhưng <strong>sự kết hợp giữa người tạo, thời gian và cặp tài khoản Nợ/Có lại trái với quy luật nội bộ</strong>. Đây là loại gian lận tinh vi nhất mà kiểm toán truyền thống hoàn toàn bỏ sót!</li>
+        </ul>
+      </section>
+
+      <!-- Section 4 -->
+      <section id="sec4">
+        <h2 class="section-title"><span class="section-number">4</span> KIẾN TRÚC MẠNG NƠ-RON DEEP AUTOENCODER ĐỀ XUẤT</h2>
+        <p>Mạng Autoencoder bao gồm Mạng mã hóa (Encoder) nén dữ liệu xuống không gian ẩn 3 chiều, và Mạng giải mã (Decoder) khôi phục lại bút toán ban đầu.</p>
+
+        <!-- Figure 2 -->
+        <div class="figure-wrapper">
+          <div class="figure-header">
+            <span>KIẾN TRÚC MẠNG DEEP AUTOENCODER CHO BÚT TOÁN KẾ TOÁN</span>
+            <span class="figure-badge">Hình 2</span>
+          </div>
+          <div class="figure-img-container">
+            <img src="figures_paper4/fig2_autoencoder_arch_cropped.png" alt="Hình 2: Kiến trúc Deep Autoencoder" class="figure-img" />
+          </div>
+          <div class="figure-caption">
+            <strong>Hình 2:</strong> Cơ chế phát hiện bất thường: Với 99,9% bút toán hợp lệ, mạng tái tạo chuẩn xác với sai số nhỏ. Với bút toán gian lận, mạng không thể tái tạo đúng &rarr; Sai số tái tạo (Reconstruction Error) tăng vọt &rarr; Gắn cờ cảnh báo kiểm toán viên!
+          </div>
+        </div>
+
+        <p>Công thức tính Điểm bất thường kết hợp (Anomaly Score):</p>
+        <div class="formula-box">
+          AS(x<sub>i</sub>) = &alpha; &times; AP_Score(x<sub>i</sub>) + (1 - &alpha;) &times; Reconstruction_Error(x<sub>i</sub>, &hat;x<sub>i</sub>)
+        </div>
+      </section>
+
+      <!-- Section 5 -->
+      <section id="sec5">
+        <h2 class="section-title"><span class="section-number">5</span> KẾT QUẢ THỰC NGHIỆM ĐỊNH LƯỢNG TRÊN DỮ LIỆU ERP THỰC TẾ</h2>
+        <p>Đánh giá 9 kiến trúc Autoencoder từ nông (AE 1) đến sâu (AE 9) trên dữ liệu doanh nghiệp thực tế (Bảng 2 bài báo gốc):</p>
+
+        <div class="table-container">
+          <table class="academic-table">
+            <thead>
+              <tr>
+                <th>Cấu Hình Mạng</th>
+                <th>Số Tầng Ẩn (Topology)</th>
+                <th>Precision (%)</th>
+                <th>F1-Score</th>
+                <th>Tỷ Lệ Bút Toán Nghi Vấn (%)</th>
+                <th>Số Lượng Bút Toán Cần Rà Soát</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="background: rgba(239, 68, 68, 0.05);">
+                <td>AE 1 (Nông - 1 tầng)</td>
+                <td>[401] - 3 - [401]</td>
+                <td>0,0049</td>
+                <td>0,0098</td>
+                <td>6,26%</td>
+                <td>19.233 bút toán</td>
+              </tr>
+              <tr>
+                <td>AE 3</td>
+                <td>[401] - 8-4-3-4-8 - [401]</td>
+                <td>0,0098</td>
+                <td>0,0194</td>
+                <td>3,16%</td>
+                <td>9.719 bút toán</td>
+              </tr>
+              <tr>
+                <td>AE 5</td>
+                <td>[401] - 32-16-8-4-3-...-32 - [401]</td>
+                <td>0,0641</td>
+                <td>0,1204</td>
+                <td>0,48%</td>
+                <td>1.483 bút toán</td>
+              </tr>
+              <tr>
+                <td>AE 7</td>
+                <td>[401] - 128-64-32-...-128 - [401]</td>
+                <td>0,0796</td>
+                <td>0,1474</td>
+                <td>0,39%</td>
+                <td>1.194 bút toán</td>
+              </tr>
+              <tr style="background: rgba(16, 185, 129, 0.08); font-weight: 700;">
+                <td><strong>AE 9 (Mạng sâu nhất)</strong></td>
+                <td><strong>[401] - 512-256-128-...-512 - [401]</strong></td>
+                <td><strong>0,1971</strong></td>
+                <td><strong style="color: #059669; font-size: 1.05rem;">0,3293</strong></td>
+                <td><strong>0,16%</strong></td>
+                <td><strong style="color: #059669; font-size: 1.05rem;">Chỉ còn 482 bút toán!</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout callout-success">
+          <div class="callout-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+            Bước đột phá: Giảm 97,5% khối lượng kiểm tra thủ công!
+          </div>
+          <p style="margin-bottom:0;">Mạng nơ-ron nông AE 1 bắt kiểm toán viên phải kiểm tra 19.233 bút toán, trong khi <strong>mạng sâu AE 9 thu hẹp danh sách xuống chỉ còn 482 bút toán</strong> mà vẫn bắt trọn 100% các bút toán gian lận!</p>
+        </div>
+
+        <h3 class="sub-section-title">Đối chuẩn với các thuật toán học không giám sát khác (Bảng 3):</h3>
+        <div class="table-container">
+          <table class="academic-table">
+            <thead>
+              <tr>
+                <th>Thuật Toán Đối Chuẩn</th>
+                <th>Dataset</th>
+                <th>ROC-AUC</th>
+                <th>Precision (%)</th>
+                <th>F1-Score</th>
+                <th>Số Bút Toán Nghi Vấn</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="background: rgba(16, 185, 129, 0.08); font-weight: 700;">
+                <td><strong>Deep Autoencoder (AE 9)</strong></td>
+                <td><strong>A</strong></td>
+                <td><strong style="color: #059669;">0,9999</strong></td>
+                <td><strong>56,88%</strong></td>
+                <td><strong style="color: #059669;">0,7251</strong></td>
+                <td><strong style="color: #059669;">Chỉ 167 bút toán</strong></td>
+              </tr>
+              <tr>
+                <td>One-Class SVM (OC-SVM)</td>
+                <td>A</td>
+                <td>0,9999</td>
+                <td>27,69%</td>
+                <td>0,4338</td>
+                <td>343 bút toán</td>
+              </tr>
+              <tr>
+                <td>Local Outlier Factor (LOF)</td>
+                <td>A</td>
+                <td>0,9979</td>
+                <td>4,99%</td>
+                <td>0,0952</td>
+                <td>1.901 bút toán</td>
+              </tr>
+              <tr>
+                <td>HDBSCAN (Phân cụm)</td>
+                <td>A</td>
+                <td>0,9787</td>
+                <td>2,56%</td>
+                <td>0,0499</td>
+                <td>3.714 bút toán</td>
+              </tr>
+              <tr>
+                <td>PCA (Phân tích thành phần chính)</td>
+                <td>A</td>
+                <td>0,9608</td>
+                <td>0,55%</td>
+                <td>0,0110</td>
+                <td>17.162 bút toán</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Section 6 -->
+      <section id="sec6">
+        <h2 class="section-title"><span class="section-number">6</span> ĐÁNH GIÁ CHẤT LƯỢNG THỰC TẾ TỪ CÁC CHUYÊN GIA KIỂM TOÁN PwC</h2>
+        <p>Các kiểm toán viên và chuyên viên điều tra gian lận nội bộ tại PwC đã trực tiếp rà soát các trường hợp thực tế do AE 9 phát hiện:</p>
+        <ul>
+          <li><strong>Hành vi phân tách hóa đơn (Invoice Splitting):</strong> Kẻ gian cố tình chia nhỏ một khoản chi 24.000 EUR thành 5 hóa đơn dưới 5.000 EUR để không phải trình Giám đốc tài chính phê duyệt.</li>
+          <li><strong>Bút toán hạch toán đêm khuya bởi người dùng trái thẩm quyền:</strong> Tài khoản IT thực hiện bút toán điều chỉnh giảm doanh thu vào lúc 23h đêm Chủ nhật.</li>
+          <li><strong>Bút toán kết chuyển đối ứng trái quy luật:</strong> Ghi Nợ Chi phí đối ứng thẳng vào Phải thu mà không có chứng từ xuất kho hoặc biên bản bù trừ công nợ.</li>
+        </ul>
+      </section>
+
+      <!-- Section 7 -->
+      <section id="sec7">
+        <h2 class="section-title"><span class="section-number">7</span> ĐÚC KẾT CHO NGHỀ NGHIỆP KIỂM TOÁN HIỆN ĐẠI</h2>
+        <ul>
+          <li><strong>Chuyển dịch sang Kiểm toán Toàn diện 100%:</strong> Xóa bỏ hoàn toàn rủi ro lấy mẫu (Sampling Risk), quét toàn bộ 100% bút toán sổ cái của doanh nghiệp trong vài phút.</li>
+          <li><strong>Hiện thực hóa Kiểm toán Liên tục (Continuous Auditing):</strong> Cho phép hệ thống kiểm soát nội bộ và kiểm toán nội bộ phát hiện gian lận theo thời gian thực thay vì đợi đến đợt kiểm toán cuối năm.</li>
+          <li><strong>Tối ưu hóa nguồn lực nhân sự kiểm toán:</strong> Kiểm toán viên chỉ cần tập trung rà soát vài trăm bút toán có điểm bất thường cao nhất thay vì mò kim đáy bể trong hàng triệu dòng dữ liệu.</li>
+        </ul>
+      </section>
+
+      <!-- Section 8 -->
+      <section id="sec8">
+        <h2 class="section-title"><span class="section-number">8</span> TÀI LIỆU THAM KHẢO CHÍNH (REFERENCES)</h2>
+        <ul class="references-list">
+          <li><strong>Schreyer, M., Sattarov, T., Borth, D., Dengel, A., & Reimer, B. (2017).</strong> Detection of anomalies in large scale accounting data using deep autoencoder networks. <em>arXiv preprint arXiv:1709.05254</em>.</li>
+          <li><strong>ACFE (2016).</strong> Report to the Nations on Occupational Fraud and Abuse. <em>Association of Certified Fraud Examiners</em>.</li>
+          <li><strong>PwC (2016).</strong> Global Economic Crime Survey 2016: An inside look at the true costs of crime. <em>PricewaterhouseCoopers</em>.</li>
+          <li><strong>Schreyer, M., et al. (2020).</strong> Multi-view anomaly detection in large-scale accounting data. <em>International Conference on Information Systems (ICIS)</em>.</li>
+        </ul>
+      </section>
+    
+
+      <!-- Article Footer -->
+      <footer class="article-footer">
+        <div class="footer-nav-buttons">
+          <a href="paper_3_FinBERT_Large_Language_Model_tiengviet.html" class="footer-nav-btn">← Bài 3: FinBERT NLP (CAR)</a>
+<a href="index.html" class="footer-nav-btn">Quay về Trang Chủ Thư Viện →</a>
+        </div>
+        <p>Khoa Kế toán & Kiểm toán — Trường Đại học Đông Á (UDA)</p>
+        <p style="margin-top: 0.35rem; font-size: 0.8rem; color: var(--text-muted);">Tài liệu phục vụ giảng dạy và nghiên cứu học phần Trí Tuệ Nhân Tạo Trong Kế Toán & Kiểm Toán (2026)</p>
+      </footer>
+
+    </main>
+
+  </div>
+
+  <script>
+    // Reading Progress Bar
+    window.addEventListener('scroll', () => {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.getElementById('progress-bar').style.width = scrolled + '%';
+    });
+
+    // Theme Switcher (Dark / Light)
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme');
+      const target = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', target);
+      localStorage.setItem('doc_theme', target);
+    }
+
+    // Initialize Theme
+    const savedTheme = localStorage.getItem('doc_theme');
+    if (savedTheme) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+
+    // Font Size Adjustment
+    let currentFontSizeRem = 1.05;
+    function adjustFontSize(delta) {
+      currentFontSizeRem = Math.max(0.85, Math.min(1.35, currentFontSizeRem + delta * 0.05));
+      document.documentElement.style.setProperty('--content-font-size', currentFontSizeRem + 'rem');
+    }
+
+    // Active Sidebar Link Spy
+    const sections = document.querySelectorAll('section[id], div[id]');
+    const navLinks = document.querySelectorAll('.sidebar-link');
+
+    window.addEventListener('scroll', () => {
+      let currentSectionId = '';
+      sections.forEach(sec => {
+        const top = sec.offsetTop - 120;
+        if (window.pageYOffset >= top) {
+          currentSectionId = sec.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        if (link.getAttribute('href') && link.getAttribute('href').startsWith('#')) {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === '#' + currentSectionId) {
+            link.classList.add('active');
+          }
+        }
+      });
+    });
+  </script>
+
+</body>
+
+</html>

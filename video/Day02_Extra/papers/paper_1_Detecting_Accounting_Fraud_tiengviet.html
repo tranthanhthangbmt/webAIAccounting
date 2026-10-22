@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>Phát Hiện Gian Lận Kế Toán Tại Các Công Ty Đại Chúng Hoa Kỳ Bằng Tiếp Cận Học Máy & Dữ Liệu BCTC Thô — Bản Dịch Học Thuật Tiếng Việt (UDA)</title>
+  <meta name="description" content="Bản dịch tiếng Việt học thuật toàn văn công trình nghiên cứu: Detecting Accounting Frauds in Publicly Traded U.S. Firms: A Machine Learning Approach (Bin Li (ĐH Vũ Hán), Julia Yu (Nanyang Business School, NTU), Jie Zhang (NTU), Bin Ke (ĐH Quốc gia Singapore - NUS)). Tích hợp biểu đồ, ma trận dữ liệu và phân tích nghiệp vụ kế toán kiểm toán chuyên sâu." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-body: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-sidebar: #0f172a;
+      --sidebar-text: #e2e8f0;
+      --sidebar-muted: #94a3b8;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --primary: #2563eb;
+      --primary-light: #eff6ff;
+      --primary-border: #bfdbfe;
+      --accent: #0ea5e9;
+      --success: #10b981;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --border-color: #e2e8f0;
+      --code-bg: #1e293b;
+      --code-text: #f1f5f9;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+      --content-font-size: 1.05rem;
+      --line-height: 1.85;
+      --radius-md: 12px;
+      --radius-sm: 8px;
+    }
+
+    [data-theme="dark"] {
+      --bg-body: #0b0f19;
+      --bg-surface: #131b2e;
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --primary: #3b82f6;
+      --primary-light: rgba(59, 130, 246, 0.15);
+      --primary-border: rgba(59, 130, 246, 0.35);
+      --border-color: #1e293b;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.4);
+      --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.5);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg-body);
+      color: var(--text-main);
+      line-height: var(--line-height);
+      font-size: var(--content-font-size);
+      display: flex;
+      min-height: 100vh;
+      transition: background-color 0.25s ease, color 0.25s ease;
+    }
+
+    /* Reading Progress Bar */
+    #progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #2563eb, #38bdf8, #8b5cf6);
+      width: 0%;
+      z-index: 9999;
+      transition: width 0.1s linear;
+    }
+
+    /* Sidebar Navigation */
+    .sidebar {
+      width: 330px;
+      background-color: var(--bg-sidebar);
+      color: var(--sidebar-text);
+      height: 100vh;
+      position: sticky;
+      top: 0;
+      overflow-y: auto;
+      flex-shrink: 0;
+      border-right: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      flex-direction: column;
+      z-index: 100;
+    }
+
+    .sidebar-header {
+      padding: 1.5rem 1.25rem 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .sidebar-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #38bdf8;
+      margin-bottom: 0.4rem;
+    }
+
+    .sidebar-subtitle {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.35;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    .sidebar-author {
+      font-size: 0.8rem;
+      color: var(--sidebar-muted);
+      margin-top: 0.35rem;
+    }
+
+    .sidebar-nav {
+      padding: 1rem 0.75rem 2.5rem;
+      flex-grow: 1;
+    }
+
+    .nav-group-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #64748b;
+      padding: 0.85rem 0.65rem 0.35rem;
+    }
+
+    .sidebar-link {
+      display: block;
+      padding: 0.5rem 0.75rem;
+      font-size: 0.88rem;
+      color: var(--sidebar-muted);
+      text-decoration: none;
+      border-radius: var(--radius-sm);
+      transition: all 0.15s ease;
+      line-height: 1.4;
+      margin-bottom: 2px;
+    }
+
+    .sidebar-link:hover {
+      color: #ffffff;
+      background-color: rgba(255, 255, 255, 0.08);
+      transform: translateX(3px);
+    }
+
+    .sidebar-link.active {
+      color: #ffffff;
+      background-color: var(--primary);
+      font-weight: 600;
+    }
+
+    .sidebar-link.sub-link {
+      padding-left: 1.6rem;
+      font-size: 0.83rem;
+    }
+
+    /* Main Content Wrapper */
+    .main-wrapper {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    /* Top Floating Utility Bar */
+    .top-bar {
+      position: sticky;
+      top: 0;
+      background-color: var(--bg-surface);
+      border-bottom: 1px solid var(--border-color);
+      padding: 0.75rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 90;
+      box-shadow: var(--shadow-sm);
+      backdrop-filter: blur(10px);
+    }
+
+    .top-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 600;
+      padding: 0.4rem 0.75rem;
+      border-radius: var(--radius-sm);
+      background: var(--bg-body);
+      border: 1px solid var(--border-color);
+      transition: all 0.2s;
+    }
+
+    .back-btn:hover {
+      color: var(--primary);
+      border-color: var(--primary-border);
+      background: var(--primary-light);
+    }
+
+    .top-bar-right {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .util-btn {
+      background: var(--bg-body);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-sm);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 0.85rem;
+      font-weight: 700;
+      transition: all 0.2s;
+    }
+
+    .util-btn:hover {
+      color: var(--text-main);
+      border-color: var(--primary);
+    }
+
+    /* Article Paper Layout */
+    .article-container {
+      max-width: 980px;
+      width: 100%;
+      margin: 1.5rem auto 4rem;
+      padding: 3rem 2.75rem 6rem;
+      background: var(--bg-surface);
+      box-shadow: var(--shadow-sm);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+    }
+
+    @media (max-width: 1024px) {
+      .sidebar {
+        display: none;
+      }
+      .article-container {
+        padding: 2rem 1.25rem 4rem;
+        margin-top: 0;
+        border-radius: 0;
+        border: none;
+      }
+    }
+
+    /* Document Header */
+    .paper-header {
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 2rem;
+      margin-bottom: 2.5rem;
+      text-align: center;
+    }
+
+    .paper-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.35rem 0.9rem;
+      border-radius: 9999px;
+      background: var(--primary-light);
+      border: 1px solid var(--primary-border);
+      color: var(--primary);
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1.25rem;
+    }
+
+    .paper-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(1.85rem, 3.5vw, 2.6rem);
+      font-weight: 800;
+      line-height: 1.25;
+      color: var(--text-main);
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .paper-title-en {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      font-style: italic;
+      margin-bottom: 1.5rem;
+      line-height: 1.45;
+    }
+
+    .paper-meta-grid {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      background: var(--bg-body);
+      padding: 1rem 1.5rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-color);
+      margin-top: 1.25rem;
+      text-align: left;
+    }
+
+    .meta-item strong {
+      color: var(--text-main);
+    }
+
+    /* Abstract Block */
+    .abstract-box {
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.04) 0%, rgba(14, 165, 233, 0.04) 100%);
+      border-left: 4px solid var(--primary);
+      padding: 1.75rem 2rem;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      margin-bottom: 3rem;
+      border-top: 1px solid var(--border-color);
+      border-right: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .abstract-heading {
+      font-size: 1.15rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--primary);
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    .abstract-text {
+      font-family: 'Merriweather', serif;
+      font-size: 1.02rem;
+      line-height: 1.85;
+      color: var(--text-main);
+      text-align: justify;
+    }
+
+    .keywords-box {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .keywords-box strong {
+      color: var(--primary);
+    }
+
+    /* Academic Typography */
+    h2.section-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-top: 3.5rem;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      scroll-margin-top: 80px;
+    }
+
+    h2.section-title .section-number {
+      background: var(--primary);
+      color: #fff;
+      font-size: 1rem;
+      padding: 0.2rem 0.65rem;
+      border-radius: 6px;
+      font-weight: 700;
+    }
+
+    h3.sub-section-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-top: 2.25rem;
+      margin-bottom: 0.85rem;
+      scroll-margin-top: 80px;
+    }
+
+    h4.tertiary-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-top: 1.5rem;
+      margin-bottom: 0.6rem;
+      scroll-margin-top: 80px;
+    }
+
+    p {
+      margin-bottom: 1.35rem;
+      text-align: justify;
+    }
+
+    ul, ol {
+      margin-left: 1.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+
+    strong {
+      color: var(--text-main);
+      font-weight: 700;
+    }
+
+    /* Callout & Alerts */
+    .callout {
+      padding: 1.25rem 1.5rem;
+      border-radius: var(--radius-sm);
+      margin: 1.75rem 0;
+      border-left: 4px solid;
+      background: var(--bg-body);
+      border-top: 1px solid var(--border-color);
+      border-right: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .callout-info {
+      border-left-color: var(--primary);
+      background: var(--primary-light);
+    }
+
+    .callout-warning {
+      border-left-color: var(--warning);
+      background: rgba(245, 158, 11, 0.08);
+    }
+
+    .callout-success {
+      border-left-color: var(--success);
+      background: rgba(16, 185, 129, 0.08);
+    }
+
+    .callout-title {
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    /* Figure Card */
+    .figure-wrapper {
+      margin: 2.5rem 0;
+      background: var(--bg-body);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      text-align: center;
+    }
+
+    .figure-header {
+      padding: 0.75rem 1.25rem;
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .figure-badge {
+      background: var(--primary-light);
+      color: var(--primary);
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 0.8rem;
+    }
+
+    .figure-img-container {
+      padding: 1.5rem;
+      background: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .figure-img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+      transition: transform 0.25s ease;
+      cursor: zoom-in;
+    }
+
+    .figure-img:hover {
+      transform: scale(1.02);
+    }
+
+    .figure-caption {
+      padding: 1rem 1.5rem;
+      background: var(--bg-surface);
+      border-top: 1px solid var(--border-color);
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    .figure-caption strong {
+      color: var(--text-main);
+    }
+
+    /* Academic Data Tables */
+    .table-container {
+      overflow-x: auto;
+      margin: 2rem 0;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+    }
+
+    table.academic-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+      text-align: left;
+    }
+
+    table.academic-table th {
+      background: var(--primary);
+      color: #ffffff;
+      padding: 0.85rem 1rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    table.academic-table td {
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--border-color);
+      background: var(--bg-surface);
+      color: var(--text-main);
+    }
+
+    table.academic-table tr:nth-child(even) td {
+      background: var(--bg-body);
+    }
+
+    table.academic-table tr:hover td {
+      background: var(--primary-light);
+    }
+
+    /* Math Formula Block */
+    .formula-box {
+      background: var(--bg-body);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 1.25rem;
+      margin: 1.5rem 0;
+      text-align: center;
+      font-family: 'Fira Code', monospace;
+      font-size: 1.05rem;
+      color: var(--text-main);
+      overflow-x: auto;
+    }
+
+    /* Code Blocks */
+    .code-wrapper {
+      margin: 1.75rem 0;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      border: 1px solid #334155;
+      background: var(--code-bg);
+      box-shadow: var(--shadow-md);
+    }
+
+    .code-header {
+      background: #0f172a;
+      padding: 0.5rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #94a3b8;
+      font-size: 0.8rem;
+      font-family: 'Fira Code', monospace;
+      border-bottom: 1px solid #1e293b;
+    }
+
+    pre code {
+      display: block;
+      padding: 1.25rem 1.5rem;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.88rem;
+      line-height: 1.6;
+      color: var(--code-text);
+      overflow-x: auto;
+      white-space: pre;
+    }
+
+    /* References List */
+    .references-list {
+      list-style-type: none;
+      margin-left: 0;
+    }
+
+    .references-list li {
+      padding-left: 2rem;
+      text-indent: -2rem;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .references-list li strong {
+      color: var(--text-main);
+    }
+
+    /* Footer */
+    .article-footer {
+      border-top: 2px solid var(--border-color);
+      padding-top: 2.5rem;
+      margin-top: 4rem;
+      text-align: center;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .footer-nav-buttons {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-nav-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.25rem;
+      border-radius: var(--radius-sm);
+      background: var(--bg-body);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.2s ease;
+    }
+
+    .footer-nav-btn:hover {
+      border-color: var(--primary);
+      background: var(--primary-light);
+      color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    /* Print Styles */
+    @media print {
+      .sidebar, .top-bar, #progress-bar, .footer-nav-buttons {
+        display: none !important;
+      }
+      .article-container {
+        box-shadow: none;
+        border: none;
+        padding: 0;
+        margin: 0;
+        max-width: 100%;
+      }
+      body {
+        background: #fff;
+        color: #000;
+        font-size: 11pt;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Reading Progress Bar -->
+  <div id="progress-bar"></div>
+
+  <!-- Sidebar Navigation -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-title">Bản Dịch Học Thuật Tiếng Việt (UDA)</div>
+      <div class="sidebar-subtitle">Paper 1 • JAR & ACML Landmark</div>
+      <div class="sidebar-author">Bin Li (ĐH Vũ Hán), Julia Yu (Nanyang Business School, NTU), Jie Zhang (NTU), Bin Ke (ĐH Quốc gia Singapore - NUS)</div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <div class="nav-group-title">Nội Dung Bài Báo</div>
+      
+      <a href="#abstract" class="sidebar-link">Tóm Tắt Nghiên Cứu</a>
+      <a href="#sec1" class="sidebar-link">1. Mở Đầu & Động Lực</a>
+      <a href="#sec2" class="sidebar-link">2. Tiếp Cận Dữ Liệu BCTC Thô</a>
+      <a href="#sec3" class="sidebar-link">3. CSDL Thực Nghiệm AAERs</a>
+      <a href="#sec4" class="sidebar-link">4. Thuật Toán BP-SVM & Ensemble</a>
+      <a href="#sec5" class="sidebar-link">5. Kết Quả Thực Nghiệm</a>
+      <a href="#sec6" class="sidebar-link">6. Đúc Kết Nghiệp Vụ Kiểm Toán</a>
+      <a href="#sec7" class="sidebar-link">7. Tài Liệu Tham Khảo</a>
+    
+      
+      <div class="nav-group-title">Danh Mục Bài Báo Day 02</div>
+      <a href="paper_1_Detecting_Accounting_Fraud_tiengviet.html" class="sidebar-link active">Bài 1: Gian Lận BCTC (JAR/ACML)</a>
+      <a href="paper_2_Financial_Distress_Prediction_tiengviet.html" class="sidebar-link ">Bài 2: Kiệt Quệ Tài Chính (Elsevier)</a>
+      <a href="paper_3_FinBERT_Large_Language_Model_tiengviet.html" class="sidebar-link ">Bài 3: FinBERT NLP (CAR)</a>
+      <a href="paper_4_Deep_Autoencoder_Anomaly_Detection_tiengviet.html" class="sidebar-link ">Bài 4: Autoencoder Sổ Cái (DFKI/PwC)</a>
+      
+      <div class="nav-group-title">Tài Liệu Gốc</div>
+      <a href="paper 1_Detecting Accounting Fraud in Publicly Traded U.S. Firms via a Machine Learning Approach.pdf" target="_blank" class="sidebar-link">📄 Tải PDF Gốc Tiếng Anh</a>
+      <a href="index.html" class="sidebar-link">📚 Thư Viện Bài Báo Day 02</a>
+    </nav>
+  </aside>
+
+  <!-- Main Wrapper -->
+  <div class="main-wrapper">
+
+    <!-- Top Utility Bar -->
+    <header class="top-bar">
+      <div class="top-bar-left">
+        <a href="index.html" class="back-btn" title="Quay về Danh mục Thư viện Bài báo Day 02">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+          Thư Viện Bài Báo
+        </a>
+        <a href="../index.html" class="back-btn" title="Quay về Trang chủ Chuyên đề Day 02 Extra">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+          </svg>
+          Day 02 Extra
+        </a>
+        <a href="paper 1_Detecting Accounting Fraud in Publicly Traded U.S. Firms via a Machine Learning Approach.pdf" target="_blank" class="back-btn" style="color: var(--primary);" title="Mở file PDF gốc">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+          </svg>
+          PDF Gốc
+        </a>
+      </div>
+
+      <div class="top-bar-right">
+        <button class="util-btn" onclick="toggleTheme()" title="Chuyển chế độ Sáng/Tối">🌓</button>
+        <button class="util-btn" onclick="adjustFontSize(-1)" title="Giảm cỡ chữ">A-</button>
+        <button class="util-btn" onclick="adjustFontSize(1)" title="Tăng cỡ chữ">A+</button>
+        <button class="util-btn" onclick="window.print()" title="In hoặc Xuất PDF">🖨️</button>
+      </div>
+    </header>
+
+    <!-- Article Container -->
+    <main class="article-container">
+
+      <!-- Paper Header -->
+      <header class="paper-header">
+        <div class="paper-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+          </svg>
+          Paper 1 • JAR & ACML Landmark
+        </div>
+        <h1 class="paper-title">Phát Hiện Gian Lận Kế Toán Tại Các Công Ty Đại Chúng Hoa Kỳ Bằng Tiếp Cận Học Máy & Dữ Liệu BCTC Thô</h1>
+        <div class="paper-title-en">Detecting Accounting Frauds in Publicly Traded U.S. Firms: A Machine Learning Approach</div>
+
+        <div class="paper-meta-grid">
+          <div class="meta-item"><strong>Tác giả:</strong> Bin Li (ĐH Vũ Hán), Julia Yu (Nanyang Business School, NTU), Jie Zhang (NTU), Bin Ke (ĐH Quốc gia Singapore - NUS)</div>
+          <div class="meta-item"><strong>Xuất bản:</strong> ACML / JMLR Workshop and Conference Proceedings (Mở rộng tại Journal of Accounting Research - JAR)</div>
+          <div class="meta-item"><strong>Định danh:</strong> JMLR W&CP 45:173-188 / SSRN 2849013</div>
+        </div>
+      </header>
+
+      <!-- Main Body Content -->
+      
+      <!-- Abstract Box -->
+      <section id="abstract" class="abstract-box">
+        <div class="abstract-heading">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          </svg>
+          TÓM TẮT NGHIÊN CỨU (ABSTRACT)
+        </div>
+        <p class="abstract-text">
+          Nghiên cứu này khảo sát cách thức các kỹ thuật học máy (<em>Machine Learning</em>) có thể hỗ trợ hiệu quả việc phát hiện gian lận kế toán tại các công ty đại chúng niêm yết trên thị trường chứng khoán Hoa Kỳ. Các công trình trước đây thường bắt chước chuyên gia con người thông qua việc sử dụng các tỷ số tài chính (<em>financial ratios</em>). Chúng tôi tạo ra bước đột phá bằng cách <strong>sử dụng trực tiếp các biến số kế toán thô (raw accounting variables)</strong> có sẵn ngay trên báo cáo tài chính của doanh nghiệp. Bên cạnh đó, chúng tôi thu thập bộ dữ liệu gian lận toàn diện nhất từ các thông cáo thực thi của SEC (AAERs). Để giải quyết bài toán <strong>mất cân bằng lớp cực đoan (gian lận dưới 1%)</strong>, chúng tôi ứng dụng các thuật toán chuyên biệt gồm Biased-Penalty Support Vector Machine (BP-SVM) và các mô hình học kết hợp (EasyEnsemble, BalancedCascade). Kết quả thực nghiệm ngoài mẫu khẳng định mô hình đề xuất đạt Balanced Accuracy lên tới <strong>77,53%</strong>, vượt trội hoàn toàn so với mô hình hồi quy Logit truyền thống (60,00%).
+        </p>
+        <div class="keywords-box">
+          <strong>Từ khóa cốt lõi:</strong> Machine Learning; Accounting Fraud Detection; Raw Accounting Variables; Imbalanced Learning; Biased-Penalty SVM; Ensemble Methods; AAERs; Balanced Accuracy.
+        </div>
+      </section>
+
+      <!-- Section 1 -->
+      <section id="sec1">
+        <h2 class="section-title"><span class="section-number">1</span> MỞ ĐẦU & ĐỘNG LỰC NGHIÊN CỨU</h2>
+        <p>Học máy ngày càng khẳng định vai trò sống còn trong tài chính tính toán. Trong đó, việc phát hiện gian lận báo cáo tài chính (BCTC) do những người nội bộ (ban giám đốc điều hành, cổ đông kiểm soát) thực hiện là bài toán cấp bách nhất. Các vụ sụp đổ kinh hoàng như Enron, WorldCom cho thấy nếu không ngăn chặn kịp thời, gian lận sẽ xóa sổ hàng chục tỷ USD giá trị vốn hóa, tàn phá niềm tin nhà đầu tư và làm suy thoái thị trường vốn.</p>
+        
+        <div class="callout callout-warning">
+          <div class="callout-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+              <line x1="12" y1="9" x2="12" y2="13"></line>
+              <line x1="12" y1="17" x2="12.01" y2="17"></line>
+            </svg>
+            Hạn chế chí mạng của các mô hình dựa trên tỷ số tài chính (Financial Ratios)
+          </div>
+          <p style="margin-bottom:0;">Các mô hình kinh điển như Beneish M-Score (1999) hay Dechow F-Score (2011) dựa dẫm vào các tỷ số tài chính do con người chọn lọc chủ quan. Kẻ gian lận sành sỏi luôn nắm rõ các tỷ số này và chủ động "xào nấu" số liệu để tỷ số vẫn đẹp mắt. Hơn nữa, việc tính tỷ số làm triệt tiêu thông tin về độ lớn giao dịch thực tế và không phản ánh được các tương tác phi tuyến tính ngầm giữa các tài khoản.</p>
+        </div>
+      </section>
+
+      <!-- Section 2 -->
+      <section id="sec2">
+        <h2 class="section-title"><span class="section-number">2</span> Ý TƯỞNG ĐỘT PHÁ: SỬ DỤNG TRỰC TIẾP BIẾN KẾ TOÁN THÔ</h2>
+        <p>Thay vì tính toán các tỷ số tài chính trung gian, nhóm tác giả đưa trực tiếp <strong>24 biến số kế toán thô (Raw Accounting Variables)</strong> từ Bảng cân đối kế toán và Báo cáo kết quả hoạt động kinh doanh vào mô hình máy học.</p>
+
+        <!-- Figure 1 -->
+        <div class="figure-wrapper">
+          <div class="figure-header">
+            <span>KIẾN TRÚC HỆ THỐNG PHÁT HIỆN GIAN LẬN</span>
+            <span class="figure-badge">Hình 1</span>
+          </div>
+          <div class="figure-img-container">
+            <img src="figures_paper1/fig_p4_1.jpeg" alt="Hình 1: Sơ đồ hệ thống phát hiện gian lận" class="figure-img" />
+          </div>
+          <div class="figure-caption">
+            <strong>Hình 1:</strong> Đối chiếu tiếp cận truyền thống (Traditional Approach) dựa trên tỷ số tài chính chọn lọc thủ công và tiếp cận đề xuất (Proposed Approach) nạp trực tiếp biến số kế toán thô vào thuật toán học thích nghi mất cân bằng lớp.
+          </div>
+        </div>
+
+        <p>Hệ thống 24 biến số thô bao gồm: Tài sản ngắn hạn (<code>act</code>), Phải trả người bán (<code>ap</code>), Tổng tài sản (<code>at</code>), Vốn chủ sở hữu (<code>ceq</code>), Tiền & tương đương tiền (<code>che</code>), Giá vốn hàng bán (<code>cogs</code>), Nợ ngắn hạn (<code>dlc</code>), Nợ dài hạn (<code>dltt</code>), Khấu hao (<code>dp</code>), EBIT (<code>ebit</code>), Hàng tồn kho (<code>invt</code>), Lợi nhuận ròng (<code>ni</code>), Doanh thu thuần (<code>sale</code>), Chi phí bán hàng & QLDN (<code>xsga</code>)...</p>
+      </section>
+
+      <!-- Section 3 -->
+      <section id="sec3">
+        <h2 class="section-title"><span class="section-number">3</span> CƠ SỞ DỮ LIỆU THỰC NGHIỆM AAERs (SEC 1982–2010)</h2>
+        <p>Nghiên cứu thu thập toàn bộ dữ liệu vi phạm kế toán chính thức từ <strong>Ủy ban Chứng khoán Hoa Kỳ (SEC)</strong> trong gần 30 năm, tạo nên bộ dữ liệu mẫu lớn nhất và khách quan nhất trong y văn kế toán tài chính.</p>
+
+        <div class="table-container">
+          <table class="academic-table">
+            <thead>
+              <tr>
+                <th>Tên Tập Dữ Liệu</th>
+                <th>Giai Đoạn</th>
+                <th>Tổng Số Năm-Công Ty</th>
+                <th>Số Vụ Gian Lận (%)</th>
+                <th>Số Mẫu Liêm Chính (%)</th>
+                <th>Số Lượng Thuộc Tính</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>USRaw 0paired (Toàn bộ)</strong></td>
+                <td>1991–2005</td>
+                <td>90.172 (100%)</td>
+                <td>632 (0,70%)</td>
+                <td>89.540 (99,30%)</td>
+                <td>24 biến kế toán thô</td>
+              </tr>
+              <tr>
+                <td>• Mẫu huấn luyện (Train)</td>
+                <td>1991–2002</td>
+                <td>72.456 (100%)</td>
+                <td>514 (0,71%)</td>
+                <td>71.942 (99,29%)</td>
+                <td>24 biến thô</td>
+              </tr>
+              <tr>
+                <td>• Mẫu kiểm thử ngoài mẫu (Test)</td>
+                <td>2003–2005</td>
+                <td>17.716 (100%)</td>
+                <td>118 (0,67%)</td>
+                <td>17.598 (99,33%)</td>
+                <td>24 biến thô</td>
+              </tr>
+              <tr>
+                <td><strong>USRaw 1paired (Cặp 2 năm liên tiếp)</strong></td>
+                <td>1991–2005</td>
+                <td>77.605 (100%)</td>
+                <td>548 (0,62%)</td>
+                <td>77.057 (99,38%)</td>
+                <td>48 biến (năm t và t-1)</td>
+              </tr>
+              <tr>
+                <td><strong>USRatio (Tập 11 tỷ số tài chính)</strong></td>
+                <td>1991–2005</td>
+                <td>88.875 (100%)</td>
+                <td>693 (0,78%)</td>
+                <td>88.182 (99,22%)</td>
+                <td>11 tỷ số (Dechow 2011)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Section 4 -->
+      <section id="sec4">
+        <h2 class="section-title"><span class="section-number">4</span> THUẬT TOÁN HỌC MÁY XỬ LÝ MẤT CÂN BẰNG LỚP CỰC ĐOAN</h2>
+        <p>Vì tỷ lệ gian lận thực tế chỉ chiếm 0,7%, nếu dùng các thuật toán thông thường, mô hình sẽ bị "nghiêng" hẳn về việc đoán công ty không gian lận để đạt độ chính xác ảo. Tác giả áp dụng 2 nhóm phương pháp:</p>
+
+        <h3 class="sub-section-title">4.1 Biased-Penalty Support Vector Machine (BP-SVM)</h3>
+        <p>Mô hình BP-SVM nhân thêm hệ số phạt <em>p</em> cho các trường hợp bỏ lọt công ty gian lận, với hệ số phạt được tính theo đúng tỷ lệ mất cân bằng dữ liệu:</p>
+        
+        <div class="formula-box">
+          min w, b, &xi; &nbsp; &frac12; ||w||&sup2; + C &times; [ p &Sigma;<sub>i &isin; Frauds</sub> &xi;<sub>i</sub> + &Sigma;<sub>j &isin; Non-frauds</sub> &xi;<sub>j</sub> ]<br>
+          với tham số phạt: p = N<sub>non-fraud</sub> / N<sub>fraud</sub> = 71.942 / 514 &approx; 139,96
+        </div>
+
+        <h3 class="sub-section-title">4.2 Học kết hợp EasyEnsemble và BalancedCascade</h3>
+        <p>Sử dụng tập hợp nhiều bộ phân loại AdaBoost và Cây quyết định (Decision Trees) trên các tập con cân bằng, giúp mô hình vừa học được quy luật chung của số đông vừa nhận diện chuẩn xác các mẫu gian lận tinh vi.</p>
+      </section>
+
+      <!-- Section 5 -->
+      <section id="sec5">
+        <h2 class="section-title"><span class="section-number">5</span> KẾT QUẢ THỰC NGHIỆM ĐỊNH LƯỢNG & ĐỐI CHIẾU</h2>
+        <p>Kết quả kiểm thử trên 17.716 năm-công ty độc lập (giai đoạn 2003–2005) khẳng định tính ưu việt áp đảo của tiếp cận mới:</p>
+
+        <div class="table-container">
+          <table class="academic-table">
+            <thead>
+              <tr>
+                <th>Dữ Liệu</th>
+                <th>Phương Pháp Thuật Toán</th>
+                <th>Sensitivity (%) (Bắt gian lận)</th>
+                <th>Specificity (%) (Đúng công ty sạch)</th>
+                <th>Balanced Accuracy (BAC %)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="background: rgba(239, 68, 68, 0.05);">
+                <td><strong>USRatio (11 tỷ số)</strong></td>
+                <td>Mô hình Logit (Dechow et al. 2011)</td>
+                <td>64,00%</td>
+                <td>55,99%</td>
+                <td><strong>60,00%</strong></td>
+              </tr>
+              <tr>
+                <td>USRaw 1paired</td>
+                <td>SVM-FK (Cecchini et al. 2010)</td>
+                <td>65,45%</td>
+                <td>74,03%</td>
+                <td>69,74%</td>
+              </tr>
+              <tr>
+                <td>USRaw 0paired (24 biến thô)</td>
+                <td>BP-SVM Tuyến tính (Linear)</td>
+                <td>70,34%</td>
+                <td>68,96%</td>
+                <td>69,65%</td>
+              </tr>
+              <tr style="background: rgba(59, 130, 246, 0.05);">
+                <td>USRaw 0paired (24 biến thô)</td>
+                <td><strong>BP-SVM Đa thức bậc 3 (Poly-3)</strong></td>
+                <td><strong>73,73%</strong></td>
+                <td><strong>72,83%</strong></td>
+                <td><strong>73,28%</strong></td>
+              </tr>
+              <tr style="background: rgba(16, 185, 129, 0.08); font-weight: 600;">
+                <td><strong>USRaw 0paired (24 biến thô)</strong></td>
+                <td><strong>BalancedCascade (Ensemble)</strong></td>
+                <td><strong>72,54%</strong></td>
+                <td><strong>82,52%</strong></td>
+                <td><strong>77,53%</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout callout-success">
+          <div class="callout-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+              <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+            Ý nghĩa của thành tựu BAC 77,53%:
+          </div>
+          <p style="margin-bottom:0;">Mô hình BalancedCascade trên dữ liệu thô không chỉ tăng tỷ lệ bắt trúng gian lận lên 72,54% mà quan trọng hơn, đã nâng độ đặc hiệu (Specificity) lên 82,52%. Điều này giải quyết nỗi đau lớn nhất của kiểm toán viên: <strong>giảm thiểu hơn 80% các báo động giả</strong>, giúp kiểm toán viên không bị ngập trong các cuộc điều tra vô ích.</p>
+        </div>
+      </section>
+
+      <!-- Section 6 -->
+      <section id="sec6">
+        <h2 class="section-title"><span class="section-number">6</span> ĐÚC KẾT CHO NGHỀ NGHIỆP KẾ TOÁN & KIỂM TOÁN</h2>
+        <ul>
+          <li><strong>Xóa bỏ định kiến về tỷ số tài chính:</strong> Máy học có khả năng tự động khám phá các tương tác phi tuyến tính phức tạp giữa các số liệu kế toán thô mà mắt người không thể tự tạo ra bằng công thức chia tỷ lệ thông thường.</li>
+          <li><strong>Sẵn sàng triển khai thực tiễn:</strong> Thời gian huấn luyện và phân loại của mô hình chỉ mất vài giây, cho phép các cơ quan như Ủy ban Chứng khoán, Kiểm toán Nhà nước hoặc các công ty kiểm toán Big 4 quét toàn bộ hàng nghìn công ty niêm yết ngay khi BCTC vừa được nộp.</li>
+          <li><strong>Bảo vệ doanh nghiệp làm ăn chân chính:</strong> Ngăn chặn tình trạng cạnh tranh không lành mạnh do các công ty gian lận tạo ra nhằm thu hút vốn đầu tư sai lệch.</li>
+        </ul>
+      </section>
+
+      <!-- Section 7 -->
+      <section id="sec7">
+        <h2 class="section-title"><span class="section-number">7</span> TÀI LIỆU THAM KHẢO CHÍNH (REFERENCES)</h2>
+        <ul class="references-list">
+          <li><strong>Beneish, M. D. (1999).</strong> The detection of earnings manipulation. <em>Financial Analysts Journal</em>, 55(5), 24–36.</li>
+          <li><strong>Dechow, P. M., Ge, W., Larson, C. R., & Sloan, R. G. (2011).</strong> Predicting material accounting misstatements. <em>Contemporary Accounting Research</em>, 28(1), 17–82.</li>
+          <li><strong>Cecchini, M., Aytug, H., Koehler, G. J., & Pathak, P. (2010).</strong> Making words work: Using financial text as a predictor of financial events. <em>Decision Support Systems</em>, 50(1), 164–175.</li>
+          <li><strong>Bao, Y., Ke, B., Li, B., Yu, Y. J., & Zhang, J. (2020).</strong> Detecting accounting fraud in publicly traded U.S. firms using a machine learning approach. <em>Journal of Accounting Research</em>, 58(1), 199–235.</li>
+          <li><strong>Liu, X.-Y., & Zhou, Z.-H. (2013).</strong> Ensemble methods for class imbalance learning. <em>Imbalanced Learning: Foundations, Algorithms, and Applications</em>, Wiley, 61–82.</li>
+        </ul>
+      </section>
+    
+
+      <!-- Article Footer -->
+      <footer class="article-footer">
+        <div class="footer-nav-buttons">
+          <a href="index.html" class="footer-nav-btn">← Thư Viện Bài Báo</a>
+<a href="paper_2_Financial_Distress_Prediction_tiengviet.html" class="footer-nav-btn">Bài 2: Kiệt Quệ Tài Chính (Elsevier) →</a>
+        </div>
+        <p>Khoa Kế toán & Kiểm toán — Trường Đại học Đông Á (UDA)</p>
+        <p style="margin-top: 0.35rem; font-size: 0.8rem; color: var(--text-muted);">Tài liệu phục vụ giảng dạy và nghiên cứu học phần Trí Tuệ Nhân Tạo Trong Kế Toán & Kiểm Toán (2026)</p>
+      </footer>
+
+    </main>
+
+  </div>
+
+  <script>
+    // Reading Progress Bar
+    window.addEventListener('scroll', () => {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.getElementById('progress-bar').style.width = scrolled + '%';
+    });
+
+    // Theme Switcher (Dark / Light)
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme');
+      const target = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', target);
+      localStorage.setItem('doc_theme', target);
+    }
+
+    // Initialize Theme
+    const savedTheme = localStorage.getItem('doc_theme');
+    if (savedTheme) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+
+    // Font Size Adjustment
+    let currentFontSizeRem = 1.05;
+    function adjustFontSize(delta) {
+      currentFontSizeRem = Math.max(0.85, Math.min(1.35, currentFontSizeRem + delta * 0.05));
+      document.documentElement.style.setProperty('--content-font-size', currentFontSizeRem + 'rem');
+    }
+
+    // Active Sidebar Link Spy
+    const sections = document.querySelectorAll('section[id], div[id]');
+    const navLinks = document.querySelectorAll('.sidebar-link');
+
+    window.addEventListener('scroll', () => {
+      let currentSectionId = '';
+      sections.forEach(sec => {
+        const top = sec.offsetTop - 120;
+        if (window.pageYOffset >= top) {
+          currentSectionId = sec.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        if (link.getAttribute('href') && link.getAttribute('href').startsWith('#')) {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === '#' + currentSectionId) {
+            link.classList.add('active');
+          }
+        }
+      });
+    });
+  </script>
+
+</body>
+
+</html>

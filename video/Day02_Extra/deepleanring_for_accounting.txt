@@ -1,0 +1,215 @@
+Để nối tiếp một cách hoàn hảo bài giảng **Máy học (Machine Learning - ML)** trước đó, bài giảng **Học sâu (Deep Learning - DL) trong Kế toán - Kiểm toán** cần giải quyết được câu hỏi lớn nhất của người học: "Nếu các mô hình ML truyền thống (Hồi quy, Decision Tree, Isolation Forest) đã làm tốt trên bảng tính Excel/SQL rồi, thì tại sao Kế toán lại cần đến Học sâu?"
+
+Câu trả lời nằm ở **80% dữ liệu phi cấu trúc** (hóa đơn ảnh/PDF, hợp đồng văn bản, thuyết minh báo cáo tài chính, chuỗi giao dịch thời gian phức tạp) và những hành vi gian lận tinh vi ẩn sâu trong sổ cái (General Ledger) mà ML truyền thống bất lực.
+
+Dưới đây là kế hoạch bài giảng **100 phút** được thiết kế bằng sự kết hợp giữa **Chain of Thought (Chuỗi suy luận sư phạm)** và **Tree of Thought (Cây suy luận cấu trúc & tích hợp nghiên cứu khoa học)**.
+
+---
+
+### 🔗 PHẦN 1: CHUỖI SUY LUẬN SƯ PHẠM (CHAIN OF THOUGHT) – DẪN DẮT TƯ DUY
+
+Để sinh viên kế toán (vốn sợ toán cao cấp và lập trình phức tạp) không bị "ngợp", mạch bài giảng sẽ đi theo 5 bước chuyển dịch tư duy:
+
+1. **Bước 1 (Điểm chạm nối tiếp):** Ở bài trước, ML truyền thống (Ridge, Lasso, Decision Tree) cần kế toán viên tự tính toán và chọn lọc các chỉ số tài chính (Feature Engineering) từ bảng cân đối kế toán. *Vấn đề:* Nhưng khi đối mặt với một xấp hóa đơn chụp bằng điện thoại bị nhăn, hoặc hàng trăm trang Thuyết minh Báo cáo tài chính (BCTC) bằng chữ, ML truyền thống hoàn toàn "mù".
+
+
+2. **Bước 2 (Bản chất Học sâu dưới góc nhìn Kế toán):** Giới thiệu Mạng nơ-ron sâu (Deep Neural Networks - DNN) như một **"Hệ thống kế toán đa tầng"**: Tầng đầu thu thập chứng từ thô $\rightarrow$ Các tầng ẩn tự động trích xuất, phân loại và tổng hợp đặc trưng $\rightarrow$ Tầng cuối đưa ra quyết định kiểm toán.
+3. **Bước 3 (Mở khóa 3 loại dữ liệu Kế toán bằng 3 kiến trúc DL):**
+* *Dữ liệu hình ảnh/Chứng từ* $\rightarrow$ Dùng **CNN** (Mạng tích chập) kết hợp OCR để tự động đọc hóa đơn và kiểm kê kho.
+* *Dữ liệu chuỗi thời gian & Văn bản BCTC* $\rightarrow$ Dùng **RNN/LSTM** và **Transformers (FinBERT)** để dự báo dòng tiền và đọc hiểu thuyết minh BCTC.
+* *Dữ liệu Sổ cái (General Ledger) khổng lồ không nhãn* $\rightarrow$ Dùng **Autoencoders (Mạng tự mã hóa)** nâng cấp từ Isolation Forest để bắt gian lận bút toán đa chiều.
+
+
+
+
+4. **Bước 4 (Bảo chứng bằng Khoa học):** Đưa các bài báo khoa học kinh điển và mới nhất (từ *The Accounting Review*, *Journal of Accounting Research*, *International Journal of Accounting Information Systems*) vào từng kiến trúc để chứng minh tính thực tiễn.
+
+
+5. **Bước 5 (Rào cản Kiểm toán & Giải pháp):** Học sâu là "Hộp đen" (Black-box). Kiểm toán viên không thể ký báo cáo nếu chỉ nói *"Do mạng nơ-ron bảo thế"*. Do đó, phải kết thúc bằng **Explainable AI (XAI - AI có thể giải thích như SHAP, LIME)** và đạo đức nghề nghiệp.
+
+---
+
+### 🌳 PHẦN 2: CÂY SUY LUẬN (TREE OF THOUGHT) – CẤU TRÚC BÀI GIẢNG & BÀI BÁO KHOA HỌC
+
+* **Gốc cây (Mục tiêu cốt lõi 100 phút):** Giúp sinh viên/chuyên viên Kế toán hiểu cách Học sâu tự động trích xuất đặc trưng từ **dữ liệu phi cấu trúc** (hóa đơn, văn bản BCTC, chuỗi giao dịch) và **sổ cái quy mô lớn** để tự động hóa kế toán, dự báo tài chính và kiểm toán gian lận.
+* **Nhánh 1 (20 phút): Từ ML Truyền thống đến Mạng Nơ-ron Sâu (DNN)**
+* *Trọng tâm:* Sự dịch chuyển từ dữ liệu có cấu trúc (bảng biểu) sang dữ liệu phi cấu trúc; Cơ chế tự học đặc trưng (Representation Learning).
+* *Nghiên cứu khoa học tích hợp:* So sánh DNN và ML truyền thống trong dự báo gian lận kế toán từ dữ liệu tài chính thô (*Journal of Accounting Research*).
+
+
+* **Nhánh 2 (25 phút): Thị giác Máy tính (CNN) & Chuỗi thời gian (LSTM) trong Kế toán**
+* *Trọng tâm:* CNN cho số hóa chứng từ thông minh (Intelligent Document Processing) & Kiểm kê tài sản; RNN/LSTM cho dự báo dòng tiền và lợi nhuận theo chuỗi thời gian.
+* *Nghiên cứu khoa học tích hợp:* Ứng dụng LSTM dự báo lợi nhuận/kiệt quệ tài chính vượt trội so với mô hình chuỗi thời gian ARIMA truyền thống.
+
+
+* **Nhánh 3 (25 phút): Transformers, NLP (FinBERT) & Đọc hiểu Báo cáo Tài chính**
+* *Trọng tâm:* Giải mã ngôn ngữ tự nhiên trong Thuyết minh BCTC, Báo cáo thường niên (MD&A), phát hiện "tẩy xanh" (greenwashing) hoặc giọng điệu che giấu rủi ro của Ban Giám đốc.
+* *Nghiên cứu khoa học tích hợp:* Nghiên cứu ứng dụng BERT/FinBERT để phân tích sắc thái văn bản kế toán và dự báo gian lận BCTC (*Contemporary Accounting Research* / *Journal of Information Systems*).
+
+
+* **Nhánh 4 (30 phút): Deep Anomaly Detection (Autoencoders) trong Kiểm toán & Giải bài toán "Hộp đen" (XAI)**
+* *Trọng tâm:* Dùng Autoencoder tái tạo bút toán Sổ cái để bắt gian lận; Dùng SHAP/LIME để giải thích lý do mô hình gắn cờ gian lận cho chuẩn mực kiểm toán.
+* *Nghiên cứu khoa học tích hợp:* Nghiên cứu kinh điển của Schreyer et al. về phát hiện bất thường trong bút toán kế toán quy mô lớn bằng Deep Autoencoder.
+
+
+
+---
+
+# 📖 GIÁO ÁN CHI TIẾT BÀI GIẢNG 100 PHÚT: HỌC SÂU (DEEP LEARNING) TRONG KẾ TOÁN & CÁC NGHIÊN CỨU KHOA HỌC
+
+---
+
+## HỌC PHẦN 1: BƯỚC NHẢY VỌT TỪ MÁY HỌC SANG HỌC SÂU TRONG KẾ TOÁN (20 PHÚT)
+
+*(Thời gian: Phút 00 – 20)*
+
+### 1. Điểm nghẽn của Máy học truyền thống (Ôn lại & Đặt vấn đề)
+
+* Trong buổi học trước, với **Ridge, Lasso hay Decision Tree**, kế toán viên phải tự tính ra các tỷ số tài chính (như hệ số thanh toán hiện hành, ROA, ROE, vòng quay hàng tồn kho) rồi mới đưa vào mô hình. Quá trình này gọi là *Feature Engineering (Kỹ thuật tạo đặc trưng)*.
+
+
+* **Hạn chế:**
+1. Nếu kẻ gian lận dàn xếp làm đẹp các tỷ số tài chính quen thuộc này, mô hình ML sẽ bị đánh lừa.
+2. ML truyền thống không đọc được hình ảnh hóa đơn, video kiểm kho hay hàng trăm trang chữ trong Thuyết minh BCTC.
+
+
+
+### 2. Mạng Nơ-ron Nhân tạo (ANN) và Học sâu (Deep Learning) hoạt động thế nào?
+
+* **Ẩn dụ Kế toán:** Hãy tưởng tượng một mạng nơ-ron sâu giống như một phòng Kế toán - Kiểm toán nhiều cấp:
+* **Input Layer (Tầng đầu vào):** Nhân viên nhập liệu nhận dữ liệu thô (các con số khoản mục trên BCTC hoặc điểm ảnh trên hóa đơn).
+* **Hidden Layers (Các tầng ẩn):** Kế toán tổng hợp và Trưởng nhóm kiểm toán tự động kết hợp các con số thô theo hàng ngàn cách khác nhau (nhân trọng số $w$, cộng độ lệch $b$, đi qua hàm kích hoạt ReLU/Sigmoid) để phát hiện các mối liên hệ ngầm mà mắt thường không thấy.
+* **Output Layer (Tầng đầu ra):** Kế toán trưởng/Chủ nhiệm kiểm toán đưa ra phán quyết cuối cùng (Xác suất BCTC gian lận là 92%).
+
+
+
+### 📚 Tích hợp Bài báo Khoa học Số 1 (Chứng minh không cần tạo chỉ số thủ công):
+
+> **Bài báo:** *Bao, Y., Ke, B., Li, B., Yu, Y. J., & Zhang, J. (2020). "Detecting Accounting Fraud in Publicly Traded U.S. Firms via a Machine Learning Approach" – Đăng trên tạp chí hàng đầu ngành kế toán **Journal of Accounting Research** (và các nghiên cứu mở rộng bằng Deep Learning giai đoạn 2022–2025).*
+> * **Luận điểm giảng dạy:** Trước đây, giới kế toán luôn tin rằng phải tính ra các chỉ số tài chính (Financial Ratios) thì mô hình mới dự báo được gian lận. Tuy nhiên, nghiên cứu thực nghiệm chỉ ra rằng khi đưa **28 khoản mục dữ liệu kế toán thô (Raw Accounting Numbers)** từ Bảng cân đối kế toán và Báo cáo KQKD vào các mô hình học sâu / tổ hợp phi tuyến tính, mô hình tự học được các tương tác phức tạp và dự báo gian lận chính xác hơn nhiều so với việc dùng các tỷ số tài chính do con người tự nghĩ ra (như chỉ số Beneish M-score hay mô hình Dechow F-score).
+> 
+> 
+
+---
+
+## HỌC PHẦN 2: THỊ GIÁC MÁY TÍNH (CNN) & MẠNG CHUỖI THỜI GIAN (LSTM) TRONG TÀI CHÍNH (25 PHÚT)
+
+*(Thời gian: Phút 20 – 45)*
+
+### 1. Mạng Tích chập (CNN - Convolutional Neural Networks): "Đôi mắt" của Kế toán viên
+
+* **Nguyên lý:** CNN quét qua hình ảnh bằng các bộ lọc (filters) để nhận diện đường nét, con số, chữ ký, con dấu và bố cục bảng biểu.
+* **Ứng dụng thực chiến trong Kế toán - Kiểm toán:**
+* **Tự động hóa chứng từ thông minh (Intelligent Document Processing - IDP):** Khác với OCR truyền thống (chỉ đọc được hóa đơn đúng mẫu cố định), CNN kết hợp Deep Learning đọc được hóa đơn nhà hàng chụp nghiêng, bị mờ, mỗi nhà cung cấp một định dạng khác nhau, tự động bóc tách: *Mã số thuế, Ngày, Tổng tiền trước thuế, VAT* và định khoản thẳng vào ERP (Nợ TK 642, 133 / Có TK 111, 331).
+* **Kiểm toán Hàng tồn kho & Tài sản cố định:** Drone bay trong kho chụp ảnh kết hợp CNN để đếm số lượng pallet hàng hóa, ước tính thể tích than/quặng tồn kho tự động trong ngày khóa sổ 31/12.
+
+
+
+### 2. Mạng Hồi quy (RNN) & LSTM (Long Short-Term Memory): "Trí nhớ" dòng tiền
+
+* **Nguyên lý:** Dữ liệu kế toán có tính **chuỗi thời gian (Time-series)** và tính mùa vụ rất mạnh (Doanh thu Quý 4 liên quan mật thiết đến Quý 3 và Quý 4 năm ngoái). Mạng **LSTM** có "cổng nhớ" (Memory Gates) giúp giữ lại xu hướng tài chính dài hạn và cập nhật biến động ngắn hạn.
+* **Ứng dụng thực chiến:** Dự báo dòng tiền (Cash flow forecasting), dự báo doanh thu theo chu kỳ kinh doanh, dự báo nguy cơ kiệt quệ tài chính (Financial Distress) qua chuỗi báo cáo tài chính nhiều quý liên tiếp.
+
+### 📚 Tích hợp Bài báo Khoa học Số 2 (Sức mạnh của LSTM trong dự báo tài chính):
+
+> **Bài báo:** *Các nghiên cứu thực nghiệm về "Financial Distress and Earnings Prediction using Deep Learning (LSTM vs. Traditional Models)" (Đăng trên **Expert Systems with Applications** & **International Journal of Forecasting**, cập nhật 2023–2025).*
+> * **Luận điểm giảng dạy:** Khi dự báo nguy cơ phá sản doanh nghiệp hoặc dự báo dòng tiền tương lai, các mô hình ML truyền thống (như Logistic Regression hay Ridge ở bài trước) chỉ nhìn vào bức ảnh chụp tĩnh của **1 năm tài chính**. Ngược lại, các nghiên cứu chỉ ra rằng mô hình **LSTM** khi phân tích chuỗi dữ liệu lịch sử từ **3 đến 5 năm liên tiếp** đã nắm bắt được "quỹ đạo suy thoái" của doanh nghiệp, giúp tăng độ chính xác dự báo rủi ro phá sản và sai lệch lợi nhuận vượt trội so với mô hình Altman Z-Score và ARIMA truyền thống.
+> 
+> 
+> 
+> 
+
+---
+
+## HỌC PHẦN 3: TRANSFORMERS & XỬ LÝ NGÔN NGỮ TỰ NHIÊN (NLP/FinBERT) – ĐỌC HIỂU THUYẾT MINH BCTC (25 PHÚT)
+
+*(Thời gian: Phút 45 – 70)*
+
+### 1. Tại sao Kế toán viên phải phân tích văn bản bằng Học sâu?
+
+* Con số trên Bảng cân đối kế toán chỉ kể một nửa câu chuyện; nửa còn lại nằm ở **Thuyết minh Báo cáo Tài chính (Footnotes)**, **Báo cáo của Ban Giám đốc (MD&A)**, biên bản họp HĐQT và hợp đồng kinh tế.
+* Khi công ty gặp khó khăn hoặc muốn "xào nấu" sổ sách (Earnings Management), Ban Giám đốc thường dùng ngôn từ vòng vo, phức tạp, đánh lạc hướng trong phần Thuyết minh.
+
+### 2. Kiến trúc Transformer và Mô hình FinBERT
+
+* **Transformer & Cơ chế Attention (Sự chú ý):** Nền tảng của ChatGPT và các mô hình ngôn ngữ hiện đại. Thay vì đếm từ đơn thuần (như từ "lỗ", "rủi ro"), cơ chế *Self-Attention* hiểu được ngữ cảnh toàn câu (ví dụ: phân biệt *"Khoản nợ xấu đã được thu hồi hoàn toàn"* mang nghĩa tích cực, với *"Khoản thu hồi có nguy cơ trở thành nợ xấu"* mang nghĩa tiêu cực).
+* **FinBERT:** Là mô hình học sâu BERT được huấn luyện chuyên biệt trên hàng triệu văn bản tài chính, báo cáo kiểm toán và thuyết minh kế toán.
+* **Ứng dụng thực chiến:**
+* Tự động rà soát hàng ngàn hợp đồng thuê tài sản để trích xuất điều khoản phục vụ chuẩn mực kế toán **IFRS 16 (Leases)**.
+* Phân tích sắc thái (Sentiment Analysis) và độ phức tạp ngôn ngữ trong Báo cáo thường niên để cảnh báo rủi ro gian lận BCTC.
+
+
+
+### 📚 Tích hợp Bài báo Khoa học Số 3 (Đọc vị gian lận qua chữ viết bằng Deep Learning NLP):
+
+> **Bài báo:** *Huang, A. H., Wang, H., & Yang, Y. (2023). "FinBERT: A Large Language Model for Extracting Information from Financial Text" – Đăng trên tạp chí hàng đầu **Contemporary Accounting Research** (cùng các nghiên cứu ứng dụng Deep NLP phát hiện gian lận trên **The Accounting Review**).*
+> * **Luận điểm giảng dạy:** Nhóm nghiên cứu của Giáo sư Allen Huang đã chứng minh rằng mô hình học sâu **FinBERT** hiểu ngữ cảnh kế toán - tài chính vượt xa các phương pháp thống kê đếm từ truyền thống (như từ điển Loughran-McDonald). Khi kết hợp các đặc trưng văn bản do Deep Learning trích xuất từ phần thảo luận của Ban Giám đốc (MD&A) với các con số tài chính, khả năng phát hiện gian lận báo cáo tài chính và dự báo biến động lợi nhuận tăng lên đáng kể.
+> * *Câu hỏi gợi mở trên lớp:* *"Nếu một Giám đốc Tài chính (CFO) đang cố giấu một khoản nợ tiềm tàng trong 100 trang thuyết minh, các bạn đọc bằng mắt mất bao lâu? FinBERT chỉ mất 3 giây để tô đỏ đoạn văn có cấu trúc ngôn ngữ bất thường!"*
+> 
+> 
+
+---
+
+## HỌC PHẦN 4: DEEP ANOMALY DETECTION TRONG KIỂM TOÁN & GIẢI BÀI TOÁN "HỘP ĐEN" (30 PHÚT)
+
+*(Thời gian: Phút 70 – 100)*
+
+### 1. Mạng Tự mã hóa (Autoencoders) – "Vũ khí tối thượng" soi Sổ cái (General Ledger)
+
+* **Kết nối bài trước:** Ở buổi học Máy học, chúng ta đã học **Isolation Forest** để bắt bất thường. Nhưng trong các tập đoàn lớn dùng SAP/Oracle, một bút toán nhật ký chung (Journal Entry) có tới hàng chục trường dữ liệu định danh phức tạp (Tài khoản Nợ, Tài khoản Có, Mã phòng ban, Mã dự án, Người tạo, Giờ tạo, IP máy tính, Diễn giải, Số tiền...).
+
+
+* **Cách Autoencoder hoạt động (Học không giám sát):**
+1. **Encoder (Bộ mã hóa):** Nén toàn bộ thông tin của hàng triệu bút toán bình thường xuống một không gian nhỏ (Bottleneck) để học "quy luật hạch toán chuẩn" của công ty.
+2. **Decoder (Bộ giải mã):** Khôi phục lại bút toán ban đầu từ bản nén.
+3. **Phát hiện gian lận (Reconstruction Error - Sai số tái tạo):** Với 99.9% bút toán hợp lệ hàng ngày, mạng tái tạo lại rất chuẩn (sai số thấp). Nhưng khi gặp một bút toán gian lận tinh vi (ví dụ: *Kế toán viên phòng Mua hàng lại hạch toán điều chỉnh Doanh thu vào lúc 11h đêm Chủ nhật với tài khoản đối ứng lạ*), Autoencoder không thể tái tạo chính xác $\rightarrow$ **Sai số tái tạo vọt lên cực cao** $\rightarrow$ Hệ thống lập tức gắn cờ đỏ cho Kiểm toán viên!
+
+
+
+### 📚 Tích hợp Bài báo Khoa học Số 4 (Nghiên cứu kinh điển về Kiểm toán bằng Deep Autoencoder):
+
+> **Bài báo:** *Schreyer, M., Sattarov, T., Borth, D., Dengel, A., & Reimer, B. (2017/2019/2024). "Detection of Anomalies in Large Scale Accounting Data using Deep Autoencoder Networks" (Cùng chuỗi nghiên cứu của nhóm tác giả phối hợp với PwC đăng trên **International Journal of Accounting Information Systems**).*
+> * **Luận điểm giảng dạy:** Nghiên cứu thực nghiệm trên dữ liệu hệ thống ERP thực tế cho thấy mạng **Deep Autoencoder** có khả năng học được mối tương quan phi tuyến tính phức tạp giữa hàng chục thuộc tính của bút toán kế toán. Nó phát hiện thành công cả hai loại bất thường: *Global Anomalies* (bút toán có số tiền quá lớn bất thường) và *Local/Contextual Anomalies* (số tiền rất bình thường nhưng sự kết hợp giữa Tài khoản Nợ/Có và Người nhập liệu lại trái quy luật nội bộ) — điều mà kiểm toán lấy mẫu truyền thống và các quy tắc IF-ELSE hoàn toàn bỏ sót.
+> 
+> 
+> 
+> 
+
+### 2. Rào cản "Hộp đen" (Black-Box) và Explainable AI (XAI) trong Kiểm toán (10 phút cuối)
+
+* **Thách thức nghề nghiệp:** Theo Chuẩn mực Kiểm toán (ISA / VSA), kiểm toán viên phải có **bằng chứng kiểm toán thích hợp** và giải trình được lý do đưa ra ý kiến. Nếu Deep Learning báo *"Công ty A gian lận"* nhưng không giải thích được tại sao (vì bên trong là hàng triệu phép nhân ma trận), kiểm toán viên không thể sử dụng kết quả đó trước tòa án hay Ủy ban Chứng khoán.
+* **Giải pháp – Explainable AI (XAI):** Giới thiệu công cụ **SHAP (SHapley Additive exPlanations)** và **LIME**.
+* Sau khi mạng Học sâu đưa ra cảnh báo, SHAP sẽ quy đổi đóng góp của từng biến thành con số cụ thể cho kế toán viên: *"Mô hình gắn cờ bút toán này rủi ro 95% vì: +40% do cặp tài khoản Nợ/Có chưa từng xuất hiện cùng nhau, +35% do hạch toán ngoài giờ hành chính, +20% do số tiền sát ngưỡng phê duyệt"*.
+
+
+* **Bài báo tham khảo cho phần XAI:**
+> *Zhang, C., Cho, S., & Vasarhelyi, M. A. (2022). "Explainable Artificial Intelligence (XAI) in Accounting and Auditing" – **International Journal of Accounting Information Systems** (Giáo sư Miklos Vasarhelyi tại Đại học Rutgers là "cha đẻ" của ngành Kiểm toán liên tục và AI trong Kế toán).* Bài báo khẳng định việc kết hợp Deep Learning (để đạt độ chính xác cao) với XAI (để đạt tính minh bạch) là tương lai bắt buộc của ngành Kiểm toán hiện đại.
+
+
+
+---
+
+### 📋 BẢNG TỔNG HỢP SO SÁNH (ĐỂ CHIẾU SLIDE TỔNG KẾT CHO SINH VIÊN)
+
+Bạn có thể dùng bảng này ở 5 phút cuối giờ để giúp sinh viên xâu chuỗi toàn bộ bài **Máy học (Buổi trước)** và **Học sâu (Buổi hôm nay)**:
+
+| Tiêu chí / Bài toán Kế toán | Máy học Truyền thống (Buổi trước)
+
+ | Học sâu - Deep Learning (Buổi hôm nay) | Bài báo Khoa học Minh chứng |
+| --- | --- | --- | --- |
+| **Loại dữ liệu đầu vào** | Dữ liệu có cấu trúc (Bảng Excel, chỉ số tài chính đã tính sẵn). | Dữ liệu phi cấu trúc (Ảnh hóa đơn, thuyết minh BCTC, chuỗi thời gian, sổ cái thô). | *Bao et al. (2020) - Journal of Accounting Research* |
+| **Tự động hóa nhập liệu chứng từ** | Kém hiệu quả với hóa đơn biến đổi định dạng. | **CNN + Deep OCR:** Tự động đọc và bóc tách mọi định dạng hóa đơn/hợp đồng. | Các nghiên cứu về IDP/CNN trong Hệ thống Thông tin Kế toán (AIS) |
+| **Dự báo tài chính & Phá sản** | **Ridge/Lasso/Logistic:** Nhìn dữ liệu tại 1 thời điểm tĩnh.
+
+ | **RNN/LSTM:** Học chuỗi lịch sử nhiều năm để bắt nhịp suy thoái. | Chuỗi nghiên cứu LSTM dự báo Financial Distress (2023–2025) |
+| **Đọc hiểu Thuyết minh BCTC** | Đếm từ khóa đơn giản (dễ bị lừa bởi ngữ cảnh). | **Transformers (FinBERT):** Hiểu sâu ngữ cảnh, bắt thóp ngôn từ che giấu rủi ro. | *Huang et al. (2023) - Contemporary Accounting Research* |
+| **Kiểm toán Sổ cái (General Ledger)** | **Isolation Forest:** Tốt cho ít biến số.
+
+ | **Deep Autoencoder + SHAP (XAI):** Bắt bất thường đa chiều & giải thích nguyên nhân. | *Schreyer et al. (2019/2024)* & *Zhang, Vasarhelyi (2022)* |
+
+---
+
+💡 **Gợi ý hỗ trợ tiếp theo cho bài giảng của bạn:**
+
+1. Bạn có muốn tôi soạn **nội dung chi tiết từng Slide (Slide-by-Slide Script)** hoặc xuất toàn bộ giáo案 này ra file **Word (.docx) / PDF** thiết kế đẹp mắt để làm tài liệu phát tay (Handout) cho sinh viên không?
+2. Hoặc tôi có thể viết một đoạn **mã Python minh họa trên Google Colab dùng Autoencoder (hoặc FinBERT)** cực kỳ trực quan để bạn chạy demo 5 phút trên lớp cho sinh viên thấy cách Học sâu "bắt sống" một bút toán gian lận trong sổ cái?
