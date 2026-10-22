@@ -550,6 +550,30 @@ def build_papers_hub():
       transform: translateY(-2px);
     }
 
+    .btn-slide-sub {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.72rem 1.1rem;
+      border-radius: var(--radius-sm);
+      background: rgba(139, 92, 246, 0.14);
+      border: 1px solid rgba(139, 92, 246, 0.4);
+      color: #c084fc;
+      font-size: 0.88rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      white-space: nowrap;
+    }
+
+    .btn-slide-sub:hover {
+      background: rgba(139, 92, 246, 0.3);
+      color: #ffffff;
+      border-color: #a78bfa;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 14px rgba(139, 92, 246, 0.35);
+    }
+
     /* Modal / Theatre Viewer */
     .modal-backdrop {
       position: fixed;
@@ -713,7 +737,7 @@ def build_papers_hub():
           </svg>
           Chuyên đề Day 02 Extra
         </a>
-        <a href="../../index.html" class="nav-btn">
+        <a href="../../../index.html" class="nav-btn">
           Trang chủ Môn học
         </a>
       </div>
@@ -791,6 +815,20 @@ def build_papers_hub():
             <div class="stat-label">Hạng Nhất Học Thuật</div>
           </div>
         </div>
+
+        <div class="stat-pill">
+          <div class="stat-icon" style="background: rgba(192, 132, 252, 0.15); color: #c084fc;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+              <line x1="8" y1="21" x2="16" y2="21"></line>
+              <line x1="12" y1="17" x2="12" y2="21"></line>
+            </svg>
+          </div>
+          <div class="stat-text">
+            <div class="stat-num">Slide P0 – P4</div>
+            <div class="stat-label">Slide Giảng Dạy Đi Kèm</div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -852,6 +890,7 @@ def build_papers_hub():
             <span class="tag-item">AAERs 90.172 Năm-Công Ty</span>
             <span class="tag-item">Biased-Penalty SVM</span>
             <span class="tag-item">BalancedCascade</span>
+            <span class="tag-item" style="color: #c084fc; border-color: rgba(139, 92, 246, 0.4); background: rgba(139, 92, 246, 0.1);">📊 Đi kèm Slide P1</span>
           </div>
 
           <div class="card-actions">
@@ -862,6 +901,14 @@ def build_papers_hub():
               </svg>
               Đọc Toàn Văn
             </button>
+            <a href="../P1_Học_Sâu_Trong_Kế_Toán.pdf" target="_blank" class="btn-slide-sub" title="Tải Slide bài giảng P1 (Học Sâu Trong Kế Toán & Gian Lận BCTC PDF)">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+              </svg>
+              Slide P1 (PDF)
+            </a>
             <div class="btn-secondary-group">
               <a href="paper_1_Detecting_Accounting_Fraud_tiengviet.html" target="_blank" class="btn-icon-sub" title="Mở trang đọc Tab riêng (Full View)">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -923,16 +970,25 @@ def build_papers_hub():
             <span class="tag-item">23 Chỉ Số Tài Chính</span>
             <span class="tag-item">Cảnh Báo Trước 3 Năm (T-3)</span>
             <span class="tag-item">Độ Chính Xác 82,00%</span>
+            <span class="tag-item" style="color: #c084fc; border-color: rgba(139, 92, 246, 0.4); background: rgba(139, 92, 246, 0.1);">📊 Đi kèm Slide P2</span>
           </div>
 
           <div class="card-actions">
             <button class="btn-read-main" onclick="openReaderModal('paper_2_Financial_Distress_Prediction_tiengviet.html', '2. Dự Báo Kiệt Quệ Tài Chính Doanh Nghiệp Dựa Trên Mô Hình Học Sâu')">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                <path d="M22 3h-6a4 4 0 0 1 3-3h7z"></path>
               </svg>
               Đọc Toàn Văn
             </button>
+            <a href="../P2_Deep_Learning_in_Accounting_and_Finance.pdf" target="_blank" class="btn-slide-sub" title="Tải Slide bài giảng P2 (Deep Learning in Accounting and Finance PDF)">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+              </svg>
+              Slide P2 (PDF)
+            </a>
             <div class="btn-secondary-group">
               <a href="paper_2_Financial_Distress_Prediction_tiengviet.html" target="_blank" class="btn-icon-sub" title="Mở trang đọc Tab riêng (Full View)">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -994,16 +1050,25 @@ def build_papers_hub():
             <span class="tag-item">Self-Attention Mechanism</span>
             <span class="tag-item">Phân Loại ESG 89,5%</span>
             <span class="tag-item">Đọc Hiểu Thuyết Minh BCTC</span>
+            <span class="tag-item" style="color: #c084fc; border-color: rgba(139, 92, 246, 0.4); background: rgba(139, 92, 246, 0.1);">📊 Đi kèm Slide P3</span>
           </div>
 
           <div class="card-actions">
             <button class="btn-read-main" onclick="openReaderModal('paper_3_FinBERT_Large_Language_Model_tiengviet.html', '3. FinBERT: Mô Hình Ngôn Ngữ Lớn Trích Xuất Thông Tin Từ Văn Bản Kế Toán')">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                <path d="M22 3h-6a4 4 0 0 1 3-3h7z"></path>
               </svg>
               Đọc Toàn Văn
             </button>
+            <a href="../P3_FinBERT_in_Accounting.pdf" target="_blank" class="btn-slide-sub" title="Tải Slide bài giảng P3 (FinBERT in Accounting PDF)">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+              </svg>
+              Slide P3 (PDF)
+            </a>
             <div class="btn-secondary-group">
               <a href="paper_3_FinBERT_Large_Language_Model_tiengviet.html" target="_blank" class="btn-icon-sub" title="Mở trang đọc Tab riêng (Full View)">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1065,16 +1130,25 @@ def build_papers_hub():
             <span class="tag-item">Reconstruction Error</span>
             <span class="tag-item">Kiểm Toán 100% Bút Toán</span>
             <span class="tag-item">Giảm 97,5% Báo Động Giả</span>
+            <span class="tag-item" style="color: #c084fc; border-color: rgba(139, 92, 246, 0.4); background: rgba(139, 92, 246, 0.1);">📊 Đi kèm Slide P4</span>
           </div>
 
           <div class="card-actions">
             <button class="btn-read-main" onclick="openReaderModal('paper_4_Deep_Autoencoder_Anomaly_Detection_tiengviet.html', '4. Phát Hiện Bất Thường Trong Dữ Liệu Kế Toán Bằng Deep Autoencoder')">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                <path d="M22 3h-6a4 4 0 0 1 3-3h7z"></path>
               </svg>
               Đọc Toàn Văn
             </button>
+            <a href="../P4_Deep_Learning_in_Accounting_and_Auditing.pdf" target="_blank" class="btn-slide-sub" title="Tải Slide bài giảng P4 (Deep Learning in Accounting and Auditing PDF)">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+              </svg>
+              Slide P4 (PDF)
+            </a>
             <div class="btn-secondary-group">
               <a href="paper_4_Deep_Autoencoder_Anomaly_Detection_tiengviet.html" target="_blank" class="btn-icon-sub" title="Mở trang đọc Tab riêng (Full View)">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1084,6 +1158,22 @@ def build_papers_hub():
                 </svg>
               </a>
               <a href="paper 4_Detection of Anomalies in Large Scale Accounting Data using Deep Autoencoder Networks.pdf" target="_blank" class="btn-icon-sub" title="Tải PDF Gốc Tiếng Anh">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                </svg>
+              </a>
+              <a href="paper_4_Deep_Autoencoder_Anomaly_Detection_tiengviet.md" target="_blank" class="btn-icon-sub" title="Xem Markdown (.md)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="4 7 4 4 20 4 20 7"></polyline>
+                  <line x1="9" y1="20" x2="15" y2="20"></line>
+                  <line x1="12" y1="4" x2="12" y2="20"></line>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </article>              <a href="paper 4_Detection of Anomalies in Large Scale Accounting Data using Deep Autoencoder Networks.pdf" target="_blank" class="btn-icon-sub" title="Tải PDF Gốc Tiếng Anh">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                   <polyline points="14 2 14 8 20 8"></polyline>
@@ -1115,7 +1205,7 @@ def build_papers_hub():
       <div class="footer-links">
         <a href="../index.html" class="footer-link">Trang chủ Day 02 Extra</a>
         <a href="../../Day01_Extra/Videos/index.html" class="footer-link">Thư viện Video Day 01 Extra</a>
-        <a href="../../index.html" class="footer-link">Cổng thông tin Môn học AI Kế toán</a>
+        <a href="../../../index.html" class="footer-link">Cổng thông tin Môn học AI Kế toán</a>
       </div>
       <p>Khoa Kế toán & Kiểm toán — Trường Đại học Đông Á (UDA)</p>
       <p style="margin-top: 0.35rem; font-size: 0.8rem; color: var(--text-dim);">Chương trình Đào tạo Tiên tiến Kế toán Số & Trí Tuệ Nhân Tạo (2026)</p>
@@ -1580,7 +1670,7 @@ def build_day02_master_index():
 
     <!-- Top Navigation -->
     <header class="top-nav">
-      <a href="../index.html" class="brand-badge">
+      <a href="../../index.html" class="brand-badge">
         <div class="brand-logo-icon">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
             <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"></path>
@@ -1630,51 +1720,120 @@ def build_day02_master_index():
       </a>
     </div>
 
-    <!-- Section 1: Giáo Trình & Lý Thuyết -->
+    <!-- Section 1: Slide Bài Giảng & Giáo Trình -->
     <h2 class="section-heading">
       <div class="section-heading-icon">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-          <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+          <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+          <line x1="8" y1="21" x2="16" y2="21"></line>
+          <line x1="12" y1="17" x2="12" y2="21"></line>
         </svg>
       </div>
-      Tài Liệu Lý Thuyết & Giáo Án Chuyên Sâu
+      Bộ Slide Bài Giảng Chuyên Đề (P0 – P4) & Giáo Án Sư Phạm
     </h2>
 
     <div class="modules-grid">
+      <!-- Card: Slide P0 -->
+      <div class="module-card">
+        <span class="module-badge" style="background: rgba(59, 130, 246, 0.15); color: #60a5fa;">Slide P0 • Tổng Quan</span>
+        <h3 class="module-title">P0: AI in Accounting and Auditing</h3>
+        <p class="module-desc">
+          Slide định hướng nhập môn: Vai trò chiến lược của Trí tuệ nhân tạo, dữ liệu lớn và điện toán đám mây trong tái định hình toàn diện quy trình hạch toán, kế toán quản trị và kiểm toán hiện đại.
+        </p>
+        <a href="P0_AI_in_Accounting_and_Auditing.pdf" target="_blank" class="module-link" style="color: #60a5fa; font-weight: 700;">
+          📊 Tải Slide P0 (PDF) &rarr;
+        </a>
+      </div>
+
+      <!-- Card: Slide P1 -->
+      <div class="module-card">
+        <span class="module-badge" style="background: rgba(139, 92, 246, 0.15); color: #c084fc;">Slide P1 • Tương Ứng Bài 1</span>
+        <h3 class="module-title">P1: Học Sâu Trong Kế Toán & Phát Hiện Gian Lận</h3>
+        <p class="module-desc">
+          Slide bài giảng chuyên sâu tương ứng Bài báo 1 (JAR): Sử dụng 24 biến số kế toán thô, giải quyết mất cân bằng lớp cực đoan 0,7% qua Biased-Penalty SVM và BalancedCascade.
+        </p>
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: auto;">
+          <a href="P1_Học_Sâu_Trong_Kế_Toán.pdf" target="_blank" class="module-link" style="color: #c084fc; font-weight: 700;">
+            📊 Tải Slide P1 (PDF) &rarr;
+          </a>
+          <a href="papers/paper_1_Detecting_Accounting_Fraud_tiengviet.html" class="module-link">
+            📖 Đọc Bài Báo 1 &rarr;
+          </a>
+        </div>
+      </div>
+
+      <!-- Card: Slide P2 -->
+      <div class="module-card">
+        <span class="module-badge" style="background: rgba(16, 185, 129, 0.15); color: #34d399;">Slide P2 • Tương Ứng Bài 2</span>
+        <h3 class="module-title">P2: Deep Learning in Accounting & Finance</h3>
+        <p class="module-desc">
+          Slide bài giảng chuyên sâu tương ứng Bài báo 2 (Elsevier 2024): 23 chỉ số tài chính toàn diện, mạng học sâu 4 tầng Encoder cảnh báo sớm rủi ro kiệt quệ tài chính trước 3 năm với độ chính xác 82,00%.
+        </p>
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: auto;">
+          <a href="P2_Deep_Learning_in_Accounting_and_Finance.pdf" target="_blank" class="module-link" style="color: #34d399; font-weight: 700;">
+            📊 Tải Slide P2 (PDF) &rarr;
+          </a>
+          <a href="papers/paper_2_Financial_Distress_Prediction_tiengviet.html" class="module-link">
+            📖 Đọc Bài Báo 2 &rarr;
+          </a>
+        </div>
+      </div>
+
+      <!-- Card: Slide P3 -->
+      <div class="module-card">
+        <span class="module-badge" style="background: rgba(245, 158, 11, 0.15); color: #fbbf24;">Slide P3 • Tương Ứng Bài 3</span>
+        <h3 class="module-title">P3: FinBERT in Accounting (Mô Hình Ngôn Ngữ)</h3>
+        <p class="module-desc">
+          Slide bài giảng tương ứng Bài báo 3 (CAR FT50): Kiến trúc Transformer, cơ chế Self-Attention đọc hiểu Thuyết minh BCTC, phân tích sắc thái báo cáo tài chính và phân loại ESG.
+        </p>
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: auto;">
+          <a href="P3_FinBERT_in_Accounting.pdf" target="_blank" class="module-link" style="color: #fbbf24; font-weight: 700;">
+            📊 Tải Slide P3 (PDF) &rarr;
+          </a>
+          <a href="papers/paper_3_FinBERT_Large_Language_Model_tiengviet.html" class="module-link">
+            📖 Đọc Bài Báo 3 &rarr;
+          </a>
+        </div>
+      </div>
+
+      <!-- Card: Slide P4 -->
+      <div class="module-card">
+        <span class="module-badge" style="background: rgba(244, 63, 94, 0.15); color: #fda4af;">Slide P4 • Tương Ứng Bài 4</span>
+        <h3 class="module-title">P4: Deep Learning in Accounting & Auditing</h3>
+        <p class="module-desc">
+          Slide bài giảng tương ứng Bài báo 4 (PwC & DFKI): Kiểm toán 100% bút toán sổ cái SAP ERP bằng mạng Deep Autoencoder 9 tầng ẩn, sai số tái tạo và giải pháp giảm 97,5% cảnh báo giả.
+        </p>
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: auto;">
+          <a href="P4_Deep_Learning_in_Accounting_and_Auditing.pdf" target="_blank" class="module-link" style="color: #fda4af; font-weight: 700;">
+            📊 Tải Slide P4 (PDF) &rarr;
+          </a>
+          <a href="papers/paper_4_Deep_Autoencoder_Anomaly_Detection_tiengviet.html" class="module-link">
+            📖 Đọc Bài Báo 4 &rarr;
+          </a>
+        </div>
+      </div>
+
+      <!-- Card: Slide Lý Thuyết Nền Tảng -->
+      <div class="module-card">
+        <span class="module-badge" style="background: rgba(6, 182, 212, 0.15); color: #22d3ee;">Lý Thuyết Cơ Sở</span>
+        <h3 class="module-title">Slide Lý Thuyết Nền Tảng Học Sâu Trong Kế Toán</h3>
+        <p class="module-desc">
+          Bộ slide bài giảng chuẩn mực trực quan hóa kiến trúc mạng nơ-ron sâu (DNN, CNN, LSTM), giải thuật tối ưu hóa Backpropagation và ứng dụng kiểm toán số.
+        </p>
+        <a href="Lý Thuyết Học Sâu Trong Kế Toán.pdf" target="_blank" class="module-link" style="color: #22d3ee; font-weight: 700;">
+          📊 Tải Slide Bài Giảng (PDF) &rarr;
+        </a>
+      </div>
+
       <!-- Card: Giáo Án 100 Phút -->
       <div class="module-card">
-        <span class="module-badge" style="background: rgba(59, 130, 246, 0.15); color: #60a5fa;">Giáo Án Sư Phạm</span>
+        <span class="module-badge" style="background: rgba(148, 163, 184, 0.15); color: #cbd5e1;">Giáo Án Sư Phạm</span>
         <h3 class="module-title">Giáo Án Chi Tiết 100 Phút: Học Sâu Trong Kế Toán</h3>
         <p class="module-desc">
           Kế hoạch bài giảng sư phạm Chain of Thought và Tree of Thought: Từ điểm nghẽn của ML truyền thống đến DNN, CNN đọc hóa đơn, LSTM dự báo dòng tiền, FinBERT và Deep Autoencoder bắt gian lận sổ cái.
         </p>
-        <a href="deepleanring_for_accounting.txt" target="_blank" class="module-link">
-          Xem Toàn Văn Giáo Án (Text) &rarr;
-        </a>
-      </div>
-
-      <!-- Card: Slide Lý Thuyết PDF -->
-      <div class="module-card">
-        <span class="module-badge" style="background: rgba(139, 92, 246, 0.15); color: #a78bfa;">Slide Bài Giảng</span>
-        <h3 class="module-title">Slide Lý Thuyết Học Sâu Trong Kế Toán (PDF)</h3>
-        <p class="module-desc">
-          Bộ slide bài giảng chuẩn mực trực quan hóa kiến trúc mạng nơ-ron sâu, giải thuật tối ưu hóa Backpropagation và ứng dụng kiểm toán số.
-        </p>
-        <a href="Lý Thuyết Học Sâu Trong Kế Toán.pdf" target="_blank" class="module-link">
-          Tải Slide Bài Giảng PDF &rarr;
-        </a>
-      </div>
-
-      <!-- Card: Slide Part 1 -->
-      <div class="module-card">
-        <span class="module-badge" style="background: rgba(16, 185, 129, 0.15); color: #34d399;">Slide Thực Chiến</span>
-        <h3 class="module-title">P1: Deep Learning in Accounting & Finance</h3>
-        <p class="module-desc">
-          Slide bài giảng chuyên sâu Part 1 về các ứng dụng học sâu trong tự động hóa kế toán, xử lý ngôn ngữ tự nhiên và kiểm soát nội bộ.
-        </p>
-        <a href="P1_Deep_Learning_in_Accounting.pdf" target="_blank" class="module-link">
-          Tải Slide Part 1 PDF &rarr;
+        <a href="deepleanring_for_accounting.txt" target="_blank" class="module-link" style="color: #cbd5e1; font-weight: 700;">
+          📄 Xem Toàn Văn Giáo Án (Text) &rarr;
         </a>
       </div>
     </div>
@@ -1698,9 +1857,14 @@ def build_day02_master_index():
         <p class="module-desc">
           Li, Yu, Zhang, Ke: Đột phá dùng 24 biến BCTC thô thay cho tỷ số tài chính, giải quyết mất cân bằng lớp cực đoan 0,7% qua BP-SVM và BalancedCascade đạt BAC 77,53%.
         </p>
-        <a href="papers/paper_1_Detecting_Accounting_Fraud_tiengviet.html" class="module-link">
-          Đọc Bản Dịch Web Tiếng Việt &rarr;
-        </a>
+        <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: auto;">
+          <a href="papers/paper_1_Detecting_Accounting_Fraud_tiengviet.html" class="module-link">
+            📖 Đọc Bản Dịch Web Tiếng Việt &rarr;
+          </a>
+          <a href="P1_Học_Sâu_Trong_Kế_Toán.pdf" target="_blank" class="module-link" style="color: #c084fc; font-weight: 600;">
+            📊 Tải Slide P1 Đi Kèm (PDF) &rarr;
+          </a>
+        </div>
       </div>
 
       <!-- Paper 2 -->
@@ -1710,9 +1874,14 @@ def build_day02_master_index():
         <p class="module-desc">
           Sun: Mạng học sâu 4 tầng Encoder trên 2.790 công ty niêm yết, đạt độ chính xác cảnh báo sớm trước 3 năm lên tới 82,00% đối với công ty kiệt quệ tài chính.
         </p>
-        <a href="papers/paper_2_Financial_Distress_Prediction_tiengviet.html" class="module-link">
-          Đọc Bản Dịch Web Tiếng Việt &rarr;
-        </a>
+        <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: auto;">
+          <a href="papers/paper_2_Financial_Distress_Prediction_tiengviet.html" class="module-link">
+            📖 Đọc Bản Dịch Web Tiếng Việt &rarr;
+          </a>
+          <a href="P2_Deep_Learning_in_Accounting_and_Finance.pdf" target="_blank" class="module-link" style="color: #34d399; font-weight: 600;">
+            📊 Tải Slide P2 Đi Kèm (PDF) &rarr;
+          </a>
+        </div>
       </div>
 
       <!-- Paper 3 -->
@@ -1722,9 +1891,14 @@ def build_day02_master_index():
         <p class="module-desc">
           Huang, Wang, Yang: Mô hình BERT tài chính hiểu sâu sắc Thuyết minh BCTC, đạt F1 87,8% phân loại sắc thái câu và 89,5% phân loại ESG, vượt trội hơn từ điển LM 18% - 40%.
         </p>
-        <a href="papers/paper_3_FinBERT_Large_Language_Model_tiengviet.html" class="module-link">
-          Đọc Bản Dịch Web Tiếng Việt &rarr;
-        </a>
+        <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: auto;">
+          <a href="papers/paper_3_FinBERT_Large_Language_Model_tiengviet.html" class="module-link">
+            📖 Đọc Bản Dịch Web Tiếng Việt &rarr;
+          </a>
+          <a href="P3_FinBERT_in_Accounting.pdf" target="_blank" class="module-link" style="color: #fbbf24; font-weight: 600;">
+            📊 Tải Slide P3 Đi Kèm (PDF) &rarr;
+          </a>
+        </div>
       </div>
 
       <!-- Paper 4 -->
@@ -1734,9 +1908,14 @@ def build_day02_master_index():
         <p class="module-desc">
           Schreyer, Sattarov, PwC: Ứng dụng sai số tái tạo của mạng Autoencoder 9 tầng ẩn kiểm tra 100% bút toán SAP ERP, giảm 97,5% cảnh báo giả cho kiểm toán viên.
         </p>
-        <a href="papers/paper_4_Deep_Autoencoder_Anomaly_Detection_tiengviet.html" class="module-link">
-          Đọc Bản Dịch Web Tiếng Việt &rarr;
-        </a>
+        <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: auto;">
+          <a href="papers/paper_4_Deep_Autoencoder_Anomaly_Detection_tiengviet.html" class="module-link">
+            📖 Đọc Bản Dịch Web Tiếng Việt &rarr;
+          </a>
+          <a href="P4_Deep_Learning_in_Accounting_and_Auditing.pdf" target="_blank" class="module-link" style="color: #c084fc; font-weight: 600;">
+            📊 Tải Slide P4 Đi Kèm (PDF) &rarr;
+          </a>
+        </div>
       </div>
     </div>
 

@@ -537,6 +537,30 @@
       transform: translateY(-2px);
     }
 
+    .btn-slide-sub {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.72rem 1.1rem;
+      border-radius: var(--radius-sm);
+      background: rgba(139, 92, 246, 0.14);
+      border: 1px solid rgba(139, 92, 246, 0.4);
+      color: #c084fc;
+      font-size: 0.88rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      white-space: nowrap;
+    }
+
+    .btn-slide-sub:hover {
+      background: rgba(139, 92, 246, 0.3);
+      color: #ffffff;
+      border-color: #a78bfa;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 14px rgba(139, 92, 246, 0.35);
+    }
+
     /* Modal / Theatre Viewer */
     .modal-backdrop {
       position: fixed;
@@ -700,7 +724,7 @@
           </svg>
           Chuyên đề Day 02 Extra
         </a>
-        <a href="../../index.html" class="nav-btn">
+        <a href="../../../index.html" class="nav-btn">
           Trang chủ Môn học
         </a>
       </div>
@@ -778,6 +802,20 @@
             <div class="stat-label">Hạng Nhất Học Thuật</div>
           </div>
         </div>
+
+        <div class="stat-pill">
+          <div class="stat-icon" style="background: rgba(192, 132, 252, 0.15); color: #c084fc;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+              <line x1="8" y1="21" x2="16" y2="21"></line>
+              <line x1="12" y1="17" x2="12" y2="21"></line>
+            </svg>
+          </div>
+          <div class="stat-text">
+            <div class="stat-num">Slide P0 – P4</div>
+            <div class="stat-label">Slide Giảng Dạy Đi Kèm</div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -839,6 +877,7 @@
             <span class="tag-item">AAERs 90.172 Năm-Công Ty</span>
             <span class="tag-item">Biased-Penalty SVM</span>
             <span class="tag-item">BalancedCascade</span>
+            <span class="tag-item" style="color: #c084fc; border-color: rgba(139, 92, 246, 0.4); background: rgba(139, 92, 246, 0.1);">📊 Đi kèm Slide P1</span>
           </div>
 
           <div class="card-actions">
@@ -849,6 +888,14 @@
               </svg>
               Đọc Toàn Văn
             </button>
+            <a href="../P1_Học_Sâu_Trong_Kế_Toán.pdf" target="_blank" class="btn-slide-sub" title="Tải Slide bài giảng P1 (Học Sâu Trong Kế Toán & Gian Lận BCTC PDF)">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+              </svg>
+              Slide P1 (PDF)
+            </a>
             <div class="btn-secondary-group">
               <a href="paper_1_Detecting_Accounting_Fraud_tiengviet.html" target="_blank" class="btn-icon-sub" title="Mở trang đọc Tab riêng (Full View)">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -910,16 +957,25 @@
             <span class="tag-item">23 Chỉ Số Tài Chính</span>
             <span class="tag-item">Cảnh Báo Trước 3 Năm (T-3)</span>
             <span class="tag-item">Độ Chính Xác 82,00%</span>
+            <span class="tag-item" style="color: #c084fc; border-color: rgba(139, 92, 246, 0.4); background: rgba(139, 92, 246, 0.1);">📊 Đi kèm Slide P2</span>
           </div>
 
           <div class="card-actions">
             <button class="btn-read-main" onclick="openReaderModal('paper_2_Financial_Distress_Prediction_tiengviet.html', '2. Dự Báo Kiệt Quệ Tài Chính Doanh Nghiệp Dựa Trên Mô Hình Học Sâu')">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                <path d="M22 3h-6a4 4 0 0 1 3-3h7z"></path>
               </svg>
               Đọc Toàn Văn
             </button>
+            <a href="../P2_Deep_Learning_in_Accounting_and_Finance.pdf" target="_blank" class="btn-slide-sub" title="Tải Slide bài giảng P2 (Deep Learning in Accounting and Finance PDF)">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+              </svg>
+              Slide P2 (PDF)
+            </a>
             <div class="btn-secondary-group">
               <a href="paper_2_Financial_Distress_Prediction_tiengviet.html" target="_blank" class="btn-icon-sub" title="Mở trang đọc Tab riêng (Full View)">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -981,16 +1037,25 @@
             <span class="tag-item">Self-Attention Mechanism</span>
             <span class="tag-item">Phân Loại ESG 89,5%</span>
             <span class="tag-item">Đọc Hiểu Thuyết Minh BCTC</span>
+            <span class="tag-item" style="color: #c084fc; border-color: rgba(139, 92, 246, 0.4); background: rgba(139, 92, 246, 0.1);">📊 Đi kèm Slide P3</span>
           </div>
 
           <div class="card-actions">
             <button class="btn-read-main" onclick="openReaderModal('paper_3_FinBERT_Large_Language_Model_tiengviet.html', '3. FinBERT: Mô Hình Ngôn Ngữ Lớn Trích Xuất Thông Tin Từ Văn Bản Kế Toán')">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                <path d="M22 3h-6a4 4 0 0 1 3-3h7z"></path>
               </svg>
               Đọc Toàn Văn
             </button>
+            <a href="../P3_FinBERT_in_Accounting.pdf" target="_blank" class="btn-slide-sub" title="Tải Slide bài giảng P3 (FinBERT in Accounting PDF)">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+              </svg>
+              Slide P3 (PDF)
+            </a>
             <div class="btn-secondary-group">
               <a href="paper_3_FinBERT_Large_Language_Model_tiengviet.html" target="_blank" class="btn-icon-sub" title="Mở trang đọc Tab riêng (Full View)">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1052,16 +1117,25 @@
             <span class="tag-item">Reconstruction Error</span>
             <span class="tag-item">Kiểm Toán 100% Bút Toán</span>
             <span class="tag-item">Giảm 97,5% Báo Động Giả</span>
+            <span class="tag-item" style="color: #c084fc; border-color: rgba(139, 92, 246, 0.4); background: rgba(139, 92, 246, 0.1);">📊 Đi kèm Slide P4</span>
           </div>
 
           <div class="card-actions">
             <button class="btn-read-main" onclick="openReaderModal('paper_4_Deep_Autoencoder_Anomaly_Detection_tiengviet.html', '4. Phát Hiện Bất Thường Trong Dữ Liệu Kế Toán Bằng Deep Autoencoder')">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                <path d="M22 3h-6a4 4 0 0 1 3-3h7z"></path>
               </svg>
               Đọc Toàn Văn
             </button>
+            <a href="../P4_Deep_Learning_in_Accounting_and_Auditing.pdf" target="_blank" class="btn-slide-sub" title="Tải Slide bài giảng P4 (Deep Learning in Accounting and Auditing PDF)">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+              </svg>
+              Slide P4 (PDF)
+            </a>
             <div class="btn-secondary-group">
               <a href="paper_4_Deep_Autoencoder_Anomaly_Detection_tiengviet.html" target="_blank" class="btn-icon-sub" title="Mở trang đọc Tab riêng (Full View)">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1071,6 +1145,22 @@
                 </svg>
               </a>
               <a href="paper 4_Detection of Anomalies in Large Scale Accounting Data using Deep Autoencoder Networks.pdf" target="_blank" class="btn-icon-sub" title="Tải PDF Gốc Tiếng Anh">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                </svg>
+              </a>
+              <a href="paper_4_Deep_Autoencoder_Anomaly_Detection_tiengviet.md" target="_blank" class="btn-icon-sub" title="Xem Markdown (.md)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="4 7 4 4 20 4 20 7"></polyline>
+                  <line x1="9" y1="20" x2="15" y2="20"></line>
+                  <line x1="12" y1="4" x2="12" y2="20"></line>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </article>              <a href="paper 4_Detection of Anomalies in Large Scale Accounting Data using Deep Autoencoder Networks.pdf" target="_blank" class="btn-icon-sub" title="Tải PDF Gốc Tiếng Anh">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                   <polyline points="14 2 14 8 20 8"></polyline>
@@ -1102,7 +1192,7 @@
       <div class="footer-links">
         <a href="../index.html" class="footer-link">Trang chủ Day 02 Extra</a>
         <a href="../../Day01_Extra/Videos/index.html" class="footer-link">Thư viện Video Day 01 Extra</a>
-        <a href="../../index.html" class="footer-link">Cổng thông tin Môn học AI Kế toán</a>
+        <a href="../../../index.html" class="footer-link">Cổng thông tin Môn học AI Kế toán</a>
       </div>
       <p>Khoa Kế toán & Kiểm toán — Trường Đại học Đông Á (UDA)</p>
       <p style="margin-top: 0.35rem; font-size: 0.8rem; color: var(--text-dim);">Chương trình Đào tạo Tiên tiến Kế toán Số & Trí Tuệ Nhân Tạo (2026)</p>

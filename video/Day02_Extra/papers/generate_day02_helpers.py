@@ -748,9 +748,11 @@ def get_html_template(title, title_en, authors, journal, doi, badge, sidebar_lin
       <a href="paper_3_FinBERT_Large_Language_Model_tiengviet.html" class="sidebar-link {'active' if active_paper_idx==3 else ''}">Bài 3: FinBERT NLP (CAR)</a>
       <a href="paper_4_Deep_Autoencoder_Anomaly_Detection_tiengviet.html" class="sidebar-link {'active' if active_paper_idx==4 else ''}">Bài 4: Autoencoder Sổ Cái (DFKI/PwC)</a>
       
-      <div class="nav-group-title">Tài Liệu Gốc</div>
+      <div class="nav-group-title">Slide & Tài Liệu Gốc</div>
+      <a href="{get_slide_filename(active_paper_idx)}" target="_blank" class="sidebar-link" style="color: #c084fc; font-weight: 700;">📊 Tải Slide P{active_paper_idx} (PDF)</a>
       <a href="{get_pdf_filename(active_paper_idx)}" target="_blank" class="sidebar-link">📄 Tải PDF Gốc Tiếng Anh</a>
       <a href="index.html" class="sidebar-link">📚 Thư Viện Bài Báo Day 02</a>
+      <a href="../index.html" class="sidebar-link">🏠 Cổng Chuyên Đề Day 02</a>
     </nav>
   </aside>
 
@@ -771,6 +773,14 @@ def get_html_template(title, title_en, authors, journal, doi, badge, sidebar_lin
             <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
           </svg>
           Day 02 Extra
+        </a>
+        <a href="{get_slide_filename(active_paper_idx)}" target="_blank" class="back-btn" style="color: #8b5cf6; border-color: rgba(139, 92, 246, 0.4); background: rgba(139, 92, 246, 0.08);" title="Tải Slide bài giảng P{active_paper_idx} (PDF)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+            <line x1="8" y1="21" x2="16" y2="21"></line>
+            <line x1="12" y1="17" x2="12" y2="21"></line>
+          </svg>
+          Slide Bài Giảng P{active_paper_idx} (PDF)
         </a>
         <a href="{get_pdf_filename(active_paper_idx)}" target="_blank" class="back-btn" style="color: var(--primary);" title="Mở file PDF gốc">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -807,6 +817,7 @@ def get_html_template(title, title_en, authors, journal, doi, badge, sidebar_lin
           <div class="meta-item"><strong>Tác giả:</strong> {authors}</div>
           <div class="meta-item"><strong>Xuất bản:</strong> {journal}</div>
           <div class="meta-item"><strong>Định danh:</strong> {doi}</div>
+          <div class="meta-item"><strong>Slide Bài Giảng:</strong> <a href="{get_slide_filename(active_paper_idx)}" target="_blank" style="color: #8b5cf6; font-weight: 700; text-decoration: underline;">Tải Slide P{active_paper_idx} ({get_slide_title(active_paper_idx)}) (PDF)</a></div>
         </div>
       </header>
 
@@ -896,6 +907,24 @@ def get_pdf_filename(idx):
     }
     return mapping.get(idx, "")
 
+def get_slide_filename(idx):
+    mapping = {
+        1: "../P1_Học_Sâu_Trong_Kế_Toán.pdf",
+        2: "../P2_Deep_Learning_in_Accounting_and_Finance.pdf",
+        3: "../P3_FinBERT_in_Accounting.pdf",
+        4: "../P4_Deep_Learning_in_Accounting_and_Auditing.pdf"
+    }
+    return mapping.get(idx, "")
+
+def get_slide_title(idx):
+    mapping = {
+        1: "P1: Học Sâu Trong Kế Toán & Phát Hiện Gian Lận",
+        2: "P2: Deep Learning in Accounting & Finance",
+        3: "P3: FinBERT in Accounting",
+        4: "P4: Deep Learning in Accounting & Auditing"
+    }
+    return mapping.get(idx, "")
+
 def get_footer_nav(idx):
     navs = []
     if idx > 1:
@@ -923,3 +952,4 @@ def get_footer_nav(idx):
     return "\n".join(navs)
 
 print("Base helper loaded.")
+
