@@ -3,6 +3,11 @@
 * [📝 Bài kiểm tra Giữa kỳ (Buổi 1-6) - Bản 1 (Trắc nghiệm chuẩn)](docs/kiemtra_giuaky.md)
 * [🌟 Bài kiểm tra Giữa kỳ (Buổi 1-6) - Bản 2 (Tương tác trực quan)](docs/kiemtra_giuaky_v2.md)
 
+* 🚀 Chuyên Đề Nâng Cao (Extra Sessions)
+  * [Day 03 Extra: Thị giác Máy tính & Siêu tự động hóa (Slide P1-P5 + 4 Papers)](video/Day03_Extra/index.html)
+  * [Day 02 Extra: Học Sâu (Deep Learning) & 4 Bài Báo Quốc Tế](video/Day02_Extra/index.html)
+  * [Day 01 Extra: Học Máy (Machine Learning) & Video Bài Giảng](video/Day01_Extra/Videos/index.html)
+
 * Các buổi học (Lý thuyết & Thực hành)
   * [Buổi 1: What Accountants Need to Know](docs/buoi_01.md)
   * [Buổi 2: AI and Blockchain in Finance](docs/buoi_02.md)

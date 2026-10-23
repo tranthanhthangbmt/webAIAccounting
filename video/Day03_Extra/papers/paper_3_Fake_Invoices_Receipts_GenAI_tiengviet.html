@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>Hóa Đơn Và Biên Lai Giả Mạo Trong Kế Toán: Tác Động Nghiệp Vụ Và Giải Pháp Khắc Phục Bằng Thị Giác Máy Tính Trong Kỷ Nguyên AI Tạo Sinh (Gen-AI) — Bản Dịch Học Thuật Tiếng Việt (UDA)</title>
+  <meta name="description" content="Bản dịch tiếng Việt học thuật toàn văn công trình nghiên cứu: Fake Invoices and Receipts in Accounting: Impacts and Mitigation in the Age of gen-AI (Philip Thornton, Lamyaa Aljuaid, Matthew W Chapman, Deepayan Bhowmik (Newcastle University & Sage PLC, UK)). Tích hợp biểu đồ, ma trận dữ liệu và phân tích nghiệp vụ kế toán kiểm toán chuyên sâu." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-body: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-sidebar: #0f172a;
+      --sidebar-text: #e2e8f0;
+      --sidebar-muted: #94a3b8;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --primary: #2563eb;
+      --primary-light: #eff6ff;
+      --primary-border: #bfdbfe;
+      --accent: #0ea5e9;
+      --accent-violet: #8b5cf6;
+      --accent-emerald: #10b981;
+      --accent-amber: #f59e0b;
+      --accent-rose: #f43f5e;
+      --border-color: #e2e8f0;
+      --code-bg: #1e293b;
+      --code-text: #f1f5f9;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+      --content-font-size: 1.05rem;
+      --line-height: 1.85;
+      --radius-md: 12px;
+      --radius-sm: 8px;
+    }
+
+    [data-theme="dark"] {
+      --bg-body: #0b0f19;
+      --bg-surface: #131b2e;
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --primary: #3b82f6;
+      --primary-light: rgba(59, 130, 246, 0.15);
+      --primary-border: rgba(59, 130, 246, 0.35);
+      --border-color: #1e293b;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.4);
+      --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.5);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg-body);
+      color: var(--text-main);
+      line-height: var(--line-height);
+      font-size: var(--content-font-size);
+      display: flex;
+      min-height: 100vh;
+      transition: background-color 0.25s ease, color 0.25s ease;
+    }
+
+    /* Reading Progress Bar */
+    #progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #2563eb, #38bdf8, #8b5cf6);
+      width: 0%;
+      z-index: 9999;
+      transition: width 0.1s linear;
+    }
+
+    /* Sidebar Navigation */
+    .sidebar {
+      width: 330px;
+      background-color: var(--bg-sidebar);
+      color: var(--sidebar-text);
+      height: 100vh;
+      position: sticky;
+      top: 0;
+      overflow-y: auto;
+      flex-shrink: 0;
+      border-right: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      flex-direction: column;
+      z-index: 100;
+    }
+
+    .sidebar-header {
+      padding: 1.5rem 1.25rem 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .sidebar-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #38bdf8;
+      margin-bottom: 0.4rem;
+    }
+
+    .sidebar-subtitle {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.35;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    .sidebar-author {
+      font-size: 0.8rem;
+      color: var(--sidebar-muted);
+      margin-top: 0.35rem;
+    }
+
+    .sidebar-nav {
+      padding: 1rem 0.75rem 2.5rem;
+      flex-grow: 1;
+    }
+
+    .nav-group-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #64748b;
+      padding: 0.85rem 0.65rem 0.35rem;
+    }
+
+    .sidebar-link {
+      display: block;
+      padding: 0.5rem 0.75rem;
+      font-size: 0.88rem;
+      color: var(--sidebar-muted);
+      text-decoration: none;
+      border-radius: var(--radius-sm);
+      transition: all 0.15s ease;
+      line-height: 1.4;
+      margin-bottom: 2px;
+    }
+
+    .sidebar-link:hover {
+      color: #ffffff;
+      background-color: rgba(255, 255, 255, 0.08);
+      transform: translateX(3px);
+    }
+
+    .sidebar-link.active {
+      color: #ffffff;
+      background-color: var(--primary);
+      font-weight: 600;
+    }
+
+    .sidebar-link.sub-link {
+      padding-left: 1.6rem;
+      font-size: 0.83rem;
+    }
+
+    /* Main Content Wrapper */
+    .main-wrapper {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    /* Top Floating Utility Bar */
+    .top-bar {
+      position: sticky;
+      top: 0;
+      background-color: var(--bg-surface);
+      border-bottom: 1px solid var(--border-color);
+      padding: 0.75rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 90;
+      box-shadow: var(--shadow-sm);
+      backdrop-filter: blur(10px);
+    }
+
+    .top-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 600;
+      padding: 0.4rem 0.75rem;
+      border-radius: var(--radius-sm);
+      background: var(--bg-body);
+      border: 1px solid var(--border-color);
+      transition: all 0.2s;
+    }
+
+    .back-btn:hover {
+      color: var(--primary);
+      border-color: var(--primary-border);
+      background: var(--primary-light);
+    }
+
+    .top-bar-right {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .util-btn {
+      background: var(--bg-body);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-sm);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 0.85rem;
+      font-weight: 700;
+      transition: all 0.2s;
+    }
+
+    .util-btn:hover {
+      color: var(--text-main);
+      border-color: var(--primary);
+    }
+
+    /* Article Paper Layout */
+    .article-container {
+      max-width: 980px;
+      width: 100%;
+      margin: 1.5rem auto 4rem;
+      padding: 3rem 2.75rem 6rem;
+      background: var(--bg-surface);
+      box-shadow: var(--shadow-sm);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+    }
+
+    @media (max-width: 1024px) {
+      .sidebar {
+        display: none;
+      }
+      .article-container {
+        padding: 2rem 1.25rem 4rem;
+        margin-top: 0;
+        border-radius: 0;
+        border: none;
+      }
+    }
+
+    /* Document Header */
+    .paper-header {
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 2rem;
+      margin-bottom: 2.5rem;
+      text-align: center;
+    }
+
+    .paper-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.35rem 0.9rem;
+      border-radius: 9999px;
+      background: var(--primary-light);
+      border: 1px solid var(--primary-border);
+      color: var(--primary);
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1.25rem;
+    }
+
+    .paper-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(1.85rem, 3.5vw, 2.5rem);
+      font-weight: 800;
+      line-height: 1.3;
+      color: var(--text-main);
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .paper-title-en {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      font-style: italic;
+      margin-bottom: 1.5rem;
+      line-height: 1.45;
+    }
+
+    .paper-meta-grid {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      background: var(--bg-body);
+      padding: 1rem 1.5rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-color);
+      margin-top: 1.25rem;
+      text-align: left;
+    }
+
+    .meta-item strong {
+      color: var(--text-main);
+    }
+
+    /* Abstract Block */
+    .abstract-box {
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.04) 0%, rgba(14, 165, 233, 0.04) 100%);
+      border-left: 4px solid var(--primary);
+      padding: 1.75rem 2rem;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      margin-bottom: 3rem;
+      border-top: 1px solid var(--border-color);
+      border-right: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .abstract-heading {
+      font-size: 1.15rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--primary);
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    .abstract-text {
+      font-family: 'Merriweather', serif;
+      font-size: 1.02rem;
+      line-height: 1.85;
+      color: var(--text-main);
+      text-align: justify;
+    }
+
+    .keywords-box {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .keywords-box strong {
+      color: var(--primary);
+    }
+
+    /* Academic Typography */
+    h2.section-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-top: 3.5rem;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      scroll-margin-top: 80px;
+    }
+
+    h2.section-title .section-number {
+      background: var(--primary);
+      color: #fff;
+      font-size: 1rem;
+      padding: 0.2rem 0.65rem;
+      border-radius: 6px;
+      font-weight: 700;
+    }
+
+    h3.sub-section-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-top: 2.25rem;
+      margin-bottom: 0.85rem;
+      scroll-margin-top: 80px;
+    }
+
+    h4.tertiary-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-top: 1.5rem;
+      margin-bottom: 0.6rem;
+      scroll-margin-top: 80px;
+    }
+
+    p {
+      margin-bottom: 1.35rem;
+      text-align: justify;
+    }
+
+    ul, ol {
+      margin-left: 1.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+
+    strong {
+      color: var(--text-main);
+      font-weight: 700;
+    }
+
+    /* Callout & Alerts */
+    .callout {
+      padding: 1.25rem 1.5rem;
+      border-radius: var(--radius-sm);
+      margin: 1.75rem 0;
+      border-left: 4px solid;
+      background: var(--bg-body);
+      border-top: 1px solid var(--border-color);
+      border-right: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .callout-info {
+      border-left-color: var(--primary);
+      background: var(--primary-light);
+    }
+
+    .callout-warning {
+      border-left-color: var(--accent-amber);
+      background: rgba(245, 158, 11, 0.08);
+    }
+
+    .callout-success {
+      border-left-color: var(--accent-emerald);
+      background: rgba(16, 185, 129, 0.08);
+    }
+
+    .callout-title {
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    /* Figure Card */
+    .figure-wrapper {
+      margin: 2.5rem 0;
+      background: var(--bg-body);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .figure-img-container {
+      padding: 1.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #ffffff;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .figure-img-container img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 6px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .figure-caption {
+      padding: 1rem 1.5rem;
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      font-style: italic;
+      text-align: center;
+    }
+
+    .figure-caption strong {
+      color: var(--text-main);
+      font-style: normal;
+    }
+
+    /* Tables */
+    .table-container {
+      overflow-x: auto;
+      margin: 2rem 0;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      box-shadow: var(--shadow-sm);
+    }
+
+    table.academic-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+      text-align: left;
+    }
+
+    table.academic-table th {
+      background: var(--bg-body);
+      color: var(--text-main);
+      padding: 0.9rem 1.15rem;
+      font-weight: 700;
+      border-bottom: 2px solid var(--border-color);
+      white-space: nowrap;
+    }
+
+    table.academic-table td {
+      padding: 0.85rem 1.15rem;
+      border-bottom: 1px solid var(--border-color);
+      color: var(--text-main);
+    }
+
+    table.academic-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    table.academic-table tr:hover td {
+      background-color: var(--primary-light);
+    }
+
+    /* Math Formulas */
+    .math-block {
+      background: var(--bg-body);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.95rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: var(--primary);
+      overflow-x: auto;
+    }
+
+    /* Code Block */
+    pre.code-block {
+      background-color: var(--code-bg);
+      color: var(--code-text);
+      padding: 1.25rem 1.5rem;
+      border-radius: var(--radius-sm);
+      font-family: 'Fira Code', monospace;
+      font-size: 0.9rem;
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      line-height: 1.6;
+    }
+
+    /* Footer */
+    .article-footer {
+      margin-top: 5rem;
+      padding-top: 2.5rem;
+      border-top: 2px solid var(--border-color);
+      text-align: center;
+    }
+
+    .footer-nav-buttons {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-nav-btn {
+      padding: 0.75rem 1.25rem;
+      border-radius: var(--radius-sm);
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .footer-nav-btn:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      background: var(--primary-light);
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="progress-bar"></div>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-title">Đại Học Đông Á • Khoa KT-KT</div>
+      <div class="sidebar-subtitle">Thị Giác Máy Tính & Siêu Tự Động Hóa Trong Kế Toán</div>
+      <div class="sidebar-author">Học phần: TTNT Cho Kế Toán (2026)</div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <div class="nav-group-title">MỤC LỤC BÀI BÁO (TOC)</div>
+      
+      <a href="#abstract" class="sidebar-link active">Tóm tắt nghiên cứu</a>
+      <a href="#sec1" class="sidebar-link">1. Bối cảnh & Đe dọa của Gen-AI</a>
+      <a href="#sec2" class="sidebar-link">2. Phân tích tác động kế toán</a>
+      <a href="#sec3" class="sidebar-link">3. Khung giải pháp Pháp y Hình ảnh</a>
+      <a href="#sec3-1" class="sidebar-link sub-link">3.1 Phân tích lỗi nén ELA</a>
+      <a href="#sec3-2" class="sidebar-link sub-link">3.2 Phân tích miền tần số Wavelet</a>
+      <a href="#sec3-3" class="sidebar-link sub-link">3.3 Mô hình Học sâu bắt giả mạo</a>
+      <a href="#sec4" class="sidebar-link">4. Quy trình kiểm soát nội bộ mới</a>
+      <a href="#discussion" class="sidebar-link">Câu hỏi thảo luận trên lớp</a>
+    
+
+      <div class="nav-group-title" style="margin-top: 1.5rem;">ĐIỀU HƯỚNG CHUYÊN ĐỀ</div>
+      <a href="index.html" class="sidebar-link">📚 Thư Viện 4 Bài Báo Day 03</a>
+      <a href="../index.html" class="sidebar-link">🚀 Cổng Chuyên Đề Day 03 Extra</a>
+      <a href="../slides/P4_paper_3_AI_in_Accounting_and_Auditing.pdf" target="_blank" class="sidebar-link" style="color: #38bdf8; font-weight: 700;">📊 Tải Slide Bài Giảng (PDF)</a>
+      <a href="paper_3_Fake Invoices and Receipts in Accounting_Impacts and Mitigation in the Age of Gen-AI.pdf" target="_blank" class="sidebar-link" style="color: #a78bfa;">📥 Tải Bản Gốc Tiếng Anh (PDF)</a>
+
+      <div class="nav-group-title" style="margin-top: 1.5rem;">CÁC BÀI BÁO CÙNG CHUYÊN ĐỀ</div>
+      <a href="paper_1_InvoiceOCR_Deep_Learning_Recognition_tiengviet.html" class="sidebar-link ">1. InvoiceOCR (Springer 2026)</a>
+      <a href="paper_2_Automated_Invoice_LLM_OCR_tiengviet.html" class="sidebar-link ">2. LLM + OCR Hóa Đơn (arXiv 2026)</a>
+      <a href="paper_3_Fake_Invoices_Receipts_GenAI_tiengviet.html" class="sidebar-link active">3. Bắt Hóa Đơn Giả Mạo (BMVC 2025)</a>
+      <a href="paper_4_AI_Drone_BigData_Auditing_tiengviet.html" class="sidebar-link ">4. Drone & AI Kiểm Toán Kho (MDPI 2025)</a>
+
+      <div class="nav-group-title" style="margin-top: 1.5rem;">CHUYÊN ĐỀ LIÊN QUAN</div>
+      <a href="../../Day02_Extra/index.html" class="sidebar-link">🧠 Day 02 Extra: Học Sâu (Deep Learning)</a>
+      <a href="../../Day01_Extra/Videos/index.html" class="sidebar-link">🤖 Day 01 Extra: Học Máy (Machine Learning)</a>
+      <a href="../../../index.html" class="sidebar-link">🏠 Trang Chủ Môn Học</a>
+    </nav>
+  </aside>
+
+  <!-- Main Content Wrapper -->
+  <div class="main-wrapper">
+
+    <!-- Top Sticky Bar -->
+    <header class="top-bar">
+      <div class="top-bar-left">
+        <a href="index.html" class="back-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          Thư Viện Bài Báo
+        </a>
+        <a href="../index.html" class="back-btn">
+          Cổng Day 03 Extra
+        </a>
+        <a href="../slides/P4_paper_3_AI_in_Accounting_and_Auditing.pdf" target="_blank" class="back-btn" style="color: #2563eb; font-weight: 700; border-color: var(--primary-border);">
+          📊 Slide Bài Giảng PDF
+        </a>
+      </div>
+
+      <div class="top-bar-right">
+        <button class="util-btn" onclick="adjustFontSize(-1)" title="Giảm cỡ chữ">A-</button>
+        <button class="util-btn" onclick="adjustFontSize(1)" title="Tăng cỡ chữ">A+</button>
+        <button class="util-btn" onclick="toggleTheme()" title="Chuyển chế độ sáng/tối">🌓</button>
+      </div>
+    </header>
+
+    <!-- Article Container -->
+    <main class="article-container">
+
+      <!-- Paper Header -->
+      <header class="paper-header">
+        <div class="paper-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+          </svg>
+          Paper 3 • BMVC Landmark & Image Forensics (2025/2026)
+        </div>
+        <h1 class="paper-title">Hóa Đơn Và Biên Lai Giả Mạo Trong Kế Toán: Tác Động Nghiệp Vụ Và Giải Pháp Khắc Phục Bằng Thị Giác Máy Tính Trong Kỷ Nguyên AI Tạo Sinh (Gen-AI)</h1>
+        <div class="paper-title-en">Fake Invoices and Receipts in Accounting: Impacts and Mitigation in the Age of gen-AI</div>
+
+        <div class="paper-meta-grid">
+          <div class="meta-item"><strong>Tác giả:</strong> Philip Thornton, Lamyaa Aljuaid, Matthew W Chapman, Deepayan Bhowmik (Newcastle University & Sage PLC, UK)</div>
+          <div class="meta-item"><strong>Xuất bản:</strong> British Machine Vision Conference (BMVC 2025 Workshops - MAAAI / SRBS) & Newcastle University Repository</div>
+          <div class="meta-item"><strong>Định danh:</strong> https://doi.org/10.57711/kgxg-9653 — BMVA Open Access</div>
+          <div class="meta-item"><strong>Slide Bài Giảng:</strong> <a href="../slides/P4_paper_3_AI_in_Accounting_and_Auditing.pdf" target="_blank" style="color: #2563eb; font-weight: 700; text-decoration: underline;">Tải Slide P4 (P4: AI in Accounting & Auditing (Fake Invoices Gen-AI)) (PDF)</a></div>
+        </div>
+      </header>
+
+      <!-- Main Body Content -->
+      
+      <!-- Abstract Box -->
+      <section id="abstract" class="abstract-box">
+        <div class="abstract-heading">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+          </svg>
+          Tóm Tắt Nghiên Cứu (Abstract)
+        </div>
+        <p class="abstract-text">
+          Sự bùng nổ vũ bão của Trí tuệ Nhân tạo Tạo sinh (<strong>Generative AI - Gen-AI</strong>), bao gồm các mô hình khuếch tán hình ảnh (<em>Diffusion Models</em>), Mạng đối nghịch tạo sinh (<em>GANs</em>) và các công cụ chỉnh sửa ảnh thông minh, đang tạo ra một mối đe dọa mang tính sinh tử đối với tính toàn vẹn của hệ thống kế toán và kiểm toán toàn cầu. Kẻ gian, nhân viên nội bộ bất lương hoặc các đường dây tội phạm có tổ chức giờ đây có thể tạo ra những hóa đơn, biên lai thanh toán giả mạo hoàn hảo — từ hóa đơn mua sắm tiếp khách, vé máy bay điện tử đến hóa đơn mua nguyên vật liệu trị giá hàng tỷ đồng — với độ chân thực về vết nhàu, bóng sáng, phông chữ và logo đến mức <strong>mắt thường của kiểm toán viên con người hoàn toàn không thể nhận biết</strong>.
+        </p>
+        <p class="abstract-text" style="margin-top: 1rem;">
+          Công trình nghiên cứu tiên phong này của Đại học Newcastle phối hợp với tập đoàn phần mềm kế toán quốc tế <strong>Sage PLC</strong> phân tích sâu sắc tác động kinh tế và cơ chế kỹ thuật của hiểm họa này, đồng thời đề xuất khung giải pháp <strong>Pháp y Hình ảnh số (Digital Image Forensics)</strong> dựa trên Thị giác Máy tính: (1) Phân tích mức độ lỗi nén (Error Level Analysis - ELA); (2) Phân tích miền tần số Wavelet nhận diện dấu vết vi mô của mô hình tạo sinh; và (3) Mạng Học sâu phân loại giả mạo tự động.
+        </p>
+        <p class="abstract-text" style="margin-top: 1rem;">
+          Nghiên cứu cung cấp một lộ trình thực chiến giúp các nhà phát triển phần mềm kế toán và các hãng kiểm toán tích hợp "Kính hiển vi số" vào quy trình kiểm soát nội bộ, bảo vệ quỹ tiền mặt doanh nghiệp trước làn sóng gian lận tài chính thời đại AI.
+        </p>
+        <div class="keywords-box">
+          <strong>Từ khóa:</strong> Hóa đơn giả mạo; Biên lai giả; AI tạo sinh (Gen-AI); Pháp y hình ảnh số (Image Forensics); Error Level Analysis (ELA); Kiểm toán gian lận; Kiểm soát nội bộ; Thị giác máy tính.
+        </div>
+      </section>
+
+      <!-- Section 1 -->
+      <section id="sec1">
+        <h2 class="section-title">
+          <span class="section-number">1</span>
+          Bối Cảnh: Khi Mắt Thường Kiểm Toán Viên Bị "Vô Hiệu Hóa"
+        </h2>
+        <p>
+          Trong suốt lịch sử kế toán kiểm toán truyền thống, phương thức kiểm tra chứng từ gốc (<em>Vouching</em>) dựa trên mắt nhìn của kiểm toán viên là bức tường lửa bảo vệ doanh nghiệp. Nếu một hóa đơn có đầy đủ chữ ký, con dấu, số tiền khớp với hợp đồng và nhìn không có dấu hiệu tẩy xóa cơ học, giao dịch sẽ được coi là hợp lệ.
+        </p>
+        <p>
+          Tuy nhiên, AI tạo sinh đã làm thay đổi hoàn toàn cuộc chơi. Nếu như trước đây kẻ gian dùng Photoshop ghép số thì vẫn để lại đường viền răng cưa hoặc mất cân bằng sáng, thì hiện nay các mô hình Gen-AI (như Stable Diffusion inpainting) có thể thay thế một con số trên hóa đơn mà tự động tái tạo hoàn hảo từng hạt nhiễu, sợi giấy và độ mờ quang học. <strong>Mắt thường của con người đã chính thức trở nên bất lực!</strong>
+        </p>
+
+        <div class="callout callout-warning">
+          <div class="callout-title" style="color: #d97706;">
+            ⚠️ Tội Phạm Tài Chính Kỷ Nguyên Số Hóa
+          </div>
+          <p style="margin-bottom: 0;">
+            Chỉ với một chiếc điện thoại di động và các website tạo biên lai giả mạo trực tuyến tích hợp AI, bất kỳ nhân viên nào cũng có thể "vẽ" ra một hóa đơn taxi hoặc ăn uống trị giá hàng chục triệu đồng trong chưa đầy 30 giây để thanh toán khống chi phí công tác.
+          </p>
+        </div>
+      </section>
+
+      <!-- Section 2 -->
+      <section id="sec2">
+        <h2 class="section-title">
+          <span class="section-number">2</span>
+          Phân Tích Tác Động Nghiệp Vụ Kế Toán & Thuế (Impact Analysis)
+        </h2>
+        <p>
+          Bài báo của Thornton et al. chỉ rõ 3 cấp độ thiệt hại khổng lồ đối với nền kinh tế:
+        </p>
+        <ul>
+          <li><strong>Thủng lưới quỹ tiền mặt doanh nghiệp:</strong> Gian lận thanh toán công tác (T&E Expense Fraud) làm bốc hơi từ 5% đến 15% ngân sách hoạt động của các công ty đa quốc gia.</li>
+          <li><strong>Thất thu thuế và rủi ro hình sự:</strong> Việc sử dụng hóa đơn bất hợp pháp để trốn thuế TNDN và gian lận hoàn thuế GTGT quay vòng (VAT Carousel Fraud) khiến doanh nghiệp đối mặt với án phạt tiền tỷ và truy cứu trách nhiệm hình sự người đại diện pháp luật.</li>
+          <li><strong>Khủng hoảng niềm tin kiểm toán:</strong> Kiểm toán viên độc lập không thể đưa ra ý kiến trung thực và hợp lý nếu bằng chứng kiểm toán được xây dựng trên nền tảng các hóa đơn giả mạo do AI tạo sinh.</li>
+        </ul>
+      </section>
+
+      <!-- Section 3 -->
+      <section id="sec3">
+        <h2 class="section-title">
+          <span class="section-number">3</span>
+          Khung Giải Pháp Thị Giác Máy Tính & Pháp Y Hình Ảnh (Mitigation Strategies)
+        </h2>
+        <p>
+          Để đối phó với kẻ gian dùng công nghệ cao, giải pháp duy nhất là sử dụng các công cụ <strong>Pháp y Hình ảnh số (Digital Image Forensics)</strong> dựa trên Computer Vision:
+        </p>
+
+        <div class="figure-wrapper">
+          <div class="figure-img-container">
+            <img src="figures_paper_3/fig_p7_1.jpeg" alt="Phân tích mức độ lỗi nén ELA trên hóa đơn" />
+          </div>
+          <div class="figure-caption">
+            <strong>Hình 1:</strong> Phân tích mức độ lỗi nén (Error Level Analysis - ELA) — vùng con số bị chỉnh sửa bằng phần mềm đồ họa phát sáng rõ rệt so với nền giấy xám đồng nhất.
+          </div>
+        </div>
+
+        <h3 id="sec3-1" class="sub-section-title">3.1. Phân Tích Mức Độ Sai Số Nén (Error Level Analysis - ELA)</h3>
+        <p>
+          Kỹ thuật ELA khai thác tính chất suy hao của chuẩn nén ảnh JPEG. Khi một hóa đơn được lưu nhiều lần, các pixel nguyên bản đạt trạng thái cân bằng nén tối màu. Nếu một con số mới được cấy ghép vào ảnh, vùng đó có chu kỳ nén ít hơn và sẽ <strong>phát sáng với mức năng lượng chênh lệch cao</strong> khi được tái nén ở chất lượng 95%:
+        </p>
+        <div class="math-block">
+          \Delta I(x, y) = |I_{original}(x, y) - I_{recompressed}(x, y)| \times 20
+        </div>
+
+        <h3 id="sec3-2" class="sub-section-title">3.2. Phân Tích Miền Tần Số Wavelet & Dấu Vân Tay Cảm Biến (PRNU)</h3>
+        <p>
+          Mọi cảm biến camera vật lý đều để lại dấu vân tay nhiễu hạt siêu nhỏ không đồng đều (PRNU). AI tạo sinh tuy mô phỏng được hình ảnh mắt thấy nhưng hoàn toàn không thể tái tạo đúng quy luật phân bố năng lượng tần số cao của cảm biến quang học:
+        </p>
+
+        <div class="figure-wrapper">
+          <div class="figure-img-container">
+            <img src="figures_paper_3/fig_p8_1.jpeg" alt="Phân tích phổ tần số và dấu vết AI tạo sinh" />
+          </div>
+          <div class="figure-caption">
+            <strong>Hình 2:</strong> Phân tích phổ tần số và dấu vết bất thường ở dải tần số cao của ảnh do mô hình khuếch tán sinh ra so với ảnh chụp thực tế.
+          </div>
+        </div>
+
+        <h3 id="sec3-3" class="sub-section-title">3.3. Mô Hình Học Sâu Bắt Giả Mạo (Deep Learning Forgery Classifier)</h3>
+        <p>
+          Hệ thống tích hợp mạng ResNet và Vision Transformer để tự động trích xuất các đặc trưng vi mô của điểm ảnh, xuất ra điểm số rủi ro gian lận (Fraud Risk Score) từ 0% đến 100%:
+        </p>
+
+        <div class="figure-wrapper">
+          <div class="figure-img-container">
+            <img src="figures_paper_3/fig_p9_1.jpeg" alt="Khung phát hiện gian lận và ma trận nhầm lẫn" />
+          </div>
+          <div class="figure-caption">
+            <strong>Hình 3:</strong> Kiến trúc mô hình học sâu phân loại hóa đơn Thật vs. Giả mạo và ma trận đánh giá hiệu năng đạt độ chính xác trên 96%.
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 4 -->
+      <section id="sec4">
+        <h2 class="section-title">
+          <span class="section-number">4</span>
+          Quy Trình Kiểm Soát Nội Bộ Mới Cho Doanh Nghiệp
+        </h2>
+        <p>
+          Thay vì để kế toán viên thanh toán "mù", doanh nghiệp cần thiết lập <strong>Cổng sàng lọc Pháp y AI tự động</strong>:
+        </p>
+        <div class="callout callout-info">
+          <div class="callout-title" style="color: #2563eb;">
+            🛡️ Bức Tường Lửa Kiểm Soát Nội Bộ 4 Bước
+          </div>
+          <ol style="margin-bottom: 0;">
+            <li><strong>Thu thập:</strong> Nhân viên tải ảnh hóa đơn chi phí lên hệ thống phần mềm kế toán qua App di động.</li>
+            <li><strong>Quét Pháp y tự động:</strong> Mô-đun Computer Vision lập tức chạy kiểm tra EXIF Metadata, thuật toán ELA và phân tích miền tần số trong 1,5 giây.</li>
+            <li><strong>Phân luồng:</strong> Nếu điểm rủi ro &lt; 15%, hóa đơn được tự động chuyển sang luồng thanh toán thông thường.</li>
+            <li><strong>Khóa cảnh báo:</strong> Nếu điểm rủi ro ≥ 15%, hệ thống lập tức khóa lệnh thanh toán, đồng thời gửi thông báo đỏ đến Kiểm toán nội bộ kèm ảnh nhiệt định vị chính xác vị trí con số bị làm giả!</li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- Discussion Questions -->
+      <section id="discussion" style="margin-top: 3.5rem;">
+        <div class="callout callout-success">
+          <div class="callout-title" style="font-size: 1.1rem; color: #059669;">
+            💬 CÂU HỎI THẢO LUẬN & TRANH BIỆN TRÊN LỚP (SEMINAR)
+          </div>
+          <ol style="margin-top: 0.75rem; margin-bottom: 0.5rem;">
+            <li><strong>Câu hỏi 1 (Tình huống đạo đức thực tế):</strong> Một nhân viên kinh doanh kỳ cựu mang về doanh thu hàng chục tỷ cho công ty nhưng bị phát hiện dùng AI tạo giả hóa đơn ăn tối 5 triệu đồng để thanh toán chi phí tiếp khách (với lý do quán ăn bình dân không xuất được hóa đơn đỏ). Nếu là Trưởng phòng Kiểm soát nội bộ, bạn sẽ xử lý tình huống này như thế nào?</li>
+            <li><strong>Câu hỏi 2 (Pháp lý kiểm toán):</strong> Theo Chuẩn mực Kiểm toán Quốc tế (ISA 240) và Chuẩn mực Kiểm toán Việt Nam (VSA 240) về trách nhiệm của kiểm toán viên liên quan đến gian lận, nếu kiểm toán viên không sử dụng các công cụ công nghệ phân tích ảnh số và bỏ sót các hóa đơn giả mạo do Gen-AI tạo ra, kiểm toán viên có bị coi là thiếu sự thận trọng nghề nghiệp đúng mức (Professional Skepticism) hay không?</li>
+          </ol>
+        </div>
+      </section>
+    
+
+      <!-- Article Footer -->
+      <footer class="article-footer">
+        <div class="footer-nav-buttons">
+          <a href="paper_2_Automated_Invoice_LLM_OCR_tiengviet.html" class="footer-nav-btn">← Bài 2: Bóc Tách Hóa Đơn LLM + OCR (arXiv 2026)</a>
+<a href="paper_4_AI_Drone_BigData_Auditing_tiengviet.html" class="footer-nav-btn">Bài 4: AI-Drone & Big Data Kiểm Toán Kho (MDPI 2025) →</a>
+        </div>
+        <p>Khoa Kế toán & Kiểm toán — Trường Đại học Đông Á (UDA)</p>
+        <p style="margin-top: 0.35rem; font-size: 0.8rem; color: var(--text-muted);">Tài liệu phục vụ giảng dạy và nghiên cứu học phần Trí Tuệ Nhân Tạo Trong Kế Toán & Kiểm Toán (2026)</p>
+      </footer>
+
+    </main>
+
+  </div>
+
+  <script>
+    // Reading Progress Bar
+    window.addEventListener('scroll', () => {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.getElementById('progress-bar').style.width = scrolled + '%';
+    });
+
+    // Theme Switcher (Dark / Light)
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme');
+      const target = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', target);
+      localStorage.setItem('doc_theme', target);
+    }
+
+    // Initialize Theme
+    const savedTheme = localStorage.getItem('doc_theme');
+    if (savedTheme) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+
+    // Font Size Adjustment
+    let currentFontSizeRem = 1.05;
+    function adjustFontSize(delta) {
+      currentFontSizeRem = Math.max(0.85, Math.min(1.35, currentFontSizeRem + delta * 0.05));
+      document.documentElement.style.setProperty('--content-font-size', currentFontSizeRem + 'rem');
+    }
+
+    // Active Sidebar Link Spy
+    const sections = document.querySelectorAll('section[id], div[id]');
+    const navLinks = document.querySelectorAll('.sidebar-link');
+
+    window.addEventListener('scroll', () => {
+      let currentSectionId = '';
+      sections.forEach(sec => {
+        const top = sec.offsetTop - 120;
+        if (window.pageYOffset >= top) {
+          currentSectionId = sec.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        if (link.getAttribute('href') && link.getAttribute('href').startsWith('#')) {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === '#' + currentSectionId) {
+            link.classList.add('active');
+          }
+        }
+      });
+    });
+  </script>
+
+</body>
+
+</html>

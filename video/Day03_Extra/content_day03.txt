@@ -1,0 +1,44 @@
+### BUỔI TIẾP THEO SỐ 1: THỊ GIÁC MÁY TÍNH (COMPUTER VISION) & SIÊU TỰ ĐỘNG HÓA (IDP + AI-RPA) TRONG KẾ TOÁN - KIỂM TOÁN
+
+*(Đáp ứng CLO3, CLO4 & Mục 4.1.3 Đề cương: AI nhận thức trong kế toán)*
+
+#### 1. Phần Lý thuyết (1/2 buổi đầu – 1.5 tiết)
+
+* **Chủ đề 1.1: Sự tiến hóa của Thị giác máy tính trong phòng Kế toán (Từ OCR đến Document AI):**
+* Tại sao OCR truyền thống thất bại trước hóa đơn chụp nghiêng, nhăn, mờ hoặc mỗi nhà cung cấp một mẫu biểu khác nhau?
+
+
+* Giới thiệu dưới góc độ dễ hiểu các mô hình **Vision-Language Đa phương thức (Multimodal Document AI)** như *LayoutLM* (kết hợp hình ảnh điểm ảnh + vị trí tọa độ văn bản + ngữ nghĩa) hoặc kiến trúc *OCR-free (Donut)*. Máy không chỉ "đọc chữ" mà còn "hiểu cấu trúc bảng biểu" (đâu là Mã số thuế, đâu là dòng Chiết khấu, đâu là Thuế suất GTGT 8% hay 10%).
+
+
+
+
+* **Chủ đề 1.2: Kiến trúc Siêu tự động hóa (Hyperautomation = Computer Vision + NLP + RPA):**
+* Thiết kế luồng tự động hóa phần hành **Kế toán Phải trả (Accounts Payable - AP)** và **Đối chiếu 3 bên (3-Way Matching)**: RPA tự tải hóa đơn từ Email $\rightarrow$ Computer Vision bóc tách dữ liệu từ PDF/Ảnh $\rightarrow$ Thuật toán đối chiếu tự động giữa *Đơn đặt hàng (PO) - Phiếu nhập kho (GRN) - Hóa đơn (Invoice)* $\rightarrow$ Đẩy bút toán định khoản qua API vào ERP.
+
+
+
+
+* **Chủ đề 1.3: Thị giác máy tính trong Kiểm toán hiện trường & Phát hiện giả mạo chứng từ:**
+* Ứng dụng **Object Detection (như họ mô hình YOLO)** và phân đoạn ảnh từ Drone/Camera để đếm số lượng pallet, ước tính trữ lượng hàng tồn kho (than, quặng, nông sản, vật tư xây dựng) vào thời điểm khóa sổ ngày 31/12.
+
+
+* Kỹ thuật **Image Forensics (Pháp y hình ảnh)** phát hiện hóa đơn, biên lai chi phí công tác bị nhân viên chỉnh sửa số tiền bằng Photoshop hoặc tạo giả bằng AI.
+
+
+
+
+
+#### 2. Phần Bài báo Khoa học & Thảo luận (1/2 buổi sau – 1.5 tiết)
+
+| Thứ tự | Bài báo khoa học đề xuất (Trích dẫn chuẩn) | Nội dung cốt lõi cần giảng giải (1/2 buổi sau) | Câu hỏi thảo luận cho Sinh viên Kế toán |
+| --- | --- | --- | --- |
+| **Bài báo 1** *(Trích xuất chứng từ)* | **Xu, Y., et al. (2020/2022).** *"LayoutLM / LayoutLMv3: Pre-training for Document AI with Unified Text and Image Masking"*. (Cùng các nghiên cứu ứng dụng IDP trên **International Journal of Accounting Information Systems - IJAIS, 2023–2025**). | Chứng minh thực nghiệm cách mô hình Học sâu kết hợp **Thị giác (Visual features)** và **Văn bản (Textual features)** đạt độ chính xác trên **95%** khi trích xuất các trường thông tin từ hóa đơn, biên lai thanh toán phức tạp (vượt xa OCR truyền thống chỉ nhìn ký tự). | *"Nếu mô hình IDP trích xuất đúng 98% hóa đơn, 2% sai sót còn lại nằm ở đâu? Kế toán viên cần thiết kế bước kiểm soát (Human-in-the-loop) như thế nào để không hạch toán sai thuế?"* |
+| **Bài báo 2** *(Kiểm toán tồn kho bằng CV)* | **Appelbaum, D., & Vasarhelyi, M. A. (2018/2023).** *"Drones in Audit: An Automated Inventory Count using Computer Vision"* – Đăng trên **Journal of Emerging Technologies in Accounting (JETA) - Hiệp hội Kế toán Hoa Kỳ (AAA)**. | Trình bày thực nghiệm của các hãng kiểm toán Big4 khi dùng Drone gắn camera kết hợp thuật toán Thị giác máy tính để kiểm kê hàng tồn kho (ô tô, gia súc, kho bãi lớn). Giảm thời gian kiểm kê từ vài ngày xuống vài giờ, đồng thời phân tích rủi ro sai số khi ánh sáng kém hoặc vật thể bị che khuất.
+
+ | *"Theo Chuẩn mực Kiểm toán Việt Nam (VSA 501), hình ảnh và số lượng do thuật toán YOLO đếm từ Drone có đủ điều kiện làm bằng chứng kiểm toán hợp lệ chưa? Cần lưu ý rủi ro gì (như Case study đếm nhầm trong bóng râm)?"*<br> |
+| **Bài báo 3** *(Bắt hóa đơn Photoshop)* | **Các nghiên cứu về "Digital Image Forensics in Expense Reimbursement Fraud Detection" (2023–2025)** trên **Expert Systems with Applications**. | Cách dùng mạng CNN phân tích mức độ nén điểm ảnh (Error Level Analysis - ELA) và siêu dữ liệu (Metadata) để phát hiện biên lai tiếp khách, vé máy bay điện tử bị chỉnh sửa con số để thanh toán khống.
+
+ | *"Làm thế nào để tích hợp bộ lọc phát hiện ảnh chỉnh sửa này vào quy trình duyệt chi phí nội bộ (T&E Expenses) của doanh nghiệp?"* |
+
+---

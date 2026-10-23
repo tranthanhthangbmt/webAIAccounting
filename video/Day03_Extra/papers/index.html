@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>Thư Viện Bài Báo Khoa Học & Nghiên Cứu Đỉnh Cao — Thị Giác Máy Tính & Siêu Tự Động Hóa Trong Kế Toán & Kiểm Toán (UDA)</title>
+  <meta name="description"
+    content="Cổng nghiên cứu học thuật toàn văn tiếng Việt chuyên sâu về Thị giác máy tính (Computer Vision), Xử lý chứng từ thông minh (IDP), Siêu tự động hóa (AI-RPA), Bắt hóa đơn giả mạo Gen-AI và Kiểm toán Drone + Dữ liệu lớn." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-dark: #0b0f19;
+      --bg-card: rgba(18, 26, 44, 0.75);
+      --bg-card-hover: rgba(26, 38, 64, 0.95);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-glow: rgba(59, 130, 246, 0.5);
+      --primary: #3b82f6;
+      --primary-gradient: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+      --accent-cyan: #06b6d4;
+      --accent-violet: #8b5cf6;
+      --accent-amber: #f59e0b;
+      --accent-emerald: #10b981;
+      --accent-rose: #f43f5e;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.5), 0 0 1px 1px rgba(255, 255, 255, 0.05);
+      --shadow-hover: 0 20px 40px -15px rgba(59, 130, 246, 0.3), 0 0 20px rgba(59, 130, 246, 0.15);
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --radius-sm: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      min-height: 100vh;
+      overflow-x: hidden;
+      line-height: 1.6;
+      background-image:
+        radial-gradient(circle at 15% 15%, rgba(59, 130, 246, 0.15) 0%, transparent 45%),
+        radial-gradient(circle at 85% 25%, rgba(139, 92, 246, 0.15) 0%, transparent 45%),
+        radial-gradient(circle at 50% 80%, rgba(6, 182, 212, 0.1) 0%, transparent 50%);
+      background-attachment: fixed;
+    }
+
+    .container {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 2.5rem 1.75rem 6rem;
+    }
+
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2.5rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .brand-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.03em;
+      color: #e2e8f0;
+      text-decoration: none;
+    }
+
+    .brand-logo-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: var(--primary-gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4);
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .nav-btn {
+      padding: 0.55rem 1rem;
+      border-radius: var(--radius-sm);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+
+    .nav-btn:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .nav-btn.primary {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+
+    .hero {
+      text-align: center;
+      padding: 2rem 1rem 3.5rem;
+      max-width: 950px;
+      margin: 0 auto;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 1rem;
+      border-radius: 9999px;
+      background: rgba(59, 130, 246, 0.12);
+      border: 1px solid rgba(59, 130, 246, 0.35);
+      color: #60a5fa;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1.25rem;
+      letter-spacing: -0.02em;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #60a5fa 0%, #c084fc 50%, #22d3ee 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-desc {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+
+    .stats-bar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 4rem;
+    }
+
+    .stat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 1.25rem 1.5rem;
+      backdrop-filter: blur(12px);
+      text-align: center;
+    }
+
+    .stat-value {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2rem;
+      font-weight: 800;
+      color: #38bdf8;
+      margin-bottom: 0.25rem;
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .section-heading {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.65rem;
+      font-weight: 700;
+      margin-bottom: 1.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: #f1f5f9;
+    }
+
+    .section-heading-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: rgba(59, 130, 246, 0.15);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #60a5fa;
+    }
+
+    .papers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+      gap: 2rem;
+      margin-bottom: 4.5rem;
+    }
+
+    @media (max-width: 640px) {
+      .papers-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .paper-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 2.25rem;
+      backdrop-filter: blur(16px);
+      box-shadow: var(--shadow-card);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .paper-card:hover {
+      transform: translateY(-6px);
+      background: var(--bg-card-hover);
+      border-color: var(--border-glow);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .paper-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--primary-gradient);
+      opacity: 0.8;
+    }
+
+    .paper-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.3rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+      align-self: flex-start;
+    }
+
+    .badge-p1 {
+      background: rgba(59, 130, 246, 0.15);
+      color: #60a5fa;
+      border: 1px solid rgba(59, 130, 246, 0.3);
+    }
+
+    .badge-p2 {
+      background: rgba(16, 185, 129, 0.15);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+
+    .badge-p3 {
+      background: rgba(245, 158, 11, 0.15);
+      color: #fbbf24;
+      border: 1px solid rgba(245, 158, 11, 0.3);
+    }
+
+    .badge-p4 {
+      background: rgba(244, 63, 94, 0.15);
+      color: #fda4af;
+      border: 1px solid rgba(244, 63, 94, 0.3);
+    }
+
+    .paper-card-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.35;
+      margin-bottom: 0.6rem;
+    }
+
+    .paper-card-title-en {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      font-style: italic;
+      margin-bottom: 1.25rem;
+      line-height: 1.4;
+    }
+
+    .paper-card-meta {
+      font-size: 0.84rem;
+      color: var(--text-dim);
+      margin-bottom: 1.25rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .paper-card-desc {
+      font-size: 0.94rem;
+      color: #cbd5e1;
+      line-height: 1.65;
+      margin-bottom: 1.75rem;
+      flex-grow: 1;
+    }
+
+    .paper-card-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      margin-top: auto;
+    }
+
+    .btn-read {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.25rem;
+      border-radius: var(--radius-sm);
+      background: var(--primary-gradient);
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.92rem;
+      text-decoration: none;
+      transition: all 0.2s;
+      box-shadow: 0 4px 14px rgba(59, 130, 246, 0.35);
+    }
+
+    .btn-read:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(59, 130, 246, 0.5);
+    }
+
+    .btn-sub-actions {
+      display: flex;
+      gap: 0.65rem;
+    }
+
+    .btn-sub {
+      flex: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      padding: 0.55rem 0.85rem;
+      border-radius: var(--radius-sm);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .btn-sub:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .matrix-container {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      margin-bottom: 4.5rem;
+      backdrop-filter: blur(12px);
+      overflow-x: auto;
+    }
+
+    .matrix-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      min-width: 800px;
+    }
+
+    .matrix-table th {
+      text-align: left;
+      padding: 1rem;
+      border-bottom: 2px solid var(--border-subtle);
+      color: #38bdf8;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      letter-spacing: 0.05em;
+    }
+
+    .matrix-table td {
+      padding: 1rem;
+      border-bottom: 1px solid var(--border-subtle);
+      color: #e2e8f0;
+      vertical-align: top;
+    }
+
+    .matrix-table tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .site-footer {
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 2.5rem;
+      text-align: center;
+      color: var(--text-dim);
+      font-size: 0.88rem;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-link {
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+
+    .footer-link:hover {
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- Top Navigation -->
+    <header class="top-nav">
+      <a href="../index.html" class="brand-badge">
+        <div class="brand-logo-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"></path>
+          </svg>
+        </div>
+        <span>ĐẠI HỌC ĐÔNG Á • KHOA KẾ TOÁN & KIỂM TOÁN</span>
+      </a>
+
+      <div class="nav-actions">
+        <a href="../index.html" class="nav-btn primary">
+          🚀 Cổng Day 03 Extra
+        </a>
+        <a href="../../Day02_Extra/papers/index.html" class="nav-btn">
+          Day 02 Extra (Học Sâu)
+        </a>
+        <a href="../../Day01_Extra/Videos/index.html" class="nav-btn">
+          Day 01 Extra (Học Máy)
+        </a>
+        <a href="../../../index.html" class="nav-btn">
+          Trang chủ Môn học
+        </a>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-tag">
+        THỰC CHỨNG KHOA HỌC QUỐC TẾ (2025 – 2026)
+      </div>
+
+      <h1 class="hero-title">
+        Thư Viện Bài Báo Khoa Học & Nghiên Cứu Đỉnh Cao <br />
+        <span class="gradient-text">Thị Giác Máy Tính & Siêu Tự Động Hóa Trong Kế Toán</span>
+      </h1>
+
+      <p class="hero-desc">
+        Hệ thống 4 công trình nghiên cứu khoa học thực chứng quốc tế hàng đầu (Springer Nature, arXiv, BMVC, MDPI) được dịch toàn văn tiếng Việt học thuật, tích hợp biểu đồ phân tích và câu hỏi tranh biện nghiệp vụ kế toán kiểm toán chuyên sâu.
+      </p>
+    </section>
+
+    <!-- Stats Bar -->
+    <div class="stats-bar">
+      <div class="stat-card">
+        <div class="stat-value">4 CÔNG TRÌNH</div>
+        <div class="stat-label">Xuất bản mới nhất (2025–2026)</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">6.349+</div>
+        <div class="stat-label">Hóa đơn thực tế thử nghiệm</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">100%</div>
+        <div class="stat-label">Kiểm toán toàn bộ quần thể (Full-Population)</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">&lt; 1 PHÚT</div>
+        <div class="stat-label">Chu kỳ bóc tách hóa đơn & đối chiếu 3 bên</div>
+      </div>
+    </div>
+
+    <!-- 4 Papers Grid -->
+    <h2 class="section-heading">
+      <div class="section-heading-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+          <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+        </svg>
+      </div>
+      Danh Mục 4 Công Trình Nghiên Cứu Toàn Văn Tiếng Việt
+    </h2>
+
+    <div class="papers-grid">
+
+      <!-- Paper 1 -->
+      <div class="paper-card">
+        <span class="paper-badge badge-p1">Paper 1 • Springer Nature (2026)</span>
+        <h3 class="paper-card-title">1. InvoiceOCR: Quy Trình Nhận Dạng Hóa Đơn Tự Động Bằng Học Sâu</h3>
+        <div class="paper-card-title-en">InvoiceOCR: Deep learning based automatic invoice recognition process</div>
+        <div class="paper-card-meta">
+          <strong>Tác giả:</strong> Chao Wang, Jian Zhang, Yu Yu (State Grid IT Group, Beijing) <br />
+          <strong>Tạp chí:</strong> Discover Artificial Intelligence (Springer Nature) — Tập 6, Bài số 636
+        </div>
+        <p class="paper-card-desc">
+          Đột phá bóc tách hóa đơn bị chụp nghiêng, nhăn, mờ trên 6.349 hóa đơn thực tế. Kết hợp thuật toán Differentiable Binarization (DB) và mạng CRNN + CTC với Hậu xử lý kiểm chứng đại số kế toán, đạt F-measure 96,8% và độ chính xác trích xuất trường đạt 98,92%.
+        </p>
+        <div class="paper-card-actions">
+          <a href="paper_1_InvoiceOCR_Deep_Learning_Recognition_tiengviet.html" class="btn-read">
+            📖 Đọc Toàn Văn Tiếng Việt &rarr;
+          </a>
+          <div class="btn-sub-actions">
+            <a href="../slides/P2_paper_1_Computer_Vision_in_Accounting.pdf" target="_blank" class="btn-sub">
+              📊 Slide P2 (PDF)
+            </a>
+            <a href="paper 1_InvoiceOCR_Deep learning based automatic invoice recognition process.pdf" target="_blank" class="btn-sub">
+              📥 Bản Gốc (PDF)
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Paper 2 -->
+      <div class="paper-card">
+        <span class="paper-badge badge-p2">Paper 2 • Multimodal Document AI (2026)</span>
+        <h3 class="paper-card-title">2. Bóc Tách Hóa Đơn Tự Động Bằng Mô Hình Ngôn Ngữ Lớn (LLM) & OCR</h3>
+        <div class="paper-card-title-en">Automated Invoice Data Extraction: Using LLM and OCR</div>
+        <div class="paper-card-meta">
+          <strong>Tác giả:</strong> Khushi Khanchandani, Advait Thakur et al. (Somaiya University) <br />
+          <strong>Nguồn:</strong> Cornell University arXiv (cs.CV) & Framework Siêu tự động hóa LUT University
+        </div>
+        <p class="paper-card-desc">
+          Thế hệ AI Đa phương thức tiếp theo: Kết hợp OCR và LLM có kiểm soát schema để bóc tách các hóa đơn hoàn toàn phi cấu trúc (Unseen Layouts) với F1 95,4%. Tích hợp quy trình Đối chiếu 3 bên (3-Way Matching) giúp giảm chu kỳ thanh toán hóa đơn từ 9,15 ngày xuống dưới 1 phút.
+        </p>
+        <div class="paper-card-actions">
+          <a href="paper_2_Automated_Invoice_LLM_OCR_tiengviet.html" class="btn-read">
+            📖 Đọc Toàn Văn Tiếng Việt &rarr;
+          </a>
+          <div class="btn-sub-actions">
+            <a href="../slides/P3_paper 2_AI_Trong_Kế_Toán_Và_Kiểm_Toán.pdf" target="_blank" class="btn-sub">
+              📊 Slide P3 (PDF)
+            </a>
+            <a href="paper_2_Automated Invoice Data Extraction_Using LLM and OCR.pdf" target="_blank" class="btn-sub">
+              📥 Bản Gốc (PDF)
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Paper 3 -->
+      <div class="paper-card">
+        <span class="paper-badge badge-p3">Paper 3 • BMVC Landmark (2025/2026)</span>
+        <h3 class="paper-card-title">3. Hóa Đơn & Biên Lai Giả Mạo: Thị Giác Máy Tính Bắt Gian Lận Thời Gen-AI</h3>
+        <div class="paper-card-title-en">Fake Invoices and Receipts in Accounting: Impacts and Mitigation in the Age of gen-AI</div>
+        <div class="paper-card-meta">
+          <strong>Tác giả:</strong> Philip Thornton, Lamyaa Aljuaid et al. (Newcastle University & Sage PLC) <br />
+          <strong>Hội thảo:</strong> British Machine Vision Conference (BMVC Workshops - MAAAI / SRBS)
+        </div>
+        <p class="paper-card-desc">
+          Công trình phối hợp giữa đại học và tập đoàn phần mềm kế toán Sage: Phân tích hiểm họa làm giả hóa đơn tinh vi bằng AI tạo sinh (Photoshop inpainting, Diffusion models) và xây dựng bộ lọc Pháp y hình ảnh số (Error Level Analysis - ELA và Wavelet) để phát hiện con số bị chỉnh sửa.
+        </p>
+        <div class="paper-card-actions">
+          <a href="paper_3_Fake_Invoices_Receipts_GenAI_tiengviet.html" class="btn-read">
+            📖 Đọc Toàn Văn Tiếng Việt &rarr;
+          </a>
+          <div class="btn-sub-actions">
+            <a href="../slides/P4_paper_3_AI_in_Accounting_and_Auditing.pdf" target="_blank" class="btn-sub">
+              📊 Slide P4 (PDF)
+            </a>
+            <a href="paper_3_Fake Invoices and Receipts in Accounting_Impacts and Mitigation in the Age of Gen-AI.pdf" target="_blank" class="btn-sub">
+              📥 Bản Gốc (PDF)
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Paper 4 -->
+      <div class="paper-card">
+        <span class="paper-badge badge-p4">Paper 4 • MDPI Landmark (2025)</span>
+        <h3 class="paper-card-title">4. Drone Tích Hợp AI & Dữ Liệu Lớn Trong Kiểm Toán Hiện Trường</h3>
+        <div class="paper-card-title-en">The Impact of AI-Integrated Drone Technology and Big Data on External Auditing Performance</div>
+        <div class="paper-card-meta">
+          <strong>Tác giả:</strong> Abdulaziz H. J. Alhazmi, Sardar Islam, Maria Prokofieva (Victoria University) <br />
+          <strong>Tạp chí:</strong> Accounting and Auditing (MDPI Open Access) — Tập 1, Số 3, Bài số 8
+        </div>
+        <p class="paper-card-desc">
+          Cuộc cách mạng kiểm toán số: Drone tự hành tích hợp LiDAR 3D và thuật toán YOLO kiểm kê 100% hàng tồn kho (kho than, quặng, pallet, nông sản) thay cho chọn mẫu 5% truyền thống. Nâng cao tính liêm chính bằng chứng theo ISA 501, cắt giảm 95% thời gian và giảm 85% phát thải khí nhà kính.
+        </p>
+        <div class="paper-card-actions">
+          <a href="paper_4_AI_Drone_BigData_Auditing_tiengviet.html" class="btn-read">
+            📖 Đọc Toàn Văn Tiếng Việt &rarr;
+          </a>
+          <div class="btn-sub-actions">
+            <a href="../slides/P5_paper_4_The_Digital_Audit_Revolution.pdf" target="_blank" class="btn-sub">
+              📊 Slide P5 (PDF)
+            </a>
+            <a href="paper_4_The Impact of AI-Integrated Drone Technology and Big Data on External Auditing Performance.pdf" target="_blank" class="btn-sub">
+              📥 Bản Gốc (PDF)
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Comparative Matrix Table -->
+    <h2 class="section-heading">
+      <div class="section-heading-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="3" y1="9" x2="21" y2="9"></line>
+          <line x1="9" y1="21" x2="9" y2="9"></line>
+        </svg>
+      </div>
+      Ma Trận Đối Chiếu Phương Pháp Luận & Đóng Góp Học Thuật
+    </h2>
+
+    <div class="matrix-container">
+      <table class="matrix-table">
+        <thead>
+          <tr>
+            <th>Bài Báo</th>
+            <th>Trọng Tâm Nghiệp Vụ</th>
+            <th>Công Nghệ AI Cốt Lõi</th>
+            <th>Bộ Dữ Liệu Thực Nghiệm</th>
+            <th>Độ Chính Xác / Hiệu Năng</th>
+            <th>Slide Tương Ứng</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Bài 1 (Springer)</strong></td>
+            <td>Kế toán Phải trả (AP), số hóa hóa đơn scan & chụp di động</td>
+            <td>Differentiable Binarization (DB) + CRNN (CTC) + Skew Correction</td>
+            <td>6.349 ảnh hóa đơn doanh nghiệp thực tế</td>
+            <td>F-measure 96,81%, trích xuất trường đạt 98,92%</td>
+            <td><a href="../slides/P2_paper_1_Computer_Vision_in_Accounting.pdf" target="_blank" style="color: #60a5fa; font-weight: 600;">Slide P2 (PDF)</a></td>
+          </tr>
+          <tr>
+            <td><strong>Bài 2 (arXiv/LUT)</strong></td>
+            <td>Hóa đơn phi cấu trúc & Đối chiếu 3 bên (3-Way Matching)</td>
+            <td>Multimodal Document AI + LLMs (Few-shot Prompting) + AI-RPA</td>
+            <td>Tập hóa đơn mua hàng đa mẫu biểu toàn cầu</td>
+            <td>F1-score 95,4% trên mẫu mới, giảm chu kỳ còn &lt; 1 phút</td>
+            <td><a href="../slides/P3_paper 2_AI_Trong_Kế_Toán_Và_Kiểm_Toán.pdf" target="_blank" style="color: #34d399; font-weight: 600;">Slide P3 (PDF)</a></td>
+          </tr>
+          <tr>
+            <td><strong>Bài 3 (BMVC/Sage)</strong></td>
+            <td>Kiểm soát nội bộ, bắt gian lận thanh toán công tác T&E</td>
+            <td>Error Level Analysis (ELA) + Biến đổi Wavelet + Deep CNN Forensics</td>
+            <td>Bộ dữ liệu biên lai thật và biên lai tạo bởi Gen-AI / Inpainting</td>
+            <td>Phát hiện chính xác vùng sửa số tiền với AUC 96,2%</td>
+            <td><a href="../slides/P4_paper_3_AI_in_Accounting_and_Auditing.pdf" target="_blank" style="color: #fbbf24; font-weight: 600;">Slide P4 (PDF)</a></td>
+          </tr>
+          <tr>
+            <td><strong>Bài 4 (MDPI)</strong></td>
+            <td>Kiểm toán độc lập (ISA 501), kiểm kê kho bãi, mỏ quặng, tài sản cố định</td>
+            <td>Drone tự hành + Cảm biến LiDAR 3D + YOLO Object Detection + Big Data</td>
+            <td>Cơ sở dữ liệu Web of Science 2015–2025 & thực tế Big 4</td>
+            <td>Kiểm toán 100% quần thể, đo thể tích sai số &lt; 1%</td>
+            <td><a href="../slides/P5_paper_4_The_Digital_Audit_Revolution.pdf" target="_blank" style="color: #fda4af; font-weight: 600;">Slide P5 (PDF)</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="footer-links">
+        <a href="../index.html" class="footer-link">Cổng Chuyên Đề Day 03 Extra</a>
+        <a href="../../Day02_Extra/papers/index.html" class="footer-link">Thư viện Bài báo Day 02 Extra</a>
+        <a href="../../Day01_Extra/Videos/index.html" class="footer-link">Thư viện Video Day 01 Extra</a>
+        <a href="../../../index.html" class="footer-link">Trang chủ Môn học</a>
+      </div>
+      <p>© 2026 Khoa Kế toán & Kiểm toán — Trường Đại học Đông Á (UDA). Tài liệu học thuật phục vụ giảng dạy môn Trí Tuệ Nhân Tạo Trong Kế Toán & Kiểm Toán.</p>
+    </footer>
+
+  </div>
+
+</body>
+
+</html>

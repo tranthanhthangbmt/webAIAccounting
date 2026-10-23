@@ -1,0 +1,650 @@
+=== PAGE 1 ===
+RESEARCH
+Open Access
+Discover Artificial Intelligence
+Wang et al. Discover Artificial Intelligence           (2026) 6:636 
+https://doi.org/10.1007/s44163-026-01140-3
+Invoiveocr: deep learning based automatic 
+invoice recognition process
+Chao Wang1*, Jian Zhang1 and Yu Yu1
+​*​C​o​r​r​e​s​p​o​n​d​e​n​c​e​:​
+Chao Wang
+wangchaosgcc@qq.com
+1State Grid Information & 
+Telecommunication Group, Beijing 
+Guodiantong Network Technology 
+Co., Ltd., Beijing, China
+© The Author(s) 2026. Open Access  This article is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International 
+License, which permits any non-commercial use, sharing, distribution and reproduction in any medium or format, as long as you give appropriate 
+credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if you modified the licensed material. 
+You do not have permission under this licence to share adapted material derived from this article or parts of it. The images or other third party 
+material in this article are included in the article’s Creative Commons licence, unless indicated otherwise in a credit line to the material. If material 
+is not included in the article’s Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted 
+use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit ​h​t​t​p​:​/​/​c​r​e​a​t​i​v​e​c​o​m​m​o​n​s​.​o​r​g​/​l​i​c​e​n​s​
+e​s​/​b​y​-​n​c​-​n​d​/​4​.​0​/​.​
+Abstract
+In recent years, the automatic recognition of invoices has emerged as a critical 
+component in document digitization, particularly within the financial sector, where 
+efficient data extraction from structured documents is essential. This paper introduces 
+an advanced method for automating invoice recognition by combining cutting-
+edge image preprocessing, OCR pipeline techniques, and post-processing strategies. 
+The process begins with a robust image preprocessing stage that includes scaling, 
+binarization, noise reduction, and skew correction based on Hough transform; 
+learning-based angle regressors may offer adaptive alternatives for noisy or multi-
+aligned invoices, all of which enhance the quality of the input images, ensuring 
+optimal performance during OCR. The core of the system is an OCR pipeline that 
+integrates state-of-the-art text detection and recognition algorithms, effectively 
+handling various challenges such as multi-oriented and densely packed text 
+regions. After the initial recognition, a series of post-processing steps, including error 
+correction, field validation, and structured data formatting, are applied to ensure that 
+the extracted text is accurate and conforms to predefined invoice formats. Extensive 
+experiments conducted on a dataset comprising 6349 images, including both 
+electronic and paper invoices, demonstrate that the proposed approach achieves 
+high recognition accuracy and reliable performance. These results highlight the 
+system’s effectiveness in automating invoice recognition, confirming its applicability 
+in real-world financial applications where precision and efficiency are paramount. The 
+method provides a comprehensive solution for improving invoice digitization and 
+streamlining financial workflows.
+Keywords  Optical character recognition, Text detection algorithms, Text recognition 
+algorithms, Structured data extraction, Invoice recognition
+​1  Introduction
+With the acceleration of digital transformation, industries across the board are actively 
+exploring the adoption of advanced information technologies to enhance work efficiency 
+and management standards [1]. In the electric power industry, particularly in the area 
+of bill management for power grid enterprises, traditional manual identification meth­
+ods are becoming increasingly inadequate due to their inefficiency and susceptibility to 
+errors. As a key foundation for power trading [2], settlement, and financial management, 
+
+
+=== PAGE 2 ===
+Page 2 of 12
+Wang et al. Discover Artificial Intelligence           (2026) 6:636 
+the accuracy and efficiency of bill processing directly impacts operational costs and cus­
+tomer satisfaction.
+In recent years, Optical Character Recognition (OCR) technology has gained wide­
+spread use across various sectors, including finance, insurance, healthcare, and trans­
+portation. OCR technology [3] significantly streamlines the process of text data entry 
+by converting text from paper documents or images into editable formats. However, 
+the application of OCR in bill management within power grid enterprises remains in its 
+early stages, particularly when it comes to recognizing bills in complex environments, 
+such as poor lighting, suboptimal shooting angles, and low-quality paper. In these cases, 
+recognition accuracy needs further improvement [4].
+Studies have shown that the accuracy and efficiency of text recognition can be greatly 
+enhanced by leveraging pre-trained OCR large models [5]. Research suggests that deep 
+learning-based OCR techniques hold great potential in text recognition [6], particularly 
+when applied to large and diverse datasets. However, most of these studies focus on gen­
+eral-purpose text recognition, with relatively few addressing the specific needs of power 
+grid enterprises.
+In recent years, advancements in Optical Character Recognition (OCR) technologies 
+have significantly improved the accuracy and efficiency of text detection and recognition 
+in complex document formats such as electronic invoices [7]. Traditional OCR systems 
+often struggled with challenges posed by variable text orientations, dense layouts, and 
+irregular text shapes. However, modern algorithms such as EAST (Efficient and Accu­
+rate Scene Text Detector), DB (Differentiable Binarization), and SAST (Segmentation-
+based Scene Text Detector) have revolutionized the text detection phase by offering 
+robust solutions for handling multi-oriented, curved, and densely packed text regions. 
+These detection methods, when combined with powerful recognition models like CRNN 
+(Convolutional Recurrent Neural Network), which captures sequential text information, 
+and RARE (Robust Attention-based Recognition), which excels in recognizing distorted 
+or irregular text, enable highly accurate and efficient OCR pipelines. By integrating these 
+algorithms, the recognition of complex document structures—such as invoices—has 
+become more reliable, ensuring that extracted data is both precise and well-structured 
+for downstream applications. This progress has laid the foundation for more effective 
+document digitization and automation in financial systems, driving improvements in 
+areas such as invoice processing and data extraction.
+Against this backdrop, this study seeks to address the inefficiencies and error-prone 
+nature of manual bill recognition in power grid enterprises by introducing an intelligent 
+bill recognition and verification method based on a pre-trained OCR macromodel. This 
+study [8] follows a systematic approach: first, by collecting and annotating large-scale 
+image-text datasets; second, by conducting model training and optimization; and finally, 
+by validating the model’s recognition performance through experimental testing.
+This research not only provides technical support for the refined management of 
+smart grids but also promotes the automation and standardization of bill manage­
+ment processes [9]. Specifically, by enhancing the accuracy and efficiency of bill rec­
+ognition, this study significantly improves business processing efficiency, reduces labor 
+costs, and minimizes human error, thereby providing strong support for the refined 
+management of smart grids. Furthermore, this study is expected to encourage broader 
+
+
+=== PAGE 3 ===
+Page 3 of 12
+Wang et al. Discover Artificial Intelligence           (2026) 6:636 
+applications of OCR technology in other fields, facilitating the deeper integration of dig­
+ital transformation.
+In conclusion, this study not only expands the application scenarios of OCR tech­
+nology by conducting in-depth research into its use in bill management for power grid 
+enterprises but also offers practical solutions for improving operational efficiency and 
+management standards within these enterprises. This has significant theoretical and 
+practical implications.
+2  Methodology
+This section introduces our proposed automatic electronic invoice recognition model 
+based on the OCR foundational model—InvoiceOCR. The structure of the model 
+is shown in Fig. 1. In the OCR recognition system for electronic invoices, the process 
+begins with image preprocessing, where techniques such as image scaling, binarization, 
+noise removal, and skew correction based on Hough transform; learning-based angle 
+regressors may offer adaptive alternatives for noisy or multi-aligned invoices are applied 
+to optimize the input to meet the assumptions of downstream models like CRNN and 
+SRN, which require horizontally aligned, grayscale inputs for stable decoding. This 
+is followed by the OCR pipeline, which includes text detection using algorithms like 
+EAST [10], DB [11], and SAST [12] to identify text regions, and text recognition models 
+such as CRNN [13], RARE [14], and SRN [15] to accurately extract textual information 
+from the detected regions. Finally, the post-processing module refines the recognized 
+text through error correction, field validation, structured data formatting, and entity 
+Fig. 1  Illustration of the InvoiceOCR pipeline architecture including preprocessing, detection, recognition, and 
+post-processing modules
+ 
+
+
+=== PAGE 4 ===
+Page 4 of 12
+Wang et al. Discover Artificial Intelligence           (2026) 6:636 
+recognition, ensuring that the output is accurate, well-organized, and ready for integra­
+tion into downstream applications.
+2.1  Image pre-processing module
+In the image preprocessing stage of electronic invoice recognition, several essential tech­
+niques are applied to optimize the input for the OCR model. First, the images are sub­
+jected to scaling and normalization [16], where each image is resized to a standardized 
+dimension using bilinear interpolation, and padded using zero-padding to preserve con­
+tent at borders to ensure consistency across the dataset, eliminating size variability and 
+improving downstream processing.
+	
+display- e q-Equ1
+
+(1)
+	
+displ a y-eq-Equ
+2
+
+(2)
+This formula resizes the input image inline-eq-IEq1 to the target dimensions inl ine-eq-IEq2. Here, inline-eq-IEq3 rep­
+resents the target height, and inline-eq-IEq4 represents the target width.
+Next, the images undergo grayscale conversion and adaptive binarization techniques 
+such as Otsu or Sauvola methods, which adjust thresholds based on local contrast [17] 
+to enhance the contrast between text and background, making the textual information 
+more prominent and easier for the OCR engine to detect.
+	
+displ a y-eq- E q u 3
+
+(3)
+This normalizes the pixel values to the range [0,1]. inline-eq-IEq5 is the resized image, and 255 
+is the maximum possible pixel value.
+	
+display -eq -E q
+u4
+
+(4)
+This binarizes the grayscale image by applying a threshold inline-eq-IEq6. If the grayscale pixel value 
+inlin e-e q-IEq7 is greater than inline-eq-IEq8, it is set to inline-eq-IEq9 (white); otherwise, it is set to 0 (black).
+Following this, noise removal techniques, such as Gaussian filtering with empirically 
+chosen kernel size (e.g., 3 × 3), balancing noise suppression and text clarity [18], are 
+employed to eliminate unnecessary artifacts that may obscure the text, improving the 
+clarity of the image.
+	
+display-e q-E qu 5
+
+(5)
+This applies a Gaussian filter to the binary image for noise removal. inline- eq - IE q 1 1 
+is the value of the binary image at position in l in e - eq-IEq12, and i nli ne-eq-IEq13 is the Gaussian 
+kernel. The parameter inline-eq-IEq14 defines the kernel size.
+Lastly, skew correction based on Hough transform; learning-based angle regres­
+sors may offer adaptive alternatives for noisy or multi-aligned invoices [19] is applied 
+to adjust any tilted or misaligned text lines, ensuring that the text appears horizontally 
+aligned. For multi-angle zones, rotation-invariant or affine normalization techniques 
+could further improve robustness, which enhances the accuracy of the OCR recognition 
+
+
+=== PAGE 5 ===
+Page 5 of 12
+Wang et al. Discover Artificial Intelligence           (2026) 6:636 
+process. These preprocessing steps are critical for enhancing image quality and improv­
+ing the overall performance of the OCR system.
+	
+display-eq - Equ6
+
+(6)
+This formula corrects skew in the image by rotating it by an angle inline-eq-IEq15. Here, inline-eq-IEq16 is the esti­
+mated skew angle, and inline-eq-IEq17 is the filtered image to be rotated.
+2.2  OCR pipeline
+In the OCR pipeline for electronic invoice recognition, two primary stages are involved: 
+text detection and text recognition. The text detection phase employs several advanced 
+algorithms, including EAST, DB, and SAST, to accurately identify the regions in the 
+image that contain text. EAST (Efficient and Accurate Scene Text) [10] is a robust and 
+fast algorithm used for detecting text regions in arbitrary orientations, while DB (Dif­
+ferentiable Binarization) [11] and SAST (Segmentation-based Scene Text) [12] further 
+refine the detection process, offering enhanced precision, particularly in dense or curved 
+text regions. Specifically, EAST is a robust and fast algorithm designed for detecting 
+text regions in arbitrary orientations. Unlike traditional methods that involve multiple 
+processing steps, EAST directly predicts text regions and bounding boxes using a fully 
+convolutional neural network (FCN). This simplicity results in faster inference times 
+while maintaining high accuracy. EAST is an anchor-free detector, particularly suited for 
+scenarios with irregular text layouts, making it ideal for detecting text in complex doc­
+uments such as electronic invoices. EAST algorithm uses a multi-task loss, where geom­
+etry and score losses are normalized to prevent imbalance during training that combines 
+geometry and segmentation losses, typically expressed as:
+	
+displ a y-eq-Equ7
+
+(7)
+inline-eq-IEq18 is the geometry loss for predicting the shape of the text region, and inline-eq-IEq19 
+is the score loss for measuring the confidence of the detected text region. inline-eq-IEq20 is a weight 
+parameter.
+Differentiable Binarization (DB) is a state-of-the-art algorithm that refines the text 
+detection process by introducing a differentiable binarization module. This module 
+helps separate text from the background more effectively, especially in dense and curved 
+text regions. DB simplifies the detection pipeline and improves accuracy by leveraging a 
+binary map that differentiates between text and non-text regions, making it highly effec­
+tive in handling dense text layouts found in electronic invoices. DB optimizes text detec­
+tion through a binarization loss, represented as:
+	
+dis p lay-eq- E q u 8
+
+(8)
+inline-eq-IEq21 is the binarization loss, inline-eq-IEq22 is the threshold loss, and inline-eq-IEq23 measures 
+the similarity between predicted and ground truth regions. inline-eq-IEq24 and inline-eq-IEq25 are weighting fac­
+tors for the respective terms.
+SAST is a segmentation-based text detection algorithm designed to handle irregular 
+and complex text shapes. By treating text detection as a segmentation problem, SAST 
+can accurately detect curved and multi-oriented text regions, which are often chal­
+lenging for traditional detection models. This makes SAST well-suited for recognizing 
+text in complex documents like electronic invoices, where text may appear in varying 
+
+
+=== PAGE 6 ===
+Page 6 of 12
+Wang et al. Discover Artificial Intelligence           (2026) 6:636 
+orientations and formats. The SAST algorithm uses a segmentation-based loss function 
+to handle complex text detection, expressed as:
+	
+displ a y-eq-Equ9
+
+(9)
+inline-eq-IEq26 is the segmentation loss for differentiating text from the background, and 
+inline-eq-IEq27 is the orientation loss for handling text in different directions. inline-eq-IEq28 is a weight­
+ing parameter.
+Following text detection, the identified regions are processed in the text recognition 
+phase, where models like CRNN, RARE, and SRN are utilized to convert the detected 
+text images into digital text. CRNN (Convolutional Recurrent Neural Network) [13] 
+combines convolutional layers with recurrent networks to capture the sequential nature 
+of text. CRNN combines convolutional and recurrent neural networks to perform text 
+recognition tasks. It extracts spatial features from text images using convolutional lay­
+ers and captures the sequential nature of text using recurrent layers. CRNN is highly 
+effective for recognizing text in images with varying lengths and orientations, such as 
+electronic invoices. It also utilizes Connectionist Temporal Classification (CTC) loss to 
+handle variable-length text sequences without requiring strict alignment between input 
+and output. The CTC loss is represented as:
+	
+displ a y -eq - Eq u10
+(10)
+i nl ine-eq-IEq29 is the conditional probability of the predicted text inline-eq-IEq30 given the input image inline-eq-IEq31.
+RARE (Robust Attention-based Recognition) [14] focuses on complex, irregular text, 
+using attention mechanisms to improve recognition accuracy. RARE is a powerful text 
+recognition model that incorporates spatial transformers and attention mechanisms to 
+handle irregular or distorted text. It dynamically adjusts the input text’s geometry using 
+a spatial transformer network, enabling the recognition of text with varying orientations 
+and distortions. The attention mechanism further enhances recognition accuracy by 
+focusing on the most relevant features in the text sequence. RARE is particularly effec­
+tive for handling complex, non-linear text in electronic invoices. RARE uses an atten­
+tion-based loss to improve the recognition of complex and irregular text, represented as:
+	
+displ a y-e q - E q u11
+
+(11)
+inl ine-eq-IEq32 is the CTC loss, and inline-eq-IEq33 is the attention loss for improving recognition 
+accuracy of distorted or complex text. inline-eq-IEq34 is a weighting factor.
+Finally, SRN (Sequence Recognition Network) [15] leverages advanced sequence-to-
+sequence learning for high-performance recognition, particularly in dealing with diverse 
+font styles and text orientations. This pipeline ensures high-accuracy text recognition in 
+complex document images like electronic invoices. SRN leverages sequence-to-sequence 
+learning, using the following loss function:
+	
+disp l ay-eq-Equ12
+
+(12)
+inline-eq-IEq35
+ is the sequence-to-sequence loss, and inline-eq-IEq36 is the alignment 
+loss for handling text with varying fonts and orientations. inline-eq-IEq37 is a weight for the alignment 
+term.
+
+
+=== PAGE 7 ===
+Page 7 of 12
+Wang et al. Discover Artificial Intelligence           (2026) 6:636 
+2.3  Post-processing module
+In the post-processing phase of the OCR pipeline for electronic invoice recognition, 
+several crucial steps are implemented to enhance the accuracy and structure of the 
+extracted text data. The first step is error correction [20], which identifies and fixes 
+common recognition errors, such as incorrect characters or symbols, ensuring that the 
+extracted data aligns with expected patterns. The formulation is represented as:
+	
+display-eq-Eq u 13
+
+(13)
+inline-eq-IEq38 represents the recognized text, and inline-eq-IEq39
+ is the process that corrects 
+common recognition errors, such as character misidentifications.
+Following this, field validation and formatting ensure that the recognized text matches 
+specific formats (e.g., date, invoice number, total amounts) and adheres to the predefined 
+structure of an invoice. The formulation is represented as:
+	
+d isplay-eq-Equ 1 4
+
+(14)
+inline-eq-IEq40 is the recognized field (e.g., date, invoice number), and inline-eq-IEq41 is the 
+expected format. The function i nline-eq-IEq42 ensures that the recognized field matches the 
+expected format.
+Next, the recognized data is organized into a structured format in the structured data 
+output step. This step ensures that the extracted information, such as invoice details, is 
+stored in a machine-readable format (e.g., JSON, CSV) for easy integration with other 
+systems. The formulation is represented as:
+	
+display-eq-Equ15
+
+(15)
+inline-eq-IEq43 refers to the recognized data, and inline-eq-IEq44 is a function that converts this 
+data into a structured format such as JSON or CSV.
+Finally, entity recognition is employed to identify and label specific fields within the 
+invoice, such as supplier name, invoice number, and tax information, providing context 
+and meaning to the recognized text. The formulation is represented as:
+	
+display- e q-Equ16
+
+(16)
+inline-eq-IEq45 is the recognized text, and inline-eq-IEq46
+ identifies and labels specific 
+fields such as supplier name, invoice number, and tax information.
+Together, these steps optimize the output of the OCR pipeline, ensuring that the 
+extracted data is both accurate and useful for further processing.
+3  Experimental results
+3.1  Datasets description
+To train a high-performance OCR model, it is essential to prepare large-scale and 
+diverse image-text datasets. Thousands of paper and electronic invoices were collected 
+from NEC to construct the dataset. OCR technology was utilized to extract text from 
+the images, leveraging either open-source OCR libraries or cloud-based OCR services. 
+Once the text was extracted, the image and corresponding text were annotated. The 
+annotation process involved eit her directly linking the extracted text with the image or 
+highlighting the text area within the image by drawing bounding boxes around the text 
+
+
+=== PAGE 8 ===
+Page 8 of 12
+Wang et al. Discover Artificial Intelligence           (2026) 6:636 
+and associating the corresponding content. This approach allows the model to learn the 
+relationships between image regions and the text they contain.
+Following the data labeling, the dataset underwent preprocessing to enhance the 
+model’s performance during training. The data was cleaned to eliminate inaccurately or 
+incompletely labeled samples. Automated tools were employed to facilitate this process, 
+including the removal of duplicate data and correction of erroneous annotations. These 
+steps ensure that the dataset is high-quality and optimized for training the OCR model.
+In this study, a total of 6349 images were used as the dataset, consisting of 4618 elec­
+tronic invoices and the remaining images representing paper invoices. The dataset was 
+divided into a training set, validation set, and test set, following the commonly used ratio 
+of 7:2:1. This division ensures that the model is trained on a substantial portion of the 
+data, while also allowing for validation and testing to evaluate its performance and gen­
+eralization ability on unseen data.
+3.2  The performance of text detection
+We conducted experiments to evaluate the performance of text detection in the OCR 
+pipeline after image preprocessing, as shown in Fig. 2. The image on the top represents 
+an electronic invoice, while the bottom side illustrates the OCR text detection results, 
+where the text regions are highlighted and segmented. The OCR system successfully 
+identifies and extracts several key fields from the invoice, including the invoice number, 
+date, and various financial details. The text areas are precisely boxed, showcasing the 
+system’s capability to detect text in both horizontal and vertical orientations. Most of 
+the text fields, such as invoice codes and monetary amounts, are captured accurately, 
+although minor misalignments are observed in densely populated areas. Overall, the 
+OCR detection is effective in extracting a comprehensive set of invoice details, which 
+can subsequently be used in further stages of the pipeline, such as text recognition and 
+data validation.
+Fig. 2  The qualitative results of text detection
+ 
+
+
+=== PAGE 9 ===
+Page 9 of 12
+Wang et al. Discover Artificial Intelligence           (2026) 6:636 
+3.3  The performance of text recognition
+In the text recognition stage following text detection, we present the results in Fig. 3. 
+The image represents a sample of text extracted from an invoice using OCR technol­
+ogy. The system accurately identified key elements such as the buyer’s and seller’s names, 
+tax identification numbers, item descriptions, quantities, unit prices, and total amounts. 
+Numeric values related to tax rates, totals, and prices were correctly captured, along 
+with specific details like product names and technical specifications (e.g., wire sizes and 
+equipment). However, some instances of overly precise decimal points in the numeric 
+values suggest potential OCR over-precision, which might require post-processing to 
+refine the results and eliminate unnecessary detail. Overall, the text recognition effec­
+tively captured essential information, though further improvements could enhance the 
+clarity and usability of the extracted data, especially for numerical fields.
+3.4  The performance of text output
+Despite achieving relatively high accuracy in text detection and recognition after the 
+image preprocessing module of InvoiceOCR, the final recognition results are only trans­
+formed into a series of corresponding dictionary files for querying and practical use after 
+passing through the post-processing module. The keys and their corresponding sample 
+values used in this study are shown in Table 1. It is evident that InvoiceOCR effectively 
+extracts the desired keys and their corresponding values, demonstrating the effective­
+ness of automatic recognition technology for electronic invoices.
+Table 1  OCR recognizes paper invoices
+Key
+Value
+Address
+Lorem lpsum
+Tel
+09871238905678
+Lorem
+2.15
+Price
+14.40
+Tax
+1.25
+Total
+15.65
+Fig. 3  The qualitative results of text recognition
+ 
+
+
+=== PAGE 10 ===
+Page 10 of 12
+Wang et al. Discover Artificial Intelligence           (2026) 6:636 
+Additionally, we conducted ablation quantitative experiments, as shown in Table 2, to 
+validate the accuracy of the text recognition. Our proposed method achieved an accu­
+racy of 0.82 on the Paper Ticket dataset and 0.96 on the Electronic Ticket dataset, further 
+demonstrating the effectiveness of the approach. These results confirm the robustness 
+and accuracy of our method in different invoice types, proving its applicability in real-
+world scenarios.
+Text field recognition accuracy is one of the most important indicators for evaluating 
+the performance of OCR technology. Table 3 provides a detailed description of the OCR 
+text field recognition accuracy. The results highlight the effectiveness of our approach 
+in accurately recognizing various text fields across different datasets. High accuracy in 
+recognizing critical fields such as invoice numbers, dates, and amounts further demon­
+strates the reliability of our OCR system in practical applications, especially in handling 
+structured documents like electronic and paper invoices.
+As shown in Table 4, we conducted a series of ablation experiments to evaluate the 
+impact of the preprocessing components on text recognition performance. As the pre­
+processing pipeline is progressively enhanced, the recognition accuracy consistently 
+improves across both datasets. This demonstrates the effectiveness of each individual 
+component and highlights the critical role of high-quality preprocessing in OCR tasks.
+4  Discussion and conclusions
+In this study, we explored the application of OCR-based intelligent ticket recognition 
+and verification technology in the context of power grid ticket management. Our system 
+is built upon a robust OCR pipeline that integrates advanced algorithms such as EAST 
+for text detection and CRNN for text recognition, ensuring high precision in detecting 
+and recognizing key fields within invoices. Through comprehensive experiments and 
+case studies, the large OCR model demonstrated outstanding performance, achieving 
+a recognition accuracy of 0.96 for electronic invoices and over 0.97 for key fields such 
+as invoice numbers and dates. These results affirm the efficiency and accuracy of OCR 
+technology, especially when using modern techniques like Differentiable Binarization 
+Table 2  The text recognition accuracy of paper and electronic tickets
+Dataset
+EAST
+DB
+SAST
+Average
+Paper ticket dataset
+0.79
+0.82
+0.85
+0.82
+Electronic ticket dataset
+0.92
+0.98
+0.98
+0.96
+Table 3  The field recognition accuracy of paper and electronic tickets
+Dataset
+Fields
+CRNN
+RARE
+SRN
+Average
+Paper ticket dataset
+Amount field
+0.80
+0.84
+0.87
+0.84
+other key fields
+0.79
+0.80
+0.83
+0.81
+Electronic ticket dataset
+Amount field
+0.94
+0.98
+0.98
+0.97
+other key fields
+0.91
+0.93
+0.98
+0.94
+Table 4  The ablation study of paper and electronic tickets
+Dataset
+Baseline
+ + Image scaling 
+and normalization
+ + Grayscale 
+binarization
+ + Noise 
+removal
+ + Skew 
+correc­
+tion
+Paper ticket dataset
+0.62
+0.68
+0.75
+0.79
+0.82
+Electronic ticket dataset
+0.74
+0.82
+0.88
+0.93
+0.96
+
+
+=== PAGE 11 ===
+Page 11 of 12
+Wang et al. Discover Artificial Intelligence           (2026) 6:636 
+(DB) to improve text detection in dense or irregular regions, and attention-based mod­
+els like RARE to handle more complex and distorted text sequences. This pipeline sig­
+nificantly enhances the automation of bill processing, far surpassing traditional manual 
+methods that are prone to errors and inefficiencies.
+Our proposed system is structured around a well-defined encoder-decoder architec­
+ture, where each module performs a specialized role to facilitate seamless interaction, 
+supporting the smart grid’s fine-grained management. The system’s stability and reliabil­
+ity have been validated in complex business scenarios, where optimization techniques 
+such as data augmentation, model selection, and hyperparameter tuning were applied to 
+enhance performance further. These improvements not only increased accuracy but also 
+reduced error rates, demonstrating the potential of OCR technology to revolutionize bill 
+processing in the power grid domain.
+However, limitations still exist, particularly regarding the system’s recognition accu­
+racy in complex environments, such as under poor lighting, suboptimal shooting angles, 
+or degraded paper quality. Moreover, while the dataset used in this research is diverse, 
+it primarily consists of invoices sourced from power grid suppliers, which may not fully 
+represent the variety of bills encountered in broader real-world applications. Addition­
+ally, although this study focuses on the technical capabilities of OCR, important issues 
+such as security and compliance—critical in grid ticket management—have been rela­
+tively underexplored.
+In future work, efforts should focus on improving recognition accuracy in challenging 
+environmental conditions by refining algorithms such as SAST, which could offer better 
+segmentation of irregularly shaped text. Expanding the dataset to include a broader vari­
+ety of bill types will also be essential for making the system more generalizable. Further­
+more, addressing security and privacy concerns will be crucial to ensuring compliance 
+with industry regulations. OCR technology has the potential to extend its application 
+beyond power grid management into sectors like finance, insurance, healthcare, and 
+education, paving the way for a more extensive digital transformation across industries. 
+Additionally, incorporating transformer-based detection architectures could enhance 
+multi-scale feature extraction. Exploring synthetic data augmentation using diffusion 
+models may also improve robustness under low-sample conditions.
+Author contribution
+C.W. and J.Z. wrote the main manuscript text and Y.Y. prepared figures and table. All authors reviewed the manuscript.
+Funding
+No funding was received for this study.
+Data availability
+All data supporting the findings of this study are available within the paper.
+Declarations
+Ethics approval and consent to participate
+Not applicable.
+Consent for publication
+Not applicable.
+Competing interests
+The authors declare no competing interests.
+Received: 2 April 2025 / Accepted: 10 March 2026
+
+
+=== PAGE 12 ===
+Page 12 of 12
+Wang et al. Discover Artificial Intelligence           (2026) 6:636 
+References
+1.	
+Kamisetty VNSR, Chidvilas BS, Revathy S, et al. Digitization of data from invoice using OCR. In: 2022 6th International Con­
+ference on Computing Methodologies and Communication (ICCMC). IEEE, 2022: 1–10.
+2.	
+Traub MC, Van Ossenbruggen J, Hardman L. Impact analysis of OCR quality on research tasks in digital archive. In: Research 
+and Advanced Technology for Digital Libraries: 19th International Conference on Theory and Practice of Digital Libraries, 
+TPDL 2015, Poznań, Poland, September 14–18, 2015, Proceedings 19. Springer International Publishing, 2015: 252–263.
+3.	
+Marriott K, Meyer B, Wittenburg KB. A survey of visual language specification and recognition. In: Visual language theory. 
+New York, NY: Springer New York; 1998. p. 5–85.
+4.	
+Kumar P, Revathy S. An automated invoice handling method using OCR. In: Data Intelligence and Cognitive Informatics: 
+Proceedings of ICDICI 2020. Springer Singapore, 2021: 243–254.
+5.	
+Irimia C, Harbuzariu F, Hazi I, et al. Official document identification and data extraction using templates and OCR. Procedia 
+Comput Sci. 2022;207:1571–80.
+6.	
+Dörpinghaus J, Binnewitt J, Samray D, et al. Understanding informatics in continuing vocational education and training 
+data in Germany. ACM Trans Comput Educ. 2024;36:1–22.
+7.	
+Azzam F, Jaber M, Saies A, et al. The use of blockchain technology and OCR in e-government for document management: 
+inbound invoice management as an example. Appl Sci (Basel). 2023;13(14):8463.
+8.	
+Oral B, Emekligil E, Arslan S, et al. Information extraction from text intensive and visually rich banking documents. Inf 
+Process Manag. 2020;57(6):102361.
+9.	
+Varghese AP, Naik S, Andrabi SAUH, et al. Emerging applications of picture archiving and communication systems and 
+their impact on research and education: a literature review. Cureus. 2024;16(7):e65019.
+10.	 Zhou X, Yao C, Wen H, et al. East: an efficient and accurate scene text detector. In: Proceedings of the IEEE conference on 
+Computer Vision and Pattern Recognition. 2017: 5551–5560.
+11.	 Liao M, Wan Z, Yao C, et al. Real-time scene text detection with differentiable binarization. Proc AAAI Conf Artif Intell. 
+2020;34(07):11474–81.
+12.	 Li J. Vulnerabilities mapping based on OWASP-SANS: a survey for static application security testing (SAST). arXiv preprint 
+arXiv:2004.03216, 2020.
+13.	 Shi B, Bai X, Yao C. An end-to-end trainable neural network for image-based sequence recognition and its application to 
+scene text recognition. IEEE Trans Pattern Anal Mach Intell. 2016;39(11):2298–304.
+14.	 Shi B, Wang X, Lyu P, et al. Robust scene text recognition with automatic rectification. In: Proceedings of the IEEE confer­
+ence on computer vision and pattern recognition. 2016: 4168–4176.
+15.	 Yu D, Li X, Zhang C, et al. Towards accurate scene text recognition with semantic reasoning networks. In: Proceedings of 
+the IEEE/CVF conference on computer vision and pattern recognition. 2020: 12113–12122.
+16.	 Walach J, Filzmoser P, Hron K. Data normalization and scaling: consequences for the analysis in omics sciences. Compre­
+hensive analytical chemistry. Elsevier, 2018, 82: 165–196.
+17.	 Tensmeyer C, Martinez T. Historical document image binarization: a review. SN Comput Sci. 2020;1(3):173.
+18.	 Yan H. Skew correction of document images using interline cross-correlation. CVGIP Graph Mod Image Process. 
+1993;55(6):538–43.
+19.	 Nguyen TTH, Jatowt A, Coustaty M, et al. Survey of post-OCR processing approaches. ACM Comp Surv (CSUR). 
+2021;54(6):1–37.
+20.	 Ito K, Xiong K. Gaussian filters for nonlinear filtering problems. IEEE Trans Autom Control. 2000;45(5):910–27.
+Publisher's Note
+Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.
+
+
