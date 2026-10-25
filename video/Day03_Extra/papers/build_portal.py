@@ -574,6 +574,9 @@ def build_papers_hub():
             📖 Đọc Toàn Văn Tiếng Việt &rarr;
           </a>
           <div class="btn-sub-actions">
+            <a href="../videos/P2_paper_1_Computer_Vision_in_Accounting/index.html" target="_blank" class="btn-sub" style="color: #c084fc; border-color: rgba(168, 85, 247, 0.4); background: rgba(168, 85, 247, 0.1);">
+              🎬 Video P2
+            </a>
             <a href="../slides/P2_paper_1_Computer_Vision_in_Accounting.pdf" target="_blank" class="btn-sub">
               📊 Slide P2 (PDF)
             </a>
@@ -601,6 +604,9 @@ def build_papers_hub():
             📖 Đọc Toàn Văn Tiếng Việt &rarr;
           </a>
           <div class="btn-sub-actions">
+            <a href="../videos/P3_paper 2_AI_Trong_Kế_Toán_Và_Kiểm_Toán/index.html" target="_blank" class="btn-sub" style="color: #34d399; border-color: rgba(16, 185, 129, 0.4); background: rgba(16, 185, 129, 0.1);">
+              🎬 Video P3
+            </a>
             <a href="../slides/P3_paper 2_AI_Trong_Kế_Toán_Và_Kiểm_Toán.pdf" target="_blank" class="btn-sub">
               📊 Slide P3 (PDF)
             </a>
@@ -628,6 +634,9 @@ def build_papers_hub():
             📖 Đọc Toàn Văn Tiếng Việt &rarr;
           </a>
           <div class="btn-sub-actions">
+            <a href="../videos/P4_paper_3_AI_in_Accounting_and_Auditing/index.html" target="_blank" class="btn-sub" style="color: #fbbf24; border-color: rgba(245, 158, 11, 0.4); background: rgba(245, 158, 11, 0.1);">
+              🎬 Video P4
+            </a>
             <a href="../slides/P4_paper_3_AI_in_Accounting_and_Auditing.pdf" target="_blank" class="btn-sub">
               📊 Slide P4 (PDF)
             </a>
@@ -655,6 +664,9 @@ def build_papers_hub():
             📖 Đọc Toàn Văn Tiếng Việt &rarr;
           </a>
           <div class="btn-sub-actions">
+            <a href="../videos/P5_paper_4_The_Digital_Audit_Revolution/index.html" target="_blank" class="btn-sub" style="color: #fda4af; border-color: rgba(244, 63, 94, 0.4); background: rgba(244, 63, 94, 0.1);">
+              🎬 Video P5
+            </a>
             <a href="../slides/P5_paper_4_The_Digital_Audit_Revolution.pdf" target="_blank" class="btn-sub">
               📊 Slide P5 (PDF)
             </a>
@@ -688,7 +700,7 @@ def build_papers_hub():
             <th>Công Nghệ AI Cốt Lõi</th>
             <th>Bộ Dữ Liệu Thực Nghiệm</th>
             <th>Độ Chính Xác / Hiệu Năng</th>
-            <th>Slide Tương Ứng</th>
+            <th>Slide & Video Tương Ứng</th>
           </tr>
         </thead>
         <tbody>
@@ -698,7 +710,10 @@ def build_papers_hub():
             <td>Differentiable Binarization (DB) + CRNN (CTC) + Skew Correction</td>
             <td>6.349 ảnh hóa đơn doanh nghiệp thực tế</td>
             <td>F-measure 96,81%, trích xuất trường đạt 98,92%</td>
-            <td><a href="../slides/P2_paper_1_Computer_Vision_in_Accounting.pdf" target="_blank" style="color: #60a5fa; font-weight: 600;">Slide P2 (PDF)</a></td>
+            <td>
+              <a href="../slides/P2_paper_1_Computer_Vision_in_Accounting.pdf" target="_blank" style="color: #60a5fa; font-weight: 600;">Slide P2</a> • 
+              <a href="../videos/P2_paper_1_Computer_Vision_in_Accounting/index.html" target="_blank" style="color: #c084fc; font-weight: 700;">🎬 Video P2</a>
+            </td>
           </tr>
           <tr>
             <td><strong>Bài 2 (arXiv/LUT)</strong></td>
@@ -706,7 +721,10 @@ def build_papers_hub():
             <td>Multimodal Document AI + LLMs (Few-shot Prompting) + AI-RPA</td>
             <td>Tập hóa đơn mua hàng đa mẫu biểu toàn cầu</td>
             <td>F1-score 95,4% trên mẫu mới, giảm chu kỳ còn &lt; 1 phút</td>
-            <td><a href="../slides/P3_paper 2_AI_Trong_Kế_Toán_Và_Kiểm_Toán.pdf" target="_blank" style="color: #34d399; font-weight: 600;">Slide P3 (PDF)</a></td>
+            <td>
+              <a href="../slides/P3_paper 2_AI_Trong_Kế_Toán_Và_Kiểm_Toán.pdf" target="_blank" style="color: #34d399; font-weight: 600;">Slide P3</a> • 
+              <a href="../videos/P3_paper 2_AI_Trong_Kế_Toán_Và_Kiểm_Toán/index.html" target="_blank" style="color: #34d399; font-weight: 700;">🎬 Video P3</a>
+            </td>
           </tr>
           <tr>
             <td><strong>Bài 3 (BMVC/Sage)</strong></td>
@@ -714,7 +732,10 @@ def build_papers_hub():
             <td>Error Level Analysis (ELA) + Biến đổi Wavelet + Deep CNN Forensics</td>
             <td>Bộ dữ liệu biên lai thật và biên lai tạo bởi Gen-AI / Inpainting</td>
             <td>Phát hiện chính xác vùng sửa số tiền với AUC 96,2%</td>
-            <td><a href="../slides/P4_paper_3_AI_in_Accounting_and_Auditing.pdf" target="_blank" style="color: #fbbf24; font-weight: 600;">Slide P4 (PDF)</a></td>
+            <td>
+              <a href="../slides/P4_paper_3_AI_in_Accounting_and_Auditing.pdf" target="_blank" style="color: #fbbf24; font-weight: 600;">Slide P4</a> • 
+              <a href="../videos/P4_paper_3_AI_in_Accounting_and_Auditing/index.html" target="_blank" style="color: #fbbf24; font-weight: 700;">🎬 Video P4</a>
+            </td>
           </tr>
           <tr>
             <td><strong>Bài 4 (MDPI)</strong></td>
@@ -722,7 +743,10 @@ def build_papers_hub():
             <td>Drone tự hành + Cảm biến LiDAR 3D + YOLO Object Detection + Big Data</td>
             <td>Cơ sở dữ liệu Web of Science 2015–2025 & thực tế Big 4</td>
             <td>Kiểm toán 100% quần thể, đo thể tích sai số &lt; 1%</td>
-            <td><a href="../slides/P5_paper_4_The_Digital_Audit_Revolution.pdf" target="_blank" style="color: #fda4af; font-weight: 600;">Slide P5 (PDF)</a></td>
+            <td>
+              <a href="../slides/P5_paper_4_The_Digital_Audit_Revolution.pdf" target="_blank" style="color: #fda4af; font-weight: 600;">Slide P5</a> • 
+              <a href="../videos/P5_paper_4_The_Digital_Audit_Revolution/index.html" target="_blank" style="color: #fda4af; font-weight: 700;">🎬 Video P5</a>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -1348,6 +1372,9 @@ def build_master_portal():
           <a id="slide-paper-link" href="papers/index.html" class="slide-btn">
             📖 Đọc Bài Báo Tương Ứng &rarr;
           </a>
+          <a id="slide-video-link" href="videos/P1_[Theory]_AI_in_Accounting_and_Auditing/index.html" target="_blank" class="slide-btn" style="background: rgba(249, 115, 22, 0.2); border-color: rgba(249, 115, 22, 0.45); color: #fb923c; font-weight: 700;">
+            🎬 Xem Video Giảng (P1) &rarr;
+          </a>
           <button onclick="toggleFullScreen()" class="slide-btn" title="Toàn màn hình">
             ⛶ Toàn Màn Hình
           </button>
@@ -1379,12 +1406,15 @@ def build_master_portal():
         <p class="module-desc">
           Slide định hướng nhập môn: Sự tiến hóa từ OCR cổ điển đến Document AI đa phương thức, Siêu tự động hóa Kế toán Phải trả (AP) và Kiểm toán hiện trường bằng Drone.
         </p>
-        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: auto;">
+        <div style="display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: auto;">
           <a href="javascript:void(0)" onclick="loadSlideAndScroll('slides/P1_[Theory]_AI_in_Accounting_and_Auditing.pdf', 'Slide P1: Lý Thuyết Nền Tảng AI Trong Kế Toán & Kiểm Toán', 'Lý thuyết nhập môn: Từ OCR truyền thống đến Multimodal Document AI, Siêu tự động hóa IDP + AI-RPA và Kiểm toán Drone.', 1)" class="module-link" style="color: #60a5fa; font-weight: 700;">
             ▶ Xem Online &rarr;
           </a>
           <a href="slides/P1_[Theory]_AI_in_Accounting_and_Auditing.pdf" target="_blank" class="module-link" style="color: var(--text-muted);">
             📊 Tải PDF &rarr;
+          </a>
+          <a href="videos/P1_[Theory]_AI_in_Accounting_and_Auditing/index.html" target="_blank" class="module-link" style="color: #fb923c; font-weight: 700; background: rgba(249, 115, 22, 0.15); padding: 0.25rem 0.65rem; border-radius: 6px; border: 1px solid rgba(249, 115, 22, 0.35);">
+            🎬 Xem Video &rarr;
           </a>
         </div>
       </div>
@@ -1399,12 +1429,15 @@ def build_master_portal():
         <p class="module-desc">
           Slide bài giảng chuyên sâu tương ứng Bài báo 1 (Springer Nature): Pipeline nhận dạng 6.349 hóa đơn chụp nghiêng/nhiễu qua mạng DB + CRNN và kiểm tra chéo đại số kế toán.
         </p>
-        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: auto;">
+        <div style="display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: auto;">
           <a href="javascript:void(0)" onclick="loadSlideAndScroll('slides/P2_paper_1_Computer_Vision_in_Accounting.pdf', 'Slide P2: Computer Vision in Accounting (Tương ứng Bài báo 1 - InvoiceOCR)', 'Chuyên sâu Bài báo 1: Pipeline xử lý 6.349 hóa đơn bằng thuật toán DB + CRNN và kiểm chứng đại số kế toán.', 2)" class="module-link" style="color: #c084fc; font-weight: 700;">
             ▶ Xem Online &rarr;
           </a>
           <a href="papers/paper_1_InvoiceOCR_Deep_Learning_Recognition_tiengviet.html" class="module-link">
             📖 Đọc Bài Báo 1 &rarr;
+          </a>
+          <a href="videos/P2_paper_1_Computer_Vision_in_Accounting/index.html" target="_blank" class="module-link" style="color: #c084fc; font-weight: 700; background: rgba(168, 85, 247, 0.15); padding: 0.25rem 0.65rem; border-radius: 6px; border: 1px solid rgba(168, 85, 247, 0.35);">
+            🎬 Xem Video &rarr;
           </a>
         </div>
       </div>
@@ -1419,12 +1452,15 @@ def build_master_portal():
         <p class="module-desc">
           Slide bài giảng chuyên sâu tương ứng Bài báo 2 (arXiv & LUT): Kết hợp OCR và Mô hình ngôn ngữ lớn LLM để trích xuất hóa đơn phi mẫu biểu và tự động hóa Đối chiếu 3 bên (3-Way Matching).
         </p>
-        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: auto;">
+        <div style="display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: auto;">
           <a href="javascript:void(0)" onclick="loadSlideAndScroll('slides/P3_paper 2_AI_Trong_Kế_Toán_Và_Kiểm_Toán.pdf', 'Slide P3: AI Trong Kế Toán & Kiểm Toán (Tương ứng Bài báo 2 - LLM + OCR)', 'Chuyên sâu Bài báo 2: Kết hợp OCR và Mô hình ngôn ngữ lớn LLM bóc tách hóa đơn không theo mẫu và Đối chiếu 3 bên (3-Way Matching).', 3)" class="module-link" style="color: #34d399; font-weight: 700;">
             ▶ Xem Online &rarr;
           </a>
           <a href="papers/paper_2_Automated_Invoice_LLM_OCR_tiengviet.html" class="module-link">
             📖 Đọc Bài Báo 2 &rarr;
+          </a>
+          <a href="videos/P3_paper 2_AI_Trong_Kế_Toán_Và_Kiểm_Toán/index.html" target="_blank" class="module-link" style="color: #34d399; font-weight: 700; background: rgba(16, 185, 129, 0.15); padding: 0.25rem 0.65rem; border-radius: 6px; border: 1px solid rgba(16, 185, 129, 0.35);">
+            🎬 Xem Video &rarr;
           </a>
         </div>
       </div>
@@ -1439,12 +1475,15 @@ def build_master_portal():
         <p class="module-desc">
           Slide bài giảng tương ứng Bài báo 3 (BMVC & Sage): Pháp y hình ảnh số (Error Level Analysis - ELA & Wavelet) bắt hóa đơn, biên lai chi phí công tác bị chỉnh sửa bằng Gen-AI.
         </p>
-        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: auto;">
+        <div style="display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: auto;">
           <a href="javascript:void(0)" onclick="loadSlideAndScroll('slides/P4_paper_3_AI_in_Accounting_and_Auditing.pdf', 'Slide P4: Bắt Hóa Đơn Giả Mạo Gen-AI (Tương ứng Bài báo 3)', 'Chuyên sâu Bài báo 3: Pháp y hình ảnh số (Error Level Analysis - ELA & Wavelet) bắt hóa đơn giả mạo do AI tạo sinh.', 4)" class="module-link" style="color: #fbbf24; font-weight: 700;">
             ▶ Xem Online &rarr;
           </a>
           <a href="papers/paper_3_Fake_Invoices_Receipts_GenAI_tiengviet.html" class="module-link">
             📖 Đọc Bài Báo 3 &rarr;
+          </a>
+          <a href="videos/P4_paper_3_AI_in_Accounting_and_Auditing/index.html" target="_blank" class="module-link" style="color: #fbbf24; font-weight: 700; background: rgba(245, 158, 11, 0.15); padding: 0.25rem 0.65rem; border-radius: 6px; border: 1px solid rgba(245, 158, 11, 0.35);">
+            🎬 Xem Video &rarr;
           </a>
         </div>
       </div>
@@ -1459,12 +1498,15 @@ def build_master_portal():
         <p class="module-desc">
           Slide bài giảng tương ứng Bài báo 4 (MDPI): Kiểm toán 100% hàng tồn kho hiện trường bằng Drone LiDAR 3D, mô hình YOLO và Big Data Analytics đáp ứng chuẩn mực ISA 501.
         </p>
-        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: auto;">
+        <div style="display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: auto;">
           <a href="javascript:void(0)" onclick="loadSlideAndScroll('slides/P5_paper_4_The_Digital_Audit_Revolution.pdf', 'Slide P5: The Digital Audit Revolution (Tương ứng Bài báo 4 - Drone AI)', 'Chuyên sâu Bài báo 4: Kiểm toán hàng tồn kho 100% bằng Drone LiDAR 3D, YOLO Object Detection và Big Data theo chuẩn mực ISA 501.', 5)" class="module-link" style="color: #fda4af; font-weight: 700;">
             ▶ Xem Online &rarr;
           </a>
           <a href="papers/paper_4_AI_Drone_BigData_Auditing_tiengviet.html" class="module-link">
             📖 Đọc Bài Báo 4 &rarr;
+          </a>
+          <a href="videos/P5_paper_4_The_Digital_Audit_Revolution/index.html" target="_blank" class="module-link" style="color: #fda4af; font-weight: 700; background: rgba(244, 63, 94, 0.15); padding: 0.25rem 0.65rem; border-radius: 6px; border: 1px solid rgba(244, 63, 94, 0.35);">
+            🎬 Xem Video &rarr;
           </a>
         </div>
       </div>
@@ -1512,9 +1554,14 @@ def build_master_portal():
           <a href="papers/paper_1_InvoiceOCR_Deep_Learning_Recognition_tiengviet.html" class="module-link">
             📖 Đọc Bản Dịch Web Tiếng Việt &rarr;
           </a>
-          <a href="slides/P2_paper_1_Computer_Vision_in_Accounting.pdf" target="_blank" class="module-link" style="color: #c084fc; font-weight: 600;">
-            📊 Tải Slide P2 Đi Kèm (PDF) &rarr;
-          </a>
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <a href="slides/P2_paper_1_Computer_Vision_in_Accounting.pdf" target="_blank" class="module-link" style="color: #c084fc; font-weight: 600;">
+              📊 Slide P2 (PDF) &rarr;
+            </a>
+            <a href="videos/P2_paper_1_Computer_Vision_in_Accounting/index.html" target="_blank" class="module-link" style="color: #fb923c; font-weight: 700;">
+              🎬 Video P2 &rarr;
+            </a>
+          </div>
         </div>
       </div>
 
@@ -1529,9 +1576,14 @@ def build_master_portal():
           <a href="papers/paper_2_Automated_Invoice_LLM_OCR_tiengviet.html" class="module-link">
             📖 Đọc Bản Dịch Web Tiếng Việt &rarr;
           </a>
-          <a href="slides/P3_paper 2_AI_Trong_Kế_Toán_Và_Kiểm_Toán.pdf" target="_blank" class="module-link" style="color: #34d399; font-weight: 600;">
-            📊 Tải Slide P3 Đi Kèm (PDF) &rarr;
-          </a>
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <a href="slides/P3_paper 2_AI_Trong_Kế_Toán_Và_Kiểm_Toán.pdf" target="_blank" class="module-link" style="color: #34d399; font-weight: 600;">
+              📊 Slide P3 (PDF) &rarr;
+            </a>
+            <a href="videos/P3_paper 2_AI_Trong_Kế_Toán_Và_Kiểm_Toán/index.html" target="_blank" class="module-link" style="color: #fb923c; font-weight: 700;">
+              🎬 Video P3 &rarr;
+            </a>
+          </div>
         </div>
       </div>
 
@@ -1546,9 +1598,14 @@ def build_master_portal():
           <a href="papers/paper_3_Fake_Invoices_Receipts_GenAI_tiengviet.html" class="module-link">
             📖 Đọc Bản Dịch Web Tiếng Việt &rarr;
           </a>
-          <a href="slides/P4_paper_3_AI_in_Accounting_and_Auditing.pdf" target="_blank" class="module-link" style="color: #fbbf24; font-weight: 600;">
-            📊 Tải Slide P4 Đi Kèm (PDF) &rarr;
-          </a>
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <a href="slides/P4_paper_3_AI_in_Accounting_and_Auditing.pdf" target="_blank" class="module-link" style="color: #fbbf24; font-weight: 600;">
+              📊 Slide P4 (PDF) &rarr;
+            </a>
+            <a href="videos/P4_paper_3_AI_in_Accounting_and_Auditing/index.html" target="_blank" class="module-link" style="color: #fb923c; font-weight: 700;">
+              🎬 Video P4 &rarr;
+            </a>
+          </div>
         </div>
       </div>
 
@@ -1563,9 +1620,14 @@ def build_master_portal():
           <a href="papers/paper_4_AI_Drone_BigData_Auditing_tiengviet.html" class="module-link">
             📖 Đọc Bản Dịch Web Tiếng Việt &rarr;
           </a>
-          <a href="slides/P5_paper_4_The_Digital_Audit_Revolution.pdf" target="_blank" class="module-link" style="color: #fda4af; font-weight: 600;">
-            📊 Tải Slide P5 Đi Kèm (PDF) &rarr;
-          </a>
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <a href="slides/P5_paper_4_The_Digital_Audit_Revolution.pdf" target="_blank" class="module-link" style="color: #fda4af; font-weight: 600;">
+              📊 Slide P5 (PDF) &rarr;
+            </a>
+            <a href="videos/P5_paper_4_The_Digital_Audit_Revolution/index.html" target="_blank" class="module-link" style="color: #fb923c; font-weight: 700;">
+              🎬 Video P5 &rarr;
+            </a>
+          </div>
         </div>
       </div>
 
@@ -1593,12 +1655,27 @@ def build_master_portal():
       5: "papers/paper_4_AI_Drone_BigData_Auditing_tiengviet.html"
     };
 
+    const slideVideoMapping = {
+      1: { url: "videos/P1_[Theory]_AI_in_Accounting_and_Auditing/index.html", label: "🎬 Xem Video Giảng (P1) &rarr;" },
+      2: { url: "videos/P2_paper_1_Computer_Vision_in_Accounting/index.html", label: "🎬 Xem Video Giảng (P2) &rarr;" },
+      3: { url: "videos/P3_paper 2_AI_Trong_Kế_Toán_Và_Kiểm_Toán/index.html", label: "🎬 Xem Video Giảng (P3) &rarr;" },
+      4: { url: "videos/P4_paper_3_AI_in_Accounting_and_Auditing/index.html", label: "🎬 Xem Video Giảng (P4) &rarr;" },
+      5: { url: "videos/P5_paper_4_The_Digital_Audit_Revolution/index.html", label: "🎬 Xem Video Giảng (P5) &rarr;" }
+    };
+
     function loadSlide(pdfPath, title, desc, idx) {
       document.getElementById('active-slide-frame').src = pdfPath;
       document.getElementById('slide-title-display').innerText = title;
       document.getElementById('slide-desc-display').innerText = desc;
       document.getElementById('slide-download-link').href = pdfPath;
       document.getElementById('slide-paper-link').href = slidePaperMapping[idx] || "papers/index.html";
+
+      const videoInfo = slideVideoMapping[idx] || slideVideoMapping[1];
+      const videoBtn = document.getElementById('slide-video-link');
+      if (videoBtn) {
+        videoBtn.href = videoInfo.url;
+        videoBtn.innerHTML = videoInfo.label;
+      }
 
       const tabs = document.querySelectorAll('.slide-tab');
       tabs.forEach((tab, index) => {

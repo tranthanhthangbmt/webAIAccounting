@@ -662,6 +662,7 @@ def get_html_template(title, title_en, authors, journal, doi, badge, sidebar_lin
       <div class="nav-group-title" style="margin-top: 1.5rem;">ĐIỀU HƯỚNG CHUYÊN ĐỀ</div>
       <a href="index.html" class="sidebar-link">📚 Thư Viện 4 Bài Báo Day 03</a>
       <a href="../index.html" class="sidebar-link">🚀 Cổng Chuyên Đề Day 03 Extra</a>
+      <a href="{get_video_filename(active_paper_idx)}" target="_blank" class="sidebar-link" style="color: #fb923c; font-weight: 700;">🎬 Xem Video Giảng (P{active_paper_idx + 1})</a>
       <a href="{get_slide_filename(active_paper_idx)}" target="_blank" class="sidebar-link" style="color: #38bdf8; font-weight: 700;">📊 Tải Slide Bài Giảng (PDF)</a>
       <a href="{get_pdf_filename(active_paper_idx)}" target="_blank" class="sidebar-link" style="color: #a78bfa;">📥 Tải Bản Gốc Tiếng Anh (PDF)</a>
 
@@ -694,6 +695,9 @@ def get_html_template(title, title_en, authors, journal, doi, badge, sidebar_lin
         <a href="../index.html" class="back-btn">
           Cổng Day 03 Extra
         </a>
+        <a href="{get_video_filename(active_paper_idx)}" target="_blank" class="back-btn" style="color: #fb923c; font-weight: 700; border-color: rgba(249, 115, 22, 0.4); background: rgba(249, 115, 22, 0.1);">
+          🎬 Video P{active_paper_idx + 1}
+        </a>
         <a href="{get_slide_filename(active_paper_idx)}" target="_blank" class="back-btn" style="color: #2563eb; font-weight: 700; border-color: var(--primary-border);">
           📊 Slide Bài Giảng PDF
         </a>
@@ -724,6 +728,7 @@ def get_html_template(title, title_en, authors, journal, doi, badge, sidebar_lin
           <div class="meta-item"><strong>Tác giả:</strong> {authors}</div>
           <div class="meta-item"><strong>Xuất bản:</strong> {journal}</div>
           <div class="meta-item"><strong>Định danh:</strong> {doi}</div>
+          <div class="meta-item"><strong>Video Bài Giảng:</strong> <a href="{get_video_filename(active_paper_idx)}" target="_blank" style="color: #fb923c; font-weight: 700; text-decoration: underline;">🎬 Xem Video Giảng P{active_paper_idx + 1} ({get_slide_title(active_paper_idx)})</a></div>
           <div class="meta-item"><strong>Slide Bài Giảng:</strong> <a href="{get_slide_filename(active_paper_idx)}" target="_blank" style="color: #2563eb; font-weight: 700; text-decoration: underline;">Tải Slide P{active_paper_idx + 1} ({get_slide_title(active_paper_idx)}) (PDF)</a></div>
         </div>
       </header>
@@ -811,6 +816,15 @@ def get_pdf_filename(idx):
         2: "paper_2_Automated Invoice Data Extraction_Using LLM and OCR.pdf",
         3: "paper_3_Fake Invoices and Receipts in Accounting_Impacts and Mitigation in the Age of Gen-AI.pdf",
         4: "paper_4_The Impact of AI-Integrated Drone Technology and Big Data on External Auditing Performance.pdf"
+    }
+    return mapping.get(idx, "")
+
+def get_video_filename(idx):
+    mapping = {
+        1: "../videos/P2_paper_1_Computer_Vision_in_Accounting/index.html",
+        2: "../videos/P3_paper 2_AI_Trong_Kế_Toán_Và_Kiểm_Toán/index.html",
+        3: "../videos/P4_paper_3_AI_in_Accounting_and_Auditing/index.html",
+        4: "../videos/P5_paper_4_The_Digital_Audit_Revolution/index.html"
     }
     return mapping.get(idx, "")
 
