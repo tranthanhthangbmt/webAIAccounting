@@ -579,7 +579,7 @@
 
       <!-- Embedded Iframe -->
       <div class="slide-frame-container">
-        <iframe id="active-slide-frame" src="slides/P1_[Theory]_AI_in_Accounting_and_Auditing.pdf" class="slide-frame" title="Slide Viewer"></iframe>
+        <iframe id="active-slide-frame" src="slides/P1_%5BTheory%5D_AI_in_Accounting_and_Auditing.pdf" class="slide-frame" title="Slide Viewer"></iframe>
       </div>
 
       <!-- Slide Controls Bar -->
@@ -747,7 +747,7 @@
         <p class="module-desc">
           Kịch bản sư phạm 4 bước: Giải phẫu thuật toán InvoiceOCR (15 phút) $ightarrow$ Thảo luận nhóm bắt hóa đơn giả mạo (25 phút) $ightarrow$ Phân tích Case Study Drone kiểm toán (15 phút) $ightarrow$ Live Demo bóc tách hóa đơn GTGT Việt Nam (15 phút).
         </p>
-        <a href="conternt day03_papers.txt" target="_blank" class="module-link" style="color: #22d3ee; font-weight: 700;">
+        <a href="conternt%20day03_papers.txt" target="_blank" class="module-link" style="color: #22d3ee; font-weight: 700;">
           📄 Xem Chi Tiết Kịch Bản Giảng Dạy &rarr;
         </a>
       </div>
@@ -887,10 +887,10 @@
     };
 
     function loadSlide(pdfPath, title, desc, idx) {
-      document.getElementById('active-slide-frame').src = pdfPath;
+      document.getElementById('active-slide-frame').src = encodeURI(pdfPath);
       document.getElementById('slide-title-display').innerText = title;
       document.getElementById('slide-desc-display').innerText = desc;
-      document.getElementById('slide-download-link').href = pdfPath;
+      document.getElementById('slide-download-link').href = encodeURI(pdfPath);
       document.getElementById('slide-paper-link').href = slidePaperMapping[idx] || "papers/index.html";
 
       const videoInfo = slideVideoMapping[idx] || slideVideoMapping[1];

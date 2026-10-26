@@ -4,9 +4,9 @@
 * [🌟 Bài kiểm tra Giữa kỳ (Buổi 1-6) - Bản 2 (Tương tác trực quan)](docs/kiemtra_giuaky_v2.md)
 
 * 🚀 Chuyên Đề Nâng Cao (Extra Sessions)
-  * [Day 03 Extra: Thị giác Máy tính & Siêu tự động hóa (Slide P1-P5 + 4 Papers)](video/Day03_Extra/index.html)
-  * [Day 02 Extra: Học Sâu (Deep Learning) & 4 Bài Báo Quốc Tế](video/Day02_Extra/index.html)
-  * [Day 01 Extra: Học Máy (Machine Learning) & Video Bài Giảng](video/Day01_Extra/Videos/index.html)
+  * [Day 03 Extra: Thị giác Máy tính & Siêu tự động hóa (Slide P1-P5 + 4 Papers)](video/Day03_Extra/index.html ':target=_self')
+  * [Day 02 Extra: Học Sâu (Deep Learning) & 4 Bài Báo Quốc Tế](video/Day02_Extra/index.html ':target=_self')
+  * [Day 01 Extra: Học Máy (Machine Learning) & Video Bài Giảng](video/Day01_Extra/Videos/index.html ':target=_self')
 
 * Các buổi học (Lý thuyết & Thực hành)
   * [Buổi 1: What Accountants Need to Know](docs/buoi_01.md)
