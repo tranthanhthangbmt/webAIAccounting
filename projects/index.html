@@ -1,0 +1,1483 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dự Án Cuối Môn: 10 Đề Tài Hệ Chuyên Gia AI Kế Toán — Đại học Đông Á</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1a73e8;
+      --primary-dark: #1557b0;
+      --primary-light: #e8f0fe;
+      --accent-green: #0d9488;
+      --bg-page: #f8fafc;
+      --bg-card: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --radius: 12px;
+      --shadow: 0 4px 16px rgba(15, 23, 42, 0.06);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding-bottom: 60px;
+    }
+
+    .topbar {
+      background: #ffffff;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+    }
+
+    .topbar-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      color: var(--text-muted);
+      font-weight: 600;
+      font-size: 14px;
+      padding: 8px 14px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: #fff;
+      transition: all 0.2s;
+    }
+
+    .back-btn:hover {
+      color: var(--primary);
+      border-color: var(--primary);
+      background: var(--primary-light);
+    }
+
+    .selected-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #ecfdf5;
+      color: #065f46;
+      border: 1px solid #a7f3d0;
+      padding: 7px 14px;
+      border-radius: 999px;
+      font-size: 13.5px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 28px 20px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #1e3a8a 0%, #1a73e8 100%);
+      color: #fff;
+      border-radius: 16px;
+      padding: 28px 32px;
+      margin-bottom: 24px;
+      box-shadow: 0 10px 25px rgba(26, 115, 232, 0.2);
+    }
+
+    .hero h1 {
+      font-size: 26px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .hero p {
+      font-size: 15px;
+      opacity: 0.92;
+      max-width: 850px;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .hero-badge {
+      background: rgba(255, 255, 255, 0.16);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    /* Project Tabs Navigation */
+    .tabs-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .search-box {
+      flex: 1;
+      min-width: 240px;
+      max-width: 380px;
+      position: relative;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font-size: 14px;
+      outline: none;
+      background: #fff;
+    }
+
+    .search-box input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.12);
+    }
+
+    .project-tabs {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      margin-bottom: 20px;
+      scrollbar-width: thin;
+    }
+
+    .tab-btn {
+      flex: 0 0 auto;
+      padding: 10px 16px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: #fff;
+      color: var(--text-muted);
+      font-weight: 600;
+      font-size: 13.5px;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .tab-btn:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      background: #f8faff;
+    }
+
+    .tab-btn.active {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+      box-shadow: 0 4px 10px rgba(26, 115, 232, 0.25);
+    }
+
+    .tab-btn.chosen-tab {
+      border-color: #10b981;
+    }
+
+    /* Grid Overview (Tab 0) */
+    .grid-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+      gap: 18px;
+    }
+
+    .p-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .p-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--primary);
+    }
+
+    .p-card.is-selected {
+      border: 2px solid #10b981;
+      background: #f0fdf4;
+    }
+
+    .p-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .p-num {
+      background: var(--primary-light);
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 12.5px;
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+
+    .p-domain {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 600;
+      background: #f1f5f9;
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+
+    .p-card h3 {
+      font-size: 16.5px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text-main);
+    }
+
+    .p-card p {
+      font-size: 13.8px;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+
+    .p-card-pdfs {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-bottom: 14px;
+      font-size: 12.8px;
+    }
+
+    .p-card-pdfs div {
+      font-weight: 600;
+      color: #334155;
+      margin-bottom: 6px;
+    }
+
+    .p-card-pdfs a {
+      display: block;
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+      margin-top: 4px;
+      word-break: break-word;
+    }
+
+    .p-card-pdfs a:hover {
+      text-decoration: underline;
+    }
+
+    .p-card-actions {
+      display: flex;
+      gap: 8px;
+      margin-top: auto;
+    }
+
+    .btn {
+      padding: 9px 14px;
+      border-radius: 8px;
+      font-size: 13.5px;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid transparent;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+      flex: 1;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+    }
+
+    .btn-outline {
+      background: #fff;
+      border-color: var(--border);
+      color: var(--text-main);
+      flex: 1;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .btn-success {
+      background: #10b981;
+      color: #fff;
+      flex: 1;
+    }
+
+    .btn-success:hover {
+      background: #059669;
+    }
+
+    /* Project Detail View */
+    .detail-box {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .detail-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 16px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 22px;
+    }
+
+    .detail-title h2 {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-top: 6px;
+    }
+
+    .section-block {
+      margin-bottom: 24px;
+    }
+
+    .section-block h3 {
+      font-size: 16.5px;
+      font-weight: 700;
+      color: #1e3a8a;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .overview-banner {
+      background: #f8fafc;
+      border-left: 4px solid var(--primary);
+      padding: 16px 20px;
+      border-radius: 0 10px 10px 0;
+      font-size: 14.5px;
+      color: #1e293b;
+    }
+
+    .pdf-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 12px;
+    }
+
+    .pdf-item {
+      border: 1px solid #bfdbfe;
+      background: #eff6ff;
+      border-radius: 10px;
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .pdf-item-title {
+      font-weight: 700;
+      font-size: 14px;
+      color: #1e3a8a;
+    }
+
+    .pdf-item-note {
+      font-size: 13px;
+      color: #475569;
+    }
+
+    .pdf-item-btns {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .branches-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(440px, 1fr));
+      gap: 16px;
+    }
+
+    @media (max-width: 600px) {
+      .branches-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .branch-card {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px;
+      background: #fcfdff;
+    }
+
+    .branch-card h4 {
+      font-size: 15px;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 10px;
+      padding-bottom: 8px;
+      border-bottom: 1px dashed var(--border);
+    }
+
+    .branch-card ul {
+      padding-left: 18px;
+      font-size: 13.8px;
+      color: #334155;
+    }
+
+    .branch-card li {
+      margin-bottom: 8px;
+    }
+
+    .deliverable-box {
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+      border-radius: 12px;
+      padding: 18px 20px;
+      font-size: 14px;
+    }
+
+    .deliverable-box ul {
+      padding-left: 18px;
+      margin-top: 8px;
+    }
+
+    .deliverable-box li {
+      margin-bottom: 6px;
+    }
+
+    /* PDF Preview Container */
+    .pdf-preview-box {
+      margin-top: 16px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      display: none;
+    }
+
+    .pdf-preview-header {
+      background: #0f172a;
+      color: #fff;
+      padding: 10px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13.5px;
+      font-weight: 600;
+    }
+
+    .pdf-preview-box iframe {
+      width: 100%;
+      height: 75vh;
+      border: none;
+      display: block;
+    }
+
+    /* Modal Registration */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.55);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+      padding: 16px;
+    }
+
+    .modal {
+      background: #fff;
+      max-width: 520px;
+      width: 100%;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    .modal h3 {
+      font-size: 18px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .form-group {
+      margin-top: 12px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 4px;
+      color: #334155;
+    }
+
+    .form-group input, .form-group textarea {
+      width: 100%;
+      padding: 9px 12px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 14px;
+      font-family: inherit;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="topbar-left">
+      <a href="../index.html#/docs/duan_cuoimon" class="back-btn">⬅ Quay lại Trang Môn Học</a>
+      <span style="font-weight: 700; font-size: 15px; color: #1e3a8a;">🎯 Cổng Chọn Dự Án Cuối Môn (AI Kế Toán)</span>
+    </div>
+    <div id="selectedStatusBanner"></div>
+  </div>
+
+  <div class="container">
+    <div class="hero">
+      <h1>Thiết Kế 10 Đề Án Cuối Môn: Hệ Chuyên Gia AI Trong Kế Toán</h1>
+      <p>Mỗi nhóm sinh viên chọn <strong>01 trong 10 đề tài</strong> dưới đây để thực hiện trong 2 tháng (chiếm 50% điểm học phần). Đề án bao gồm: (1) Đọc & thuyết trình sách/bài báo khoa học gốc, (2) Thiết kế cơ sở tri thức & Prompt theo Cây tư duy (Tree of Thoughts) và quy trình MOSAIC, (3) Xây dựng Website Hệ chuyên gia bằng công cụ <strong>Antigravity</strong>.</p>
+      <div class="hero-badges">
+        <span class="hero-badge">📊 Trọng số: 50% Tổng điểm</span>
+        <span class="hero-badge">⏳ Thời lượng: 2 tháng</span>
+        <span class="hero-badge">🛠️ Công cụ Demo: Antigravity (No-Code Web)</span>
+        <span class="hero-badge">📚 Có sẵn Sách & PDF trong thư mục projects/</span>
+      </div>
+    </div>
+
+    <div class="tabs-header">
+      <div style="font-weight: 700; font-size: 15px; color: #334155;">Chọn nhanh theo Tab hoặc tìm kiếm đề tài:</div>
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="🔍 Tìm theo tên đề tài, TT200, thuế, gian lận, IFRS 16..." oninput="handleSearch(this.value)" />
+      </div>
+    </div>
+
+    <div class="project-tabs" id="projectTabsBar"></div>
+
+    <div id="mainContentArea"></div>
+  </div>
+
+  <!-- Modal Chọn Đề Tài -->
+  <div class="modal-backdrop" id="selectModal">
+    <div class="modal">
+      <h3 id="modalTitle">✅ Đăng ký Chọn Đề Tài</h3>
+      <p style="font-size: 13.5px; color: #475569;" id="modalSubtitle"></p>
+      <div class="form-group">
+        <label>Tên Nhóm / Số thứ tự Nhóm:</label>
+        <input type="text" id="regGroup" placeholder="VD: Nhóm 03 - Lớp KT24A" />
+      </div>
+      <div class="form-group">
+        <label>Danh sách Thành viên & MSSV:</label>
+        <textarea id="regMembers" rows="3" placeholder="1. Nguyễn Văn A - MSSV&#10;2. Trần Thị B - MSSV"></textarea>
+      </div>
+      <div class="form-group">
+        <label>Ý tưởng / Ghi chú phạm vi Demo dự kiến:</label>
+        <input type="text" id="regNote" placeholder="VD: Tập trung vào quy trình mua hàng và định khoản TT200" />
+      </div>
+      <div style="display:flex; gap:10px; margin-top:18px;">
+        <button class="btn btn-success" onclick="confirmSelection()">💾 Lưu Chọn & Sao Chép Phiếu Đăng Ký</button>
+        <button class="btn btn-outline" onclick="closeModal()">Đóng</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const PROJECTS = [
+      {
+        id: 1,
+        shortTab: "Chủ đề 1: Định khoản TT200",
+        title: "Chủ đề 1: Hệ chuyên gia Tư vấn Định khoản tự động & Phân loại giao dịch",
+        domain: "Kế toán Tài chính (TT200)",
+        demoBrief: "Website nhập thông tin hóa đơn (text), hệ thống tự động suy luận và đề xuất bút toán Nợ/Có dựa trên Thông tư 200/2014/TT-BTC kèm cơ sở pháp lý.",
+        overview: "Dự án yêu cầu sinh viên chuyển hóa các quy định phức tạp của Thông tư 200/2014/TT-BTC thành một 'Cố vấn Kế toán Ảo' trên nền tảng web. Thay vì phải tra cứu thủ công, người dùng chỉ cần nhập nội dung nghiệp vụ (ví dụ: 'Mua 2 laptop Dell cho phòng marketing giá 40 triệu thanh toán bằng chuyển khoản'), hệ thống sẽ tự động bóc tách thông tin và đề xuất bút toán (Nợ/Có) chính xác kèm theo cơ sở pháp lý.",
+        pdfs: [
+          {
+            title: "Sách: Artificial Intelligence in Accounting: Practical Applications (Cory Ng & John Alarcon)",
+            note: "Tập trung Chương 1 (What Accountants Need to Know) — Machine Reasoning & Expert Systems.",
+            url: "Project1_Artificial Intelligence in Accounting Practical Applications.pdf"
+          },
+          {
+            title: "Sách: ChatGPT and AI for Accountants (Scott Dell & Mfon Akpan)",
+            note: "Tập trung Chương 1 và Chương 12 (Sử dụng Generative AI và Plugins trong kế toán).",
+            url: "Project1B_ChatGPT_and_AI_for_Accountants_-_Scott_Dell_Mfon_Akpan.pdf"
+          }
+        ],
+        branches: [
+          {
+            name: "🎋 Nhánh 1: Khai thác Tri thức Học thuật (Xây dựng Knowledge Base)",
+            items: [
+              "Sách ChatGPT and AI for Accountants (Chương 1 & 12): Hiểu nguyên lý hoạt động của Generative AI trong kế toán và cách ứng dụng các Plugins để tự động hóa khâu ghi sổ (Bookkeeping).",
+              "Sách Artificial Intelligence in Accounting (Chương 1): Làm rõ sự khác biệt giữa tư duy lập luận của máy (Machine Reasoning) và trí tuệ con người, cũng như bản chất của Hệ chuyên gia dựa trên luật (Rules-based IF-THEN).",
+              "Đầu ra Nhánh 1: Báo cáo tóm tắt lý thuyết, giải thích được 'hộp đen' của thuật toán khi đọc hóa đơn và đối chiếu với Danh mục tài khoản (Chart of Accounts)."
+            ]
+          },
+          {
+            name: "🎋 Nhánh 2: Thiết kế 'Bộ não' bằng Kỹ thuật Prompt Engineering",
+            items: [
+              "Thiết lập Persona (Đóng vai): 'Hãy đóng vai một Kế toán trưởng với 15 năm kinh nghiệm tại Việt Nam, nắm rõ Thông tư 200/2014/TT-BTC. Nhiệm vụ của bạn là kiểm tra các nghiệp vụ kế toán, chỉ ra lỗi sai (nếu có) và hướng dẫn định khoản chính xác kèm trích dẫn pháp lý.'",
+              "Xử lý dữ liệu khuyết thiếu (Missing Data): Nếu thông tin hóa đơn bị mờ hoặc thiếu, tuyệt đối không tự bịa số liệu (Hallucination) mà trả về trạng thái '[CẦN KIỂM TRA LẠI]'.",
+              "Đầu ra Nhánh 2: Bộ quy tắc Prompt (Code of Conduct) hoàn chỉnh, được thử nghiệm đối kháng (Red-Teaming) bằng chứng từ sai."
+            ]
+          },
+          {
+            name: "🎋 Nhánh 3: Xây dựng Website Demo bằng Antigravity (No-Code)",
+            items: [
+              "Giao diện Đầu vào (Input): Textbox nhập mô tả nghiệp vụ/hóa đơn + Checkbox chọn Hình thức thanh toán (Tiền mặt/Chuyển khoản) và Hóa đơn GTGT.",
+              "Luồng xử lý (Process): Ghép Input của người dùng với 'Persona Kế toán trưởng' ở backend.",
+              "Giao diện Đầu ra (Output): Bảng 5 cột: (1) Diễn giải nghiệp vụ, (2) Tài khoản Nợ, (3) Tài khoản Có, (4) Số tiền, (5) Căn cứ pháp lý TT200 + Nút xuất CSV cho MISA/SAP."
+            ]
+          },
+          {
+            name: "🎋 Nhánh 4: Kiểm soát & Tư duy Phản biện (MOSAIC Framework)",
+            items: [
+              "Hoài nghi nghề nghiệp (Professional Skepticism): AI chỉ đưa ra 'Đề xuất bút toán', việc 'Duyệt (Approve)' cuối cùng thuộc về con người (Human-in-the-loop).",
+              "Cảnh báo bảo mật: Tuân thủ nguyên tắc Ẩn danh hóa dữ liệu (Anonymization) trước khi đưa lên hệ thống demo."
+            ]
+          }
+        ],
+        deliverables: [
+          "Báo cáo Đề án (Word/PDF): Quy trình phân tích MOSAIC, bộ Prompt đã thiết kế, lý thuyết từ sách và nhật ký khắc phục lỗi định khoản sai.",
+          "Sản phẩm Demo (Antigravity): Giảng viên sẽ test trực tiếp nghiệp vụ khó (VD: Mua TSCĐ có chi phí lắp đặt chạy thử) để xem hệ thống có gom đúng vào TK 211 hay không.",
+          "Slide Thuyết trình & Bảo vệ (15-20 phút): 5 phút lý thuyết sách + 10 phút Live Demo trên sân khấu + 5 phút Q&A phản biện."
+        ]
+      },
+      {
+        id: 2,
+        shortTab: "Chủ đề 2: Rủi ro KSNB (Fuzzy)",
+        title: "Chủ đề 2: Hệ chuyên gia Đánh giá Rủi ro Kiểm soát Nội bộ (Fuzzy-based)",
+        domain: "Kiểm soát Nội bộ (COSO)",
+        demoBrief: "Xây dựng hệ chuyên gia sử dụng logic mờ (Fuzzy logic) để chấm điểm rủi ro kiểm soát nội bộ chuẩn COSO trong quy trình thanh toán.",
+        overview: "Đề tài yêu cầu sinh viên xây dựng hệ thống đánh giá rủi ro trong quy trình thanh toán (hoặc mua hàng) dựa trên khung COSO, sử dụng Hệ chuyên gia dựa trên logic mờ (Fuzzy-based expert systems). Khác với hệ thống dựa trên luật cứng (Rules-based) chỉ có Đúng/Sai, logic mờ cho phép máy tính hiểu các trạng thái định tính như 'Rủi ro hơi cao', 'Kiểm soát tương đối tốt' để đưa ra điểm số rủi ro tổng hợp.",
+        pdfs: [
+          {
+            title: "Bài báo 1: Pathak, J. et al. (2005) — A fuzzy-based algorithm for auditors to detect elements of fraud in settled insurance claims",
+            note: "Nền tảng chuyển đổi biến ngôn ngữ (Linguistic variables) thành tập mờ (Fuzzy sets).",
+            url: "Project2_A fuzzy‐based algorithm for auditors to detect elements of fraud in settled insurance claims.pdf"
+          },
+          {
+            title: "Bài báo 2: Shan, R. et al. (2022) — The influence of accounting computer information processing technology on enterprise internal control",
+            note: "Đánh giá tác động của CNTT xử lý kế toán đến hệ thống kiểm soát nội bộ.",
+            url: "Project2B_The_influence_of_accounting_computer_information_p (1).pdf"
+          }
+        ],
+        branches: [
+          {
+            name: "🎋 Nhánh 1: Khai thác Tri thức Học thuật (Giải mã Bài báo Khoa học)",
+            items: [
+              "Nghiên cứu cơ chế Logic Mờ (Pathak et al., 2005): Cách chuyển đổi biến ngôn ngữ thành tập mờ và hàm liên thuộc (Membership function).",
+              "Đánh giá tác động Hệ thống thông tin (Shan et al., 2022): Ảnh hưởng của xử lý thông tin kế toán máy tính đến môi trường kiểm soát.",
+              "Đầu ra Nhánh 1: Báo cáo tóm tắt phương pháp của 2 bài báo và cách định lượng rủi ro kiểm soát thay cho checklist Có/Không truyền thống."
+            ]
+          },
+          {
+            name: "🎋 Nhánh 2: Mô hình hóa Tri thức (Ma trận Logic mờ chuẩn COSO)",
+            items: [
+              "Lựa chọn 3-5 chốt kiểm soát COSO: Phân nhiệm (Segregation of Duties), Phê duyệt chứng từ (Authorization), Đối chiếu 3 chiều.",
+              "Thiết lập Biến ngôn ngữ: VD Phân nhiệm (Lỏng lẻo 1-3đ | Chấp nhận được 4-7đ | Chặt chẽ 8-10đ); Lịch sử sai sót (Thường xuyên | Đôi khi | Hiếm khi).",
+              "Thiết lập Tập luật mờ (Fuzzy Rules): NẾU Phân nhiệm 'Lỏng lẻo' VÀ Sai sót 'Thường xuyên' THÌ Rủi ro 'Rất Cao'.",
+              "Đầu ra Nhánh 2: Bảng ma trận luật (Rule Matrix) trên Excel thể hiện mọi tổ hợp và điểm rủi ro."
+            ]
+          },
+          {
+            name: "🎋 Nhánh 3: Xây dựng Website Demo bằng Antigravity (Thực chiến No-Code)",
+            items: [
+              "Giao diện Đầu vào (Audit Questionnaire): Form khảo sát động dùng thanh trượt (Slider 1-10) đánh giá hiệu quả từng chốt kiểm soát.",
+              "Luồng xử lý: Đối chiếu giá trị thanh trượt với Ma trận luật mờ bằng cơ chế tính điểm trọng số hoặc cấu trúc IF-THEN.",
+              "Giao diện Đầu ra (Risk Dashboard): Điểm Rủi ro Kiểm soát (thang 100), Biểu đồ đồng hồ Xanh - Vàng - Đỏ, và văn bản đề xuất khắc phục tự động."
+            ]
+          },
+          {
+            name: "🎋 Nhánh 4: Đánh giá Rủi ro Công nghệ & Phản biện Học thuật",
+            items: [
+              "Giới hạn của Logic mờ: Phân tích tính chủ quan (bias) khi thiết lập trọng số và hàm liên thuộc.",
+              "Đạo đức nghề nghiệp: Hệ thống là công cụ hỗ trợ ra quyết định (DSS), kết luận cuối cùng thuộc về Professional Judgment của Kiểm toán viên."
+            ]
+          }
+        ],
+        deliverables: [
+          "Báo cáo Đề án (Word/PDF): Phân tích 2 bài báo (Pathak 2005 & Shan 2022) + Phụ lục Biến ngôn ngữ, Hàm liên thuộc và Tập luật mờ.",
+          "Sản phẩm Demo (Antigravity): Giảng viên nhập kịch bản cực đoan (kéo tất cả thanh trượt về mức rủi ro nhất) để kiểm tra cảnh báo của hệ thống.",
+          "Slide Thuyết trình & Bảo vệ (15-20 phút): 5p tóm tắt bài báo + 10p trình diễn Antigravity + 5p Q&A."
+        ]
+      },
+      {
+        id: 3,
+        shortTab: "Chủ đề 3: Phát hiện Gian lận",
+        title: "Chủ đề 3: Hệ chuyên gia Phát hiện Gian lận và Cảnh báo điểm dị thường (Anomaly Detection)",
+        domain: "Kiểm toán & Kế toán Điều tra",
+        demoBrief: "Website quét 100% giao dịch tài chính để tìm điểm bất thường (giao dịch ngày nghỉ, số tiền chẵn, sát ngưỡng phê duyệt) thay cho chọn mẫu thủ công.",
+        overview: "Dự án yêu cầu sinh viên chuyển đổi phương pháp kiểm toán truyền thống (kiểm tra chọn mẫu) sang kiểm toán toàn diện (100% dữ liệu) bằng Hệ chuyên gia phát hiện điểm dị thường (Anomaly Detection) trên web. Hệ thống tự động quét toàn bộ Sổ nhật ký chung để khoanh vùng các 'cờ đỏ' (red flags) như giao dịch vào ngày nghỉ lễ, số tiền chẵn bất thường, hoặc lệch thời gian.",
+        pdfs: [
+          {
+            title: "Sách: Artificial Intelligence for Audit, Forensic Accounting, and Valuation (Al Naqvi)",
+            note: "Tập trung Phần III & Chương 12 (Intelligent Automation of Fraud Detection).",
+            url: "Project3_Artificial intelligence for audit, forensic accounting, and valuation a strategic perspective.pdf"
+          }
+        ],
+        branches: [
+          {
+            name: "🎋 Nhánh 1: Khai thác Tri thức Học thuật (Nền tảng Kế toán Điều tra)",
+            items: [
+              "Tài liệu cốt lõi: Phần III và Chương 12 sách của Al Naqvi về tự động hóa thông minh trong phát hiện gian lận.",
+              "Chuyển đổi Hệ quy chiếu: Ưu thế của AI khi quét 100% dữ liệu lớn (Big Data) tìm Outliers trong vài giây so với chọn mẫu thủ công.",
+              "Đầu ra Nhánh 1: Báo cáo làm rõ khái niệm 'Điểm dị thường' (Anomaly) và phân biệt giữa Gian lận (Fraud) với Sai sót (Error)."
+            ]
+          },
+          {
+            name: "🎋 Nhánh 2: Mô hình hóa Tri thức (Thiết lập Bộ quy tắc 'Cờ đỏ')",
+            items: [
+              "Dị thường về thời gian: Giao dịch hạch toán vào nửa đêm, cuối tuần, hoặc ngày nghỉ lễ chính thức.",
+              "Dị thường về giá trị: Hóa đơn số tiền tròn chẵn hoặc giá trị nằm sát ngay dưới ngưỡng yêu cầu phê duyệt của Ban Giám đốc.",
+              "Dị thường về tần suất: Nhà cung cấp mới xuất hiện nhưng nhận hàng loạt thanh toán liên tục trong thời gian ngắn.",
+              "Đầu ra Nhánh 2: Bộ từ điển 'Cờ đỏ' (Red Flags Dictionary) được mã hóa thành điều kiện logic."
+            ]
+          },
+          {
+            name: "🎋 Nhánh 3: Xây dựng Website Demo bằng Antigravity (Thực chiến No-Code)",
+            items: [
+              "Giao diện Đầu vào: Upload file Excel/CSV chứa Sổ Nhật ký chung + Bảng điều khiển tùy chỉnh ngưỡng tiền lớn.",
+              "Luồng xử lý: Quét toàn bộ tập dữ liệu và áp dụng bộ lọc IF-THEN tìm các giao dịch trùng khớp kịch bản cờ đỏ.",
+              "Giao diện Đầu ra (Fraud Dashboard): Danh sách giao dịch bất thường bôi đỏ, thống kê tổng quan theo từng loại cờ đỏ và nút xuất báo cáo."
+            ]
+          },
+          {
+            name: "🎋 Nhánh 4: Kiểm soát & Tư duy Phản biện (Áp dụng MOSAIC)",
+            items: [
+              "Hoài nghi nghề nghiệp: Xử lý bài toán Cảnh báo giả (False Positives) — Kế toán viên phải đóng vai trò Reviewer kiểm tra chứng từ gốc.",
+              "Bảo mật dữ liệu: Ẩn danh hóa dữ liệu (Anonymization) trước khi đưa lên công cụ phân tích."
+            ]
+          }
+        ],
+        deliverables: [
+          "Báo cáo Đề án (Word/PDF): Lý thuyết từ sách Al Naqvi (Chương 12), bộ quy tắc Logic Rules và kết quả áp dụng quy trình MOSAIC.",
+          "Sản phẩm Demo (Antigravity): Giảng viên tải lên tệp dữ liệu giả định chứa sẵn lỗi cố ý (bút toán Chủ Nhật, hóa đơn số tiền chẵn) để kiểm thử.",
+          "Slide Thuyết trình & Bảo vệ (15-20 phút): 5p tổng quan kế toán điều tra + 10p Live Demo quét dữ liệu thô + 5p Q&A."
+        ]
+      },
+      {
+        id: 4,
+        shortTab: "Chủ đề 4: Đối soát 3 chiều",
+        title: "Chủ đề 4: Hệ chuyên gia Đối soát Chứng từ 3 chiều (3-Way Matching)",
+        domain: "Chu trình Mua hàng - Trả tiền (AP)",
+        demoBrief: "Website tự động đối chiếu dữ liệu giữa Đơn đặt hàng (PO), Phiếu nhập kho và Hóa đơn để phát hiện sai lệch trước khi duyệt chi.",
+        overview: "Đề tài yêu cầu sinh viên số hóa quy trình kiểm soát nội bộ cốt lõi trong chu trình Mua hàng - Trả tiền (Procure-to-Pay). Thay vì kế toán viên phải kẹp 3 loại chứng từ giấy (Đơn đặt hàng, Phiếu nhập kho, Hóa đơn tài chính) để dò từng dòng số lượng và đơn giá bằng mắt, hệ thống sẽ tự động thực hiện đối chiếu (3-Way Matching) để ngăn chặn thanh toán khống hoặc gian lận.",
+        pdfs: [
+          {
+            title: "Sách: Accounting AI: Automate Your Accounting Business (Charnelle Gibson)",
+            note: "Tập trung Chương 15 & Chương 16 (Tự động hóa quy trình kế toán & Accounts Payable).",
+            url: "Project4_Accounting_AI_-_Charnelle_Gibson.pdf"
+          }
+        ],
+        branches: [
+          {
+            name: "🎋 Nhánh 1: Khai thác Tri thức Học thuật (Quy trình AP & Tự động hóa)",
+            items: [
+              "Tài liệu cốt lõi: Chương 15 & 16 sách Accounting AI (Charnelle Gibson) và báo cáo thực tiễn về Invoice Matching của Medius Software.",
+              "Cơ chế Công nghệ: Kết hợp RPA (Robotic Process Automation) và AI để xử lý ngoại lệ trong Accounts Payable.",
+              "Đầu ra Nhánh 1: Sơ đồ quy trình (Flowchart) minh họa dòng chảy dữ liệu mua hàng - thanh toán và nút thắt đối chiếu thủ công."
+            ]
+          },
+          {
+            name: "🎋 Nhánh 2: Mô hình hóa Tri thức (Bộ quy tắc Đối chiếu & Dung sai)",
+            items: [
+              "Luật Đối chiếu: Đơn giá Hóa đơn vs. Đơn giá PO; Số lượng Hóa đơn vs. Số lượng thực nhận trên Phiếu nhập kho; Tổng tiền thanh toán.",
+              "Luật Dung sai (Tolerance Levels): Thiết lập ngưỡng chấp nhận (VD: cho phép chênh lệch làm tròn dưới 5.000 VNĐ hoặc phí vận chuyển dưới 1%).",
+              "Đầu ra Nhánh 2: Bảng đặc tả logic đối chiếu phân loại 3 kịch bản: Khớp hoàn toàn, Lệch trong dung sai, và Lệch trọng yếu."
+            ]
+          },
+          {
+            name: "🎋 Nhánh 3: Xây dựng Website Demo bằng Antigravity (Thực chiến No-Code)",
+            items: [
+              "Giao diện Đầu vào: 3 biểu mẫu hoặc khu vực tải dữ liệu của (1) Đơn đặt hàng PO, (2) Phiếu nhập kho, (3) Hóa đơn nhà cung cấp.",
+              "Luồng xử lý: Tự động đối chiếu mã hàng, số lượng, đơn giá, thuế suất giữa 3 nguồn chứng từ.",
+              "Giao diện Đầu ra (AP Dashboard): Trạng thái Xanh (Matched -> Đề xuất duyệt chi & sinh bút toán Nợ 331) hoặc Trạng thái Đỏ (Exception -> Cảnh báo chi tiết chênh lệch và đình chỉ thanh toán)."
+            ]
+          },
+          {
+            name: "🎋 Nhánh 4: Kiểm soát & Tư duy Phản biện (Quản lý Ngoại lệ)",
+            items: [
+              "Xử lý Ngoại lệ (80/20): Hệ thống giải quyết tự động 80% hóa đơn chuẩn, đẩy 20% ngoại lệ cho Kế toán trưởng phán đoán chuyên môn.",
+              "Đạo đức nghề nghiệp: Ngăn ngừa rủi ro thông đồng (Collusion) sửa dữ liệu đầu vào để đánh lừa hệ thống."
+            ]
+          }
+        ],
+        deliverables: [
+          "Báo cáo Đề án (Word/PDF): Tóm tắt lý thuyết Charnelle Gibson & Medius, sơ đồ Workflow và Bảng đặc tả logic dung sai.",
+          "Sản phẩm Demo (Antigravity): Giảng viên test 3 kịch bản: (1) Khớp hoàn toàn, (2) Lệch làm tròn 2.000đ, (3) Số lượng hóa đơn lớn hơn số lượng nhập kho.",
+          "Slide Thuyết trình & Bảo vệ (15-20 phút): 5p bài toán AP + 10p Live Demo bắt lỗi hóa đơn khống + 5p Q&A."
+        ]
+      },
+      {
+        id: 5,
+        shortTab: "Chủ đề 5: NLP Hợp đồng (IFRS 16)",
+        title: "Chủ đề 5: Hệ chuyên gia Đọc hiểu & Trích xuất Hợp đồng Kế toán (NLP)",
+        domain: "NLP & Chuẩn mực IFRS 16",
+        demoBrief: "Ứng dụng xử lý ngôn ngữ tự nhiên (NLP) để cảnh báo điều khoản phạt vi phạm và nhận diện phân loại thuê tài sản theo chuẩn mực IFRS 16.",
+        overview: "Dự án yêu cầu sinh viên xây dựng một 'Trợ lý Pháp lý - Kế toán' trên web. Thay vì kế toán viên phải đọc thủ công hợp đồng thuê tài sản dài 50 trang, hệ thống sử dụng Xử lý Ngôn ngữ Tự nhiên (NLP) để tự động bóc tách dữ liệu (thời hạn thuê, lãi suất, điều khoản phạt) và đánh giá xem hợp đồng đó có phải vốn hóa lên Bảng cân đối kế toán theo chuẩn mực IFRS 16 hay không.",
+        pdfs: [
+          {
+            title: "Tài liệu chuyên đề: Machine Reasoning, ML, DL & NLP in Accounting",
+            note: "Nền tảng Xử lý ngôn ngữ tự nhiên (NLP), Khai phá văn bản và ứng dụng trong Kế toán - Kiểm toán.",
+            url: "Project5_Machine_Reasoning_ML_DL_NLP_in_Accounting.pdf"
+          },
+          {
+            title: "Sách: Artificial Intelligence in Accounting: Practical Applications (Cory Ng & John Alarcon)",
+            note: "Tổng hợp nghiên cứu của Fisher et al. (2016) về NLP và Case Study KPMG IBM Watson cho chuẩn mực thuê tài sản IFRS 16 (Samuel, 2018).",
+            url: "Project1_Artificial Intelligence in Accounting Practical Applications.pdf"
+          }
+        ],
+        branches: [
+          {
+            name: "🎋 Nhánh 1: Khai thác Tri thức Học thuật (Giải mã NLP và IFRS 16)",
+            items: [
+              "Nghiên cứu cơ chế NLP (Fisher et al., 2016): Khai phá văn bản (Text Mining), trích xuất khái niệm từ dữ liệu hợp đồng phi cấu trúc.",
+              "Nghiên cứu Case Study KPMG & IBM Watson (Samuel, 2018): Ứng dụng AI phân loại hàng ngàn hợp đồng thuê tài sản theo chuẩn mực IFRS 16.",
+              "Đầu ra Nhánh 1: Báo cáo chỉ rõ cách NLP chuyển đổi văn bản pháp lý thành các trường dữ liệu kế toán có cấu trúc."
+            ]
+          },
+          {
+            name: "🎋 Nhánh 2: Mô hình hóa Tri thức (Bộ lọc Từ khóa & Cây quyết định IFRS 16)",
+            items: [
+              "Thiết lập Điểm neo từ khóa (Keyword Anchors): Bên cho thuê, Bên thuê, Giá trị hợp đồng, Thời hạn thuê, Phạt vi phạm, Chấm dứt trước hạn.",
+              "Thiết lập Động cơ Suy diễn IFRS 16 (Decision Tree): (1) Tài sản có xác định rõ không? (2) Bên thuê có hưởng phần lớn lợi ích kinh tế không? (3) Bên thuê có quyền chỉ đạo sử dụng tài sản không? (kèm kiểm tra thời hạn > 12 tháng).",
+              "Đầu ra Nhánh 2: Bộ Sổ tay Prompt (Prompt Book) kèm Cây quyết định phân loại IFRS 16."
+            ]
+          },
+          {
+            name: "🎋 Nhánh 3: Xây dựng Website Demo bằng Antigravity (Thực chiến No-Code)",
+            items: [
+              "Giao diện Đầu vào: Text Area lớn để copy/paste nội dung hợp đồng hoặc tải lên file văn bản.",
+              "Luồng xử lý: Đưa văn bản hợp đồng qua lõi LLM với bộ Prompt bóc tách cấu trúc.",
+              "Giao diện Đầu ra (Contract Insight Dashboard): Bảng tóm tắt thông tin, Cảnh báo đỏ (Highlight nguyên văn điều khoản phạt vi phạm), và Kết luận IFRS 16: ĐỀ XUẤT VỐN HÓA (Capitalize) hoặc GHI NHẬN CHI PHÍ TRONG KỲ (Expense)."
+            ]
+          },
+          {
+            name: "🎋 Nhánh 4: Kiểm soát & Tư duy Phản biện (Ranh giới Kế toán & Pháp chế)",
+            items: [
+              "Giới hạn của NLP: Phân tích trường hợp câu chữ hợp đồng đa nghĩa, lắt léo (Legalese).",
+              "Hiện tượng Ảo giác (Hallucination): Ngăn chặn nguy cơ AI tự bịa điều khoản phạt không có trong hợp đồng gốc."
+            ]
+          }
+        ],
+        deliverables: [
+          "Báo cáo Đề án (Word/PDF): Tổng hợp Fisher (2016) & Samuel (2018) cùng Cây quyết định phân loại thuê tài sản theo IFRS 16.",
+          "Sản phẩm Demo (Antigravity): Giảng viên dán đoạn hợp đồng có điều kiện gài bẫy (VD: thời hạn thuê 11 tháng nhưng có điều khoản gia hạn bắt buộc thêm 2 năm) để kiểm tra kết luận IFRS 16.",
+          "Slide Thuyết trình & Bảo vệ (15-20 phút): 5p bài toán đọc hợp đồng & NLP + 10p Live Demo bóc tách hợp đồng + 5p Q&A."
+        ]
+      },
+      {
+        id: 6,
+        shortTab: "Chủ đề 6: Dự báo Tài chính",
+        title: "Chủ đề 6: Hệ chuyên gia Dự báo Tài chính & Phân tích Chuỗi thời gian",
+        domain: "Kế toán Quản trị & Dự báo",
+        demoBrief: "Website cho phép nhập số liệu doanh thu lịch sử, hệ thống dự phóng các kịch bản dòng tiền (Lạc quan / Cơ sở / Bi quan) kèm khuyến nghị CFO.",
+        overview: "Dự án yêu cầu sinh viên xây dựng nền tảng phân tích tài chính tương lai trên web. Người dùng (CFO) nhập chuỗi dữ liệu doanh thu hoặc dòng tiền trong quá khứ (VD: 24-36 tháng). Hệ thống ứng dụng phân tích chuỗi thời gian (Time Series Analysis) để nhận diện tính chu kỳ, xu hướng, từ đó đưa ra 3 kịch bản dự phóng dòng tiền kèm đề xuất giải pháp tài chính (Prescriptive Analytics).",
+        pdfs: [
+          {
+            title: "Sách: Machine Learning in Accounting: Practical Guide with Examples (PhD. Ethan Blake)",
+            note: "Tập trung Chương 5 (Financial Forecasting and Predictive Analytics).",
+            url: "Project6_Machine_Learning_in_Accounting_-_Ethan_Blake_PhD.pdf"
+          }
+        ],
+        branches: [
+          {
+            name: "🎋 Nhánh 1: Khai thác Tri thức Học thuật (Phân tích Chuỗi thời gian)",
+            items: [
+              "Tài liệu cốt lõi: Chương 5 sách Machine Learning in Accounting của TS. Ethan Blake.",
+              "Hiểu 3 cấp độ phân tích: Descriptive (Chuyện gì đã xảy ra?) -> Predictive (Chuyện gì sắp xảy ra?) -> Prescriptive (Chúng ta nên làm gì?).",
+              "Đầu ra Nhánh 1: Báo cáo giải thích cơ chế bóc tách Tính mùa vụ (Seasonality) và Xu hướng (Trend) từ dữ liệu lịch sử."
+            ]
+          },
+          {
+            name: "🎋 Nhánh 2: Mô hình hóa Tri thức (Thiết kế Kịch bản Tài chính)",
+            items: [
+              "Thiết lập tham số vĩ mô: Tỷ lệ lạm phát, biến động lãi suất, tốc độ tăng chi phí.",
+              "Xây dựng 3 Kịch bản cốt lõi: Kịch bản Cơ sở (Base Case), Kịch bản Lạc quan (Optimistic), Kịch bản Bi quan (Pessimistic - xuất hiện dòng tiền âm).",
+              "Xây dựng Prompt Tư vấn CFO: Đề xuất 3 giải pháp tài chính cụ thể khi dự báo xuất hiện tháng thiếu hụt thanh khoản."
+            ]
+          },
+          {
+            name: "🎋 Nhánh 3: Xây dựng Website Demo bằng Antigravity (Thực chiến No-Code)",
+            items: [
+              "Giao diện Đầu vào: Upload file Excel dữ liệu doanh thu/chi phí lịch sử + Thanh trượt điều chỉnh Lạm phát, Lãi suất.",
+              "Luồng xử lý: Áp dụng mô hình chuỗi thời gian để ngoại suy 6-12 tháng tiếp theo theo 3 kịch bản.",
+              "Giao diện Đầu ra (Forecasting Dashboard): Đồ thị Line Chart 3 nhánh dự báo (Xanh - Vàng - Đỏ), Bảng Cảnh báo Thanh khoản và Hộp Tư vấn AI (AI Advisor Box)."
+            ]
+          },
+          {
+            name: "🎋 Nhánh 4: Kiểm soát & Tư duy Phản biện (Giới hạn của Dự báo)",
+            items: [
+              "Garbage In - Garbage Out: Dữ liệu lịch sử phải được làm sạch các khoản thu bất thường không lặp lại (như thanh lý TSCĐ) trước khi dự báo.",
+              "Thẩm định Chiến lược: Đánh giá tính khả thi của các khuyến nghị tài chính từ AI trong bối cảnh thực tế."
+            ]
+          }
+        ],
+        deliverables: [
+          "Báo cáo Đề án (Word/PDF): Lý thuyết chuỗi thời gian từ sách Ethan Blake (Chương 5) và thiết kế thông số 3 kịch bản tài chính.",
+          "Sản phẩm Demo (Antigravity): Giảng viên nhập chuỗi dữ liệu có tính mùa vụ cao (tăng đột biến vào Quý 3) để kiểm tra khả năng nhận diện chu kỳ.",
+          "Slide Thuyết trình & Bảo vệ (15-20 phút): 5p vai trò dự báo ngân sách + 10p Live Demo đóng vai CFO điều chỉnh tham số + 5p Q&A."
+        ]
+      },
+      {
+        id: 7,
+        shortTab: "Chủ đề 7: Tư vấn Thuế",
+        title: "Chủ đề 7: Hệ chuyên gia Tư vấn Thuế & Tuân thủ Pháp luật",
+        domain: "Kế toán Thuế & Pháp chế",
+        demoBrief: "Website đóng vai trò chuyên gia tư vấn thuế, nhận câu hỏi thực tế và đối chiếu với Luật Quản lý thuế / Thông tư 200 để liệt kê điều kiện khấu trừ hợp lệ.",
+        overview: "Dự án yêu cầu sinh viên xây dựng một 'Chuyên gia Thuế Ảo' trên nền tảng web. Người dùng đặt câu hỏi bằng ngôn ngữ tự nhiên về một nghiệp vụ phát sinh (ví dụ: 'Chi phí tổ chức team building cho nhân viên đi nghỉ mát có được tính vào chi phí hợp lý khi tính thuế TNDN không?'). Hệ thống tự động đối chiếu với Luật Thuế và Thông tư 200 để trả lời, liệt kê điều kiện khấu trừ và trích dẫn điều khoản pháp lý, đồng thời kiểm soát rủi ro ảo giác (Hallucination).",
+        pdfs: [
+          {
+            title: "Sách: Accounting AI: Automate Your Accounting Business (Charnelle Gibson)",
+            note: "Tập trung Chương 9 (AI-Based Tax Planning and Compliance) + Bài báo WSJ của Rubin (2020) 'AI comes to the tax code'.",
+            url: "Project7_Accounting_AI_-_Charnelle_Gibson.pdf"
+          }
+        ],
+        branches: [
+          {
+            name: "🎋 Nhánh 1: Khai thác Tri thức Học thuật (AI trong Kế toán Thuế)",
+            items: [
+              "Tài liệu cốt lõi: Chương 9 sách Accounting AI (Charnelle Gibson) và bài báo AI comes to the tax code (Rubin, 2020).",
+              "Đầu ra Nhánh 1: Báo cáo tổng quan về xu hướng TaxTech và khả năng đọc hiểu văn bản quy phạm pháp luật (Statutory interpretation) của AI."
+            ]
+          },
+          {
+            name: "🎋 Nhánh 2: Mô hình hóa Tri thức (Kỹ thuật Prompt 'Trói buộc' AI)",
+            items: [
+              "Thiết lập Persona & Ranh giới: Giải đáp thắc mắc về thuế TNDN, GTGT, TNCN dựa STRICTLY (hoàn toàn) trên văn bản luật hiện hành.",
+              "Chống Ảo giác thuật toán (Hallucination Mitigation): Nếu vượt ngoài dữ liệu luật, BẮT BUỘC trả lời đề nghị gửi công văn hỏi cơ quan Thuế, tuyệt đối không tự bịa điều luật.",
+              "Đầu ra Nhánh 2: Bộ Prompt kỷ luật thép kèm cấu trúc liệt kê điều kiện khấu trừ và trích dẫn điều khoản."
+            ]
+          },
+          {
+            name: "🎋 Nhánh 3: Xây dựng Website Demo bằng Antigravity (Thực chiến No-Code)",
+            items: [
+              "Giao diện Đầu vào: Khung nhập tình huống thực tế của doanh nghiệp + Dropdown chọn sắc thuế (TNDN, GTGT, TNCN, Quản lý Thuế).",
+              "Luồng xử lý: Truy xuất cơ sở tri thức văn bản luật kết hợp bộ Prompt kiểm soát nghiêm ngặt.",
+              "Giao diện Đầu ra (Tax Advice Panel): Kết luận trực diện (ĐƯỢC PHÉP / KHÔNG ĐƯỢC PHÉP / CÓ GIỚI HẠN TRẦN), Danh sách điều kiện đi kèm (Bullet points) và Cơ sở pháp lý."
+            ]
+          },
+          {
+            name: "🎋 Nhánh 4: Kiểm soát & Tư duy Phản biện (Đạo đức & Trách nhiệm Pháp lý)",
+            items: [
+              "Trách nhiệm giải trình (Accountability): Phân tích trách nhiệm pháp lý nếu doanh nghiệp kê khai sai theo gợi ý của AI.",
+              "Bảo mật dữ liệu: Ẩn danh hóa mã số thuế và thông tin nhạy cảm của doanh nghiệp trước khi tra cứu."
+            ]
+          }
+        ],
+        deliverables: [
+          "Báo cáo Đề án (Word/PDF): Tổng hợp Chương 9 sách Accounting AI & Rubin (2020), bảng kiểm thử tình huống thuế và giải pháp chống Hallucination.",
+          "Sản phẩm Demo (Antigravity): Giảng viên nhập tình huống nhiều bẫy (VD: Mua ô tô 9 chỗ ngồi trị giá 2,5 tỷ đồng cho Giám đốc) để kiểm tra mức trần khấu hao 1,6 tỷ đồng.",
+          "Slide Thuyết trình & Bảo vệ (15-20 phút): 5p bài toán tra cứu luật thuế + 10p Live Demo tư vấn thuế trực tiếp + 5p Q&A."
+        ]
+      },
+      {
+        id: 8,
+        shortTab: "Chủ đề 8: Chi phí Chuỗi cung ứng",
+        title: "Chủ đề 8: Hệ chuyên gia Phân tích Chi phí Chuỗi cung ứng & Vận hành",
+        domain: "Kế toán Chi phí & Logistics",
+        demoBrief: "Website tư vấn phân bổ chi phí, tính sản lượng đặt hàng kinh tế (EOQ), điểm đặt hàng lại (ROP) và tối ưu hóa logistics.",
+        overview: "Dự án yêu cầu sinh viên xây dựng hệ thống 'Tư vấn Quản trị Vận hành' trên nền tảng web. Người dùng nạp dữ liệu nhu cầu vật tư, chi phí đặt hàng, chi phí lưu kho và báo giá nhà cung cấp; hệ thống tự động tính toán mức đặt hàng tối ưu (EOQ), điểm đặt hàng lại (Reorder Point), cảnh báo tồn kho và đề xuất phương án logistics tối ưu nhất về mặt tài chính.",
+        pdfs: [
+          {
+            title: "Sách: Business Analytics: Solving Business Problems (Arul Mishra)",
+            note: "Tập trung Phần IV (Operations and Supply Chain Analytics) & Chương 11.",
+            url: "Project8_Business_Analytics_Solving_Business_Problems_-_Arul_Mishra.pdf"
+          }
+        ],
+        branches: [
+          {
+            name: "🎋 Nhánh 1: Khai thác Tri thức Học thuật (Tư duy Phân tích Vận hành)",
+            items: [
+              "Tài liệu cốt lõi: Sách Business Analytics: Solving Business Problems của Arul Mishra.",
+              "Hiểu các mô hình cốt lõi: Sự đánh đổi giữa Chi phí lưu kho (Holding cost) và Chi phí đặt hàng (Ordering cost); Kế toán chi phí dựa trên hoạt động (ABC Costing).",
+              "Đầu ra Nhánh 1: Báo cáo học thuật tóm tắt các biến số chi phí trọng yếu trong chuỗi cung ứng."
+            ]
+          },
+          {
+            name: "🎋 Nhánh 2: Mô hình hóa Tri thức (Động cơ Tính toán & Bộ quy tắc Tối ưu)",
+            items: [
+              "Động cơ Tính toán: Mã hóa công thức EOQ (Economic Order Quantity) và Điểm đặt hàng lại (Reorder Point - ROP) dựa trên Lead time và Safety Stock.",
+              "Thiết lập Prompt Tư vấn (Prescriptive Logic): Kết hợp các ngưỡng tồn kho và chi phí vận chuyển để sinh lời khuyên lựa chọn nhà cung cấp/phương thức vận tải.",
+              "Đầu ra Nhánh 2: Bản đồ logic (Logic Map) kết nối công thức kế toán quản trị với kịch bản tư vấn ngôn ngữ tự nhiên."
+            ]
+          },
+          {
+            name: "🎋 Nhánh 3: Xây dựng Website Demo bằng Antigravity (Thực chiến No-Code)",
+            items: [
+              "Giao diện Đầu vào: Nhập Nhu cầu dự kiến (Demand), Chi phí đặt hàng, Chi phí lưu kho/đơn vị, Lead time và bảng báo giá các nhà cung cấp.",
+              "Luồng xử lý: Tính toán chỉ tiêu tối ưu EOQ/ROP và nạp kết quả vào AI để sinh báo cáo tư vấn chiến lược.",
+              "Giao diện Đầu ra (Supply Chain Cost Dashboard): Chỉ báo định lượng EOQ & Tổng chi phí, Cảnh báo đỏ (Stockout / Dead stock) và Báo cáo đề xuất nhà cung cấp."
+            ]
+          },
+          {
+            name: "🎋 Nhánh 4: Kiểm soát & Tư duy Phản biện (MOSAIC & Rủi ro Đứt gãy)",
+            items: [
+              "Efficiency vs. Resilience: Cảnh báo rủi ro khi tối ưu chi phí cực đoan (tồn kho bằng 0 theo JIT) gặp đứt gãy chuỗi cung ứng.",
+              "Chi phí ẩn (Hidden Costs): Đánh giá các chi phí vô hình như uy tín khách hàng khi giao hàng trễ."
+            ]
+          }
+        ],
+        deliverables: [
+          "Báo cáo Đề án (Word/PDF): Lý thuyết từ sách Arul Mishra, sơ đồ logic EOQ/ABC Costing và phân tích 6 bước khung MOSAIC.",
+          "Sản phẩm Demo (Antigravity): Giảng viên tăng gấp đôi Chi phí lưu kho đầu vào để kiểm tra xem hệ thống có lập tức điều chỉnh giảm quy mô đơn hàng tối ưu hay không.",
+          "Slide Thuyết trình & Bảo vệ (15-20 phút): 5p kế toán quản trị chuỗi cung ứng + 10p Live Demo tối ưu chi phí + 5p Q&A."
+        ]
+      },
+      {
+        id: 9,
+        shortTab: "Chủ đề 9: Trợ lý ảo Thuyết minh BCTC",
+        title: "Chủ đề 9: Trợ lý ảo (Virtual Assistants) Lập Thuyết minh Báo cáo Tài chính",
+        domain: "Báo cáo Tài chính (VAS)",
+        demoBrief: "Website nhận dữ liệu Bảng Cân đối kế toán & BCKQKD, tự động phân tích biến động và sinh ra bản nháp Thuyết minh BCTC chuẩn VAS.",
+        overview: "Dự án yêu cầu sinh viên tạo ra ứng dụng Trợ lý Ảo (Virtual Assistant) chuyên trách soạn thảo thuyết minh tài chính. Người dùng cung cấp Bảng Cân đối Kế toán và Báo cáo Kết quả Kinh doanh rút gọn, hệ thống tự động tính toán chênh lệch, phân tích biến động và sinh ra Dàn ý / Bản nháp Thuyết minh Báo cáo Tài chính tuân thủ chuẩn mực Kế toán Việt Nam (VAS).",
+        pdfs: [
+          {
+            title: "Tài liệu chuyên đề: Communicating Accounting Results & Intelligent Virtual Assistants",
+            note: "Truyền thông kết quả phân tích kế toán & ứng dụng Trợ lý ảo theo nghiên cứu của Burns & Igou (2019) 'Alexa, write an audit opinion'.",
+            url: "Project9_Communicating_Accounting_Results_and_AI_Assistants.pdf"
+          },
+          {
+            title: "Sách: Artificial Intelligence in Accounting: Practical Applications (Cory Ng & John Alarcon)",
+            note: "Tổng hợp nghiên cứu Burns & Igou (2019) về Intelligent Virtual Assistants trong môi trường kế toán.",
+            url: "Project1_Artificial Intelligence in Accounting Practical Applications.pdf"
+          }
+        ],
+        branches: [
+          {
+            name: "🎋 Nhánh 1: Khai thác Tri thức Học thuật (Trợ lý Ảo trong Kế toán)",
+            items: [
+              "Tài liệu cốt lõi: Phân tích bài báo của Burns & Igou (2019) 'Alexa, write an audit opinion: Adopting intelligent virtual assistants in accounting workplaces'.",
+              "Bản chất công nghệ: Sự kết hợp giữa Quantitative AI (phân tích số liệu) và Generative AI (soạn thảo văn bản chuyên môn).",
+              "Đầu ra Nhánh 1: Báo cáo đánh giá tác động của Trợ lý Ảo đối với hiệu suất lập báo cáo tài chính."
+            ]
+          },
+          {
+            name: "🎋 Nhánh 2: Mô hình hóa Tri thức (Thiết kế Prompt 'Dịch' Số thành Chữ)",
+            items: [
+              "Thiết lập Persona: Kế toán trưởng dày dạn kinh nghiệm soạn thảo Thuyết minh BCTC chuẩn VAS.",
+              "Tinh chỉnh Giọng văn (Tone of Voice): Ngôn ngữ tài chính khách quan, trung lập; cấm dùng từ cảm thán chủ quan ('tuyệt vời', 'tồi tệ').",
+              "Luật cấu trúc: Nêu số kỳ này, số kỳ trước, tỷ lệ % thay đổi chính xác và 2-3 gợi ý nguyên nhân hợp lý để kế toán viên kiểm chứng."
+            ]
+          },
+          {
+            name: "🎋 Nhánh 3: Xây dựng Website Demo bằng Antigravity (Thực chiến No-Code)",
+            items: [
+              "Giao diện Đầu vào: Upload file Excel hoặc dán dữ liệu Bảng CĐKT và BCKQKD (Kỳ trước vs. Kỳ này).",
+              "Luồng xử lý: Bóc tách các khoản mục có biến động lớn, tính toán chính xác % thay đổi và đưa vào lõi LLM kèm bộ Prompt chuẩn VAS.",
+              "Giao diện Đầu ra (Virtual Assistant Panel): Bản nháp Thuyết minh BCTC đa tầng, khung Chat tiếp nối để yêu cầu giải thích sâu hơn và nút xuất file."
+            ]
+          },
+          {
+            name: "🎋 Nhánh 4: Kiểm soát & Tư duy Phản biện (Data Storytelling & Double-check)",
+            items: [
+              "Kiểm chứng chéo (Double-check): Ngăn chặn lỗi ảo giác toán học (tính sai %) và lỗi tự bịa nguyên nhân kinh doanh của AI.",
+              "Trách nhiệm giải trình: Kế toán trưởng và Ban Giám đốc chịu trách nhiệm pháp lý cuối cùng đối với bản Thuyết minh công bố."
+            ]
+          }
+        ],
+        deliverables: [
+          "Báo cáo Đề án (Word/PDF): Phân tích bài báo Burns & Igou (2019), cách tinh chỉnh Tone of Voice và nhật ký khắc phục lỗi Hallucination.",
+          "Sản phẩm Demo (Antigravity): Giảng viên nạp Bảng CĐKT có khoản mục 'Phải thu khách hàng' tăng vọt 200% để xem hệ thống có sinh đoạn cảnh báo rủi ro thu hồi công nợ hay không.",
+          "Slide Thuyết trình & Bảo vệ (15-20 phút): 5p lý thuyết Trợ lý ảo + 10p Live Demo sinh Thuyết minh BCTC + 5p Q&A."
+        ]
+      },
+      {
+        id: 10,
+        shortTab: "Chủ đề 10: Giám sát Mua sắm Công",
+        title: "Chủ đề 10: Hệ chuyên gia Giám sát & Phát hiện Tham nhũng trong Mua sắm Công",
+        domain: "Kiểm toán Nhà nước & Tài chính Công",
+        demoBrief: "Website áp dụng thuật toán/luật để quét hồ sơ dự thầu, hợp đồng mua sắm công nhằm phát hiện chia nhỏ gói thầu, thông thầu và nâng khống giá.",
+        overview: "Dự án yêu cầu sinh viên xây dựng một 'Hệ thống Thanh tra Ảo' trên nền tảng web. Thay vì kiểm tra hàng ngàn trang hồ sơ dự thầu và hợp đồng mua sắm công bằng mắt thường, hệ thống sử dụng thuật toán/luật kết hợp xử lý ngôn ngữ tự nhiên để tự động quét, đối chiếu chéo các báo giá và bóc tách các dấu hiệu trục lợi (thông thầu, chia nhỏ gói thầu, nâng khống giá trị).",
+        pdfs: [
+          {
+            title: "Sách 1: ChatGPT and AI for Accountants (Scott Dell & Mfon Akpan)",
+            note: "Tập trung Chương 5 — Case Study 4 (Tackling public sector corruption with AI-driven anomaly detection).",
+            url: "Project10_ChatGPT_and_AI_for_Accountants_-_Scott_Dell_Mfon_Akpan.pdf"
+          },
+          {
+            title: "Sách 2: Generative Artificial Intelligence in Finance (Pethuru Raj Chelliah)",
+            note: "Tập trung Chương 1 (Preserving financial stability — Giám sát an toàn hệ thống tài chính công).",
+            url: "Project10B_Generative_AI_in_Finance_-_Pethuru_Raj_Chelliah.pdf"
+          }
+        ],
+        branches: [
+          {
+            name: "🎋 Nhánh 1: Khai thác Tri thức Học thuật (Giải phẫu Case Study Chống Tham nhũng)",
+            items: [
+              "Sách ChatGPT and AI for Accountants (Case study 4): Học cách AI kiểm toán hợp đồng mua sắm công và phát hiện mạng lưới tham nhũng qua điểm bất thường.",
+              "Sách Generative AI in Finance (Chương 1): Góc nhìn vĩ mô về cách cơ quan quản lý dùng AI giám sát sự ổn định tài chính.",
+              "Đầu ra Nhánh 1: Báo cáo phân biệt kiểm toán khu vực tư nhân và kiểm toán khu vực công (bảo vệ ngân sách nhà nước)."
+            ]
+          },
+          {
+            name: "🎋 Nhánh 2: Mô hình hóa Tri thức (Thiết lập Bộ quy tắc 'Cờ đỏ' Mua sắm công)",
+            items: [
+              "Kịch bản 1 — Chia nhỏ gói thầu (Bid Splitting): Phát hiện nhiều hợp đồng giá trị nhỏ nằm sát dưới ngưỡng phải đấu thầu công khai cấp cho cùng 1 nhà cung cấp trong thời gian ngắn.",
+              "Kịch bản 2 — Thông thầu / Quân xanh quân đỏ (Bid Rigging): Quét các hồ sơ dự thầu cạnh tranh nhưng có chung lỗi chính tả, chung cấu trúc định dạng hoặc quy luật giá.",
+              "Kịch bản 3 — Nâng khống giá (Price Inflation): So sánh đơn giá hợp đồng với giá thị trường tham chiếu để phát hiện độ lệch chuẩn lớn."
+            ]
+          },
+          {
+            name: "🎋 Nhánh 3: Xây dựng Website Demo bằng Antigravity (Thực chiến No-Code)",
+            items: [
+              "Giao diện Đầu vào: Upload/nhập dữ liệu Hồ sơ mời thầu, 3 bảng báo giá của 3 nhà thầu cạnh tranh và Hợp đồng kinh tế.",
+              "Luồng xử lý: Kết hợp bộ lọc định lượng (kiểm tra chia nhỏ gói thầu & nâng giá) với NLP (đo độ tương đồng văn bản giữa các báo giá).",
+              "Giao diện Đầu ra (Anti-Corruption Dashboard): Thanh đo lường rủi ro gói thầu (Risk Meter 0-100) và Báo cáo cảnh báo bất thường chi tiết."
+            ]
+          },
+          {
+            name: "🎋 Nhánh 4: Kiểm soát & Tư duy Phản biện (Cảnh báo vs. Kết luận Thanh tra)",
+            items: [
+              "Nguyên tắc Suy đoán vô tội: AI chỉ phát hiện 'điểm dị thường' (Anomaly Detection), Thanh tra viên/Kiểm toán viên phải trực tiếp xác minh bằng chứng pháp lý.",
+              "Thiên kiến thuật toán (Algorithmic Bias): Tránh báo động giả gây bất lợi cho các doanh nghiệp SME mới tham gia đấu thầu."
+            ]
+          }
+        ],
+        deliverables: [
+          "Báo cáo Đề án (Word/PDF): Tổng hợp Case Study 4 (Scott Dell) & Chương 1 (Chelliah), sơ đồ luồng dữ liệu phát hiện thông thầu và nguyên tắc đạo đức.",
+          "Sản phẩm Demo (Antigravity): Giảng viên tải lên 3 bảng báo giá dàn xếp (có cùng lỗi sai chính tả ở một từ khóa chuyên ngành) để kiểm tra cảnh báo thông thầu.",
+          "Slide Thuyết trình & Bảo vệ (15-20 phút): 5p bài toán mua sắm công + 10p Live Demo phát hiện chia nhỏ gói thầu & thông thầu + 5p Q&A."
+        ]
+      }
+    ];
+
+    let activeTab = 0; // 0 = All grid, 1..10 = Project detail
+    let searchQuery = "";
+    let pendingProjectId = null;
+
+    function getSavedChoice() {
+      try {
+        const raw = localStorage.getItem("uda_ai_acc_selected_project");
+        return raw ? JSON.parse(raw) : null;
+      } catch (e) {
+        return null;
+      }
+    }
+
+    function renderSelectedBanner() {
+      const saved = getSavedChoice();
+      const el = document.getElementById("selectedStatusBanner");
+      if (!saved) {
+        el.innerHTML = `<span style="font-size:13px;color:#64748b;">Chưa chọn đề tài nào — Hãy xem và nhấn <b>"Chọn Đề tài này"</b></span>`;
+        return;
+      }
+      el.innerHTML = `
+        <div class="selected-badge" onclick="switchTab(${saved.projectId})" title="Nhấn để xem đề tài đã chọn">
+          ✅ Đã chọn: <strong>Chủ đề ${saved.projectId}</strong> (${saved.group || 'Nhóm SV'})
+          <button onclick="event.stopPropagation(); copySavedRegistration();" style="background:#059669;color:#fff;border:none;border-radius:6px;padding:3px 8px;font-size:12px;cursor:pointer;font-weight:600;">📋 Copy Phiếu</button>
+        </div>
+      `;
+    }
+
+    function renderTabsBar() {
+      const saved = getSavedChoice();
+      const bar = document.getElementById("projectTabsBar");
+      let html = `
+        <button class="tab-btn ${activeTab === 0 ? 'active' : ''}" onclick="switchTab(0)">
+          📋 Tất cả 10 Đề tài (${PROJECTS.length})
+        </button>
+      `;
+      PROJECTS.forEach(p => {
+        const isChosen = saved && saved.projectId === p.id;
+        html += `
+          <button class="tab-btn ${activeTab === p.id ? 'active' : ''} ${isChosen ? 'chosen-tab' : ''}" onclick="switchTab(${p.id})">
+            ${isChosen ? '✅ ' : ''}${p.shortTab}
+          </button>
+        `;
+      });
+      bar.innerHTML = html;
+    }
+
+    function switchTab(tabId) {
+      activeTab = tabId;
+      renderTabsBar();
+      renderMainContent();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function handleSearch(val) {
+      searchQuery = val.trim().toLowerCase();
+      if (activeTab !== 0) {
+        activeTab = 0;
+        renderTabsBar();
+      }
+      renderMainContent();
+    }
+
+    function previewPdf(url, title) {
+      const box = document.getElementById("pdfPreviewContainer");
+      const frame = document.getElementById("pdfPreviewFrame");
+      const label = document.getElementById("pdfPreviewTitle");
+      if (box && frame && label) {
+        label.textContent = "📖 Đang xem: " + title;
+        frame.src = encodeURI(url);
+        box.style.display = "block";
+        box.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+
+    function closePdfPreview() {
+      const box = document.getElementById("pdfPreviewContainer");
+      const frame = document.getElementById("pdfPreviewFrame");
+      if (box && frame) {
+        frame.src = "";
+        box.style.display = "none";
+      }
+    }
+
+    function renderMainContent() {
+      const container = document.getElementById("mainContentArea");
+      const saved = getSavedChoice();
+
+      if (activeTab === 0) {
+        const filtered = PROJECTS.filter(p => {
+          if (!searchQuery) return true;
+          const hay = (p.title + " " + p.domain + " " + p.demoBrief + " " + p.overview).toLowerCase();
+          return hay.includes(searchQuery);
+        });
+
+        if (filtered.length === 0) {
+          container.innerHTML = `<div style="padding:40px;text-align:center;background:#fff;border-radius:12px;border:1px solid #e2e8f0;">Không tìm thấy đề tài nào khớp với từ khóa "<b>${searchQuery}</b>".</div>`;
+          return;
+        }
+
+        let cardsHtml = `<div class="grid-cards">`;
+        filtered.forEach(p => {
+          const isSelected = saved && saved.projectId === p.id;
+          const pdfLinks = p.pdfs.map(pdf => `<a href="${encodeURI(pdf.url)}" target="_blank">📄 ${pdf.title}</a>`).join("");
+          cardsHtml += `
+            <div class="p-card ${isSelected ? 'is-selected' : ''}">
+              <div>
+                <div class="p-card-top">
+                  <span class="p-num">ĐỀ TÀI #${p.id < 10 ? '0' + p.id : p.id}</span>
+                  <span class="p-domain">${p.domain}</span>
+                </div>
+                <h3>${p.title}</h3>
+                <p><strong>💡 Mô tả Demo (Antigravity):</strong> ${p.demoBrief}</p>
+                <div class="p-card-pdfs">
+                  <div>📚 Sách & PDF tương ứng (${p.pdfs.length} file):</div>
+                  ${pdfLinks}
+                </div>
+              </div>
+              <div class="p-card-actions">
+                <button class="btn btn-outline" onclick="switchTab(${p.id})">🔍 Xem Chi Tiết 4 Nhánh</button>
+                <button class="btn ${isSelected ? 'btn-success' : 'btn-primary'}" onclick="openSelectModal(${p.id})">
+                  ${isSelected ? '✅ Đã Chọn (Sửa)' : '✋ Chọn Đề Tài Này'}
+                </button>
+              </div>
+            </div>
+          `;
+        });
+        cardsHtml += `</div>`;
+        container.innerHTML = cardsHtml;
+        return;
+      }
+
+      // Detail View for Project 1..10
+      const p = PROJECTS.find(item => item.id === activeTab);
+      if (!p) return;
+      const isSelected = saved && saved.projectId === p.id;
+
+      const pdfCardsHtml = p.pdfs.map(pdf => `
+        <div class="pdf-item">
+          <div>
+            <div class="pdf-item-title">📘 ${pdf.title}</div>
+            <div class="pdf-item-note" style="margin-top:4px;">${pdf.note}</div>
+          </div>
+          <div class="pdf-item-btns">
+            <button class="btn btn-primary" style="flex:0 0 auto;padding:7px 12px;font-size:12.5px;" onclick="previewPdf('${pdf.url.replace(/'/g, "\\'")}', '${pdf.title.replace(/'/g, "\\'")}')">
+              👁️ Xem PDF Ngay Trên Trang
+            </button>
+            <a class="btn btn-outline" style="flex:0 0 auto;padding:7px 12px;font-size:12.5px;" href="${encodeURI(pdf.url)}" target="_blank">
+              ↗ Mở Tab Mới / Tải Về
+            </a>
+          </div>
+        </div>
+      `).join("");
+
+      const branchesHtml = p.branches.map(b => `
+        <div class="branch-card">
+          <h4>${b.name}</h4>
+          <ul>
+            ${b.items.map(it => `<li>${it}</li>`).join("")}
+          </ul>
+        </div>
+      `).join("");
+
+      const deliverablesHtml = p.deliverables.map(d => `<li>${d}</li>`).join("");
+
+      container.innerHTML = `
+        <div class="detail-box">
+          <div class="detail-header">
+            <div class="detail-title">
+              <span class="p-num">ĐỀ TÀI SỐ ${p.id < 10 ? '0' + p.id : p.id}</span>
+              <span class="p-domain" style="margin-left:8px;">${p.domain}</span>
+              <h2>${p.title}</h2>
+            </div>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+              <button class="btn btn-outline" onclick="switchTab(0)">⬅ Danh sách 10 Đề tài</button>
+              <button class="btn ${isSelected ? 'btn-success' : 'btn-primary'}" onclick="openSelectModal(${p.id})">
+                ${isSelected ? '✅ Đã Chọn Đề Tài Này (Cập nhật)' : '✋ Chọn Đề Tài Này Cho Nhóm'}
+              </button>
+            </div>
+          </div>
+
+          <div class="section-block">
+            <h3>📌 1. Tổng quan Đề tài & Yêu cầu Sản phẩm Demo (Antigravity)</h3>
+            <div class="overview-banner">
+              <p style="margin-bottom:8px;"><strong>🎯 Bài toán cốt lõi:</strong> ${p.overview}</p>
+              <p><strong>💻 Mô tả Demo (Antigravity):</strong> ${p.demoBrief}</p>
+            </div>
+          </div>
+
+          <div class="section-block">
+            <h3>📚 2. Sách & Tài liệu PDF Tham khảo chính (Trong thư mục <code>projects/</code>)</h3>
+            <div class="pdf-list">
+              ${pdfCardsHtml}
+            </div>
+            <div class="pdf-preview-box" id="pdfPreviewContainer">
+              <div class="pdf-preview-header">
+                <span id="pdfPreviewTitle">Đang xem PDF</span>
+                <button onclick="closePdfPreview()" style="background:#ef4444;color:#fff;border:none;border-radius:6px;padding:4px 10px;cursor:pointer;font-weight:600;">✖ Đóng khung xem PDF</button>
+              </div>
+              <iframe id="pdfPreviewFrame" src=""></iframe>
+            </div>
+          </div>
+
+          <div class="section-block">
+            <h3>🌳 3. Phân rã Cây Tư Duy (Tree of Thoughts) — 4 Nhánh Hướng dẫn Thực hiện</h3>
+            <div class="branches-grid">
+              ${branchesHtml}
+            </div>
+          </div>
+
+          <div class="section-block" style="margin-bottom:0;">
+            <h3>✅ 4. Tiêu chuẩn Nộp bài (Deliverables) & Kịch bản Giảng viên Kiểm thử</h3>
+            <div class="deliverable-box">
+              <strong>Các hạng mục nhóm cần hoàn thành sau 2 tháng (50% tổng điểm):</strong>
+              <ul>
+                ${deliverablesHtml}
+              </ul>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function openSelectModal(projectId) {
+      pendingProjectId = projectId;
+      const p = PROJECTS.find(item => item.id === projectId);
+      const saved = getSavedChoice();
+      document.getElementById("modalTitle").textContent = "✋ Đăng ký Chọn: Chủ đề " + p.id;
+      document.getElementById("modalSubtitle").textContent = p.title;
+      if (saved) {
+        document.getElementById("regGroup").value = saved.group || "";
+        document.getElementById("regMembers").value = saved.members || "";
+        document.getElementById("regNote").value = saved.note || "";
+      }
+      document.getElementById("selectModal").style.display = "flex";
+    }
+
+    function closeModal() {
+      document.getElementById("selectModal").style.display = "none";
+    }
+
+    function buildRegistrationText(data) {
+      const p = PROJECTS.find(item => item.id === data.projectId);
+      return [
+        "=== PHIẾU ĐĂNG KÝ ĐỀ ÁN CUỐI MÔN AI KẾ TOÁN ===",
+        `- Đề tài đăng ký: ${p ? p.title : 'Chủ đề ' + data.projectId}`,
+        `- Lĩnh vực: ${p ? p.domain : ''}`,
+        `- Nhóm / Lớp: ${data.group || '(Chưa nhập)'}`,
+        `- Thành viên:\n${data.members || '(Chưa nhập)'}`,
+        `- Ghi chú Demo Antigravity: ${data.note || p.demoBrief}`
+      ].join("\n");
+    }
+
+    function confirmSelection() {
+      if (!pendingProjectId) return;
+      const data = {
+        projectId: pendingProjectId,
+        group: document.getElementById("regGroup").value.trim(),
+        members: document.getElementById("regMembers").value.trim(),
+        note: document.getElementById("regNote").value.trim(),
+        updatedAt: new Date().toISOString()
+      };
+      localStorage.setItem("uda_ai_acc_selected_project", JSON.stringify(data));
+      const text = buildRegistrationText(data);
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).catch(() => {});
+      }
+      closeModal();
+      renderSelectedBanner();
+      renderTabsBar();
+      renderMainContent();
+      alert("Đã lưu lựa chọn 'Chủ đề " + data.projectId + "' và sao chép thông tin đăng ký vào bộ nhớ tạm (Clipboard)! Bạn có thể dán gửi cho Giảng viên.");
+    }
+
+    function copySavedRegistration() {
+      const saved = getSavedChoice();
+      if (!saved) return;
+      const text = buildRegistrationText(saved);
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => {
+          alert("Đã sao chép phiếu đăng ký đề tài vào Clipboard!");
+        });
+      }
+    }
+
+    // Initialize
+    renderSelectedBanner();
+    renderTabsBar();
+    renderMainContent();
+  </script>
+</body>
+</html>
+

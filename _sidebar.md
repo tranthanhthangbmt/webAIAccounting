@@ -2,6 +2,7 @@
 * [Đề cương học phần](TaiLieu/Đề_cương_AI_trong_Kế_toán.pdf)
 * [📝 Bài kiểm tra Giữa kỳ (Buổi 1-6) - Bản 1 (Trắc nghiệm chuẩn)](docs/kiemtra_giuaky.md)
 * [🌟 Bài kiểm tra Giữa kỳ (Buổi 1-6) - Bản 2 (Tương tác trực quan)](docs/kiemtra_giuaky_v2.md)
+* [🎯 Dự án Cuối môn (10 Đề tài AI Kế toán)](docs/duan_cuoimon.md)
 
 * 🚀 Chuyên Đề Nâng Cao (Extra Sessions)
   * [Day 03 Extra: Thị giác Máy tính & Siêu tự động hóa (Slide P1-P5 + 4 Papers)](video/Day03_Extra/index.html ':target=_self')
