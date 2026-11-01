@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>AuditCopilot: Khai Phóng Sức Mạnh Mô Hình Ngôn Ngữ Lớn Để Phát Hiện Gian Lận Trong Bút Toán Kép — Bản Dịch Học Thuật Toàn Văn Tiếng Việt (UDA)</title>
+  <meta name="description" content="Bản dịch tiếng Việt học thuật toàn văn công trình nghiên cứu: AuditCopilot: Leveraging Large Language Models for Fraud Detection in Double-Entry Bookkeeping (Md Abdul Kadir, Sai Suresh Macharla Vasu, Sidharth S. Nair, Daniel Sonntag (DFKI - German Research Center for Artificial Intelligence, Univ. of Oldenburg, Saarland Univ., cố vấn từ DATEV eG)). Tích hợp số liệu thực nghiệm, chuỗi tư duy CoT/ToT và phân tích nghiệp vụ kế toán kiểm toán chuyên sâu." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-body: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-sidebar: #0f172a;
+      --sidebar-text: #e2e8f0;
+      --sidebar-muted: #94a3b8;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --primary: #2563eb;
+      --primary-light: #eff6ff;
+      --primary-border: #bfdbfe;
+      --accent: #0ea5e9;
+      --accent-violet: #8b5cf6;
+      --accent-emerald: #10b981;
+      --accent-amber: #f59e0b;
+      --accent-rose: #f43f5e;
+      --border-color: #e2e8f0;
+      --code-bg: #1e293b;
+      --code-text: #f1f5f9;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+      --content-font-size: 1.05rem;
+      --line-height: 1.85;
+      --radius-md: 12px;
+      --radius-sm: 8px;
+    }
+
+    [data-theme="dark"] {
+      --bg-body: #0b0f19;
+      --bg-surface: #131b2e;
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --primary: #3b82f6;
+      --primary-light: rgba(59, 130, 246, 0.15);
+      --primary-border: rgba(59, 130, 246, 0.35);
+      --border-color: #1e293b;
+      --code-bg: #090d16;
+      --code-text: #e2e8f0;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.4);
+      --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.5);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg-body);
+      color: var(--text-main);
+      line-height: 1.6;
+      display: flex;
+      min-height: 100vh;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* Sidebar Navigation */
+    .sidebar {
+      width: 320px;
+      background: var(--bg-sidebar);
+      color: var(--sidebar-text);
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      z-index: 100;
+      overflow-y: auto;
+      border-right: 1px solid rgba(255, 255, 255, 0.08);
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .sidebar-header {
+      padding: 24px 20px 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .sidebar-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .brand-logo {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+    }
+
+    .brand-info h1 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      line-height: 1.2;
+      color: #fff;
+    }
+
+    .brand-info span {
+      font-size: 0.75rem;
+      color: var(--sidebar-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .sidebar-nav {
+      padding: 16px 12px;
+      flex: 1;
+    }
+
+    .nav-group-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--sidebar-muted);
+      padding: 8px 12px 6px;
+      margin-top: 12px;
+    }
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: var(--radius-sm);
+      color: #cbd5e1;
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      transition: all 0.2s;
+      margin-bottom: 2px;
+    }
+
+    .nav-item:hover {
+      background: rgba(255, 255, 255, 0.06);
+      color: #fff;
+    }
+
+    .nav-item.active {
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.25) 0%, rgba(139, 92, 246, 0.25) 100%);
+      color: #93c5fd;
+      font-weight: 600;
+      border-left: 3px solid #3b82f6;
+    }
+
+    .nav-badge {
+      margin-left: auto;
+      font-size: 0.7rem;
+      padding: 2px 7px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--sidebar-muted);
+    }
+
+    .nav-item.active .nav-badge {
+      background: rgba(59, 130, 246, 0.4);
+      color: #fff;
+    }
+
+    /* Main Content Wrapper */
+    .main-wrapper {
+      margin-left: 320px;
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Top Sticky Bar */
+    .topbar {
+      height: 64px;
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 90;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .topbar-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.4rem;
+      color: var(--text-main);
+      cursor: pointer;
+      padding: 6px;
+    }
+
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .breadcrumb a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .topbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s;
+      border: 1px solid transparent;
+    }
+
+    .btn-secondary {
+      background: var(--bg-body);
+      border-color: var(--border-color);
+      color: var(--text-main);
+    }
+
+    .btn-secondary:hover {
+      background: var(--primary-light);
+      border-color: var(--primary-border);
+      color: var(--primary);
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+
+    .theme-toggle {
+      background: var(--bg-body);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: all 0.2s;
+    }
+
+    .theme-toggle:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    /* Article Container */
+    .article-container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 40px 32px 80px;
+      width: 100%;
+    }
+
+    .paper-header {
+      margin-bottom: 36px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .paper-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(139, 92, 246, 0.15) 100%);
+      color: var(--primary);
+      border: 1px solid var(--primary-border);
+      margin-bottom: 16px;
+    }
+
+    .paper-title-vi {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.1rem;
+      font-weight: 800;
+      line-height: 1.25;
+      color: var(--text-main);
+      margin-bottom: 12px;
+    }
+
+    .paper-title-en {
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      line-height: 1.4;
+    }
+
+    .paper-meta {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 12px;
+      font-size: 0.85rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .meta-label {
+      font-weight: 700;
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .meta-value {
+      color: var(--text-main);
+      font-weight: 500;
+    }
+
+    /* Academic Prose Styling */
+    .paper-content {
+      font-family: 'Merriweather', Georgia, serif;
+      font-size: var(--content-font-size);
+      line-height: var(--line-height);
+      color: var(--text-main);
+    }
+
+    .paper-content p {
+      margin-bottom: 1.5rem;
+      text-align: justify;
+    }
+
+    .paper-content h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin: 44px 0 18px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--primary-light);
+      position: relative;
+    }
+
+    .paper-content h2::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 60px;
+      height: 2px;
+      background: var(--primary);
+    }
+
+    .paper-content h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin: 30px 0 14px;
+    }
+
+    .paper-content h4 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin: 22px 0 10px;
+    }
+
+    .paper-content ul, .paper-content ol {
+      margin: 0 0 1.5rem 1.8rem;
+    }
+
+    .paper-content li {
+      margin-bottom: 0.5rem;
+    }
+
+    .paper-content blockquote {
+      margin: 24px 0;
+      padding: 18px 24px;
+      background: var(--bg-surface);
+      border-left: 4px solid var(--primary);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      font-style: italic;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .paper-content table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 28px 0;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.88rem;
+      background: var(--bg-surface);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .paper-content th {
+      background: var(--primary-light);
+      color: var(--primary);
+      font-weight: 700;
+      text-align: left;
+      padding: 12px 16px;
+      border-bottom: 2px solid var(--primary-border);
+    }
+
+    .paper-content td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border-color);
+      vertical-align: top;
+    }
+
+    .paper-content tr:hover td {
+      background: rgba(59, 130, 246, 0.03);
+    }
+
+    .callout {
+      margin: 24px 0;
+      padding: 18px 22px;
+      border-radius: var(--radius-md);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.95rem;
+      display: flex;
+      gap: 14px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .callout-info {
+      background: rgba(59, 130, 246, 0.08);
+      border-left: 4px solid var(--primary);
+      color: var(--text-main);
+    }
+
+    .callout-success {
+      background: rgba(16, 185, 129, 0.08);
+      border-left: 4px solid var(--accent-emerald);
+      color: var(--text-main);
+    }
+
+    .callout-warning {
+      background: rgba(245, 158, 11, 0.08);
+      border-left: 4px solid var(--accent-amber);
+      color: var(--text-main);
+    }
+
+    .callout-danger {
+      background: rgba(244, 63, 94, 0.08);
+      border-left: 4px solid var(--accent-rose);
+      color: var(--text-main);
+    }
+
+    .callout-icon {
+      font-size: 1.3rem;
+      line-height: 1;
+    }
+
+    .figure-box {
+      margin: 32px 0;
+      padding: 16px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .figure-box img {
+      max-width: 100%;
+      height: auto;
+      border-radius: var(--radius-sm);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .figure-caption {
+      margin-top: 12px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    /* Footer Navigation */
+    .article-footer {
+      margin-top: 50px;
+      padding-top: 30px;
+      border-top: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .sidebar {
+        transform: translateX(-100%);
+      }
+      .sidebar.open {
+        transform: translateX(0);
+      }
+      .main-wrapper {
+        margin-left: 0;
+      }
+      .mobile-menu-btn {
+        display: block;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <a href="../index.html" class="sidebar-brand">
+        <div class="brand-logo">UDA</div>
+        <div class="brand-info">
+          <h1>Đại Học Đông Á</h1>
+          <span>Day 04 Extra • Khoa Học LLM</span>
+        </div>
+      </a>
+    </div>
+
+    <nav class="sidebar-nav">
+      <div class="nav-group-title">Cổng Chuyên Đề</div>
+      <a href="../index.html" class="nav-item">
+        <span>🏠</span>
+        <span>Cổng Tổng Hợp Day 04 Extra</span>
+      </a>
+      <a href="index.html" class="nav-item">
+        <span>📚</span>
+        <span>Thư Viện Bài Báo Khoa Học</span>
+      </a>
+
+      <div class="nav-group-title">2 Bài Báo Khoa Học (2024–2025)</div>
+      <a href="paper_1_Is_It_All_Hype_ChatGPT_Accounting_tiengviet.html" class="nav-item ">
+        <span>📄</span>
+        <span>Bài 1: Is It All Hype? (Eulerich 2024)</span>
+        <span class="nav-badge">RAST '24</span>
+      </a>
+      <a href="paper_2_AuditCopilot_LLM_Fraud_Detection_tiengviet.html" class="nav-item active">
+        <span>📄</span>
+        <span>Bài 2: AuditCopilot (DFKI 2025)</span>
+        <span class="nav-badge">DFKI '25</span>
+      </a>
+
+      <div class="nav-group-title">Bộ 3 Slide Bài Giảng Trực Quan</div>
+      <a href="../index.html#slide-viewer-section" class="nav-item">
+        <span>📊</span>
+        <span>Slide P1: Lý Thuyết Generative AI</span>
+        <span class="nav-badge">15 trang</span>
+      </a>
+      <a href="../index.html#slide-viewer-section" class="nav-item">
+        <span>📊</span>
+        <span>Slide P2: Is It All Hype? (Eulerich)</span>
+        <span class="nav-badge">15 trang</span>
+      </a>
+      <a href="../index.html#slide-viewer-section" class="nav-item">
+        <span>📊</span>
+        <span>Slide P3: AuditCopilot (DFKI)</span>
+        <span class="nav-badge">15 trang</span>
+      </a>
+
+      <div class="nav-group-title">Video & Kịch Bản Giảng Dạy</div>
+      <a href="../videos/P1_lý thuyết_Generative_AI_trong_Kế_toán_và_Kiểm_toán/index.html" class="nav-item">
+        <span>🎬</span>
+        <span>Trình Phát Video P1 (Lý Thuyết)</span>
+      </a>
+      <a href="../videos/P2_is it all hype_ChatGPT_in_Accounting/index.html" class="nav-item">
+        <span>🎬</span>
+        <span>Trình Phát Video P2 (Is It All Hype)</span>
+      </a>
+      <a href="../videos/P3_AuditCopilot_for_Audit_Fraud_Detection/index.html" class="nav-item">
+        <span>🎬</span>
+        <span>Trình Phát Video P3 (AuditCopilot)</span>
+      </a>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <div class="main-wrapper">
+    <header class="topbar">
+      <div class="topbar-left">
+        <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+        <div class="breadcrumb">
+          <a href="../../../index.html">Trang chủ</a>
+          <span>›</span>
+          <a href="../index.html">Day 04 Extra</a>
+          <span>›</span>
+          <a href="index.html">Bài Báo Khoa Học</a>
+          <span>›</span>
+          <span>Bài 2</span>
+        </div>
+      </div>
+
+      <div class="topbar-actions">
+        <button class="theme-toggle" id="themeToggle" title="Đổi giao diện Sáng / Tối">🌙</button>
+        <a href="../index.html" class="btn btn-secondary">🏠 Cổng Day 04</a>
+        <a href="index.html" class="btn btn-primary">📚 Thư Viện Bài Báo</a>
+      </div>
+    </header>
+
+    <article class="article-container">
+      <div class="paper-header">
+        <span class="paper-badge">Paper 2 • DFKI & DATEV Landmark (2025)</span>
+        <h1 class="paper-title-vi">AuditCopilot: Khai Phóng Sức Mạnh Mô Hình Ngôn Ngữ Lớn Để Phát Hiện Gian Lận Trong Bút Toán Kép</h1>
+        <div class="paper-title-en">AuditCopilot: Leveraging Large Language Models for Fraud Detection in Double-Entry Bookkeeping</div>
+        <div class="paper-meta">
+          <div class="meta-item">
+            <span class="meta-label">Nhóm Tác Giả:</span>
+            <span class="meta-value">Md Abdul Kadir, Sai Suresh Macharla Vasu, Sidharth S. Nair, Daniel Sonntag (DFKI - German Research Center for Artificial Intelligence, Univ. of Oldenburg, Saarland Univ., cố vấn từ DATEV eG)</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Công Bố Tại:</span>
+            <span class="meta-value">DFKI Technical Report & Applied AI in Accounting (Đức) — Xuất bản Tháng 2/2025</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Định Danh / Bản Quyền:</span>
+            <span class="meta-value">Hỗ trợ tài trợ: Bộ Giáo dục & Nghiên cứu Liên bang Đức (BMBF 01IW24006) — Open Access CC BY 4.0</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="paper-content">
+        
+    <h2>Tóm Tắt Nghiên Cứu (Abstract)</h2>
+    <p>Các kiểm toán viên tài chính và cơ quan thuế trên toàn thế giới phụ thuộc rất lớn vào các thử nghiệm kiểm tra bút toán nhật ký (<strong>Journal Entry Tests - JETs</strong>) để phát hiện các giao dịch bất thường trong sổ cái kế toán. Tuy nhiên, các phương pháp dựa trên quy tắc truyền thống này tạo ra <strong>số lượng cảnh báo giả (False Positives) khổng lồ</strong>, nhấn chìm kiểm toán viên trong biển thông tin nhiễu và dễ dàng bỏ lọt các sai phạm tinh vi.</p>
+
+    <p>Trong công trình nghiên cứu tiên phong này công bố năm 2025, nhóm tác giả từ Trung tâm Nghiên cứu Trí tuệ Nhân tạo Đức (DFKI) và Đại học Oldenburg, với sự bảo trợ của Tập đoàn phần mềm kế toán DATEV eG, đã phát triển hệ thống <strong>AuditCopilot</strong> &mdash; một framework ứng dụng các Mô hình Ngôn ngữ Lớn (LLMs) mã nguồn mở hàng đầu để tự động phát hiện gian lận và sai lệch bất thường trong hệ thống <strong>Bút toán kép (Double-Entry Bookkeeping)</strong>.</p>
+
+    <div class="callout callout-success">
+      <div class="callout-icon">⚡</div>
+      <div>
+        <strong>Kỷ Lục Thực Chứng:</strong> Với mô hình nguồn mở <strong>Mistral 8B</strong> triển khai cục bộ (Local On-Premise), AuditCopilot đạt độ nhạy phát hiện gian lận <strong>0.98</strong> (49/50 vụ gian lận), và cắt giảm số lượng cảnh báo giả từ <strong>942 của JETs xuống CHỈ CÒN 12 GIAO DỊCH</strong>! Độ chính xác Precision đạt đỉnh <strong>0.90</strong> và F1 đạt <strong>0.94</strong>!
+      </div>
+    </div>
+
+    <h2>1. Bối Cảnh & Nỗi Đau Của Kiểm Toán Viên</h2>
+    <p>Dữ liệu Bút toán kép (Journal Entries - JEs) mang bản chất đa thể thức cực kỳ phức tạp:</p>
+    <ul>
+      <li><strong>Dữ liệu Số:</strong> Số tiền Nợ, Có, thuế suất, số dư tài khoản.</li>
+      <li><strong>Dữ liệu Phân loại:</strong> Mã tài khoản, mã khách hàng/nhà cung cấp, User ID người lập biểu.</li>
+      <li><strong>Dữ liệu Thời gian:</strong> Ngày ghi sổ, ngày chứng từ, giờ giao dịch.</li>
+      <li><strong>Dữ liệu Văn bản Tự do:</strong> Diễn giải nghiệp vụ kinh tế phát sinh.</li>
+    </ul>
+    <p>Một doanh nghiệp phát sinh hàng triệu dòng bút toán mỗi năm. Việc chọn mẫu thủ công vài trăm chứng từ chẳng khác nào "mò kim đáy bể", khiến các sai phạm tinh vi rất dễ bị bỏ sót.</p>
+
+    <h2>2. Tree of Thoughts: So Sánh 3 Thế Hệ Công Nghệ</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Thế hệ công nghệ</th>
+          <th>Cơ chế hoạt động</th>
+          <th>Ưu điểm</th>
+          <th>Nhược điểm chí mạng</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Nhánh 1: Quy tắc JETs</strong></td>
+          <td>Truy vấn SQL/ACL theo quy tắc tĩnh (cuối tuần, ngoài giờ, số chẵn)</td>
+          <td>Đơn giản, dễ giải trình cho chuẩn mực</td>
+          <td><span style="color:#f43f5e;font-weight:700">942 cảnh báo giả / 5.000 bút toán</span> &mdash; Gây tê liệt kiểm toán viên (Alert Fatigue)</td>
+        </tr>
+        <tr>
+          <td><strong>Nhánh 2: Học máy Cổ điển (Isolation Forest)</strong></td>
+          <td>Phân nhánh cây cô lập điểm dị biệt phi cấu trúc</td>
+          <td>Cảnh báo giả giảm xuống 169, Recall đạt 0.98</td>
+          <td><span style="color:#f43f5e;font-weight:700">Hộp đen (Black Box)</span> &mdash; Chỉ xuất ra điểm số vô hồn, không giải thích lý do</td>
+        </tr>
+        <tr>
+          <td><strong>Nhánh 3: AuditCopilot (LLMs)</strong></td>
+          <td>Prompt Tuning kết hợp Bối cảnh thống kê & gợi ý ML</td>
+          <td><span style="color:#10b981;font-weight:700">Cảnh báo giả chỉ còn 12</span>, sinh lời giải thích bằng tiếng tự nhiên</td>
+          <td>Cần hạ tầng máy chủ cục bộ (On-Premise) để bảo mật dữ liệu khách hàng</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="figure-box">
+      <img src="figures_paper_2/page_7.png" alt="Cấu trúc Prompt AuditCopilot" />
+      <div class="figure-caption">Hình 1: Cấu trúc Prompt Tuning chuẩn của AuditCopilot với bộ 7 tiêu chí nhận diện gian lận và bối cảnh thống kê toàn cục</div>
+    </div>
+
+    <h2>3. Kiến Trúc AuditCopilot & Hai Bí Quyết Kỹ Thuật</h2>
+    
+    <div class="callout callout-info">
+      <div class="callout-icon">🧠</div>
+      <div>
+        <strong>Bí quyết 1: Tiêm Bối cảnh Thống kê Toàn cục (Global Context):</strong>
+        <p style="margin:6px 0 0">Đưa Mean, Median, Phân vị 95th/99th, Min-Max và thống kê thói quen User vào Prompt. Giúp AI có hệ quy chiếu toàn diện để đánh giá quy mô giao dịch giống hệt một Kiểm toán viên trưởng.</p>
+      </div>
+    </div>
+
+    <div class="callout callout-warning">
+      <div class="callout-icon">🤝</div>
+      <div>
+        <strong>Bí quyết 2: Kiến trúc Trí tuệ Nhân tạo Lai (Hybrid AI):</strong>
+        <p style="margin:6px 0 0">Không vứt bỏ Machine Learning! Cho Isolation Forest quét nhanh số liệu rồi nhúng cờ rủi ro làm "Gợi ý" (Hint) cho LLM. ML giải quyết tốc độ tính toán số học, còn LLM giải quyết khả năng đọc hiểu ngữ cảnh và diễn giải nghiệp vụ!</p>
+      </div>
+    </div>
+
+    <h2>4. Bảng Kết Quả Thực Nghiệm Đột Phá (Table 1 từ Bài Báo)</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Nhóm</th>
+          <th>Phương pháp</th>
+          <th>Precision</th>
+          <th>Recall</th>
+          <th>F1-Score</th>
+          <th>Bắt đúng (TP)</th>
+          <th>Cảnh báo SAI (FP)</th>
+          <th>Bỏ sót (FN)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Truyền thống</td>
+          <td>Traditional JET</td>
+          <td>0.53</td>
+          <td>0.90</td>
+          <td>0.50</td>
+          <td>45</td>
+          <td><span style="color:#f43f5e;font-weight:700">942</span></td>
+          <td>5</td>
+        </tr>
+        <tr>
+          <td>Machine Learning</td>
+          <td>Isolation Forest</td>
+          <td>0.61</td>
+          <td>0.98</td>
+          <td>0.68</td>
+          <td>49</td>
+          <td>169</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td rowspan="4"><strong>AuditCopilot (LLMs)</strong></td>
+          <td>Gemma 2B</td>
+          <td>0.53</td>
+          <td>0.92</td>
+          <td>0.53</td>
+          <td>46</td>
+          <td>685</td>
+          <td>4</td>
+        </tr>
+        <tr>
+          <td>Gemma 7B</td>
+          <td>0.71</td>
+          <td><strong>0.99</strong></td>
+          <td>0.79</td>
+          <td>50</td>
+          <td>68</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>LLaMA 3.1 8B</td>
+          <td>0.67</td>
+          <td>0.88</td>
+          <td>0.73</td>
+          <td>44</td>
+          <td>78</td>
+          <td>6</td>
+        </tr>
+        <tr style="background:rgba(16,185,129,0.15);font-weight:800">
+          <td><strong>Mistral 8B</strong></td>
+          <td><span style="color:#10b981">0.90</span></td>
+          <td><span style="color:#10b981">0.98</span></td>
+          <td><span style="color:#10b981">0.94</span></td>
+          <td>49</td>
+          <td><span style="color:#10b981;font-size:1.1rem">12 (KỶ LỤC)</span></td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>Thương mại Cloud</td>
+          <td>GPT-5-mini</td>
+          <td>0.55</td>
+          <td>0.95</td>
+          <td>0.56</td>
+          <td>48</td>
+          <td>466</td>
+          <td>2</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="figure-box">
+      <img src="figures_paper_2/page_4.png" alt="Bảng số liệu Table 1 và Table 2" />
+      <div class="figure-caption">Hình 2: Bảng kết quả thực nghiệm chi tiết và kiểm định bóc tách (Ablation Study) từ công bố gốc của DFKI (2025)</div>
+    </div>
+
+    <h2>5. Nghiên Cứu Bóc Tách (Ablation Study - Table 2)</h2>
+    <p>Khi các tác giả cố tình tháo dỡ từng thành phần ra khỏi Prompt:</p>
+    <ul>
+      <li><strong>Tháo bỏ Isolation Forest (w/o IF):</strong> Số lượng cảnh báo sai của Gemma 7B bùng nổ từ 32 lên <strong>1.973 giao dịch (tăng gấp hơn 60 lần)</strong>, Precision rớt thảm hại từ 89% xuống 14%. &rarr; <em>ML chính là "chiếc mỏ neo" giữ vững độ chính xác Precision!</em></li>
+      <li><strong>Tháo bỏ cả Thống kê toàn cục & IF (w/o Stats, IF):</strong> Tỷ lệ Recall sụp đổ, Gemma 2B bỏ sót tới <strong>306 vụ gian lận</strong>. &rarr; <em>Thống kê chính là "ngọn hải đăng" giữ vững độ nhạy Recall!</em></li>
+    </ul>
+
+    <h2>6. Giá Trị Tối Thượng: Tính Giải Thích (Explainability)</h2>
+    <blockquote>
+      "Giao dịch này bị đánh dấu bất thường (anomaly = 1) vì nhân viên tài vụ A có lịch sử giao dịch rất thấp (trung bình 3 triệu/tháng) nhưng bỗng nhiên duyệt một bút toán chi phí tư vấn lên tới 350 triệu đồng (vượt ngưỡng phân vị 99th của toàn công ty) vào lúc 23h45 đêm Chủ nhật sang một tài khoản đối ứng chưa từng phát sinh giao dịch trong 12 tháng qua."
+    </blockquote>
+    <p>Đoạn văn bản giải trình tự nhiên này trở thành bằng chứng kiểm toán sơ bộ có giá trị pháp lý, giúp kiểm toán viên tiết kiệm hàng tuần lễ đối soát thủ công.</p>
+
+    <h2>7. Giới Hạn & Quản Trị Nghề Nghiệp (Governance)</h2>
+    <div class="callout callout-danger">
+      <div class="callout-icon">⚠️</div>
+      <div>
+        <strong>Nguyên tắc Quản trị Bắt buộc:</strong>
+        <p style="margin:6px 0 0">AuditCopilot là công cụ hỗ trợ ra quyết định (Decision-Support Tool). Nghiêm cấm để AI tự ý ký duyệt Báo cáo kiểm toán. Kiểm toán viên con người luôn là chốt chặn cuối cùng chịu trách nhiệm pháp lý cao nhất (Human-in-the-loop)!</p>
+      </div>
+    </div>
+    
+      </div>
+
+      <div class="article-footer">
+        <a href="index.html" class="btn btn-secondary">← Về Danh Mục Bài Báo</a>
+        <a href="../index.html#slide-viewer-section" class="btn btn-primary">Xem Slide Bài Giảng Liên Quan →</a>
+      </div>
+    </article>
+  </div>
+
+  <script>
+    // Theme toggle
+    const themeToggle = document.getElementById('themeToggle');
+    const root = document.documentElement;
+    let isDark = localStorage.getItem('day04_theme') === 'dark';
+    
+    function updateTheme() {
+      if (isDark) {
+        root.setAttribute('data-theme', 'dark');
+        themeToggle.textContent = '☀️';
+      } else {
+        root.removeAttribute('data-theme');
+        themeToggle.textContent = '🌙';
+      }
+      localStorage.setItem('day04_theme', isDark ? 'dark' : 'light');
+    }
+    updateTheme();
+
+    themeToggle.addEventListener('click', () => {
+      isDark = !isDark;
+      updateTheme();
+    });
+
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const sidebar = document.getElementById('sidebar');
+    mobileMenuBtn.addEventListener('click', () => {
+      sidebar.classList.toggle('open');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <title>Lý thuyết Generative AI trong Kế toán & Kiểm toán — Trình Phát Bài Giảng UDA</title>
+  <style>
+    :root {
+      --bar-bg: rgba(11, 15, 25, 0.85);
+      --bar-fg: #ffffff;
+      --accent: #3b82f6;
+      --ok: #10b981;
+      --border-subtle: rgba(255, 255, 255, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+      background: #000;
+      overflow: hidden;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    .player-container {
+      background: #0b0f19;
+      width: 100vw;
+      height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    /* Top Bar */
+    .top-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 52px;
+      background: linear-gradient(180deg, rgba(0,0,0,0.8) 0%, transparent 100%);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px;
+      z-index: 20;
+      color: #fff;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--border-subtle);
+      color: #fff;
+      padding: 6px 12px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+
+    .back-btn:hover {
+      background: var(--accent);
+    }
+
+    .part-title-tag {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #e2e8f0;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 60%;
+    }
+
+    /* Slide Viewer */
+    .slide-viewer {
+      flex: 1;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: auto;
+      background: #000;
+    }
+
+    .slide-img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      box-shadow: 0 0 30px rgba(0,0,0,0.8);
+      transition: opacity 0.2s;
+    }
+
+    /* Bottom Control Bar */
+    .controls-bar {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 12px 20px;
+      background: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, transparent 100%);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 20;
+      color: #fff;
+    }
+
+    .ctrl-group-left, .ctrl-group-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .ctrl-group-center {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .ctrl-btn {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid var(--border-subtle);
+      border-radius: 50%;
+      width: 42px;
+      height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      backdrop-filter: blur(6px);
+    }
+
+    .ctrl-btn:hover {
+      background: rgba(255, 255, 255, 0.25);
+      transform: scale(1.05);
+    }
+
+    .ctrl-btn:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .play-btn {
+      background: var(--ok);
+      border-color: transparent;
+      width: 48px;
+      height: 48px;
+      font-size: 1.3rem;
+    }
+
+    .play-btn:hover {
+      background: #059669;
+    }
+
+    .slide-counter {
+      font-weight: 700;
+      font-size: 0.95rem;
+      min-width: 70px;
+      text-align: center;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+    }
+
+    .btn-pill {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid var(--border-subtle);
+      color: #fff;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+
+    .btn-pill:hover {
+      background: var(--accent);
+    }
+
+    /* Transcript Drawer */
+    .transcript-drawer {
+      position: absolute;
+      bottom: 74px;
+      right: 20px;
+      width: min(520px, calc(100vw - 40px));
+      max-height: 55vh;
+      background: rgba(18, 26, 44, 0.95);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+      backdrop-filter: blur(16px);
+      z-index: 30;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transform: translateY(20px);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .transcript-drawer.open {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .drawer-header {
+      padding: 12px 16px;
+      background: rgba(0,0,0,0.3);
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-weight: 700;
+      font-size: 0.88rem;
+      color: #93c5fd;
+    }
+
+    .drawer-close {
+      background: none;
+      border: none;
+      color: #94a3b8;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+
+    .drawer-body {
+      padding: 16px;
+      overflow-y: auto;
+      font-size: 0.92rem;
+      line-height: 1.65;
+      color: #cbd5e1;
+      white-space: pre-wrap;
+    }
+
+    .drawer-body strong {
+      color: #60a5fa;
+    }
+
+    /* Loading Spinner */
+    .spinner-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 25;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.2s;
+    }
+
+    .spinner-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid rgba(255,255,255,0.2);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="player-container" id="playerContainer">
+    <!-- Top Bar -->
+    <div class="top-bar">
+      <a href="../../index.html" class="back-btn">
+        <span>←</span>
+        <span>Về Cổng Day 04</span>
+      </a>
+      <div class="part-title-tag">P1: Lý thuyết Generative AI trong Kế toán & Kiểm toán</div>
+      <button class="btn-pill" id="toggleTranscriptBtn">
+        <span>📝</span>
+        <span>Kịch Bản Lời Thoại</span>
+      </button>
+    </div>
+
+    <!-- Slide Viewer -->
+    <div class="slide-viewer" id="slideViewer">
+      <img id="slideImg" class="slide-img" src="images/slide-1.png" alt="Slide" />
+      <div class="spinner-overlay" id="spinner">
+        <div class="spinner"></div>
+      </div>
+    </div>
+
+    <!-- Transcript Drawer -->
+    <div class="transcript-drawer" id="transcriptDrawer">
+      <div class="drawer-header">
+        <span id="drawerTitle">Kịch bản Lời thoại Slide 1</span>
+        <button class="drawer-close" id="drawerCloseBtn">✕</button>
+      </div>
+      <div class="drawer-body" id="drawerBody">
+        Đang tải kịch bản...
+      </div>
+    </div>
+
+    <!-- Controls Bar -->
+    <div class="controls-bar">
+      <div class="ctrl-group-left">
+        <button class="btn-pill" id="pdfLinkBtn" onclick="window.open('../../slides/P1_lý thuyết_Generative_AI_trong_Kế_toán_và_Kiểm_toán.pdf', '_blank')">
+          <span>📄</span>
+          <span>Xem PDF</span>
+        </button>
+      </div>
+
+      <div class="ctrl-group-center">
+        <button class="ctrl-btn" id="prevBtn" title="Slide Trước">❮</button>
+        <button class="ctrl-btn play-btn" id="playBtn" title="Tự động phát">▶</button>
+        <button class="ctrl-btn" id="nextBtn" title="Slide Tiếp">❯</button>
+        <div class="slide-counter" id="slideCounter">1 / 15</div>
+      </div>
+
+      <div class="ctrl-group-right">
+        <button class="ctrl-btn" id="fullscreenBtn" title="Toàn Màn Hình">⛶</button>
+      </div>
+    </div>
+  </div>
+
+  <audio id="slideAudio" preload="auto"></audio>
+
+  <script>
+    const TOTAL_SLIDES = 15;
+    const scriptsData = {"1": "Kỷ nguyên Generative AI trong Kế toán và Kiểm toán\nNgười 1: Xin nhiệt liệt chào đón quý thầy cô và toàn thể các bạn sinh viên Đại học Đông Á, đặc biệt là các bạn sinh viên ngành Kế toán - Kiểm toán và Tài chính tại Phân hiệu Đắk Lắk! Hôm nay, chúng ta chính thức bước vào một trong những chuyên đề được mong đợi nhất trong học phần Trí tuệ nhân tạo: Buổi số 12 với chủ đề \"Ứng dụng Generative AI trong Kế toán & Kiểm toán - Từ Lý thuyết Cốt lõi đến Thực chứng Khoa học bằng Kỹ thuật CoT và ToT\".\nNgười 2: Xin chào tất cả các bạn! Nếu như ở các buổi học trước về Machine Learning và Deep Learning, chúng ta đã làm quen với các mô hình \"AI Phân biệt\" (Discriminative AI) dùng để phân loại rủi ro hay dự báo phá sản, thì hôm nay chúng ta bước sang một bước ngoặt vĩ đại: \"AI Tạo sinh\" (Generative AI) và các Mô hình Ngôn ngữ Lớn (LLMs). Bài giảng hôm nay được thiết kế vô cùng đặc biệt: toàn bộ nội dung được soi chiếu trực tiếp qua hai công trình nghiên cứu khoa học thực chứng quốc tế mới nhất giai đoạn 2024-2025 của các giáo sư hàng đầu thế giới là nghiên cứu của Eulerich, Wood et al. và nghiên cứu của Kadir et al.\nNgười 1: Nhìn vào slide mở đầu, các bạn có thể thấy tiêu đề mang tính học thuật rất cao: \"Từ Lý thuyết cốt lõi đến Thực chứng Khoa học bằng CoT & ToT\". Hai chữ viết tắt CoT - Chain of Thought và ToT - Tree of Thoughts chính là chìa khóa vàng giúp chúng ta giải mã vì sao AI có thể làm được những điều kỳ diệu trong kế toán, nhưng cũng có lúc mắc phải những sai lầm ngớ ngẩn nếu người dùng không biết cách điều khiển!\nNgười 2: Đúng như vậy! Mục tiêu của chúng ta hôm nay không phải là nghe những lời đồn thổi trên báo chí, mà là dùng tư duy khoa học thực chứng để đánh giá xem AI thực sự làm được gì, giới hạn ở đâu, và các bạn sinh viên cần chuẩn bị kỹ năng gì để làm chủ công nghệ này. Chúng ta hãy cùng bắt đầu ngay bây giờ!", "2": "Mục tiêu Bài học (Scientific Method)\nNgười 1: Bước sang slide số 2, chúng ta cùng xác định 3 mục tiêu trọng tâm của bài học ngày hôm nay, được xây dựng hoàn toàn theo Phương pháp luận Khoa học (Scientific Method).\nNgười 2: Mục tiêu đầu tiên ở nhánh bên trái là \"Khám phá không gian giải pháp\" thông qua Cây tư duy (Tree of Thoughts - ToT). Trong thực tế quản trị và kiểm toán, khi đứng trước một bài toán kiểm soát nội bộ hay rà soát sai phạm, người làm nghề không bao giờ chỉ có một con đường duy nhất. Chúng ta phải đặt lên bàn cân so sánh đa chiều giữa 3 thế hệ công nghệ: Kiểm toán truyền thống dựa trên quy tắc (Rule-based), Học máy cổ điển (Machine Learning), và Trí tuệ nhân tạo tạo sinh (Generative AI).\nNgười 1: Mục tiêu thứ hai ở nhánh giữa chính là \"Suy luận logic tuần tự\" với Chuỗi tư duy (Chain of Thought - CoT). Các bạn sẽ được giải mã cơ chế mà các nhà khoa học máy tính và các chuyên gia kế toán \"kỹ thuật hóa\" một mô hình ngôn ngữ vốn thiên về câu chữ thành một trợ lý kiểm toán biết tư duy logic từng bước, biết tự kiểm tra phép tính để vượt qua điểm yếu cố hữu về số học.\nNgười 2: Và mục tiêu thứ ba ở nhánh bên phải là \"Phân tích thực chứng khoa học\". Chúng ta sẽ trực tiếp mổ xẻ các bảng số liệu thực nghiệm, phân tích các chỉ số đánh giá độ chính xác (Precision), độ nhạy (Recall), và tỷ lệ báo động giả (False Positives) từ 2 bài báo quốc tế đỉnh cao công bố năm 2024 và 2025. Đây chính là cách học hiện đại: học từ các nghiên cứu tiên phong để định hình năng lực cạnh tranh thực tế cho các bạn sau khi tốt nghiệp!", "3": "Tree of Thoughts (ToT) trong Tự động hóa Kế toán\nNgười 1: Để hiện thực hóa mục tiêu thứ nhất, slide số 3 mở ra mô hình Cây tư duy (Tree of Thoughts) phân nhánh 3 hướng tiếp cận công nghệ nhằm giải quyết bài toán cốt lõi của ngành: Phát hiện sai sót, gian lận và tối ưu hóa xử lý nghiệp vụ kế toán.\nNgười 2: Hãy nhìn vào Nhánh 1 ở cột màu xanh dương: \"Quy tắc truyền thống\" (Rule-based) hay còn gọi là các quy trình kiểm tra bút toán JETs (Journal Entry Tests). Cơ chế hoạt động của nhánh này là các câu lệnh điều kiện If/Else cứng nhắc. Ví dụ: Nếu giao dịch lớn hơn 1 tỷ đồng, hoặc hạch toán vào ngày nghỉ cuối tuần thì phát cảnh báo. Điểm hạn chế lớn nhất là nó vô cùng cứng nhắc và tạo ra một \"cơn bão\" cảnh báo sai (False Positives), khiến kiểm toán viên kiệt sức vì phải kiểm tra thủ công hàng ngàn giao dịch bình thường!\nNgười 1: Tiếp theo là Nhánh 2 ở cột màu xanh ngọc: \"AI Phân biệt\" (Machine Learning cổ điển) với các thuật toán nổi tiếng như Rừng cô lập (Isolation Forest) hay SVM. Thuật toán này tự động rà quét hàng triệu giao dịch và cô lập các điểm dị biệt phi cấu trúc. Ưu điểm vượt trội là số lượng cảnh báo sai giảm đi rất nhiều. Tuy nhiên, nhược điểm chí mạng của nó là bản chất \"Hộp đen\" (Black Box) - nó chỉ có thể gắn cờ đỏ \"Giao dịch này bất thường\" nhưng hoàn toàn câm lặng, không thể giải thích bằng ngôn ngữ con người lý do vì sao nó lại coi đó là sai phạm!\nNgười 2: Và Nhánh 3 ở cột màu tím chính là \"AI Tạo sinh\" (Generative AI và LLMs) như ChatGPT, Claude hay các mô hình mã nguồn mở LLaMA, Mistral. Ưu điểm vượt bậc của nó là khả năng đọc hiểu ngữ cảnh sâu sắc và diễn giải bằng lời tự nhiên giống hệt một chuyên gia. Nhưng nhược điểm của nhánh này là nguy cơ gặp hiện tượng \"Ảo giác\" (Hallucination) hoặc tính toán sai lệch nếu người dùng không có một chiến lược Prompt Engineering chuẩn mực. Đó chính là lý do vì sao chúng ta cần đến công cụ ở slide tiếp theo!", "4": "Chain of Thought (CoT): Cách \"Mở khóa\" Nhánh số 3 (LLMs)\nNgười 1: Bước sang slide số 4, chúng ta cùng giải mã chìa khóa vàng: Kỹ thuật Chuỗi tư duy - Chain of Thought (CoT), phương pháp tối thượng để \"mở khóa\" và làm chủ sức mạnh của các Mô hình Ngôn ngữ Lớn trong kế toán.\nNgười 2: Các bạn sinh viên hãy đặc biệt lưu ý: một sai lầm phổ biến của người mới dùng AI là ném thẳng một bài toán phức tạp vào ChatGPT và đòi hỏi nó đưa ra con số cuối cùng ngay lập tức (Zero-shot). Cách làm đó thất bại tới 70-80%! Để LLM xử lý chuẩn xác nghiệp vụ kế toán, chúng ta phải áp dụng quy trình CoT 4 bước tuần tự như trên slide.\nNgười 1: Bước 1 là \"Phân tích bối cảnh\" (Context Analysis): Yêu cầu AI đọc kỹ toàn bộ dữ liệu chứng từ đầu vào, từ sổ cái, hóa đơn cho đến các dòng thuyết minh BCTC để bóc tách các thực thể liên quan.\nNgười 2: Bước 2 là \"Khai báo bộ quy tắc\" (Knowledge Injection / RAG): Chúng ta \"bơm\" cơ sở tri thức chuẩn mực kế toán VAS hoặc IFRS, cùng các văn bản thông tư thuế hiện hành vào Prompt. Điều này giúp đóng khung phạm vi suy luận của AI, triệt tiêu nguy cơ AI tự bịa đặt điều luật không có thật.\nNgười 1: Bước 3 là \"Suy luận từng bước\" (Step-by-step Reasoning): Đây chính là trái tim của CoT! Chúng ta ép AI phải viết ra từng bước lập luận: tại sao chọn tài khoản này, căn cứ vào nguyên tắc nào, cách tính tỷ số tài chính ra sao trước khi công bố kết quả.\nNgười 2: Và Bước 4 là \"Cấp công cụ\" (Tool-Augmented / ReAct): Cho phép AI kết nối với Máy tính bỏ túi (Calculator) và công cụ phân tích dữ liệu (Python/Code Interpreter) để máy móc tự thực hiện phép tính thay vì nhẩm tính. Khi kết hợp cả 4 bước này, AI sẽ biến hình thành một trợ lý tài chính chuẩn xác đến kinh ngạc!", "5": "Từ Lý thuyết đến Thực tiễn: 2 Case Study Khoa học\nNgười 1: Slide số 5 đóng vai trò chiếc cầu nối vững chắc, đưa chúng ta rời khỏi lý thuyết trừu tượng để bước vào hai nghiên cứu thực nghiệm quy mô quốc tế được công bố trong giai đoạn 2024-2025.\nNgười 2: Ở cột bên trái là Case Study số 1: Công trình nghiên cứu nổi tiếng mang tên \"Is it all hype? ChatGPT's performance and disruptive potential in the accounting and auditing industries\" của nhóm học giả Marc Eulerich, Michael E. Jordan và David A. Wood, công bố năm 2024. Câu hỏi nghiên cứu then chốt là: Liệu ChatGPT có thực sự đủ sức vượt qua các kỳ thi sát hạch chứng chỉ hành nghề Kế toán - Kiểm toán danh giá và khó bậc nhất hành tinh như CPA, CMA, CIA và EA hay không?\nNgười 1: Ở cột bên phải là Case Study số 2: Bài báo khoa học đột phá mang tên \"AuditCopilot: Leveraging Large Language Models for Fraud Detection in Double-Entry Bookkeeping\" của nhóm tác giả Kadir, Vaso, Nair và Sonntag công bố năm 2025. Câu hỏi nghiên cứu đặt ra là: Liệu các Mô hình Ngôn ngữ Lớn có thể thay thế hoặc nâng cấp các thuật toán Machine Learning cổ điển để truy tìm gian lận trong hệ thống Bút toán kép hay không?\nNgười 2: Cả hai nghiên cứu này đều sử dụng phương pháp luận thực nghiệm vô cùng chặt chẽ, dựa trên hàng chục ngàn bài thi và hàng ngàn bút toán sổ cái thực tế. Ngay sau đây, chúng ta sẽ cùng mổ xẻ từng phát hiện chấn động của Case Study đầu tiên!", "6": "Bài báo 1: AI & Các kỳ thi Kế toán Chuyên nghiệp\nNgười 1: Bước sang slide số 6, chúng ta đi sâu vào công trình của Marc Eulerich, David Wood và các cộng sự (2024) để đối chiếu giữa hai thái cực: \"Lời đồn thổi\" (Hype) và \"Thực tế khoa học\" (Reality).\nNgười 2: Hãy nhìn vào biểu tượng chiếc cân ở giữa slide. Một bên là \"Nỗi sợ hãi và Đồn thổi\": Các báo cáo tư vấn của McKinsey từng dự báo AI có thể tự động hóa và thay thế tới 400 triệu lao động toàn cầu vào năm 2030, trong đó ngành kế toán - kiểm toán bị liệt vào danh sách có nguy cơ đào thải cao nhất. Tuy nhiên, ở bên kia chiếc cân là \"Thực tế phũ phàng\": Nghiên cứu trước đó của Wood et al. (2023) trên hơn 300 trường đại học toàn cầu chỉ ra rằng ChatGPT-3.5 thi trắc nghiệm kế toán chỉ đạt trung bình 53.1%, kém xa mức điểm 75% của sinh viên người thật!\nNgười 1: Chính vì sự mâu thuẫn này, nhóm tác giả Eulerich (2024) đã quyết định thiết kế một bài kiểm tra toàn diện và khắt khe nhất từ trước đến nay. Họ thu thập hàng ngàn câu hỏi trắc nghiệm từ 4 kỳ thi chứng chỉ nghề nghiệp đỉnh cao: CPA (Kế toán công chứng Hoa Kỳ gồm 4 phần AUD, BEC, FAR, REG); CMA (Kế toán quản trị công chứng gồm 2 phần); CIA (Kiểm toán nội bộ công chứng gồm 3 phần); và EA (Đại lý thuế nội địa Hoa Kỳ gồm 3 phần).\nNgười 2: Để đảm bảo tính công bằng và thuần túy đánh giá trí tuệ nhân tạo, các tác giả đã loại bỏ những câu hỏi có chứa hình ảnh hay sơ đồ phức tạp. Họ thiết lập một quy trình thực nghiệm gồm 4 bước Prompting theo đúng triết lý Chain of Thought để xem liệu công nghệ mới có thể lật ngược thế cờ hay không. Chúng ta hãy cùng theo dõi kết quả ở slide tiếp theo!", "7": "Bài báo 1: Sự thất bại của Zero-Shot Prompting\nNgười 1: Slide số 7 trình bày kết quả thực nghiệm ở Bước 1: Khi cho mô hình ChatGPT-3.5 làm bài thi theo phương pháp truyền thống - tức Zero-shot Prompting (hỏi trực tiếp mà không cung cấp ví dụ hay công cụ hỗ trợ).\nNgười 2: Kết quả thu được là một thất bại toàn diện: ChatGPT-3.5 THI TRƯỢT TẤT CẢ các kỳ thi! Nhìn vào bảng số liệu, điểm số trung bình toàn bộ các môn chỉ đạt 53.1%, thấp hơn rất nhiều so với ngưỡng điểm chuẩn đỗ là từ 70% đến 75% của các hội đồng khảo thí quốc tế.\nNgười 1: Đặc biệt, kết quả thảm hại nhất xuất hiện ở môn Thuế dành cho cá nhân (EA - Individuals): ChatGPT-3.5 chỉ đạt vỏn vẹn 37.3%! Một con số gây thất vọng lớn, vì nếu một người bình thường đi thi trắc nghiệm 4 phương án mà chỉ khoanh bừa ngẫu nhiên thì xác suất đúng lý thuyết đã là 25% rồi!\nNgười 2: Kết luận khoa học rút ra từ Bước 1 là: Các mô hình AI sơ khai theo dạng Zero-shot hoàn toàn không có khả năng thay thế kế toán viên. Bản chất của mô hình ngôn ngữ thế hệ cũ là xâu chuỗi từ ngữ dựa trên xác suất bề mặt, nó hoàn toàn thiếu vắng năng lực suy luận toán học đa bước và không nắm được logic chéo của các sắc thuế phức tạp. Nếu ai đó nói rằng ChatGPT-3.5 có thể làm thay công việc kế toán thuế thì đó hoàn toàn chỉ là lời đồn thổi vô căn cứ!", "8": "Bài báo 1: Nâng cấp Mô hình và Chiến lược Few-Shot\nNgười 1: Không chấp nhận dừng lại ở thất bại đó, slide số 8 ghi nhận hai bước tiến đột phá của nhóm nghiên cứu: Nâng cấp mô hình lõi lên GPT-4 và áp dụng chiến lược Few-shot Prompting.\nNgười 2: Ở Bước nâng cấp thứ nhất, nhóm tác giả chuyển sang sử dụng mô hình GPT-4. Ngay lập tức, năng lực phần cứng và lượng tham số khổng lồ đã tạo nên cú nhảy vọt: Điểm số trung bình tăng vọt thêm 16.5%, đạt mức 69.6%! Đáng kinh ngạc hơn, GPT-4 đã tự mình thi đỗ toàn bộ 3 phần thi của chứng chỉ Kiểm toán Nội bộ Quốc tế (CIA)! Lý do là vì đề thi CIA tập trung rất nặng vào chuẩn mực đạo đức, quy trình quản trị rủi ro và khung kiểm soát COSO - vốn là những lĩnh vực ngôn ngữ chuẩn tắc mà GPT-4 nắm bắt cực kỳ xuất sắc.\nNgười 1: Tiếp theo, ở Bước nâng cấp thứ hai, các nhà khoa học áp dụng kỹ thuật \"10-Shot Training\". Thay vì hỏi chay, họ đưa vào Prompt 10 câu hỏi mẫu kèm theo toàn bộ tiến trình suy luận (CoT) và đáp án chính xác để \"dạy mẫu\" cho AI trước khi đưa ra câu hỏi thi thật.\nNgười 2: Kết quả của 10-Shot thật phi thường: Điểm số trung bình tăng thêm 6.6%, đưa mức điểm tổng thể lên 76.2%! Nhờ học hỏi từ các ví dụ mẫu, AI đã thi đỗ thêm toàn bộ chứng chỉ Kế toán Quản trị Hoa Kỳ (CMA). Tuy nhiên, các bạn hãy chú ý vào dòng cảnh báo ở cuối slide: AI vẫn tiếp tục thi trượt môn Kế toán Tài chính (CPA - FAR) và các môn Thuế chuyên sâu. Nguyên nhân là vì dù có thông minh đến đâu, một mô hình ngôn ngữ vẫn bị giới hạn khi phải tự nhẩm tính các phép chia tỷ số tài chính hay các bậc thuế lũy tiến phức tạp. Và giải pháp cho nút thắt này sẽ xuất hiện ngay ở slide tiếp theo!", "9": "Bài báo 1: Bước đột phá từ ReAct (Reasoning & Acting)\nNgười 1: Chúng ta đang đứng trước bước ngoặt mang tính cách mạng nhất của toàn bộ công trình nghiên cứu tại slide số 9: Sự xuất hiện của kiến trúc ReAct - viết tắt của Reasoning (Suy luận) và Acting (Hành động).\nNgười 2: Hãy nhìn vào công thức vàng ở trung tâm slide: ReAct = Suy luận (CoT) + Hành động (Cấp quyền Công cụ). Nhóm nghiên cứu đã nhận ra chân lý: Không thể bắt một bộ não ngôn ngữ làm công việc của một máy tính con chip! Thay vì bắt ChatGPT tự nhẩm tính, họ biến nó thành một \"AI Agent\" có quyền năng: Khi gặp bài toán số học, AI tự viết lệnh gọi Máy tính bỏ túi (Calculator) để tính số chính xác; khi gặp câu hỏi về quy định thuế mới hay tỷ giá hối đoái, AI tự gọi công cụ Tìm kiếm Web (Web Search) để truy xuất dữ liệu cập nhật.\nNgười 1: Và kết quả thực nghiệm đã tạo nên một cơn địa chấn trong giới học thuật: Điểm số trung bình của AI tăng vọt thêm 8.9%, đạt con số kỷ lục 85.1%!\nNgười 2: Đúng vậy! Với kiến trúc ReAct, GPT-4 ĐÃ CHÍNH THỨC THI ĐỖ 100% TẤT CẢ CÁC KỲ THI CHỨNG CHỈ (CPA, CMA, CIA, EA)! Nhìn vào biểu đồ cột, điểm số ở nhóm câu hỏi \"Vận dụng nghiệp vụ\" (Application) đã nhảy vọt từ 62.3% lên 77.4% nhờ sự trợ lực của Máy tính.\nNgười 1: Đến lúc này, các tác giả khẳng định: Tiềm năng phá bĩnh (disruption) của AI đối với ngành kế toán - kiểm toán không còn là lời đồn thổi nữa. Khi được trang bị đúng công cụ và phương pháp suy luận, AI thực sự sở hữu năng lực chuyên môn tương đương hoặc vượt trội một chuyên gia có chứng chỉ quốc tế!", "10": "Bài báo 1: Bài học rút ra cho Sinh viên Kế toán\nNgười 1: Slide số 10 cô đọng lại những bài học đắt giá nhất từ công trình của Eulerich et al. (2024), biến các phát hiện khoa học thành cẩm nang hành động thực chiến cho mỗi bạn sinh viên kế toán chúng ta.\nNgười 2: Bài học lớn nhất được đóng khung nổi bật: \"Khoảng cách giữa một AI vô dụng (đạt 37%) và một AI xuất sắc (đạt 85%) không phụ thuộc vào bản thân AI, mà phụ thuộc hoàn toàn vào Kỹ năng Prompting của con người!\". Điều này đập tan ảo tưởng rằng chỉ cần cài phần mềm xịn là có kết quả tốt. Kế toán viên phải là người làm chủ phương pháp Few-shot, CoT và ReAct.\nNgười 1: Hãy nhìn vào biển báo màu đỏ bên trái: \"STOP - Tuyệt đối không làm\". Khi các bạn sử dụng AI để giải quyết bài tập thuế, lập bảng phân bổ chi phí hay phân tích báo cáo tài chính, tuyệt đối đừng bao giờ để AI tự cộng trừ nhẩm số liệu! Hiện tượng ảo giác toán học sẽ khiến nó đưa ra những con số sai be bét nhưng với một giọng điệu vô cùng tự tin và thuyết phục.\nNgười 2: Thay vào đó, hãy nhìn sang biển báo màu xanh bên phải: \"HÃY LÀM\". Các bạn hãy viết các Prompt chuyên nghiệp: Yêu cầu AI đóng vai Kế toán trưởng, phân tích bối cảnh, suy luận công thức kế toán từng bước, và yêu cầu nó viết code Python hoặc liên kết với Excel để máy móc tính toán con số tuyệt đối chính xác. Sinh viên kế toán tương lai không phải là người ngồi gõ máy tính cộng sổ, mà là \"Kiến trúc sư câu lệnh\" (Prompt Architect) điều phối AI làm việc cho mình!", "11": "Bài báo 2: AI trong Bút toán kép (Double-Entry)\nNgười 1: Tạm gác lại câu chuyện thi chứng chỉ, từ slide số 11, chúng ta cùng bước sang Case Study số 2: Công trình nghiên cứu mang tính thực chiến kiểm toán đỉnh cao của nhóm tác giả Kadir, Vaso, Nair và Sonntag công bố năm 2025: \"AuditCopilot: Ứng dụng LLM phát hiện gian lận trong Bút toán kép\".\nNgười 2: Bài toán thực tế được đặt ra là: Trong một doanh nghiệp lớn, mỗi năm có hàng triệu dòng bút toán phát sinh trong Sổ nhật ký chung. Kiểm toán viên có nhiệm vụ sống còn là phải rà quét để tìm ra các sai phạm, gian lận hoặc hành vi trốn thuế bị cài cắm tinh vi. Nhưng dữ liệu sổ nhật ký kép vô cùng phức tạp: Nó chứa đồng thời Số tiền (Numeric), Mã tài khoản (Categorical), Diễn giải nghiệp vụ (Text), Người phê duyệt và Thời gian ghi sổ (Metadata).\nNgười 1: Hãy nhìn vào hai chiếc hộp ở giữa slide. Phương pháp truyền thống Nhánh 1 (JETs) dựa trên quy tắc thì sinh ra quá nhiều cảnh báo giả, làm kiểm toán viên bị quá tải và tê liệt thính giác nghề nghiệp. Phương pháp Nhánh 2 (Isolation Forest) dùng Machine Learning tuy tìm được điểm dị biệt nhưng lại là một \"hộp đen\" câm lặng, không thể nói cho kiểm toán viên biết vì sao giao dịch đó bị nghi ngờ.\nNgười 2: Chính vì thế, câu hỏi nghiên cứu của nhóm Kadir et al. là: Liệu chúng ta có thể tận dụng năng lực hiểu ngôn ngữ và bối cảnh của LLM để xây dựng một trợ lý ảo - AuditCopilot, vừa phát hiện gian lận siêu nhạy, lại vừa biết tự viết lời giải trình cặn kẽ cho kiểm toán viên hay không? Chúng ta hãy cùng xem dữ liệu đối đầu giữa các phương pháp ở slide 12!", "12": "Bài báo 2: Sự kém hiệu quả của Công cụ Truyền thống\nNgười 1: Slide số 12 mang đến một bảng thống kê thực nghiệm vô cùng chân thực và đắt giá, được thử nghiệm trên một tập dữ liệu tổng hợp chuẩn mực gồm 5.000 bút toán kế toán, trong đó có cài sẵn 50 giao dịch gian lận thực tế.\nNgười 2: Hãy nhìn vào dòng đầu tiên đại diện cho Công cụ JET truyền thống (Quy tắc lọc điều kiện). Về khả năng bắt lỗi, JET tìm được 45 trên tổng số 50 vụ gian lận (đạt độ nhạy Recall 0.90). Nhưng hãy nhìn sang cột Cảnh báo sai (False Positives): JET đã báo động nhầm tới 942 giao dịch hoàn toàn bình thường! Hãy tưởng tượng kiểm toán viên nội bộ nhận được một danh sách gần 1.000 giao dịch nghi vấn, họ sẽ phải mất hàng tuần lễ để lật mở từng chứng từ gốc đối chiếu, để rồi phát hiện ra 95% trong số đó là cảnh báo rác!\nNgười 1: Nhìn xuống dòng thứ hai là thuật toán Học máy cổ điển Isolation Forest. Hiệu quả cải thiện rõ rệt: Bắt được 49/50 vụ gian lận (Recall đạt 0.98), và số lượng cảnh báo sai đã giảm ngoạn mục từ 942 xuống còn 169 giao dịch.\nNgười 2: Tuy nhiên, \"Nỗi đau của Kiểm toán viên\" vẫn chưa được giải quyết! 169 giao dịch vẫn là một con số rất lớn đối với một nhóm kiểm toán eo hẹp về thời gian. Quan trọng hơn, thuật toán Isolation Forest chỉ nhả ra một con số điểm bất thường (Anomaly Score) vô hồn, ví dụ như 0.85 hay 0.92, mà không hề giải thích lý do! Kiểm toán viên vẫn phải tự mình căng mắt đọc lại từng dòng diễn giải, từng chứng từ thanh toán để tự mò mẫm xem sai ở đâu. Và giải pháp AuditCopilot ra đời chính là để giải phóng hoàn toàn nỗi đau này!", "13": "Bài báo 2: Giải pháp \"AuditCopilot\" từ LLMs\nNgười 1: Bước sang slide số 13, chúng ta được chiêm ngưỡng thiết kế kiến trúc Prompting đỉnh cao của hệ thống \"AuditCopilot\" do nhóm tác giả Kadir et al. sáng chế.\nNgười 2: Thay vì huấn luyện lại toàn bộ mô hình tốn hàng triệu đô la, nhóm tác giả sử dụng kỹ thuật Prompt Engineering tích hợp 3 thành tố cốt lõi: Thành tố 1 là \"Dữ liệu giao dịch đơn lẻ\": Chi tiết ngày tháng, số tài khoản, số tiền, mã số thuế và người thực hiện bút toán đó.\nNgười 1: Thành tố 2 là một sáng tạo cực kỳ thông minh: \"Bối cảnh Thống kê Toàn cục\" (Global Context). Các nhà khoa học đã nhận ra rằng: Nếu chỉ đưa cho AI một con số 500 triệu đồng, AI không thể biết số tiền đó là lớn hay nhỏ đối với doanh nghiệp này! Do đó, họ \"bơm\" thêm các thông số thống kê của toàn bộ sổ cái vào Prompt: Giá trị trung bình (Mean), Trung vị (Median), Điểm bách phân vị thứ 95 và 99, cùng với tần suất hoạt động trung bình của nhân viên lập biểu. Nhờ đó, AI có được một \"hệ quy chiếu\" chuẩn xác hệt như kinh nghiệm tích lũy của một kiểm toán viên kỳ cựu!\nNgười 2: Và Thành tố 3 chính là \"Sức mạnh Lai\" (Hybrid AI): Họ lấy luôn điểm số nghi vấn của thuật toán Machine Learning Isolation Forest đưa vào Prompt làm \"gợi ý định lượng\" cho LLM! Cuối cùng, Prompt ép buộc mô hình trả về cấu trúc JSON nghiêm ngặt gồm hai trường: Trường `anomaly` bằng 0 hoặc 1 (có gian lận hay không) và Trường `explanation` viết bằng ngôn ngữ tự nhiên giải thích rõ ràng căn cứ kết luận. Đặc biệt, hệ thống sử dụng các mô hình mã nguồn mở như Mistral-8B hay LLaMA chạy cục bộ (on-premise), đảm bảo tuyệt đối bí mật kinh doanh và an toàn dữ liệu khách hàng!", "14": "Bài báo 2: Kết quả của Sự kết hợp (Hybrid AI)\nNgười 1: Slide số 14 công bố kết quả thực chứng chấn động của mô hình Lai (Hybrid AI) khi AuditCopilot được vận hành trên mô hình Mistral-8B.\nNgười 2: Hãy nhìn vào các chỉ số kỷ lục ở cột màu xanh lá cây: Tỷ lệ phát hiện gian lận (Recall) đạt mức xuất sắc 98% (bắt trọn 48 trên 50 giao dịch gian lận, chỉ lọt lưới đúng 2 trường hợp). Nhưng điều khiến toàn bộ giới kiểm toán phải ngả mũ thán phục nằm ở số lượng Cảnh báo sai (False Positives): Nó đã giảm từ 942 của JET, và 169 của Isolation Forest, xuống mức kỷ lục: CHỈ CÒN DUY NHẤT 12 GIAO DỊCH!\nNgười 1: Một sự cắt giảm tới hơn 98% số lượng cảnh báo rác! Độ chính xác (Precision) của hệ thống vọt lên tới 0.90! Thay vì phải bơi trong 1.000 giao dịch nghi vấn, kiểm toán viên nay chỉ cần rà soát đúng 60 giao dịch được AuditCopilot gắn cờ đỏ, và 48 trong số đó là gian lận thật sự!\nNgười 2: Nhưng giá trị tối thượng của AuditCopilot nằm ở năng lực Giải thích (Explainability). Hãy nhìn vào khung trích dẫn ở đáy slide: Thay vì chỉ bật đèn đỏ câm lặng, hệ thống viết rõ bằng ngôn ngữ tự nhiên: \"Bút toán này là bất thường (anomaly = 1) vì nhân viên A có lịch sử giao dịch rất thấp nhưng lại phê duyệt một khoản chi nằm ở bách phân vị thứ 99 vào lúc 2 giờ sáng ngày Chủ Nhật đến một tài khoản trung gian ít hoạt động\". Một lời giải thích sắc bén, chỉ rõ cả 3 khía cạnh: thẩm quyền, thời gian bất thường và quy mô dòng tiền, giúp kiểm toán viên tiết kiệm hàng tuần lễ lập hồ sơ kiểm toán!", "15": "Tổng kết Buổi học & Câu hỏi Thảo luận\nNgười 1: Khép lại Buổi học số 12 đầy ắp tri thức thực chứng ngày hôm nay, slide số 15 mang đến cho chúng ta hai thông điệp đúc kết chiến lược cùng một bài toán thảo luận mang tính sinh tử nghề nghiệp.\nNgười 2: Thông điệp thứ nhất: Trí tuệ nhân tạo tạo sinh (Generative AI) không hề đe dọa xóa sổ ngành kế toán. Nó là một công cụ khuếch đại năng lực phi thường nếu và chỉ nếu chúng ta biết trang bị cho nó cấu trúc tư duy Chain of Thought (CoT) và cơ chế tự hành ReAct (kết hợp công cụ tính toán và tra cứu chuẩn mực).\nNgười 1: Thông điệp thứ hai: Tương lai của kiểm toán hiện đại không phải là sự cạnh tranh đối đầu, mà là Mô hình Lai (Hybrid AI) - nơi mà các thuật toán học máy cổ điển đảm nhận việc cày xới dữ liệu thô, còn LLMs đóng vai trò trợ lý thông minh phân tích ngữ cảnh và diễn giải rủi ro cho con người.\nNgười 2: Và để kết thúc bài giảng, thầy Trần Thành Thắng dành cho các bạn sinh viên một câu hỏi thảo luận sâu sắc: \"Theo các bạn, nếu một hệ thống trợ lý ảo như AuditCopilot đưa ra lời giải thích sai lệch do ảo giác AI về một bút toán gian lận, dẫn đến việc kiểm toán viên ký phát hành Ý kiến chấp nhận toàn phần sai lầm, thì khi vụ việc đổ bể ra tòa án, ai sẽ là người phải chịu trách nhiệm pháp lý cao nhất: Kiểm toán viên ký báo cáo, công ty phần mềm phát triển AI, hay ban giám đốc doanh nghiệp được kiểm toán?\".\nNgười 1: Một câu hỏi chạm đúng vào bản chất của đạo đức nghề nghiệp và nguyên tắc \"Human-in-the-loop\" - Con người luôn là chốt chặn phán quyết cuối cùng! Hãy suy nghĩ thật kỹ, áp dụng sự hoài nghi nghề nghiệp để thảo luận sôi nổi trong diễn đàn môn học nhé. Cảm ơn quý thầy cô và các bạn sinh viên Đại học Đông Á đã chú ý theo dõi. Hẹn gặp lại các bạn trong bài giảng thực hành tiếp theo!"};
+
+    let currentIndex = 1;
+    let isPlaying = false;
+    let autoPlayTimer = null;
+
+    const slideImg = document.getElementById('slideImg');
+    const slideAudio = document.getElementById('slideAudio');
+    const slideCounter = document.getElementById('slideCounter');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const playBtn = document.getElementById('playBtn');
+    const spinner = document.getElementById('spinner');
+    const transcriptDrawer = document.getElementById('transcriptDrawer');
+    const drawerTitle = document.getElementById('drawerTitle');
+    const drawerBody = document.getElementById('drawerBody');
+    const toggleTranscriptBtn = document.getElementById('toggleTranscriptBtn');
+    const drawerCloseBtn = document.getElementById('drawerCloseBtn');
+    const fullscreenBtn = document.getElementById('fullscreenBtn');
+
+    function updateTranscript(index) {
+      drawerTitle.textContent = `Kịch bản Lời thoại — Slide ${index} / ${TOTAL_SLIDES}`;
+      const text = scriptsData[index] || "Chưa có kịch bản cho slide này.";
+      // Format Người 1 and Người 2 bold
+      const formatted = text
+        .replace(/(Người 1:)/g, "<strong>$1</strong>")
+        .replace(/(Người 2:)/g, "<strong>$2</strong>");
+      drawerBody.innerHTML = formatted;
+    }
+
+    function showSlide(index) {
+      if (index < 1) index = 1;
+      if (index > TOTAL_SLIDES) index = TOTAL_SLIDES;
+      currentIndex = index;
+
+      slideCounter.textContent = `${index} / ${TOTAL_SLIDES}`;
+      prevBtn.disabled = (index === 1);
+      nextBtn.disabled = (index === TOTAL_SLIDES);
+
+      // Show spinner briefly
+      spinner.classList.add('active');
+
+      // Update image
+      const newImg = new Image();
+      newImg.src = `images/slide-${index}.png`;
+      newImg.onload = () => {
+        slideImg.src = newImg.src;
+        spinner.classList.remove('active');
+      };
+      newImg.onerror = () => {
+        spinner.classList.remove('active');
+      };
+
+      // Update transcript
+      updateTranscript(index);
+
+      // Try audio
+      slideAudio.pause();
+      clearTimeout(autoPlayTimer);
+
+      const audioSrc = `audio/slide_${index}.mp3`;
+      slideAudio.src = audioSrc;
+
+      slideAudio.oncanplaythrough = () => {
+        if (isPlaying) slideAudio.play();
+      };
+
+      slideAudio.onerror = () => {
+        // Audio not found, use fallback timer if playing
+        if (isPlaying) {
+          autoPlayTimer = setTimeout(() => {
+            if (currentIndex < TOTAL_SLIDES) {
+              showSlide(currentIndex + 1);
+            } else {
+              stopPlayback();
+            }
+          }, 12000); // 12 seconds per slide fallback
+        }
+      };
+
+      slideAudio.onended = () => {
+        if (isPlaying) {
+          if (currentIndex < TOTAL_SLIDES) {
+            showSlide(currentIndex + 1);
+          } else {
+            stopPlayback();
+          }
+        }
+      };
+    }
+
+    function startPlayback() {
+      isPlaying = true;
+      playBtn.textContent = '⏸';
+      playBtn.style.background = '#eab308';
+      slideAudio.play().catch(() => {
+        // Autoplay fallback timer
+        clearTimeout(autoPlayTimer);
+        autoPlayTimer = setTimeout(() => {
+          if (currentIndex < TOTAL_SLIDES) {
+            showSlide(currentIndex + 1);
+          } else {
+            stopPlayback();
+          }
+        }, 12000);
+      });
+    }
+
+    function stopPlayback() {
+      isPlaying = false;
+      playBtn.textContent = '▶';
+      playBtn.style.background = 'var(--ok)';
+      slideAudio.pause();
+      clearTimeout(autoPlayTimer);
+    }
+
+    playBtn.addEventListener('click', () => {
+      if (isPlaying) stopPlayback();
+      else startPlayback();
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentIndex > 1) showSlide(currentIndex - 1);
+    });
+
+    nextBtn.addEventListener('click', () => {
+      if (currentIndex < TOTAL_SLIDES) showSlide(currentIndex + 1);
+    });
+
+    // Keyboard navigation
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') {
+        if (currentIndex > 1) showSlide(currentIndex - 1);
+      } else if (e.key === 'ArrowRight') {
+        if (currentIndex < TOTAL_SLIDES) showSlide(currentIndex + 1);
+      } else if (e.key === ' ') {
+        e.preventDefault();
+        playBtn.click();
+      }
+    });
+
+    // Transcript toggle
+    toggleTranscriptBtn.addEventListener('click', () => {
+      transcriptDrawer.classList.toggle('open');
+    });
+
+    drawerCloseBtn.addEventListener('click', () => {
+      transcriptDrawer.classList.remove('open');
+    });
+
+    // Fullscreen toggle
+    fullscreenBtn.addEventListener('click', () => {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(() => {});
+      } else {
+        document.exitFullscreen().catch(() => {});
+      }
+    });
+
+    // Initial load
+    showSlide(1);
+  </script>
+</body>
+</html>

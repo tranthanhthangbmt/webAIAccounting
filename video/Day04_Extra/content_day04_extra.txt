@@ -1,0 +1,33 @@
+### BUỔI TIẾP THEO SỐ 2: AI TẠO SINH (GENERATIVE AI), MÔ HÌNH NGÔN NGỮ LỚN (LLMs), KỸ THUẬT PROMPT & RAG TRONG KẾ TOÁN – THUẾ
+
+*(Đáp ứng trực tiếp Tuần 12 & 13 của Đề cương ACCO3051: AI tạo sinh & Kỹ thuật viết Prompt trong kinh tế - tài chính)*
+
+#### 1. Phần Lý thuyết (1/2 buổi đầu – 1.5 tiết)
+
+* **Chủ đề 2.1: Bản chất của Generative AI & LLMs (GPT, Claude, FinGPT) dưới góc nhìn Kế toán:**
+* Phân biệt **AI Phân biệt (Discriminative AI)** – đã học ở buổi ML/DL (dự đoán nhãn, phân loại gian lận) với **AI Tạo sinh (Generative AI)** (tổng hợp báo cáo quản trị, soạn thảo thuyết minh BCTC, viết mã Python/Excel VBA tự động).
+* Hiện tượng **"Ảo giác AI" (Hallucination)** trong kế toán: Tại sao LLM rất giỏi văn chương nhưng lại có thể "bịa" ra một thông tư thuế không tồn tại hoặc cộng nhầm bảng cân đối kế toán?
+
+
+* **Chủ đề 2.2: Kỹ thuật Viết Prompt Chuyên sâu (Advanced Prompt Engineering) cho Kế toán - Kiểm toán (Mục 4.2 Đề cương):**
+
+* **Cấu trúc chuẩn của một Prompt Tài chính:** *Vai trò (Persona: Kế toán trưởng/Kiểm toán viên cấp cao) + Bối cảnh & Dữ liệu (Context) + Nhiệm vụ cụ thể (Task) + Ràng buộc chuẩn mực (Constraints: VAS/IFRS) + Định dạng đầu ra (Output Format: Bảng/JSON)*.
+* **Các kỹ thuật nâng cao:** *Few-Shot Prompting* (cho mẫu định khoản trước để AI học theo), *Chain-of-Thought Prompting (CoT)* (ép AI suy luận từng bước khi tính thuế TNDN hoặc phân tích biến động tỷ số tài chính để giảm lỗi tính toán).
+
+
+* **Chủ đề 2.3: Kiến trúc RAG (Retrieval-Augmented Generation) – Giải pháp "Đóng khung tri thức" cho Kế toán:**
+* Giới thiệu RAG: Kết hợp Kho dữ liệu chuẩn mực kế toán/Thông tư thuế nội bộ (Vector Database) với LLM. Giúp AI chỉ trả lời dựa trên văn bản pháp quy thực tế và trích dẫn đúng số trang/điều khoản, triệt tiêu hiện tượng "bịa số liệu" và bảo mật dữ liệu tài chính nội bộ.
+
+
+
+
+
+#### 2. Phần Bài báo Khoa học & Thảo luận (1/2 buổi sau – 1.5 tiết)
+
+| Thứ tự | Bài báo khoa học đề xuất (Trích dẫn chuẩn) | Nội dung cốt lõi cần giảng giải (1/2 buổi sau) | Câu hỏi thảo luận cho Sinh viên Kế toán |
+| --- | --- | --- | --- |
+| **Bài báo 1** *(LLM vượt qua kỳ thi Kế toán)* | **Wood, D. A., et al. (2023).** *"The ChatGPT Artificial Intelligence Chatbot: How Well Does It Answer Accounting Assessment Questions?"* – Đăng trên **Issues in Accounting Education (AAA)** (với sự tham gia của hơn 300 giáo sư kế toán toàn cầu) & cập nhật thử nghiệm **GPT-4 trên kỳ thi CPA (2024)**. | Nghiên cứu quy mô lớn nhất ngành kế toán đánh giá năng lực của LLM qua hàng chục ngàn câu hỏi thuộc các mảng: Kế toán tài chính (FAR), Kiểm toán (AUD), Kế toán quản trị (BEC), Thuế (REG) và Hệ thống thông tin kế toán (AIS). Chỉ ra rõ: LLM cực mạnh ở phần **Lý thuyết chuẩn mực & Kiểm toán**, nhưng hay mắc lỗi ở các bài toán **Tính toán thuế nhiều bước phức tạp** nếu không dùng Chain-of-Thought Prompting. | *"Tại sao AI lại làm tốt câu hỏi lý thuyết Kiểm toán hơn câu hỏi tính giá thành sản xuất? Khi dùng AI hỗ trợ làm bài tập/công việc kế toán, bạn dùng kỹ thuật Prompt nào để khắc phục điểm yếu tính toán này?"* |
+| **Bài báo 2** *(AI phân tích BCTC đối đầu Chuyên gia)* | **Kim, A., Muhn, M., & Nikolaev, V. (2024).** *"Financial Statement Analysis with Large Language Models"* – Nghiên cứu nổi tiếng từ **University of Chicago Booth School of Business (2024–2025)**. | Nhóm tác giả ẩn toàn bộ tên công ty và chỉ đưa bảng cân đối kế toán + báo cáo KQKD chuẩn hóa cho GPT-4 kết hợp **Chain-of-Thought Prompting** để phân tích xu hướng và dự đoán lợi nhuận tương lai. **Kết quả chấn động:** Khi có CoT Prompt, LLM dự đoán chiều hướng lợi nhuận đạt độ chính xác **60.35%**, vượt qua cả các chuyên viên phân tích tài chính con người (đạt 53%–57%). | *"Trong nghiên cứu này, tác giả đã thiết kế Chain-of-Thought Prompt bắt AI đóng vai nhà phân tích tài chính tính toán từng tỷ số như thế nào? Chúng ta có thể áp dụng quy trình Prompt đó vào bài thuyết trình cuối kỳ ra sao?"* |
+| **Bài báo 3** *(Kiểm toán & Rủi ro từ GenAI)* | **Eulerich, M., et al. (2024) / Gu, H., et al. (2024–2026).** *"Generative AI and Large Language Models in Auditing: Opportunities, Risks, and Governance"* – **International Journal of Accounting Information Systems / Accounting Horizons**. | Phân tích ứng dụng RAG và LLMs trong việc tự động tóm tắt biên bản họp HĐQT, soạn thảo thư quản lý kiểm toán, đồng thời cảnh báo 3 rủi ro sống còn: **Bảo mật dữ liệu khách hàng**, **Ảo giác trích dẫn (Hallucinated citations)** và **Sự phụ thuộc quá mức (Over-reliance)** làm xói mòn "Sự hoài nghi nghề nghiệp" (Professional Skepticism) của kiểm toán viên.
+
+ | *"Nếu một kiểm toán viên copy bảng lương và sổ cái của khách hàng dán vào ChatGPT bản miễn phí để nhờ tìm lỗi, họ đã vi phạm những nguyên tắc đạo đức nghề nghiệp và chuẩn mực bảo mật nào?"*<br> |

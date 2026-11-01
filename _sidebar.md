@@ -5,6 +5,7 @@
 * [🎯 Dự án Cuối môn (10 Đề tài AI Kế toán)](docs/duan_cuoimon.md)
 
 * 🚀 Chuyên Đề Nâng Cao (Extra Sessions)
+  * [Day 04 Extra: AI Tạo Sinh & Kiểm Toán Gian Lận (Slide P1-P3 + 2 Papers)](video/Day04_Extra/index.html ':target=_self')
   * [Day 03 Extra: Thị giác Máy tính & Siêu tự động hóa (Slide P1-P5 + 4 Papers)](video/Day03_Extra/index.html ':target=_self')
   * [Day 02 Extra: Học Sâu (Deep Learning) & 4 Bài Báo Quốc Tế](video/Day02_Extra/index.html ':target=_self')
   * [Day 01 Extra: Học Máy (Machine Learning) & Video Bài Giảng](video/Day01_Extra/Videos/index.html ':target=_self')

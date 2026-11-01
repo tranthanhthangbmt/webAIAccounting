@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>Chuyên Đề Nâng Cao: AI Tạo Sinh (Generative AI) & Kiểm Toán Gian Lận — Đại học Đông Á</title>
+  <meta name="description"
+    content="Cổng chuyên đề nâng cao Day 04 Extra: AI Tạo sinh (Generative AI), Mô hình ngôn ngữ lớn (LLMs), Kỹ thuật Prompt CoT/ToT/ReAct, Trình chiếu Slide P1 - P3 trực quan và Thư viện 2 bài báo khoa học đỉnh cao." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-dark: #0b0f19;
+      --bg-card: rgba(18, 26, 44, 0.75);
+      --bg-card-hover: rgba(26, 38, 64, 0.95);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-glow: rgba(59, 130, 246, 0.5);
+      --primary: #3b82f6;
+      --primary-gradient: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+      --accent-cyan: #06b6d4;
+      --accent-violet: #8b5cf6;
+      --accent-amber: #f59e0b;
+      --accent-emerald: #10b981;
+      --accent-rose: #f43f5e;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.5), 0 0 1px 1px rgba(255, 255, 255, 0.05);
+      --shadow-hover: 0 20px 40px -15px rgba(59, 130, 246, 0.3), 0 0 20px rgba(59, 130, 246, 0.15);
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --radius-sm: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      min-height: 100vh;
+      overflow-x: hidden;
+      line-height: 1.6;
+      background-image:
+        radial-gradient(circle at 15% 15%, rgba(59, 130, 246, 0.15) 0%, transparent 45%),
+        radial-gradient(circle at 85% 25%, rgba(139, 92, 246, 0.15) 0%, transparent 45%),
+        radial-gradient(circle at 50% 80%, rgba(6, 182, 212, 0.1) 0%, transparent 50%);
+      background-attachment: fixed;
+    }
+
+    .container {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 2rem 1.75rem 6rem;
+    }
+
+    /* Top Navigation */
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2.5rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid var(--border-subtle);
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .brand-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #e2e8f0;
+      text-decoration: none;
+    }
+
+    .brand-logo-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--primary-gradient);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      color: #fff;
+      font-size: 1.1rem;
+      box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: color 0.2s;
+      padding: 0.5rem 0.85rem;
+      border-radius: var(--radius-sm);
+    }
+
+    .nav-link:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .btn-extra {
+      background: rgba(59, 130, 246, 0.15);
+      border: 1px solid rgba(59, 130, 246, 0.4);
+      color: #93c5fd;
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+
+    .btn-extra:hover {
+      background: var(--primary);
+      color: #fff;
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 2.5rem 1rem 3.5rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 1.1rem;
+      background: rgba(59, 130, 246, 0.12);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      border-radius: 9999px;
+      color: #60a5fa;
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(2.2rem, 4.2vw, 3.5rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1.25rem;
+      letter-spacing: -0.02em;
+      background: linear-gradient(180deg, #ffffff 30%, #cbd5e1 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-title span {
+      background: linear-gradient(135deg, #60a5fa 0%, #c084fc 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-desc {
+      color: var(--text-muted);
+      font-size: 1.15rem;
+      line-height: 1.75;
+      max-width: 860px;
+      margin: 0 auto 2.5rem;
+    }
+
+    /* Section Styles */
+    .section-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .section-desc {
+      color: var(--text-muted);
+      font-size: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    /* Slide Viewer Section */
+    .slide-viewer-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      margin-bottom: 4rem;
+      box-shadow: var(--shadow-card);
+      backdrop-filter: blur(14px);
+    }
+
+    .slide-tabs {
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+      border-bottom: 1px solid var(--border-subtle);
+      padding-bottom: 1rem;
+    }
+
+    .slide-tab-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--text-muted);
+      padding: 0.65rem 1.25rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .slide-tab-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+    }
+
+    .slide-tab-btn.active {
+      background: var(--primary-gradient);
+      color: #fff;
+      border-color: transparent;
+      box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4);
+    }
+
+    .slide-viewer-frame {
+      width: 100%;
+      height: 640px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-md);
+      background: #000;
+      overflow: hidden;
+      margin-bottom: 1.25rem;
+    }
+
+    .slide-viewer-frame iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .slide-info-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .slide-controls {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .btn-slide-ctrl {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #e2e8f0;
+      padding: 0.45rem 0.95rem;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.82rem;
+      transition: all 0.2s;
+    }
+
+    .btn-slide-ctrl:hover {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    /* Slide Cards Grid */
+    .slide-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 1.75rem;
+      margin-bottom: 4rem;
+    }
+
+    .slide-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      transition: all 0.3s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .slide-card:hover {
+      border-color: var(--border-glow);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .slide-thumb-wrap {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #000;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .slide-thumb-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+
+    .slide-card:hover .slide-thumb-wrap img {
+      transform: scale(1.03);
+    }
+
+    .slide-card-body {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .slide-tag {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #60a5fa;
+      margin-bottom: 0.5rem;
+    }
+
+    .slide-card-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.35;
+      margin-bottom: 0.75rem;
+    }
+
+    .slide-card-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 1.25rem;
+      flex-grow: 1;
+    }
+
+    .slide-card-actions {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: auto;
+    }
+
+    .btn-player {
+      flex: 1;
+      background: var(--primary-gradient);
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 0.65rem 1rem;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      transition: all 0.2s;
+    }
+
+    .btn-player:hover {
+      box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+      transform: translateY(-1px);
+    }
+
+    /* Papers Teaser Section */
+    .papers-teaser-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+      gap: 1.75rem;
+      margin-bottom: 4rem;
+    }
+
+    .paper-mini-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-card);
+      transition: all 0.3s;
+    }
+
+    .paper-mini-card:hover {
+      border-color: var(--border-glow);
+      transform: translateY(-3px);
+    }
+
+    /* Curriculum / Discussion */
+    .curriculum-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 2.25rem;
+      margin-bottom: 4rem;
+      box-shadow: var(--shadow-card);
+    }
+
+    .timeline-item {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-time {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: #60a5fa;
+      min-width: 90px;
+      padding-top: 0.2rem;
+    }
+
+    .timeline-content h4 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.4rem;
+    }
+
+    .timeline-content p {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding-top: 3rem;
+      border-top: 1px solid var(--border-subtle);
+      color: var(--text-dim);
+      font-size: 0.88rem;
+    }
+
+    .footer a {
+      color: #60a5fa;
+      text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+      .slide-viewer-frame {
+        height: 420px;
+      }
+      .slide-cards-grid, .papers-teaser-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <!-- Top Nav -->
+    <header class="top-nav">
+      <a href="../../index.html" class="brand-badge">
+        <div class="brand-logo-icon">UDA</div>
+        <div>
+          <div>ĐẠI HỌC ĐÔNG Á — PHÂN HIỆU ĐẮK LẮK</div>
+          <div style="font-size: 0.72rem; color: var(--text-muted); font-weight: 500;">Khoa Kế Toán • Chuyên Đề Nâng Cao Day 04 Extra</div>
+        </div>
+      </a>
+
+      <div class="nav-actions">
+        <a href="../../index.html" class="nav-link">🏠 Trang Chủ</a>
+        <a href="../Day03_Extra/index.html" class="nav-link">🚀 Day 03 Extra</a>
+        <a href="#slide-viewer-section" class="nav-link">📊 Trình Chiếu Slide</a>
+        <a href="papers/index.html" class="btn-extra">📚 Thư Viện Bài Báo</a>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-badge">🚀 CHUYÊN ĐỀ NÂNG CAO — BUỔI 12/15 (PHẦN THỰC CHỨNG)</div>
+      <h1 class="hero-title">
+        AI Tạo Sinh (Generative AI), LLMs &<br />
+        <span>Kiểm Toán Gian Lận Bút Toán Kép</span>
+      </h1>
+      <p class="hero-desc">
+        Hệ sinh thái bài giảng thực chứng khoa học: Khám phá không gian năng lực AI qua <strong>Tree of Thoughts (ToT)</strong>, chuỗi tư duy <strong>Chain of Thought (CoT)</strong>, kiến trúc <strong>ReAct Agent</strong> đỗ 100% chứng chỉ CPA/CMA/CIA/EA (Eulerich 2024), và hệ thống <strong>AuditCopilot</strong> phát hiện gian lận sổ cái cắt giảm 98.7% cảnh báo giả (DFKI 2025).
+      </p>
+    </section>
+
+    <!-- Slide Viewer Section -->
+    <section class="slide-viewer-box" id="slide-viewer-section">
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; margin-bottom:1.25rem;">
+        <div>
+          <h2 class="section-title">📊 Trình Chiếu Slide Bài Giảng Trực Quan</h2>
+          <div style="font-size:0.9rem; color:var(--text-muted)">Chuyển đổi linh hoạt giữa 3 bài trình chiếu chuyên đề chuẩn 16:9 HD (15 slide mỗi phần)</div>
+        </div>
+        <div class="slide-tabs">
+          <button class="slide-tab-btn active" onclick="switchSlide('P1')">P1: Lý Thuyết Generative AI</button>
+          <button class="slide-tab-btn" onclick="switchSlide('P2')">P2: Is It All Hype? (Eulerich)</button>
+          <button class="slide-tab-btn" onclick="switchSlide('P3')">P3: AuditCopilot (DFKI)</button>
+        </div>
+      </div>
+
+      <div class="slide-viewer-frame">
+        <iframe id="slideFrame" src="slides/P1_lý thuyết_Generative_AI_trong_Kế_toán_và_Kiểm_toán.pdf#view=FitH" title="Slide Viewer"></iframe>
+      </div>
+
+      <div class="slide-info-bar">
+        <div id="slideInfoText">Đang xem: <strong>Phần 1 &mdash; Lý thuyết Generative AI trong Kế toán & Kiểm toán</strong> (15 slide)</div>
+        <div class="slide-controls">
+          <a id="downloadPdfBtn" href="slides/P1_lý thuyết_Generative_AI_trong_Kế_toán_và_Kiểm_toán.pdf" target="_blank" class="btn-slide-ctrl">📥 Tải PDF Đầy Đủ</a>
+          <a id="openPlayerBtn" href="videos/P1_lý thuyết_Generative_AI_trong_Kế_toán_và_Kiểm_toán/index.html" class="btn-slide-ctrl" style="background:var(--primary); color:#fff">🎬 Mở Trình Phát Video Player</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide Cards Grid -->
+    <section style="margin-bottom: 4rem;">
+      <h2 class="section-title">🎬 Bộ 3 Slide Bài Giảng & Video Player Tương Tác</h2>
+      <p class="section-desc">Mỗi bài giảng gồm 15 slide được thiết kế chuyên sâu, tích hợp kịch bản đối thoại hai người dẫn Người 1 & Người 2:</p>
+
+      <div class="slide-cards-grid">
+        <!-- Card P1 -->
+        <div class="slide-card">
+          <div class="slide-thumb-wrap">
+            <img src="slides/thumbnails/P1_cover.png" alt="P1 Cover" />
+          </div>
+          <div class="slide-card-body">
+            <div class="slide-tag">PHẦN 1 • LÝ THUYẾT NỀN TẢNG</div>
+            <h3 class="slide-card-title">Kỷ Nguyên Generative AI Trong Kế Toán & Kiểm Toán</h3>
+            <p class="slide-card-desc">
+              Phân biệt Discriminative AI vs. Generative AI; cơ chế ảo giác (Hallucination); mô hình Cây tư duy (Tree of Thoughts) và Chuỗi tư duy 4 bước (Chain of Thought); kiến trúc RAG bảo mật tri thức.
+            </p>
+            <div class="slide-card-actions">
+              <a href="videos/P1_lý thuyết_Generative_AI_trong_Kế_toán_và_Kiểm_toán/index.html" class="btn-player">
+                <span>▶ Xem Video Player</span>
+              </a>
+              <button onclick="switchSlide('P1')" class="btn-slide-ctrl">Xem Slide</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card P2 -->
+        <div class="slide-card">
+          <div class="slide-thumb-wrap">
+            <img src="slides/thumbnails/P2_cover.png" alt="P2 Cover" />
+          </div>
+          <div class="slide-card-body">
+            <div class="slide-tag">PHẦN 2 • BÀI BÁO KHOA HỌC 1</div>
+            <h3 class="slide-card-title">Is It All Hype? ChatGPT Trong Sát Hạch Kế Toán Quốc Tế</h3>
+            <p class="slide-card-desc">
+              Thực chứng của Eulerich et al. (2024) trên Review of Accounting Studies: Quy trình 4 bước từ thất bại của GPT-3.5 đến kỷ lục 85.1% thi đỗ 100% CPA, CMA, CIA, EA bằng kiến trúc ReAct Agent.
+            </p>
+            <div class="slide-card-actions">
+              <a href="videos/P2_is it all hype_ChatGPT_in_Accounting/index.html" class="btn-player">
+                <span>▶ Xem Video Player</span>
+              </a>
+              <button onclick="switchSlide('P2')" class="btn-slide-ctrl">Xem Slide</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card P3 -->
+        <div class="slide-card">
+          <div class="slide-thumb-wrap">
+            <img src="slides/thumbnails/P3_cover.png" alt="P3 Cover" />
+          </div>
+          <div class="slide-card-body">
+            <div class="slide-tag">PHẦN 3 • BÀI BÁO KHOA HỌC 2</div>
+            <h3 class="slide-card-title">AuditCopilot: Phát Hiện Gian Lận Trong Bút Toán Kép</h3>
+            <p class="slide-card-desc">
+              Nghiên cứu DFKI & DATEV (2025): Thay thế phương pháp JETs truyền thống bằng mô hình nguồn mở Mistral 8B chạy On-Premise, cắt giảm báo động giả từ 942 xuống 12, đạt độ nhạy 98% và tự sinh giải trình.
+            </p>
+            <div class="slide-card-actions">
+              <a href="videos/P3_AuditCopilot_for_Audit_Fraud_Detection/index.html" class="btn-player">
+                <span>▶ Xem Video Player</span>
+              </a>
+              <button onclick="switchSlide('P3')" class="btn-slide-ctrl">Xem Slide</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Papers Teaser Section -->
+    <section style="margin-bottom: 4rem;">
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; margin-bottom:1rem;">
+        <div>
+          <h2 class="section-title">📚 Thư Viện 2 Bài Báo Khoa Học Đỉnh Cao (2024–2025)</h2>
+          <div style="font-size:0.95rem; color:var(--text-muted)">Được dịch toàn văn học thuật sang tiếng Việt, kèm biểu đồ và bảng dữ liệu gốc</div>
+        </div>
+        <a href="papers/index.html" class="btn-extra">Xem Toàn Bộ Thư Viện Bài Báo &rarr;</a>
+      </div>
+
+      <div class="papers-teaser-grid">
+        <!-- Paper 1 Teaser -->
+        <div class="paper-mini-card">
+          <div style="font-size:0.75rem; color:#60a5fa; font-weight:700; text-transform:uppercase; margin-bottom:0.4rem;">REVIEW OF ACCOUNTING STUDIES (SPRINGER 2024)</div>
+          <h3 style="font-size:1.25rem; font-weight:700; color:#fff; line-height:1.35; margin-bottom:0.75rem;">
+            Is It All Hype? Đánh Giá Năng Lực Thực Tế và Tiềm Năng Đột Phá Của ChatGPT Trong Ngành Kế Toán & Kiểm Toán
+          </h3>
+          <p style="font-size:0.9rem; color:var(--text-muted); line-height:1.6; margin-bottom:1.25rem; flex-grow:1;">
+            Nghiên cứu của GS. Marc Eulerich và David A. Wood kiểm định 12 phần thi của CPA, CMA, CIA, EA. Chứng minh ReAct Agent giúp AI đạt 85.1% điểm số và đỗ 100% chứng chỉ chuyên nghiệp.
+          </p>
+          <div style="display:flex; gap:0.75rem;">
+            <a href="papers/paper_1_Is_It_All_Hype_ChatGPT_Accounting_tiengviet.html" class="btn-slide-ctrl" style="background:var(--primary); color:#fff; flex:1; text-align:center;">Đọc Bản Dịch Toàn Văn &rarr;</a>
+            <a href="papers/is it all hype.pdf" target="_blank" class="btn-slide-ctrl">PDF Gốc</a>
+          </div>
+        </div>
+
+        <!-- Paper 2 Teaser -->
+        <div class="paper-mini-card">
+          <div style="font-size:0.75rem; color:#6ee7b7; font-weight:700; text-transform:uppercase; margin-bottom:0.4rem;">DFKI & DATEV eG (ĐỨC 2025)</div>
+          <h3 style="font-size:1.25rem; font-weight:700; color:#fff; line-height:1.35; margin-bottom:0.75rem;">
+            AuditCopilot: Khai Phóng Sức Mạnh Mô Hình Ngôn Ngữ Lớn Để Phát Hiện Gian Lận Trong Bút Toán Kép
+          </h3>
+          <p style="font-size:0.9rem; color:var(--text-muted); line-height:1.6; margin-bottom:1.25rem; flex-grow:1;">
+            Nghiên cứu của DFKI kết hợp mô hình mã nguồn mở Mistral 8B chạy On-Premise với gợi ý Isolation Forest và bối cảnh thống kê toàn cục, bắt 48/50 vụ gian lận và giảm cảnh báo giả xuống chỉ còn 12.
+          </p>
+          <div style="display:flex; gap:0.75rem;">
+            <a href="papers/paper_2_AuditCopilot_LLM_Fraud_Detection_tiengviet.html" class="btn-slide-ctrl" style="background:linear-gradient(135deg, #10b981 0%, #0ea5e9 100%); color:#fff; flex:1; text-align:center;">Đọc Bản Dịch Toàn Văn &rarr;</a>
+            <a href="papers/Leveraging LLMs for Fraud Detection in Double-Entry Bookkeeping.pdf" target="_blank" class="btn-slide-ctrl">PDF Gốc</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Curriculum Plan -->
+    <section class="curriculum-box">
+      <h2 class="section-title">⏱️ Kế Hoạch Giảng Dạy & Tranh Biện 70 Phút (Buổi 12/15)</h2>
+      <p class="section-desc">Khung chương trình thực chiến dành cho sinh viên ngành Kế toán - Kiểm toán Đại học Đông Á:</p>
+
+      <div class="timeline-item">
+        <div class="timeline-time">Phút 00 - 25</div>
+        <div class="timeline-content">
+          <h4>Phần 1: Lý Thuyết Cốt Lõi Về Generative AI, LLMs & Kỹ Thuật CoT/ToT</h4>
+          <p>Phân biệt Discriminative vs. Generative AI; giải mã hiện tượng Ảo giác (Hallucination); áp dụng Cây tư duy (ToT) phân nhánh giải pháp và Chuỗi tư duy (CoT) 4 bước để ra lệnh cho AI trong định khoản và lập BCTC.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-time">Phút 25 - 45</div>
+        <div class="timeline-content">
+          <h4>Phần 2: Mổ Xẻ Nghiên Cứu Eulerich et al. (2024) & Kiến Trúc ReAct Agent</h4>
+          <p>Phân tích bảng số liệu thực nghiệm trên 4 kỳ thi CPA, CMA, CIA, EA; lý giải vì sao mô hình ngôn ngữ cần được cấp công cụ Máy tính bỏ túi Python để bùng nổ điểm số từ 53.1% lên 85.1%.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-time">Phút 45 - 60</div>
+        <div class="timeline-content">
+          <h4>Phần 3: Khám Phá Hệ Thống AuditCopilot (DFKI 2025) & Phát Hiện Gian Lận</h4>
+          <p>Thực hành cơ chế tiêm bối cảnh thống kê toàn cục (Global Context) và mô hình AI lai (Hybrid AI: Isolation Forest + Mistral 8B) để triệt tiêu 98.7% cảnh báo giả trong kiểm toán sổ cái.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-time">Phút 60 - 70</div>
+        <div class="timeline-content">
+          <h4>Phần 4: Thảo Luận Case Study Thực Chiến & Kiểm Soát Rủi Ro (Human-in-the-loop)</h4>
+          <p>Thảo luận tình huống: Thiết kế cấu trúc Prompt CoT phân tích tỷ số ROA/ROE cho doanh nghiệp nông sản Tây Nguyên, và quy trình giám sát chéo ngăn ngừa rủi ro CFO thao túng hệ thống AI kiểm toán.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>Khoa Kế Toán – Kiểm Toán &bull; Trường Đại Học Đông Á (Phân hiệu Đắk Lắk)</p>
+      <p style="margin-top: 0.35rem;">Chương trình đào tạo Trí tuệ Nhân tạo trong Kế toán &bull; GV: TS. Trần Thành Thắng</p>
+    </footer>
+  </div>
+
+  <script>
+    const slideData = {
+      'P1': {
+        'title': 'Phần 1 — Lý thuyết Generative AI trong Kế toán & Kiểm toán',
+        'pdf': 'slides/P1_lý thuyết_Generative_AI_trong_Kế_toán_và_Kiểm_toán.pdf',
+        'player': 'videos/P1_lý thuyết_Generative_AI_trong_Kế_toán_và_Kiểm_toán/index.html'
+      },
+      'P2': {
+        'title': 'Phần 2 — Is It All Hype? ChatGPT trong Sát hạch Kế toán (Eulerich 2024)',
+        'pdf': 'slides/P2_is it all hype_ChatGPT_in_Accounting.pdf',
+        'player': 'videos/P2_is it all hype_ChatGPT_in_Accounting/index.html'
+      },
+      'P3': {
+        'title': 'Phần 3 — AuditCopilot: Phát hiện Gian lận Bút toán kép (DFKI 2025)',
+        'pdf': 'slides/P3_AuditCopilot_for_Audit_Fraud_Detection.pdf',
+        'player': 'videos/P3_AuditCopilot_for_Audit_Fraud_Detection/index.html'
+      }
+    };
+
+    function switchSlide(partKey) {
+      const data = slideData[partKey];
+      if (!data) return;
+
+      document.querySelectorAll('.slide-tab-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.textContent.includes(partKey)) btn.classList.add('active');
+      });
+
+      const frame = document.getElementById('slideFrame');
+      frame.src = data.pdf + '#view=FitH';
+
+      document.getElementById('slideInfoText').innerHTML = `Đang xem: <strong>${data.title}</strong> (15 slide)`;
+      document.getElementById('downloadPdfBtn').href = data.pdf;
+      document.getElementById('openPlayerBtn').href = data.player;
+    }
+  </script>
+</body>
+</html>
